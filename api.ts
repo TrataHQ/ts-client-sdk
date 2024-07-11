@@ -42,7 +42,7 @@ export interface AIAgentInput {
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission: Mission;
+    mission: Mission | null;
     /**
      * 
      * @type {Status}
@@ -103,7 +103,7 @@ export interface AIAgentOutput {
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission: Mission;
+    mission: Mission | null;
     /**
      * 
      * @type {string}
@@ -241,11 +241,11 @@ export enum AggregationPeriod {
  */
 export interface BaseResponse {
     /**
-     * 
+     * Address line 1
      * @type {string}
      * @memberof BaseResponse
      */
-    message: string;
+    message?: string;
 }
 /**
  * 
@@ -272,25 +272,6 @@ export interface BatchMetricsResponse {
      * @memberof BatchMetricsResponse
      */
     responses: Array<MetricsResponse>;
-}
-/**
- * 
- * @export
- * @interface BodyCreateHiveV1
- */
-export interface BodyCreateHiveV1 {
-    /**
-     * 
-     * @type {HiveContent}
-     * @memberof BodyCreateHiveV1
-     */
-    hiveContent: HiveContent;
-    /**
-     * 
-     * @type {HiveInput}
-     * @memberof BodyCreateHiveV1
-     */
-    hive: HiveInput;
 }
 /**
  * 
@@ -811,6 +792,61 @@ export interface HTTPValidationError {
     detail?: Array<ValidationError>;
 }
 /**
+ * Reference to all business knowledge base will be stored in Hive
+ * @export
+ * @interface Hive
+ */
+export interface Hive {
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {HiveContent}
+     * @memberof Hive
+     */
+    content: HiveContent;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    status: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Hive
+     */
+    updatedAt?: string;
+}
+/**
  * 
  * @export
  * @interface HiveContent
@@ -834,116 +870,6 @@ export interface HiveContent {
      * @memberof HiveContent
      */
     hiveProps?: object | null;
-}
-/**
- * Reference to all business knowledge base will be stored in Hive
- * @export
- * @interface HiveInput
- */
-export interface HiveInput {
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {HiveContent}
-     * @memberof HiveInput
-     */
-    content: HiveContent;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveInput
-     */
-    updatedAt?: string;
-}
-/**
- * Reference to all business knowledge base will be stored in Hive
- * @export
- * @interface HiveOutput
- */
-export interface HiveOutput {
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {HiveContent}
-     * @memberof HiveOutput
-     */
-    content: HiveContent;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    updatedAt?: string;
 }
 /**
  * 
@@ -1020,7 +946,6 @@ export enum MetricName {
     CALLS = 'CALLS',
     CALLDURATION = 'CALL_DURATION',
     APPOINTMENTSCHEDULED = 'APPOINTMENT_SCHEDULED',
-    CALLTRANSFERRED = 'CALL_TRANSFERRED',
     PROSPECTS = 'PROSPECTS',
     INTERESTED = 'INTERESTED',
     NOTINTERESTED = 'NOT_INTERESTED'
@@ -1236,7 +1161,7 @@ export interface ProductInput {
      */
     props?: any | null;
     /**
-     * Tags for the product. This is used for grouping purpose. Eg: [\"insecticide\", \"california\"]
+     * Tags for the product. This is used for grouping purpose. Eg: [\"gardening\", \"tools\"]
      * @type {Array<string>}
      * @memberof ProductInput
      */
@@ -1677,6 +1602,16 @@ export enum ProspectStatus {
  * @export
  * @enum {string}
  */
+export enum Role {
+    ADMIN = 'ADMIN',
+    READONLY = 'READ_ONLY'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 export enum Sentiment {
     POSITIVE = 'POSITIVE',
     EXCITED = 'EXCITED',
@@ -1742,7 +1677,7 @@ export interface TaxDetails {
      */
     id?: string;
     /**
-     * Any extran info related Tax
+     * Any extra info related to Tax
      * @type {object}
      * @memberof TaxDetails
      */
@@ -1772,6 +1707,25 @@ export interface Transcriber {
      * @memberof Transcriber
      */
     providerProps?: object | null;
+}
+/**
+ * Payload for updating user details API
+ * @export
+ * @interface UpdateUserPayload
+ */
+export interface UpdateUserPayload {
+    /**
+     * 
+     * @type {Role}
+     * @memberof UpdateUserPayload
+     */
+    role: Role | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateUserPayload
+     */
+    fullName: string | null;
 }
 /**
  * Model representing the users under an organization
@@ -3625,14 +3579,14 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * 
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1 
+         * @param {HiveContent} hiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: async (bodyCreateHiveV1: BodyCreateHiveV1, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bodyCreateHiveV1' is not null or undefined
-            if (bodyCreateHiveV1 === null || bodyCreateHiveV1 === undefined) {
-                throw new RequiredError('bodyCreateHiveV1','Required parameter bodyCreateHiveV1 was null or undefined when calling createHiveV1.');
+        createHiveV1: async (hiveContent: HiveContent, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hiveContent' is not null or undefined
+            if (hiveContent === null || hiveContent === undefined) {
+                throw new RequiredError('hiveContent','Required parameter hiveContent was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -3662,8 +3616,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof bodyCreateHiveV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateHiveV1 !== undefined ? bodyCreateHiveV1 : {}) : (bodyCreateHiveV1 || "");
+            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -3900,12 +3854,12 @@ export const HiveApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1 
+         * @param {HiveContent} hiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(bodyCreateHiveV1, options);
+        async createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(hiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -3932,7 +3886,7 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>> {
+        async getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
             const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).getHiveV1(hiveId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3952,7 +3906,7 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HiveOutput>>> {
+        async listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>> {
             const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3967,7 +3921,7 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>> {
+        async updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
             const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3986,12 +3940,12 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
         /**
          * 
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1 
+         * @param {HiveContent} hiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any): AxiosPromise<HiveOutput> {
-            return HiveApiFp(configuration).createHiveV1(bodyCreateHiveV1, options).then((request) => request(axios, basePath));
+        createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
+            return HiveApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -4010,7 +3964,7 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHiveV1(hiveId: string, options?: any): AxiosPromise<HiveOutput> {
+        getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive> {
             return HiveApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4026,7 +3980,7 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<HiveOutput>> {
+        listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>> {
             return HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4037,7 +3991,7 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<HiveOutput> {
+        updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
             return HiveApiFp(configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(axios, basePath));
         },
     };
@@ -4053,13 +4007,13 @@ export class HiveApi extends BaseAPI {
     /**
      * 
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1 
+     * @param {HiveContent} hiveContent 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any) {
-        return HiveApiFp(this.configuration).createHiveV1(bodyCreateHiveV1, options).then((request) => request(this.axios, this.basePath));
+    public createHiveV1(hiveContent: HiveContent, options?: any) {
+        return HiveApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4378,7 +4332,7 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listHivesOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HiveOutput>>> {
+        async listHivesOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>> {
             const localVarAxiosArgs = await HiveAgentLinkApiAxiosParamCreator(configuration).listHivesOfAgentV1(agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -4433,7 +4387,7 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listHivesOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<HiveOutput>> {
+        listHivesOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<Hive>> {
             return HiveAgentLinkApiFp(configuration).listHivesOfAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
     };
@@ -4751,7 +4705,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -4792,6 +4746,60 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof guestInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(guestInput !== undefined ? guestInput : {}) : (guestInput || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId 
+         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserV1: async (userId: string, updateUserPayload: UpdateUserPayload, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUserV1.');
+            }
+            // verify required parameter 'updateUserPayload' is not null or undefined
+            if (updateUserPayload === null || updateUserPayload === undefined) {
+                throw new RequiredError('updateUserPayload','Required parameter updateUserPayload was null or undefined when calling updateUserV1.');
+            }
+            const localVarPath = `/v1/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof updateUserPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(updateUserPayload !== undefined ? updateUserPayload : {}) : (updateUserPayload || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -4882,7 +4890,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -4890,6 +4898,21 @@ export const InternalApiFp = function(configuration?: Configuration) {
          */
         async sendInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).sendInviteV1(guestInput, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId 
+         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -4959,7 +4982,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -4967,6 +4990,17 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          */
         sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
             return InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId 
+         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5043,7 +5077,7 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * 
      * @summary Inviteusers
      * @param {GuestInput} guestInput 
      * @param {*} [options] Override http request option.
@@ -5052,6 +5086,19 @@ export class InternalApi extends BaseAPI {
      */
     public sendInviteV1(guestInput: GuestInput, options?: any) {
         return InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId 
+     * @param {UpdateUserPayload} updateUserPayload 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any) {
+        return InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HiveType = exports.ConversationSourceType = exports.ConnectionType = exports.AggregationPeriod = exports.AggregationFormula = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HiveType = exports.ConversationSourceType = exports.ConnectionType = exports.AggregationPeriod = exports.AggregationFormula = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -110,7 +110,6 @@ var MetricName;
     MetricName["CALLS"] = "CALLS";
     MetricName["CALLDURATION"] = "CALL_DURATION";
     MetricName["APPOINTMENTSCHEDULED"] = "APPOINTMENT_SCHEDULED";
-    MetricName["CALLTRANSFERRED"] = "CALL_TRANSFERRED";
     MetricName["PROSPECTS"] = "PROSPECTS";
     MetricName["INTERESTED"] = "INTERESTED";
     MetricName["NOTINTERESTED"] = "NOT_INTERESTED";
@@ -307,6 +306,16 @@ var ProspectStatus;
     ProspectStatus["PRODUCTORDERPLACED"] = "PRODUCT_ORDER_PLACED";
     ProspectStatus["SERVICEORDERPLACED"] = "SERVICE_ORDER_PLACED";
 })(ProspectStatus = exports.ProspectStatus || (exports.ProspectStatus = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var Role;
+(function (Role) {
+    Role["ADMIN"] = "ADMIN";
+    Role["READONLY"] = "READ_ONLY";
+})(Role = exports.Role || (exports.Role = {}));
 /**
  *
  * @export
@@ -1931,14 +1940,14 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1
+         * @param {HiveContent} hiveContent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: (bodyCreateHiveV1, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'bodyCreateHiveV1' is not null or undefined
-            if (bodyCreateHiveV1 === null || bodyCreateHiveV1 === undefined) {
-                throw new base_1.RequiredError('bodyCreateHiveV1', 'Required parameter bodyCreateHiveV1 was null or undefined when calling createHiveV1.');
+        createHiveV1: (hiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveContent' is not null or undefined
+            if (hiveContent === null || hiveContent === undefined) {
+                throw new base_1.RequiredError('hiveContent', 'Required parameter hiveContent was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -1963,8 +1972,8 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof bodyCreateHiveV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyCreateHiveV1 !== undefined ? bodyCreateHiveV1 : {}) : (bodyCreateHiveV1 || "");
+            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -2171,13 +2180,13 @@ exports.HiveApiFp = function (configuration) {
         /**
          *
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1
+         * @param {HiveContent} hiveContent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(bodyCreateHiveV1, options) {
+        createHiveV1(hiveContent, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).createHiveV1(bodyCreateHiveV1, options);
+                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).createHiveV1(hiveContent, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2266,12 +2275,12 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary Createhive
-         * @param {BodyCreateHiveV1} bodyCreateHiveV1
+         * @param {HiveContent} hiveContent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(bodyCreateHiveV1, options) {
-            return exports.HiveApiFp(configuration).createHiveV1(bodyCreateHiveV1, options).then((request) => request(axios, basePath));
+        createHiveV1(hiveContent, options) {
+            return exports.HiveApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2332,13 +2341,13 @@ class HiveApi extends base_1.BaseAPI {
     /**
      *
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1
+     * @param {HiveContent} hiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(bodyCreateHiveV1, options) {
-        return exports.HiveApiFp(this.configuration).createHiveV1(bodyCreateHiveV1, options).then((request) => request(this.axios, this.basePath));
+    createHiveV1(hiveContent, options) {
+        return exports.HiveApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2971,7 +2980,7 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         *
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3007,6 +3016,54 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof guestInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(guestInput !== undefined ? guestInput : {}) : (guestInput || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId
+         * @param {UpdateUserPayload} updateUserPayload
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserV1: (userId, updateUserPayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling updateUserV1.');
+            }
+            // verify required parameter 'updateUserPayload' is not null or undefined
+            if (updateUserPayload === null || updateUserPayload === undefined) {
+                throw new base_1.RequiredError('updateUserPayload', 'Required parameter updateUserPayload was null or undefined when calling updateUserV1.');
+            }
+            const localVarPath = `/v1/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateUserPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateUserPayload !== undefined ? updateUserPayload : {}) : (updateUserPayload || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3105,7 +3162,7 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         *
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3114,6 +3171,23 @@ exports.InternalApiFp = function (configuration) {
         sendInviteV1(guestInput, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).sendInviteV1(guestInput, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId
+         * @param {UpdateUserPayload} updateUserPayload
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserV1(userId, updateUserPayload, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3183,7 +3257,7 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
             return exports.InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         *
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3191,6 +3265,17 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          */
         sendInviteV1(guestInput, options) {
             return exports.InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update user details
+         * @summary Updateuser
+         * @param {string} userId
+         * @param {UpdateUserPayload} updateUserPayload
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateUserV1(userId, updateUserPayload, options) {
+            return exports.InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3261,7 +3346,7 @@ class InternalApi extends base_1.BaseAPI {
         return exports.InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     *
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3270,6 +3355,18 @@ class InternalApi extends base_1.BaseAPI {
      */
     sendInviteV1(guestInput, options) {
         return exports.InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId
+     * @param {UpdateUserPayload} updateUserPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    updateUserV1(userId, updateUserPayload, options) {
+        return exports.InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.InternalApi = InternalApi;

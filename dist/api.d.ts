@@ -35,7 +35,7 @@ export interface AIAgentInput {
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission: Mission;
+    mission: Mission | null;
     /**
      *
      * @type {Status}
@@ -96,7 +96,7 @@ export interface AIAgentOutput {
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission: Mission;
+    mission: Mission | null;
     /**
      *
      * @type {string}
@@ -231,11 +231,11 @@ export declare enum AggregationPeriod {
  */
 export interface BaseResponse {
     /**
-     *
+     * Address line 1
      * @type {string}
      * @memberof BaseResponse
      */
-    message: string;
+    message?: string;
 }
 /**
  *
@@ -262,25 +262,6 @@ export interface BatchMetricsResponse {
      * @memberof BatchMetricsResponse
      */
     responses: Array<MetricsResponse>;
-}
-/**
- *
- * @export
- * @interface BodyCreateHiveV1
- */
-export interface BodyCreateHiveV1 {
-    /**
-     *
-     * @type {HiveContent}
-     * @memberof BodyCreateHiveV1
-     */
-    hiveContent: HiveContent;
-    /**
-     *
-     * @type {HiveInput}
-     * @memberof BodyCreateHiveV1
-     */
-    hive: HiveInput;
 }
 /**
  *
@@ -799,6 +780,61 @@ export interface HTTPValidationError {
     detail?: Array<ValidationError>;
 }
 /**
+ * Reference to all business knowledge base will be stored in Hive
+ * @export
+ * @interface Hive
+ */
+export interface Hive {
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {HiveContent}
+     * @memberof Hive
+     */
+    content: HiveContent;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    status: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Hive
+     */
+    updatedAt?: string;
+}
+/**
  *
  * @export
  * @interface HiveContent
@@ -822,116 +858,6 @@ export interface HiveContent {
      * @memberof HiveContent
      */
     hiveProps?: object | null;
-}
-/**
- * Reference to all business knowledge base will be stored in Hive
- * @export
- * @interface HiveInput
- */
-export interface HiveInput {
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {HiveContent}
-     * @memberof HiveInput
-     */
-    content: HiveContent;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    status: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveInput
-     */
-    updatedAt?: string;
-}
-/**
- * Reference to all business knowledge base will be stored in Hive
- * @export
- * @interface HiveOutput
- */
-export interface HiveOutput {
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {HiveContent}
-     * @memberof HiveOutput
-     */
-    content: HiveContent;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    status: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof HiveOutput
-     */
-    updatedAt?: string;
 }
 /**
  *
@@ -1006,7 +932,6 @@ export declare enum MetricName {
     CALLS = "CALLS",
     CALLDURATION = "CALL_DURATION",
     APPOINTMENTSCHEDULED = "APPOINTMENT_SCHEDULED",
-    CALLTRANSFERRED = "CALL_TRANSFERRED",
     PROSPECTS = "PROSPECTS",
     INTERESTED = "INTERESTED",
     NOTINTERESTED = "NOT_INTERESTED"
@@ -1221,7 +1146,7 @@ export interface ProductInput {
      */
     props?: any | null;
     /**
-     * Tags for the product. This is used for grouping purpose. Eg: [\"insecticide\", \"california\"]
+     * Tags for the product. This is used for grouping purpose. Eg: [\"gardening\", \"tools\"]
      * @type {Array<string>}
      * @memberof ProductInput
      */
@@ -1659,6 +1584,15 @@ export declare enum ProspectStatus {
  * @export
  * @enum {string}
  */
+export declare enum Role {
+    ADMIN = "ADMIN",
+    READONLY = "READ_ONLY"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 export declare enum Sentiment {
     POSITIVE = "POSITIVE",
     EXCITED = "EXCITED",
@@ -1721,7 +1655,7 @@ export interface TaxDetails {
      */
     id?: string;
     /**
-     * Any extran info related Tax
+     * Any extra info related to Tax
      * @type {object}
      * @memberof TaxDetails
      */
@@ -1751,6 +1685,25 @@ export interface Transcriber {
      * @memberof Transcriber
      */
     providerProps?: object | null;
+}
+/**
+ * Payload for updating user details API
+ * @export
+ * @interface UpdateUserPayload
+ */
+export interface UpdateUserPayload {
+    /**
+     *
+     * @type {Role}
+     * @memberof UpdateUserPayload
+     */
+    role: Role | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UpdateUserPayload
+     */
+    fullName: string | null;
 }
 /**
  * Model representing the users under an organization
@@ -2690,11 +2643,11 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
     /**
      *
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1
+     * @param {HiveContent} hiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (bodyCreateHiveV1: BodyCreateHiveV1, options?: any) => Promise<RequestArgs>;
+    createHiveV1: (hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Deletehive
@@ -2743,11 +2696,11 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1
+     * @param {HiveContent} hiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>>;
+    createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -2763,7 +2716,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>>;
+    getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      *
      * @summary Listhives
@@ -2777,7 +2730,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HiveOutput>>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
     /**
      *
      * @summary Updatehive
@@ -2786,7 +2739,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HiveOutput>>;
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * HiveApi - factory interface
@@ -2796,11 +2749,11 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
     /**
      *
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1
+     * @param {HiveContent} hiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any): AxiosPromise<HiveOutput>;
+    createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
     /**
      *
      * @summary Deletehive
@@ -2816,7 +2769,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: any): AxiosPromise<HiveOutput>;
+    getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive>;
     /**
      *
      * @summary Listhives
@@ -2830,7 +2783,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<HiveOutput>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>>;
     /**
      *
      * @summary Updatehive
@@ -2839,7 +2792,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<HiveOutput>;
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
 };
 /**
  * HiveApi - object-oriented interface
@@ -2851,12 +2804,12 @@ export declare class HiveApi extends BaseAPI {
     /**
      *
      * @summary Createhive
-     * @param {BodyCreateHiveV1} bodyCreateHiveV1
+     * @param {HiveContent} hiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(bodyCreateHiveV1: BodyCreateHiveV1, options?: any): Promise<import("axios").AxiosResponse<HiveOutput>>;
+    createHiveV1(hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -2874,7 +2827,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<HiveOutput>>;
+    getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      *
      * @summary Listhives
@@ -2889,7 +2842,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<HiveOutput[]>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
     /**
      *
      * @summary Updatehive
@@ -2899,7 +2852,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<HiveOutput>>;
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * HiveAgentLinkApi - axios parameter creator
@@ -2979,7 +2932,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HiveOutput>>>;
+    listHivesOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
 };
 /**
  * HiveAgentLinkApi - factory interface
@@ -3019,7 +2972,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<HiveOutput>>;
+    listHivesOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<Hive>>;
 };
 /**
  * HiveAgentLinkApi - object-oriented interface
@@ -3065,7 +3018,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    listHivesOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<HiveOutput[]>>;
+    listHivesOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
 }
 /**
  * InternalApi - axios parameter creator
@@ -3117,13 +3070,22 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     *
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     sendInviteV1: (guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId
+     * @param {UpdateUserPayload} updateUserPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserV1: (userId: string, updateUserPayload: UpdateUserPayload, options?: any) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -3175,13 +3137,22 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     *
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     sendInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId
+     * @param {UpdateUserPayload} updateUserPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * InternalApi - factory interface
@@ -3233,13 +3204,22 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>>;
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     *
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId
+     * @param {UpdateUserPayload} updateUserPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -3298,7 +3278,7 @@ export declare class InternalApi extends BaseAPI {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     *
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3306,6 +3286,16 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     sendInviteV1(guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    /**
+     * Update user details
+     * @summary Updateuser
+     * @param {string} userId
+     * @param {UpdateUserPayload} updateUserPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
  * MetricsApi - axios parameter creator
