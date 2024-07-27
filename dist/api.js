@@ -115,9 +115,9 @@ var MetricName;
     MetricName["NOTINTERESTED"] = "NOT_INTERESTED";
 })(MetricName = exports.MetricName || (exports.MetricName = {}));
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 var ProductInputCurrencyEnum;
 (function (ProductInputCurrencyEnum) {
     ProductInputCurrencyEnum["AED"] = "AED";
@@ -349,9 +349,9 @@ var Status;
     Status["Inactive"] = "inactive";
 })(Status = exports.Status || (exports.Status = {}));
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 var VoiceInputGenderEnum;
 (function (VoiceInputGenderEnum) {
     VoiceInputGenderEnum["Male"] = "Male";
@@ -359,9 +359,9 @@ var VoiceInputGenderEnum;
     VoiceInputGenderEnum["Neutral"] = "Neutral";
 })(VoiceInputGenderEnum = exports.VoiceInputGenderEnum || (exports.VoiceInputGenderEnum = {}));
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 var VoiceInputModelProviderEnum;
 (function (VoiceInputModelProviderEnum) {
     VoiceInputModelProviderEnum["Google"] = "Google";
@@ -371,9 +371,9 @@ var VoiceInputModelProviderEnum;
     VoiceInputModelProviderEnum["Deepgram"] = "Deepgram";
 })(VoiceInputModelProviderEnum = exports.VoiceInputModelProviderEnum || (exports.VoiceInputModelProviderEnum = {}));
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 var VoiceOutputGenderEnum;
 (function (VoiceOutputGenderEnum) {
     VoiceOutputGenderEnum["Male"] = "Male";
@@ -381,9 +381,9 @@ var VoiceOutputGenderEnum;
     VoiceOutputGenderEnum["Neutral"] = "Neutral";
 })(VoiceOutputGenderEnum = exports.VoiceOutputGenderEnum || (exports.VoiceOutputGenderEnum = {}));
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 var VoiceOutputModelProviderEnum;
 (function (VoiceOutputModelProviderEnum) {
     VoiceOutputModelProviderEnum["Google"] = "Google";
@@ -408,7 +408,7 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         createAIAgentV1: (aIAgentInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'aIAgentInput' is not null or undefined
             if (aIAgentInput === null || aIAgentInput === undefined) {
-                throw new base_1.RequiredError('aIAgentInput', 'Required parameter aIAgentInput was null or undefined when calling createAIAgentV1.');
+                throw new base_1.RequiredError("aIAgentInput", "Required parameter aIAgentInput was null or undefined when calling createAIAgentV1.");
             }
             const localVarPath = `/v1/ai-agents`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -416,25 +416,28 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof aIAgentInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(aIAgentInput !== undefined ? aIAgentInput : {}) : (aIAgentInput || "");
+            const needsSerialization = typeof aIAgentInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(aIAgentInput !== undefined ? aIAgentInput : {})
+                : aIAgentInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -450,22 +453,21 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         deleteAIAgentV1: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling deleteAIAgentV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling deleteAIAgentV1.");
             }
-            const localVarPath = `/v1/ai-agents/{agent_id}`
-                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarPath = `/v1/ai-agents/{agent_id}`.replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -490,22 +492,21 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         getAIAgentV1: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling getAIAgentV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling getAIAgentV1.");
             }
-            const localVarPath = `/v1/ai-agents/{agent_id}`
-                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarPath = `/v1/ai-agents/{agent_id}`.replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -540,37 +541,37 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -593,38 +594,40 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         updateAIAgentV1: (agentId, aIAgentInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling updateAIAgentV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling updateAIAgentV1.");
             }
             // verify required parameter 'aIAgentInput' is not null or undefined
             if (aIAgentInput === null || aIAgentInput === undefined) {
-                throw new base_1.RequiredError('aIAgentInput', 'Required parameter aIAgentInput was null or undefined when calling updateAIAgentV1.');
+                throw new base_1.RequiredError("aIAgentInput", "Required parameter aIAgentInput was null or undefined when calling updateAIAgentV1.");
             }
-            const localVarPath = `/v1/ai-agents/{agent_id}`
-                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarPath = `/v1/ai-agents/{agent_id}`.replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof aIAgentInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(aIAgentInput !== undefined ? aIAgentInput : {}) : (aIAgentInput || "");
+            const needsSerialization = typeof aIAgentInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(aIAgentInput !== undefined ? aIAgentInput : {})
+                : aIAgentInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -741,7 +744,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createAIAgentV1(aIAgentInput, options) {
-            return exports.AgentsApiFp(configuration).createAIAgentV1(aIAgentInput, options).then((request) => request(axios, basePath));
+            return exports.AgentsApiFp(configuration)
+                .createAIAgentV1(aIAgentInput, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Deletes an AI agent.
@@ -751,7 +756,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteAIAgentV1(agentId, options) {
-            return exports.AgentsApiFp(configuration).deleteAIAgentV1(agentId, options).then((request) => request(axios, basePath));
+            return exports.AgentsApiFp(configuration)
+                .deleteAIAgentV1(agentId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Gets a specific AI agent by ID.
@@ -761,7 +768,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getAIAgentV1(agentId, options) {
-            return exports.AgentsApiFp(configuration).getAIAgentV1(agentId, options).then((request) => request(axios, basePath));
+            return exports.AgentsApiFp(configuration)
+                .getAIAgentV1(agentId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Lists all AI agents under the user\'s organization.
@@ -777,7 +786,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.AgentsApiFp(configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+            return exports.AgentsApiFp(configuration)
+                .listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Updates an existing AI agent.
@@ -788,7 +799,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateAIAgentV1(agentId, aIAgentInput, options) {
-            return exports.AgentsApiFp(configuration).updateAIAgentV1(agentId, aIAgentInput, options).then((request) => request(axios, basePath));
+            return exports.AgentsApiFp(configuration)
+                .updateAIAgentV1(agentId, aIAgentInput, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -808,7 +821,9 @@ class AgentsApi extends base_1.BaseAPI {
      * @memberof AgentsApi
      */
     createAIAgentV1(aIAgentInput, options) {
-        return exports.AgentsApiFp(this.configuration).createAIAgentV1(aIAgentInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.AgentsApiFp(this.configuration)
+            .createAIAgentV1(aIAgentInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Deletes an AI agent.
@@ -819,7 +834,9 @@ class AgentsApi extends base_1.BaseAPI {
      * @memberof AgentsApi
      */
     deleteAIAgentV1(agentId, options) {
-        return exports.AgentsApiFp(this.configuration).deleteAIAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AgentsApiFp(this.configuration)
+            .deleteAIAgentV1(agentId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Gets a specific AI agent by ID.
@@ -830,7 +847,9 @@ class AgentsApi extends base_1.BaseAPI {
      * @memberof AgentsApi
      */
     getAIAgentV1(agentId, options) {
-        return exports.AgentsApiFp(this.configuration).getAIAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AgentsApiFp(this.configuration)
+            .getAIAgentV1(agentId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Lists all AI agents under the user\'s organization.
@@ -847,7 +866,9 @@ class AgentsApi extends base_1.BaseAPI {
      * @memberof AgentsApi
      */
     listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.AgentsApiFp(this.configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.AgentsApiFp(this.configuration)
+            .listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Updates an existing AI agent.
@@ -859,7 +880,9 @@ class AgentsApi extends base_1.BaseAPI {
      * @memberof AgentsApi
      */
     updateAIAgentV1(agentId, aIAgentInput, options) {
-        return exports.AgentsApiFp(this.configuration).updateAIAgentV1(agentId, aIAgentInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.AgentsApiFp(this.configuration)
+            .updateAIAgentV1(agentId, aIAgentInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AgentsApi = AgentsApi;
@@ -880,11 +903,11 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
         createConversationProspectLinkV1: (conversationId, prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling createConversationProspectLinkV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling createConversationProspectLinkV1.");
             }
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling createConversationProspectLinkV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling createConversationProspectLinkV1.");
             }
             const localVarPath = `/v1/conversations/{conversation_id}/prospects/{prospect_id}/links`
                 .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)))
@@ -894,13 +917,13 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -926,11 +949,11 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
         deleteConversationProspectLinkV1: (conversationId, prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling deleteConversationProspectLinkV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling deleteConversationProspectLinkV1.");
             }
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling deleteConversationProspectLinkV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling deleteConversationProspectLinkV1.");
             }
             const localVarPath = `/v1/conversations/{conversation_id}/prospects/{prospect_id}/links`
                 .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)))
@@ -940,13 +963,13 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -971,22 +994,21 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
         listConversationsOfProspectsV1: (prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling listConversationsOfProspectsV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling listConversationsOfProspectsV1.");
             }
-            const localVarPath = `/v1/prospects/{prospect_id}/conversations`
-                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarPath = `/v1/prospects/{prospect_id}/conversations`.replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -1076,7 +1098,9 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
          * @throws {RequiredError}
          */
         createConversationProspectLinkV1(conversationId, prospectId, options) {
-            return exports.ConversationProspectLinkApiFp(configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
+            return exports.ConversationProspectLinkApiFp(configuration)
+                .createConversationProspectLinkV1(conversationId, prospectId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1087,7 +1111,9 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
          * @throws {RequiredError}
          */
         deleteConversationProspectLinkV1(conversationId, prospectId, options) {
-            return exports.ConversationProspectLinkApiFp(configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
+            return exports.ConversationProspectLinkApiFp(configuration)
+                .deleteConversationProspectLinkV1(conversationId, prospectId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1097,7 +1123,9 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
          * @throws {RequiredError}
          */
         listConversationsOfProspectsV1(prospectId, options) {
-            return exports.ConversationProspectLinkApiFp(configuration).listConversationsOfProspectsV1(prospectId, options).then((request) => request(axios, basePath));
+            return exports.ConversationProspectLinkApiFp(configuration)
+                .listConversationsOfProspectsV1(prospectId, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -1118,7 +1146,9 @@ class ConversationProspectLinkApi extends base_1.BaseAPI {
      * @memberof ConversationProspectLinkApi
      */
     createConversationProspectLinkV1(conversationId, prospectId, options) {
-        return exports.ConversationProspectLinkApiFp(this.configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationProspectLinkApiFp(this.configuration)
+            .createConversationProspectLinkV1(conversationId, prospectId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1130,7 +1160,9 @@ class ConversationProspectLinkApi extends base_1.BaseAPI {
      * @memberof ConversationProspectLinkApi
      */
     deleteConversationProspectLinkV1(conversationId, prospectId, options) {
-        return exports.ConversationProspectLinkApiFp(this.configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationProspectLinkApiFp(this.configuration)
+            .deleteConversationProspectLinkV1(conversationId, prospectId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1141,7 +1173,9 @@ class ConversationProspectLinkApi extends base_1.BaseAPI {
      * @memberof ConversationProspectLinkApi
      */
     listConversationsOfProspectsV1(prospectId, options) {
-        return exports.ConversationProspectLinkApiFp(this.configuration).listConversationsOfProspectsV1(prospectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationProspectLinkApiFp(this.configuration)
+            .listConversationsOfProspectsV1(prospectId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConversationProspectLinkApi = ConversationProspectLinkApi;
@@ -1162,38 +1196,40 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         addFeedbackV1: (conversationId, comment, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling addFeedbackV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling addFeedbackV1.");
             }
             // verify required parameter 'comment' is not null or undefined
             if (comment === null || comment === undefined) {
-                throw new base_1.RequiredError('comment', 'Required parameter comment was null or undefined when calling addFeedbackV1.');
+                throw new base_1.RequiredError("comment", "Required parameter comment was null or undefined when calling addFeedbackV1.");
             }
-            const localVarPath = `/v1/conversations/{conversation_id}/feedback`
-                .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
+            const localVarPath = `/v1/conversations/{conversation_id}/feedback`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof comment !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(comment !== undefined ? comment : {}) : (comment || "");
+            const needsSerialization = typeof comment !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(comment !== undefined ? comment : {})
+                : comment || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1209,7 +1245,7 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         createConversationV1: (conversationInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationInput' is not null or undefined
             if (conversationInput === null || conversationInput === undefined) {
-                throw new base_1.RequiredError('conversationInput', 'Required parameter conversationInput was null or undefined when calling createConversationV1.');
+                throw new base_1.RequiredError("conversationInput", "Required parameter conversationInput was null or undefined when calling createConversationV1.");
             }
             const localVarPath = `/v1/conversations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -1217,25 +1253,28 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof conversationInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(conversationInput !== undefined ? conversationInput : {}) : (conversationInput || "");
+            const needsSerialization = typeof conversationInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(conversationInput !== undefined ? conversationInput : {})
+                : conversationInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1251,22 +1290,21 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         deleteConversationV1: (conversationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling deleteConversationV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling deleteConversationV1.");
             }
-            const localVarPath = `/v1/conversations/{conversation_id}`
-                .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
+            const localVarPath = `/v1/conversations/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -1291,22 +1329,21 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         getConversationV1: (conversationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling getConversationV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling getConversationV1.");
             }
-            const localVarPath = `/v1/conversations/{conversation_id}`
-                .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
+            const localVarPath = `/v1/conversations/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -1341,37 +1378,37 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -1394,38 +1431,40 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         updateConversationV1: (conversationId, conversationInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conversationId' is not null or undefined
             if (conversationId === null || conversationId === undefined) {
-                throw new base_1.RequiredError('conversationId', 'Required parameter conversationId was null or undefined when calling updateConversationV1.');
+                throw new base_1.RequiredError("conversationId", "Required parameter conversationId was null or undefined when calling updateConversationV1.");
             }
             // verify required parameter 'conversationInput' is not null or undefined
             if (conversationInput === null || conversationInput === undefined) {
-                throw new base_1.RequiredError('conversationInput', 'Required parameter conversationInput was null or undefined when calling updateConversationV1.');
+                throw new base_1.RequiredError("conversationInput", "Required parameter conversationInput was null or undefined when calling updateConversationV1.");
             }
-            const localVarPath = `/v1/conversations/{conversation_id}`
-                .replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
+            const localVarPath = `/v1/conversations/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(conversationId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof conversationInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(conversationInput !== undefined ? conversationInput : {}) : (conversationInput || "");
+            const needsSerialization = typeof conversationInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(conversationInput !== undefined ? conversationInput : {})
+                : conversationInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1560,7 +1599,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         addFeedbackV1(conversationId, comment, options) {
-            return exports.ConversationsApiFp(configuration).addFeedbackV1(conversationId, comment, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .addFeedbackV1(conversationId, comment, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1570,7 +1611,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createConversationV1(conversationInput, options) {
-            return exports.ConversationsApiFp(configuration).createConversationV1(conversationInput, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .createConversationV1(conversationInput, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1580,7 +1623,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteConversationV1(conversationId, options) {
-            return exports.ConversationsApiFp(configuration).deleteConversationV1(conversationId, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .deleteConversationV1(conversationId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1590,7 +1635,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getConversationV1(conversationId, options) {
-            return exports.ConversationsApiFp(configuration).getConversationV1(conversationId, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .getConversationV1(conversationId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1606,7 +1653,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.ConversationsApiFp(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1617,7 +1666,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateConversationV1(conversationId, conversationInput, options) {
-            return exports.ConversationsApiFp(configuration).updateConversationV1(conversationId, conversationInput, options).then((request) => request(axios, basePath));
+            return exports.ConversationsApiFp(configuration)
+                .updateConversationV1(conversationId, conversationInput, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -1638,7 +1689,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     addFeedbackV1(conversationId, comment, options) {
-        return exports.ConversationsApiFp(this.configuration).addFeedbackV1(conversationId, comment, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .addFeedbackV1(conversationId, comment, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1649,7 +1702,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     createConversationV1(conversationInput, options) {
-        return exports.ConversationsApiFp(this.configuration).createConversationV1(conversationInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .createConversationV1(conversationInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1660,7 +1715,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     deleteConversationV1(conversationId, options) {
-        return exports.ConversationsApiFp(this.configuration).deleteConversationV1(conversationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .deleteConversationV1(conversationId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1671,7 +1728,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     getConversationV1(conversationId, options) {
-        return exports.ConversationsApiFp(this.configuration).getConversationV1(conversationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .getConversationV1(conversationId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1688,7 +1747,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.ConversationsApiFp(this.configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1700,7 +1761,9 @@ class ConversationsApi extends base_1.BaseAPI {
      * @memberof ConversationsApi
      */
     updateConversationV1(conversationId, conversationInput, options) {
-        return exports.ConversationsApiFp(this.configuration).updateConversationV1(conversationId, conversationInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConversationsApiFp(this.configuration)
+            .updateConversationV1(conversationId, conversationInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConversationsApi = ConversationsApi;
@@ -1722,15 +1785,15 @@ exports.DataPlaneApiAxiosParamCreator = function (configuration) {
         createConnection: (agentId, prospectId, connectionSource, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling createConnection.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling createConnection.");
             }
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling createConnection.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling createConnection.");
             }
             // verify required parameter 'connectionSource' is not null or undefined
             if (connectionSource === null || connectionSource === undefined) {
-                throw new base_1.RequiredError('connectionSource', 'Required parameter connectionSource was null or undefined when calling createConnection.');
+                throw new base_1.RequiredError("connectionSource", "Required parameter connectionSource was null or undefined when calling createConnection.");
             }
             const localVarPath = `/connections`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -1738,31 +1801,34 @@ exports.DataPlaneApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (agentId !== undefined) {
-                localVarQueryParameter['agentId'] = agentId;
+                localVarQueryParameter["agentId"] = agentId;
             }
             if (prospectId !== undefined) {
-                localVarQueryParameter['prospect_id'] = prospectId;
+                localVarQueryParameter["prospect_id"] = prospectId;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof connectionSource !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(connectionSource !== undefined ? connectionSource : {}) : (connectionSource || "");
+            const needsSerialization = typeof connectionSource !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(connectionSource !== undefined ? connectionSource : {})
+                : connectionSource || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1812,7 +1878,9 @@ exports.DataPlaneApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createConnection(agentId, prospectId, connectionSource, options) {
-            return exports.DataPlaneApiFp(configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(axios, basePath));
+            return exports.DataPlaneApiFp(configuration)
+                .createConnection(agentId, prospectId, connectionSource, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -1834,7 +1902,9 @@ class DataPlaneApi extends base_1.BaseAPI {
      * @memberof DataPlaneApi
      */
     createConnection(agentId, prospectId, connectionSource, options) {
-        return exports.DataPlaneApiFp(this.configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(this.axios, this.basePath));
+        return exports.DataPlaneApiFp(this.configuration)
+            .createConnection(agentId, prospectId, connectionSource, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.DataPlaneApi = DataPlaneApi;
@@ -1857,7 +1927,7 @@ exports.HealthApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -1908,7 +1978,9 @@ exports.HealthApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         statusStatusGet(options) {
-            return exports.HealthApiFp(configuration).statusStatusGet(options).then((request) => request(axios, basePath));
+            return exports.HealthApiFp(configuration)
+                .statusStatusGet(options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -1927,7 +1999,9 @@ class HealthApi extends base_1.BaseAPI {
      * @memberof HealthApi
      */
     statusStatusGet(options) {
-        return exports.HealthApiFp(this.configuration).statusStatusGet(options).then((request) => request(this.axios, this.basePath));
+        return exports.HealthApiFp(this.configuration)
+            .statusStatusGet(options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.HealthApi = HealthApi;
@@ -1947,7 +2021,7 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
         createHiveV1: (hiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveContent' is not null or undefined
             if (hiveContent === null || hiveContent === undefined) {
-                throw new base_1.RequiredError('hiveContent', 'Required parameter hiveContent was null or undefined when calling createHiveV1.');
+                throw new base_1.RequiredError("hiveContent", "Required parameter hiveContent was null or undefined when calling createHiveV1.");
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -1955,25 +2029,28 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = typeof hiveContent !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(hiveContent !== undefined ? hiveContent : {})
+                : hiveContent || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1989,22 +2066,21 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
         deleteHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling deleteHiveV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling deleteHiveV1.");
             }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarPath = `/v1/hives/{hive_id}`.replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2029,22 +2105,21 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
         getHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling getHiveV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling getHiveV1.");
             }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarPath = `/v1/hives/{hive_id}`.replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2079,37 +2154,37 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -2132,38 +2207,40 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
         updateHiveV1: (hiveId, hiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling updateHiveV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling updateHiveV1.");
             }
             // verify required parameter 'hiveContent' is not null or undefined
             if (hiveContent === null || hiveContent === undefined) {
-                throw new base_1.RequiredError('hiveContent', 'Required parameter hiveContent was null or undefined when calling updateHiveV1.');
+                throw new base_1.RequiredError("hiveContent", "Required parameter hiveContent was null or undefined when calling updateHiveV1.");
             }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarPath = `/v1/hives/{hive_id}`.replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = typeof hiveContent !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(hiveContent !== undefined ? hiveContent : {})
+                : hiveContent || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -2280,7 +2357,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createHiveV1(hiveContent, options) {
-            return exports.HiveApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
+            return exports.HiveApiFp(configuration)
+                .createHiveV1(hiveContent, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2290,7 +2369,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteHiveV1(hiveId, options) {
-            return exports.HiveApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
+            return exports.HiveApiFp(configuration)
+                .deleteHiveV1(hiveId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2300,7 +2381,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getHiveV1(hiveId, options) {
-            return exports.HiveApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
+            return exports.HiveApiFp(configuration)
+                .getHiveV1(hiveId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2316,7 +2399,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+            return exports.HiveApiFp(configuration)
+                .listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2327,7 +2412,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateHiveV1(hiveId, hiveContent, options) {
-            return exports.HiveApiFp(configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(axios, basePath));
+            return exports.HiveApiFp(configuration)
+                .updateHiveV1(hiveId, hiveContent, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -2347,7 +2434,9 @@ class HiveApi extends base_1.BaseAPI {
      * @memberof HiveApi
      */
     createHiveV1(hiveContent, options) {
-        return exports.HiveApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveApiFp(this.configuration)
+            .createHiveV1(hiveContent, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2358,7 +2447,9 @@ class HiveApi extends base_1.BaseAPI {
      * @memberof HiveApi
      */
     deleteHiveV1(hiveId, options) {
-        return exports.HiveApiFp(this.configuration).deleteHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveApiFp(this.configuration)
+            .deleteHiveV1(hiveId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2369,7 +2460,9 @@ class HiveApi extends base_1.BaseAPI {
      * @memberof HiveApi
      */
     getHiveV1(hiveId, options) {
-        return exports.HiveApiFp(this.configuration).getHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveApiFp(this.configuration)
+            .getHiveV1(hiveId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2386,7 +2479,9 @@ class HiveApi extends base_1.BaseAPI {
      * @memberof HiveApi
      */
     listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.HiveApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveApiFp(this.configuration)
+            .listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2398,7 +2493,9 @@ class HiveApi extends base_1.BaseAPI {
      * @memberof HiveApi
      */
     updateHiveV1(hiveId, hiveContent, options) {
-        return exports.HiveApiFp(this.configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveApiFp(this.configuration)
+            .updateHiveV1(hiveId, hiveContent, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.HiveApi = HiveApi;
@@ -2419,11 +2516,11 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
         createHiveAgentLinkV1: (hiveId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling createHiveAgentLinkV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling createHiveAgentLinkV1.");
             }
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling createHiveAgentLinkV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling createHiveAgentLinkV1.");
             }
             const localVarPath = `/v1/hives/{hive_id}/ai-agents/{agent_id}/link`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)))
@@ -2433,13 +2530,13 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2465,11 +2562,11 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
         deleteHiveAgentLinkV1: (hiveId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling deleteHiveAgentLinkV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling deleteHiveAgentLinkV1.");
             }
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling deleteHiveAgentLinkV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling deleteHiveAgentLinkV1.");
             }
             const localVarPath = `/v1/hives/{hive_id}/ai-agents/{agent_id}/link`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)))
@@ -2479,13 +2576,13 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2510,22 +2607,21 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
         listAgentsOfHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling listAgentsOfHiveV1.');
+                throw new base_1.RequiredError("hiveId", "Required parameter hiveId was null or undefined when calling listAgentsOfHiveV1.");
             }
-            const localVarPath = `/v1/hives/{hive_id}/ai-agents`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarPath = `/v1/hives/{hive_id}/ai-agents`.replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2550,22 +2646,21 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
         listHivesOfAgentV1: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
-                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling listHivesOfAgentV1.');
+                throw new base_1.RequiredError("agentId", "Required parameter agentId was null or undefined when calling listHivesOfAgentV1.");
             }
-            const localVarPath = `/v1/ai-agents/{agent_id}/hives`
-                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarPath = `/v1/ai-agents/{agent_id}/hives`.replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2671,7 +2766,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createHiveAgentLinkV1(hiveId, agentId, options) {
-            return exports.HiveAgentLinkApiFp(configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
+            return exports.HiveAgentLinkApiFp(configuration)
+                .createHiveAgentLinkV1(hiveId, agentId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2682,7 +2779,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteHiveAgentLinkV1(hiveId, agentId, options) {
-            return exports.HiveAgentLinkApiFp(configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
+            return exports.HiveAgentLinkApiFp(configuration)
+                .deleteHiveAgentLinkV1(hiveId, agentId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2692,7 +2791,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listAgentsOfHiveV1(hiveId, options) {
-            return exports.HiveAgentLinkApiFp(configuration).listAgentsOfHiveV1(hiveId, options).then((request) => request(axios, basePath));
+            return exports.HiveAgentLinkApiFp(configuration)
+                .listAgentsOfHiveV1(hiveId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -2702,7 +2803,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listHivesOfAgentV1(agentId, options) {
-            return exports.HiveAgentLinkApiFp(configuration).listHivesOfAgentV1(agentId, options).then((request) => request(axios, basePath));
+            return exports.HiveAgentLinkApiFp(configuration)
+                .listHivesOfAgentV1(agentId, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -2723,7 +2826,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
      * @memberof HiveAgentLinkApi
      */
     createHiveAgentLinkV1(hiveId, agentId, options) {
-        return exports.HiveAgentLinkApiFp(this.configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveAgentLinkApiFp(this.configuration)
+            .createHiveAgentLinkV1(hiveId, agentId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2735,7 +2840,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
      * @memberof HiveAgentLinkApi
      */
     deleteHiveAgentLinkV1(hiveId, agentId, options) {
-        return exports.HiveAgentLinkApiFp(this.configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveAgentLinkApiFp(this.configuration)
+            .deleteHiveAgentLinkV1(hiveId, agentId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2746,7 +2853,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
      * @memberof HiveAgentLinkApi
      */
     listAgentsOfHiveV1(hiveId, options) {
-        return exports.HiveAgentLinkApiFp(this.configuration).listAgentsOfHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveAgentLinkApiFp(this.configuration)
+            .listAgentsOfHiveV1(hiveId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -2757,7 +2866,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
      * @memberof HiveAgentLinkApi
      */
     listHivesOfAgentV1(agentId, options) {
-        return exports.HiveAgentLinkApiFp(this.configuration).listHivesOfAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.HiveAgentLinkApiFp(this.configuration)
+            .listHivesOfAgentV1(agentId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.HiveAgentLinkApi = HiveAgentLinkApi;
@@ -2780,13 +2891,13 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2810,8 +2921,9 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
          */
         createOrganizationV1: (bodyCreateOrganizationV1, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'bodyCreateOrganizationV1' is not null or undefined
-            if (bodyCreateOrganizationV1 === null || bodyCreateOrganizationV1 === undefined) {
-                throw new base_1.RequiredError('bodyCreateOrganizationV1', 'Required parameter bodyCreateOrganizationV1 was null or undefined when calling createOrganizationV1.');
+            if (bodyCreateOrganizationV1 === null ||
+                bodyCreateOrganizationV1 === undefined) {
+                throw new base_1.RequiredError("bodyCreateOrganizationV1", "Required parameter bodyCreateOrganizationV1 was null or undefined when calling createOrganizationV1.");
             }
             const localVarPath = `/v1/organizations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -2819,25 +2931,30 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof bodyCreateOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyCreateOrganizationV1 !== undefined ? bodyCreateOrganizationV1 : {}) : (bodyCreateOrganizationV1 || "");
+            const needsSerialization = typeof bodyCreateOrganizationV1 !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(bodyCreateOrganizationV1 !== undefined
+                    ? bodyCreateOrganizationV1
+                    : {})
+                : bodyCreateOrganizationV1 || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -2850,25 +2967,24 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1: (userId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteUserV1: (userId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
-                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling deleteInviteV1.');
+                throw new base_1.RequiredError("userId", "Required parameter userId was null or undefined when calling deleteUserV1.");
             }
-            const localVarPath = `/v1/users/{user_id}`
-                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarPath = `/v1/users/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2896,13 +3012,13 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -2937,37 +3053,37 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -2980,7 +3096,7 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -2989,7 +3105,7 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
         sendInviteV1: (guestInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'guestInput' is not null or undefined
             if (guestInput === null || guestInput === undefined) {
-                throw new base_1.RequiredError('guestInput', 'Required parameter guestInput was null or undefined when calling sendInviteV1.');
+                throw new base_1.RequiredError("guestInput", "Required parameter guestInput was null or undefined when calling sendInviteV1.");
             }
             const localVarPath = `/v1/invites`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -2997,25 +3113,28 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof guestInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(guestInput !== undefined ? guestInput : {}) : (guestInput || "");
+            const needsSerialization = typeof guestInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(guestInput !== undefined ? guestInput : {})
+                : guestInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3032,38 +3151,40 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
         updateUserV1: (userId, updateUserPayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
-                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling updateUserV1.');
+                throw new base_1.RequiredError("userId", "Required parameter userId was null or undefined when calling updateUserV1.");
             }
             // verify required parameter 'updateUserPayload' is not null or undefined
             if (updateUserPayload === null || updateUserPayload === undefined) {
-                throw new base_1.RequiredError('updateUserPayload', 'Required parameter updateUserPayload was null or undefined when calling updateUserV1.');
+                throw new base_1.RequiredError("updateUserPayload", "Required parameter updateUserPayload was null or undefined when calling updateUserV1.");
             }
-            const localVarPath = `/v1/users/{user_id}`
-                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarPath = `/v1/users/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof updateUserPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateUserPayload !== undefined ? updateUserPayload : {}) : (updateUserPayload || "");
+            const needsSerialization = typeof updateUserPayload !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(updateUserPayload !== undefined ? updateUserPayload : {})
+                : updateUserPayload || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3115,9 +3236,9 @@ exports.InternalApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1(userId, options) {
+        deleteUserV1(userId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).deleteInviteV1(userId, options);
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3162,7 +3283,7 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3209,7 +3330,9 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         acceptInviteV1(options) {
-            return exports.InternalApiFp(configuration).acceptInviteV1(options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .acceptInviteV1(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Creates a new organization and adds the user as the \"ADMIN\" user for the org
@@ -3219,7 +3342,9 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createOrganizationV1(bodyCreateOrganizationV1, options) {
-            return exports.InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .createOrganizationV1(bodyCreateOrganizationV1, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Delete a user
@@ -3228,8 +3353,10 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1(userId, options) {
-            return exports.InternalApiFp(configuration).deleteInviteV1(userId, options).then((request) => request(axios, basePath));
+        deleteUserV1(userId, options) {
+            return exports.InternalApiFp(configuration)
+                .deleteUserV1(userId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * List of all open invites from the organization
@@ -3238,7 +3365,9 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listInvitesV1(options) {
-            return exports.InternalApiFp(configuration).listInvitesV1(options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .listInvitesV1(options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Lists all users under the user\'s organization
@@ -3254,17 +3383,21 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+                .then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         sendInviteV1(guestInput, options) {
-            return exports.InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .sendInviteV1(guestInput, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Update user details
@@ -3275,7 +3408,9 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateUserV1(userId, updateUserPayload, options) {
-            return exports.InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
+            return exports.InternalApiFp(configuration)
+                .updateUserV1(userId, updateUserPayload, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -3294,7 +3429,9 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     acceptInviteV1(options) {
-        return exports.InternalApiFp(this.configuration).acceptInviteV1(options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .acceptInviteV1(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
@@ -3305,7 +3442,9 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     createOrganizationV1(bodyCreateOrganizationV1, options) {
-        return exports.InternalApiFp(this.configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .createOrganizationV1(bodyCreateOrganizationV1, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a user
@@ -3315,8 +3454,10 @@ class InternalApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteInviteV1(userId, options) {
-        return exports.InternalApiFp(this.configuration).deleteInviteV1(userId, options).then((request) => request(this.axios, this.basePath));
+    deleteUserV1(userId, options) {
+        return exports.InternalApiFp(this.configuration)
+            .deleteUserV1(userId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * List of all open invites from the organization
@@ -3326,7 +3467,9 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     listInvitesV1(options) {
-        return exports.InternalApiFp(this.configuration).listInvitesV1(options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .listInvitesV1(options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Lists all users under the user\'s organization
@@ -3343,10 +3486,12 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3354,7 +3499,9 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     sendInviteV1(guestInput, options) {
-        return exports.InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .sendInviteV1(guestInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update user details
@@ -3366,7 +3513,9 @@ class InternalApi extends base_1.BaseAPI {
      * @memberof InternalApi
      */
     updateUserV1(userId, updateUserPayload, options) {
-        return exports.InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
+        return exports.InternalApiFp(this.configuration)
+            .updateUserV1(userId, updateUserPayload, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.InternalApi = InternalApi;
@@ -3386,7 +3535,7 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
         getMetricsV1MetricsPost: (batchMetricsRequests, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'batchMetricsRequests' is not null or undefined
             if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
-                throw new base_1.RequiredError('batchMetricsRequests', 'Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
+                throw new base_1.RequiredError("batchMetricsRequests", "Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.");
             }
             const localVarPath = `/v1/metrics`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -3394,25 +3543,28 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof batchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {}) : (batchMetricsRequests || "");
+            const needsSerialization = typeof batchMetricsRequests !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {})
+                : batchMetricsRequests || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3458,7 +3610,9 @@ exports.MetricsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getMetricsV1MetricsPost(batchMetricsRequests, options) {
-            return exports.MetricsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
+            return exports.MetricsApiFp(configuration)
+                .getMetricsV1MetricsPost(batchMetricsRequests, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -3478,7 +3632,9 @@ class MetricsApi extends base_1.BaseAPI {
      * @memberof MetricsApi
      */
     getMetricsV1MetricsPost(batchMetricsRequests, options) {
-        return exports.MetricsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+        return exports.MetricsApiFp(this.configuration)
+            .getMetricsV1MetricsPost(batchMetricsRequests, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.MetricsApi = MetricsApi;
@@ -3498,7 +3654,7 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
         createProductV1: (productInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'productInput' is not null or undefined
             if (productInput === null || productInput === undefined) {
-                throw new base_1.RequiredError('productInput', 'Required parameter productInput was null or undefined when calling createProductV1.');
+                throw new base_1.RequiredError("productInput", "Required parameter productInput was null or undefined when calling createProductV1.");
             }
             const localVarPath = `/v1/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -3506,25 +3662,28 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof productInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(productInput !== undefined ? productInput : {}) : (productInput || "");
+            const needsSerialization = typeof productInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(productInput !== undefined ? productInput : {})
+                : productInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3540,22 +3699,21 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
         deleteProductV1: (productId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'productId' is not null or undefined
             if (productId === null || productId === undefined) {
-                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling deleteProductV1.');
+                throw new base_1.RequiredError("productId", "Required parameter productId was null or undefined when calling deleteProductV1.");
             }
-            const localVarPath = `/v1/products/{product_id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            const localVarPath = `/v1/products/{product_id}`.replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -3580,22 +3738,21 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
         getProductV1: (productId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'productId' is not null or undefined
             if (productId === null || productId === undefined) {
-                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling getProductV1.');
+                throw new base_1.RequiredError("productId", "Required parameter productId was null or undefined when calling getProductV1.");
             }
-            const localVarPath = `/v1/products/{product_id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            const localVarPath = `/v1/products/{product_id}`.replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -3631,40 +3788,40 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             if (tags) {
-                localVarQueryParameter['tags'] = tags;
+                localVarQueryParameter["tags"] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -3687,38 +3844,40 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
         updateProductV1: (productId, productInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'productId' is not null or undefined
             if (productId === null || productId === undefined) {
-                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling updateProductV1.');
+                throw new base_1.RequiredError("productId", "Required parameter productId was null or undefined when calling updateProductV1.");
             }
             // verify required parameter 'productInput' is not null or undefined
             if (productInput === null || productInput === undefined) {
-                throw new base_1.RequiredError('productInput', 'Required parameter productInput was null or undefined when calling updateProductV1.');
+                throw new base_1.RequiredError("productInput", "Required parameter productInput was null or undefined when calling updateProductV1.");
             }
-            const localVarPath = `/v1/products/{product_id}`
-                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            const localVarPath = `/v1/products/{product_id}`.replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof productInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(productInput !== undefined ? productInput : {}) : (productInput || "");
+            const needsSerialization = typeof productInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(productInput !== undefined ? productInput : {})
+                : productInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3836,7 +3995,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createProductV1(productInput, options) {
-            return exports.ProductsApiFp(configuration).createProductV1(productInput, options).then((request) => request(axios, basePath));
+            return exports.ProductsApiFp(configuration)
+                .createProductV1(productInput, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -3846,7 +4007,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteProductV1(productId, options) {
-            return exports.ProductsApiFp(configuration).deleteProductV1(productId, options).then((request) => request(axios, basePath));
+            return exports.ProductsApiFp(configuration)
+                .deleteProductV1(productId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -3856,7 +4019,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getProductV1(productId, options) {
-            return exports.ProductsApiFp(configuration).getProductV1(productId, options).then((request) => request(axios, basePath));
+            return exports.ProductsApiFp(configuration)
+                .getProductV1(productId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -3873,7 +4038,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options) {
-            return exports.ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(axios, basePath));
+            return exports.ProductsApiFp(configuration)
+                .listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          *
@@ -3884,7 +4051,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateProductV1(productId, productInput, options) {
-            return exports.ProductsApiFp(configuration).updateProductV1(productId, productInput, options).then((request) => request(axios, basePath));
+            return exports.ProductsApiFp(configuration)
+                .updateProductV1(productId, productInput, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -3904,7 +4073,9 @@ class ProductsApi extends base_1.BaseAPI {
      * @memberof ProductsApi
      */
     createProductV1(productInput, options) {
-        return exports.ProductsApiFp(this.configuration).createProductV1(productInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProductsApiFp(this.configuration)
+            .createProductV1(productInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -3915,7 +4086,9 @@ class ProductsApi extends base_1.BaseAPI {
      * @memberof ProductsApi
      */
     deleteProductV1(productId, options) {
-        return exports.ProductsApiFp(this.configuration).deleteProductV1(productId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProductsApiFp(this.configuration)
+            .deleteProductV1(productId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -3926,7 +4099,9 @@ class ProductsApi extends base_1.BaseAPI {
      * @memberof ProductsApi
      */
     getProductV1(productId, options) {
-        return exports.ProductsApiFp(this.configuration).getProductV1(productId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProductsApiFp(this.configuration)
+            .getProductV1(productId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -3944,7 +4119,9 @@ class ProductsApi extends base_1.BaseAPI {
      * @memberof ProductsApi
      */
     listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options) {
-        return exports.ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProductsApiFp(this.configuration)
+            .listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -3956,7 +4133,9 @@ class ProductsApi extends base_1.BaseAPI {
      * @memberof ProductsApi
      */
     updateProductV1(productId, productInput, options) {
-        return exports.ProductsApiFp(this.configuration).updateProductV1(productId, productInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProductsApiFp(this.configuration)
+            .updateProductV1(productId, productInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ProductsApi = ProductsApi;
@@ -3976,7 +4155,7 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
         createProspectV1: (prospectInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectInput' is not null or undefined
             if (prospectInput === null || prospectInput === undefined) {
-                throw new base_1.RequiredError('prospectInput', 'Required parameter prospectInput was null or undefined when calling createProspectV1.');
+                throw new base_1.RequiredError("prospectInput", "Required parameter prospectInput was null or undefined when calling createProspectV1.");
             }
             const localVarPath = `/v1/prospects`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -3984,25 +4163,28 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "POST" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof prospectInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(prospectInput !== undefined ? prospectInput : {}) : (prospectInput || "");
+            const needsSerialization = typeof prospectInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(prospectInput !== undefined ? prospectInput : {})
+                : prospectInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -4018,22 +4200,21 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
         deleteProspectV1: (prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling deleteProspectV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling deleteProspectV1.");
             }
-            const localVarPath = `/v1/prospects/{prospect_id}`
-                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarPath = `/v1/prospects/{prospect_id}`.replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "DELETE" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -4058,22 +4239,21 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
         getProspectV1: (prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling getProspectV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling getProspectV1.");
             }
-            const localVarPath = `/v1/prospects/{prospect_id}`
-                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarPath = `/v1/prospects/{prospect_id}`.replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -4108,37 +4288,37 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
             if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
+                localVarQueryParameter["search_by"] = searchBy;
             }
             if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
+                localVarQueryParameter["search_value"] = searchValue;
             }
             if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+                localVarQueryParameter["status"] = status;
             }
             if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
+                localVarQueryParameter["sort_by"] = sortBy;
             }
             if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
+                localVarQueryParameter["sort_order"] = sortOrder;
             }
             if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
+                localVarQueryParameter["skip"] = skip;
             }
             if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+                localVarQueryParameter["limit"] = limit;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -4161,38 +4341,40 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
         updateProspectV1: (prospectId, prospectInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling updateProspectV1.');
+                throw new base_1.RequiredError("prospectId", "Required parameter prospectId was null or undefined when calling updateProspectV1.");
             }
             // verify required parameter 'prospectInput' is not null or undefined
             if (prospectInput === null || prospectInput === undefined) {
-                throw new base_1.RequiredError('prospectInput', 'Required parameter prospectInput was null or undefined when calling updateProspectV1.');
+                throw new base_1.RequiredError("prospectInput", "Required parameter prospectInput was null or undefined when calling updateProspectV1.");
             }
-            const localVarPath = `/v1/prospects/{prospect_id}`
-                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarPath = `/v1/prospects/{prospect_id}`.replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "PUT" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter["Content-Type"] = "application/json";
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof prospectInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(prospectInput !== undefined ? prospectInput : {}) : (prospectInput || "");
+            const needsSerialization = typeof prospectInput !== "string" ||
+                localVarRequestOptions.headers["Content-Type"] === "application/json";
+            localVarRequestOptions.data = needsSerialization
+                ? JSON.stringify(prospectInput !== undefined ? prospectInput : {})
+                : prospectInput || "";
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -4309,7 +4491,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         createProspectV1(prospectInput, options) {
-            return exports.ProspectsApiFp(configuration).createProspectV1(prospectInput, options).then((request) => request(axios, basePath));
+            return exports.ProspectsApiFp(configuration)
+                .createProspectV1(prospectInput, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Deletes a specific prospect by ID.
@@ -4319,7 +4503,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         deleteProspectV1(prospectId, options) {
-            return exports.ProspectsApiFp(configuration).deleteProspectV1(prospectId, options).then((request) => request(axios, basePath));
+            return exports.ProspectsApiFp(configuration)
+                .deleteProspectV1(prospectId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Fetches a specific prospect by ID.
@@ -4329,7 +4515,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getProspectV1(prospectId, options) {
-            return exports.ProspectsApiFp(configuration).getProspectV1(prospectId, options).then((request) => request(axios, basePath));
+            return exports.ProspectsApiFp(configuration)
+                .getProspectV1(prospectId, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Lists all prospects under the user\'s organization
@@ -4345,7 +4533,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.ProspectsApiFp(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+            return exports.ProspectsApiFp(configuration)
+                .listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+                .then((request) => request(axios, basePath));
         },
         /**
          * Updates a specific prospect by ID.
@@ -4356,7 +4546,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         updateProspectV1(prospectId, prospectInput, options) {
-            return exports.ProspectsApiFp(configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(axios, basePath));
+            return exports.ProspectsApiFp(configuration)
+                .updateProspectV1(prospectId, prospectInput, options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -4376,7 +4568,9 @@ class ProspectsApi extends base_1.BaseAPI {
      * @memberof ProspectsApi
      */
     createProspectV1(prospectInput, options) {
-        return exports.ProspectsApiFp(this.configuration).createProspectV1(prospectInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProspectsApiFp(this.configuration)
+            .createProspectV1(prospectInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Deletes a specific prospect by ID.
@@ -4387,7 +4581,9 @@ class ProspectsApi extends base_1.BaseAPI {
      * @memberof ProspectsApi
      */
     deleteProspectV1(prospectId, options) {
-        return exports.ProspectsApiFp(this.configuration).deleteProspectV1(prospectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProspectsApiFp(this.configuration)
+            .deleteProspectV1(prospectId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetches a specific prospect by ID.
@@ -4398,7 +4594,9 @@ class ProspectsApi extends base_1.BaseAPI {
      * @memberof ProspectsApi
      */
     getProspectV1(prospectId, options) {
-        return exports.ProspectsApiFp(this.configuration).getProspectV1(prospectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProspectsApiFp(this.configuration)
+            .getProspectV1(prospectId, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Lists all prospects under the user\'s organization
@@ -4415,7 +4613,9 @@ class ProspectsApi extends base_1.BaseAPI {
      * @memberof ProspectsApi
      */
     listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.ProspectsApiFp(this.configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProspectsApiFp(this.configuration)
+            .listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options)
+            .then((request) => request(this.axios, this.basePath));
     }
     /**
      * Updates a specific prospect by ID.
@@ -4427,7 +4627,9 @@ class ProspectsApi extends base_1.BaseAPI {
      * @memberof ProspectsApi
      */
     updateProspectV1(prospectId, prospectInput, options) {
-        return exports.ProspectsApiFp(this.configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(this.axios, this.basePath));
+        return exports.ProspectsApiFp(this.configuration)
+            .updateProspectV1(prospectId, prospectInput, options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ProspectsApi = ProspectsApi;
@@ -4450,13 +4652,13 @@ exports.VoiceModelsApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: "GET" }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
             // http bearer authentication required
             if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
+                const accessToken = typeof configuration.accessToken === "function"
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
@@ -4509,7 +4711,9 @@ exports.VoiceModelsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         listVoiceModelsV1(options) {
-            return exports.VoiceModelsApiFp(configuration).listVoiceModelsV1(options).then((request) => request(axios, basePath));
+            return exports.VoiceModelsApiFp(configuration)
+                .listVoiceModelsV1(options)
+                .then((request) => request(axios, basePath));
         },
     };
 };
@@ -4528,7 +4732,9 @@ class VoiceModelsApi extends base_1.BaseAPI {
      * @memberof VoiceModelsApi
      */
     listVoiceModelsV1(options) {
-        return exports.VoiceModelsApiFp(this.configuration).listVoiceModelsV1(options).then((request) => request(this.axios, this.basePath));
+        return exports.VoiceModelsApiFp(this.configuration)
+            .listVoiceModelsV1(options)
+            .then((request) => request(this.axios, this.basePath));
     }
 }
 exports.VoiceModelsApi = VoiceModelsApi;

@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Configuration } from './configuration';
-import { AxiosPromise, AxiosInstance } from 'axios';
-import { RequestArgs, BaseAPI } from './base';
+import { Configuration } from "./configuration";
+import { AxiosPromise, AxiosInstance } from "axios";
+import { RequestArgs, BaseAPI } from "./base";
 /**
  *
  * @export
@@ -31,11 +31,11 @@ export interface AIAgentInput {
      */
     imageUrl?: string;
     /**
-     *
+     * Mission of the AI agent
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission: Mission | null;
+    mission?: Mission | null;
     /**
      *
      * @type {Status}
@@ -1159,9 +1159,9 @@ export interface ProductInput {
     status: Status;
 }
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 export declare enum ProductInputCurrencyEnum {
     AED = "AED",
     AFN = "AFN",
@@ -1829,18 +1829,18 @@ export interface VoiceInput {
     modelProvider: VoiceInputModelProviderEnum;
 }
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 export declare enum VoiceInputGenderEnum {
     Male = "Male",
     Female = "Female",
     Neutral = "Neutral"
 }
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 export declare enum VoiceInputModelProviderEnum {
     Google = "Google",
     AWS = "AWS",
@@ -1880,18 +1880,18 @@ export interface VoiceOutput {
     modelProvider: VoiceOutputModelProviderEnum;
 }
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 export declare enum VoiceOutputGenderEnum {
     Male = "Male",
     Female = "Female",
     Neutral = "Neutral"
 }
 /**
-    * @export
-    * @enum {string}
-    */
+ * @export
+ * @enum {string}
+ */
 export declare enum VoiceOutputModelProviderEnum {
     Google = "Google",
     AWS = "AWS",
@@ -3047,7 +3047,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    deleteUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3070,7 +3070,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3114,7 +3114,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3137,7 +3137,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3181,7 +3181,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1(userId: string, options?: any): AxiosPromise<User>;
+    deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3204,7 +3204,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3253,7 +3253,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteInviteV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3278,7 +3278,7 @@ export declare class InternalApi extends BaseAPI {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
