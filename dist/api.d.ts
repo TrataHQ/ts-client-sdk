@@ -96,7 +96,7 @@ export interface AIAgentOutput {
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission: Mission | null;
+    mission?: Mission | null;
     /**
      *
      * @type {string}
@@ -114,19 +114,19 @@ export interface AIAgentOutput {
      * @type {Transcriber}
      * @memberof AIAgentOutput
      */
-    transcriber: Transcriber | null;
+    transcriber?: Transcriber | null;
     /**
      *
      * @type {IntelligenceProvider}
      * @memberof AIAgentOutput
      */
-    intelligenceProvider: IntelligenceProvider | null;
+    intelligenceProvider?: IntelligenceProvider | null;
     /**
      *
      * @type {VoiceOutput}
      * @memberof AIAgentOutput
      */
-    voice: VoiceOutput | null;
+    voice?: VoiceOutput | null;
     /**
      *
      * @type {string}
@@ -203,6 +203,49 @@ export interface Address {
      * @memberof Address
      */
     country?: string;
+}
+/**
+ *
+ * @export
+ * @interface AgentConfig
+ */
+export interface AgentConfig {
+    /**
+     * Enum class representing transcriber
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    transcriber: string;
+    /**
+     * Enum class representing intelligence provider
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    intelligenceProvider: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    synthesizer: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    embeddingsModelConfig: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    hiveStorageConfig: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    fillersConfig?: string | null;
 }
 /**
  *
@@ -285,6 +328,19 @@ export interface BodyCreateOrganizationV1 {
 /**
  *
  * @export
+ * @interface BodyUploadFileV1
+ */
+export interface BodyUploadFileV1 {
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof BodyUploadFileV1
+     */
+    files: Array<any>;
+}
+/**
+ *
+ * @export
  * @interface Comment
  */
 export interface Comment {
@@ -302,7 +358,7 @@ export interface Comment {
     rating?: number;
 }
 /**
- * Connection id string
+ * This represents the connection between the user and the assistant
  * @export
  * @interface Connection
  */
@@ -312,13 +368,67 @@ export interface Connection {
      * @type {string}
      * @memberof Connection
      */
-    id: string;
+    id?: string;
     /**
      *
-     * @type {ConnectionType}
+     * @type {string}
      * @memberof Connection
      */
-    type: ConnectionType;
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    sourceName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    sourceId?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof Connection
+     */
+    sourceProps?: object | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    agentId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    prospectId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    updatedAt?: string;
 }
 /**
  *
@@ -331,7 +441,7 @@ export interface ConnectionSource {
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceName?: string;
+    sourceName?: ConnectionSourceSourceNameEnum;
     /**
      * Unique identifier for the source
      * @type {string}
@@ -346,12 +456,12 @@ export interface ConnectionSource {
     sourceProps?: object;
 }
 /**
- *
  * @export
  * @enum {string}
  */
-export declare enum ConnectionType {
-    Socket = "socket"
+export declare enum ConnectionSourceSourceNameEnum {
+    TWILIO = "TWILIO",
+    BROWSER = "BROWSER"
 }
 /**
  *
@@ -687,6 +797,27 @@ export interface ExternalServicePorvider {
     providerProps?: object | null;
 }
 /**
+ *
+ * @export
+ * @interface FileIDs
+ */
+export interface FileIDs {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof FileIDs
+     */
+    file_ids: Array<string>;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum FileUploadType {
+    Hive = "hive"
+}
+/**
  * Guest users who are not verified by Trata yet
  * @export
  * @interface GuestInput
@@ -853,11 +984,17 @@ export interface HiveContent {
      */
     url?: string;
     /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true}
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
      * @type {object}
      * @memberof HiveContent
      */
     hiveProps?: object | null;
+    /**
+     * Internal properties for the hive to store example {\"last_crawled\": \"2021-10-10\"}, {\"queryable_source\": \"postgres\"}
+     * @type {object}
+     * @memberof HiveContent
+     */
+    internalProps?: object | null;
 }
 /**
  *
@@ -1052,7 +1189,7 @@ export interface Mission {
      * @type {string}
      * @memberof Mission
      */
-    conclusion?: string | null;
+    farewell?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -1084,6 +1221,12 @@ export interface Organization {
      * @memberof Organization
      */
     externalReferenceIds?: Array<ExternalServicePorvider> | null;
+    /**
+     * Configurations for all the agents going to be created in this org
+     * @type {AgentConfig}
+     * @memberof Organization
+     */
+    agentConfig?: AgentConfig | null;
 }
 /**
  *
@@ -1497,7 +1640,7 @@ export interface ProspectOutput {
      * @type {string}
      * @memberof ProspectOutput
      */
-    id?: string;
+    id: string;
     /**
      *
      * @type {string}
@@ -1632,6 +1775,50 @@ export interface Sequence {
 export declare enum SortOrder {
     Asc = "asc",
     Desc = "desc"
+}
+/**
+ *
+ * @export
+ * @interface StatsData
+ */
+export interface StatsData {
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    no_of_prospects: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    appointment_scheduled: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    unqualified: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    average_call_duration: number;
+}
+/**
+ *
+ * @export
+ * @interface StatsResponse
+ */
+export interface StatsResponse {
+    /**
+     * Overall stats of prospects
+     * @type {StatsData}
+     * @memberof StatsResponse
+     */
+    response: StatsData;
 }
 /**
  *
@@ -1905,7 +2092,7 @@ export declare enum VoiceOutputModelProviderEnum {
  */
 export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -1958,7 +2145,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const AgentsApiFp: (configuration?: Configuration) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2011,7 +2198,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
  */
 export declare const AgentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2066,7 +2253,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
  */
 export declare class AgentsApi extends BaseAPI {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2516,12 +2703,12 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection: (agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any) => Promise<RequestArgs>;
+    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -2532,12 +2719,12 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -2548,12 +2735,12 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): AxiosPromise<Connection>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -2566,19 +2753,26 @@ export declare class DataPlaneApi extends BaseAPI {
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
 }
 /**
  * HealthApi - axios parameter creator
  * @export
  */
 export declare const HealthApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Status
@@ -2592,6 +2786,13 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
  * @export
  */
 export declare const HealthApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      *
      * @summary Status
@@ -2609,6 +2810,13 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
 export declare const HealthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet(options?: any): AxiosPromise<any>;
+    /**
+     *
      * @summary Status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2624,6 +2832,14 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export declare class HealthApi extends BaseAPI {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApi
+     */
+    faviconFaviconIcoGet(options?: any): Promise<import("axios").AxiosResponse<any>>;
     /**
      *
      * @summary Status
@@ -3041,6 +3257,15 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {FileIDs} fileIDs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1: (uploadType: FileUploadType, fileIDs: FileIDs, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -3086,6 +3311,15 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     updateUserV1: (userId: string, updateUserPayload: UpdateUserPayload, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1: (uploadType: FileUploadType, files: Array<any>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -3107,6 +3341,15 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {FileIDs} fileIDs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -3153,6 +3396,15 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
 };
 /**
  * InternalApi - factory interface
@@ -3174,6 +3426,15 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {FileIDs} fileIDs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any): AxiosPromise<boolean>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -3220,6 +3481,15 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): AxiosPromise<boolean>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -3245,6 +3515,16 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {FileIDs} fileIDs
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -3296,6 +3576,16 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
 }
 /**
  * MetricsApi - axios parameter creator
@@ -3310,6 +3600,13 @@ export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost: (batchMetricsRequests: BatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * MetricsApi - functional programming interface
@@ -3324,6 +3621,13 @@ export declare const MetricsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
 };
 /**
  * MetricsApi - factory interface
@@ -3338,6 +3642,13 @@ export declare const MetricsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse>;
 };
 /**
  * MetricsApi - object-oriented interface
@@ -3355,6 +3666,14 @@ export declare class MetricsApi extends BaseAPI {
      * @memberof MetricsApi
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getOverallStatsV1StatsGet(options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
 }
 /**
  * ProductsApi - axios parameter creator
