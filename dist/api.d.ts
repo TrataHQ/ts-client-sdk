@@ -31,17 +31,17 @@ export interface AIAgentInput {
      */
     imageUrl?: string;
     /**
-     *
+     * Mission of the AI agent
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission: Mission | null;
+    mission?: Mission | null;
     /**
-     *
+     * Status of the AI agent
      * @type {Status}
      * @memberof AIAgentInput
      */
-    status: Status;
+    status?: Status;
     /**
      * Role of the AI agent in the company
      * @type {string}
@@ -55,11 +55,17 @@ export interface AIAgentInput {
      */
     roleDescription?: string;
     /**
-     *
+     * Timezone of the AI agent used for scheduling meetings
+     * @type {string}
+     * @memberof AIAgentInput
+     */
+    timezone?: string;
+    /**
+     * Voice of the AI agent
      * @type {VoiceInput}
      * @memberof AIAgentInput
      */
-    voice: VoiceInput | null;
+    voice?: VoiceInput | null;
 }
 /**
  * AI agent configured by businesses
@@ -96,7 +102,7 @@ export interface AIAgentOutput {
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission: Mission | null;
+    mission?: Mission | null;
     /**
      *
      * @type {string}
@@ -114,25 +120,31 @@ export interface AIAgentOutput {
      * @type {Transcriber}
      * @memberof AIAgentOutput
      */
-    transcriber: Transcriber | null;
+    transcriber?: Transcriber | null;
     /**
      *
      * @type {IntelligenceProvider}
      * @memberof AIAgentOutput
      */
-    intelligenceProvider: IntelligenceProvider | null;
+    intelligenceProvider?: IntelligenceProvider | null;
     /**
      *
      * @type {VoiceOutput}
      * @memberof AIAgentOutput
      */
-    voice: VoiceOutput | null;
+    voice?: VoiceOutput | null;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    status: string;
+    status?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AIAgentOutput
+     */
+    timezone?: string;
     /**
      *
      * @type {string}
@@ -170,6 +182,185 @@ export declare enum Accent {
 /**
  *
  * @export
+ * @interface ActionEndpoint
+ */
+export interface ActionEndpoint {
+    /**
+     * Action endpoint URL
+     * @type {string}
+     * @memberof ActionEndpoint
+     */
+    url?: string;
+    /**
+     * Method to be used for invoking the endpoint
+     * @type {string}
+     * @memberof ActionEndpoint
+     */
+    method?: ActionEndpointMethodEnum;
+    /**
+     * Headers for the endpoint
+     * @type {any}
+     * @memberof ActionEndpoint
+     */
+    headers?: any | null;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum ActionEndpointMethodEnum {
+    GET = "GET",
+    POST = "POST"
+}
+/**
+ *
+ * @export
+ * @interface ActionInput
+ */
+export interface ActionInput {
+    /**
+     * Name of the action
+     * @type {string}
+     * @memberof ActionInput
+     */
+    name?: string;
+    /**
+     * Description about the action and it should also contain when the action should be triggered
+     * @type {string}
+     * @memberof ActionInput
+     */
+    description?: string;
+    /**
+     * Parameters for the action. It should be a JSON schema object
+     * @type {object}
+     * @memberof ActionInput
+     */
+    parameters?: object;
+    /**
+     * Endpoint for the action
+     * @type {ActionEndpoint}
+     * @memberof ActionInput
+     */
+    endpoint?: ActionEndpoint;
+    /**
+     * Text to be rendered to user when action is invoked
+     * @type {string}
+     * @memberof ActionInput
+     */
+    userWaitingText?: string | null;
+    /**
+     * Text to be rendered to user when action is successful
+     * @type {string}
+     * @memberof ActionInput
+     */
+    userSuccessText?: string | null;
+    /**
+     * Text to be rendered to user when action is not successful
+     * @type {string}
+     * @memberof ActionInput
+     */
+    userErrorText?: string | null;
+}
+/**
+ * Action entity to store the actions which can be performed by ai agents
+ * @export
+ * @interface ActionOutput
+ */
+export interface ActionOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    name?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    description?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof ActionOutput
+     */
+    parameters?: object | null;
+    /**
+     *
+     * @type {ActionEndpoint}
+     * @memberof ActionOutput
+     */
+    endpoint?: ActionEndpoint | null;
+    /**
+     *
+     * @type {InternalActionEndpoint}
+     * @memberof ActionOutput
+     */
+    internalEndpoint?: InternalActionEndpoint | null;
+    /**
+     * Type of the action - EXTERNAL/INTERNAL
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    type?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userWaitingText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userSuccessText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userErrorText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedAt?: string;
+}
+/**
+ *
+ * @export
  * @interface Address
  */
 export interface Address {
@@ -203,6 +394,49 @@ export interface Address {
      * @memberof Address
      */
     country?: string;
+}
+/**
+ *
+ * @export
+ * @interface AgentConfig
+ */
+export interface AgentConfig {
+    /**
+     * Enum class representing transcriber
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    transcriber: string;
+    /**
+     * Enum class representing intelligence provider
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    intelligenceProvider: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    synthesizer: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    embeddingsModelConfig: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    hiveStorageConfig: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentConfig
+     */
+    fillersConfig?: string | null;
 }
 /**
  *
@@ -285,6 +519,19 @@ export interface BodyCreateOrganizationV1 {
 /**
  *
  * @export
+ * @interface BodyUploadFileV1
+ */
+export interface BodyUploadFileV1 {
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof BodyUploadFileV1
+     */
+    files: Array<any>;
+}
+/**
+ *
+ * @export
  * @interface Comment
  */
 export interface Comment {
@@ -302,7 +549,7 @@ export interface Comment {
     rating?: number;
 }
 /**
- * Connection id string
+ * This represents the connection between the user and the assistant
  * @export
  * @interface Connection
  */
@@ -312,13 +559,67 @@ export interface Connection {
      * @type {string}
      * @memberof Connection
      */
-    id: string;
+    id?: string;
     /**
      *
-     * @type {ConnectionType}
+     * @type {string}
      * @memberof Connection
      */
-    type: ConnectionType;
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    sourceName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    sourceId?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof Connection
+     */
+    sourceProps?: object | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    agentId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    prospectId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Connection
+     */
+    updatedAt?: string;
 }
 /**
  *
@@ -331,7 +632,7 @@ export interface ConnectionSource {
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceName?: string;
+    sourceName?: ConnectionSourceSourceNameEnum;
     /**
      * Unique identifier for the source
      * @type {string}
@@ -346,12 +647,12 @@ export interface ConnectionSource {
     sourceProps?: object;
 }
 /**
- *
- * @export
- * @enum {string}
- */
-export declare enum ConnectionType {
-    Socket = "socket"
+    * @export
+    * @enum {string}
+    */
+export declare enum ConnectionSourceSourceNameEnum {
+    TWILIO = "TWILIO",
+    BROWSER = "BROWSER"
 }
 /**
  *
@@ -687,6 +988,14 @@ export interface ExternalServicePorvider {
     providerProps?: object | null;
 }
 /**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum FileUploadType {
+    Hive = "hive"
+}
+/**
  * Guest users who are not verified by Trata yet
  * @export
  * @interface GuestInput
@@ -853,11 +1162,17 @@ export interface HiveContent {
      */
     url?: string;
     /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true}
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
      * @type {object}
      * @memberof HiveContent
      */
     hiveProps?: object | null;
+    /**
+     * Internal properties for the hive to store example {\"last_crawled\": \"2021-10-10\"}, {\"queryable_source\": \"postgres\"}
+     * @type {object}
+     * @memberof HiveContent
+     */
+    internalProps?: object | null;
 }
 /**
  *
@@ -894,6 +1209,25 @@ export interface IntelligenceProvider {
      * @memberof IntelligenceProvider
      */
     providerProps?: object | null;
+}
+/**
+ * Internal action endpoint to be used for calling the action inside the module. Not used by external users
+ * @export
+ * @interface InternalActionEndpoint
+ */
+export interface InternalActionEndpoint {
+    /**
+     * Module where the action is defined
+     * @type {string}
+     * @memberof InternalActionEndpoint
+     */
+    module?: string;
+    /**
+     * Function to be called inside the module
+     * @type {string}
+     * @memberof InternalActionEndpoint
+     */
+    _function?: string;
 }
 /**
  *
@@ -1046,13 +1380,13 @@ export interface Mission {
      * @type {Array<Sequence>}
      * @memberof Mission
      */
-    sequence?: Array<Sequence>;
+    sequence?: Array<Sequence> | null;
     /**
      * Conclusion message to be read by the AI agent
      * @type {string}
      * @memberof Mission
      */
-    conclusion?: string | null;
+    farewell?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -1084,6 +1418,12 @@ export interface Organization {
      * @memberof Organization
      */
     externalReferenceIds?: Array<ExternalServicePorvider> | null;
+    /**
+     * Configurations for all the agents going to be created in this org
+     * @type {AgentConfig}
+     * @memberof Organization
+     */
+    agentConfig?: AgentConfig | null;
 }
 /**
  *
@@ -1446,6 +1786,43 @@ export interface ProductOutput {
 /**
  *
  * @export
+ * @interface PromptTemplate
+ */
+export interface PromptTemplate {
+    /**
+     *
+     * @type {string}
+     * @memberof PromptTemplate
+     */
+    prompt: string;
+    /**
+     *
+     * @type {Array<Sequence>}
+     * @memberof PromptTemplate
+     */
+    sequences: Array<Sequence>;
+    /**
+     *
+     * @type {string}
+     * @memberof PromptTemplate
+     */
+    role: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PromptTemplate
+     */
+    roleDescription: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PromptTemplate
+     */
+    name: string;
+}
+/**
+ *
+ * @export
  * @interface ProspectInput
  */
 export interface ProspectInput {
@@ -1497,7 +1874,7 @@ export interface ProspectOutput {
      * @type {string}
      * @memberof ProspectOutput
      */
-    id?: string;
+    id: string;
     /**
      *
      * @type {string}
@@ -1591,6 +1968,25 @@ export declare enum Role {
 /**
  *
  * @export
+ * @interface RoleTemplate
+ */
+export interface RoleTemplate {
+    /**
+     *
+     * @type {string}
+     * @memberof RoleTemplate
+     */
+    roleName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof RoleTemplate
+     */
+    roleDescription: string;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum Sentiment {
@@ -1632,6 +2028,50 @@ export interface Sequence {
 export declare enum SortOrder {
     Asc = "asc",
     Desc = "desc"
+}
+/**
+ *
+ * @export
+ * @interface StatsData
+ */
+export interface StatsData {
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    no_of_prospects: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    appointment_scheduled: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    unqualified: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StatsData
+     */
+    average_call_duration: number;
+}
+/**
+ *
+ * @export
+ * @interface StatsResponse
+ */
+export interface StatsResponse {
+    /**
+     * Overall stats of prospects
+     * @type {StatsData}
+     * @memberof StatsResponse
+     */
+    response: StatsData;
 }
 /**
  *
@@ -1900,12 +2340,364 @@ export declare enum VoiceOutputModelProviderEnum {
     Deepgram = "Deepgram"
 }
 /**
+ * ActionAgentLinkApi - axios parameter creator
+ * @export
+ */
+export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Deleteactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Listactionsofagent
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsOfAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ActionAgentLinkApi - functional programming interface
+ * @export
+ */
+export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Deleteactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Listactionsofagent
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+};
+/**
+ * ActionAgentLinkApi - factory interface
+ * @export
+ */
+export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Createactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Deleteactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Listactionsofagent
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<ActionOutput>>;
+};
+/**
+ * ActionAgentLinkApi - object-oriented interface
+ * @export
+ * @class ActionAgentLinkApi
+ * @extends {BaseAPI}
+ */
+export declare class ActionAgentLinkApi extends BaseAPI {
+    /**
+     *
+     * @summary Createactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Deleteactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Listactionsofagent
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+}
+/**
+ * ActionsApi - axios parameter creator
+ * @export
+ */
+export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createaction
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionV1: (actionInput: ActionInput, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Deleteaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Getaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Listactions
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Updateaction
+     * @param {string} actionId
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateActionV1: (actionId: string, actionInput: ActionInput, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ActionsApi - functional programming interface
+ * @export
+ */
+export declare const ActionsApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createaction
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    /**
+     *
+     * @summary Deleteaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Getaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    /**
+     *
+     * @summary Listactions
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    /**
+     *
+     * @summary Updateaction
+     * @param {string} actionId
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+};
+/**
+ * ActionsApi - factory interface
+ * @export
+ */
+export declare const ActionsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Createaction
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+    /**
+     *
+     * @summary Deleteaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteActionV1(actionId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Getaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getActionV1(actionId: string, options?: any): AxiosPromise<ActionOutput>;
+    /**
+     *
+     * @summary Listactions
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>>;
+    /**
+     *
+     * @summary Updateaction
+     * @param {string} actionId
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+};
+/**
+ * ActionsApi - object-oriented interface
+ * @export
+ * @class ActionsApi
+ * @extends {BaseAPI}
+ */
+export declare class ActionsApi extends BaseAPI {
+    /**
+     *
+     * @summary Createaction
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    /**
+     *
+     * @summary Deleteaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    deleteActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Getaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    /**
+     *
+     * @summary Listactions
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    /**
+     *
+     * @summary Updateaction
+     * @param {string} actionId
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+}
+/**
  * AgentsApi - axios parameter creator
  * @export
  */
 export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -1958,7 +2750,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const AgentsApiFp: (configuration?: Configuration) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2011,7 +2803,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
  */
 export declare const AgentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2066,7 +2858,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
  */
 export declare class AgentsApi extends BaseAPI {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -2516,12 +3308,12 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection: (agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any) => Promise<RequestArgs>;
+    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -2532,12 +3324,12 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -2548,12 +3340,12 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): AxiosPromise<Connection>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -2566,19 +3358,26 @@ export declare class DataPlaneApi extends BaseAPI {
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
 }
 /**
  * HealthApi - axios parameter creator
  * @export
  */
 export declare const HealthApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Status
@@ -2592,6 +3391,13 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
  * @export
  */
 export declare const HealthApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      *
      * @summary Status
@@ -2609,6 +3415,13 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
 export declare const HealthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    faviconFaviconIcoGet(options?: any): AxiosPromise<any>;
+    /**
+     *
      * @summary Status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2624,6 +3437,14 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export declare class HealthApi extends BaseAPI {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApi
+     */
+    faviconFaviconIcoGet(options?: any): Promise<import("axios").AxiosResponse<any>>;
     /**
      *
      * @summary Status
@@ -3041,13 +3862,22 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {Array<string>} requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1: (uploadType: FileUploadType, requestBody: Array<string>, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    deleteUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3070,7 +3900,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3086,6 +3916,15 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     updateUserV1: (userId: string, updateUserPayload: UpdateUserPayload, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1: (uploadType: FileUploadType, files: Array<any>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -3108,13 +3947,22 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {Array<string>} requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3137,7 +3985,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3153,6 +4001,15 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
 };
 /**
  * InternalApi - factory interface
@@ -3175,13 +4032,22 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User>;
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {Array<string>} requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): AxiosPromise<boolean>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInviteV1(userId: string, options?: any): AxiosPromise<User>;
+    deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3204,7 +4070,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3220,6 +4086,15 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): AxiosPromise<Array<string>>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -3246,6 +4121,16 @@ export declare class InternalApi extends BaseAPI {
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {Array<string>} requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -3253,7 +4138,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteInviteV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -3278,7 +4163,7 @@ export declare class InternalApi extends BaseAPI {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3296,6 +4181,235 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<string[]>>;
+}
+/**
+ * KnowledgeBaseApi - axios parameter creator
+ * @export
+ */
+export declare const KnowledgeBaseApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createhive
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createHiveV1: (hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Deletehive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Gethive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Listhives
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Updatehive
+     * @param {string} hiveId
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateHiveV1: (hiveId: string, hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * KnowledgeBaseApi - functional programming interface
+ * @export
+ */
+export declare const KnowledgeBaseApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Createhive
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    /**
+     *
+     * @summary Deletehive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Gethive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    /**
+     *
+     * @summary Listhives
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    /**
+     *
+     * @summary Updatehive
+     * @param {string} hiveId
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+};
+/**
+ * KnowledgeBaseApi - factory interface
+ * @export
+ */
+export declare const KnowledgeBaseApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Createhive
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+    /**
+     *
+     * @summary Deletehive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Gethive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive>;
+    /**
+     *
+     * @summary Listhives
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>>;
+    /**
+     *
+     * @summary Updatehive
+     * @param {string} hiveId
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+};
+/**
+ * KnowledgeBaseApi - object-oriented interface
+ * @export
+ * @class KnowledgeBaseApi
+ * @extends {BaseAPI}
+ */
+export declare class KnowledgeBaseApi extends BaseAPI {
+    /**
+     *
+     * @summary Createhive
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    createHiveV1(hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    /**
+     *
+     * @summary Deletehive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    deleteHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Gethive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    /**
+     *
+     * @summary Listhives
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
+    /**
+     *
+     * @summary Updatehive
+     * @param {string} hiveId
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * MetricsApi - axios parameter creator
@@ -3310,6 +4424,13 @@ export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost: (batchMetricsRequests: BatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet: (options?: any) => Promise<RequestArgs>;
 };
 /**
  * MetricsApi - functional programming interface
@@ -3324,6 +4445,13 @@ export declare const MetricsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
 };
 /**
  * MetricsApi - factory interface
@@ -3338,6 +4466,13 @@ export declare const MetricsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse>;
 };
 /**
  * MetricsApi - object-oriented interface
@@ -3355,6 +4490,14 @@ export declare class MetricsApi extends BaseAPI {
      * @memberof MetricsApi
      */
     getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getOverallStatsV1StatsGet(options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
 }
 /**
  * ProductsApi - axios parameter creator
@@ -3797,6 +4940,104 @@ export declare class ProspectsApi extends BaseAPI {
      * @memberof ProspectsApi
      */
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+}
+/**
+ * UIApi - axios parameter creator
+ * @export
+ */
+export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary List Prompt Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPromptTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Role Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listRoleTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * UIApi - functional programming interface
+ * @export
+ */
+export declare const UIApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary List Prompt Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPromptTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: PromptTemplate;
+    }>>;
+    /**
+     *
+     * @summary List Role Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listRoleTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleTemplate>>>;
+};
+/**
+ * UIApi - factory interface
+ * @export
+ */
+export declare const UIApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary List Prompt Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPromptTemplatesV1(language?: string, options?: any): AxiosPromise<{
+        [key: string]: PromptTemplate;
+    }>;
+    /**
+     *
+     * @summary List Role Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listRoleTemplatesV1(language?: string, options?: any): AxiosPromise<Array<RoleTemplate>>;
+};
+/**
+ * UIApi - object-oriented interface
+ * @export
+ * @class UIApi
+ * @extends {BaseAPI}
+ */
+export declare class UIApi extends BaseAPI {
+    /**
+     *
+     * @summary List Prompt Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listPromptTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<{
+        [key: string]: PromptTemplate;
+    }>>;
+    /**
+     *
+     * @summary List Role Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listRoleTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<RoleTemplate[]>>;
 }
 /**
  * VoiceModelsApi - axios parameter creator

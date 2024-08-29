@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HiveType = exports.ConversationSourceType = exports.ConnectionType = exports.AggregationPeriod = exports.AggregationFormula = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HiveType = exports.FileUploadType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionEndpointMethodEnum = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -37,6 +37,15 @@ var Accent;
     Accent["American"] = "American";
     Accent["Indian"] = "Indian";
 })(Accent = exports.Accent || (exports.Accent = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var ActionEndpointMethodEnum;
+(function (ActionEndpointMethodEnum) {
+    ActionEndpointMethodEnum["GET"] = "GET";
+    ActionEndpointMethodEnum["POST"] = "POST";
+})(ActionEndpointMethodEnum = exports.ActionEndpointMethodEnum || (exports.ActionEndpointMethodEnum = {}));
 /**
  *
  * @export
@@ -60,14 +69,14 @@ var AggregationPeriod;
     AggregationPeriod["DAILY"] = "DAILY";
 })(AggregationPeriod = exports.AggregationPeriod || (exports.AggregationPeriod = {}));
 /**
- *
- * @export
- * @enum {string}
- */
-var ConnectionType;
-(function (ConnectionType) {
-    ConnectionType["Socket"] = "socket";
-})(ConnectionType = exports.ConnectionType || (exports.ConnectionType = {}));
+    * @export
+    * @enum {string}
+    */
+var ConnectionSourceSourceNameEnum;
+(function (ConnectionSourceSourceNameEnum) {
+    ConnectionSourceSourceNameEnum["TWILIO"] = "TWILIO";
+    ConnectionSourceSourceNameEnum["BROWSER"] = "BROWSER";
+})(ConnectionSourceSourceNameEnum = exports.ConnectionSourceSourceNameEnum || (exports.ConnectionSourceSourceNameEnum = {}));
 /**
  *
  * @export
@@ -78,6 +87,15 @@ var ConversationSourceType;
     ConversationSourceType["VOIP"] = "VOIP";
     ConversationSourceType["PHONE"] = "PHONE";
 })(ConversationSourceType = exports.ConversationSourceType || (exports.ConversationSourceType = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var FileUploadType;
+(function (FileUploadType) {
+    FileUploadType["Hive"] = "hive";
+})(FileUploadType = exports.FileUploadType || (exports.FileUploadType = {}));
 /**
  *
  * @export
@@ -393,13 +411,766 @@ var VoiceOutputModelProviderEnum;
     VoiceOutputModelProviderEnum["Deepgram"] = "Deepgram";
 })(VoiceOutputModelProviderEnum = exports.VoiceOutputModelProviderEnum || (exports.VoiceOutputModelProviderEnum = {}));
 /**
+ * ActionAgentLinkApi - axios parameter creator
+ * @export
+ */
+exports.ActionAgentLinkApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionAgentLinkV1: (actionId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionId' is not null or undefined
+            if (actionId === null || actionId === undefined) {
+                throw new base_1.RequiredError('actionId', 'Required parameter actionId was null or undefined when calling createActionAgentLinkV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling createActionAgentLinkV1.');
+            }
+            const localVarPath = `/v1/actions/{action_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"action_id"}}`, encodeURIComponent(String(actionId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Deleteactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionAgentLinkV1: (actionId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionId' is not null or undefined
+            if (actionId === null || actionId === undefined) {
+                throw new base_1.RequiredError('actionId', 'Required parameter actionId was null or undefined when calling deleteActionAgentLinkV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling deleteActionAgentLinkV1.');
+            }
+            const localVarPath = `/v1/actions/{action_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"action_id"}}`, encodeURIComponent(String(actionId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Listactionsofagent
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsOfAgentV1: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling listActionsOfAgentV1.');
+            }
+            const localVarPath = `/v1/ai-agents/{agent_id}/actions`
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * ActionAgentLinkApi - functional programming interface
+ * @export
+ */
+exports.ActionAgentLinkApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionAgentLinkV1(actionId, agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionAgentLinkApiAxiosParamCreator(configuration).createActionAgentLinkV1(actionId, agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Deleteactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionAgentLinkV1(actionId, agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionAgentLinkApiAxiosParamCreator(configuration).deleteActionAgentLinkV1(actionId, agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Listactionsofagent
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsOfAgentV1(agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionAgentLinkApiAxiosParamCreator(configuration).listActionsOfAgentV1(agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * ActionAgentLinkApi - factory interface
+ * @export
+ */
+exports.ActionAgentLinkApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Createactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionAgentLinkV1(actionId, agentId, options) {
+            return exports.ActionAgentLinkApiFp(configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Deleteactionagentlink
+         * @param {string} actionId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionAgentLinkV1(actionId, agentId, options) {
+            return exports.ActionAgentLinkApiFp(configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Listactionsofagent
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsOfAgentV1(agentId, options) {
+            return exports.ActionAgentLinkApiFp(configuration).listActionsOfAgentV1(agentId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * ActionAgentLinkApi - object-oriented interface
+ * @export
+ * @class ActionAgentLinkApi
+ * @extends {BaseAPI}
+ */
+class ActionAgentLinkApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Createactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    createActionAgentLinkV1(actionId, agentId, options) {
+        return exports.ActionAgentLinkApiFp(this.configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Deleteactionagentlink
+     * @param {string} actionId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    deleteActionAgentLinkV1(actionId, agentId, options) {
+        return exports.ActionAgentLinkApiFp(this.configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Listactionsofagent
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionAgentLinkApi
+     */
+    listActionsOfAgentV1(agentId, options) {
+        return exports.ActionAgentLinkApiFp(this.configuration).listActionsOfAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.ActionAgentLinkApi = ActionAgentLinkApi;
+/**
+ * ActionsApi - axios parameter creator
+ * @export
+ */
+exports.ActionsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createaction
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionV1: (actionInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionInput' is not null or undefined
+            if (actionInput === null || actionInput === undefined) {
+                throw new base_1.RequiredError('actionInput', 'Required parameter actionInput was null or undefined when calling createActionV1.');
+            }
+            const localVarPath = `/v1/actions`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof actionInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(actionInput !== undefined ? actionInput : {}) : (actionInput || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Deleteaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionV1: (actionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionId' is not null or undefined
+            if (actionId === null || actionId === undefined) {
+                throw new base_1.RequiredError('actionId', 'Required parameter actionId was null or undefined when calling deleteActionV1.');
+            }
+            const localVarPath = `/v1/actions/{action_id}`
+                .replace(`{${"action_id"}}`, encodeURIComponent(String(actionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Getaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getActionV1: (actionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionId' is not null or undefined
+            if (actionId === null || actionId === undefined) {
+                throw new base_1.RequiredError('actionId', 'Required parameter actionId was null or undefined when calling getActionV1.');
+            }
+            const localVarPath = `/v1/actions/{action_id}`
+                .replace(`{${"action_id"}}`, encodeURIComponent(String(actionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Listactions
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/actions`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Updateaction
+         * @param {string} actionId
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateActionV1: (actionId, actionInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'actionId' is not null or undefined
+            if (actionId === null || actionId === undefined) {
+                throw new base_1.RequiredError('actionId', 'Required parameter actionId was null or undefined when calling updateActionV1.');
+            }
+            // verify required parameter 'actionInput' is not null or undefined
+            if (actionInput === null || actionInput === undefined) {
+                throw new base_1.RequiredError('actionInput', 'Required parameter actionInput was null or undefined when calling updateActionV1.');
+            }
+            const localVarPath = `/v1/actions/{action_id}`
+                .replace(`{${"action_id"}}`, encodeURIComponent(String(actionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof actionInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(actionInput !== undefined ? actionInput : {}) : (actionInput || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * ActionsApi - functional programming interface
+ * @export
+ */
+exports.ActionsApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createaction
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionV1(actionInput, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionsApiAxiosParamCreator(configuration).createActionV1(actionInput, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Deleteaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionV1(actionId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionsApiAxiosParamCreator(configuration).deleteActionV1(actionId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Getaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getActionV1(actionId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionsApiAxiosParamCreator(configuration).getActionV1(actionId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Listactions
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionsApiAxiosParamCreator(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Updateaction
+         * @param {string} actionId
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateActionV1(actionId, actionInput, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ActionsApiAxiosParamCreator(configuration).updateActionV1(actionId, actionInput, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * ActionsApi - factory interface
+ * @export
+ */
+exports.ActionsApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Createaction
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createActionV1(actionInput, options) {
+            return exports.ActionsApiFp(configuration).createActionV1(actionInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Deleteaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteActionV1(actionId, options) {
+            return exports.ActionsApiFp(configuration).deleteActionV1(actionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Getaction
+         * @param {string} actionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getActionV1(actionId, options) {
+            return exports.ActionsApiFp(configuration).getActionV1(actionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Listactions
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return exports.ActionsApiFp(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Updateaction
+         * @param {string} actionId
+         * @param {ActionInput} actionInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateActionV1(actionId, actionInput, options) {
+            return exports.ActionsApiFp(configuration).updateActionV1(actionId, actionInput, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * ActionsApi - object-oriented interface
+ * @export
+ * @class ActionsApi
+ * @extends {BaseAPI}
+ */
+class ActionsApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Createaction
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    createActionV1(actionInput, options) {
+        return exports.ActionsApiFp(this.configuration).createActionV1(actionInput, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Deleteaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    deleteActionV1(actionId, options) {
+        return exports.ActionsApiFp(this.configuration).deleteActionV1(actionId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Getaction
+     * @param {string} actionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    getActionV1(actionId, options) {
+        return exports.ActionsApiFp(this.configuration).getActionV1(actionId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Listactions
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        return exports.ActionsApiFp(this.configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Updateaction
+     * @param {string} actionId
+     * @param {ActionInput} actionInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ActionsApi
+     */
+    updateActionV1(actionId, actionInput, options) {
+        return exports.ActionsApiFp(this.configuration).updateActionV1(actionId, actionInput, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.ActionsApi = ActionsApi;
+/**
  * AgentsApi - axios parameter creator
  * @export
  */
 exports.AgentsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Creates a new AI agent.
+         *
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
@@ -639,7 +1410,7 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
 exports.AgentsApiFp = function (configuration) {
     return {
         /**
-         * Creates a new AI agent.
+         *
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
@@ -734,7 +1505,7 @@ exports.AgentsApiFp = function (configuration) {
 exports.AgentsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Creates a new AI agent.
+         *
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
@@ -800,7 +1571,7 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
  */
 class AgentsApi extends base_1.BaseAPI {
     /**
-     * Creates a new AI agent.
+     *
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
@@ -1714,25 +2485,21 @@ exports.DataPlaneApiAxiosParamCreator = function (configuration) {
          *
          * @summary Createconnection
          * @param {string} agentId
-         * @param {string} prospectId
          * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection: (agentId, prospectId, connectionSource, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createConnection: (agentId, connectionSource, prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
                 throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling createConnection.');
-            }
-            // verify required parameter 'prospectId' is not null or undefined
-            if (prospectId === null || prospectId === undefined) {
-                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling createConnection.');
             }
             // verify required parameter 'connectionSource' is not null or undefined
             if (connectionSource === null || connectionSource === undefined) {
                 throw new base_1.RequiredError('connectionSource', 'Required parameter connectionSource was null or undefined when calling createConnection.');
             }
-            const localVarPath = `/connections`;
+            const localVarPath = `/v1/connections`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -1780,14 +2547,14 @@ exports.DataPlaneApiFp = function (configuration) {
          *
          * @summary Createconnection
          * @param {string} agentId
-         * @param {string} prospectId
          * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection(agentId, prospectId, connectionSource, options) {
+        createConnection(agentId, connectionSource, prospectId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, prospectId, connectionSource, options);
+                const localVarAxiosArgs = yield exports.DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1806,13 +2573,13 @@ exports.DataPlaneApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Createconnection
          * @param {string} agentId
-         * @param {string} prospectId
          * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection(agentId, prospectId, connectionSource, options) {
-            return exports.DataPlaneApiFp(configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(axios, basePath));
+        createConnection(agentId, connectionSource, prospectId, options) {
+            return exports.DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1827,14 +2594,14 @@ class DataPlaneApi extends base_1.BaseAPI {
      *
      * @summary Createconnection
      * @param {string} agentId
-     * @param {string} prospectId
      * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    createConnection(agentId, prospectId, connectionSource, options) {
-        return exports.DataPlaneApiFp(this.configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(this.axios, this.basePath));
+    createConnection(agentId, connectionSource, prospectId, options) {
+        return exports.DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.DataPlaneApi = DataPlaneApi;
@@ -1844,6 +2611,32 @@ exports.DataPlaneApi = DataPlaneApi;
  */
 exports.HealthApiAxiosParamCreator = function (configuration) {
     return {
+        /**
+         *
+         * @summary Favicon
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        faviconFaviconIcoGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/favicon.ico`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
         /**
          *
          * @summary Status
@@ -1880,6 +2673,21 @@ exports.HealthApiFp = function (configuration) {
     return {
         /**
          *
+         * @summary Favicon
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        faviconFaviconIcoGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.HealthApiAxiosParamCreator(configuration).faviconFaviconIcoGet(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1903,6 +2711,15 @@ exports.HealthApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          *
+         * @summary Favicon
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        faviconFaviconIcoGet(options) {
+            return exports.HealthApiFp(configuration).faviconFaviconIcoGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1919,6 +2736,16 @@ exports.HealthApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class HealthApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Favicon
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApi
+     */
+    faviconFaviconIcoGet(options) {
+        return exports.HealthApiFp(this.configuration).faviconFaviconIcoGet(options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      *
      * @summary Status
@@ -2844,16 +3671,64 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Delete File
+         * @param {FileUploadType} uploadType
+         * @param {Array<string>} requestBody
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1: (uploadType, requestBody, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'uploadType' is not null or undefined
+            if (uploadType === null || uploadType === undefined) {
+                throw new base_1.RequiredError('uploadType', 'Required parameter uploadType was null or undefined when calling deleteFileV1.');
+            }
+            // verify required parameter 'requestBody' is not null or undefined
+            if (requestBody === null || requestBody === undefined) {
+                throw new base_1.RequiredError('requestBody', 'Required parameter requestBody was null or undefined when calling deleteFileV1.');
+            }
+            const localVarPath = `/v1/files/{upload_type}`
+                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof requestBody !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(requestBody !== undefined ? requestBody : {}) : (requestBody || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1: (userId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteUserV1: (userId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
-                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling deleteInviteV1.');
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling deleteUserV1.');
             }
             const localVarPath = `/v1/users/{user_id}`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
@@ -2980,7 +3855,7 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3069,6 +3944,57 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         *
+         * @summary Upload File
+         * @param {FileUploadType} uploadType
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1: (uploadType, files, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'uploadType' is not null or undefined
+            if (uploadType === null || uploadType === undefined) {
+                throw new base_1.RequiredError('uploadType', 'Required parameter uploadType was null or undefined when calling uploadFileV1.');
+            }
+            // verify required parameter 'files' is not null or undefined
+            if (files === null || files === undefined) {
+                throw new base_1.RequiredError('files', 'Required parameter files was null or undefined when calling uploadFileV1.');
+            }
+            const localVarPath = `/v1/files/{upload_type}`
+                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            const localVarFormParams = new FormData();
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (files) {
+                localVarFormParams.append('files', files.join(base_1.COLLECTION_FORMATS.csv));
+            }
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = localVarFormParams;
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3109,15 +4035,32 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Delete File
+         * @param {FileUploadType} uploadType
+         * @param {Array<string>} requestBody
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1(uploadType, requestBody, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).deleteFileV1(uploadType, requestBody, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1(userId, options) {
+        deleteUserV1(userId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).deleteInviteV1(userId, options);
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3162,7 +4105,7 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3188,6 +4131,23 @@ exports.InternalApiFp = function (configuration) {
         updateUserV1(userId, updateUserPayload, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Upload File
+         * @param {FileUploadType} uploadType
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1(uploadType, files, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).uploadFileV1(uploadType, files, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3222,14 +4182,25 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
             return exports.InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Delete File
+         * @param {FileUploadType} uploadType
+         * @param {Array<string>} requestBody
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1(uploadType, requestBody, options) {
+            return exports.InternalApiFp(configuration).deleteFileV1(uploadType, requestBody, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInviteV1(userId, options) {
-            return exports.InternalApiFp(configuration).deleteInviteV1(userId, options).then((request) => request(axios, basePath));
+        deleteUserV1(userId, options) {
+            return exports.InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
          * List of all open invites from the organization
@@ -3257,7 +4228,7 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
             return exports.InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
          * @param {*} [options] Override http request option.
@@ -3276,6 +4247,17 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
          */
         updateUserV1(userId, updateUserPayload, options) {
             return exports.InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Upload File
+         * @param {FileUploadType} uploadType
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1(uploadType, files, options) {
+            return exports.InternalApiFp(configuration).uploadFileV1(uploadType, files, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3308,6 +4290,18 @@ class InternalApi extends base_1.BaseAPI {
         return exports.InternalApiFp(this.configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     *
+     * @summary Delete File
+     * @param {FileUploadType} uploadType
+     * @param {Array<string>} requestBody
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    deleteFileV1(uploadType, requestBody, options) {
+        return exports.InternalApiFp(this.configuration).deleteFileV1(uploadType, requestBody, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -3315,8 +4309,8 @@ class InternalApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteInviteV1(userId, options) {
-        return exports.InternalApiFp(this.configuration).deleteInviteV1(userId, options).then((request) => request(this.axios, this.basePath));
+    deleteUserV1(userId, options) {
+        return exports.InternalApiFp(this.configuration).deleteUserV1(userId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List of all open invites from the organization
@@ -3346,7 +4340,7 @@ class InternalApi extends base_1.BaseAPI {
         return exports.InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
      * @param {*} [options] Override http request option.
@@ -3368,8 +4362,491 @@ class InternalApi extends base_1.BaseAPI {
     updateUserV1(userId, updateUserPayload, options) {
         return exports.InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
     }
+    /**
+     *
+     * @summary Upload File
+     * @param {FileUploadType} uploadType
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    uploadFileV1(uploadType, files, options) {
+        return exports.InternalApiFp(this.configuration).uploadFileV1(uploadType, files, options).then((request) => request(this.axios, this.basePath));
+    }
 }
 exports.InternalApi = InternalApi;
+/**
+ * KnowledgeBaseApi - axios parameter creator
+ * @export
+ */
+exports.KnowledgeBaseApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createhive
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createHiveV1: (hiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveContent' is not null or undefined
+            if (hiveContent === null || hiveContent === undefined) {
+                throw new base_1.RequiredError('hiveContent', 'Required parameter hiveContent was null or undefined when calling createHiveV1.');
+            }
+            const localVarPath = `/v1/hives`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Deletehive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveId' is not null or undefined
+            if (hiveId === null || hiveId === undefined) {
+                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling deleteHiveV1.');
+            }
+            const localVarPath = `/v1/hives/{hive_id}`
+                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Gethive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveId' is not null or undefined
+            if (hiveId === null || hiveId === undefined) {
+                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling getHiveV1.');
+            }
+            const localVarPath = `/v1/hives/{hive_id}`
+                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Listhives
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHivesV1: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/hives`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Updatehive
+         * @param {string} hiveId
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateHiveV1: (hiveId, hiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveId' is not null or undefined
+            if (hiveId === null || hiveId === undefined) {
+                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling updateHiveV1.');
+            }
+            // verify required parameter 'hiveContent' is not null or undefined
+            if (hiveContent === null || hiveContent === undefined) {
+                throw new base_1.RequiredError('hiveContent', 'Required parameter hiveContent was null or undefined when calling updateHiveV1.');
+            }
+            const localVarPath = `/v1/hives/{hive_id}`
+                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * KnowledgeBaseApi - functional programming interface
+ * @export
+ */
+exports.KnowledgeBaseApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createhive
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createHiveV1(hiveContent, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).createHiveV1(hiveContent, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Deletehive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteHiveV1(hiveId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).deleteHiveV1(hiveId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Gethive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHiveV1(hiveId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).getHiveV1(hiveId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Listhives
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Updatehive
+         * @param {string} hiveId
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateHiveV1(hiveId, hiveContent, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContent, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * KnowledgeBaseApi - factory interface
+ * @export
+ */
+exports.KnowledgeBaseApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Createhive
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createHiveV1(hiveContent, options) {
+            return exports.KnowledgeBaseApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Deletehive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteHiveV1(hiveId, options) {
+            return exports.KnowledgeBaseApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Gethive
+         * @param {string} hiveId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHiveV1(hiveId, options) {
+            return exports.KnowledgeBaseApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Listhives
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return exports.KnowledgeBaseApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Updatehive
+         * @param {string} hiveId
+         * @param {HiveContent} hiveContent
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateHiveV1(hiveId, hiveContent, options) {
+            return exports.KnowledgeBaseApiFp(configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * KnowledgeBaseApi - object-oriented interface
+ * @export
+ * @class KnowledgeBaseApi
+ * @extends {BaseAPI}
+ */
+class KnowledgeBaseApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Createhive
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    createHiveV1(hiveContent, options) {
+        return exports.KnowledgeBaseApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Deletehive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    deleteHiveV1(hiveId, options) {
+        return exports.KnowledgeBaseApiFp(this.configuration).deleteHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Gethive
+     * @param {string} hiveId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    getHiveV1(hiveId, options) {
+        return exports.KnowledgeBaseApiFp(this.configuration).getHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Listhives
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        return exports.KnowledgeBaseApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Updatehive
+     * @param {string} hiveId
+     * @param {HiveContent} hiveContent
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KnowledgeBaseApi
+     */
+    updateHiveV1(hiveId, hiveContent, options) {
+        return exports.KnowledgeBaseApiFp(this.configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.KnowledgeBaseApi = KnowledgeBaseApi;
 /**
  * MetricsApi - axios parameter creator
  * @export
@@ -3418,6 +4895,40 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         *
+         * @summary Getoverallstats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOverallStatsV1StatsGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/stats`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3442,6 +4953,21 @@ exports.MetricsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         *
+         * @summary Getoverallstats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOverallStatsV1StatsGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -3459,6 +4985,15 @@ exports.MetricsApiFactory = function (configuration, basePath, axios) {
          */
         getMetricsV1MetricsPost(batchMetricsRequests, options) {
             return exports.MetricsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Getoverallstats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOverallStatsV1StatsGet(options) {
+            return exports.MetricsApiFp(configuration).getOverallStatsV1StatsGet(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3479,6 +5014,16 @@ class MetricsApi extends base_1.BaseAPI {
      */
     getMetricsV1MetricsPost(batchMetricsRequests, options) {
         return exports.MetricsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Getoverallstats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getOverallStatsV1StatsGet(options) {
+        return exports.MetricsApiFp(this.configuration).getOverallStatsV1StatsGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.MetricsApi = MetricsApi;
@@ -4431,6 +5976,189 @@ class ProspectsApi extends base_1.BaseAPI {
     }
 }
 exports.ProspectsApi = ProspectsApi;
+/**
+ * UIApi - axios parameter creator
+ * @export
+ */
+exports.UIApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary List Prompt Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPromptTemplatesV1: (language, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/ui/prompt-templates`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Role Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRoleTemplatesV1: (language, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/ui/role-templates`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * UIApi - functional programming interface
+ * @export
+ */
+exports.UIApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary List Prompt Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPromptTemplatesV1(language, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UIApiAxiosParamCreator(configuration).listPromptTemplatesV1(language, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary List Role Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRoleTemplatesV1(language, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UIApiAxiosParamCreator(configuration).listRoleTemplatesV1(language, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * UIApi - factory interface
+ * @export
+ */
+exports.UIApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary List Prompt Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPromptTemplatesV1(language, options) {
+            return exports.UIApiFp(configuration).listPromptTemplatesV1(language, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Role Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRoleTemplatesV1(language, options) {
+            return exports.UIApiFp(configuration).listRoleTemplatesV1(language, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * UIApi - object-oriented interface
+ * @export
+ * @class UIApi
+ * @extends {BaseAPI}
+ */
+class UIApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary List Prompt Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listPromptTemplatesV1(language, options) {
+        return exports.UIApiFp(this.configuration).listPromptTemplatesV1(language, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Role Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listRoleTemplatesV1(language, options) {
+        return exports.UIApiFp(this.configuration).listRoleTemplatesV1(language, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.UIApi = UIApi;
 /**
  * VoiceModelsApi - axios parameter creator
  * @export
