@@ -38,11 +38,11 @@ export interface AIAgentInput {
      */
     imageUrl?: string;
     /**
-     * Mission of the AI agent
+     * 
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission?: Mission | null;
+    mission: Mission | null;
     /**
      * 
      * @type {Status}
@@ -103,7 +103,7 @@ export interface AIAgentOutput {
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission?: Mission | null;
+    mission: Mission | null;
     /**
      * 
      * @type {string}
@@ -121,19 +121,19 @@ export interface AIAgentOutput {
      * @type {Transcriber}
      * @memberof AIAgentOutput
      */
-    transcriber?: Transcriber | null;
+    transcriber: Transcriber | null;
     /**
      * 
      * @type {IntelligenceProvider}
      * @memberof AIAgentOutput
      */
-    intelligenceProvider?: IntelligenceProvider | null;
+    intelligenceProvider: IntelligenceProvider | null;
     /**
      * 
      * @type {VoiceOutput}
      * @memberof AIAgentOutput
      */
-    voice?: VoiceOutput | null;
+    voice: VoiceOutput | null;
     /**
      * 
      * @type {string}
@@ -211,49 +211,6 @@ export interface Address {
      * @memberof Address
      */
     country?: string;
-}
-/**
- * 
- * @export
- * @interface AgentConfig
- */
-export interface AgentConfig {
-    /**
-     * Enum class representing transcriber
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    transcriber: string;
-    /**
-     * Enum class representing intelligence provider
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    intelligenceProvider: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    synthesizer: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    embeddingsModelConfig: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    hiveStorageConfig: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    fillersConfig?: string | null;
 }
 /**
  * 
@@ -338,19 +295,6 @@ export interface BodyCreateOrganizationV1 {
 /**
  * 
  * @export
- * @interface BodyUploadFileV1
- */
-export interface BodyUploadFileV1 {
-    /**
-     * 
-     * @type {Array<any>}
-     * @memberof BodyUploadFileV1
-     */
-    files: Array<any>;
-}
-/**
- * 
- * @export
  * @interface Comment
  */
 export interface Comment {
@@ -368,7 +312,7 @@ export interface Comment {
     rating?: number;
 }
 /**
- * This represents the connection between the user and the assistant
+ * Connection id string
  * @export
  * @interface Connection
  */
@@ -378,67 +322,13 @@ export interface Connection {
      * @type {string}
      * @memberof Connection
      */
-    id?: string;
+    id: string;
     /**
      * 
-     * @type {string}
+     * @type {ConnectionType}
      * @memberof Connection
      */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceId?: string;
-    /**
-     * 
-     * @type {object}
-     * @memberof Connection
-     */
-    sourceProps?: object | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    agentId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    prospectId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedAt?: string;
+    type: ConnectionType;
 }
 /**
  * 
@@ -451,7 +341,7 @@ export interface ConnectionSource {
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceName?: ConnectionSourceSourceNameEnum;
+    sourceName?: string;
     /**
      * Unique identifier for the source
      * @type {string}
@@ -465,14 +355,13 @@ export interface ConnectionSource {
      */
     sourceProps?: object;
 }
-
 /**
-    * @export
-    * @enum {string}
-    */
-export enum ConnectionSourceSourceNameEnum {
-    TWILIO = 'TWILIO',
-    BROWSER = 'BROWSER'
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum ConnectionType {
+    Socket = 'socket'
 }
 
 /**
@@ -810,28 +699,6 @@ export interface ExternalServicePorvider {
     providerProps?: object | null;
 }
 /**
- * 
- * @export
- * @interface FileIDs
- */
-export interface FileIDs {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof FileIDs
-     */
-    file_ids: Array<string>;
-}
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum FileUploadType {
-    Hive = 'hive'
-}
-
-/**
  * Guest users who are not verified by Trata yet
  * @export
  * @interface GuestInput
@@ -998,17 +865,11 @@ export interface HiveContent {
      */
     url?: string;
     /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true}
      * @type {object}
      * @memberof HiveContent
      */
     hiveProps?: object | null;
-    /**
-     * Internal properties for the hive to store example {\"last_crawled\": \"2021-10-10\"}, {\"queryable_source\": \"postgres\"}
-     * @type {object}
-     * @memberof HiveContent
-     */
-    internalProps?: object | null;
 }
 /**
  * 
@@ -1206,7 +1067,7 @@ export interface Mission {
      * @type {string}
      * @memberof Mission
      */
-    farewell?: string | null;
+    conclusion?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -1238,12 +1099,6 @@ export interface Organization {
      * @memberof Organization
      */
     externalReferenceIds?: Array<ExternalServicePorvider> | null;
-    /**
-     * Configurations for all the agents going to be created in this org
-     * @type {AgentConfig}
-     * @memberof Organization
-     */
-    agentConfig?: AgentConfig | null;
 }
 /**
  * 
@@ -1659,7 +1514,7 @@ export interface ProspectOutput {
      * @type {string}
      * @memberof ProspectOutput
      */
-    id: string;
+    id?: string;
     /**
      * 
      * @type {string}
@@ -1799,50 +1654,6 @@ export enum SortOrder {
     Desc = 'desc'
 }
 
-/**
- * 
- * @export
- * @interface StatsData
- */
-export interface StatsData {
-    /**
-     * 
-     * @type {number}
-     * @memberof StatsData
-     */
-    no_of_prospects: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof StatsData
-     */
-    appointment_scheduled: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof StatsData
-     */
-    unqualified: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof StatsData
-     */
-    average_call_duration: number;
-}
-/**
- * 
- * @export
- * @interface StatsResponse
- */
-export interface StatsResponse {
-    /**
-     * Overall stats of prospects
-     * @type {StatsData}
-     * @memberof StatsResponse
-     */
-    response: StatsData;
-}
 /**
  * 
  * @export
@@ -2122,7 +1933,7 @@ export enum VoiceOutputModelProviderEnum {
 export const AgentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
+         * Creates a new AI agent.
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
@@ -2397,7 +2208,7 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
 export const AgentsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
+         * Creates a new AI agent.
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
@@ -2483,7 +2294,7 @@ export const AgentsApiFp = function(configuration?: Configuration) {
 export const AgentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
+         * Creates a new AI agent.
          * @summary Createaiagent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
@@ -2550,7 +2361,7 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
  */
 export class AgentsApi extends BaseAPI {
     /**
-     * 
+     * Creates a new AI agent.
      * @summary Createaiagent
      * @param {AIAgentInput} aIAgentInput 
      * @param {*} [options] Override http request option.
@@ -3524,21 +3335,25 @@ export const DataPlaneApiAxiosParamCreator = function (configuration?: Configura
          * 
          * @summary Createconnection
          * @param {string} agentId 
+         * @param {string} prospectId 
          * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection: async (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options: any = {}): Promise<RequestArgs> => {
+        createConnection: async (agentId: string, prospectId: string, connectionSource: ConnectionSource, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'agentId' is not null or undefined
             if (agentId === null || agentId === undefined) {
                 throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling createConnection.');
+            }
+            // verify required parameter 'prospectId' is not null or undefined
+            if (prospectId === null || prospectId === undefined) {
+                throw new RequiredError('prospectId','Required parameter prospectId was null or undefined when calling createConnection.');
             }
             // verify required parameter 'connectionSource' is not null or undefined
             if (connectionSource === null || connectionSource === undefined) {
                 throw new RequiredError('connectionSource','Required parameter connectionSource was null or undefined when calling createConnection.');
             }
-            const localVarPath = `/v1/connections`;
+            const localVarPath = `/connections`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -3595,13 +3410,13 @@ export const DataPlaneApiFp = function(configuration?: Configuration) {
          * 
          * @summary Createconnection
          * @param {string} agentId 
+         * @param {string} prospectId 
          * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>> {
-            const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
+        async createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>> {
+            const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, prospectId, connectionSource, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -3620,13 +3435,13 @@ export const DataPlaneApiFactory = function (configuration?: Configuration, base
          * 
          * @summary Createconnection
          * @param {string} agentId 
+         * @param {string} prospectId 
          * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection> {
-            return DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
+        createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any): AxiosPromise<Connection> {
+            return DataPlaneApiFp(configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3642,14 +3457,14 @@ export class DataPlaneApi extends BaseAPI {
      * 
      * @summary Createconnection
      * @param {string} agentId 
+     * @param {string} prospectId 
      * @param {ConnectionSource} connectionSource 
-     * @param {string} [prospectId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    public createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) {
-        return DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
+    public createConnection(agentId: string, prospectId: string, connectionSource: ConnectionSource, options?: any) {
+        return DataPlaneApiFp(this.configuration).createConnection(agentId, prospectId, connectionSource, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -3661,36 +3476,6 @@ export class DataPlaneApi extends BaseAPI {
  */
 export const HealthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        faviconFaviconIcoGet: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/favicon.ico`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * 
          * @summary Status
@@ -3732,19 +3517,6 @@ export const HealthApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async faviconFaviconIcoGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await HealthApiAxiosParamCreator(configuration).faviconFaviconIcoGet(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3767,15 +3539,6 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
     return {
         /**
          * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        faviconFaviconIcoGet(options?: any): AxiosPromise<any> {
-            return HealthApiFp(configuration).faviconFaviconIcoGet(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3793,17 +3556,6 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
  * @extends {BaseAPI}
  */
 export class HealthApi extends BaseAPI {
-    /**
-     * 
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof HealthApi
-     */
-    public faviconFaviconIcoGet(options?: any) {
-        return HealthApiFp(this.configuration).faviconFaviconIcoGet(options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @summary Status
@@ -4795,70 +4547,16 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {FileIDs} fileIDs 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFileV1: async (uploadType: FileUploadType, fileIDs: FileIDs, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uploadType' is not null or undefined
-            if (uploadType === null || uploadType === undefined) {
-                throw new RequiredError('uploadType','Required parameter uploadType was null or undefined when calling deleteFileV1.');
-            }
-            // verify required parameter 'fileIDs' is not null or undefined
-            if (fileIDs === null || fileIDs === undefined) {
-                throw new RequiredError('fileIDs','Required parameter fileIDs was null or undefined when calling deleteFileV1.');
-            }
-            const localVarPath = `/v1/files/{upload_type}`
-                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof fileIDs !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(fileIDs !== undefined ? fileIDs : {}) : (fileIDs || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserV1: async (userId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteInviteV1: async (userId: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteUserV1.');
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteInviteV1.');
             }
             const localVarPath = `/v1/users/{user_id}`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
@@ -5007,7 +4705,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -5108,64 +4806,6 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @summary Upload File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadFileV1: async (uploadType: FileUploadType, files: Array<any>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uploadType' is not null or undefined
-            if (uploadType === null || uploadType === undefined) {
-                throw new RequiredError('uploadType','Required parameter uploadType was null or undefined when calling uploadFileV1.');
-            }
-            // verify required parameter 'files' is not null or undefined
-            if (files === null || files === undefined) {
-                throw new RequiredError('files','Required parameter files was null or undefined when calling uploadFileV1.');
-            }
-            const localVarPath = `/v1/files/{upload_type}`
-                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new FormData();
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (files) {
-            
-                localVarFormParams.append('files', files.join(COLLECTION_FORMATS.csv));
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -5203,29 +4843,14 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {FileIDs} fileIDs 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteFileV1(uploadType, fileIDs, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
+        async deleteInviteV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteInviteV1(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5265,7 +4890,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -5288,21 +4913,6 @@ export const InternalApiFp = function(configuration?: Configuration) {
          */
         async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Upload File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).uploadFileV1(uploadType, files, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5337,25 +4947,14 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {FileIDs} fileIDs 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any): AxiosPromise<boolean> {
-            return InternalApiFp(configuration).deleteFileV1(uploadType, fileIDs, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserV1(userId: string, options?: any): AxiosPromise<User> {
-            return InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
+        deleteInviteV1(userId: string, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).deleteInviteV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
          * List of all open invites from the organization
@@ -5383,7 +4982,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * 
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
          * @param {*} [options] Override http request option.
@@ -5402,17 +5001,6 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          */
         updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Upload File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): AxiosPromise<boolean> {
-            return InternalApiFp(configuration).uploadFileV1(uploadType, files, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5448,19 +5036,6 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Delete File
-     * @param {FileUploadType} uploadType 
-     * @param {FileIDs} fileIDs 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public deleteFileV1(uploadType: FileUploadType, fileIDs: FileIDs, options?: any) {
-        return InternalApiFp(this.configuration).deleteFileV1(uploadType, fileIDs, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId 
@@ -5468,8 +5043,8 @@ export class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public deleteUserV1(userId: string, options?: any) {
-        return InternalApiFp(this.configuration).deleteUserV1(userId, options).then((request) => request(this.axios, this.basePath));
+    public deleteInviteV1(userId: string, options?: any) {
+        return InternalApiFp(this.configuration).deleteInviteV1(userId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5502,7 +5077,7 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * 
      * @summary Inviteusers
      * @param {GuestInput} guestInput 
      * @param {*} [options] Override http request option.
@@ -5524,19 +5099,6 @@ export class InternalApi extends BaseAPI {
      */
     public updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any) {
         return InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Upload File
-     * @param {FileUploadType} uploadType 
-     * @param {Array<any>} files 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any) {
-        return InternalApiFp(this.configuration).uploadFileV1(uploadType, files, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -5596,45 +5158,6 @@ export const MetricsApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOverallStatsV1StatsGet: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/stats`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -5653,19 +5176,6 @@ export const MetricsApiFp = function(configuration?: Configuration) {
          */
         async getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
             const localVarAxiosArgs = await MetricsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>> {
-            const localVarAxiosArgs = await MetricsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5690,15 +5200,6 @@ export const MetricsApiFactory = function (configuration?: Configuration, basePa
         getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse> {
             return MetricsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
         },
-        /**
-         * 
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse> {
-            return MetricsApiFp(configuration).getOverallStatsV1StatsGet(options).then((request) => request(axios, basePath));
-        },
     };
 };
 
@@ -5719,17 +5220,6 @@ export class MetricsApi extends BaseAPI {
      */
     public getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any) {
         return MetricsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Getoverallstats
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MetricsApi
-     */
-    public getOverallStatsV1StatsGet(options?: any) {
-        return MetricsApiFp(this.configuration).getOverallStatsV1StatsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
