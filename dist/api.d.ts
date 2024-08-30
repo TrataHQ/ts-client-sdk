@@ -461,6 +461,74 @@ export declare enum AggregationPeriod {
 /**
  *
  * @export
+ * @interface BackendDbModelsHiveContent
+ */
+export interface BackendDbModelsHiveContent {
+    /**
+     *
+     * @type {HiveType}
+     * @memberof BackendDbModelsHiveContent
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof BackendDbModelsHiveContent
+     */
+    url?: string | null;
+    /**
+     * List of files to be referenced for the hive
+     * @type {Array<Files>}
+     * @memberof BackendDbModelsHiveContent
+     */
+    files?: Array<Files> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof BackendDbModelsHiveContent
+     */
+    hiveProps?: object | null;
+    /**
+     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
+     * @type {object}
+     * @memberof BackendDbModelsHiveContent
+     */
+    internalProps?: object | null;
+}
+/**
+ *
+ * @export
+ * @interface BackendDtoModelsHiveContent
+ */
+export interface BackendDtoModelsHiveContent {
+    /**
+     *
+     * @type {HiveType}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    url?: string | null;
+    /**
+     * List of file ids to be referenced for the hive
+     * @type {Array<string>}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    file_ids?: Array<string> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    hiveProps?: object | null;
+}
+/**
+ *
+ * @export
  * @interface BaseResponse
  */
 export interface BaseResponse {
@@ -988,12 +1056,59 @@ export interface ExternalServicePorvider {
     providerProps?: object | null;
 }
 /**
- *
+ * Stores the map of file id with respective file URL in storage manager
  * @export
- * @enum {string}
+ * @interface Files
  */
-export declare enum FileUploadType {
-    Hive = "hive"
+export interface Files {
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    fileName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    fileUrl?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Files
+     */
+    updatedAt?: string;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -1108,10 +1223,10 @@ export interface Hive {
     orgId?: string;
     /**
      *
-     * @type {HiveContent}
+     * @type {HiveContentOutput}
      * @memberof Hive
      */
-    content: HiveContent;
+    content: HiveContentOutput;
     /**
      *
      * @type {string}
@@ -1146,31 +1261,37 @@ export interface Hive {
 /**
  *
  * @export
- * @interface HiveContent
+ * @interface HiveContentOutput
  */
-export interface HiveContent {
+export interface HiveContentOutput {
     /**
      *
      * @type {HiveType}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     hiveType: HiveType;
     /**
      * URL of the content
      * @type {string}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
-    url?: string;
+    url?: string | null;
+    /**
+     * List of files to be referenced for the hive
+     * @type {Array<Files>}
+     * @memberof HiveContentOutput
+     */
+    files?: Array<Files> | null;
     /**
      * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
      * @type {object}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     hiveProps?: object | null;
     /**
-     * Internal properties for the hive to store example {\"last_crawled\": \"2021-10-10\"}, {\"queryable_source\": \"postgres\"}
+     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
      * @type {object}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     internalProps?: object | null;
 }
@@ -3373,13 +3494,6 @@ export declare class DataPlaneApi extends BaseAPI {
 export declare const HealthApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    faviconFaviconIcoGet: (options?: any) => Promise<RequestArgs>;
-    /**
-     *
      * @summary Status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3391,13 +3505,6 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
  * @export
  */
 export declare const HealthApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    faviconFaviconIcoGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      *
      * @summary Status
@@ -3413,13 +3520,6 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const HealthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    faviconFaviconIcoGet(options?: any): AxiosPromise<any>;
     /**
      *
      * @summary Status
@@ -3439,14 +3539,6 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
 export declare class HealthApi extends BaseAPI {
     /**
      *
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof HealthApi
-     */
-    faviconFaviconIcoGet(options?: any): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     *
      * @summary Status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3464,11 +3556,11 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+    createHiveV1: (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Deletehive
@@ -3503,11 +3595,11 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1: (hiveId: string, hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+    updateHiveV1: (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) => Promise<RequestArgs>;
 };
 /**
  * HiveApi - functional programming interface
@@ -3517,11 +3609,11 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -3556,11 +3648,11 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * HiveApi - factory interface
@@ -3570,11 +3662,11 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive>;
     /**
      *
      * @summary Deletehive
@@ -3609,11 +3701,11 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive>;
 };
 /**
  * HiveApi - object-oriented interface
@@ -3625,12 +3717,12 @@ export declare class HiveApi extends BaseAPI {
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -3668,12 +3760,12 @@ export declare class HiveApi extends BaseAPI {
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * HiveAgentLinkApi - axios parameter creator
@@ -3864,12 +3956,11 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
     /**
      *
      * @summary Delete File
-     * @param {FileUploadType} uploadType
-     * @param {Array<string>} requestBody
+     * @param {string} fileIds
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1: (uploadType: FileUploadType, requestBody: Array<string>, options?: any) => Promise<RequestArgs>;
+    deleteFileV1: (fileIds: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -3919,12 +4010,11 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
     /**
      *
      * @summary Upload File
-     * @param {FileUploadType} uploadType
      * @param {Array<any>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1: (uploadType: FileUploadType, files: Array<any>, options?: any) => Promise<RequestArgs>;
+    uploadFileV1: (files: Array<any>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -3949,12 +4039,11 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Delete File
-     * @param {FileUploadType} uploadType
-     * @param {Array<string>} requestBody
+     * @param {string} fileIds
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -4004,12 +4093,11 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Upload File
-     * @param {FileUploadType} uploadType
      * @param {Array<any>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
+    uploadFileV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * InternalApi - factory interface
@@ -4034,12 +4122,11 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
     /**
      *
      * @summary Delete File
-     * @param {FileUploadType} uploadType
-     * @param {Array<string>} requestBody
+     * @param {string} fileIds
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): AxiosPromise<boolean>;
+    deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -4089,12 +4176,11 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
     /**
      *
      * @summary Upload File
-     * @param {FileUploadType} uploadType
      * @param {Array<any>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): AxiosPromise<Array<string>>;
+    uploadFileV1(files: Array<any>, options?: any): AxiosPromise<Array<Files>>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -4123,13 +4209,12 @@ export declare class InternalApi extends BaseAPI {
     /**
      *
      * @summary Delete File
-     * @param {FileUploadType} uploadType
-     * @param {Array<string>} requestBody
+     * @param {string} fileIds
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
+    deleteFileV1(fileIds: string, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -4184,13 +4269,12 @@ export declare class InternalApi extends BaseAPI {
     /**
      *
      * @summary Upload File
-     * @param {FileUploadType} uploadType
      * @param {Array<any>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<string[]>>;
+    uploadFileV1(files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<Files[]>>;
 }
 /**
  * KnowledgeBaseApi - axios parameter creator
@@ -4200,11 +4284,11 @@ export declare const KnowledgeBaseApiAxiosParamCreator: (configuration?: Configu
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+    createHiveV1: (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Deletehive
@@ -4239,11 +4323,11 @@ export declare const KnowledgeBaseApiAxiosParamCreator: (configuration?: Configu
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1: (hiveId: string, hiveContent: HiveContent, options?: any) => Promise<RequestArgs>;
+    updateHiveV1: (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) => Promise<RequestArgs>;
 };
 /**
  * KnowledgeBaseApi - functional programming interface
@@ -4253,11 +4337,11 @@ export declare const KnowledgeBaseApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -4292,11 +4376,11 @@ export declare const KnowledgeBaseApiFp: (configuration?: Configuration) => {
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * KnowledgeBaseApi - factory interface
@@ -4306,11 +4390,11 @@ export declare const KnowledgeBaseApiFactory: (configuration?: Configuration, ba
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive>;
     /**
      *
      * @summary Deletehive
@@ -4345,11 +4429,11 @@ export declare const KnowledgeBaseApiFactory: (configuration?: Configuration, ba
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive>;
 };
 /**
  * KnowledgeBaseApi - object-oriented interface
@@ -4361,12 +4445,12 @@ export declare class KnowledgeBaseApi extends BaseAPI {
     /**
      *
      * @summary Createhive
-     * @param {HiveContent} hiveContent
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof KnowledgeBaseApi
      */
-    createHiveV1(hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      *
      * @summary Deletehive
@@ -4404,12 +4488,12 @@ export declare class KnowledgeBaseApi extends BaseAPI {
      *
      * @summary Updatehive
      * @param {string} hiveId
-     * @param {HiveContent} hiveContent
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof KnowledgeBaseApi
      */
-    updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * MetricsApi - axios parameter creator

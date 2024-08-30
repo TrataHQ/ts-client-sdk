@@ -473,6 +473,74 @@ export enum AggregationPeriod {
 /**
  * 
  * @export
+ * @interface BackendDbModelsHiveContent
+ */
+export interface BackendDbModelsHiveContent {
+    /**
+     * 
+     * @type {HiveType}
+     * @memberof BackendDbModelsHiveContent
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof BackendDbModelsHiveContent
+     */
+    url?: string | null;
+    /**
+     * List of files to be referenced for the hive
+     * @type {Array<Files>}
+     * @memberof BackendDbModelsHiveContent
+     */
+    files?: Array<Files> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof BackendDbModelsHiveContent
+     */
+    hiveProps?: object | null;
+    /**
+     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
+     * @type {object}
+     * @memberof BackendDbModelsHiveContent
+     */
+    internalProps?: object | null;
+}
+/**
+ * 
+ * @export
+ * @interface BackendDtoModelsHiveContent
+ */
+export interface BackendDtoModelsHiveContent {
+    /**
+     * 
+     * @type {HiveType}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    url?: string | null;
+    /**
+     * List of file ids to be referenced for the hive
+     * @type {Array<string>}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    file_ids?: Array<string> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof BackendDtoModelsHiveContent
+     */
+    hiveProps?: object | null;
+}
+/**
+ * 
+ * @export
  * @interface BaseResponse
  */
 export interface BaseResponse {
@@ -1003,14 +1071,60 @@ export interface ExternalServicePorvider {
     providerProps?: object | null;
 }
 /**
- * 
+ * Stores the map of file id with respective file URL in storage manager
  * @export
- * @enum {string}
+ * @interface Files
  */
-export enum FileUploadType {
-    Hive = 'hive'
+export interface Files {
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    fileName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    fileUrl?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Files
+     */
+    updatedAt?: string;
 }
-
 /**
  * Guest users who are not verified by Trata yet
  * @export
@@ -1124,10 +1238,10 @@ export interface Hive {
     orgId?: string;
     /**
      * 
-     * @type {HiveContent}
+     * @type {HiveContentOutput}
      * @memberof Hive
      */
-    content: HiveContent;
+    content: HiveContentOutput;
     /**
      * 
      * @type {string}
@@ -1162,31 +1276,37 @@ export interface Hive {
 /**
  * 
  * @export
- * @interface HiveContent
+ * @interface HiveContentOutput
  */
-export interface HiveContent {
+export interface HiveContentOutput {
     /**
      * 
      * @type {HiveType}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     hiveType: HiveType;
     /**
      * URL of the content
      * @type {string}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
-    url?: string;
+    url?: string | null;
+    /**
+     * List of files to be referenced for the hive
+     * @type {Array<Files>}
+     * @memberof HiveContentOutput
+     */
+    files?: Array<Files> | null;
     /**
      * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
      * @type {object}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     hiveProps?: object | null;
     /**
-     * Internal properties for the hive to store example {\"last_crawled\": \"2021-10-10\"}, {\"queryable_source\": \"postgres\"}
+     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
      * @type {object}
-     * @memberof HiveContent
+     * @memberof HiveContentOutput
      */
     internalProps?: object | null;
 }
@@ -4720,36 +4840,6 @@ export const HealthApiAxiosParamCreator = function (configuration?: Configuratio
     return {
         /**
          * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        faviconFaviconIcoGet: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/favicon.ico`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4789,19 +4879,6 @@ export const HealthApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async faviconFaviconIcoGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await HealthApiAxiosParamCreator(configuration).faviconFaviconIcoGet(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4824,15 +4901,6 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
     return {
         /**
          * 
-         * @summary Favicon
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        faviconFaviconIcoGet(options?: any): AxiosPromise<any> {
-            return HealthApiFp(configuration).faviconFaviconIcoGet(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
          * @summary Status
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4850,17 +4918,6 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
  * @extends {BaseAPI}
  */
 export class HealthApi extends BaseAPI {
-    /**
-     * 
-     * @summary Favicon
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof HealthApi
-     */
-    public faviconFaviconIcoGet(options?: any) {
-        return HealthApiFp(this.configuration).faviconFaviconIcoGet(options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * 
      * @summary Status
@@ -4884,14 +4941,14 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: async (hiveContent: HiveContent, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'hiveContent' is not null or undefined
-            if (hiveContent === null || hiveContent === undefined) {
-                throw new RequiredError('hiveContent','Required parameter hiveContent was null or undefined when calling createHiveV1.');
+        createHiveV1: async (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
+            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
+                throw new RequiredError('backendDtoModelsHiveContent','Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -4921,8 +4978,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -5097,18 +5154,18 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1: async (hiveId: string, hiveContent: HiveContent, options: any = {}): Promise<RequestArgs> => {
+        updateHiveV1: async (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
                 throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling updateHiveV1.');
             }
-            // verify required parameter 'hiveContent' is not null or undefined
-            if (hiveContent === null || hiveContent === undefined) {
-                throw new RequiredError('hiveContent','Required parameter hiveContent was null or undefined when calling updateHiveV1.');
+            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
+            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
+                throw new RequiredError('backendDbModelsHiveContent','Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
             }
             const localVarPath = `/v1/hives/{hive_id}`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
@@ -5139,8 +5196,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -5159,12 +5216,12 @@ export const HiveApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(hiveContent, options);
+        async createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5222,12 +5279,12 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContent, options);
+        async updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5245,12 +5302,12 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
-            return HiveApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
+        createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive> {
+            return HiveApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -5292,12 +5349,12 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
-            return HiveApiFp(configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(axios, basePath));
+        updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive> {
+            return HiveApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5312,13 +5369,13 @@ export class HiveApi extends BaseAPI {
     /**
      * 
      * @summary Createhive
-     * @param {HiveContent} hiveContent 
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public createHiveV1(hiveContent: HiveContent, options?: any) {
-        return HiveApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
+    public createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) {
+        return HiveApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5367,13 +5424,13 @@ export class HiveApi extends BaseAPI {
      * 
      * @summary Updatehive
      * @param {string} hiveId 
-     * @param {HiveContent} hiveContent 
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any) {
-        return HiveApiFp(this.configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(this.axios, this.basePath));
+    public updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) {
+        return HiveApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -5854,22 +5911,16 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<string>} requestBody 
+         * @param {string} fileIds 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFileV1: async (uploadType: FileUploadType, requestBody: Array<string>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uploadType' is not null or undefined
-            if (uploadType === null || uploadType === undefined) {
-                throw new RequiredError('uploadType','Required parameter uploadType was null or undefined when calling deleteFileV1.');
+        deleteFileV1: async (fileIds: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fileIds' is not null or undefined
+            if (fileIds === null || fileIds === undefined) {
+                throw new RequiredError('fileIds','Required parameter fileIds was null or undefined when calling deleteFileV1.');
             }
-            // verify required parameter 'requestBody' is not null or undefined
-            if (requestBody === null || requestBody === undefined) {
-                throw new RequiredError('requestBody','Required parameter requestBody was null or undefined when calling deleteFileV1.');
-            }
-            const localVarPath = `/v1/files/{upload_type}`
-                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
+            const localVarPath = `/v1/files`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -5888,17 +5939,17 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
 
+            if (fileIds !== undefined) {
+                localVarQueryParameter['file_ids'] = fileIds;
+            }
+
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof requestBody !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(requestBody !== undefined ? requestBody : {}) : (requestBody || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -6168,22 +6219,16 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Upload File
-         * @param {FileUploadType} uploadType 
          * @param {Array<any>} files 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadFileV1: async (uploadType: FileUploadType, files: Array<any>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uploadType' is not null or undefined
-            if (uploadType === null || uploadType === undefined) {
-                throw new RequiredError('uploadType','Required parameter uploadType was null or undefined when calling uploadFileV1.');
-            }
+        uploadFileV1: async (files: Array<any>, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'files' is not null or undefined
             if (files === null || files === undefined) {
                 throw new RequiredError('files','Required parameter files was null or undefined when calling uploadFileV1.');
             }
-            const localVarPath = `/v1/files/{upload_type}`
-                .replace(`{${"upload_type"}}`, encodeURIComponent(String(uploadType)));
+            const localVarPath = `/v1/files`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -6262,13 +6307,12 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<string>} requestBody 
+         * @param {string} fileIds 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteFileV1(uploadType, requestBody, options);
+        async deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteFileV1(fileIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6353,13 +6397,12 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Upload File
-         * @param {FileUploadType} uploadType 
          * @param {Array<any>} files 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).uploadFileV1(uploadType, files, options);
+        async uploadFileV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).uploadFileV1(files, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6396,13 +6439,12 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary Delete File
-         * @param {FileUploadType} uploadType 
-         * @param {Array<string>} requestBody 
+         * @param {string} fileIds 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any): AxiosPromise<boolean> {
-            return InternalApiFp(configuration).deleteFileV1(uploadType, requestBody, options).then((request) => request(axios, basePath));
+        deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean> {
+            return InternalApiFp(configuration).deleteFileV1(fileIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a user
@@ -6463,13 +6505,12 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary Upload File
-         * @param {FileUploadType} uploadType 
          * @param {Array<any>} files 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any): AxiosPromise<Array<string>> {
-            return InternalApiFp(configuration).uploadFileV1(uploadType, files, options).then((request) => request(axios, basePath));
+        uploadFileV1(files: Array<any>, options?: any): AxiosPromise<Array<Files>> {
+            return InternalApiFp(configuration).uploadFileV1(files, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6507,14 +6548,13 @@ export class InternalApi extends BaseAPI {
     /**
      * 
      * @summary Delete File
-     * @param {FileUploadType} uploadType 
-     * @param {Array<string>} requestBody 
+     * @param {string} fileIds 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public deleteFileV1(uploadType: FileUploadType, requestBody: Array<string>, options?: any) {
-        return InternalApiFp(this.configuration).deleteFileV1(uploadType, requestBody, options).then((request) => request(this.axios, this.basePath));
+    public deleteFileV1(fileIds: string, options?: any) {
+        return InternalApiFp(this.configuration).deleteFileV1(fileIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6586,14 +6626,13 @@ export class InternalApi extends BaseAPI {
     /**
      * 
      * @summary Upload File
-     * @param {FileUploadType} uploadType 
      * @param {Array<any>} files 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public uploadFileV1(uploadType: FileUploadType, files: Array<any>, options?: any) {
-        return InternalApiFp(this.configuration).uploadFileV1(uploadType, files, options).then((request) => request(this.axios, this.basePath));
+    public uploadFileV1(files: Array<any>, options?: any) {
+        return InternalApiFp(this.configuration).uploadFileV1(files, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -6608,14 +6647,14 @@ export const KnowledgeBaseApiAxiosParamCreator = function (configuration?: Confi
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: async (hiveContent: HiveContent, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'hiveContent' is not null or undefined
-            if (hiveContent === null || hiveContent === undefined) {
-                throw new RequiredError('hiveContent','Required parameter hiveContent was null or undefined when calling createHiveV1.');
+        createHiveV1: async (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
+            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
+                throw new RequiredError('backendDtoModelsHiveContent','Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -6645,8 +6684,8 @@ export const KnowledgeBaseApiAxiosParamCreator = function (configuration?: Confi
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -6821,18 +6860,18 @@ export const KnowledgeBaseApiAxiosParamCreator = function (configuration?: Confi
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1: async (hiveId: string, hiveContent: HiveContent, options: any = {}): Promise<RequestArgs> => {
+        updateHiveV1: async (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
                 throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling updateHiveV1.');
             }
-            // verify required parameter 'hiveContent' is not null or undefined
-            if (hiveContent === null || hiveContent === undefined) {
-                throw new RequiredError('hiveContent','Required parameter hiveContent was null or undefined when calling updateHiveV1.');
+            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
+            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
+                throw new RequiredError('backendDbModelsHiveContent','Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
             }
             const localVarPath = `/v1/hives/{hive_id}`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
@@ -6863,8 +6902,8 @@ export const KnowledgeBaseApiAxiosParamCreator = function (configuration?: Confi
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof hiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContent !== undefined ? hiveContent : {}) : (hiveContent || "");
+            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -6883,12 +6922,12 @@ export const KnowledgeBaseApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createHiveV1(hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).createHiveV1(hiveContent, options);
+        async createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6946,12 +6985,12 @@ export const KnowledgeBaseApiFp = function(configuration?: Configuration) {
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContent, options);
+        async updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6969,12 +7008,12 @@ export const KnowledgeBaseApiFactory = function (configuration?: Configuration, 
         /**
          * 
          * @summary Createhive
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
-            return KnowledgeBaseApiFp(configuration).createHiveV1(hiveContent, options).then((request) => request(axios, basePath));
+        createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive> {
+            return KnowledgeBaseApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -7016,12 +7055,12 @@ export const KnowledgeBaseApiFactory = function (configuration?: Configuration, 
          * 
          * @summary Updatehive
          * @param {string} hiveId 
-         * @param {HiveContent} hiveContent 
+         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any): AxiosPromise<Hive> {
-            return KnowledgeBaseApiFp(configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(axios, basePath));
+        updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive> {
+            return KnowledgeBaseApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7036,13 +7075,13 @@ export class KnowledgeBaseApi extends BaseAPI {
     /**
      * 
      * @summary Createhive
-     * @param {HiveContent} hiveContent 
+     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof KnowledgeBaseApi
      */
-    public createHiveV1(hiveContent: HiveContent, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).createHiveV1(hiveContent, options).then((request) => request(this.axios, this.basePath));
+    public createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) {
+        return KnowledgeBaseApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -7091,13 +7130,13 @@ export class KnowledgeBaseApi extends BaseAPI {
      * 
      * @summary Updatehive
      * @param {string} hiveId 
-     * @param {HiveContent} hiveContent 
+     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof KnowledgeBaseApi
      */
-    public updateHiveV1(hiveId: string, hiveContent: HiveContent, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).updateHiveV1(hiveId, hiveContent, options).then((request) => request(this.axios, this.basePath));
+    public updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) {
+        return KnowledgeBaseApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
