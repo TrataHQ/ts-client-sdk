@@ -23,13 +23,13 @@ export interface AIAgentInput {
      * @type {string}
      * @memberof AIAgentInput
      */
-    name?: string;
+    name: string;
     /**
      * Image URL for the AI agent
      * @type {string}
      * @memberof AIAgentInput
      */
-    imageUrl?: string;
+    imageUrl: string;
     /**
      * Mission of the AI agent
      * @type {Mission}
@@ -41,25 +41,25 @@ export interface AIAgentInput {
      * @type {Status}
      * @memberof AIAgentInput
      */
-    status?: Status;
+    status: Status;
     /**
      * Role of the AI agent in the company
      * @type {string}
      * @memberof AIAgentInput
      */
-    role?: string;
+    role: string;
     /**
      * Description of the role of the AI agent
      * @type {string}
      * @memberof AIAgentInput
      */
-    roleDescription?: string;
+    roleDescription: string;
     /**
      * Timezone of the AI agent used for scheduling meetings
      * @type {string}
      * @memberof AIAgentInput
      */
-    timezone?: string;
+    timezone: string;
     /**
      * Voice of the AI agent
      * @type {VoiceInput}
@@ -182,39 +182,6 @@ export declare enum Accent {
 /**
  *
  * @export
- * @interface ActionEndpoint
- */
-export interface ActionEndpoint {
-    /**
-     * Action endpoint URL
-     * @type {string}
-     * @memberof ActionEndpoint
-     */
-    url?: string;
-    /**
-     * Method to be used for invoking the endpoint
-     * @type {string}
-     * @memberof ActionEndpoint
-     */
-    method?: ActionEndpointMethodEnum;
-    /**
-     * Headers for the endpoint
-     * @type {any}
-     * @memberof ActionEndpoint
-     */
-    headers?: any | null;
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ActionEndpointMethodEnum {
-    GET = "GET",
-    POST = "POST"
-}
-/**
- *
- * @export
  * @interface ActionInput
  */
 export interface ActionInput {
@@ -223,25 +190,25 @@ export interface ActionInput {
      * @type {string}
      * @memberof ActionInput
      */
-    name?: string;
+    name: string;
     /**
      * Description about the action and it should also contain when the action should be triggered
      * @type {string}
      * @memberof ActionInput
      */
-    description?: string;
+    description: string;
     /**
      * Parameters for the action. It should be a JSON schema object
      * @type {object}
      * @memberof ActionInput
      */
-    parameters?: object;
+    parameters: object;
     /**
      * Endpoint for the action
-     * @type {ActionEndpoint}
+     * @type {HttpActionEndpoint | InternalActionEndpoint}
      * @memberof ActionInput
      */
-    endpoint?: ActionEndpoint;
+    endpoint: HttpActionEndpoint | InternalActionEndpoint;
     /**
      * Text to be rendered to user when action is invoked
      * @type {string}
@@ -260,103 +227,35 @@ export interface ActionInput {
      * @memberof ActionInput
      */
     userErrorText?: string | null;
+    /**
+     * When could the action be invoked
+     * @type {string}
+     * @memberof ActionInput
+     */
+    invocationTiming: ActionInputInvocationTimingEnum;
+    /**
+     * Trigger who invokes the action
+     * @type {string}
+     * @memberof ActionInput
+     */
+    invocationTrigger: ActionInputInvocationTriggerEnum;
 }
 /**
- * Action entity to store the actions which can be performed by ai agents
- * @export
- * @interface ActionOutput
- */
-export interface ActionOutput {
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    name?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    description?: string;
-    /**
-     *
-     * @type {object}
-     * @memberof ActionOutput
-     */
-    parameters?: object | null;
-    /**
-     *
-     * @type {ActionEndpoint}
-     * @memberof ActionOutput
-     */
-    endpoint?: ActionEndpoint | null;
-    /**
-     *
-     * @type {InternalActionEndpoint}
-     * @memberof ActionOutput
-     */
-    internalEndpoint?: InternalActionEndpoint | null;
-    /**
-     * Type of the action - EXTERNAL/INTERNAL
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    type?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    userWaitingText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    userSuccessText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    userErrorText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ActionOutput
-     */
-    updatedAt?: string;
+    * @export
+    * @enum {string}
+    */
+export declare enum ActionInputInvocationTimingEnum {
+    DuringConversation = "during_conversation",
+    AfterConversation = "after_conversation"
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum ActionInputInvocationTriggerEnum {
+    UserQuery = "user_query",
+    LifecycleCallStarted = "lifecycle.call_started",
+    LifecycleCallEnded = "lifecycle.call_ended"
 }
 /**
  *
@@ -369,7 +268,7 @@ export interface Address {
      * @type {string}
      * @memberof Address
      */
-    line1?: string;
+    line1: string;
     /**
      * Address line 2
      * @type {string}
@@ -393,7 +292,7 @@ export interface Address {
      * @type {string}
      * @memberof Address
      */
-    country?: string;
+    country: string;
 }
 /**
  *
@@ -459,6 +358,109 @@ export declare enum AggregationPeriod {
     DAILY = "DAILY"
 }
 /**
+ * Action entity to store the actions which can be performed by ai agents
+ * @export
+ * @interface BackendDbModelsAction
+ */
+export interface BackendDbModelsAction {
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    name?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    description?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof BackendDbModelsAction
+     */
+    parameters?: object | null;
+    /**
+     *
+     * @type {object}
+     * @memberof BackendDbModelsAction
+     */
+    endpoint?: object | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    invocationTiming?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    invocationTrigger?: string | null;
+    /**
+     * Type of the action - EXTERNAL/INTERNAL
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    type?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    userWaitingText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    userSuccessText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    userErrorText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BackendDbModelsAction
+     */
+    updatedAt?: string;
+}
+/**
  *
  * @export
  * @interface BackendDbModelsHiveContent
@@ -494,6 +496,84 @@ export interface BackendDbModelsHiveContent {
      * @memberof BackendDbModelsHiveContent
      */
     internalProps?: object | null;
+}
+/**
+ *
+ * @export
+ * @interface BackendDtoModelsAction
+ */
+export interface BackendDtoModelsAction {
+    /**
+     * Name of the action
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    name: string;
+    /**
+     * Description about the action and it should also contain when the action should be triggered
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    description: string;
+    /**
+     * Parameters for the action. It should be a JSON schema object
+     * @type {object}
+     * @memberof BackendDtoModelsAction
+     */
+    parameters: object;
+    /**
+     * Endpoint for the action
+     * @type {HttpActionEndpoint | InternalActionEndpoint}
+     * @memberof BackendDtoModelsAction
+     */
+    endpoint: HttpActionEndpoint | InternalActionEndpoint;
+    /**
+     * Text to be rendered to user when action is invoked
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    userWaitingText?: string | null;
+    /**
+     * Text to be rendered to user when action is successful
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    userSuccessText?: string | null;
+    /**
+     * Text to be rendered to user when action is not successful
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    userErrorText?: string | null;
+    /**
+     * When could the action be invoked
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    invocationTiming: BackendDtoModelsActionInvocationTimingEnum;
+    /**
+     * Trigger who invokes the action
+     * @type {string}
+     * @memberof BackendDtoModelsAction
+     */
+    invocationTrigger: BackendDtoModelsActionInvocationTriggerEnum;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum BackendDtoModelsActionInvocationTimingEnum {
+    DuringConversation = "during_conversation",
+    AfterConversation = "after_conversation"
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum BackendDtoModelsActionInvocationTriggerEnum {
+    UserQuery = "user_query",
+    LifecycleCallStarted = "lifecycle.call_started",
+    LifecycleCallEnded = "lifecycle.call_ended"
 }
 /**
  *
@@ -537,7 +617,7 @@ export interface BaseResponse {
      * @type {string}
      * @memberof BaseResponse
      */
-    message?: string;
+    message: string;
 }
 /**
  *
@@ -608,13 +688,13 @@ export interface Comment {
      * @type {string}
      * @memberof Comment
      */
-    comment?: string;
+    comment: string;
     /**
      * Star rating to record
      * @type {number}
      * @memberof Comment
      */
-    rating?: number;
+    rating: number;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -706,13 +786,13 @@ export interface ConnectionSource {
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceId?: string;
+    sourceId: string;
     /**
      * Extra properties of source
      * @type {object}
      * @memberof ConnectionSource
      */
-    sourceProps?: object;
+    sourceProps: object;
 }
 /**
     * @export
@@ -733,7 +813,7 @@ export interface ConversationAnalytics {
      * @type {Sentiment}
      * @memberof ConversationAnalytics
      */
-    sentiment?: Sentiment;
+    sentiment: Sentiment;
     /**
      * Had any repetitive conversations or not as part of the request
      * @type {boolean}
@@ -825,19 +905,19 @@ export interface ConversationInput {
      * @type {string}
      * @memberof ConversationInput
      */
-    source?: string;
+    source: string;
     /**
      * Type of the conversation source
      * @type {ConversationSourceType}
      * @memberof ConversationInput
      */
-    sourceType?: ConversationSourceType;
+    sourceType: ConversationSourceType;
     /**
      * AI agent which handled the conversation
      * @type {string}
      * @memberof ConversationInput
      */
-    agentId?: string;
+    agentId: string;
     /**
      * URL to the full transcript of the conversation
      * @type {string}
@@ -861,7 +941,7 @@ export interface ConversationInput {
      * @type {string}
      * @memberof ConversationInput
      */
-    timestampStart?: string;
+    timestampStart: string;
     /**
      * End time of the conversation
      * @type {string}
@@ -1002,8 +1082,8 @@ export interface ConversationOutput {
  * @enum {string}
  */
 export declare enum ConversationSourceType {
-    VOIP = "VOIP",
-    PHONE = "PHONE"
+    BROWSER = "BROWSER",
+    TWILIO = "TWILIO"
 }
 /**
  *
@@ -1016,13 +1096,13 @@ export interface ExternalReference {
      * @type {string}
      * @memberof ExternalReference
      */
-    providerName?: string;
+    providerName: string;
     /**
      * External service identifier
      * @type {string}
      * @memberof ExternalReference
      */
-    id?: string;
+    id: string;
     /**
      * Props for the external reference
      * @type {any}
@@ -1041,19 +1121,19 @@ export interface ExternalServicePorvider {
      * @type {string}
      * @memberof ExternalServicePorvider
      */
-    providerName?: string;
+    providerName: string;
     /**
      * External service identifier
      * @type {string}
      * @memberof ExternalServicePorvider
      */
-    id?: string;
+    id: string;
     /**
      * Props for the external service provider
      * @type {object}
      * @memberof ExternalServicePorvider
      */
-    providerProps?: object | null;
+    providerProps: object | null;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -1309,6 +1389,45 @@ export declare enum HiveType {
 /**
  *
  * @export
+ * @interface HttpActionEndpoint
+ */
+export interface HttpActionEndpoint {
+    /**
+     * Action endpoint URL
+     * @type {string}
+     * @memberof HttpActionEndpoint
+     */
+    url: string;
+    /**
+     * Method to be used for invoking the endpoint
+     * @type {string}
+     * @memberof HttpActionEndpoint
+     */
+    method?: HttpActionEndpointMethodEnum;
+    /**
+     * Headers for the endpoint
+     * @type {any}
+     * @memberof HttpActionEndpoint
+     */
+    headers?: any | null;
+    /**
+     * Payload for the endpoint
+     * @type {any}
+     * @memberof HttpActionEndpoint
+     */
+    payload?: any | null;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum HttpActionEndpointMethodEnum {
+    GET = "GET",
+    POST = "POST"
+}
+/**
+ *
+ * @export
  * @interface IntelligenceProvider
  */
 export interface IntelligenceProvider {
@@ -1342,13 +1461,13 @@ export interface InternalActionEndpoint {
      * @type {string}
      * @memberof InternalActionEndpoint
      */
-    module?: string;
+    module: string;
     /**
      * Function to be called inside the module
      * @type {string}
      * @memberof InternalActionEndpoint
      */
-    _function?: string;
+    _function: string;
 }
 /**
  *
@@ -1402,13 +1521,13 @@ export interface MetricResponseDataPoint {
      * @type {string}
      * @memberof MetricResponseDataPoint
      */
-    timestamp?: string;
+    timestamp: string;
     /**
      * Value which will be a string representation of integer or floating number
      * @type {string}
      * @memberof MetricResponseDataPoint
      */
-    value?: string;
+    value: string;
 }
 /**
  *
@@ -1421,37 +1540,37 @@ export interface MetricsRequest {
      * @type {string}
      * @memberof MetricsRequest
      */
-    id?: string;
+    id: string;
     /**
      * Name of the metric
      * @type {MetricName}
      * @memberof MetricsRequest
      */
-    name?: MetricName;
+    name: MetricName;
     /**
      * Start date to get metric request
      * @type {string}
      * @memberof MetricsRequest
      */
-    fromDate?: string;
+    fromDate: string;
     /**
      * End date until get metric request
      * @type {string}
      * @memberof MetricsRequest
      */
-    toDate?: string;
+    toDate: string;
     /**
      * Aggregation period for the metric request
      * @type {AggregationPeriod}
      * @memberof MetricsRequest
      */
-    aggregationPeriod?: AggregationPeriod;
+    aggregationPeriod: AggregationPeriod;
     /**
      * Aggregation formula for the metric request
      * @type {AggregationFormula}
      * @memberof MetricsRequest
      */
-    aggregationFormula?: AggregationFormula;
+    aggregationFormula: AggregationFormula;
 }
 /**
  *
@@ -1464,19 +1583,19 @@ export interface MetricsResponse {
      * @type {string}
      * @memberof MetricsResponse
      */
-    id?: string;
+    id: string;
     /**
      * Name of the metric
      * @type {MetricName}
      * @memberof MetricsResponse
      */
-    name?: MetricName;
+    name: MetricName;
     /**
      * List of data points for the metric response
      * @type {Array<MetricResponseDataPoint>}
      * @memberof MetricsResponse
      */
-    datapoints?: Array<MetricResponseDataPoint>;
+    datapoints: Array<MetricResponseDataPoint>;
 }
 /**
  *
@@ -1489,13 +1608,13 @@ export interface Mission {
      * @type {string}
      * @memberof Mission
      */
-    prompt?: string;
+    prompt: string;
     /**
      * Greeting message to be read by the AI agent
      * @type {string}
      * @memberof Mission
      */
-    greeting?: string | null;
+    greeting: string | null;
     /**
      * Sequence of actions to be performed by the AI agent during the conversation.
      * @type {Array<Sequence>}
@@ -1520,7 +1639,7 @@ export interface Organization {
      * @type {string}
      * @memberof Organization
      */
-    name?: string;
+    name: string;
     /**
      * Address of the organization
      * @type {Address}
@@ -1557,31 +1676,31 @@ export interface ProductInput {
      * @type {boolean}
      * @memberof ProductInput
      */
-    active?: boolean;
+    active: boolean;
     /**
      * Default price of the product this is represented in the lowest currency denomination. Eg: 1000 for $10
      * @type {number}
      * @memberof ProductInput
      */
-    defaultPrice?: number;
+    defaultPrice: number;
     /**
      * Currency of the product
      * @type {string}
      * @memberof ProductInput
      */
-    currency?: ProductInputCurrencyEnum;
+    currency: ProductInputCurrencyEnum;
     /**
      * Description of the product
      * @type {string}
      * @memberof ProductInput
      */
-    description?: string;
+    description: string;
     /**
      * Name of the product
      * @type {string}
      * @memberof ProductInput
      */
-    name?: string;
+    name: string;
     /**
      * Product is shippable or not. Service is not shippable
      * @type {boolean}
@@ -1952,7 +2071,7 @@ export interface ProspectInput {
      * @type {string}
      * @memberof ProspectInput
      */
-    name?: string;
+    name: string;
     /**
      * Email of the prospect
      * @type {string}
@@ -2127,13 +2246,13 @@ export interface Sequence {
      * @type {string}
      * @memberof Sequence
      */
-    stageName?: string;
+    stageName: string;
     /**
      * Description of the stage
      * @type {string}
      * @memberof Sequence
      */
-    description?: string;
+    description: string;
     /**
      * Other notes that AI agent should know in this stage of conversation
      * @type {string}
@@ -2214,13 +2333,13 @@ export interface TaxDetails {
      * @type {string}
      * @memberof TaxDetails
      */
-    id?: string;
+    id: string;
     /**
      * Any extra info related to Tax
      * @type {object}
      * @memberof TaxDetails
      */
-    taxProps?: object | null;
+    taxProps: object | null;
 }
 /**
  *
@@ -2332,6 +2451,55 @@ export interface User {
      * @memberof User
      */
     updatedAt?: string;
+}
+/**
+ * User id to api key mapping table
+ * @export
+ * @interface UserApiKeyLink
+ */
+export interface UserApiKeyLink {
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    userId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    secretKey?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    expiresAt?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserApiKeyLink
+     */
+    isActive?: boolean;
 }
 /**
  *
@@ -2522,7 +2690,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>>;
 };
 /**
  * ActionAgentLinkApi - factory interface
@@ -2554,7 +2722,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<ActionOutput>>;
+    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<BackendDbModelsAction>>;
 };
 /**
  * ActionAgentLinkApi - object-oriented interface
@@ -2591,7 +2759,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction[]>>;
 }
 /**
  * ActionsApi - axios parameter creator
@@ -2658,7 +2826,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
     /**
      *
      * @summary Deleteaction
@@ -2674,7 +2842,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
     /**
      *
      * @summary Listactions
@@ -2688,7 +2856,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>>;
     /**
      *
      * @summary Updateaction
@@ -2697,7 +2865,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
 };
 /**
  * ActionsApi - factory interface
@@ -2711,7 +2879,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction>;
     /**
      *
      * @summary Deleteaction
@@ -2727,7 +2895,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): AxiosPromise<ActionOutput>;
+    getActionV1(actionId: string, options?: any): AxiosPromise<BackendDbModelsAction>;
     /**
      *
      * @summary Listactions
@@ -2741,7 +2909,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<BackendDbModelsAction>>;
     /**
      *
      * @summary Updateaction
@@ -2750,7 +2918,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction>;
 };
 /**
  * ActionsApi - object-oriented interface
@@ -2767,7 +2935,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
     /**
      *
      * @summary Deleteaction
@@ -2785,7 +2953,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
     /**
      *
      * @summary Listactions
@@ -2800,7 +2968,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction[]>>;
     /**
      *
      * @summary Updateaction
@@ -2810,7 +2978,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
 }
 /**
  * AgentsApi - axios parameter creator
@@ -3030,6 +3198,123 @@ export declare class AgentsApi extends BaseAPI {
      * @memberof AgentsApi
      */
     updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+}
+/**
+ * ApiKeyApi - axios parameter creator
+ * @export
+ */
+export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Create Api Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createApiKeyV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Delete Api Key
+     * @param {string} keyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteApiKeyV1: (keyId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Api Keys
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listApiKeysV1: (options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ApiKeyApi - functional programming interface
+ * @export
+ */
+export declare const ApiKeyApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Create Api Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createApiKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    /**
+     *
+     * @summary Delete Api Key
+     * @param {string} keyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary List Api Keys
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listApiKeysV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserApiKeyLink>>>;
+};
+/**
+ * ApiKeyApi - factory interface
+ * @export
+ */
+export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Create Api Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createApiKeyV1(options?: any): AxiosPromise<UserApiKeyLink>;
+    /**
+     *
+     * @summary Delete Api Key
+     * @param {string} keyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary List Api Keys
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listApiKeysV1(options?: any): AxiosPromise<Array<UserApiKeyLink>>;
+};
+/**
+ * ApiKeyApi - object-oriented interface
+ * @export
+ * @class ApiKeyApi
+ * @extends {BaseAPI}
+ */
+export declare class ApiKeyApi extends BaseAPI {
+    /**
+     *
+     * @summary Create Api Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    createApiKeyV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    /**
+     *
+     * @summary Delete Api Key
+     * @param {string} keyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    deleteApiKeyV1(keyId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary List Api Keys
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    listApiKeysV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink[]>>;
 }
 /**
  * ConversationProspectLinkApi - axios parameter creator
@@ -5032,6 +5317,14 @@ export declare class ProspectsApi extends BaseAPI {
 export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary List Action Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary List Prompt Templates
      * @param {string} [language]
      * @param {*} [options] Override http request option.
@@ -5052,6 +5345,14 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
  * @export
  */
 export declare const UIApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary List Action Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>>;
     /**
      *
      * @summary List Prompt Templates
@@ -5078,6 +5379,14 @@ export declare const UIApiFp: (configuration?: Configuration) => {
 export declare const UIApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary List Action Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listActionsV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>>;
+    /**
+     *
      * @summary List Prompt Templates
      * @param {string} [language]
      * @param {*} [options] Override http request option.
@@ -5102,6 +5411,15 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
  * @extends {BaseAPI}
  */
 export declare class UIApi extends BaseAPI {
+    /**
+     *
+     * @summary List Action Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listActionsV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<BackendDtoModelsAction[]>>;
     /**
      *
      * @summary List Prompt Templates

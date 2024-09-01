@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionEndpointMethodEnum = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.BackendDtoModelsActionInvocationTriggerEnum = exports.BackendDtoModelsActionInvocationTimingEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInputInvocationTriggerEnum = exports.ActionInputInvocationTimingEnum = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -41,11 +41,21 @@ var Accent;
     * @export
     * @enum {string}
     */
-var ActionEndpointMethodEnum;
-(function (ActionEndpointMethodEnum) {
-    ActionEndpointMethodEnum["GET"] = "GET";
-    ActionEndpointMethodEnum["POST"] = "POST";
-})(ActionEndpointMethodEnum = exports.ActionEndpointMethodEnum || (exports.ActionEndpointMethodEnum = {}));
+var ActionInputInvocationTimingEnum;
+(function (ActionInputInvocationTimingEnum) {
+    ActionInputInvocationTimingEnum["DuringConversation"] = "during_conversation";
+    ActionInputInvocationTimingEnum["AfterConversation"] = "after_conversation";
+})(ActionInputInvocationTimingEnum = exports.ActionInputInvocationTimingEnum || (exports.ActionInputInvocationTimingEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var ActionInputInvocationTriggerEnum;
+(function (ActionInputInvocationTriggerEnum) {
+    ActionInputInvocationTriggerEnum["UserQuery"] = "user_query";
+    ActionInputInvocationTriggerEnum["LifecycleCallStarted"] = "lifecycle.call_started";
+    ActionInputInvocationTriggerEnum["LifecycleCallEnded"] = "lifecycle.call_ended";
+})(ActionInputInvocationTriggerEnum = exports.ActionInputInvocationTriggerEnum || (exports.ActionInputInvocationTriggerEnum = {}));
 /**
  *
  * @export
@@ -72,6 +82,25 @@ var AggregationPeriod;
     * @export
     * @enum {string}
     */
+var BackendDtoModelsActionInvocationTimingEnum;
+(function (BackendDtoModelsActionInvocationTimingEnum) {
+    BackendDtoModelsActionInvocationTimingEnum["DuringConversation"] = "during_conversation";
+    BackendDtoModelsActionInvocationTimingEnum["AfterConversation"] = "after_conversation";
+})(BackendDtoModelsActionInvocationTimingEnum = exports.BackendDtoModelsActionInvocationTimingEnum || (exports.BackendDtoModelsActionInvocationTimingEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var BackendDtoModelsActionInvocationTriggerEnum;
+(function (BackendDtoModelsActionInvocationTriggerEnum) {
+    BackendDtoModelsActionInvocationTriggerEnum["UserQuery"] = "user_query";
+    BackendDtoModelsActionInvocationTriggerEnum["LifecycleCallStarted"] = "lifecycle.call_started";
+    BackendDtoModelsActionInvocationTriggerEnum["LifecycleCallEnded"] = "lifecycle.call_ended";
+})(BackendDtoModelsActionInvocationTriggerEnum = exports.BackendDtoModelsActionInvocationTriggerEnum || (exports.BackendDtoModelsActionInvocationTriggerEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
 var ConnectionSourceSourceNameEnum;
 (function (ConnectionSourceSourceNameEnum) {
     ConnectionSourceSourceNameEnum["TWILIO"] = "TWILIO";
@@ -84,8 +113,8 @@ var ConnectionSourceSourceNameEnum;
  */
 var ConversationSourceType;
 (function (ConversationSourceType) {
-    ConversationSourceType["VOIP"] = "VOIP";
-    ConversationSourceType["PHONE"] = "PHONE";
+    ConversationSourceType["BROWSER"] = "BROWSER";
+    ConversationSourceType["TWILIO"] = "TWILIO";
 })(ConversationSourceType = exports.ConversationSourceType || (exports.ConversationSourceType = {}));
 /**
  *
@@ -99,6 +128,15 @@ var HiveType;
     HiveType["DOCS"] = "DOCS";
     HiveType["TRANSCRIPTS"] = "TRANSCRIPTS";
 })(HiveType = exports.HiveType || (exports.HiveType = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var HttpActionEndpointMethodEnum;
+(function (HttpActionEndpointMethodEnum) {
+    HttpActionEndpointMethodEnum["GET"] = "GET";
+    HttpActionEndpointMethodEnum["POST"] = "POST";
+})(HttpActionEndpointMethodEnum = exports.HttpActionEndpointMethodEnum || (exports.HttpActionEndpointMethodEnum = {}));
 /**
  *
  * @export
@@ -1625,6 +1663,252 @@ class AgentsApi extends base_1.BaseAPI {
     }
 }
 exports.AgentsApi = AgentsApi;
+/**
+ * ApiKeyApi - axios parameter creator
+ * @export
+ */
+exports.ApiKeyApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Create Api Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createApiKeyV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/api-keys`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Delete Api Key
+         * @param {string} keyId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteApiKeyV1: (keyId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'keyId' is not null or undefined
+            if (keyId === null || keyId === undefined) {
+                throw new base_1.RequiredError('keyId', 'Required parameter keyId was null or undefined when calling deleteApiKeyV1.');
+            }
+            const localVarPath = `/v1/api-keys/{key_id}`
+                .replace(`{${"key_id"}}`, encodeURIComponent(String(keyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Api Keys
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listApiKeysV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/api-keys`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * ApiKeyApi - functional programming interface
+ * @export
+ */
+exports.ApiKeyApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Create Api Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createApiKeyV1(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).createApiKeyV1(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Delete Api Key
+         * @param {string} keyId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteApiKeyV1(keyId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).deleteApiKeyV1(keyId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary List Api Keys
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listApiKeysV1(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).listApiKeysV1(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * ApiKeyApi - factory interface
+ * @export
+ */
+exports.ApiKeyApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Create Api Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createApiKeyV1(options) {
+            return exports.ApiKeyApiFp(configuration).createApiKeyV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Delete Api Key
+         * @param {string} keyId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteApiKeyV1(keyId, options) {
+            return exports.ApiKeyApiFp(configuration).deleteApiKeyV1(keyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Api Keys
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listApiKeysV1(options) {
+            return exports.ApiKeyApiFp(configuration).listApiKeysV1(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * ApiKeyApi - object-oriented interface
+ * @export
+ * @class ApiKeyApi
+ * @extends {BaseAPI}
+ */
+class ApiKeyApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Create Api Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    createApiKeyV1(options) {
+        return exports.ApiKeyApiFp(this.configuration).createApiKeyV1(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Delete Api Key
+     * @param {string} keyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    deleteApiKeyV1(keyId, options) {
+        return exports.ApiKeyApiFp(this.configuration).deleteApiKeyV1(keyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Api Keys
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    listApiKeysV1(options) {
+        return exports.ApiKeyApiFp(this.configuration).listApiKeysV1(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.ApiKeyApi = ApiKeyApi;
 /**
  * ConversationProspectLinkApi - axios parameter creator
  * @export
@@ -5897,6 +6181,44 @@ exports.UIApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
+         * @summary List Action Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1: (language, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/ui/action-templates`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
          * @summary List Prompt Templates
          * @param {string} [language]
          * @param {*} [options] Override http request option.
@@ -5981,6 +6303,22 @@ exports.UIApiFp = function (configuration) {
     return {
         /**
          *
+         * @summary List Action Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1(language, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UIApiAxiosParamCreator(configuration).listActionsV1(language, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
          * @summary List Prompt Templates
          * @param {string} [language]
          * @param {*} [options] Override http request option.
@@ -6021,6 +6359,16 @@ exports.UIApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          *
+         * @summary List Action Templates
+         * @param {string} [language]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listActionsV1(language, options) {
+            return exports.UIApiFp(configuration).listActionsV1(language, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
          * @summary List Prompt Templates
          * @param {string} [language]
          * @param {*} [options] Override http request option.
@@ -6048,6 +6396,17 @@ exports.UIApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class UIApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary List Action Templates
+     * @param {string} [language]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listActionsV1(language, options) {
+        return exports.UIApiFp(this.configuration).listActionsV1(language, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      *
      * @summary List Prompt Templates
