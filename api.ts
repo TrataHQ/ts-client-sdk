@@ -236,35 +236,21 @@ export interface ActionInput {
      */
     userErrorText?: string | null;
     /**
-     * When could the action be invoked
-     * @type {string}
-     * @memberof ActionInput
-     */
-    invocationTiming: ActionInputInvocationTimingEnum;
-    /**
      * Trigger who invokes the action
-     * @type {string}
+     * @type {ActionInvocationTrigger}
      * @memberof ActionInput
      */
-    invocationTrigger: ActionInputInvocationTriggerEnum;
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ActionInputInvocationTimingEnum {
-    DuringConversation = 'during_conversation',
-    AfterConversation = 'after_conversation'
+    invocationTrigger: ActionInvocationTrigger;
 }
 /**
-    * @export
-    * @enum {string}
-    */
-export enum ActionInputInvocationTriggerEnum {
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum ActionInvocationTrigger {
     UserQuery = 'user_query',
-    LifecycleCallStarted = 'lifecycle.call_started',
-    LifecycleCallEnded = 'lifecycle.call_ended'
+    WebhookConversationStart = 'webhook.conversation_start',
+    WebhookConversationEnd = 'webhook.conversation_end'
 }
 
 /**
@@ -416,19 +402,7 @@ export interface BackendDbModelsAction {
      * @type {string}
      * @memberof BackendDbModelsAction
      */
-    invocationTiming?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
     invocationTrigger?: string | null;
-    /**
-     * Type of the action - EXTERNAL/INTERNAL
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    type?: string;
     /**
      * 
      * @type {string}
@@ -558,37 +532,12 @@ export interface BackendDtoModelsAction {
      */
     userErrorText?: string | null;
     /**
-     * When could the action be invoked
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    invocationTiming: BackendDtoModelsActionInvocationTimingEnum;
-    /**
      * Trigger who invokes the action
-     * @type {string}
+     * @type {ActionInvocationTrigger}
      * @memberof BackendDtoModelsAction
      */
-    invocationTrigger: BackendDtoModelsActionInvocationTriggerEnum;
+    invocationTrigger: ActionInvocationTrigger;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackendDtoModelsActionInvocationTimingEnum {
-    DuringConversation = 'during_conversation',
-    AfterConversation = 'after_conversation'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum BackendDtoModelsActionInvocationTriggerEnum {
-    UserQuery = 'user_query',
-    LifecycleCallStarted = 'lifecycle.call_started',
-    LifecycleCallEnded = 'lifecycle.call_ended'
-}
-
 /**
  * 
  * @export
@@ -1430,10 +1379,10 @@ export interface HttpActionEndpoint {
     headers?: any | null;
     /**
      * Payload for the endpoint
-     * @type {any}
+     * @type {object}
      * @memberof HttpActionEndpoint
      */
-    payload?: any | null;
+    payload?: object | null;
 }
 
 /**
@@ -8798,7 +8747,7 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1: async (language?: string, options: any = {}): Promise<RequestArgs> => {
+        listActionTemplatesV1: async (language?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ui/action-templates`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8939,8 +8888,8 @@ export const UIApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listActionsV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>> {
-            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listActionsV1(language, options);
+        async listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>> {
+            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listActionTemplatesV1(language, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8990,8 +8939,8 @@ export const UIApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>> {
-            return UIApiFp(configuration).listActionsV1(language, options).then((request) => request(axios, basePath));
+        listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>> {
+            return UIApiFp(configuration).listActionTemplatesV1(language, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -9031,8 +8980,8 @@ export class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    public listActionsV1(language?: string, options?: any) {
-        return UIApiFp(this.configuration).listActionsV1(language, options).then((request) => request(this.axios, this.basePath));
+    public listActionTemplatesV1(language?: string, options?: any) {
+        return UIApiFp(this.configuration).listActionTemplatesV1(language, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

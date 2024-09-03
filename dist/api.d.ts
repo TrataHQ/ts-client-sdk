@@ -228,34 +228,21 @@ export interface ActionInput {
      */
     userErrorText?: string | null;
     /**
-     * When could the action be invoked
-     * @type {string}
-     * @memberof ActionInput
-     */
-    invocationTiming: ActionInputInvocationTimingEnum;
-    /**
      * Trigger who invokes the action
-     * @type {string}
+     * @type {ActionInvocationTrigger}
      * @memberof ActionInput
      */
-    invocationTrigger: ActionInputInvocationTriggerEnum;
+    invocationTrigger: ActionInvocationTrigger;
 }
 /**
-    * @export
-    * @enum {string}
-    */
-export declare enum ActionInputInvocationTimingEnum {
-    DuringConversation = "during_conversation",
-    AfterConversation = "after_conversation"
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ActionInputInvocationTriggerEnum {
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum ActionInvocationTrigger {
     UserQuery = "user_query",
-    LifecycleCallStarted = "lifecycle.call_started",
-    LifecycleCallEnded = "lifecycle.call_ended"
+    WebhookConversationStart = "webhook.conversation_start",
+    WebhookConversationEnd = "webhook.conversation_end"
 }
 /**
  *
@@ -404,19 +391,7 @@ export interface BackendDbModelsAction {
      * @type {string}
      * @memberof BackendDbModelsAction
      */
-    invocationTiming?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
     invocationTrigger?: string | null;
-    /**
-     * Type of the action - EXTERNAL/INTERNAL
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    type?: string;
     /**
      *
      * @type {string}
@@ -546,34 +521,11 @@ export interface BackendDtoModelsAction {
      */
     userErrorText?: string | null;
     /**
-     * When could the action be invoked
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    invocationTiming: BackendDtoModelsActionInvocationTimingEnum;
-    /**
      * Trigger who invokes the action
-     * @type {string}
+     * @type {ActionInvocationTrigger}
      * @memberof BackendDtoModelsAction
      */
-    invocationTrigger: BackendDtoModelsActionInvocationTriggerEnum;
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum BackendDtoModelsActionInvocationTimingEnum {
-    DuringConversation = "during_conversation",
-    AfterConversation = "after_conversation"
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum BackendDtoModelsActionInvocationTriggerEnum {
-    UserQuery = "user_query",
-    LifecycleCallStarted = "lifecycle.call_started",
-    LifecycleCallEnded = "lifecycle.call_ended"
+    invocationTrigger: ActionInvocationTrigger;
 }
 /**
  *
@@ -1412,10 +1364,10 @@ export interface HttpActionEndpoint {
     headers?: any | null;
     /**
      * Payload for the endpoint
-     * @type {any}
+     * @type {object}
      * @memberof HttpActionEndpoint
      */
-    payload?: any | null;
+    payload?: object | null;
 }
 /**
     * @export
@@ -5322,7 +5274,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    listActionTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary List Prompt Templates
@@ -5352,7 +5304,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>>;
+    listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>>;
     /**
      *
      * @summary List Prompt Templates
@@ -5384,7 +5336,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>>;
+    listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>>;
     /**
      *
      * @summary List Prompt Templates
@@ -5419,7 +5371,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listActionsV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<BackendDtoModelsAction[]>>;
+    listActionTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<BackendDtoModelsAction[]>>;
     /**
      *
      * @summary List Prompt Templates

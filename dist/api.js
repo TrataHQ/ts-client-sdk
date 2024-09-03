@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.BackendDtoModelsActionInvocationTriggerEnum = exports.BackendDtoModelsActionInvocationTimingEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInputInvocationTriggerEnum = exports.ActionInputInvocationTimingEnum = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Sentiment = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -38,24 +38,16 @@ var Accent;
     Accent["Indian"] = "Indian";
 })(Accent = exports.Accent || (exports.Accent = {}));
 /**
-    * @export
-    * @enum {string}
-    */
-var ActionInputInvocationTimingEnum;
-(function (ActionInputInvocationTimingEnum) {
-    ActionInputInvocationTimingEnum["DuringConversation"] = "during_conversation";
-    ActionInputInvocationTimingEnum["AfterConversation"] = "after_conversation";
-})(ActionInputInvocationTimingEnum = exports.ActionInputInvocationTimingEnum || (exports.ActionInputInvocationTimingEnum = {}));
-/**
-    * @export
-    * @enum {string}
-    */
-var ActionInputInvocationTriggerEnum;
-(function (ActionInputInvocationTriggerEnum) {
-    ActionInputInvocationTriggerEnum["UserQuery"] = "user_query";
-    ActionInputInvocationTriggerEnum["LifecycleCallStarted"] = "lifecycle.call_started";
-    ActionInputInvocationTriggerEnum["LifecycleCallEnded"] = "lifecycle.call_ended";
-})(ActionInputInvocationTriggerEnum = exports.ActionInputInvocationTriggerEnum || (exports.ActionInputInvocationTriggerEnum = {}));
+ *
+ * @export
+ * @enum {string}
+ */
+var ActionInvocationTrigger;
+(function (ActionInvocationTrigger) {
+    ActionInvocationTrigger["UserQuery"] = "user_query";
+    ActionInvocationTrigger["WebhookConversationStart"] = "webhook.conversation_start";
+    ActionInvocationTrigger["WebhookConversationEnd"] = "webhook.conversation_end";
+})(ActionInvocationTrigger = exports.ActionInvocationTrigger || (exports.ActionInvocationTrigger = {}));
 /**
  *
  * @export
@@ -78,25 +70,6 @@ var AggregationPeriod;
     AggregationPeriod["WEEKLY"] = "WEEKLY";
     AggregationPeriod["DAILY"] = "DAILY";
 })(AggregationPeriod = exports.AggregationPeriod || (exports.AggregationPeriod = {}));
-/**
-    * @export
-    * @enum {string}
-    */
-var BackendDtoModelsActionInvocationTimingEnum;
-(function (BackendDtoModelsActionInvocationTimingEnum) {
-    BackendDtoModelsActionInvocationTimingEnum["DuringConversation"] = "during_conversation";
-    BackendDtoModelsActionInvocationTimingEnum["AfterConversation"] = "after_conversation";
-})(BackendDtoModelsActionInvocationTimingEnum = exports.BackendDtoModelsActionInvocationTimingEnum || (exports.BackendDtoModelsActionInvocationTimingEnum = {}));
-/**
-    * @export
-    * @enum {string}
-    */
-var BackendDtoModelsActionInvocationTriggerEnum;
-(function (BackendDtoModelsActionInvocationTriggerEnum) {
-    BackendDtoModelsActionInvocationTriggerEnum["UserQuery"] = "user_query";
-    BackendDtoModelsActionInvocationTriggerEnum["LifecycleCallStarted"] = "lifecycle.call_started";
-    BackendDtoModelsActionInvocationTriggerEnum["LifecycleCallEnded"] = "lifecycle.call_ended";
-})(BackendDtoModelsActionInvocationTriggerEnum = exports.BackendDtoModelsActionInvocationTriggerEnum || (exports.BackendDtoModelsActionInvocationTriggerEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -6186,7 +6159,7 @@ exports.UIApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1: (language, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listActionTemplatesV1: (language, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/ui/action-templates`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6308,9 +6281,9 @@ exports.UIApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1(language, options) {
+        listActionTemplatesV1(language, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UIApiAxiosParamCreator(configuration).listActionsV1(language, options);
+                const localVarAxiosArgs = yield exports.UIApiAxiosParamCreator(configuration).listActionTemplatesV1(language, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6364,8 +6337,8 @@ exports.UIApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1(language, options) {
-            return exports.UIApiFp(configuration).listActionsV1(language, options).then((request) => request(axios, basePath));
+        listActionTemplatesV1(language, options) {
+            return exports.UIApiFp(configuration).listActionTemplatesV1(language, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -6404,8 +6377,8 @@ class UIApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listActionsV1(language, options) {
-        return exports.UIApiFp(this.configuration).listActionsV1(language, options).then((request) => request(this.axios, this.basePath));
+    listActionTemplatesV1(language, options) {
+        return exports.UIApiFp(this.configuration).listActionTemplatesV1(language, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
