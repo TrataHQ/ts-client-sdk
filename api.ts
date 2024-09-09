@@ -256,39 +256,76 @@ export enum ActionInvocationTrigger {
 /**
  * 
  * @export
- * @interface Address
+ * @interface AddressInput
  */
-export interface Address {
+export interface AddressInput {
     /**
      * Address line 1
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     line1: string;
     /**
      * Address line 2
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     line2?: string | null;
     /**
      * City
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     city?: string | null;
     /**
      * State
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     state?: string | null;
     /**
      * Country
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     country: string;
+}
+/**
+ * 
+ * @export
+ * @interface AddressOutput
+ */
+export interface AddressOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    line1: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    line2: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    city: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    state: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    country: string | null;
 }
 /**
  * 
@@ -616,10 +653,10 @@ export interface BatchMetricsResponse {
 export interface BodyCreateOrganizationV1 {
     /**
      * 
-     * @type {Organization}
+     * @type {OrganizationInput}
      * @memberof BodyCreateOrganizationV1
      */
-    org: Organization;
+    org: OrganizationInput;
     /**
      * 
      * @type {string}
@@ -640,6 +677,17 @@ export interface BodyUploadFileV1 {
      */
     files: Array<any>;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum CallSentiment {
+    Positive = 'positive',
+    Negative = 'negative',
+    Neutral = 'neutral'
+}
+
 /**
  * 
  * @export
@@ -768,35 +816,65 @@ export enum ConnectionSourceSourceNameEnum {
 }
 
 /**
- * 
+ * Expected output of the post conversation task
  * @export
- * @interface ConversationAnalytics
+ * @interface ConversationAnalyticsModel
  */
-export interface ConversationAnalytics {
+export interface ConversationAnalyticsModel {
     /**
-     * Overall sentiment of the conversation
-     * @type {Sentiment}
-     * @memberof ConversationAnalytics
+     * Summary of the conversation happened with important details on the conversation.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
      */
-    sentiment: Sentiment;
+    summary: string;
     /**
-     * Had any repetitive conversations or not as part of the request
-     * @type {boolean}
-     * @memberof ConversationAnalytics
-     */
-    repetitions?: boolean;
-    /**
-     * List of timestamps when the user interrupted the AI agent
+     * List of action items and the next steps to be performed from the conversation details.
      * @type {Array<string>}
-     * @memberof ConversationAnalytics
+     * @memberof ConversationAnalyticsModel
      */
-    backChannels?: Array<string> | null;
+    action_items: Array<string> | null;
     /**
-     * Hallucination analysis of the conversation
-     * @type {object}
-     * @memberof ConversationAnalytics
+     * If the user has given consent to store the audio of the conversation.
+     * @type {boolean}
+     * @memberof ConversationAnalyticsModel
      */
-    hallucinationAnalysis?: object | null;
+    is_audio_consent_given: boolean;
+    /**
+     * Extracted email address of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    email_address_of_caller: string | null;
+    /**
+     * Extracted name of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    name_of_caller: string | null;
+    /**
+     * Extracted phone number of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    phone_number_of_caller: string | null;
+    /**
+     * Extracted address of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    address_of_caller: string | null;
+    /**
+     * Sentiment of the caller based on the conversation details.
+     * @type {CallSentiment}
+     * @memberof ConversationAnalyticsModel
+     */
+    sentiment_of_caller: CallSentiment;
+    /**
+     * Status of the prospect after this conversation.
+     * @type {ProspectStatus}
+     * @memberof ConversationAnalyticsModel
+     */
+    prospectStatus: ProspectStatus | null;
 }
 /**
  * Any feedback added to the conversation by business is managed here.
@@ -885,10 +963,10 @@ export interface ConversationInput {
     agentId: string;
     /**
      * URL to the full transcript of the conversation
-     * @type {string}
+     * @type {Array<DialogLine>}
      * @memberof ConversationInput
      */
-    transcriptTextUrl?: string | null;
+    transcriptText?: Array<DialogLine> | null;
     /**
      * Summary of the conversation
      * @type {string}
@@ -915,22 +993,16 @@ export interface ConversationInput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalytics}
+     * @type {ConversationAnalyticsModel}
      * @memberof ConversationInput
      */
-    conversationAnalytics?: ConversationAnalytics | null;
+    conversationAnalytics?: ConversationAnalyticsModel | null;
     /**
-     * 
-     * @type {Status}
-     * @memberof ConversationInput
-     */
-    status: Status;
-    /**
-     * 
+     * Comments from the admin on the conversation
      * @type {Array<Comment>}
      * @memberof ConversationInput
      */
-    adminComments: Array<Comment>;
+    adminComments?: Array<Comment> | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -976,10 +1048,10 @@ export interface ConversationOutput {
     aiAgentId?: string;
     /**
      * 
-     * @type {string}
+     * @type {Array<DialogLine>}
      * @memberof ConversationOutput
      */
-    transcriptTextUrl?: string | null;
+    transcriptText?: Array<DialogLine> | null;
     /**
      * 
      * @type {string}
@@ -1006,10 +1078,10 @@ export interface ConversationOutput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalytics}
+     * @type {ConversationAnalyticsModel}
      * @memberof ConversationOutput
      */
-    conversationAnalytics?: ConversationAnalytics | null;
+    conversationAnalytics?: ConversationAnalyticsModel | null;
     /**
      * 
      * @type {string}
@@ -1054,6 +1126,37 @@ export enum ConversationSourceType {
 /**
  * 
  * @export
+ * @interface DialogLine
+ */
+export interface DialogLine {
+    /**
+     * 
+     * @type {string}
+     * @memberof DialogLine
+     */
+    speaker: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DialogLine
+     */
+    message: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DialogLine
+     */
+    timestamp: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DialogLine
+     */
+    message_id: string;
+}
+/**
+ * 
+ * @export
  * @interface ExternalReference
  */
 export interface ExternalReference {
@@ -1079,25 +1182,50 @@ export interface ExternalReference {
 /**
  * 
  * @export
- * @interface ExternalServicePorvider
+ * @interface ExternalServicePorviderInput
  */
-export interface ExternalServicePorvider {
+export interface ExternalServicePorviderInput {
     /**
      * External service provider name
      * @type {string}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
      */
     providerName: string;
     /**
      * External service identifier
      * @type {string}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
      */
     id: string;
     /**
      * Props for the external service provider
      * @type {object}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
+     */
+    providerProps: object | null;
+}
+/**
+ * 
+ * @export
+ * @interface ExternalServicePorviderOutput
+ */
+export interface ExternalServicePorviderOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalServicePorviderOutput
+     */
+    providerName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalServicePorviderOutput
+     */
+    id: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof ExternalServicePorviderOutput
      */
     providerProps: object | null;
 }
@@ -1602,39 +1730,106 @@ export interface Mission {
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
- * @interface Organization
+ * @interface OrganizationInput
  */
-export interface Organization {
+export interface OrganizationInput {
     /**
      * Name of the organization
      * @type {string}
-     * @memberof Organization
+     * @memberof OrganizationInput
      */
     name: string;
     /**
      * Address of the organization
-     * @type {Address}
-     * @memberof Organization
+     * @type {AddressInput}
+     * @memberof OrganizationInput
      */
-    address?: Address | null;
+    address?: AddressInput | null;
     /**
      * Tax details of the organization
-     * @type {TaxDetails}
-     * @memberof Organization
+     * @type {TaxDetailsInput}
+     * @memberof OrganizationInput
      */
-    tax?: TaxDetails | null;
+    tax?: TaxDetailsInput | null;
     /**
      * External references for the organization
-     * @type {Array<ExternalServicePorvider>}
-     * @memberof Organization
+     * @type {Array<ExternalServicePorviderInput>}
+     * @memberof OrganizationInput
      */
-    externalReferenceIds?: Array<ExternalServicePorvider> | null;
+    externalReferenceIds?: Array<ExternalServicePorviderInput> | null;
     /**
      * Configurations for all the agents going to be created in this org
      * @type {AgentConfig}
-     * @memberof Organization
+     * @memberof OrganizationInput
      */
     agentConfig?: AgentConfig | null;
+}
+/**
+ * Organization represents the business using Trata and all users are associated to this business entity
+ * @export
+ * @interface OrganizationOutput
+ */
+export interface OrganizationOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    name?: string;
+    /**
+     * 
+     * @type {AgentConfig}
+     * @memberof OrganizationOutput
+     */
+    config: AgentConfig;
+    /**
+     * 
+     * @type {AddressOutput}
+     * @memberof OrganizationOutput
+     */
+    address: AddressOutput | null;
+    /**
+     * 
+     * @type {TaxDetailsOutput}
+     * @memberof OrganizationOutput
+     */
+    tax: TaxDetailsOutput | null;
+    /**
+     * 
+     * @type {Array<ExternalServicePorviderOutput>}
+     * @memberof OrganizationOutput
+     */
+    externalReferenceIds: Array<ExternalServicePorviderOutput> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    updatedAt?: string;
 }
 /**
  * 
@@ -1708,6 +1903,12 @@ export interface ProductInput {
      * @memberof ProductInput
      */
     status: Status;
+    /**
+     * List of agent ids which are accessible for this product
+     * @type {Array<string>}
+     * @memberof ProductInput
+     */
+    agentIds?: Array<string> | null;
 }
 
 /**
@@ -1999,6 +2200,25 @@ export interface ProductOutput {
 /**
  * 
  * @export
+ * @interface ProductWithAgents
+ */
+export interface ProductWithAgents {
+    /**
+     * 
+     * @type {ProductOutput}
+     * @memberof ProductWithAgents
+     */
+    product: ProductOutput;
+    /**
+     * 
+     * @type {Array<AIAgentOutput>}
+     * @memberof ProductWithAgents
+     */
+    agents?: Array<AIAgentOutput>;
+}
+/**
+ * 
+ * @export
  * @interface PromptTemplate
  */
 export interface PromptTemplate {
@@ -2044,7 +2264,7 @@ export interface ProspectInput {
      * @type {string}
      * @memberof ProspectInput
      */
-    name: string;
+    name?: string | null;
     /**
      * Email of the prospect
      * @type {string}
@@ -2161,6 +2381,7 @@ export interface ProspectOutput {
  * @enum {string}
  */
 export enum ProspectStatus {
+    NEW = 'NEW',
     GENERALENQUIRY = 'GENERAL_ENQUIRY',
     SCHEDULEDCALLBACKWITHBOT = 'SCHEDULED_CALLBACK_WITH_BOT',
     SCHEDULEDAPPOINTMENTWITHPERSON = 'SCHEDULED_APPOINTMENT_WITH_PERSON',
@@ -2199,18 +2420,6 @@ export interface RoleTemplate {
      */
     roleDescription: string;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum Sentiment {
-    POSITIVE = 'POSITIVE',
-    EXCITED = 'EXCITED',
-    NEGATIVE = 'NEGATIVE',
-    BAD = 'BAD'
-}
-
 /**
  * 
  * @export
@@ -2303,19 +2512,38 @@ export enum Status {
 /**
  * 
  * @export
- * @interface TaxDetails
+ * @interface TaxDetailsInput
  */
-export interface TaxDetails {
+export interface TaxDetailsInput {
     /**
      * Tax identifier
      * @type {string}
-     * @memberof TaxDetails
+     * @memberof TaxDetailsInput
      */
     id: string;
     /**
      * Any extra info related to Tax
      * @type {object}
-     * @memberof TaxDetails
+     * @memberof TaxDetailsInput
+     */
+    taxProps: object | null;
+}
+/**
+ * 
+ * @export
+ * @interface TaxDetailsOutput
+ */
+export interface TaxDetailsOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof TaxDetailsOutput
+     */
+    id: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof TaxDetailsOutput
      */
     taxProps: object | null;
 }
@@ -6340,6 +6568,45 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * 
+         * @summary Deleteorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteOrganizationV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
@@ -6359,6 +6626,45 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                 baseOptions = configuration.baseOptions;
             }
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Getorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -6702,6 +7008,19 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * 
+         * @summary Deleteorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteOrganizationV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
@@ -6710,6 +7029,19 @@ export const InternalApiFp = function(configuration?: Configuration) {
          */
         async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Getorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).getOrganizationV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6830,6 +7162,15 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).deleteFileV1(fileIds, options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Deleteorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteOrganizationV1(options?: any): AxiosPromise<BaseResponse> {
+            return InternalApiFp(configuration).deleteOrganizationV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a user
          * @summary Deleteuser
          * @param {string} userId 
@@ -6838,6 +7179,15 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          */
         deleteUserV1(userId: string, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Getorganization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationV1(options?: any): AxiosPromise<OrganizationOutput> {
+            return InternalApiFp(configuration).getOrganizationV1(options).then((request) => request(axios, basePath));
         },
         /**
          * List of all open invites from the organization
@@ -6941,6 +7291,17 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @summary Deleteorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public deleteOrganizationV1(options?: any) {
+        return InternalApiFp(this.configuration).deleteOrganizationV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId 
@@ -6950,6 +7311,17 @@ export class InternalApi extends BaseAPI {
      */
     public deleteUserV1(userId: string, options?: any) {
         return InternalApiFp(this.configuration).deleteUserV1(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Getorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public getOrganizationV1(options?: any) {
+        return InternalApiFp(this.configuration).getOrganizationV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8786,6 +9158,85 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
         },
         /**
          * 
+         * @summary List Products
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {Array<string>} [tags] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/ui/products`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary List Prompt Templates
          * @param {string} [language] 
          * @param {*} [options] Override http request option.
@@ -8897,6 +9348,27 @@ export const UIApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary List Products
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {Array<string>} [tags] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>> {
+            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary List Prompt Templates
          * @param {string} [language] 
          * @param {*} [options] Override http request option.
@@ -8944,6 +9416,23 @@ export const UIApiFactory = function (configuration?: Configuration, basePath?: 
         },
         /**
          * 
+         * @summary List Products
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {Array<string>} [tags] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): AxiosPromise<Array<ProductWithAgents>> {
+            return UIApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary List Prompt Templates
          * @param {string} [language] 
          * @param {*} [options] Override http request option.
@@ -8982,6 +9471,25 @@ export class UIApi extends BaseAPI {
      */
     public listActionTemplatesV1(language?: string, options?: any) {
         return UIApiFp(this.configuration).listActionTemplatesV1(language, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List Products
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {Array<string>} [tags] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any) {
+        return UIApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
