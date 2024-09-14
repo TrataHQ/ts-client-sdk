@@ -247,39 +247,76 @@ export declare enum ActionInvocationTrigger {
 /**
  *
  * @export
- * @interface Address
+ * @interface AddressInput
  */
-export interface Address {
+export interface AddressInput {
     /**
      * Address line 1
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     line1: string;
     /**
      * Address line 2
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     line2?: string | null;
     /**
      * City
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     city?: string | null;
     /**
      * State
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     state?: string | null;
     /**
      * Country
      * @type {string}
-     * @memberof Address
+     * @memberof AddressInput
      */
     country: string;
+}
+/**
+ *
+ * @export
+ * @interface AddressOutput
+ */
+export interface AddressOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    line1: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    line2: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    city: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    state: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof AddressOutput
+     */
+    country: string | null;
 }
 /**
  *
@@ -605,10 +642,10 @@ export interface BatchMetricsResponse {
 export interface BodyCreateOrganizationV1 {
     /**
      *
-     * @type {Organization}
+     * @type {OrganizationInput}
      * @memberof BodyCreateOrganizationV1
      */
-    org: Organization;
+    org: OrganizationInput;
     /**
      *
      * @type {string}
@@ -628,6 +665,16 @@ export interface BodyUploadFileV1 {
      * @memberof BodyUploadFileV1
      */
     files: Array<any>;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum CallSentiment {
+    Positive = "positive",
+    Negative = "negative",
+    Neutral = "neutral"
 }
 /**
  *
@@ -755,35 +802,65 @@ export declare enum ConnectionSourceSourceNameEnum {
     BROWSER = "BROWSER"
 }
 /**
- *
+ * Expected output of the post conversation task
  * @export
- * @interface ConversationAnalytics
+ * @interface ConversationAnalyticsModel
  */
-export interface ConversationAnalytics {
+export interface ConversationAnalyticsModel {
     /**
-     * Overall sentiment of the conversation
-     * @type {Sentiment}
-     * @memberof ConversationAnalytics
+     * Summary of the conversation happened with important details on the conversation.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
      */
-    sentiment: Sentiment;
+    summary: string;
     /**
-     * Had any repetitive conversations or not as part of the request
-     * @type {boolean}
-     * @memberof ConversationAnalytics
-     */
-    repetitions?: boolean;
-    /**
-     * List of timestamps when the user interrupted the AI agent
+     * List of action items and the next steps to be performed from the conversation details.
      * @type {Array<string>}
-     * @memberof ConversationAnalytics
+     * @memberof ConversationAnalyticsModel
      */
-    backChannels?: Array<string> | null;
+    action_items: Array<string> | null;
     /**
-     * Hallucination analysis of the conversation
-     * @type {object}
-     * @memberof ConversationAnalytics
+     * If the user has given consent to store the audio of the conversation.
+     * @type {boolean}
+     * @memberof ConversationAnalyticsModel
      */
-    hallucinationAnalysis?: object | null;
+    is_audio_consent_given: boolean;
+    /**
+     * Extracted email address of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    email_address_of_caller: string | null;
+    /**
+     * Extracted name of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    name_of_caller: string | null;
+    /**
+     * Extracted phone number of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    phone_number_of_caller: string | null;
+    /**
+     * Extracted address of the caller from the conversation details.
+     * @type {string}
+     * @memberof ConversationAnalyticsModel
+     */
+    address_of_caller: string | null;
+    /**
+     * Sentiment of the caller based on the conversation details.
+     * @type {CallSentiment}
+     * @memberof ConversationAnalyticsModel
+     */
+    sentiment_of_caller: CallSentiment;
+    /**
+     * Status of the prospect after this conversation.
+     * @type {ProspectStatus}
+     * @memberof ConversationAnalyticsModel
+     */
+    prospectStatus: ProspectStatus | null;
 }
 /**
  * Any feedback added to the conversation by business is managed here.
@@ -872,10 +949,10 @@ export interface ConversationInput {
     agentId: string;
     /**
      * URL to the full transcript of the conversation
-     * @type {string}
+     * @type {Array<DialogLine>}
      * @memberof ConversationInput
      */
-    transcriptTextUrl?: string | null;
+    transcriptText?: Array<DialogLine> | null;
     /**
      * Summary of the conversation
      * @type {string}
@@ -902,22 +979,16 @@ export interface ConversationInput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalytics}
+     * @type {ConversationAnalyticsModel}
      * @memberof ConversationInput
      */
-    conversationAnalytics?: ConversationAnalytics | null;
+    conversationAnalytics?: ConversationAnalyticsModel | null;
     /**
-     *
-     * @type {Status}
-     * @memberof ConversationInput
-     */
-    status: Status;
-    /**
-     *
+     * Comments from the admin on the conversation
      * @type {Array<Comment>}
      * @memberof ConversationInput
      */
-    adminComments: Array<Comment>;
+    adminComments?: Array<Comment> | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -963,10 +1034,10 @@ export interface ConversationOutput {
     aiAgentId?: string;
     /**
      *
-     * @type {string}
+     * @type {Array<DialogLine>}
      * @memberof ConversationOutput
      */
-    transcriptTextUrl?: string | null;
+    transcriptText?: Array<DialogLine> | null;
     /**
      *
      * @type {string}
@@ -993,10 +1064,10 @@ export interface ConversationOutput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalytics}
+     * @type {ConversationAnalyticsModel}
      * @memberof ConversationOutput
      */
-    conversationAnalytics?: ConversationAnalytics | null;
+    conversationAnalytics?: ConversationAnalyticsModel | null;
     /**
      *
      * @type {string}
@@ -1040,6 +1111,37 @@ export declare enum ConversationSourceType {
 /**
  *
  * @export
+ * @interface DialogLine
+ */
+export interface DialogLine {
+    /**
+     *
+     * @type {string}
+     * @memberof DialogLine
+     */
+    speaker: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DialogLine
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DialogLine
+     */
+    timestamp: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DialogLine
+     */
+    message_id: string;
+}
+/**
+ *
+ * @export
  * @interface ExternalReference
  */
 export interface ExternalReference {
@@ -1065,25 +1167,50 @@ export interface ExternalReference {
 /**
  *
  * @export
- * @interface ExternalServicePorvider
+ * @interface ExternalServicePorviderInput
  */
-export interface ExternalServicePorvider {
+export interface ExternalServicePorviderInput {
     /**
      * External service provider name
      * @type {string}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
      */
     providerName: string;
     /**
      * External service identifier
      * @type {string}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
      */
     id: string;
     /**
      * Props for the external service provider
      * @type {object}
-     * @memberof ExternalServicePorvider
+     * @memberof ExternalServicePorviderInput
+     */
+    providerProps: object | null;
+}
+/**
+ *
+ * @export
+ * @interface ExternalServicePorviderOutput
+ */
+export interface ExternalServicePorviderOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof ExternalServicePorviderOutput
+     */
+    providerName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExternalServicePorviderOutput
+     */
+    id: string;
+    /**
+     *
+     * @type {object}
+     * @memberof ExternalServicePorviderOutput
      */
     providerProps: object | null;
 }
@@ -1583,39 +1710,106 @@ export interface Mission {
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
- * @interface Organization
+ * @interface OrganizationInput
  */
-export interface Organization {
+export interface OrganizationInput {
     /**
      * Name of the organization
      * @type {string}
-     * @memberof Organization
+     * @memberof OrganizationInput
      */
     name: string;
     /**
      * Address of the organization
-     * @type {Address}
-     * @memberof Organization
+     * @type {AddressInput}
+     * @memberof OrganizationInput
      */
-    address?: Address | null;
+    address?: AddressInput | null;
     /**
      * Tax details of the organization
-     * @type {TaxDetails}
-     * @memberof Organization
+     * @type {TaxDetailsInput}
+     * @memberof OrganizationInput
      */
-    tax?: TaxDetails | null;
+    tax?: TaxDetailsInput | null;
     /**
      * External references for the organization
-     * @type {Array<ExternalServicePorvider>}
-     * @memberof Organization
+     * @type {Array<ExternalServicePorviderInput>}
+     * @memberof OrganizationInput
      */
-    externalReferenceIds?: Array<ExternalServicePorvider> | null;
+    externalReferenceIds?: Array<ExternalServicePorviderInput> | null;
     /**
      * Configurations for all the agents going to be created in this org
      * @type {AgentConfig}
-     * @memberof Organization
+     * @memberof OrganizationInput
      */
     agentConfig?: AgentConfig | null;
+}
+/**
+ * Organization represents the business using Trata and all users are associated to this business entity
+ * @export
+ * @interface OrganizationOutput
+ */
+export interface OrganizationOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    name?: string;
+    /**
+     *
+     * @type {AgentConfig}
+     * @memberof OrganizationOutput
+     */
+    config: AgentConfig;
+    /**
+     *
+     * @type {AddressOutput}
+     * @memberof OrganizationOutput
+     */
+    address: AddressOutput | null;
+    /**
+     *
+     * @type {TaxDetailsOutput}
+     * @memberof OrganizationOutput
+     */
+    tax: TaxDetailsOutput | null;
+    /**
+     *
+     * @type {Array<ExternalServicePorviderOutput>}
+     * @memberof OrganizationOutput
+     */
+    externalReferenceIds: Array<ExternalServicePorviderOutput> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    updatedAt?: string;
 }
 /**
  *
@@ -1689,6 +1883,12 @@ export interface ProductInput {
      * @memberof ProductInput
      */
     status: Status;
+    /**
+     * List of agent ids which are accessible for this product
+     * @type {Array<string>}
+     * @memberof ProductInput
+     */
+    agentIds?: Array<string> | null;
 }
 /**
     * @export
@@ -1978,6 +2178,25 @@ export interface ProductOutput {
 /**
  *
  * @export
+ * @interface ProductWithAgents
+ */
+export interface ProductWithAgents {
+    /**
+     *
+     * @type {ProductOutput}
+     * @memberof ProductWithAgents
+     */
+    product: ProductOutput;
+    /**
+     *
+     * @type {Array<AIAgentOutput>}
+     * @memberof ProductWithAgents
+     */
+    agents?: Array<AIAgentOutput>;
+}
+/**
+ *
+ * @export
  * @interface PromptTemplate
  */
 export interface PromptTemplate {
@@ -2023,7 +2242,7 @@ export interface ProspectInput {
      * @type {string}
      * @memberof ProspectInput
      */
-    name: string;
+    name?: string | null;
     /**
      * Email of the prospect
      * @type {string}
@@ -2140,6 +2359,7 @@ export interface ProspectOutput {
  * @enum {string}
  */
 export declare enum ProspectStatus {
+    NEW = "NEW",
     GENERALENQUIRY = "GENERAL_ENQUIRY",
     SCHEDULEDCALLBACKWITHBOT = "SCHEDULED_CALLBACK_WITH_BOT",
     SCHEDULEDAPPOINTMENTWITHPERSON = "SCHEDULED_APPOINTMENT_WITH_PERSON",
@@ -2175,17 +2395,6 @@ export interface RoleTemplate {
      * @memberof RoleTemplate
      */
     roleDescription: string;
-}
-/**
- *
- * @export
- * @enum {string}
- */
-export declare enum Sentiment {
-    POSITIVE = "POSITIVE",
-    EXCITED = "EXCITED",
-    NEGATIVE = "NEGATIVE",
-    BAD = "BAD"
 }
 /**
  *
@@ -2277,19 +2486,38 @@ export declare enum Status {
 /**
  *
  * @export
- * @interface TaxDetails
+ * @interface TaxDetailsInput
  */
-export interface TaxDetails {
+export interface TaxDetailsInput {
     /**
      * Tax identifier
      * @type {string}
-     * @memberof TaxDetails
+     * @memberof TaxDetailsInput
      */
     id: string;
     /**
      * Any extra info related to Tax
      * @type {object}
-     * @memberof TaxDetails
+     * @memberof TaxDetailsInput
+     */
+    taxProps: object | null;
+}
+/**
+ *
+ * @export
+ * @interface TaxDetailsOutput
+ */
+export interface TaxDetailsOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof TaxDetailsOutput
+     */
+    id: string;
+    /**
+     *
+     * @type {object}
+     * @memberof TaxDetailsOutput
      */
     taxProps: object | null;
 }
@@ -4199,6 +4427,13 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteFileV1: (fileIds: string, options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Deleteorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -4206,6 +4441,13 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     deleteUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Getorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationV1: (options?: any) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -4282,6 +4524,13 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
+     *
+     * @summary Deleteorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -4289,6 +4538,13 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     *
+     * @summary Getorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -4365,6 +4621,13 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean>;
     /**
+     *
+     * @summary Deleteorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteOrganizationV1(options?: any): AxiosPromise<BaseResponse>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -4372,6 +4635,13 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
+    /**
+     *
+     * @summary Getorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationV1(options?: any): AxiosPromise<OrganizationOutput>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -4453,6 +4723,14 @@ export declare class InternalApi extends BaseAPI {
      */
     deleteFileV1(fileIds: string, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
     /**
+     *
+     * @summary Deleteorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    deleteOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
      * Delete a user
      * @summary Deleteuser
      * @param {string} userId
@@ -4461,6 +4739,14 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     *
+     * @summary Getorganization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    getOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -4860,10 +5146,11 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
+    listProductsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Updateproduct
@@ -4914,10 +5201,11 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
     /**
      *
      * @summary Updateproduct
@@ -4968,10 +5256,11 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>>;
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>>;
     /**
      *
      * @summary Updateproduct
@@ -5027,11 +5316,12 @@ export declare class ProductsApi extends BaseAPI {
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
     /**
      *
      * @summary Updateproduct
@@ -5277,6 +5567,22 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
     listActionTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
     /**
      *
+     * @summary List Products
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listProductsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary List Prompt Templates
      * @param {string} [language]
      * @param {*} [options] Override http request option.
@@ -5305,6 +5611,22 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>>;
+    /**
+     *
+     * @summary List Products
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>>;
     /**
      *
      * @summary List Prompt Templates
@@ -5337,6 +5659,22 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @throws {RequiredError}
      */
     listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>>;
+    /**
+     *
+     * @summary List Products
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductWithAgents>>;
     /**
      *
      * @summary List Prompt Templates
@@ -5372,6 +5710,23 @@ export declare class UIApi extends BaseAPI {
      * @memberof UIApi
      */
     listActionTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<BackendDtoModelsAction[]>>;
+    /**
+     *
+     * @summary List Products
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {Array<string>} [tags]
+     * @param {Array<string>} [productIds]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UIApi
+     */
+    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<import("axios").AxiosResponse<ProductWithAgents[]>>;
     /**
      *
      * @summary List Prompt Templates

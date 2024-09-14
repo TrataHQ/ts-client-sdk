@@ -8245,10 +8245,11 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8298,6 +8299,10 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (tags) {
                 localVarQueryParameter['tags'] = tags;
+            }
+
+            if (productIds) {
+                localVarQueryParameter['product_ids'] = productIds;
             }
 
 
@@ -8429,11 +8434,12 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>> {
-            const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options);
+        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>> {
+            const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8504,11 +8510,12 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>> {
-            return ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(axios, basePath));
+        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>> {
+            return ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -8578,12 +8585,13 @@ export class ProductsApi extends BaseAPI {
      * @param {number} [skip] 
      * @param {number} [limit] 
      * @param {Array<string>} [tags] 
+     * @param {Array<string>} [productIds] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any) {
-        return ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) {
+        return ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9167,10 +9175,11 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ui/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9220,6 +9229,10 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
 
             if (tags) {
                 localVarQueryParameter['tags'] = tags;
+            }
+
+            if (productIds) {
+                localVarQueryParameter['product_ids'] = productIds;
             }
 
 
@@ -9357,11 +9370,12 @@ export const UIApiFp = function(configuration?: Configuration) {
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>> {
-            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options);
+        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>> {
+            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9425,11 +9439,12 @@ export const UIApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {Array<string>} [tags] 
+         * @param {Array<string>} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any): AxiosPromise<Array<ProductWithAgents>> {
-            return UIApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(axios, basePath));
+        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductWithAgents>> {
+            return UIApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -9484,12 +9499,13 @@ export class UIApi extends BaseAPI {
      * @param {number} [skip] 
      * @param {number} [limit] 
      * @param {Array<string>} [tags] 
+     * @param {Array<string>} [productIds] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, options?: any) {
-        return UIApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) {
+        return UIApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
