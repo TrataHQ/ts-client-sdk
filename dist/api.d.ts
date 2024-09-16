@@ -177,7 +177,9 @@ export interface AIAgentOutput {
  */
 export declare enum Accent {
     American = "American",
-    Indian = "Indian"
+    Indian = "Indian",
+    Australian = "Australian",
+    British = "British"
 }
 /**
  *
@@ -2729,13 +2731,7 @@ export interface VoiceInput {
      * @type {string}
      * @memberof VoiceInput
      */
-    modelName?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof VoiceInput
-     */
-    modelProvider: VoiceInputModelProviderEnum;
+    modelId: string;
 }
 /**
     * @export
@@ -2747,15 +2743,35 @@ export declare enum VoiceInputGenderEnum {
     Neutral = "Neutral"
 }
 /**
-    * @export
-    * @enum {string}
-    */
-export declare enum VoiceInputModelProviderEnum {
-    Google = "Google",
-    AWS = "AWS",
-    Elevenlabs = "Elevenlabs",
-    PlayHT = "PlayHT",
-    Deepgram = "Deepgram"
+ *
+ * @export
+ * @interface VoiceModel
+ */
+export interface VoiceModel {
+    /**
+     *
+     * @type {VoiceOutput}
+     * @memberof VoiceModel
+     */
+    voice: VoiceOutput;
+    /**
+     *
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    previewUrl: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    name: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    voiceDescription: string;
 }
 /**
  *
@@ -2780,13 +2796,7 @@ export interface VoiceOutput {
      * @type {string}
      * @memberof VoiceOutput
      */
-    modelName?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof VoiceOutput
-     */
-    modelProvider: VoiceOutputModelProviderEnum;
+    modelId: string;
 }
 /**
     * @export
@@ -2796,17 +2806,6 @@ export declare enum VoiceOutputGenderEnum {
     Male = "Male",
     Female = "Female",
     Neutral = "Neutral"
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum VoiceOutputModelProviderEnum {
-    Google = "Google",
-    AWS = "AWS",
-    Elevenlabs = "Elevenlabs",
-    PlayHT = "PlayHT",
-    Deepgram = "Deepgram"
 }
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -5137,6 +5136,14 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
     getProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
     /**
      *
+     * @summary Listagentsofproduct
+     * @param {string} productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAgentsOfProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Listproducts
      * @param {string} [searchBy]
      * @param {string} [searchValue]
@@ -5192,6 +5199,14 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
     getProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
      *
+     * @summary Listagentsofproduct
+     * @param {string} productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAgentsOfProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    /**
+     *
      * @summary Listproducts
      * @param {string} [searchBy]
      * @param {string} [searchValue]
@@ -5245,6 +5260,14 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getProductV1(productId: string, options?: any): AxiosPromise<ProductOutput>;
+    /**
+     *
+     * @summary Listagentsofproduct
+     * @param {string} productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAgentsOfProductV1(productId: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
      *
      * @summary Listproducts
@@ -5305,6 +5328,15 @@ export declare class ProductsApi extends BaseAPI {
      * @memberof ProductsApi
      */
     getProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    /**
+     *
+     * @summary Listagentsofproduct
+     * @param {string} productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    listAgentsOfProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      *
      * @summary Listproducts
@@ -5772,7 +5804,7 @@ export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>>;
+    listVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
 };
 /**
  * VoiceModelsApi - factory interface
@@ -5785,7 +5817,7 @@ export declare const VoiceModelsApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: any): AxiosPromise<Array<object>>;
+    listVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>>;
 };
 /**
  * VoiceModelsApi - object-oriented interface
@@ -5801,5 +5833,5 @@ export declare class VoiceModelsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
-    listVoiceModelsV1(options?: any): Promise<import("axios").AxiosResponse<object[]>>;
+    listVoiceModelsV1(options?: any): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
 }

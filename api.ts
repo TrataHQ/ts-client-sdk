@@ -184,7 +184,9 @@ export interface AIAgentOutput {
  */
 export enum Accent {
     American = 'American',
-    Indian = 'Indian'
+    Indian = 'Indian',
+    Australian = 'Australian',
+    British = 'British'
 }
 
 /**
@@ -2755,13 +2757,7 @@ export interface VoiceInput {
      * @type {string}
      * @memberof VoiceInput
      */
-    modelName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof VoiceInput
-     */
-    modelProvider: VoiceInputModelProviderEnum;
+    modelId: string;
 }
 
 /**
@@ -2773,18 +2769,38 @@ export enum VoiceInputGenderEnum {
     Female = 'Female',
     Neutral = 'Neutral'
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VoiceInputModelProviderEnum {
-    Google = 'Google',
-    AWS = 'AWS',
-    Elevenlabs = 'Elevenlabs',
-    PlayHT = 'PlayHT',
-    Deepgram = 'Deepgram'
-}
 
+/**
+ * 
+ * @export
+ * @interface VoiceModel
+ */
+export interface VoiceModel {
+    /**
+     * 
+     * @type {VoiceOutput}
+     * @memberof VoiceModel
+     */
+    voice: VoiceOutput;
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    previewUrl: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceModel
+     */
+    voiceDescription: string;
+}
 /**
  * 
  * @export
@@ -2808,13 +2824,7 @@ export interface VoiceOutput {
      * @type {string}
      * @memberof VoiceOutput
      */
-    modelName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof VoiceOutput
-     */
-    modelProvider: VoiceOutputModelProviderEnum;
+    modelId: string;
 }
 
 /**
@@ -2825,17 +2835,6 @@ export enum VoiceOutputGenderEnum {
     Male = 'Male',
     Female = 'Female',
     Neutral = 'Neutral'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum VoiceOutputModelProviderEnum {
-    Google = 'Google',
-    AWS = 'AWS',
-    Elevenlabs = 'Elevenlabs',
-    PlayHT = 'PlayHT',
-    Deepgram = 'Deepgram'
 }
 
 
@@ -8236,6 +8235,51 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
+         * @summary Listagentsofproduct
+         * @param {string} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAgentsOfProductV1: async (productId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new RequiredError('productId','Required parameter productId was null or undefined when calling listAgentsOfProductV1.');
+            }
+            const localVarPath = `/v1/products/{product_id}/agents`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Listproducts
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
@@ -8425,6 +8469,20 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Listagentsofproduct
+         * @param {string} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAgentsOfProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>> {
+            const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).listAgentsOfProductV1(productId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Listproducts
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
@@ -8501,6 +8559,16 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
+         * @summary Listagentsofproduct
+         * @param {string} productId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAgentsOfProductV1(productId: string, options?: any): AxiosPromise<Array<AIAgentOutput>> {
+            return ProductsApiFp(configuration).listAgentsOfProductV1(productId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Listproducts
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
@@ -8572,6 +8640,18 @@ export class ProductsApi extends BaseAPI {
      */
     public getProductV1(productId: string, options?: any) {
         return ProductsApiFp(this.configuration).getProductV1(productId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Listagentsofproduct
+     * @param {string} productId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    public listAgentsOfProductV1(productId: string, options?: any) {
+        return ProductsApiFp(this.configuration).listAgentsOfProductV1(productId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9595,7 +9675,7 @@ export const VoiceModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
+        async listVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>> {
             const localVarAxiosArgs = await VoiceModelsApiAxiosParamCreator(configuration).listVoiceModelsV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -9617,7 +9697,7 @@ export const VoiceModelsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVoiceModelsV1(options?: any): AxiosPromise<Array<object>> {
+        listVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>> {
             return VoiceModelsApiFp(configuration).listVoiceModelsV1(options).then((request) => request(axios, basePath));
         },
     };

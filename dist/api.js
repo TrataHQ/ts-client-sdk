@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputModelProviderEnum = exports.VoiceOutputGenderEnum = exports.VoiceInputModelProviderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -36,6 +36,8 @@ var Accent;
 (function (Accent) {
     Accent["American"] = "American";
     Accent["Indian"] = "Indian";
+    Accent["Australian"] = "Australian";
+    Accent["British"] = "British";
 })(Accent = exports.Accent || (exports.Accent = {}));
 /**
  *
@@ -382,36 +384,12 @@ var VoiceInputGenderEnum;
     * @export
     * @enum {string}
     */
-var VoiceInputModelProviderEnum;
-(function (VoiceInputModelProviderEnum) {
-    VoiceInputModelProviderEnum["Google"] = "Google";
-    VoiceInputModelProviderEnum["AWS"] = "AWS";
-    VoiceInputModelProviderEnum["Elevenlabs"] = "Elevenlabs";
-    VoiceInputModelProviderEnum["PlayHT"] = "PlayHT";
-    VoiceInputModelProviderEnum["Deepgram"] = "Deepgram";
-})(VoiceInputModelProviderEnum = exports.VoiceInputModelProviderEnum || (exports.VoiceInputModelProviderEnum = {}));
-/**
-    * @export
-    * @enum {string}
-    */
 var VoiceOutputGenderEnum;
 (function (VoiceOutputGenderEnum) {
     VoiceOutputGenderEnum["Male"] = "Male";
     VoiceOutputGenderEnum["Female"] = "Female";
     VoiceOutputGenderEnum["Neutral"] = "Neutral";
 })(VoiceOutputGenderEnum = exports.VoiceOutputGenderEnum || (exports.VoiceOutputGenderEnum = {}));
-/**
-    * @export
-    * @enum {string}
-    */
-var VoiceOutputModelProviderEnum;
-(function (VoiceOutputModelProviderEnum) {
-    VoiceOutputModelProviderEnum["Google"] = "Google";
-    VoiceOutputModelProviderEnum["AWS"] = "AWS";
-    VoiceOutputModelProviderEnum["Elevenlabs"] = "Elevenlabs";
-    VoiceOutputModelProviderEnum["PlayHT"] = "PlayHT";
-    VoiceOutputModelProviderEnum["Deepgram"] = "Deepgram";
-})(VoiceOutputModelProviderEnum = exports.VoiceOutputModelProviderEnum || (exports.VoiceOutputModelProviderEnum = {}));
 /**
  * ActionAgentLinkApi - axios parameter creator
  * @export
@@ -5463,6 +5441,46 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
         }),
         /**
          *
+         * @summary Listagentsofproduct
+         * @param {string} productId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAgentsOfProductV1: (productId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'productId' is not null or undefined
+            if (productId === null || productId === undefined) {
+                throw new base_1.RequiredError('productId', 'Required parameter productId was null or undefined when calling listAgentsOfProductV1.');
+            }
+            const localVarPath = `/v1/products/{product_id}/agents`
+                .replace(`{${"product_id"}}`, encodeURIComponent(String(productId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
          * @summary Listproducts
          * @param {string} [searchBy]
          * @param {string} [searchValue]
@@ -5637,6 +5655,22 @@ exports.ProductsApiFp = function (configuration) {
         },
         /**
          *
+         * @summary Listagentsofproduct
+         * @param {string} productId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAgentsOfProductV1(productId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ProductsApiAxiosParamCreator(configuration).listAgentsOfProductV1(productId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
          * @summary Listproducts
          * @param {string} [searchBy]
          * @param {string} [searchValue]
@@ -5716,6 +5750,16 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
         },
         /**
          *
+         * @summary Listagentsofproduct
+         * @param {string} productId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAgentsOfProductV1(productId, options) {
+            return exports.ProductsApiFp(configuration).listAgentsOfProductV1(productId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
          * @summary Listproducts
          * @param {string} [searchBy]
          * @param {string} [searchValue]
@@ -5784,6 +5828,17 @@ class ProductsApi extends base_1.BaseAPI {
      */
     getProductV1(productId, options) {
         return exports.ProductsApiFp(this.configuration).getProductV1(productId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Listagentsofproduct
+     * @param {string} productId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProductsApi
+     */
+    listAgentsOfProductV1(productId, options) {
+        return exports.ProductsApiFp(this.configuration).listAgentsOfProductV1(productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
