@@ -4477,6 +4477,15 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     sendInviteV1: (guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Updateorganization
+     * @param {string} orgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrganizationV1: (orgId: string, organizationInput: OrganizationInput, options?: any) => Promise<RequestArgs>;
+    /**
      * Update user details
      * @summary Updateuser
      * @param {string} userId
@@ -4574,6 +4583,15 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     sendInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
+     *
+     * @summary Updateorganization
+     * @param {string} orgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    /**
      * Update user details
      * @summary Updateuser
      * @param {string} userId
@@ -4670,6 +4688,15 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    /**
+     *
+     * @summary Updateorganization
+     * @param {string} orgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): AxiosPromise<OrganizationOutput>;
     /**
      * Update user details
      * @summary Updateuser
@@ -4778,6 +4805,16 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     sendInviteV1(guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    /**
+     *
+     * @summary Updateorganization
+     * @param {string} orgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
      * Update user details
      * @summary Updateuser

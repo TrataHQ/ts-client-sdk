@@ -4125,6 +4125,54 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Updateorganization
+         * @param {string} orgId
+         * @param {OrganizationInput} organizationInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateOrganizationV1: (orgId, organizationInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'orgId' is not null or undefined
+            if (orgId === null || orgId === undefined) {
+                throw new base_1.RequiredError('orgId', 'Required parameter orgId was null or undefined when calling updateOrganizationV1.');
+            }
+            // verify required parameter 'organizationInput' is not null or undefined
+            if (organizationInput === null || organizationInput === undefined) {
+                throw new base_1.RequiredError('organizationInput', 'Required parameter organizationInput was null or undefined when calling updateOrganizationV1.');
+            }
+            const localVarPath = `/v1/organizations/{org_id}`
+                .replace(`{${"org_id"}}`, encodeURIComponent(String(orgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof organizationInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(organizationInput !== undefined ? organizationInput : {}) : (organizationInput || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update user details
          * @summary Updateuser
          * @param {string} userId
@@ -4372,6 +4420,23 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Updateorganization
+         * @param {string} orgId
+         * @param {OrganizationInput} organizationInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateOrganizationV1(orgId, organizationInput, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).updateOrganizationV1(orgId, organizationInput, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update user details
          * @summary Updateuser
          * @param {string} userId
@@ -4505,6 +4570,17 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
             return exports.InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Updateorganization
+         * @param {string} orgId
+         * @param {OrganizationInput} organizationInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateOrganizationV1(orgId, organizationInput, options) {
+            return exports.InternalApiFp(configuration).updateOrganizationV1(orgId, organizationInput, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update user details
          * @summary Updateuser
          * @param {string} userId
@@ -4634,6 +4710,18 @@ class InternalApi extends base_1.BaseAPI {
      */
     sendInviteV1(guestInput, options) {
         return exports.InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Updateorganization
+     * @param {string} orgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    updateOrganizationV1(orgId, organizationInput, options) {
+        return exports.InternalApiFp(this.configuration).updateOrganizationV1(orgId, organizationInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update user details

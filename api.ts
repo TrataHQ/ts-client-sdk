@@ -6851,6 +6851,60 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * 
+         * @summary Updateorganization
+         * @param {string} orgId 
+         * @param {OrganizationInput} organizationInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateOrganizationV1: async (orgId: string, organizationInput: OrganizationInput, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'orgId' is not null or undefined
+            if (orgId === null || orgId === undefined) {
+                throw new RequiredError('orgId','Required parameter orgId was null or undefined when calling updateOrganizationV1.');
+            }
+            // verify required parameter 'organizationInput' is not null or undefined
+            if (organizationInput === null || organizationInput === undefined) {
+                throw new RequiredError('organizationInput','Required parameter organizationInput was null or undefined when calling updateOrganizationV1.');
+            }
+            const localVarPath = `/v1/organizations/{org_id}`
+                .replace(`{${"org_id"}}`, encodeURIComponent(String(orgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof organizationInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(organizationInput !== undefined ? organizationInput : {}) : (organizationInput || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update user details
          * @summary Updateuser
          * @param {string} userId 
@@ -7094,6 +7148,21 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * 
+         * @summary Updateorganization
+         * @param {string} orgId 
+         * @param {OrganizationInput} organizationInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateOrganizationV1(orgId, organizationInput, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Update user details
          * @summary Updateuser
          * @param {string} userId 
@@ -7222,6 +7291,17 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          */
         sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
             return InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Updateorganization
+         * @param {string} orgId 
+         * @param {OrganizationInput} organizationInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): AxiosPromise<OrganizationOutput> {
+            return InternalApiFp(configuration).updateOrganizationV1(orgId, organizationInput, options).then((request) => request(axios, basePath));
         },
         /**
          * Update user details
@@ -7362,6 +7442,19 @@ export class InternalApi extends BaseAPI {
      */
     public sendInviteV1(guestInput: GuestInput, options?: any) {
         return InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Updateorganization
+     * @param {string} orgId 
+     * @param {OrganizationInput} organizationInput 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any) {
+        return InternalApiFp(this.configuration).updateOrganizationV1(orgId, organizationInput, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
