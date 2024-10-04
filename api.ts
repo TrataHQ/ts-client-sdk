@@ -664,6 +664,12 @@ export interface BillableProduct {
      * @type {string}
      * @memberof BillableProduct
      */
+    subscriptionTypeName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BillableProduct
+     */
     name?: string;
     /**
      * 
@@ -683,12 +689,6 @@ export interface BillableProduct {
      * @memberof BillableProduct
      */
     currency?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    subscriptionTypeName?: string;
 }
 /**
  * 
@@ -1191,7 +1191,7 @@ export interface Credit {
      * @type {string}
      * @memberof Credit
      */
-    creditType?: string;
+    creditTypeName?: string;
     /**
      * 
      * @type {string}
@@ -2614,12 +2614,6 @@ export interface Subscription {
      * @type {string}
      * @memberof Subscription
      */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Subscription
-     */
     orgId?: string;
     /**
      * 
@@ -2669,13 +2663,13 @@ export interface SubscriptionInfo {
      * @type {Subscription}
      * @memberof SubscriptionInfo
      */
-    subscription: Subscription;
+    subscription?: Subscription | null;
     /**
      * 
      * @type {Array<Credit>}
      * @memberof SubscriptionInfo
      */
-    credits: Array<Credit>;
+    credits?: Array<Credit> | null;
 }
 /**
  * 
@@ -4580,6 +4574,51 @@ export const BillingApiAxiosParamCreator = function (configuration?: Configurati
     return {
         /**
          * 
+         * @summary Create Checkout Session For Billable Product
+         * @param {string} billableProductId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForBillableProductV1: async (billableProductId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'billableProductId' is not null or undefined
+            if (billableProductId === null || billableProductId === undefined) {
+                throw new RequiredError('billableProductId','Required parameter billableProductId was null or undefined when calling createCheckoutSessionForBillableProductV1.');
+            }
+            const localVarPath = `/v1/subscription/billable-products/{billable_product_id}/checkout`
+                .replace(`{${"billable_product_id"}}`, encodeURIComponent(String(billableProductId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4706,6 +4745,20 @@ export const BillingApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Create Checkout Session For Billable Product
+         * @param {string} billableProductId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await BillingApiAxiosParamCreator(configuration).createCheckoutSessionForBillableProductV1(billableProductId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4754,6 +4807,16 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
     return {
         /**
          * 
+         * @summary Create Checkout Session For Billable Product
+         * @param {string} billableProductId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): AxiosPromise<string> {
+            return BillingApiFp(configuration).createCheckoutSessionForBillableProductV1(billableProductId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4789,6 +4852,18 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
  * @extends {BaseAPI}
  */
 export class BillingApi extends BaseAPI {
+    /**
+     * 
+     * @summary Create Checkout Session For Billable Product
+     * @param {string} billableProductId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any) {
+        return BillingApiFp(this.configuration).createCheckoutSessionForBillableProductV1(billableProductId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @summary Get Subscription Billable Products
@@ -5856,6 +5931,106 @@ export class DataPlaneApi extends BaseAPI {
      */
     public createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) {
         return DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * DefaultApi - axios parameter creator
+ * @export
+ */
+export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Stripe Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeWebhookStripeWebhooksPost: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/stripe-webhooks`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * DefaultApi - functional programming interface
+ * @export
+ */
+export const DefaultApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Stripe Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnyType>> {
+            const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).stripeWebhookStripeWebhooksPost(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * DefaultApi - factory interface
+ * @export
+ */
+export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Stripe Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<AnyType> {
+            return DefaultApiFp(configuration).stripeWebhookStripeWebhooksPost(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * DefaultApi - object-oriented interface
+ * @export
+ * @class DefaultApi
+ * @extends {BaseAPI}
+ */
+export class DefaultApi extends BaseAPI {
+    /**
+     * 
+     * @summary Stripe Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public stripeWebhookStripeWebhooksPost(options?: any) {
+        return DefaultApiFp(this.configuration).stripeWebhookStripeWebhooksPost(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -9701,115 +9876,6 @@ export class ProspectsApi extends BaseAPI {
      */
     public updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any) {
         return ProspectsApiFp(this.configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * SubscriptionApi - axios parameter creator
- * @export
- */
-export const SubscriptionApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Create Checkout Session For Billable Product
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createCheckoutSessionForBillableProductV1: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/subscription/billable-products/checkout`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * SubscriptionApi - functional programming interface
- * @export
- */
-export const SubscriptionApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Create Checkout Session For Billable Product
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createCheckoutSessionForBillableProductV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await SubscriptionApiAxiosParamCreator(configuration).createCheckoutSessionForBillableProductV1(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * SubscriptionApi - factory interface
- * @export
- */
-export const SubscriptionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary Create Checkout Session For Billable Product
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createCheckoutSessionForBillableProductV1(options?: any): AxiosPromise<string> {
-            return SubscriptionApiFp(configuration).createCheckoutSessionForBillableProductV1(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * SubscriptionApi - object-oriented interface
- * @export
- * @class SubscriptionApi
- * @extends {BaseAPI}
- */
-export class SubscriptionApi extends BaseAPI {
-    /**
-     * 
-     * @summary Create Checkout Session For Billable Product
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SubscriptionApi
-     */
-    public createCheckoutSessionForBillableProductV1(options?: any) {
-        return SubscriptionApiFp(this.configuration).createCheckoutSessionForBillableProductV1(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
