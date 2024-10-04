@@ -653,6 +653,12 @@ export interface BillableProduct {
      * @type {string}
      * @memberof BillableProduct
      */
+    subscriptionTypeName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof BillableProduct
+     */
     name?: string;
     /**
      *
@@ -672,12 +678,6 @@ export interface BillableProduct {
      * @memberof BillableProduct
      */
     currency?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    subscriptionTypeName?: string;
 }
 /**
  *
@@ -1176,7 +1176,7 @@ export interface Credit {
      * @type {string}
      * @memberof Credit
      */
-    creditType?: string;
+    creditTypeName?: string;
     /**
      *
      * @type {string}
@@ -2588,12 +2588,6 @@ export interface Subscription {
      * @type {string}
      * @memberof Subscription
      */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Subscription
-     */
     orgId?: string;
     /**
      *
@@ -2643,13 +2637,13 @@ export interface SubscriptionInfo {
      * @type {Subscription}
      * @memberof SubscriptionInfo
      */
-    subscription: Subscription;
+    subscription?: Subscription | null;
     /**
      *
      * @type {Array<Credit>}
      * @memberof SubscriptionInfo
      */
-    credits: Array<Credit>;
+    credits?: Array<Credit> | null;
 }
 /**
  *
@@ -3668,6 +3662,14 @@ export declare class ApiKeyApi extends BaseAPI {
 export declare const BillingApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary Create Checkout Session For Billable Product
+     * @param {string} billableProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3693,6 +3695,14 @@ export declare const BillingApiAxiosParamCreator: (configuration?: Configuration
  * @export
  */
 export declare const BillingApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Create Checkout Session For Billable Product
+     * @param {string} billableProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -3722,6 +3732,14 @@ export declare const BillingApiFp: (configuration?: Configuration) => {
 export declare const BillingApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary Create Checkout Session For Billable Product
+     * @param {string} billableProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): AxiosPromise<string>;
+    /**
+     *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3749,6 +3767,15 @@ export declare const BillingApiFactory: (configuration?: Configuration, basePath
  * @extends {BaseAPI}
  */
 export declare class BillingApi extends BaseAPI {
+    /**
+     *
+     * @summary Create Checkout Session For Billable Product
+     * @param {string} billableProductId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -4229,6 +4256,61 @@ export declare class DataPlaneApi extends BaseAPI {
      * @memberof DataPlaneApi
      */
     createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
+}
+/**
+ * DefaultApi - axios parameter creator
+ * @export
+ */
+export declare const DefaultApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Stripe Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeWebhookStripeWebhooksPost: (options?: any) => Promise<RequestArgs>;
+};
+/**
+ * DefaultApi - functional programming interface
+ * @export
+ */
+export declare const DefaultApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Stripe Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnyType>>;
+};
+/**
+ * DefaultApi - factory interface
+ * @export
+ */
+export declare const DefaultApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Stripe Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<AnyType>;
+};
+/**
+ * DefaultApi - object-oriented interface
+ * @export
+ * @class DefaultApi
+ * @extends {BaseAPI}
+ */
+export declare class DefaultApi extends BaseAPI {
+    /**
+     *
+     * @summary Stripe Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    stripeWebhookStripeWebhooksPost(options?: any): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * HealthApi - axios parameter creator
@@ -5899,61 +5981,6 @@ export declare class ProspectsApi extends BaseAPI {
      * @memberof ProspectsApi
      */
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
-}
-/**
- * SubscriptionApi - axios parameter creator
- * @export
- */
-export declare const SubscriptionApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Create Checkout Session For Billable Product
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createCheckoutSessionForBillableProductV1: (options?: any) => Promise<RequestArgs>;
-};
-/**
- * SubscriptionApi - functional programming interface
- * @export
- */
-export declare const SubscriptionApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Create Checkout Session For Billable Product
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createCheckoutSessionForBillableProductV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
-};
-/**
- * SubscriptionApi - factory interface
- * @export
- */
-export declare const SubscriptionApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary Create Checkout Session For Billable Product
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createCheckoutSessionForBillableProductV1(options?: any): AxiosPromise<string>;
-};
-/**
- * SubscriptionApi - object-oriented interface
- * @export
- * @class SubscriptionApi
- * @extends {BaseAPI}
- */
-export declare class SubscriptionApi extends BaseAPI {
-    /**
-     *
-     * @summary Create Checkout Session For Billable Product
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SubscriptionApi
-     */
-    createCheckoutSessionForBillableProductV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
  * UIApi - axios parameter creator

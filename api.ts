@@ -5987,7 +5987,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnyType>> {
+        async stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).stripeWebhookStripeWebhooksPost(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6009,7 +6009,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<AnyType> {
+        stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<any> {
             return DefaultApiFp(configuration).stripeWebhookStripeWebhooksPost(options).then((request) => request(axios, basePath));
         },
     };
