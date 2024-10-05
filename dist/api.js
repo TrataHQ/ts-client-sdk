@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -83,6 +83,15 @@ var CallSentiment;
     CallSentiment["Negative"] = "negative";
     CallSentiment["Neutral"] = "neutral";
 })(CallSentiment = exports.CallSentiment || (exports.CallSentiment = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var ConnectionSourceSourceNameEnum;
+(function (ConnectionSourceSourceNameEnum) {
+    ConnectionSourceSourceNameEnum["TWILIO"] = "TWILIO";
+    ConnectionSourceSourceNameEnum["BROWSER"] = "BROWSER";
+})(ConnectionSourceSourceNameEnum = exports.ConnectionSourceSourceNameEnum || (exports.ConnectionSourceSourceNameEnum = {}));
 /**
  *
  * @export
@@ -3074,6 +3083,136 @@ class ConversationsApi extends base_1.BaseAPI {
     }
 }
 exports.ConversationsApi = ConversationsApi;
+/**
+ * DataPlaneApi - axios parameter creator
+ * @export
+ */
+exports.DataPlaneApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createconnection
+         * @param {string} agentId
+         * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConnection: (agentId, connectionSource, prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling createConnection.');
+            }
+            // verify required parameter 'connectionSource' is not null or undefined
+            if (connectionSource === null || connectionSource === undefined) {
+                throw new base_1.RequiredError('connectionSource', 'Required parameter connectionSource was null or undefined when calling createConnection.');
+            }
+            const localVarPath = `/v1/connections`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (agentId !== undefined) {
+                localVarQueryParameter['agentId'] = agentId;
+            }
+            if (prospectId !== undefined) {
+                localVarQueryParameter['prospect_id'] = prospectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof connectionSource !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(connectionSource !== undefined ? connectionSource : {}) : (connectionSource || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * DataPlaneApi - functional programming interface
+ * @export
+ */
+exports.DataPlaneApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Createconnection
+         * @param {string} agentId
+         * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConnection(agentId, connectionSource, prospectId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * DataPlaneApi - factory interface
+ * @export
+ */
+exports.DataPlaneApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Createconnection
+         * @param {string} agentId
+         * @param {ConnectionSource} connectionSource
+         * @param {string} [prospectId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConnection(agentId, connectionSource, prospectId, options) {
+            return exports.DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * DataPlaneApi - object-oriented interface
+ * @export
+ * @class DataPlaneApi
+ * @extends {BaseAPI}
+ */
+class DataPlaneApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Createconnection
+     * @param {string} agentId
+     * @param {ConnectionSource} connectionSource
+     * @param {string} [prospectId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    createConnection(agentId, connectionSource, prospectId, options) {
+        return exports.DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.DataPlaneApi = DataPlaneApi;
 /**
  * HealthApi - axios parameter creator
  * @export
