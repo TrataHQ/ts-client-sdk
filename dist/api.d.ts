@@ -741,112 +741,6 @@ export interface Comment {
     rating: number;
 }
 /**
- * This represents the connection between the user and the assistant
- * @export
- * @interface Connection
- */
-export interface Connection {
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceName?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceId?: string;
-    /**
-     *
-     * @type {object}
-     * @memberof Connection
-     */
-    sourceProps?: object | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    agentId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    prospectId?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedAt?: string;
-}
-/**
- *
- * @export
- * @interface ConnectionSource
- */
-export interface ConnectionSource {
-    /**
-     * Name of the source
-     * @type {string}
-     * @memberof ConnectionSource
-     */
-    sourceName?: ConnectionSourceSourceNameEnum;
-    /**
-     * Unique identifier for the source
-     * @type {string}
-     * @memberof ConnectionSource
-     */
-    sourceId: string;
-    /**
-     * Extra properties of source
-     * @type {object}
-     * @memberof ConnectionSource
-     */
-    sourceProps: object;
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ConnectionSourceSourceNameEnum {
-    TWILIO = "TWILIO",
-    BROWSER = "BROWSER"
-}
-/**
  * Expected output of the post conversation task
  * @export
  * @interface ConversationAnalyticsModel
@@ -3670,6 +3564,13 @@ export declare const BillingApiAxiosParamCreator: (configuration?: Configuration
     createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: any) => Promise<RequestArgs>;
     /**
      *
+     * @summary Get Customer Session Secret
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerSessionSecretV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3705,6 +3606,13 @@ export declare const BillingApiFp: (configuration?: Configuration) => {
     createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
+     * @summary Get Customer Session Secret
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerSessionSecretV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
+     *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3738,6 +3646,13 @@ export declare const BillingApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): AxiosPromise<string>;
+    /**
+     *
+     * @summary Get Customer Session Secret
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerSessionSecretV1(options?: any): AxiosPromise<string>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -3776,6 +3691,14 @@ export declare class BillingApi extends BaseAPI {
      * @memberof BillingApi
      */
     createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    /**
+     *
+     * @summary Get Customer Session Secret
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    getCustomerSessionSecretV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -4189,128 +4112,6 @@ export declare class ConversationsApi extends BaseAPI {
      * @memberof ConversationsApi
      */
     updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
-}
-/**
- * DataPlaneApi - axios parameter creator
- * @export
- */
-export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Createconnection
-     * @param {string} agentId
-     * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * DataPlaneApi - functional programming interface
- * @export
- */
-export declare const DataPlaneApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Createconnection
-     * @param {string} agentId
-     * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
-};
-/**
- * DataPlaneApi - factory interface
- * @export
- */
-export declare const DataPlaneApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary Createconnection
-     * @param {string} agentId
-     * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection>;
-};
-/**
- * DataPlaneApi - object-oriented interface
- * @export
- * @class DataPlaneApi
- * @extends {BaseAPI}
- */
-export declare class DataPlaneApi extends BaseAPI {
-    /**
-     *
-     * @summary Createconnection
-     * @param {string} agentId
-     * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DataPlaneApi
-     */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
-}
-/**
- * DefaultApi - axios parameter creator
- * @export
- */
-export declare const DefaultApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Stripe Webhook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    stripeWebhookStripeWebhooksPost: (options?: any) => Promise<RequestArgs>;
-};
-/**
- * DefaultApi - functional programming interface
- * @export
- */
-export declare const DefaultApiFp: (configuration?: Configuration) => {
-    /**
-     *
-     * @summary Stripe Webhook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnyType>>;
-};
-/**
- * DefaultApi - factory interface
- * @export
- */
-export declare const DefaultApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     *
-     * @summary Stripe Webhook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<AnyType>;
-};
-/**
- * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
- */
-export declare class DefaultApi extends BaseAPI {
-    /**
-     *
-     * @summary Stripe Webhook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    stripeWebhookStripeWebhooksPost(options?: any): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * HealthApi - axios parameter creator

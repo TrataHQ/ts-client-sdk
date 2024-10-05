@@ -753,114 +753,6 @@ export interface Comment {
     rating: number;
 }
 /**
- * This represents the connection between the user and the assistant
- * @export
- * @interface Connection
- */
-export interface Connection {
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    sourceId?: string;
-    /**
-     * 
-     * @type {object}
-     * @memberof Connection
-     */
-    sourceProps?: object | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    agentId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    prospectId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Connection
-     */
-    updatedAt?: string;
-}
-/**
- * 
- * @export
- * @interface ConnectionSource
- */
-export interface ConnectionSource {
-    /**
-     * Name of the source
-     * @type {string}
-     * @memberof ConnectionSource
-     */
-    sourceName?: ConnectionSourceSourceNameEnum;
-    /**
-     * Unique identifier for the source
-     * @type {string}
-     * @memberof ConnectionSource
-     */
-    sourceId: string;
-    /**
-     * Extra properties of source
-     * @type {object}
-     * @memberof ConnectionSource
-     */
-    sourceProps: object;
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ConnectionSourceSourceNameEnum {
-    TWILIO = 'TWILIO',
-    BROWSER = 'BROWSER'
-}
-
-/**
  * Expected output of the post conversation task
  * @export
  * @interface ConversationAnalyticsModel
@@ -4619,6 +4511,45 @@ export const BillingApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @summary Get Customer Session Secret
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerSessionSecretV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/subscription/customer-session-secret`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4759,6 +4690,19 @@ export const BillingApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary Get Customer Session Secret
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomerSessionSecretV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await BillingApiAxiosParamCreator(configuration).getCustomerSessionSecretV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4817,6 +4761,15 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @summary Get Customer Session Secret
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerSessionSecretV1(options?: any): AxiosPromise<string> {
+            return BillingApiFp(configuration).getCustomerSessionSecretV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Get Subscription Billable Products
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4862,6 +4815,17 @@ export class BillingApi extends BaseAPI {
      */
     public createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any) {
         return BillingApiFp(this.configuration).createCheckoutSessionForBillableProductV1(billableProductId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Customer Session Secret
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public getCustomerSessionSecretV1(options?: any) {
+        return BillingApiFp(this.configuration).getCustomerSessionSecretV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5790,247 +5754,6 @@ export class ConversationsApi extends BaseAPI {
      */
     public updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: any) {
         return ConversationsApiFp(this.configuration).updateConversationV1(conversationId, conversationInput, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * DataPlaneApi - axios parameter creator
- * @export
- */
-export const DataPlaneApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Createconnection
-         * @param {string} agentId 
-         * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createConnection: async (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'agentId' is not null or undefined
-            if (agentId === null || agentId === undefined) {
-                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling createConnection.');
-            }
-            // verify required parameter 'connectionSource' is not null or undefined
-            if (connectionSource === null || connectionSource === undefined) {
-                throw new RequiredError('connectionSource','Required parameter connectionSource was null or undefined when calling createConnection.');
-            }
-            const localVarPath = `/v1/connections`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (agentId !== undefined) {
-                localVarQueryParameter['agentId'] = agentId;
-            }
-
-            if (prospectId !== undefined) {
-                localVarQueryParameter['prospect_id'] = prospectId;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof connectionSource !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(connectionSource !== undefined ? connectionSource : {}) : (connectionSource || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * DataPlaneApi - functional programming interface
- * @export
- */
-export const DataPlaneApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Createconnection
-         * @param {string} agentId 
-         * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>> {
-            const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * DataPlaneApi - factory interface
- * @export
- */
-export const DataPlaneApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary Createconnection
-         * @param {string} agentId 
-         * @param {ConnectionSource} connectionSource 
-         * @param {string} [prospectId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection> {
-            return DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * DataPlaneApi - object-oriented interface
- * @export
- * @class DataPlaneApi
- * @extends {BaseAPI}
- */
-export class DataPlaneApi extends BaseAPI {
-    /**
-     * 
-     * @summary Createconnection
-     * @param {string} agentId 
-     * @param {ConnectionSource} connectionSource 
-     * @param {string} [prospectId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DataPlaneApi
-     */
-    public createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) {
-        return DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * DefaultApi - axios parameter creator
- * @export
- */
-export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Stripe Webhook
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        stripeWebhookStripeWebhooksPost: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/stripe-webhooks`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * DefaultApi - functional programming interface
- * @export
- */
-export const DefaultApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Stripe Webhook
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async stripeWebhookStripeWebhooksPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).stripeWebhookStripeWebhooksPost(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * DefaultApi - factory interface
- * @export
- */
-export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * 
-         * @summary Stripe Webhook
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        stripeWebhookStripeWebhooksPost(options?: any): AxiosPromise<any> {
-            return DefaultApiFp(configuration).stripeWebhookStripeWebhooksPost(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
- */
-export class DefaultApi extends BaseAPI {
-    /**
-     * 
-     * @summary Stripe Webhook
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public stripeWebhookStripeWebhooksPost(options?: any) {
-        return DefaultApiFp(this.configuration).stripeWebhookStripeWebhooksPost(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
