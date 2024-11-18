@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.ApiKeyRequestKeyTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -74,6 +74,15 @@ var AggregationPeriod;
     AggregationPeriod["DAILY"] = "DAILY";
 })(AggregationPeriod = exports.AggregationPeriod || (exports.AggregationPeriod = {}));
 /**
+    * @export
+    * @enum {string}
+    */
+var ApiKeyRequestKeyTypeEnum;
+(function (ApiKeyRequestKeyTypeEnum) {
+    ApiKeyRequestKeyTypeEnum["ApiKey"] = "api_key";
+    ApiKeyRequestKeyTypeEnum["CallKey"] = "call_key";
+})(ApiKeyRequestKeyTypeEnum = exports.ApiKeyRequestKeyTypeEnum || (exports.ApiKeyRequestKeyTypeEnum = {}));
+/**
  *
  * @export
  * @enum {string}
@@ -105,6 +114,14 @@ var ConversationSourceType;
     ConversationSourceType["TWILIO"] = "TWILIO";
     ConversationSourceType["PLIVO"] = "PLIVO";
 })(ConversationSourceType = exports.ConversationSourceType || (exports.ConversationSourceType = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var ConversationStartEventPayloadTypeEnum;
+(function (ConversationStartEventPayloadTypeEnum) {
+    ConversationStartEventPayloadTypeEnum["ConversationStart"] = "conversation_start";
+})(ConversationStartEventPayloadTypeEnum = exports.ConversationStartEventPayloadTypeEnum || (exports.ConversationStartEventPayloadTypeEnum = {}));
 /**
  *
  * @export
@@ -1628,10 +1645,15 @@ exports.ApiKeyApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createApiKeyV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createApiKeyV1: (apiKeyRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'apiKeyRequest' is not null or undefined
+            if (apiKeyRequest === null || apiKeyRequest === undefined) {
+                throw new base_1.RequiredError('apiKeyRequest', 'Required parameter apiKeyRequest was null or undefined when calling createApiKeyV1.');
+            }
             const localVarPath = `/v1/api-keys`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -1649,11 +1671,14 @@ exports.ApiKeyApiAxiosParamCreator = function (configuration) {
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof apiKeyRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(apiKeyRequest !== undefined ? apiKeyRequest : {}) : (apiKeyRequest || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -1679,6 +1704,40 @@ exports.ApiKeyApiAxiosParamCreator = function (configuration) {
                 baseOptions = configuration.baseOptions;
             }
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Get Call Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCallKeyV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/api-keys/call-key`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
@@ -1744,12 +1803,13 @@ exports.ApiKeyApiFp = function (configuration) {
         /**
          *
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createApiKeyV1(options) {
+        createApiKeyV1(apiKeyRequest, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).createApiKeyV1(options);
+                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).createApiKeyV1(apiKeyRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1766,6 +1826,21 @@ exports.ApiKeyApiFp = function (configuration) {
         deleteApiKeyV1(keyId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).deleteApiKeyV1(keyId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Get Call Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCallKeyV1(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ApiKeyApiAxiosParamCreator(configuration).getCallKeyV1(options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1798,11 +1873,12 @@ exports.ApiKeyApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createApiKeyV1(options) {
-            return exports.ApiKeyApiFp(configuration).createApiKeyV1(options).then((request) => request(axios, basePath));
+        createApiKeyV1(apiKeyRequest, options) {
+            return exports.ApiKeyApiFp(configuration).createApiKeyV1(apiKeyRequest, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1813,6 +1889,15 @@ exports.ApiKeyApiFactory = function (configuration, basePath, axios) {
          */
         deleteApiKeyV1(keyId, options) {
             return exports.ApiKeyApiFp(configuration).deleteApiKeyV1(keyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Get Call Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCallKeyV1(options) {
+            return exports.ApiKeyApiFp(configuration).getCallKeyV1(options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -1835,12 +1920,13 @@ class ApiKeyApi extends base_1.BaseAPI {
     /**
      *
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    createApiKeyV1(options) {
-        return exports.ApiKeyApiFp(this.configuration).createApiKeyV1(options).then((request) => request(this.axios, this.basePath));
+    createApiKeyV1(apiKeyRequest, options) {
+        return exports.ApiKeyApiFp(this.configuration).createApiKeyV1(apiKeyRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -1852,6 +1938,16 @@ class ApiKeyApi extends base_1.BaseAPI {
      */
     deleteApiKeyV1(keyId, options) {
         return exports.ApiKeyApiFp(this.configuration).deleteApiKeyV1(keyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    getCallKeyV1(options) {
+        return exports.ApiKeyApiFp(this.configuration).getCallKeyV1(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *

@@ -478,6 +478,27 @@ export declare enum AggregationPeriod {
 /**
  *
  * @export
+ * @interface ApiKeyRequest
+ */
+export interface ApiKeyRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ApiKeyRequest
+     */
+    key_type?: ApiKeyRequestKeyTypeEnum;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum ApiKeyRequestKeyTypeEnum {
+    ApiKey = "api_key",
+    CallKey = "call_key"
+}
+/**
+ *
+ * @export
  * @interface BaseResponse
  */
 export interface BaseResponse {
@@ -815,7 +836,7 @@ export interface ConversationEndEvent {
      * @type {ConversationEndEventPayload}
      * @memberof ConversationEndEvent
      */
-    payload: ConversationEndEventPayload;
+    payload?: ConversationEndEventPayload;
 }
 /**
  *
@@ -1106,7 +1127,7 @@ export interface ConversationStartEvent {
      * @type {ConversationStartEventPayload}
      * @memberof ConversationStartEvent
      */
-    payload: ConversationStartEventPayload;
+    payload?: ConversationStartEventPayload;
 }
 /**
  *
@@ -1114,6 +1135,12 @@ export interface ConversationStartEvent {
  * @interface ConversationStartEventPayload
  */
 export interface ConversationStartEventPayload {
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    type: ConversationStartEventPayloadTypeEnum;
     /**
      *
      * @type {string}
@@ -1144,6 +1171,13 @@ export interface ConversationStartEventPayload {
      * @memberof ConversationStartEventPayload
      */
     caller_id: object | null;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum ConversationStartEventPayloadTypeEnum {
+    ConversationStart = "conversation_start"
 }
 /**
  *
@@ -2886,6 +2920,12 @@ export interface UserApiKeyLink {
      * @type {string}
      * @memberof UserApiKeyLink
      */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
     userId?: string;
     /**
      *
@@ -2893,6 +2933,12 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     secretKey?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    keyType?: string;
     /**
      *
      * @type {string}
@@ -3688,10 +3734,11 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
     /**
      *
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1: (options?: any) => Promise<RequestArgs>;
+    createApiKeyV1: (apiKeyRequest: ApiKeyRequest, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Api Key
@@ -3700,6 +3747,13 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     deleteApiKeyV1: (keyId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCallKeyV1: (options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary List Api Keys
@@ -3716,10 +3770,11 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary Delete Api Key
@@ -3728,6 +3783,13 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCallKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary List Api Keys
@@ -3744,10 +3806,11 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
     /**
      *
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(options?: any): AxiosPromise<UserApiKeyLink>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary Delete Api Key
@@ -3756,6 +3819,13 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCallKeyV1(options?: any): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary List Api Keys
@@ -3774,11 +3844,12 @@ export declare class ApiKeyApi extends BaseAPI {
     /**
      *
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    createApiKeyV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
     /**
      *
      * @summary Delete Api Key
@@ -3788,6 +3859,14 @@ export declare class ApiKeyApi extends BaseAPI {
      * @memberof ApiKeyApi
      */
     deleteApiKeyV1(keyId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    getCallKeyV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
     /**
      *
      * @summary List Api Keys

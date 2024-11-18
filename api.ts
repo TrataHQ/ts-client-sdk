@@ -489,6 +489,29 @@ export enum AggregationPeriod {
 /**
  * 
  * @export
+ * @interface ApiKeyRequest
+ */
+export interface ApiKeyRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ApiKeyRequest
+     */
+    key_type?: ApiKeyRequestKeyTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiKeyRequestKeyTypeEnum {
+    ApiKey = 'api_key',
+    CallKey = 'call_key'
+}
+
+/**
+ * 
+ * @export
  * @interface BaseResponse
  */
 export interface BaseResponse {
@@ -829,7 +852,7 @@ export interface ConversationEndEvent {
      * @type {ConversationEndEventPayload}
      * @memberof ConversationEndEvent
      */
-    payload: ConversationEndEventPayload;
+    payload?: ConversationEndEventPayload;
 }
 /**
  * 
@@ -1121,7 +1144,7 @@ export interface ConversationStartEvent {
      * @type {ConversationStartEventPayload}
      * @memberof ConversationStartEvent
      */
-    payload: ConversationStartEventPayload;
+    payload?: ConversationStartEventPayload;
 }
 /**
  * 
@@ -1129,6 +1152,12 @@ export interface ConversationStartEvent {
  * @interface ConversationStartEventPayload
  */
 export interface ConversationStartEventPayload {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    type: ConversationStartEventPayloadTypeEnum;
     /**
      * 
      * @type {string}
@@ -1160,6 +1189,15 @@ export interface ConversationStartEventPayload {
      */
     caller_id: object | null;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ConversationStartEventPayloadTypeEnum {
+    ConversationStart = 'conversation_start'
+}
+
 /**
  * 
  * @export
@@ -2912,6 +2950,12 @@ export interface UserApiKeyLink {
      * @type {string}
      * @memberof UserApiKeyLink
      */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
     userId?: string;
     /**
      * 
@@ -2919,6 +2963,12 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     secretKey?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserApiKeyLink
+     */
+    keyType?: string;
     /**
      * 
      * @type {string}
@@ -4455,10 +4505,15 @@ export const ApiKeyApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * 
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createApiKeyV1: async (options: any = {}): Promise<RequestArgs> => {
+        createApiKeyV1: async (apiKeyRequest: ApiKeyRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'apiKeyRequest' is not null or undefined
+            if (apiKeyRequest === null || apiKeyRequest === undefined) {
+                throw new RequiredError('apiKeyRequest','Required parameter apiKeyRequest was null or undefined when calling createApiKeyV1.');
+            }
             const localVarPath = `/v1/api-keys`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -4466,6 +4521,55 @@ export const ApiKeyApiAxiosParamCreator = function (configuration?: Configuratio
                 baseOptions = configuration.baseOptions;
             }
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof apiKeyRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(apiKeyRequest !== undefined ? apiKeyRequest : {}) : (apiKeyRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete Api Key
+         * @param {string} keyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteApiKeyV1: async (keyId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'keyId' is not null or undefined
+            if (keyId === null || keyId === undefined) {
+                throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling deleteApiKeyV1.');
+            }
+            const localVarPath = `/v1/api-keys/{key_id}`
+                .replace(`{${"key_id"}}`, encodeURIComponent(String(keyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -4493,24 +4597,18 @@ export const ApiKeyApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * 
-         * @summary Delete Api Key
-         * @param {string} keyId 
+         * @summary Get Call Key
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApiKeyV1: async (keyId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'keyId' is not null or undefined
-            if (keyId === null || keyId === undefined) {
-                throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling deleteApiKeyV1.');
-            }
-            const localVarPath = `/v1/api-keys/{key_id}`
-                .replace(`{${"key_id"}}`, encodeURIComponent(String(keyId)));
+        getCallKeyV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/api-keys/call-key`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -4587,11 +4685,12 @@ export const ApiKeyApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createApiKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>> {
-            const localVarAxiosArgs = await ApiKeyApiAxiosParamCreator(configuration).createApiKeyV1(options);
+        async createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>> {
+            const localVarAxiosArgs = await ApiKeyApiAxiosParamCreator(configuration).createApiKeyV1(apiKeyRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -4606,6 +4705,19 @@ export const ApiKeyApiFp = function(configuration?: Configuration) {
          */
         async deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
             const localVarAxiosArgs = await ApiKeyApiAxiosParamCreator(configuration).deleteApiKeyV1(keyId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get Call Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCallKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>> {
+            const localVarAxiosArgs = await ApiKeyApiAxiosParamCreator(configuration).getCallKeyV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -4636,11 +4748,12 @@ export const ApiKeyApiFactory = function (configuration?: Configuration, basePat
         /**
          * 
          * @summary Create Api Key
+         * @param {ApiKeyRequest} apiKeyRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createApiKeyV1(options?: any): AxiosPromise<UserApiKeyLink> {
-            return ApiKeyApiFp(configuration).createApiKeyV1(options).then((request) => request(axios, basePath));
+        createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): AxiosPromise<UserApiKeyLink> {
+            return ApiKeyApiFp(configuration).createApiKeyV1(apiKeyRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -4651,6 +4764,15 @@ export const ApiKeyApiFactory = function (configuration?: Configuration, basePat
          */
         deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponse> {
             return ApiKeyApiFp(configuration).deleteApiKeyV1(keyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Call Key
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCallKeyV1(options?: any): AxiosPromise<UserApiKeyLink> {
+            return ApiKeyApiFp(configuration).getCallKeyV1(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -4674,12 +4796,13 @@ export class ApiKeyApi extends BaseAPI {
     /**
      * 
      * @summary Create Api Key
+     * @param {ApiKeyRequest} apiKeyRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    public createApiKeyV1(options?: any) {
-        return ApiKeyApiFp(this.configuration).createApiKeyV1(options).then((request) => request(this.axios, this.basePath));
+    public createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any) {
+        return ApiKeyApiFp(this.configuration).createApiKeyV1(apiKeyRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4692,6 +4815,17 @@ export class ApiKeyApi extends BaseAPI {
      */
     public deleteApiKeyV1(keyId: string, options?: any) {
         return ApiKeyApiFp(this.configuration).deleteApiKeyV1(keyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Call Key
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ApiKeyApi
+     */
+    public getCallKeyV1(options?: any) {
+        return ApiKeyApiFp(this.configuration).getCallKeyV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
