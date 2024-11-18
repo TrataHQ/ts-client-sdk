@@ -179,7 +179,8 @@ export declare enum Accent {
     American = "American",
     Indian = "Indian",
     Australian = "Australian",
-    British = "British"
+    British = "British",
+    Hindi = "Hindi"
 }
 /**
  *
@@ -198,7 +199,7 @@ export interface ActionInput {
      * @type {string}
      * @memberof ActionInput
      */
-    description: string;
+    description?: string | null;
     /**
      * Parameters for the action. It should be a JSON schema object
      * @type {object}
@@ -245,6 +246,97 @@ export declare enum ActionInvocationTrigger {
     UserQuery = "user_query",
     WebhookConversationStart = "webhook.conversation_start",
     WebhookConversationEnd = "webhook.conversation_end"
+}
+/**
+ * Action entity to store the actions which can be performed by ai agents
+ * @export
+ * @interface ActionOutput
+ */
+export interface ActionOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    name?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    description?: string | null;
+    /**
+     *
+     * @type {object}
+     * @memberof ActionOutput
+     */
+    parameters?: object | null;
+    /**
+     *
+     * @type {object}
+     * @memberof ActionOutput
+     */
+    endpoint?: object | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    invocationTrigger?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userWaitingText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userSuccessText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userErrorText?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedAt?: string;
 }
 /**
  *
@@ -382,220 +474,6 @@ export declare enum AggregationPeriod {
     MONTHLY = "MONTHLY",
     WEEKLY = "WEEKLY",
     DAILY = "DAILY"
-}
-/**
- * Action entity to store the actions which can be performed by ai agents
- * @export
- * @interface BackendDbModelsAction
- */
-export interface BackendDbModelsAction {
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    name?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    description?: string;
-    /**
-     *
-     * @type {object}
-     * @memberof BackendDbModelsAction
-     */
-    parameters?: object | null;
-    /**
-     *
-     * @type {object}
-     * @memberof BackendDbModelsAction
-     */
-    endpoint?: object | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    invocationTrigger?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userWaitingText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userSuccessText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userErrorText?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    updatedAt?: string;
-}
-/**
- *
- * @export
- * @interface BackendDbModelsHiveContent
- */
-export interface BackendDbModelsHiveContent {
-    /**
-     *
-     * @type {HiveType}
-     * @memberof BackendDbModelsHiveContent
-     */
-    hiveType: HiveType;
-    /**
-     * URL of the content
-     * @type {string}
-     * @memberof BackendDbModelsHiveContent
-     */
-    url?: string | null;
-    /**
-     * List of files to be referenced for the hive
-     * @type {Array<Files>}
-     * @memberof BackendDbModelsHiveContent
-     */
-    files?: Array<Files> | null;
-    /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
-     * @type {object}
-     * @memberof BackendDbModelsHiveContent
-     */
-    hiveProps?: object | null;
-    /**
-     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
-     * @type {object}
-     * @memberof BackendDbModelsHiveContent
-     */
-    internalProps?: object | null;
-}
-/**
- *
- * @export
- * @interface BackendDtoModelsAction
- */
-export interface BackendDtoModelsAction {
-    /**
-     * Name of the action
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    name: string;
-    /**
-     * Description about the action and it should also contain when the action should be triggered
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    description: string;
-    /**
-     * Parameters for the action. It should be a JSON schema object
-     * @type {object}
-     * @memberof BackendDtoModelsAction
-     */
-    parameters: object;
-    /**
-     * Endpoint for the action
-     * @type {HttpActionEndpoint | InternalActionEndpoint}
-     * @memberof BackendDtoModelsAction
-     */
-    endpoint: HttpActionEndpoint | InternalActionEndpoint;
-    /**
-     * Text to be rendered to user when action is invoked
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userWaitingText?: string | null;
-    /**
-     * Text to be rendered to user when action is successful
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userSuccessText?: string | null;
-    /**
-     * Text to be rendered to user when action is not successful
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userErrorText?: string | null;
-    /**
-     * Trigger who invokes the action
-     * @type {ActionInvocationTrigger}
-     * @memberof BackendDtoModelsAction
-     */
-    invocationTrigger: ActionInvocationTrigger;
-}
-/**
- *
- * @export
- * @interface BackendDtoModelsHiveContent
- */
-export interface BackendDtoModelsHiveContent {
-    /**
-     *
-     * @type {HiveType}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    hiveType: HiveType;
-    /**
-     * URL of the content
-     * @type {string}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    url?: string | null;
-    /**
-     * List of file ids to be referenced for the hive
-     * @type {Array<string>}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    file_ids?: Array<string> | null;
-    /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
-     * @type {object}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    hiveProps?: object | null;
 }
 /**
  *
@@ -844,6 +722,7 @@ export interface ConnectionSource {
     */
 export declare enum ConnectionSourceSourceNameEnum {
     TWILIO = "TWILIO",
+    PLIVO = "PLIVO",
     BROWSER = "BROWSER"
 }
 /**
@@ -853,7 +732,7 @@ export declare enum ConnectionSourceSourceNameEnum {
  */
 export interface ConversationAnalyticsModel {
     /**
-     * Summary of the conversation happened with important details on the conversation.
+     * Summary of the conversation happened with important details on the conversation. The summary should be concise and to the point. It should contain the important details of the conversation like name, phone number, email, address and any other details shared by the user.
      * @type {string}
      * @memberof ConversationAnalyticsModel
      */
@@ -865,13 +744,13 @@ export interface ConversationAnalyticsModel {
      */
     action_items: Array<string> | null;
     /**
-     * If the user has given consent to store the audio of the conversation.
+     * If the user has given consent to store the audio of the conversation. Unless the user explicitly says yes, this should be false.
      * @type {boolean}
      * @memberof ConversationAnalyticsModel
      */
     is_audio_consent_given: boolean;
     /**
-     * Extracted email address of the caller from the conversation details.
+     * Extracted email address of the caller from the conversation details. Email should be a valid email address format
      * @type {string}
      * @memberof ConversationAnalyticsModel
      */
@@ -906,6 +785,50 @@ export interface ConversationAnalyticsModel {
      * @memberof ConversationAnalyticsModel
      */
     prospectStatus: ProspectStatus | null;
+}
+/**
+ *
+ * @export
+ * @interface ConversationEndEvent
+ */
+export interface ConversationEndEvent {
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    timestamp: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    version?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    event_name: string;
+    /**
+     *
+     * @type {ConversationEndEventPayload}
+     * @memberof ConversationEndEvent
+     */
+    payload: ConversationEndEventPayload;
+}
+/**
+ *
+ * @export
+ * @interface ConversationEndEventPayload
+ */
+export interface ConversationEndEventPayload {
+    /**
+     *
+     * @type {ConversationOutput}
+     * @memberof ConversationEndEventPayload
+     */
+    conversation: ConversationOutput;
 }
 /**
  * Any feedback added to the conversation by business is managed here.
@@ -1151,7 +1074,95 @@ export interface ConversationOutput {
  */
 export declare enum ConversationSourceType {
     BROWSER = "BROWSER",
-    TWILIO = "TWILIO"
+    TWILIO = "TWILIO",
+    PLIVO = "PLIVO"
+}
+/**
+ *
+ * @export
+ * @interface ConversationStartEvent
+ */
+export interface ConversationStartEvent {
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    timestamp: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    version?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    event_name: string;
+    /**
+     *
+     * @type {ConversationStartEventPayload}
+     * @memberof ConversationStartEvent
+     */
+    payload: ConversationStartEventPayload;
+}
+/**
+ *
+ * @export
+ * @interface ConversationStartEventPayload
+ */
+export interface ConversationStartEventPayload {
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    connection_id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    conversation_id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    ai_agent_id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    org_id: string;
+    /**
+     *
+     * @type {object}
+     * @memberof ConversationStartEventPayload
+     */
+    caller_id: object | null;
+}
+/**
+ *
+ * @export
+ * @interface CountryInfo
+ */
+export interface CountryInfo {
+    /**
+     *
+     * @type {string}
+     * @memberof CountryInfo
+     */
+    code: string;
+    /**
+     *
+     * @type {string}
+     * @memberof CountryInfo
+     */
+    name: string;
 }
 /**
  * Credits details of the business
@@ -1253,10 +1264,10 @@ export interface ExternalReference {
     id: string;
     /**
      * Props for the external reference
-     * @type {any}
+     * @type {object}
      * @memberof ExternalReference
      */
-    providerProps?: any | null;
+    providerProps?: object | null;
 }
 /**
  *
@@ -1514,6 +1525,37 @@ export interface Hive {
 /**
  *
  * @export
+ * @interface HiveContentInput
+ */
+export interface HiveContentInput {
+    /**
+     *
+     * @type {HiveType}
+     * @memberof HiveContentInput
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof HiveContentInput
+     */
+    url?: string | null;
+    /**
+     * List of file ids to be referenced for the hive
+     * @type {Array<string>}
+     * @memberof HiveContentInput
+     */
+    file_ids?: Array<string> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof HiveContentInput
+     */
+    hiveProps?: object | null;
+}
+/**
+ *
+ * @export
  * @interface HiveContentOutput
  */
 export interface HiveContentOutput {
@@ -1579,10 +1621,10 @@ export interface HttpActionEndpoint {
     method?: HttpActionEndpointMethodEnum;
     /**
      * Headers for the endpoint
-     * @type {any}
+     * @type {object}
      * @memberof HttpActionEndpoint
      */
-    headers?: any | null;
+    headers?: object | null;
     /**
      * Payload for the endpoint
      * @type {object}
@@ -1649,7 +1691,8 @@ export interface InternalActionEndpoint {
  */
 export declare enum Language {
     English = "English",
-    Spanish = "Spanish"
+    Spanish = "Spanish",
+    Hindi = "Hindi"
 }
 /**
  *
@@ -1802,6 +1845,25 @@ export interface Mission {
     farewell?: string | null;
 }
 /**
+ *
+ * @export
+ * @interface NumberPurchaseRequest
+ */
+export interface NumberPurchaseRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof NumberPurchaseRequest
+     */
+    countryCode: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NumberPurchaseRequest
+     */
+    phoneNumber: string;
+}
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -1904,6 +1966,18 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     updatedAt?: string;
+    /**
+     * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    parentOrgId?: string | null;
+    /**
+     * Type of the organization. Currently only CONSUMER & RESELLER are supported
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    orgType?: string | null;
 }
 /**
  *
@@ -1961,10 +2035,10 @@ export interface ProductInput {
     scheduleAppointment?: boolean;
     /**
      * Properties of the product
-     * @type {any}
+     * @type {object}
      * @memberof ProductInput
      */
-    props?: any | null;
+    props?: object | null;
     /**
      * Tags for the product. This is used for grouping purpose. Eg: [\"gardening\", \"tools\"]
      * @type {Array<string>}
@@ -2228,10 +2302,10 @@ export interface ProductOutput {
     scheduleAppointment?: boolean;
     /**
      * Properties of the product
-     * @type {any}
+     * @type {object}
      * @memberof ProductOutput
      */
-    props?: any | null;
+    props?: object | null;
     /**
      *
      * @type {Array<string>}
@@ -2363,10 +2437,10 @@ export interface ProspectInput {
     status: ProspectStatus;
     /**
      * Props for the prospect
-     * @type {any}
+     * @type {object}
      * @memberof ProspectInput
      */
-    prospectProps?: any | null;
+    prospectProps?: object | null;
 }
 /**
  * Prospects are the potential customers for business
@@ -2418,10 +2492,10 @@ export interface ProspectOutput {
     status: string;
     /**
      *
-     * @type {any}
+     * @type {object}
      * @memberof ProspectOutput
      */
-    prospectProps: any | null;
+    prospectProps: object | null;
     /**
      *
      * @type {string}
@@ -2469,7 +2543,8 @@ export declare enum ProspectStatus {
  */
 export declare enum Role {
     ADMIN = "ADMIN",
-    READONLY = "READ_ONLY"
+    READONLY = "READ_ONLY",
+    RESELLERADMIN = "RESELLER_ADMIN"
 }
 /**
  *
@@ -2684,6 +2759,73 @@ export interface TaxDetailsOutput {
     taxProps: object | null;
 }
 /**
+ * Telephone number details of the business
+ * @export
+ * @interface TelephoneNumber
+ */
+export interface TelephoneNumber {
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    phoneNumber?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    countryCode?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    agentId?: string | null;
+    /**
+     *
+     * @type {object}
+     * @memberof TelephoneNumber
+     */
+    internalProps?: object | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    updatedAt?: string;
+}
+/**
  *
  * @export
  * @interface Transcriber
@@ -2726,73 +2868,6 @@ export interface UpdateUserPayload {
      * @memberof UpdateUserPayload
      */
     fullName: string | null;
-}
-/**
- * Model representing the users under an organization
- * @export
- * @interface User
- */
-export interface User {
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    id?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    email?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    orgId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    role?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    fullName?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    status: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    createdBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    createdAt?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    updatedBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof User
-     */
-    updatedAt?: string;
 }
 /**
  * User id to api key mapping table
@@ -2842,6 +2917,73 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     isActive?: boolean;
+}
+/**
+ * Model representing the users under an organization
+ * @export
+ * @interface UserOutput
+ */
+export interface UserOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    email?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    role?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    fullName?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    status: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedAt?: string;
 }
 /**
  *
@@ -2973,27 +3115,27 @@ export declare enum VoiceOutputGenderEnum {
  */
 export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deleteactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listactionsofagent
-     * @param {string} agentId
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3005,31 +3147,31 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
  */
 export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Deleteactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Listactionsofagent
-     * @param {string} agentId
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>>;
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
 };
 /**
  * ActionAgentLinkApi - factory interface
@@ -3037,31 +3179,31 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
  */
 export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Deleteactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Listactionsofagent
-     * @param {string} agentId
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<BackendDbModelsAction>>;
+    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<ActionOutput>>;
 };
 /**
  * ActionAgentLinkApi - object-oriented interface
@@ -3071,34 +3213,34 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
  */
 export declare class ActionAgentLinkApi extends BaseAPI {
     /**
-     *
-     * @summary Createactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
     createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Deleteactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
     deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Listactionsofagent
-     * @param {string} agentId
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction[]>>;
+    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
 }
 /**
  * ActionsApi - axios parameter creator
@@ -3106,47 +3248,47 @@ export declare class ActionAgentLinkApi extends BaseAPI {
  */
 export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createActionV1: (actionInput: ActionInput, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deleteaction
-     * @param {string} actionId
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Getaction
-     * @param {string} actionId
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listactions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listActionsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Updateaction
-     * @param {string} actionId
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3159,52 +3301,52 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
  */
 export declare const ActionsApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
+    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
-     *
-     * @summary Deleteaction
-     * @param {string} actionId
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Getaction
-     * @param {string} actionId
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
+    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
-     *
-     * @summary Listactions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
     /**
-     *
-     * @summary Updateaction
-     * @param {string} actionId
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
 };
 /**
  * ActionsApi - factory interface
@@ -3212,52 +3354,52 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
  */
 export declare const ActionsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction>;
+    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
     /**
-     *
-     * @summary Deleteaction
-     * @param {string} actionId
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteActionV1(actionId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Getaction
-     * @param {string} actionId
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): AxiosPromise<BackendDbModelsAction>;
+    getActionV1(actionId: string, options?: any): AxiosPromise<ActionOutput>;
     /**
-     *
-     * @summary Listactions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<BackendDbModelsAction>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>>;
     /**
-     *
-     * @summary Updateaction
-     * @param {string} actionId
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
 };
 /**
  * ActionsApi - object-oriented interface
@@ -3267,57 +3409,57 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
  */
 export declare class ActionsApi extends BaseAPI {
     /**
-     *
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
+    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
     /**
-     *
-     * @summary Deleteaction
-     * @param {string} actionId
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
     deleteActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Getaction
-     * @param {string} actionId
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
+    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
     /**
-     *
-     * @summary Listactions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction[]>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
     /**
-     *
-     * @summary Updateaction
-     * @param {string} actionId
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<BackendDbModelsAction>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
 }
 /**
  * AgentsApi - axios parameter creator
@@ -3325,47 +3467,47 @@ export declare class ActionsApi extends BaseAPI {
  */
 export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createAIAgentV1: (aIAgentInput: AIAgentInput, options?: any) => Promise<RequestArgs>;
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteAIAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getAIAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAIAgentsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3378,47 +3520,47 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const AgentsApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3431,47 +3573,47 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
  */
 export declare const AgentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): AxiosPromise<AIAgentOutput>;
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteAIAgentV1(agentId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getAIAgentV1(agentId: string, options?: any): AxiosPromise<AIAgentOutput>;
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3486,8 +3628,8 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
  */
 export declare class AgentsApi extends BaseAPI {
     /**
-     *
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3495,42 +3637,42 @@ export declare class AgentsApi extends BaseAPI {
      */
     createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
     deleteAIAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
     getAIAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
     listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3836,27 +3978,27 @@ export declare class BillingApi extends BaseAPI {
  */
 export declare const ConversationProspectLinkApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3868,27 +4010,27 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
  */
 export declare const ConversationProspectLinkApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3900,27 +4042,27 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
  */
 export declare const ConversationProspectLinkApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3934,29 +4076,29 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
  */
 export declare class ConversationProspectLinkApi extends BaseAPI {
     /**
-     *
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
     createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
     deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -3969,56 +4111,56 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
  */
 export declare const ConversationsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Addfeedback
-     * @param {string} conversationId
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     addFeedbackV1: (conversationId: string, comment: Comment, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationV1: (conversationInput: ConversationInput, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deleteconversation
-     * @param {string} conversationId
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationV1: (conversationId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Getconversation
-     * @param {string} conversationId
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getConversationV1: (conversationId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listconversations
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listConversationsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Updateconversation
-     * @param {string} conversationId
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4031,56 +4173,56 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
  */
 export declare const ConversationsApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Addfeedback
-     * @param {string} conversationId
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     addFeedbackV1(conversationId: string, comment: Comment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationFeedback>>;
     /**
-     *
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationV1(conversationInput: ConversationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
-     *
-     * @summary Deleteconversation
-     * @param {string} conversationId
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Getconversation
-     * @param {string} conversationId
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
-     *
-     * @summary Listconversations
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
-     *
-     * @summary Updateconversation
-     * @param {string} conversationId
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4093,56 +4235,56 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
  */
 export declare const ConversationsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Addfeedback
-     * @param {string} conversationId
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     addFeedbackV1(conversationId: string, comment: Comment, options?: any): AxiosPromise<ConversationFeedback>;
     /**
-     *
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createConversationV1(conversationInput: ConversationInput, options?: any): AxiosPromise<ConversationOutput>;
     /**
-     *
-     * @summary Deleteconversation
-     * @param {string} conversationId
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteConversationV1(conversationId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Getconversation
-     * @param {string} conversationId
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getConversationV1(conversationId: string, options?: any): AxiosPromise<ConversationOutput>;
     /**
-     *
-     * @summary Listconversations
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>>;
     /**
-     *
-     * @summary Updateconversation
-     * @param {string} conversationId
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4157,9 +4299,9 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
  */
 export declare class ConversationsApi extends BaseAPI {
     /**
-     *
-     * @summary Addfeedback
-     * @param {string} conversationId
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4167,8 +4309,8 @@ export declare class ConversationsApi extends BaseAPI {
      */
     addFeedbackV1(conversationId: string, comment: Comment, options?: any): Promise<import("axios").AxiosResponse<ConversationFeedback>>;
     /**
-     *
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4176,42 +4318,42 @@ export declare class ConversationsApi extends BaseAPI {
      */
     createConversationV1(conversationInput: ConversationInput, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
     /**
-     *
-     * @summary Deleteconversation
-     * @param {string} conversationId
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
     deleteConversationV1(conversationId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Getconversation
-     * @param {string} conversationId
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
     getConversationV1(conversationId: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
     /**
-     *
-     * @summary Listconversations
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
     listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
     /**
-     *
-     * @summary Updateconversation
-     * @param {string} conversationId
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4234,6 +4376,14 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlivoAudioStreamXml: (connectionId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -4250,6 +4400,14 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>>;
+    /**
+     *
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -4266,6 +4424,14 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection>;
+    /**
+     *
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponse>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -4285,6 +4451,15 @@ export declare class DataPlaneApi extends BaseAPI {
      * @memberof DataPlaneApi
      */
     createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<Connection>>;
+    /**
+     *
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
 }
 /**
  * HealthApi - axios parameter creator
@@ -4292,8 +4467,8 @@ export declare class DataPlaneApi extends BaseAPI {
  */
 export declare const HealthApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4305,14 +4480,12 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const HealthApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: string;
-    }>>;
+    statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
 };
 /**
  * HealthApi - factory interface
@@ -4320,14 +4493,12 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
  */
 export declare const HealthApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: any): AxiosPromise<{
-        [key: string]: string;
-    }>;
+    statusStatusGet(options?: any): AxiosPromise<object>;
 };
 /**
  * HealthApi - object-oriented interface
@@ -4337,15 +4508,13 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
  */
 export declare class HealthApi extends BaseAPI {
     /**
-     *
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusStatusGet(options?: any): Promise<import("axios").AxiosResponse<{
-        [key: string]: string;
-    }>>;
+    statusStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
 }
 /**
  * HiveApi - axios parameter creator
@@ -4353,52 +4522,52 @@ export declare class HealthApi extends BaseAPI {
  */
 export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) => Promise<RequestArgs>;
+    createHiveV1: (hiveContentInput: HiveContentInput, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1: (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) => Promise<RequestArgs>;
+    updateHiveV1: (hiveId: string, hiveContentOutput: HiveContentOutput, options?: any) => Promise<RequestArgs>;
 };
 /**
  * HiveApi - functional programming interface
@@ -4406,52 +4575,52 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
  */
 export declare const HiveApiFp: (configuration?: Configuration) => {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
     /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * HiveApi - factory interface
@@ -4459,52 +4628,52 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
  */
 export declare const HiveApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: any): AxiosPromise<Hive>;
     /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive>;
     /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>>;
     /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): AxiosPromise<Hive>;
 };
 /**
  * HiveApi - object-oriented interface
@@ -4514,57 +4683,57 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
  */
 export declare class HiveApi extends BaseAPI {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
     deleteHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
     getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
     /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
     listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
     /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * HiveAgentLinkApi - axios parameter creator
@@ -4572,35 +4741,35 @@ export declare class HiveApi extends BaseAPI {
  */
 export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createhiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createHiveAgentLinkV1: (hiveId: string, agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveAgentLinkV1: (hiveId: string, agentId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listagentsofhive
-     * @param {string} hiveId
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listhivesofagent
-     * @param {string} agentId
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4612,35 +4781,35 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
  */
 export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createhiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Listagentsofhive
-     * @param {string} hiveId
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
-     *
-     * @summary Listhivesofagent
-     * @param {string} agentId
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4652,35 +4821,35 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
  */
 export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createhiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Listagentsofhive
-     * @param {string} hiveId
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfHiveV1(hiveId: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
-     *
-     * @summary Listhivesofagent
-     * @param {string} agentId
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4694,38 +4863,38 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
  */
 export declare class HiveAgentLinkApi extends BaseAPI {
     /**
-     *
-     * @summary Createhiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
     createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
     deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Listagentsofhive
-     * @param {string} hiveId
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
     listAgentsOfHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
-     *
-     * @summary Listhivesofagent
-     * @param {string} agentId
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -4792,13 +4961,13 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4814,7 +4983,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
     /**
      *
      * @summary Updateorganization
-     * @param {string} orgId
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4849,7 +5018,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    acceptInviteV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -4857,7 +5026,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>>;
     /**
      *
      * @summary Delete File
@@ -4880,7 +5049,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>>;
     /**
      *
      * @summary Getorganization
@@ -4898,17 +5067,17 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -4920,7 +5089,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary Updateorganization
-     * @param {string} orgId
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4934,7 +5103,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>>;
     /**
      *
      * @summary Upload File
@@ -4955,7 +5124,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(options?: any): AxiosPromise<User>;
+    acceptInviteV1(options?: any): AxiosPromise<UserOutput>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -4963,7 +5132,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<UserOutput>;
     /**
      *
      * @summary Delete File
@@ -4986,7 +5155,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
+    deleteUserV1(userId: string, options?: any): AxiosPromise<UserOutput>;
     /**
      *
      * @summary Getorganization
@@ -5004,17 +5173,17 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserOutput>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -5026,7 +5195,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
     /**
      *
      * @summary Updateorganization
-     * @param {string} orgId
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5040,7 +5209,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User>;
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<UserOutput>;
     /**
      *
      * @summary Upload File
@@ -5064,7 +5233,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    acceptInviteV1(options?: any): Promise<import("axios").AxiosResponse<User>>;
+    acceptInviteV1(options?: any): Promise<import("axios").AxiosResponse<UserOutput>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -5073,7 +5242,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<UserOutput>>;
     /**
      *
      * @summary Delete File
@@ -5099,7 +5268,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserOutput>>;
     /**
      *
      * @summary Getorganization
@@ -5119,18 +5288,18 @@ export declare class InternalApi extends BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<UserOutput[]>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -5143,7 +5312,7 @@ export declare class InternalApi extends BaseAPI {
     /**
      *
      * @summary Updateorganization
-     * @param {string} orgId
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5159,7 +5328,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<UserOutput>>;
     /**
      *
      * @summary Upload File
@@ -5169,225 +5338,6 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     uploadFileV1(files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<Files[]>>;
-}
-/**
- * KnowledgeBaseApi - axios parameter creator
- * @export
- */
-export declare const KnowledgeBaseApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createHiveV1: (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateHiveV1: (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) => Promise<RequestArgs>;
-};
-/**
- * KnowledgeBaseApi - functional programming interface
- * @export
- */
-export declare const KnowledgeBaseApiFp: (configuration?: Configuration) => {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
-    /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
-    /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
-    /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
-    /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
-};
-/**
- * KnowledgeBaseApi - factory interface
- * @export
- */
-export declare const KnowledgeBaseApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive>;
-    /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponse>;
-    /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive>;
-    /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>>;
-    /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive>;
-};
-/**
- * KnowledgeBaseApi - object-oriented interface
- * @export
- * @class KnowledgeBaseApi
- * @extends {BaseAPI}
- */
-export declare class KnowledgeBaseApi extends BaseAPI {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
-    /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    deleteHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
-    /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
-    /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
-    /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * MetricsApi - axios parameter creator
@@ -5483,57 +5433,57 @@ export declare class MetricsApi extends BaseAPI {
  */
 export declare const ProductsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProductV1: (productInput: ProductInput, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Deleteproduct
-     * @param {string} productId
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Getproduct
-     * @param {string} productId
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listagentsofproduct
-     * @param {string} productId
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Listproducts
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProductsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Updateproduct
-     * @param {string} productId
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5546,57 +5496,57 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
  */
 export declare const ProductsApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProductV1(productInput: ProductInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
-     *
-     * @summary Deleteproduct
-     * @param {string} productId
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     *
-     * @summary Getproduct
-     * @param {string} productId
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
-     *
-     * @summary Listagentsofproduct
-     * @param {string} productId
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
-     *
-     * @summary Listproducts
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
     /**
-     *
-     * @summary Updateproduct
-     * @param {string} productId
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5609,57 +5559,57 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
  */
 export declare const ProductsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProductV1(productInput: ProductInput, options?: any): AxiosPromise<ProductOutput>;
     /**
-     *
-     * @summary Deleteproduct
-     * @param {string} productId
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProductV1(productId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     *
-     * @summary Getproduct
-     * @param {string} productId
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProductV1(productId: string, options?: any): AxiosPromise<ProductOutput>;
     /**
-     *
-     * @summary Listagentsofproduct
-     * @param {string} productId
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listAgentsOfProductV1(productId: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
-     *
-     * @summary Listproducts
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>>;
     /**
-     *
-     * @summary Updateproduct
-     * @param {string} productId
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5674,8 +5624,8 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
  */
 export declare class ProductsApi extends BaseAPI {
     /**
-     *
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5683,53 +5633,53 @@ export declare class ProductsApi extends BaseAPI {
      */
     createProductV1(productInput: ProductInput, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
     /**
-     *
-     * @summary Deleteproduct
-     * @param {string} productId
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
     deleteProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     *
-     * @summary Getproduct
-     * @param {string} productId
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
     getProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
     /**
-     *
-     * @summary Listagentsofproduct
-     * @param {string} productId
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
     listAgentsOfProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
-     *
-     * @summary Listproducts
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
     listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
     /**
-     *
-     * @summary Updateproduct
-     * @param {string} productId
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5743,47 +5693,47 @@ export declare class ProductsApi extends BaseAPI {
  */
 export declare const ProspectsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProspectV1: (prospectInput: ProspectInput, options?: any) => Promise<RequestArgs>;
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProspectV1: (prospectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProspectV1: (prospectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProspectsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5796,47 +5746,47 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
  */
 export declare const ProspectsApiFp: (configuration?: Configuration) => {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProspectV1(prospectInput: ProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5849,47 +5799,47 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
  */
 export declare const ProspectsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     createProspectV1(prospectInput: ProspectInput, options?: any): AxiosPromise<ProspectOutput>;
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     deleteProspectV1(prospectId: string, options?: any): AxiosPromise<BaseResponse>;
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     getProspectV1(prospectId: string, options?: any): AxiosPromise<ProspectOutput>;
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ProspectOutput>>;
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5904,8 +5854,8 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
  */
 export declare class ProspectsApi extends BaseAPI {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5913,48 +5863,342 @@ export declare class ProspectsApi extends BaseAPI {
      */
     createProspectV1(prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
     deleteProspectV1(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
     getProspectV1(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
     listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+}
+/**
+ * TelephonyApi - axios parameter creator
+ * @export
+ */
+export declare const TelephonyApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Agent Phones
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAgentPhonesV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Link Phone To Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    linkPhoneToAgentV1: (phoneId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Available Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAvailablePhonesV1: (countryCode: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Purchased Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPurchasedPhonesV1: (countryCode: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSupportedCountriesV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    purchasePhoneV1: (numberPurchaseRequest: NumberPurchaseRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Release Phone
+     * @param {string} phoneId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    releasePhoneV1: (phoneId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unlinkPhoneFromAgentV1: (phoneId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * TelephonyApi - functional programming interface
+ * @export
+ */
+export declare const TelephonyApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Agent Phones
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAgentPhonesV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    /**
+     *
+     * @summary Link Phone To Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary List Available Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
+    /**
+     *
+     * @summary List Purchased Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPurchasedPhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    /**
+     *
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSupportedCountriesV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>>;
+    /**
+     *
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>>;
+    /**
+     *
+     * @summary Release Phone
+     * @param {string} phoneId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    releasePhoneV1(phoneId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+    /**
+     *
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>>;
+};
+/**
+ * TelephonyApi - factory interface
+ * @export
+ */
+export declare const TelephonyApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Get Agent Phones
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAgentPhonesV1(agentId: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
+    /**
+     *
+     * @summary Link Phone To Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary List Available Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<string>>;
+    /**
+     *
+     * @summary List Purchased Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPurchasedPhonesV1(countryCode: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
+    /**
+     *
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSupportedCountriesV1(options?: any): AxiosPromise<Array<CountryInfo>>;
+    /**
+     *
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): AxiosPromise<TelephoneNumber>;
+    /**
+     *
+     * @summary Release Phone
+     * @param {string} phoneId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    releasePhoneV1(phoneId: string, options?: any): AxiosPromise<BaseResponse>;
+    /**
+     *
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse>;
+};
+/**
+ * TelephonyApi - object-oriented interface
+ * @export
+ * @class TelephonyApi
+ * @extends {BaseAPI}
+ */
+export declare class TelephonyApi extends BaseAPI {
+    /**
+     *
+     * @summary Get Agent Phones
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    getAgentPhonesV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    /**
+     *
+     * @summary Link Phone To Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary List Available Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listAvailablePhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<string[]>>;
+    /**
+     *
+     * @summary List Purchased Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listPurchasedPhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    /**
+     *
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listSupportedCountriesV1(options?: any): Promise<import("axios").AxiosResponse<CountryInfo[]>>;
+    /**
+     *
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber>>;
+    /**
+     *
+     * @summary Release Phone
+     * @param {string} phoneId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    releasePhoneV1(phoneId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
+    /**
+     *
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponse>>;
 }
 /**
  * UIApi - axios parameter creator
@@ -5972,15 +6216,15 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6014,19 +6258,19 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>>;
+    listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6062,19 +6306,19 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>>;
+    listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<ActionInput>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6113,19 +6357,19 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listActionTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<BackendDtoModelsAction[]>>;
+    listActionTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<ActionInput[]>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
@@ -6159,7 +6403,7 @@ export declare class UIApi extends BaseAPI {
 export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6172,7 +6416,7 @@ export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configura
 export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6185,7 +6429,7 @@ export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
 export declare const VoiceModelsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6200,7 +6444,7 @@ export declare const VoiceModelsApiFactory: (configuration?: Configuration, base
 export declare class VoiceModelsApi extends BaseAPI {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoiceModelsApi

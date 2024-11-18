@@ -186,7 +186,8 @@ export enum Accent {
     American = 'American',
     Indian = 'Indian',
     Australian = 'Australian',
-    British = 'British'
+    British = 'British',
+    Hindi = 'Hindi'
 }
 
 /**
@@ -206,7 +207,7 @@ export interface ActionInput {
      * @type {string}
      * @memberof ActionInput
      */
-    description: string;
+    description?: string | null;
     /**
      * Parameters for the action. It should be a JSON schema object
      * @type {object}
@@ -255,6 +256,97 @@ export enum ActionInvocationTrigger {
     WebhookConversationEnd = 'webhook.conversation_end'
 }
 
+/**
+ * Action entity to store the actions which can be performed by ai agents
+ * @export
+ * @interface ActionOutput
+ */
+export interface ActionOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    description?: string | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof ActionOutput
+     */
+    parameters?: object | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof ActionOutput
+     */
+    endpoint?: object | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    invocationTrigger?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userWaitingText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userSuccessText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    userErrorText?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ActionOutput
+     */
+    updatedAt?: string;
+}
 /**
  * 
  * @export
@@ -394,220 +486,6 @@ export enum AggregationPeriod {
     DAILY = 'DAILY'
 }
 
-/**
- * Action entity to store the actions which can be performed by ai agents
- * @export
- * @interface BackendDbModelsAction
- */
-export interface BackendDbModelsAction {
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    description?: string;
-    /**
-     * 
-     * @type {object}
-     * @memberof BackendDbModelsAction
-     */
-    parameters?: object | null;
-    /**
-     * 
-     * @type {object}
-     * @memberof BackendDbModelsAction
-     */
-    endpoint?: object | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    invocationTrigger?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userWaitingText?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userSuccessText?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    userErrorText?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BackendDbModelsAction
-     */
-    updatedAt?: string;
-}
-/**
- * 
- * @export
- * @interface BackendDbModelsHiveContent
- */
-export interface BackendDbModelsHiveContent {
-    /**
-     * 
-     * @type {HiveType}
-     * @memberof BackendDbModelsHiveContent
-     */
-    hiveType: HiveType;
-    /**
-     * URL of the content
-     * @type {string}
-     * @memberof BackendDbModelsHiveContent
-     */
-    url?: string | null;
-    /**
-     * List of files to be referenced for the hive
-     * @type {Array<Files>}
-     * @memberof BackendDbModelsHiveContent
-     */
-    files?: Array<Files> | null;
-    /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
-     * @type {object}
-     * @memberof BackendDbModelsHiveContent
-     */
-    hiveProps?: object | null;
-    /**
-     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
-     * @type {object}
-     * @memberof BackendDbModelsHiveContent
-     */
-    internalProps?: object | null;
-}
-/**
- * 
- * @export
- * @interface BackendDtoModelsAction
- */
-export interface BackendDtoModelsAction {
-    /**
-     * Name of the action
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    name: string;
-    /**
-     * Description about the action and it should also contain when the action should be triggered
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    description: string;
-    /**
-     * Parameters for the action. It should be a JSON schema object
-     * @type {object}
-     * @memberof BackendDtoModelsAction
-     */
-    parameters: object;
-    /**
-     * Endpoint for the action
-     * @type {HttpActionEndpoint | InternalActionEndpoint}
-     * @memberof BackendDtoModelsAction
-     */
-    endpoint: HttpActionEndpoint | InternalActionEndpoint;
-    /**
-     * Text to be rendered to user when action is invoked
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userWaitingText?: string | null;
-    /**
-     * Text to be rendered to user when action is successful
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userSuccessText?: string | null;
-    /**
-     * Text to be rendered to user when action is not successful
-     * @type {string}
-     * @memberof BackendDtoModelsAction
-     */
-    userErrorText?: string | null;
-    /**
-     * Trigger who invokes the action
-     * @type {ActionInvocationTrigger}
-     * @memberof BackendDtoModelsAction
-     */
-    invocationTrigger: ActionInvocationTrigger;
-}
-/**
- * 
- * @export
- * @interface BackendDtoModelsHiveContent
- */
-export interface BackendDtoModelsHiveContent {
-    /**
-     * 
-     * @type {HiveType}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    hiveType: HiveType;
-    /**
-     * URL of the content
-     * @type {string}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    url?: string | null;
-    /**
-     * List of file ids to be referenced for the hive
-     * @type {Array<string>}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    file_ids?: Array<string> | null;
-    /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
-     * @type {object}
-     * @memberof BackendDtoModelsHiveContent
-     */
-    hiveProps?: object | null;
-}
 /**
  * 
  * @export
@@ -857,6 +735,7 @@ export interface ConnectionSource {
     */
 export enum ConnectionSourceSourceNameEnum {
     TWILIO = 'TWILIO',
+    PLIVO = 'PLIVO',
     BROWSER = 'BROWSER'
 }
 
@@ -867,7 +746,7 @@ export enum ConnectionSourceSourceNameEnum {
  */
 export interface ConversationAnalyticsModel {
     /**
-     * Summary of the conversation happened with important details on the conversation.
+     * Summary of the conversation happened with important details on the conversation. The summary should be concise and to the point. It should contain the important details of the conversation like name, phone number, email, address and any other details shared by the user.
      * @type {string}
      * @memberof ConversationAnalyticsModel
      */
@@ -879,13 +758,13 @@ export interface ConversationAnalyticsModel {
      */
     action_items: Array<string> | null;
     /**
-     * If the user has given consent to store the audio of the conversation.
+     * If the user has given consent to store the audio of the conversation. Unless the user explicitly says yes, this should be false.
      * @type {boolean}
      * @memberof ConversationAnalyticsModel
      */
     is_audio_consent_given: boolean;
     /**
-     * Extracted email address of the caller from the conversation details.
+     * Extracted email address of the caller from the conversation details. Email should be a valid email address format
      * @type {string}
      * @memberof ConversationAnalyticsModel
      */
@@ -920,6 +799,50 @@ export interface ConversationAnalyticsModel {
      * @memberof ConversationAnalyticsModel
      */
     prospectStatus: ProspectStatus | null;
+}
+/**
+ * 
+ * @export
+ * @interface ConversationEndEvent
+ */
+export interface ConversationEndEvent {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    timestamp: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    version?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationEndEvent
+     */
+    event_name: string;
+    /**
+     * 
+     * @type {ConversationEndEventPayload}
+     * @memberof ConversationEndEvent
+     */
+    payload: ConversationEndEventPayload;
+}
+/**
+ * 
+ * @export
+ * @interface ConversationEndEventPayload
+ */
+export interface ConversationEndEventPayload {
+    /**
+     * 
+     * @type {ConversationOutput}
+     * @memberof ConversationEndEventPayload
+     */
+    conversation: ConversationOutput;
 }
 /**
  * Any feedback added to the conversation by business is managed here.
@@ -1165,9 +1088,97 @@ export interface ConversationOutput {
  */
 export enum ConversationSourceType {
     BROWSER = 'BROWSER',
-    TWILIO = 'TWILIO'
+    TWILIO = 'TWILIO',
+    PLIVO = 'PLIVO'
 }
 
+/**
+ * 
+ * @export
+ * @interface ConversationStartEvent
+ */
+export interface ConversationStartEvent {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    timestamp: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    version?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEvent
+     */
+    event_name: string;
+    /**
+     * 
+     * @type {ConversationStartEventPayload}
+     * @memberof ConversationStartEvent
+     */
+    payload: ConversationStartEventPayload;
+}
+/**
+ * 
+ * @export
+ * @interface ConversationStartEventPayload
+ */
+export interface ConversationStartEventPayload {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    connection_id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    conversation_id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    ai_agent_id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationStartEventPayload
+     */
+    org_id: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof ConversationStartEventPayload
+     */
+    caller_id: object | null;
+}
+/**
+ * 
+ * @export
+ * @interface CountryInfo
+ */
+export interface CountryInfo {
+    /**
+     * 
+     * @type {string}
+     * @memberof CountryInfo
+     */
+    code: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CountryInfo
+     */
+    name: string;
+}
 /**
  * Credits details of the business
  * @export
@@ -1268,10 +1279,10 @@ export interface ExternalReference {
     id: string;
     /**
      * Props for the external reference
-     * @type {any}
+     * @type {object}
      * @memberof ExternalReference
      */
-    providerProps?: any | null;
+    providerProps?: object | null;
 }
 /**
  * 
@@ -1529,6 +1540,37 @@ export interface Hive {
 /**
  * 
  * @export
+ * @interface HiveContentInput
+ */
+export interface HiveContentInput {
+    /**
+     * 
+     * @type {HiveType}
+     * @memberof HiveContentInput
+     */
+    hiveType: HiveType;
+    /**
+     * URL of the content
+     * @type {string}
+     * @memberof HiveContentInput
+     */
+    url?: string | null;
+    /**
+     * List of file ids to be referenced for the hive
+     * @type {Array<string>}
+     * @memberof HiveContentInput
+     */
+    file_ids?: Array<string> | null;
+    /**
+     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     * @type {object}
+     * @memberof HiveContentInput
+     */
+    hiveProps?: object | null;
+}
+/**
+ * 
+ * @export
  * @interface HiveContentOutput
  */
 export interface HiveContentOutput {
@@ -1595,10 +1637,10 @@ export interface HttpActionEndpoint {
     method?: HttpActionEndpointMethodEnum;
     /**
      * Headers for the endpoint
-     * @type {any}
+     * @type {object}
      * @memberof HttpActionEndpoint
      */
-    headers?: any | null;
+    headers?: object | null;
     /**
      * Payload for the endpoint
      * @type {object}
@@ -1667,7 +1709,8 @@ export interface InternalActionEndpoint {
  */
 export enum Language {
     English = 'English',
-    Spanish = 'Spanish'
+    Spanish = 'Spanish',
+    Hindi = 'Hindi'
 }
 
 /**
@@ -1822,6 +1865,25 @@ export interface Mission {
     farewell?: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface NumberPurchaseRequest
+ */
+export interface NumberPurchaseRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof NumberPurchaseRequest
+     */
+    countryCode: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NumberPurchaseRequest
+     */
+    phoneNumber: string;
+}
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -1924,6 +1986,18 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     updatedAt?: string;
+    /**
+     * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    parentOrgId?: string | null;
+    /**
+     * Type of the organization. Currently only CONSUMER & RESELLER are supported
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    orgType?: string | null;
 }
 /**
  * 
@@ -1981,10 +2055,10 @@ export interface ProductInput {
     scheduleAppointment?: boolean;
     /**
      * Properties of the product
-     * @type {any}
+     * @type {object}
      * @memberof ProductInput
      */
-    props?: any | null;
+    props?: object | null;
     /**
      * Tags for the product. This is used for grouping purpose. Eg: [\"gardening\", \"tools\"]
      * @type {Array<string>}
@@ -2250,10 +2324,10 @@ export interface ProductOutput {
     scheduleAppointment?: boolean;
     /**
      * Properties of the product
-     * @type {any}
+     * @type {object}
      * @memberof ProductOutput
      */
-    props?: any | null;
+    props?: object | null;
     /**
      * 
      * @type {Array<string>}
@@ -2385,10 +2459,10 @@ export interface ProspectInput {
     status: ProspectStatus;
     /**
      * Props for the prospect
-     * @type {any}
+     * @type {object}
      * @memberof ProspectInput
      */
-    prospectProps?: any | null;
+    prospectProps?: object | null;
 }
 /**
  * Prospects are the potential customers for business
@@ -2440,10 +2514,10 @@ export interface ProspectOutput {
     status: string;
     /**
      * 
-     * @type {any}
+     * @type {object}
      * @memberof ProspectOutput
      */
-    prospectProps: any | null;
+    prospectProps: object | null;
     /**
      * 
      * @type {string}
@@ -2492,7 +2566,8 @@ export enum ProspectStatus {
  */
 export enum Role {
     ADMIN = 'ADMIN',
-    READONLY = 'READ_ONLY'
+    READONLY = 'READ_ONLY',
+    RESELLERADMIN = 'RESELLER_ADMIN'
 }
 
 /**
@@ -2710,6 +2785,73 @@ export interface TaxDetailsOutput {
     taxProps: object | null;
 }
 /**
+ * Telephone number details of the business
+ * @export
+ * @interface TelephoneNumber
+ */
+export interface TelephoneNumber {
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    phoneNumber?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    countryCode?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    agentId?: string | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof TelephoneNumber
+     */
+    internalProps?: object | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephoneNumber
+     */
+    updatedAt?: string;
+}
+/**
  * 
  * @export
  * @interface Transcriber
@@ -2752,73 +2894,6 @@ export interface UpdateUserPayload {
      * @memberof UpdateUserPayload
      */
     fullName: string | null;
-}
-/**
- * Model representing the users under an organization
- * @export
- * @interface User
- */
-export interface User {
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    role?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    fullName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    updatedAt?: string;
 }
 /**
  * User id to api key mapping table
@@ -2868,6 +2943,73 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     isActive?: boolean;
+}
+/**
+ * Model representing the users under an organization
+ * @export
+ * @interface UserOutput
+ */
+export interface UserOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    email?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    role?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    fullName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    status: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedAt?: string;
 }
 /**
  * 
@@ -3005,10 +3147,10 @@ export enum VoiceOutputGenderEnum {
 export const ActionAgentLinkApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3056,10 +3198,10 @@ export const ActionAgentLinkApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * 
-         * @summary Deleteactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3107,9 +3249,9 @@ export const ActionAgentLinkApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * 
-         * @summary Listactionsofagent
-         * @param {string} agentId 
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3161,10 +3303,10 @@ export const ActionAgentLinkApiAxiosParamCreator = function (configuration?: Con
 export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3176,10 +3318,10 @@ export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Deleteactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3191,13 +3333,13 @@ export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listactionsofagent
-         * @param {string} agentId 
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>> {
+        async listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>> {
             const localVarAxiosArgs = await ActionAgentLinkApiAxiosParamCreator(configuration).listActionsOfAgentV1(agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3214,10 +3356,10 @@ export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
 export const ActionAgentLinkApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3225,10 +3367,10 @@ export const ActionAgentLinkApiFactory = function (configuration?: Configuration
             return ActionAgentLinkApiFp(configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deleteactionagentlink
-         * @param {string} actionId 
-         * @param {string} agentId 
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3236,13 +3378,13 @@ export const ActionAgentLinkApiFactory = function (configuration?: Configuration
             return ActionAgentLinkApiFp(configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listactionsofagent
-         * @param {string} agentId 
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<BackendDbModelsAction>> {
+        listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<ActionOutput>> {
             return ActionAgentLinkApiFp(configuration).listActionsOfAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
     };
@@ -3256,10 +3398,10 @@ export const ActionAgentLinkApiFactory = function (configuration?: Configuration
  */
 export class ActionAgentLinkApi extends BaseAPI {
     /**
-     * 
-     * @summary Createactionagentlink
-     * @param {string} actionId 
-     * @param {string} agentId 
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -3269,10 +3411,10 @@ export class ActionAgentLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deleteactionagentlink
-     * @param {string} actionId 
-     * @param {string} agentId 
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -3282,9 +3424,9 @@ export class ActionAgentLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listactionsofagent
-     * @param {string} agentId 
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -3303,8 +3445,8 @@ export class ActionAgentLinkApi extends BaseAPI {
 export const ActionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3351,9 +3493,9 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Deleteaction
-         * @param {string} actionId 
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3396,9 +3538,9 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Getaction
-         * @param {string} actionId 
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3441,15 +3583,15 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Listactions
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3515,9 +3657,9 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Updateaction
-         * @param {string} actionId 
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3578,13 +3720,13 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
 export const ActionsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>> {
+        async createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>> {
             const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).createActionV1(actionInput, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3592,9 +3734,9 @@ export const ActionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Deleteaction
-         * @param {string} actionId 
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3606,13 +3748,13 @@ export const ActionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Getaction
-         * @param {string} actionId 
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>> {
+        async getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>> {
             const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).getActionV1(actionId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3620,19 +3762,19 @@ export const ActionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listactions
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDbModelsAction>>> {
+        async listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>> {
             const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3640,14 +3782,14 @@ export const ActionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Updateaction
-         * @param {string} actionId 
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackendDbModelsAction>> {
+        async updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>> {
             const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).updateActionV1(actionId, actionInput, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3664,19 +3806,19 @@ export const ActionsApiFp = function(configuration?: Configuration) {
 export const ActionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction> {
+        createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput> {
             return ActionsApiFp(configuration).createActionV1(actionInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deleteaction
-         * @param {string} actionId 
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3684,40 +3826,40 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
             return ActionsApiFp(configuration).deleteActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Getaction
-         * @param {string} actionId 
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getActionV1(actionId: string, options?: any): AxiosPromise<BackendDbModelsAction> {
+        getActionV1(actionId: string, options?: any): AxiosPromise<ActionOutput> {
             return ActionsApiFp(configuration).getActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listactions
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<BackendDbModelsAction>> {
+        listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>> {
             return ActionsApiFp(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Updateaction
-         * @param {string} actionId 
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<BackendDbModelsAction> {
+        updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput> {
             return ActionsApiFp(configuration).updateActionV1(actionId, actionInput, options).then((request) => request(axios, basePath));
         },
     };
@@ -3731,8 +3873,8 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
  */
 export class ActionsApi extends BaseAPI {
     /**
-     * 
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3743,9 +3885,9 @@ export class ActionsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deleteaction
-     * @param {string} actionId 
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -3755,9 +3897,9 @@ export class ActionsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Getaction
-     * @param {string} actionId 
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -3767,15 +3909,15 @@ export class ActionsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listactions
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -3785,9 +3927,9 @@ export class ActionsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Updateaction
-     * @param {string} actionId 
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3807,8 +3949,8 @@ export class ActionsApi extends BaseAPI {
 export const AgentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3855,9 +3997,9 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId 
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3900,9 +4042,9 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId 
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3945,15 +4087,15 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4019,9 +4161,9 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId 
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4082,8 +4224,8 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
 export const AgentsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4096,9 +4238,9 @@ export const AgentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId 
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4110,9 +4252,9 @@ export const AgentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId 
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4124,15 +4266,15 @@ export const AgentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4144,9 +4286,9 @@ export const AgentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId 
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4168,8 +4310,8 @@ export const AgentsApiFp = function(configuration?: Configuration) {
 export const AgentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4178,9 +4320,9 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
             return AgentsApiFp(configuration).createAIAgentV1(aIAgentInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId 
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4188,9 +4330,9 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
             return AgentsApiFp(configuration).deleteAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId 
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4198,15 +4340,15 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
             return AgentsApiFp(configuration).getAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4214,9 +4356,9 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
             return AgentsApiFp(configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId 
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4235,8 +4377,8 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
  */
 export class AgentsApi extends BaseAPI {
     /**
-     * 
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4247,9 +4389,9 @@ export class AgentsApi extends BaseAPI {
     }
 
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId 
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -4259,9 +4401,9 @@ export class AgentsApi extends BaseAPI {
     }
 
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId 
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -4271,15 +4413,15 @@ export class AgentsApi extends BaseAPI {
     }
 
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -4289,9 +4431,9 @@ export class AgentsApi extends BaseAPI {
     }
 
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId 
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4979,10 +5121,10 @@ export class BillingApi extends BaseAPI {
 export const ConversationProspectLinkApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5030,10 +5172,10 @@ export const ConversationProspectLinkApiAxiosParamCreator = function (configurat
             };
         },
         /**
-         * 
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5081,9 +5223,9 @@ export const ConversationProspectLinkApiAxiosParamCreator = function (configurat
             };
         },
         /**
-         * 
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId 
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5135,10 +5277,10 @@ export const ConversationProspectLinkApiAxiosParamCreator = function (configurat
 export const ConversationProspectLinkApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5150,10 +5292,10 @@ export const ConversationProspectLinkApiFp = function(configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5165,9 +5307,9 @@ export const ConversationProspectLinkApiFp = function(configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId 
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5188,10 +5330,10 @@ export const ConversationProspectLinkApiFp = function(configuration?: Configurat
 export const ConversationProspectLinkApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5199,10 +5341,10 @@ export const ConversationProspectLinkApiFactory = function (configuration?: Conf
             return ConversationProspectLinkApiFp(configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId 
-         * @param {string} prospectId 
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5210,9 +5352,9 @@ export const ConversationProspectLinkApiFactory = function (configuration?: Conf
             return ConversationProspectLinkApiFp(configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId 
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5230,10 +5372,10 @@ export const ConversationProspectLinkApiFactory = function (configuration?: Conf
  */
 export class ConversationProspectLinkApi extends BaseAPI {
     /**
-     * 
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId 
-     * @param {string} prospectId 
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -5243,10 +5385,10 @@ export class ConversationProspectLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId 
-     * @param {string} prospectId 
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -5256,9 +5398,9 @@ export class ConversationProspectLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId 
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -5277,9 +5419,9 @@ export class ConversationProspectLinkApi extends BaseAPI {
 export const ConversationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Addfeedback
-         * @param {string} conversationId 
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5331,8 +5473,8 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5379,9 +5521,9 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Deleteconversation
-         * @param {string} conversationId 
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5424,9 +5566,9 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Getconversation
-         * @param {string} conversationId 
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5469,15 +5611,15 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Listconversations
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5543,9 +5685,9 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Updateconversation
-         * @param {string} conversationId 
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5606,9 +5748,9 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
 export const ConversationsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Addfeedback
-         * @param {string} conversationId 
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5621,8 +5763,8 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5635,9 +5777,9 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Deleteconversation
-         * @param {string} conversationId 
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5649,9 +5791,9 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Getconversation
-         * @param {string} conversationId 
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5663,15 +5805,15 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listconversations
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5683,9 +5825,9 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Updateconversation
-         * @param {string} conversationId 
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5707,9 +5849,9 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
 export const ConversationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Addfeedback
-         * @param {string} conversationId 
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5718,8 +5860,8 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).addFeedbackV1(conversationId, comment, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5728,9 +5870,9 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).createConversationV1(conversationInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deleteconversation
-         * @param {string} conversationId 
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5738,9 +5880,9 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).deleteConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Getconversation
-         * @param {string} conversationId 
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5748,15 +5890,15 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).getConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listconversations
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5764,9 +5906,9 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Updateconversation
-         * @param {string} conversationId 
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5785,9 +5927,9 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
  */
 export class ConversationsApi extends BaseAPI {
     /**
-     * 
-     * @summary Addfeedback
-     * @param {string} conversationId 
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5798,8 +5940,8 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5810,9 +5952,9 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deleteconversation
-     * @param {string} conversationId 
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -5822,9 +5964,9 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Getconversation
-     * @param {string} conversationId 
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -5834,15 +5976,15 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listconversations
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -5852,9 +5994,9 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Updateconversation
-     * @param {string} conversationId 
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5935,6 +6077,42 @@ export const DataPlaneApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlivoAudioStreamXml: async (connectionId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectionId' is not null or undefined
+            if (connectionId === null || connectionId === undefined) {
+                throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling getPlivoAudioStreamXml.');
+            }
+            const localVarPath = `/v1/connections/{connection_id}/plivo-audio-stream-xml`
+                .replace(`{${"connection_id"}}`, encodeURIComponent(String(connectionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -5955,6 +6133,20 @@ export const DataPlaneApiFp = function(configuration?: Configuration) {
          */
         async createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>> {
             const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+            const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).getPlivoAudioStreamXml(connectionId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5981,6 +6173,16 @@ export const DataPlaneApiFactory = function (configuration?: Configuration, base
         createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection> {
             return DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * 
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponse> {
+            return DataPlaneApiFp(configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -6005,6 +6207,18 @@ export class DataPlaneApi extends BaseAPI {
         return DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
     }
 
+    /**
+     * 
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    public getPlivoAudioStreamXml(connectionId: string, options?: any) {
+        return DataPlaneApiFp(this.configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
 }
 
 
@@ -6015,8 +6229,8 @@ export class DataPlaneApi extends BaseAPI {
 export const HealthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6054,12 +6268,12 @@ export const HealthApiAxiosParamCreator = function (configuration?: Configuratio
 export const HealthApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+        async statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await HealthApiAxiosParamCreator(configuration).statusStatusGet(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6076,12 +6290,12 @@ export const HealthApiFp = function(configuration?: Configuration) {
 export const HealthApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statusStatusGet(options?: any): AxiosPromise<{ [key: string]: string; }> {
+        statusStatusGet(options?: any): AxiosPromise<object> {
             return HealthApiFp(configuration).statusStatusGet(options).then((request) => request(axios, basePath));
         },
     };
@@ -6095,8 +6309,8 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
  */
 export class HealthApi extends BaseAPI {
     /**
-     * 
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HealthApi
@@ -6115,16 +6329,16 @@ export class HealthApi extends BaseAPI {
 export const HiveApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: async (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
-            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
-                throw new RequiredError('backendDtoModelsHiveContent','Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
+        createHiveV1: async (hiveContentInput: HiveContentInput, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hiveContentInput' is not null or undefined
+            if (hiveContentInput === null || hiveContentInput === undefined) {
+                throw new RequiredError('hiveContentInput','Required parameter hiveContentInput was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -6154,8 +6368,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
+            const needsSerialization = (typeof hiveContentInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContentInput !== undefined ? hiveContentInput : {}) : (hiveContentInput || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -6163,9 +6377,9 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6208,9 +6422,9 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6253,15 +6467,15 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6327,21 +6541,21 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1: async (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
+        updateHiveV1: async (hiveId: string, hiveContentOutput: HiveContentOutput, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
                 throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling updateHiveV1.');
             }
-            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
-            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
-                throw new RequiredError('backendDbModelsHiveContent','Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
+            // verify required parameter 'hiveContentOutput' is not null or undefined
+            if (hiveContentOutput === null || hiveContentOutput === undefined) {
+                throw new RequiredError('hiveContentOutput','Required parameter hiveContentOutput was null or undefined when calling updateHiveV1.');
             }
             const localVarPath = `/v1/hives/{hive_id}`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
@@ -6372,8 +6586,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
+            const needsSerialization = (typeof hiveContentOutput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(hiveContentOutput !== undefined ? hiveContentOutput : {}) : (hiveContentOutput || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -6390,23 +6604,23 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
 export const HiveApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
+        async createHiveV1(hiveContentInput: HiveContentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).createHiveV1(hiveContentInput, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
             };
         },
         /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6418,9 +6632,9 @@ export const HiveApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6432,15 +6646,15 @@ export const HiveApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6452,15 +6666,15 @@ export const HiveApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
+        async updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContentOutput, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6476,19 +6690,19 @@ export const HiveApiFp = function(configuration?: Configuration) {
 export const HiveApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive> {
-            return HiveApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
+        createHiveV1(hiveContentInput: HiveContentInput, options?: any): AxiosPromise<Hive> {
+            return HiveApiFp(configuration).createHiveV1(hiveContentInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6496,9 +6710,9 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
             return HiveApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6506,15 +6720,15 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
             return HiveApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6522,15 +6736,15 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
             return HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive> {
-            return HiveApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
+        updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): AxiosPromise<Hive> {
+            return HiveApiFp(configuration).updateHiveV1(hiveId, hiveContentOutput, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6543,21 +6757,21 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
  */
 export class HiveApi extends BaseAPI {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) {
-        return HiveApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
+    public createHiveV1(hiveContentInput: HiveContentInput, options?: any) {
+        return HiveApiFp(this.configuration).createHiveV1(hiveContentInput, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Deletehive
-     * @param {string} hiveId 
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -6567,9 +6781,9 @@ export class HiveApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Gethive
-     * @param {string} hiveId 
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -6579,15 +6793,15 @@ export class HiveApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listhives
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -6597,16 +6811,16 @@ export class HiveApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Updatehive
-     * @param {string} hiveId 
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) {
-        return HiveApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
+    public updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any) {
+        return HiveApiFp(this.configuration).updateHiveV1(hiveId, hiveContentOutput, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -6619,10 +6833,10 @@ export class HiveApi extends BaseAPI {
 export const HiveAgentLinkApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createhiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6670,10 +6884,10 @@ export const HiveAgentLinkApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6721,9 +6935,9 @@ export const HiveAgentLinkApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Listagentsofhive
-         * @param {string} hiveId 
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6766,9 +6980,9 @@ export const HiveAgentLinkApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * 
-         * @summary Listhivesofagent
-         * @param {string} agentId 
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6820,10 +7034,10 @@ export const HiveAgentLinkApiAxiosParamCreator = function (configuration?: Confi
 export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createhiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6835,10 +7049,10 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6850,9 +7064,9 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listagentsofhive
-         * @param {string} hiveId 
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6864,9 +7078,9 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listhivesofagent
-         * @param {string} agentId 
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6887,10 +7101,10 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
 export const HiveAgentLinkApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createhiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6898,10 +7112,10 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
             return HiveAgentLinkApiFp(configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId 
-         * @param {string} agentId 
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6909,9 +7123,9 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
             return HiveAgentLinkApiFp(configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listagentsofhive
-         * @param {string} hiveId 
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6919,9 +7133,9 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
             return HiveAgentLinkApiFp(configuration).listAgentsOfHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listhivesofagent
-         * @param {string} agentId 
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6939,10 +7153,10 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
  */
 export class HiveAgentLinkApi extends BaseAPI {
     /**
-     * 
-     * @summary Createhiveagentlink
-     * @param {string} hiveId 
-     * @param {string} agentId 
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -6952,10 +7166,10 @@ export class HiveAgentLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId 
-     * @param {string} agentId 
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -6965,9 +7179,9 @@ export class HiveAgentLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listagentsofhive
-     * @param {string} hiveId 
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -6977,9 +7191,9 @@ export class HiveAgentLinkApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listhivesofagent
-     * @param {string} agentId 
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -7297,13 +7511,13 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7419,7 +7633,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary Updateorganization
-         * @param {string} orgId 
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -7591,7 +7805,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async acceptInviteV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async acceptInviteV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).acceptInviteV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7605,7 +7819,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createOrganizationV1(bodyCreateOrganizationV1, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7646,7 +7860,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7682,17 +7896,17 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7716,7 +7930,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Updateorganization
-         * @param {string} orgId 
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -7736,7 +7950,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7772,7 +7986,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        acceptInviteV1(options?: any): AxiosPromise<User> {
+        acceptInviteV1(options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).acceptInviteV1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -7782,7 +7996,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User> {
+        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7811,7 +8025,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserV1(userId: string, options?: any): AxiosPromise<User> {
+        deleteUserV1(userId: string, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7835,17 +8049,17 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>> {
+        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserOutput>> {
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7861,7 +8075,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary Updateorganization
-         * @param {string} orgId 
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -7877,7 +8091,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User> {
+        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7983,13 +8197,13 @@ export class InternalApi extends BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
@@ -8013,7 +8227,7 @@ export class InternalApi extends BaseAPI {
     /**
      * 
      * @summary Updateorganization
-     * @param {string} orgId 
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8046,510 +8260,6 @@ export class InternalApi extends BaseAPI {
      */
     public uploadFileV1(files: Array<any>, options?: any) {
         return InternalApiFp(this.configuration).uploadFileV1(files, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * KnowledgeBaseApi - axios parameter creator
- * @export
- */
-export const KnowledgeBaseApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createHiveV1: async (backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
-            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
-                throw new RequiredError('backendDtoModelsHiveContent','Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
-            }
-            const localVarPath = `/v1/hives`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteHiveV1: async (hiveId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling deleteHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getHiveV1: async (hiveId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling getHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listHivesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/hives`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
-            }
-
-            if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-
-            if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
-            }
-
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateHiveV1: async (hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new RequiredError('hiveId','Required parameter hiveId was null or undefined when calling updateHiveV1.');
-            }
-            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
-            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
-                throw new RequiredError('backendDbModelsHiveContent','Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * KnowledgeBaseApi - functional programming interface
- * @export
- */
-export const KnowledgeBaseApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).deleteHiveV1(hiveId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).getHiveV1(hiveId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>> {
-            const localVarAxiosArgs = await KnowledgeBaseApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * KnowledgeBaseApi - factory interface
- * @export
- */
-export const KnowledgeBaseApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any): AxiosPromise<Hive> {
-            return KnowledgeBaseApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Deletehive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponse> {
-            return KnowledgeBaseApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Gethive
-         * @param {string} hiveId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive> {
-            return KnowledgeBaseApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Listhives
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>> {
-            return KnowledgeBaseApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Updatehive
-         * @param {string} hiveId 
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any): AxiosPromise<Hive> {
-            return KnowledgeBaseApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * KnowledgeBaseApi - object-oriented interface
- * @export
- * @class KnowledgeBaseApi
- * @extends {BaseAPI}
- */
-export class KnowledgeBaseApi extends BaseAPI {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    public createHiveV1(backendDtoModelsHiveContent: BackendDtoModelsHiveContent, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Deletehive
-     * @param {string} hiveId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    public deleteHiveV1(hiveId: string, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).deleteHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Gethive
-     * @param {string} hiveId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    public getHiveV1(hiveId: string, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).getHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Listhives
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    public listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Updatehive
-     * @param {string} hiveId 
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    public updateHiveV1(hiveId: string, backendDbModelsHiveContent: BackendDbModelsHiveContent, options?: any) {
-        return KnowledgeBaseApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -8755,8 +8465,8 @@ export class MetricsApi extends BaseAPI {
 export const ProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -8803,9 +8513,9 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Deleteproduct
-         * @param {string} productId 
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8848,9 +8558,9 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Getproduct
-         * @param {string} productId 
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8893,9 +8603,9 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Listagentsofproduct
-         * @param {string} productId 
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8938,17 +8648,17 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Listproducts
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9022,9 +8732,9 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Updateproduct
-         * @param {string} productId 
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9085,8 +8795,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
 export const ProductsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9099,9 +8809,9 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Deleteproduct
-         * @param {string} productId 
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9113,9 +8823,9 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Getproduct
-         * @param {string} productId 
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9127,9 +8837,9 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listagentsofproduct
-         * @param {string} productId 
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9141,17 +8851,17 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Listproducts
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9163,9 +8873,9 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Updateproduct
-         * @param {string} productId 
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9187,8 +8897,8 @@ export const ProductsApiFp = function(configuration?: Configuration) {
 export const ProductsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9197,9 +8907,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).createProductV1(productInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Deleteproduct
-         * @param {string} productId 
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9207,9 +8917,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).deleteProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Getproduct
-         * @param {string} productId 
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9217,9 +8927,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).getProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listagentsofproduct
-         * @param {string} productId 
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9227,17 +8937,17 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).listAgentsOfProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Listproducts
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9245,9 +8955,9 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Updateproduct
-         * @param {string} productId 
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9266,8 +8976,8 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
  */
 export class ProductsApi extends BaseAPI {
     /**
-     * 
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9278,9 +8988,9 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Deleteproduct
-     * @param {string} productId 
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -9290,9 +9000,9 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Getproduct
-     * @param {string} productId 
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -9302,9 +9012,9 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listagentsofproduct
-     * @param {string} productId 
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -9314,17 +9024,17 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Listproducts
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {Array<string>} [tags] 
-     * @param {Array<string>} [productIds] 
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -9334,9 +9044,9 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Updateproduct
-     * @param {string} productId 
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9356,8 +9066,8 @@ export class ProductsApi extends BaseAPI {
 export const ProspectsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9404,9 +9114,9 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId 
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9449,9 +9159,9 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId 
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9494,15 +9204,15 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9568,9 +9278,9 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId 
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9631,8 +9341,8 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
 export const ProspectsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9645,9 +9355,9 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId 
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9659,9 +9369,9 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId 
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9673,15 +9383,15 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9693,9 +9403,9 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId 
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9717,8 +9427,8 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
 export const ProspectsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9727,9 +9437,9 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
             return ProspectsApiFp(configuration).createProspectV1(prospectInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId 
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9737,9 +9447,9 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
             return ProspectsApiFp(configuration).deleteProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId 
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9747,15 +9457,15 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
             return ProspectsApiFp(configuration).getProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9763,9 +9473,9 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
             return ProspectsApiFp(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId 
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9784,8 +9494,8 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
  */
 export class ProspectsApi extends BaseAPI {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9796,9 +9506,9 @@ export class ProspectsApi extends BaseAPI {
     }
 
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId 
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -9808,9 +9518,9 @@ export class ProspectsApi extends BaseAPI {
     }
 
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId 
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -9820,15 +9530,15 @@ export class ProspectsApi extends BaseAPI {
     }
 
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -9838,9 +9548,9 @@ export class ProspectsApi extends BaseAPI {
     }
 
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId 
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -9848,6 +9558,706 @@ export class ProspectsApi extends BaseAPI {
      */
     public updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any) {
         return ProspectsApiFp(this.configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * TelephonyApi - axios parameter creator
+ * @export
+ */
+export const TelephonyApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Agent Phones
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAgentPhonesV1: async (agentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling getAgentPhonesV1.');
+            }
+            const localVarPath = `/v1/ai-agents/{agent_id}/phones`
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Link Phone To Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        linkPhoneToAgentV1: async (phoneId: string, agentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new RequiredError('phoneId','Required parameter phoneId was null or undefined when calling linkPhoneToAgentV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling linkPhoneToAgentV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary List Available Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAvailablePhonesV1: async (countryCode: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'countryCode' is not null or undefined
+            if (countryCode === null || countryCode === undefined) {
+                throw new RequiredError('countryCode','Required parameter countryCode was null or undefined when calling listAvailablePhonesV1.');
+            }
+            const localVarPath = `/v1/telephony/countries/{country_code}/available-phones`
+                .replace(`{${"country_code"}}`, encodeURIComponent(String(countryCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary List Purchased Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPurchasedPhonesV1: async (countryCode: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'countryCode' is not null or undefined
+            if (countryCode === null || countryCode === undefined) {
+                throw new RequiredError('countryCode','Required parameter countryCode was null or undefined when calling listPurchasedPhonesV1.');
+            }
+            const localVarPath = `/v1/telephony/phones`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (countryCode !== undefined) {
+                localVarQueryParameter['country_code'] = countryCode;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSupportedCountriesV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/telephony/countries`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        purchasePhoneV1: async (numberPurchaseRequest: NumberPurchaseRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'numberPurchaseRequest' is not null or undefined
+            if (numberPurchaseRequest === null || numberPurchaseRequest === undefined) {
+                throw new RequiredError('numberPurchaseRequest','Required parameter numberPurchaseRequest was null or undefined when calling purchasePhoneV1.');
+            }
+            const localVarPath = `/v1/telephony/phones`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof numberPurchaseRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(numberPurchaseRequest !== undefined ? numberPurchaseRequest : {}) : (numberPurchaseRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Release Phone
+         * @param {string} phoneId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasePhoneV1: async (phoneId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new RequiredError('phoneId','Required parameter phoneId was null or undefined when calling releasePhoneV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlinkPhoneFromAgentV1: async (phoneId: string, agentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new RequiredError('phoneId','Required parameter phoneId was null or undefined when calling unlinkPhoneFromAgentV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling unlinkPhoneFromAgentV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TelephonyApi - functional programming interface
+ * @export
+ */
+export const TelephonyApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Agent Phones
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAgentPhonesV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).getAgentPhonesV1(agentId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Link Phone To Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).linkPhoneToAgentV1(phoneId, agentId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary List Available Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).listAvailablePhonesV1(countryCode, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary List Purchased Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listPurchasedPhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).listPurchasedPhonesV1(countryCode, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSupportedCountriesV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).listSupportedCountriesV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).purchasePhoneV1(numberPurchaseRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Release Phone
+         * @param {string} phoneId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async releasePhoneV1(phoneId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).releasePhoneV1(phoneId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+            const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * TelephonyApi - factory interface
+ * @export
+ */
+export const TelephonyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Get Agent Phones
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAgentPhonesV1(agentId: string, options?: any): AxiosPromise<Array<TelephoneNumber>> {
+            return TelephonyApiFp(configuration).getAgentPhonesV1(agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Link Phone To Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+            return TelephonyApiFp(configuration).linkPhoneToAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary List Available Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<string>> {
+            return TelephonyApiFp(configuration).listAvailablePhonesV1(countryCode, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary List Purchased Phones
+         * @param {string} countryCode 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPurchasedPhonesV1(countryCode: string, options?: any): AxiosPromise<Array<TelephoneNumber>> {
+            return TelephonyApiFp(configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSupportedCountriesV1(options?: any): AxiosPromise<Array<CountryInfo>> {
+            return TelephonyApiFp(configuration).listSupportedCountriesV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): AxiosPromise<TelephoneNumber> {
+            return TelephonyApiFp(configuration).purchasePhoneV1(numberPurchaseRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Release Phone
+         * @param {string} phoneId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasePhoneV1(phoneId: string, options?: any): AxiosPromise<BaseResponse> {
+            return TelephonyApiFp(configuration).releasePhoneV1(phoneId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId 
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+            return TelephonyApiFp(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * TelephonyApi - object-oriented interface
+ * @export
+ * @class TelephonyApi
+ * @extends {BaseAPI}
+ */
+export class TelephonyApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Agent Phones
+     * @param {string} agentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public getAgentPhonesV1(agentId: string, options?: any) {
+        return TelephonyApiFp(this.configuration).getAgentPhonesV1(agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Link Phone To Agent
+     * @param {string} phoneId 
+     * @param {string} agentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any) {
+        return TelephonyApiFp(this.configuration).linkPhoneToAgentV1(phoneId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List Available Phones
+     * @param {string} countryCode 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public listAvailablePhonesV1(countryCode: string, options?: any) {
+        return TelephonyApiFp(this.configuration).listAvailablePhonesV1(countryCode, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List Purchased Phones
+     * @param {string} countryCode 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public listPurchasedPhonesV1(countryCode: string, options?: any) {
+        return TelephonyApiFp(this.configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public listSupportedCountriesV1(options?: any) {
+        return TelephonyApiFp(this.configuration).listSupportedCountriesV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any) {
+        return TelephonyApiFp(this.configuration).purchasePhoneV1(numberPurchaseRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Release Phone
+     * @param {string} phoneId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public releasePhoneV1(phoneId: string, options?: any) {
+        return TelephonyApiFp(this.configuration).releasePhoneV1(phoneId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId 
+     * @param {string} agentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    public unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any) {
+        return TelephonyApiFp(this.configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -9906,15 +10316,15 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10091,7 +10501,7 @@ export const UIApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackendDtoModelsAction>>> {
+        async listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>> {
             const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listActionTemplatesV1(language, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10101,15 +10511,15 @@ export const UIApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10164,21 +10574,21 @@ export const UIApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<BackendDtoModelsAction>> {
+        listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<ActionInput>> {
             return UIApiFp(configuration).listActionTemplatesV1(language, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {Array<string>} [tags] 
-         * @param {Array<string>} [productIds] 
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10230,15 +10640,15 @@ export class UIApi extends BaseAPI {
     /**
      * 
      * @summary List Products
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {Array<string>} [tags] 
-     * @param {Array<string>} [productIds] 
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
@@ -10282,7 +10692,7 @@ export const VoiceModelsApiAxiosParamCreator = function (configuration?: Configu
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10330,7 +10740,7 @@ export const VoiceModelsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10352,7 +10762,7 @@ export const VoiceModelsApiFactory = function (configuration?: Configuration, ba
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10371,7 +10781,7 @@ export const VoiceModelsApiFactory = function (configuration?: Configuration, ba
 export class VoiceModelsApi extends BaseAPI {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoiceModelsApi

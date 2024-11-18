@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KnowledgeBaseApi = exports.KnowledgeBaseApiFactory = exports.KnowledgeBaseApiFp = exports.KnowledgeBaseApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -38,6 +38,7 @@ var Accent;
     Accent["Indian"] = "Indian";
     Accent["Australian"] = "Australian";
     Accent["British"] = "British";
+    Accent["Hindi"] = "Hindi";
 })(Accent = exports.Accent || (exports.Accent = {}));
 /**
  *
@@ -90,6 +91,7 @@ var CallSentiment;
 var ConnectionSourceSourceNameEnum;
 (function (ConnectionSourceSourceNameEnum) {
     ConnectionSourceSourceNameEnum["TWILIO"] = "TWILIO";
+    ConnectionSourceSourceNameEnum["PLIVO"] = "PLIVO";
     ConnectionSourceSourceNameEnum["BROWSER"] = "BROWSER";
 })(ConnectionSourceSourceNameEnum = exports.ConnectionSourceSourceNameEnum || (exports.ConnectionSourceSourceNameEnum = {}));
 /**
@@ -101,6 +103,7 @@ var ConversationSourceType;
 (function (ConversationSourceType) {
     ConversationSourceType["BROWSER"] = "BROWSER";
     ConversationSourceType["TWILIO"] = "TWILIO";
+    ConversationSourceType["PLIVO"] = "PLIVO";
 })(ConversationSourceType = exports.ConversationSourceType || (exports.ConversationSourceType = {}));
 /**
  *
@@ -132,6 +135,7 @@ var Language;
 (function (Language) {
     Language["English"] = "English";
     Language["Spanish"] = "Spanish";
+    Language["Hindi"] = "Hindi";
 })(Language = exports.Language || (exports.Language = {}));
 /**
  *
@@ -349,6 +353,7 @@ var Role;
 (function (Role) {
     Role["ADMIN"] = "ADMIN";
     Role["READONLY"] = "READ_ONLY";
+    Role["RESELLERADMIN"] = "RESELLER_ADMIN";
 })(Role = exports.Role || (exports.Role = {}));
 /**
  *
@@ -397,10 +402,10 @@ var VoiceOutputGenderEnum;
 exports.ActionAgentLinkApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -443,10 +448,10 @@ exports.ActionAgentLinkApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Deleteactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -489,9 +494,9 @@ exports.ActionAgentLinkApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listactionsofagent
-         * @param {string} agentId
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -537,10 +542,10 @@ exports.ActionAgentLinkApiAxiosParamCreator = function (configuration) {
 exports.ActionAgentLinkApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -554,10 +559,10 @@ exports.ActionAgentLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deleteactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -571,9 +576,9 @@ exports.ActionAgentLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listactionsofagent
-         * @param {string} agentId
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -595,10 +600,10 @@ exports.ActionAgentLinkApiFp = function (configuration) {
 exports.ActionAgentLinkApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Create a Link Between an Action and an Agent
+         * @summary Create a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -606,10 +611,10 @@ exports.ActionAgentLinkApiFactory = function (configuration, basePath, axios) {
             return exports.ActionAgentLinkApiFp(configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deleteactionagentlink
-         * @param {string} actionId
-         * @param {string} agentId
+         * Delete a Link Between an Action and an Agent
+         * @summary Delete a Link Between an Action and an Agent
+         * @param {string} actionId ID of the action
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -617,9 +622,9 @@ exports.ActionAgentLinkApiFactory = function (configuration, basePath, axios) {
             return exports.ActionAgentLinkApiFp(configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listactionsofagent
-         * @param {string} agentId
+         * List All Actions Linked to a Specific Agent
+         * @summary List All Actions Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -636,10 +641,10 @@ exports.ActionAgentLinkApiFactory = function (configuration, basePath, axios) {
  */
 class ActionAgentLinkApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Create a Link Between an Action and an Agent
+     * @summary Create a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -648,10 +653,10 @@ class ActionAgentLinkApi extends base_1.BaseAPI {
         return exports.ActionAgentLinkApiFp(this.configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deleteactionagentlink
-     * @param {string} actionId
-     * @param {string} agentId
+     * Delete a Link Between an Action and an Agent
+     * @summary Delete a Link Between an Action and an Agent
+     * @param {string} actionId ID of the action
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -660,9 +665,9 @@ class ActionAgentLinkApi extends base_1.BaseAPI {
         return exports.ActionAgentLinkApiFp(this.configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listactionsofagent
-     * @param {string} agentId
+     * List All Actions Linked to a Specific Agent
+     * @summary List All Actions Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
@@ -679,8 +684,8 @@ exports.ActionAgentLinkApi = ActionAgentLinkApi;
 exports.ActionsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -721,9 +726,9 @@ exports.ActionsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Deleteaction
-         * @param {string} actionId
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -761,9 +766,9 @@ exports.ActionsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Getaction
-         * @param {string} actionId
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -801,15 +806,15 @@ exports.ActionsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listactions
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -863,9 +868,9 @@ exports.ActionsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Updateaction
-         * @param {string} actionId
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -919,8 +924,8 @@ exports.ActionsApiAxiosParamCreator = function (configuration) {
 exports.ActionsApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -935,9 +940,9 @@ exports.ActionsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deleteaction
-         * @param {string} actionId
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -951,9 +956,9 @@ exports.ActionsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Getaction
-         * @param {string} actionId
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -967,15 +972,15 @@ exports.ActionsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listactions
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -989,9 +994,9 @@ exports.ActionsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Updateaction
-         * @param {string} actionId
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1014,8 +1019,8 @@ exports.ActionsApiFp = function (configuration) {
 exports.ActionsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createaction
+         * Create a New Action
+         * @summary Create a New Action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1024,9 +1029,9 @@ exports.ActionsApiFactory = function (configuration, basePath, axios) {
             return exports.ActionsApiFp(configuration).createActionV1(actionInput, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deleteaction
-         * @param {string} actionId
+         * Delete a Specific Action by ID
+         * @summary Delete a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1034,9 +1039,9 @@ exports.ActionsApiFactory = function (configuration, basePath, axios) {
             return exports.ActionsApiFp(configuration).deleteActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Getaction
-         * @param {string} actionId
+         * Get a Specific Action by ID
+         * @summary Get a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1044,15 +1049,15 @@ exports.ActionsApiFactory = function (configuration, basePath, axios) {
             return exports.ActionsApiFp(configuration).getActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listactions
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Actions Under the User&#39;s Organization
+         * @summary List All Actions Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1060,9 +1065,9 @@ exports.ActionsApiFactory = function (configuration, basePath, axios) {
             return exports.ActionsApiFp(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Updateaction
-         * @param {string} actionId
+         * Update a Specific Action by ID
+         * @summary Update a Specific Action by ID
+         * @param {string} actionId ID of the action
          * @param {ActionInput} actionInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1080,8 +1085,8 @@ exports.ActionsApiFactory = function (configuration, basePath, axios) {
  */
 class ActionsApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createaction
+     * Create a New Action
+     * @summary Create a New Action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1091,9 +1096,9 @@ class ActionsApi extends base_1.BaseAPI {
         return exports.ActionsApiFp(this.configuration).createActionV1(actionInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deleteaction
-     * @param {string} actionId
+     * Delete a Specific Action by ID
+     * @summary Delete a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -1102,9 +1107,9 @@ class ActionsApi extends base_1.BaseAPI {
         return exports.ActionsApiFp(this.configuration).deleteActionV1(actionId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Getaction
-     * @param {string} actionId
+     * Get a Specific Action by ID
+     * @summary Get a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -1113,15 +1118,15 @@ class ActionsApi extends base_1.BaseAPI {
         return exports.ActionsApiFp(this.configuration).getActionV1(actionId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listactions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Actions Under the User&#39;s Organization
+     * @summary List All Actions Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -1130,9 +1135,9 @@ class ActionsApi extends base_1.BaseAPI {
         return exports.ActionsApiFp(this.configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Updateaction
-     * @param {string} actionId
+     * Update a Specific Action by ID
+     * @summary Update a Specific Action by ID
+     * @param {string} actionId ID of the action
      * @param {ActionInput} actionInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1150,8 +1155,8 @@ exports.ActionsApi = ActionsApi;
 exports.AgentsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1192,9 +1197,9 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1232,9 +1237,9 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1272,15 +1277,15 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1334,9 +1339,9 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1390,8 +1395,8 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
 exports.AgentsApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1406,9 +1411,9 @@ exports.AgentsApiFp = function (configuration) {
             });
         },
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1422,9 +1427,9 @@ exports.AgentsApiFp = function (configuration) {
             });
         },
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1438,15 +1443,15 @@ exports.AgentsApiFp = function (configuration) {
             });
         },
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1460,9 +1465,9 @@ exports.AgentsApiFp = function (configuration) {
             });
         },
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1485,8 +1490,8 @@ exports.AgentsApiFp = function (configuration) {
 exports.AgentsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createaiagent
+         * Create a New AI Agent
+         * @summary Create a New AI Agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1495,9 +1500,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
             return exports.AgentsApiFp(configuration).createAIAgentV1(aIAgentInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes an AI agent.
-         * @summary Deleteaiagent
-         * @param {string} agentId
+         * Delete a Specific AI Agent by ID
+         * @summary Delete a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1505,9 +1510,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
             return exports.AgentsApiFp(configuration).deleteAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Gets a specific AI agent by ID.
-         * @summary Getaiagent
-         * @param {string} agentId
+         * Get a Specific AI Agent by ID
+         * @summary Get a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1515,15 +1520,15 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
             return exports.AgentsApiFp(configuration).getAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all AI agents under the user\'s organization.
-         * @summary Listaiagents
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All AI Agents Under the User&#39;s Organization
+         * @summary List All AI Agents Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1531,9 +1536,9 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
             return exports.AgentsApiFp(configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates an existing AI agent.
-         * @summary Updateaiagent
-         * @param {string} agentId
+         * Update a Specific AI Agent by ID
+         * @summary Update a Specific AI Agent by ID
+         * @param {string} agentId ID of the agent
          * @param {AIAgentInput} aIAgentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1551,8 +1556,8 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
  */
 class AgentsApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createaiagent
+     * Create a New AI Agent
+     * @summary Create a New AI Agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1562,9 +1567,9 @@ class AgentsApi extends base_1.BaseAPI {
         return exports.AgentsApiFp(this.configuration).createAIAgentV1(aIAgentInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Deletes an AI agent.
-     * @summary Deleteaiagent
-     * @param {string} agentId
+     * Delete a Specific AI Agent by ID
+     * @summary Delete a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -1573,9 +1578,9 @@ class AgentsApi extends base_1.BaseAPI {
         return exports.AgentsApiFp(this.configuration).deleteAIAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Gets a specific AI agent by ID.
-     * @summary Getaiagent
-     * @param {string} agentId
+     * Get a Specific AI Agent by ID
+     * @summary Get a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -1584,15 +1589,15 @@ class AgentsApi extends base_1.BaseAPI {
         return exports.AgentsApiFp(this.configuration).getAIAgentV1(agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Lists all AI agents under the user\'s organization.
-     * @summary Listaiagents
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All AI Agents Under the User&#39;s Organization
+     * @summary List All AI Agents Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -1601,9 +1606,9 @@ class AgentsApi extends base_1.BaseAPI {
         return exports.AgentsApiFp(this.configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Updates an existing AI agent.
-     * @summary Updateaiagent
-     * @param {string} agentId
+     * Update a Specific AI Agent by ID
+     * @summary Update a Specific AI Agent by ID
+     * @param {string} agentId ID of the agent
      * @param {AIAgentInput} aIAgentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2249,10 +2254,10 @@ exports.BillingApi = BillingApi;
 exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2295,10 +2300,10 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
             };
         }),
         /**
-         *
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2341,9 +2346,9 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
             };
         }),
         /**
-         *
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2389,10 +2394,10 @@ exports.ConversationProspectLinkApiAxiosParamCreator = function (configuration) 
 exports.ConversationProspectLinkApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2406,10 +2411,10 @@ exports.ConversationProspectLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2423,9 +2428,9 @@ exports.ConversationProspectLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2447,10 +2452,10 @@ exports.ConversationProspectLinkApiFp = function (configuration) {
 exports.ConversationProspectLinkApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createconversationprospectlink
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Create a link between a conversation and a prospect
+         * @summary Create a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2458,10 +2463,10 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
             return exports.ConversationProspectLinkApiFp(configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deleteconversationbyprospect
-         * @param {string} conversationId
-         * @param {string} prospectId
+         * Delete a link between a conversation and a prospect
+         * @summary Delete a link between a conversation and a prospect
+         * @param {string} conversationId ID of the conversation
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2469,9 +2474,9 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
             return exports.ConversationProspectLinkApiFp(configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Getconversationsbyprospect
-         * @param {string} prospectId
+         * List all conversations linked to a specific prospect
+         * @summary List all conversations linked to a specific prospect
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2488,10 +2493,10 @@ exports.ConversationProspectLinkApiFactory = function (configuration, basePath, 
  */
 class ConversationProspectLinkApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createconversationprospectlink
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Create a link between a conversation and a prospect
+     * @summary Create a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -2500,10 +2505,10 @@ class ConversationProspectLinkApi extends base_1.BaseAPI {
         return exports.ConversationProspectLinkApiFp(this.configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deleteconversationbyprospect
-     * @param {string} conversationId
-     * @param {string} prospectId
+     * Delete a link between a conversation and a prospect
+     * @summary Delete a link between a conversation and a prospect
+     * @param {string} conversationId ID of the conversation
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -2512,9 +2517,9 @@ class ConversationProspectLinkApi extends base_1.BaseAPI {
         return exports.ConversationProspectLinkApiFp(this.configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Getconversationsbyprospect
-     * @param {string} prospectId
+     * List all conversations linked to a specific prospect
+     * @summary List all conversations linked to a specific prospect
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
@@ -2531,9 +2536,9 @@ exports.ConversationProspectLinkApi = ConversationProspectLinkApi;
 exports.ConversationsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Addfeedback
-         * @param {string} conversationId
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2579,8 +2584,8 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2621,9 +2626,9 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Deleteconversation
-         * @param {string} conversationId
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2661,9 +2666,9 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Getconversation
-         * @param {string} conversationId
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2701,15 +2706,15 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listconversations
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2763,9 +2768,9 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Updateconversation
-         * @param {string} conversationId
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2819,9 +2824,9 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
 exports.ConversationsApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Addfeedback
-         * @param {string} conversationId
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2836,8 +2841,8 @@ exports.ConversationsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2852,9 +2857,9 @@ exports.ConversationsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deleteconversation
-         * @param {string} conversationId
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2868,9 +2873,9 @@ exports.ConversationsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Getconversation
-         * @param {string} conversationId
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2884,15 +2889,15 @@ exports.ConversationsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listconversations
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2906,9 +2911,9 @@ exports.ConversationsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Updateconversation
-         * @param {string} conversationId
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2931,9 +2936,9 @@ exports.ConversationsApiFp = function (configuration) {
 exports.ConversationsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Addfeedback
-         * @param {string} conversationId
+         * Add Feedback to a Specific Conversation
+         * @summary Add Feedback to a Specific Conversation
+         * @param {string} conversationId ID of the conversation
          * @param {Comment} comment
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2942,8 +2947,8 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
             return exports.ConversationsApiFp(configuration).addFeedbackV1(conversationId, comment, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Createconversation
+         * Create a New Conversation
+         * @summary Create a New Conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2952,9 +2957,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
             return exports.ConversationsApiFp(configuration).createConversationV1(conversationInput, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deleteconversation
-         * @param {string} conversationId
+         * Delete a Specific Conversation by ID
+         * @summary Delete a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2962,9 +2967,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
             return exports.ConversationsApiFp(configuration).deleteConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Getconversation
-         * @param {string} conversationId
+         * Get a Specific Conversation by ID
+         * @summary Get a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2972,15 +2977,15 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
             return exports.ConversationsApiFp(configuration).getConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listconversations
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Conversations Under the User&#39;s Organization
+         * @summary List All Conversations Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2988,9 +2993,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
             return exports.ConversationsApiFp(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Updateconversation
-         * @param {string} conversationId
+         * Update a Specific Conversation by ID
+         * @summary Update a Specific Conversation by ID
+         * @param {string} conversationId ID of the conversation
          * @param {ConversationInput} conversationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3008,9 +3013,9 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
  */
 class ConversationsApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Addfeedback
-     * @param {string} conversationId
+     * Add Feedback to a Specific Conversation
+     * @summary Add Feedback to a Specific Conversation
+     * @param {string} conversationId ID of the conversation
      * @param {Comment} comment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3020,8 +3025,8 @@ class ConversationsApi extends base_1.BaseAPI {
         return exports.ConversationsApiFp(this.configuration).addFeedbackV1(conversationId, comment, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Createconversation
+     * Create a New Conversation
+     * @summary Create a New Conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3031,9 +3036,9 @@ class ConversationsApi extends base_1.BaseAPI {
         return exports.ConversationsApiFp(this.configuration).createConversationV1(conversationInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deleteconversation
-     * @param {string} conversationId
+     * Delete a Specific Conversation by ID
+     * @summary Delete a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -3042,9 +3047,9 @@ class ConversationsApi extends base_1.BaseAPI {
         return exports.ConversationsApiFp(this.configuration).deleteConversationV1(conversationId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Getconversation
-     * @param {string} conversationId
+     * Get a Specific Conversation by ID
+     * @summary Get a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -3053,15 +3058,15 @@ class ConversationsApi extends base_1.BaseAPI {
         return exports.ConversationsApiFp(this.configuration).getConversationV1(conversationId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listconversations
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Conversations Under the User&#39;s Organization
+     * @summary List All Conversations Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -3070,9 +3075,9 @@ class ConversationsApi extends base_1.BaseAPI {
         return exports.ConversationsApiFp(this.configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Updateconversation
-     * @param {string} conversationId
+     * Update a Specific Conversation by ID
+     * @summary Update a Specific Conversation by ID
+     * @param {string} conversationId ID of the conversation
      * @param {ConversationInput} conversationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3143,6 +3148,38 @@ exports.DataPlaneApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         *
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlivoAudioStreamXml: (connectionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'connectionId' is not null or undefined
+            if (connectionId === null || connectionId === undefined) {
+                throw new base_1.RequiredError('connectionId', 'Required parameter connectionId was null or undefined when calling getPlivoAudioStreamXml.');
+            }
+            const localVarPath = `/v1/connections/{connection_id}/plivo-audio-stream-xml`
+                .replace(`{${"connection_id"}}`, encodeURIComponent(String(connectionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3169,6 +3206,22 @@ exports.DataPlaneApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         *
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlivoAudioStreamXml(connectionId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DataPlaneApiAxiosParamCreator(configuration).getPlivoAudioStreamXml(connectionId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -3188,6 +3241,16 @@ exports.DataPlaneApiFactory = function (configuration, basePath, axios) {
          */
         createConnection(agentId, connectionSource, prospectId, options) {
             return exports.DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Getplivoaudiostreamxml
+         * @param {string} connectionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlivoAudioStreamXml(connectionId, options) {
+            return exports.DataPlaneApiFp(configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3211,6 +3274,17 @@ class DataPlaneApi extends base_1.BaseAPI {
     createConnection(agentId, connectionSource, prospectId, options) {
         return exports.DataPlaneApiFp(this.configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(this.axios, this.basePath));
     }
+    /**
+     *
+     * @summary Getplivoaudiostreamxml
+     * @param {string} connectionId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    getPlivoAudioStreamXml(connectionId, options) {
+        return exports.DataPlaneApiFp(this.configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
 }
 exports.DataPlaneApi = DataPlaneApi;
 /**
@@ -3220,8 +3294,8 @@ exports.DataPlaneApi = DataPlaneApi;
 exports.HealthApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3254,8 +3328,8 @@ exports.HealthApiAxiosParamCreator = function (configuration) {
 exports.HealthApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3277,8 +3351,8 @@ exports.HealthApiFp = function (configuration) {
 exports.HealthApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Status
+         * Check the health of all Trata APIs
+         * @summary Check the Health of All TrataAPI
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3295,8 +3369,8 @@ exports.HealthApiFactory = function (configuration, basePath, axios) {
  */
 class HealthApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Status
+     * Check the health of all Trata APIs
+     * @summary Check the Health of All TrataAPI
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HealthApi
@@ -3313,16 +3387,16 @@ exports.HealthApi = HealthApi;
 exports.HiveApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1: (backendDtoModelsHiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
-            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
-                throw new base_1.RequiredError('backendDtoModelsHiveContent', 'Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
+        createHiveV1: (hiveContentInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'hiveContentInput' is not null or undefined
+            if (hiveContentInput === null || hiveContentInput === undefined) {
+                throw new base_1.RequiredError('hiveContentInput', 'Required parameter hiveContentInput was null or undefined when calling createHiveV1.');
             }
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -3347,17 +3421,17 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
+            const needsSerialization = (typeof hiveContentInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContentInput !== undefined ? hiveContentInput : {}) : (hiveContentInput || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
         /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3395,9 +3469,9 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3435,15 +3509,15 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3497,21 +3571,21 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1: (hiveId, backendDbModelsHiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateHiveV1: (hiveId, hiveContentOutput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'hiveId' is not null or undefined
             if (hiveId === null || hiveId === undefined) {
                 throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling updateHiveV1.');
             }
-            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
-            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
-                throw new base_1.RequiredError('backendDbModelsHiveContent', 'Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
+            // verify required parameter 'hiveContentOutput' is not null or undefined
+            if (hiveContentOutput === null || hiveContentOutput === undefined) {
+                throw new base_1.RequiredError('hiveContentOutput', 'Required parameter hiveContentOutput was null or undefined when calling updateHiveV1.');
             }
             const localVarPath = `/v1/hives/{hive_id}`
                 .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
@@ -3537,8 +3611,8 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
+            const needsSerialization = (typeof hiveContentOutput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(hiveContentOutput !== undefined ? hiveContentOutput : {}) : (hiveContentOutput || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3553,15 +3627,15 @@ exports.HiveApiAxiosParamCreator = function (configuration) {
 exports.HiveApiFp = function (configuration) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(backendDtoModelsHiveContent, options) {
+        createHiveV1(hiveContentInput, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
+                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).createHiveV1(hiveContentInput, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3569,9 +3643,9 @@ exports.HiveApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3585,9 +3659,9 @@ exports.HiveApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3601,15 +3675,15 @@ exports.HiveApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3623,16 +3697,16 @@ exports.HiveApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
+        updateHiveV1(hiveId, hiveContentOutput, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
+                const localVarAxiosArgs = yield exports.HiveApiAxiosParamCreator(configuration).updateHiveV1(hiveId, hiveContentOutput, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3648,19 +3722,19 @@ exports.HiveApiFp = function (configuration) {
 exports.HiveApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+         * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+         * @summary Create a New Hive
+         * @param {HiveContentInput} hiveContentInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveV1(backendDtoModelsHiveContent, options) {
-            return exports.HiveApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
+        createHiveV1(hiveContentInput, options) {
+            return exports.HiveApiFp(configuration).createHiveV1(hiveContentInput, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
+         * Delete a Specific Hive by ID
+         * @summary Delete a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3668,9 +3742,9 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
             return exports.HiveApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
+         * Get a Specific Hive by ID
+         * @summary Get a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3678,15 +3752,15 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
             return exports.HiveApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Hives Under the User&#39;s Organization
+         * @summary List All Hives Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3694,15 +3768,15 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
             return exports.HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+         * Update a Specific Hive by ID
+         * @summary Update a Specific Hive by ID
+         * @param {string} hiveId ID of the hive
+         * @param {HiveContentOutput} hiveContentOutput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
-            return exports.HiveApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
+        updateHiveV1(hiveId, hiveContentOutput, options) {
+            return exports.HiveApiFp(configuration).updateHiveV1(hiveId, hiveContentOutput, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3714,20 +3788,20 @@ exports.HiveApiFactory = function (configuration, basePath, axios) {
  */
 class HiveApi extends base_1.BaseAPI {
     /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
+     * Hive is a collection of documents that are used to train the Agent. Hive can be a PDF, DOCX, TXT or a website URL
+     * @summary Create a New Hive
+     * @param {HiveContentInput} hiveContentInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(backendDtoModelsHiveContent, options) {
-        return exports.HiveApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
+    createHiveV1(hiveContentInput, options) {
+        return exports.HiveApiFp(this.configuration).createHiveV1(hiveContentInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
+     * Delete a Specific Hive by ID
+     * @summary Delete a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -3736,9 +3810,9 @@ class HiveApi extends base_1.BaseAPI {
         return exports.HiveApiFp(this.configuration).deleteHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
+     * Get a Specific Hive by ID
+     * @summary Get a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -3747,15 +3821,15 @@ class HiveApi extends base_1.BaseAPI {
         return exports.HiveApiFp(this.configuration).getHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Hives Under the User&#39;s Organization
+     * @summary List All Hives Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -3764,16 +3838,16 @@ class HiveApi extends base_1.BaseAPI {
         return exports.HiveApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
+     * Update a Specific Hive by ID
+     * @summary Update a Specific Hive by ID
+     * @param {string} hiveId ID of the hive
+     * @param {HiveContentOutput} hiveContentOutput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
-        return exports.HiveApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
+    updateHiveV1(hiveId, hiveContentOutput, options) {
+        return exports.HiveApiFp(this.configuration).updateHiveV1(hiveId, hiveContentOutput, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.HiveApi = HiveApi;
@@ -3784,10 +3858,10 @@ exports.HiveApi = HiveApi;
 exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createhiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3830,10 +3904,10 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3876,9 +3950,9 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listagentsofhive
-         * @param {string} hiveId
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3916,9 +3990,9 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listhivesofagent
-         * @param {string} agentId
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3964,10 +4038,10 @@ exports.HiveAgentLinkApiAxiosParamCreator = function (configuration) {
 exports.HiveAgentLinkApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createhiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3981,10 +4055,10 @@ exports.HiveAgentLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -3998,9 +4072,9 @@ exports.HiveAgentLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listagentsofhive
-         * @param {string} hiveId
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4014,9 +4088,9 @@ exports.HiveAgentLinkApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listhivesofagent
-         * @param {string} agentId
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4038,10 +4112,10 @@ exports.HiveAgentLinkApiFp = function (configuration) {
 exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createhiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Create a Link Between a Hive and an Agent
+         * @summary Create a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4049,10 +4123,10 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
             return exports.HiveAgentLinkApiFp(configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deletehiveagentlink
-         * @param {string} hiveId
-         * @param {string} agentId
+         * Delete a Link Between a Hive and an Agent
+         * @summary Delete a Link Between a Hive and an Agent
+         * @param {string} hiveId ID of the hive
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4060,9 +4134,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
             return exports.HiveAgentLinkApiFp(configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listagentsofhive
-         * @param {string} hiveId
+         * List All Agents Linked to a Specific Hive
+         * @summary List All Agents Linked to a Specific Hive
+         * @param {string} hiveId ID of the hive
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4070,9 +4144,9 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
             return exports.HiveAgentLinkApiFp(configuration).listAgentsOfHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listhivesofagent
-         * @param {string} agentId
+         * List All Hives Linked to a Specific Agent
+         * @summary List All Hives Linked to a Specific Agent
+         * @param {string} agentId ID of the agent
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4089,10 +4163,10 @@ exports.HiveAgentLinkApiFactory = function (configuration, basePath, axios) {
  */
 class HiveAgentLinkApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createhiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Create a Link Between a Hive and an Agent
+     * @summary Create a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -4101,10 +4175,10 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
         return exports.HiveAgentLinkApiFp(this.configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deletehiveagentlink
-     * @param {string} hiveId
-     * @param {string} agentId
+     * Delete a Link Between a Hive and an Agent
+     * @summary Delete a Link Between a Hive and an Agent
+     * @param {string} hiveId ID of the hive
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -4113,9 +4187,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
         return exports.HiveAgentLinkApiFp(this.configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listagentsofhive
-     * @param {string} hiveId
+     * List All Agents Linked to a Specific Hive
+     * @summary List All Agents Linked to a Specific Hive
+     * @param {string} hiveId ID of the hive
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -4124,9 +4198,9 @@ class HiveAgentLinkApi extends base_1.BaseAPI {
         return exports.HiveAgentLinkApiFp(this.configuration).listAgentsOfHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listhivesofagent
-     * @param {string} agentId
+     * List All Hives Linked to a Specific Agent
+     * @summary List All Hives Linked to a Specific Agent
+     * @param {string} agentId ID of the agent
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
@@ -4405,13 +4479,13 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4509,7 +4583,7 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary Updateorganization
-         * @param {string} orgId
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4766,13 +4840,13 @@ exports.InternalApiFp = function (configuration) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4804,7 +4878,7 @@ exports.InternalApiFp = function (configuration) {
         /**
          *
          * @summary Updateorganization
-         * @param {string} orgId
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4928,13 +5002,13 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4954,7 +5028,7 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary Updateorganization
-         * @param {string} orgId
+         * @param {string} orgId ID of the organization
          * @param {OrganizationInput} organizationInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5068,13 +5142,13 @@ class InternalApi extends base_1.BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
@@ -5096,7 +5170,7 @@ class InternalApi extends base_1.BaseAPI {
     /**
      *
      * @summary Updateorganization
-     * @param {string} orgId
+     * @param {string} orgId ID of the organization
      * @param {OrganizationInput} organizationInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5130,477 +5204,6 @@ class InternalApi extends base_1.BaseAPI {
     }
 }
 exports.InternalApi = InternalApi;
-/**
- * KnowledgeBaseApi - axios parameter creator
- * @export
- */
-exports.KnowledgeBaseApiAxiosParamCreator = function (configuration) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createHiveV1: (backendDtoModelsHiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'backendDtoModelsHiveContent' is not null or undefined
-            if (backendDtoModelsHiveContent === null || backendDtoModelsHiveContent === undefined) {
-                throw new base_1.RequiredError('backendDtoModelsHiveContent', 'Required parameter backendDtoModelsHiveContent was null or undefined when calling createHiveV1.');
-            }
-            const localVarPath = `/v1/hives`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof backendDtoModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(backendDtoModelsHiveContent !== undefined ? backendDtoModelsHiveContent : {}) : (backendDtoModelsHiveContent || "");
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling deleteHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getHiveV1: (hiveId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling getHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listHivesV1: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/hives`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
-            }
-            if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
-            }
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-            if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
-            }
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateHiveV1: (hiveId, backendDbModelsHiveContent, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'hiveId' is not null or undefined
-            if (hiveId === null || hiveId === undefined) {
-                throw new base_1.RequiredError('hiveId', 'Required parameter hiveId was null or undefined when calling updateHiveV1.');
-            }
-            // verify required parameter 'backendDbModelsHiveContent' is not null or undefined
-            if (backendDbModelsHiveContent === null || backendDbModelsHiveContent === undefined) {
-                throw new base_1.RequiredError('backendDbModelsHiveContent', 'Required parameter backendDbModelsHiveContent was null or undefined when calling updateHiveV1.');
-            }
-            const localVarPath = `/v1/hives/{hive_id}`
-                .replace(`{${"hive_id"}}`, encodeURIComponent(String(hiveId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof backendDbModelsHiveContent !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(backendDbModelsHiveContent !== undefined ? backendDbModelsHiveContent : {}) : (backendDbModelsHiveContent || "");
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-    };
-};
-/**
- * KnowledgeBaseApi - functional programming interface
- * @export
- */
-exports.KnowledgeBaseApiFp = function (configuration) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createHiveV1(backendDtoModelsHiveContent, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).createHiveV1(backendDtoModelsHiveContent, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteHiveV1(hiveId, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).deleteHiveV1(hiveId, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getHiveV1(hiveId, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).getHiveV1(hiveId, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.KnowledgeBaseApiAxiosParamCreator(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-    };
-};
-/**
- * KnowledgeBaseApi - factory interface
- * @export
- */
-exports.KnowledgeBaseApiFactory = function (configuration, basePath, axios) {
-    return {
-        /**
-         * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-         * @summary Createhive
-         * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createHiveV1(backendDtoModelsHiveContent, options) {
-            return exports.KnowledgeBaseApiFp(configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *
-         * @summary Deletehive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteHiveV1(hiveId, options) {
-            return exports.KnowledgeBaseApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *
-         * @summary Gethive
-         * @param {string} hiveId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getHiveV1(hiveId, options) {
-            return exports.KnowledgeBaseApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *
-         * @summary Listhives
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.KnowledgeBaseApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *
-         * @summary Updatehive
-         * @param {string} hiveId
-         * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
-            return exports.KnowledgeBaseApiFp(configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-/**
- * KnowledgeBaseApi - object-oriented interface
- * @export
- * @class KnowledgeBaseApi
- * @extends {BaseAPI}
- */
-class KnowledgeBaseApi extends base_1.BaseAPI {
-    /**
-     * Hive is a collection of documents that are used to train the LLM. Hive can be a PDF, DOCX, TXT or a website URL
-     * @summary Createhive
-     * @param {BackendDtoModelsHiveContent} backendDtoModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    createHiveV1(backendDtoModelsHiveContent, options) {
-        return exports.KnowledgeBaseApiFp(this.configuration).createHiveV1(backendDtoModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     *
-     * @summary Deletehive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    deleteHiveV1(hiveId, options) {
-        return exports.KnowledgeBaseApiFp(this.configuration).deleteHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     *
-     * @summary Gethive
-     * @param {string} hiveId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    getHiveV1(hiveId, options) {
-        return exports.KnowledgeBaseApiFp(this.configuration).getHiveV1(hiveId, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     *
-     * @summary Listhives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.KnowledgeBaseApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     *
-     * @summary Updatehive
-     * @param {string} hiveId
-     * @param {BackendDbModelsHiveContent} backendDbModelsHiveContent
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof KnowledgeBaseApi
-     */
-    updateHiveV1(hiveId, backendDbModelsHiveContent, options) {
-        return exports.KnowledgeBaseApiFp(this.configuration).updateHiveV1(hiveId, backendDbModelsHiveContent, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-exports.KnowledgeBaseApi = KnowledgeBaseApi;
 /**
  * MetricsApi - axios parameter creator
  * @export
@@ -5788,8 +5391,8 @@ exports.MetricsApi = MetricsApi;
 exports.ProductsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5830,9 +5433,9 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Deleteproduct
-         * @param {string} productId
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5870,9 +5473,9 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Getproduct
-         * @param {string} productId
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5910,9 +5513,9 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listagentsofproduct
-         * @param {string} productId
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5950,17 +5553,17 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Listproducts
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6020,9 +5623,9 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
-         * @summary Updateproduct
-         * @param {string} productId
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6076,8 +5679,8 @@ exports.ProductsApiAxiosParamCreator = function (configuration) {
 exports.ProductsApiFp = function (configuration) {
     return {
         /**
-         *
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6092,9 +5695,9 @@ exports.ProductsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Deleteproduct
-         * @param {string} productId
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6108,9 +5711,9 @@ exports.ProductsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Getproduct
-         * @param {string} productId
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6124,9 +5727,9 @@ exports.ProductsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listagentsofproduct
-         * @param {string} productId
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6140,17 +5743,17 @@ exports.ProductsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Listproducts
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6164,9 +5767,9 @@ exports.ProductsApiFp = function (configuration) {
             });
         },
         /**
-         *
-         * @summary Updateproduct
-         * @param {string} productId
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6189,8 +5792,8 @@ exports.ProductsApiFp = function (configuration) {
 exports.ProductsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         *
-         * @summary Createproduct
+         * Create a New Product
+         * @summary Create a New Product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6199,9 +5802,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
             return exports.ProductsApiFp(configuration).createProductV1(productInput, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Deleteproduct
-         * @param {string} productId
+         * Delete a Specific Product by ID
+         * @summary Delete a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6209,9 +5812,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
             return exports.ProductsApiFp(configuration).deleteProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Getproduct
-         * @param {string} productId
+         * Get a Specific Product by ID
+         * @summary Get a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6219,9 +5822,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
             return exports.ProductsApiFp(configuration).getProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listagentsofproduct
-         * @param {string} productId
+         * List All Agents Linked to a Specific Product
+         * @summary List All Agents Linked to a Specific Product
+         * @param {string} productId ID of the product
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6229,17 +5832,17 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
             return exports.ProductsApiFp(configuration).listAgentsOfProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Listproducts
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * List All Products Under the User&#39;s Organization
+         * @summary List All Products Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6247,9 +5850,9 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
             return exports.ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
-         *
-         * @summary Updateproduct
-         * @param {string} productId
+         * Update a Specific Product by ID
+         * @summary Update a Specific Product by ID
+         * @param {string} productId ID of the product
          * @param {ProductInput} productInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6267,8 +5870,8 @@ exports.ProductsApiFactory = function (configuration, basePath, axios) {
  */
 class ProductsApi extends base_1.BaseAPI {
     /**
-     *
-     * @summary Createproduct
+     * Create a New Product
+     * @summary Create a New Product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6278,9 +5881,9 @@ class ProductsApi extends base_1.BaseAPI {
         return exports.ProductsApiFp(this.configuration).createProductV1(productInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Deleteproduct
-     * @param {string} productId
+     * Delete a Specific Product by ID
+     * @summary Delete a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -6289,9 +5892,9 @@ class ProductsApi extends base_1.BaseAPI {
         return exports.ProductsApiFp(this.configuration).deleteProductV1(productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Getproduct
-     * @param {string} productId
+     * Get a Specific Product by ID
+     * @summary Get a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -6300,9 +5903,9 @@ class ProductsApi extends base_1.BaseAPI {
         return exports.ProductsApiFp(this.configuration).getProductV1(productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listagentsofproduct
-     * @param {string} productId
+     * List All Agents Linked to a Specific Product
+     * @summary List All Agents Linked to a Specific Product
+     * @param {string} productId ID of the product
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -6311,17 +5914,17 @@ class ProductsApi extends base_1.BaseAPI {
         return exports.ProductsApiFp(this.configuration).listAgentsOfProductV1(productId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Listproducts
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * List All Products Under the User&#39;s Organization
+     * @summary List All Products Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
@@ -6330,9 +5933,9 @@ class ProductsApi extends base_1.BaseAPI {
         return exports.ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
-     * @summary Updateproduct
-     * @param {string} productId
+     * Update a Specific Product by ID
+     * @summary Update a Specific Product by ID
+     * @param {string} productId ID of the product
      * @param {ProductInput} productInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6350,8 +5953,8 @@ exports.ProductsApi = ProductsApi;
 exports.ProspectsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6392,9 +5995,9 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6432,9 +6035,9 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6472,15 +6075,15 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6534,9 +6137,9 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6590,8 +6193,8 @@ exports.ProspectsApiAxiosParamCreator = function (configuration) {
 exports.ProspectsApiFp = function (configuration) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6606,9 +6209,9 @@ exports.ProspectsApiFp = function (configuration) {
             });
         },
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6622,9 +6225,9 @@ exports.ProspectsApiFp = function (configuration) {
             });
         },
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6638,15 +6241,15 @@ exports.ProspectsApiFp = function (configuration) {
             });
         },
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6660,9 +6263,9 @@ exports.ProspectsApiFp = function (configuration) {
             });
         },
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6685,8 +6288,8 @@ exports.ProspectsApiFp = function (configuration) {
 exports.ProspectsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Creates a new prospect.
-         * @summary Createprospect
+         * Create a New Prospect
+         * @summary Create a New Prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6695,9 +6298,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
             return exports.ProspectsApiFp(configuration).createProspectV1(prospectInput, options).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes a specific prospect by ID.
-         * @summary Deleteprospect
-         * @param {string} prospectId
+         * Delete a Specific Prospect by ID
+         * @summary Delete a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6705,9 +6308,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
             return exports.ProspectsApiFp(configuration).deleteProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetches a specific prospect by ID.
-         * @summary Getprospect
-         * @param {string} prospectId
+         * Get a Specific Prospect by ID
+         * @summary Get a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6715,15 +6318,15 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
             return exports.ProspectsApiFp(configuration).getProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all prospects under the user\'s organization
-         * @summary Listprospects
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * List All Prospects Under the User&#39;s Organization
+         * @summary List All Prospects Under the User&#39;s Organization
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6731,9 +6334,9 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
             return exports.ProspectsApiFp(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates a specific prospect by ID.
-         * @summary Updateprospect
-         * @param {string} prospectId
+         * Update a Specific Prospect by ID
+         * @summary Update a Specific Prospect by ID
+         * @param {string} prospectId ID of the prospect
          * @param {ProspectInput} prospectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6751,8 +6354,8 @@ exports.ProspectsApiFactory = function (configuration, basePath, axios) {
  */
 class ProspectsApi extends base_1.BaseAPI {
     /**
-     * Creates a new prospect.
-     * @summary Createprospect
+     * Create a New Prospect
+     * @summary Create a New Prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6762,9 +6365,9 @@ class ProspectsApi extends base_1.BaseAPI {
         return exports.ProspectsApiFp(this.configuration).createProspectV1(prospectInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Deletes a specific prospect by ID.
-     * @summary Deleteprospect
-     * @param {string} prospectId
+     * Delete a Specific Prospect by ID
+     * @summary Delete a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -6773,9 +6376,9 @@ class ProspectsApi extends base_1.BaseAPI {
         return exports.ProspectsApiFp(this.configuration).deleteProspectV1(prospectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetches a specific prospect by ID.
-     * @summary Getprospect
-     * @param {string} prospectId
+     * Get a Specific Prospect by ID
+     * @summary Get a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -6784,15 +6387,15 @@ class ProspectsApi extends base_1.BaseAPI {
         return exports.ProspectsApiFp(this.configuration).getProspectV1(prospectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Lists all prospects under the user\'s organization
-     * @summary Listprospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * List All Prospects Under the User&#39;s Organization
+     * @summary List All Prospects Under the User&#39;s Organization
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -6801,9 +6404,9 @@ class ProspectsApi extends base_1.BaseAPI {
         return exports.ProspectsApiFp(this.configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Updates a specific prospect by ID.
-     * @summary Updateprospect
-     * @param {string} prospectId
+     * Update a Specific Prospect by ID
+     * @summary Update a Specific Prospect by ID
+     * @param {string} prospectId ID of the prospect
      * @param {ProspectInput} prospectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6814,6 +6417,668 @@ class ProspectsApi extends base_1.BaseAPI {
     }
 }
 exports.ProspectsApi = ProspectsApi;
+/**
+ * TelephonyApi - axios parameter creator
+ * @export
+ */
+exports.TelephonyApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Get Agent Phones
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAgentPhonesV1: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling getAgentPhonesV1.');
+            }
+            const localVarPath = `/v1/ai-agents/{agent_id}/phones`
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Link Phone To Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        linkPhoneToAgentV1: (phoneId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new base_1.RequiredError('phoneId', 'Required parameter phoneId was null or undefined when calling linkPhoneToAgentV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling linkPhoneToAgentV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Available Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAvailablePhonesV1: (countryCode, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'countryCode' is not null or undefined
+            if (countryCode === null || countryCode === undefined) {
+                throw new base_1.RequiredError('countryCode', 'Required parameter countryCode was null or undefined when calling listAvailablePhonesV1.');
+            }
+            const localVarPath = `/v1/telephony/countries/{country_code}/available-phones`
+                .replace(`{${"country_code"}}`, encodeURIComponent(String(countryCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Purchased Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPurchasedPhonesV1: (countryCode, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'countryCode' is not null or undefined
+            if (countryCode === null || countryCode === undefined) {
+                throw new base_1.RequiredError('countryCode', 'Required parameter countryCode was null or undefined when calling listPurchasedPhonesV1.');
+            }
+            const localVarPath = `/v1/telephony/phones`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (countryCode !== undefined) {
+                localVarQueryParameter['country_code'] = countryCode;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSupportedCountriesV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/telephony/countries`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        purchasePhoneV1: (numberPurchaseRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'numberPurchaseRequest' is not null or undefined
+            if (numberPurchaseRequest === null || numberPurchaseRequest === undefined) {
+                throw new base_1.RequiredError('numberPurchaseRequest', 'Required parameter numberPurchaseRequest was null or undefined when calling purchasePhoneV1.');
+            }
+            const localVarPath = `/v1/telephony/phones`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof numberPurchaseRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(numberPurchaseRequest !== undefined ? numberPurchaseRequest : {}) : (numberPurchaseRequest || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Release Phone
+         * @param {string} phoneId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasePhoneV1: (phoneId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new base_1.RequiredError('phoneId', 'Required parameter phoneId was null or undefined when calling releasePhoneV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlinkPhoneFromAgentV1: (phoneId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'phoneId' is not null or undefined
+            if (phoneId === null || phoneId === undefined) {
+                throw new base_1.RequiredError('phoneId', 'Required parameter phoneId was null or undefined when calling unlinkPhoneFromAgentV1.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling unlinkPhoneFromAgentV1.');
+            }
+            const localVarPath = `/v1/telephony/phones/{phone_id}/ai-agents/{agent_id}/link`
+                .replace(`{${"phone_id"}}`, encodeURIComponent(String(phoneId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * TelephonyApi - functional programming interface
+ * @export
+ */
+exports.TelephonyApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Get Agent Phones
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAgentPhonesV1(agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).getAgentPhonesV1(agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Link Phone To Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        linkPhoneToAgentV1(phoneId, agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).linkPhoneToAgentV1(phoneId, agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary List Available Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAvailablePhonesV1(countryCode, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).listAvailablePhonesV1(countryCode, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary List Purchased Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPurchasedPhonesV1(countryCode, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).listPurchasedPhonesV1(countryCode, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSupportedCountriesV1(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).listSupportedCountriesV1(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        purchasePhoneV1(numberPurchaseRequest, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).purchasePhoneV1(numberPurchaseRequest, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Release Phone
+         * @param {string} phoneId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasePhoneV1(phoneId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).releasePhoneV1(phoneId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlinkPhoneFromAgentV1(phoneId, agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TelephonyApiAxiosParamCreator(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * TelephonyApi - factory interface
+ * @export
+ */
+exports.TelephonyApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Get Agent Phones
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAgentPhonesV1(agentId, options) {
+            return exports.TelephonyApiFp(configuration).getAgentPhonesV1(agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Link Phone To Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        linkPhoneToAgentV1(phoneId, agentId, options) {
+            return exports.TelephonyApiFp(configuration).linkPhoneToAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Available Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAvailablePhonesV1(countryCode, options) {
+            return exports.TelephonyApiFp(configuration).listAvailablePhonesV1(countryCode, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Purchased Phones
+         * @param {string} countryCode
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPurchasedPhonesV1(countryCode, options) {
+            return exports.TelephonyApiFp(configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Supported Countries
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSupportedCountriesV1(options) {
+            return exports.TelephonyApiFp(configuration).listSupportedCountriesV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Purchase Phone
+         * @param {NumberPurchaseRequest} numberPurchaseRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        purchasePhoneV1(numberPurchaseRequest, options) {
+            return exports.TelephonyApiFp(configuration).purchasePhoneV1(numberPurchaseRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Release Phone
+         * @param {string} phoneId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        releasePhoneV1(phoneId, options) {
+            return exports.TelephonyApiFp(configuration).releasePhoneV1(phoneId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Unlink Phone From Agent
+         * @param {string} phoneId
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlinkPhoneFromAgentV1(phoneId, agentId, options) {
+            return exports.TelephonyApiFp(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * TelephonyApi - object-oriented interface
+ * @export
+ * @class TelephonyApi
+ * @extends {BaseAPI}
+ */
+class TelephonyApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Get Agent Phones
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    getAgentPhonesV1(agentId, options) {
+        return exports.TelephonyApiFp(this.configuration).getAgentPhonesV1(agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Link Phone To Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    linkPhoneToAgentV1(phoneId, agentId, options) {
+        return exports.TelephonyApiFp(this.configuration).linkPhoneToAgentV1(phoneId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Available Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listAvailablePhonesV1(countryCode, options) {
+        return exports.TelephonyApiFp(this.configuration).listAvailablePhonesV1(countryCode, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Purchased Phones
+     * @param {string} countryCode
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listPurchasedPhonesV1(countryCode, options) {
+        return exports.TelephonyApiFp(this.configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Supported Countries
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    listSupportedCountriesV1(options) {
+        return exports.TelephonyApiFp(this.configuration).listSupportedCountriesV1(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Purchase Phone
+     * @param {NumberPurchaseRequest} numberPurchaseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    purchasePhoneV1(numberPurchaseRequest, options) {
+        return exports.TelephonyApiFp(this.configuration).purchasePhoneV1(numberPurchaseRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Release Phone
+     * @param {string} phoneId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    releasePhoneV1(phoneId, options) {
+        return exports.TelephonyApiFp(this.configuration).releasePhoneV1(phoneId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Unlink Phone From Agent
+     * @param {string} phoneId
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TelephonyApi
+     */
+    unlinkPhoneFromAgentV1(phoneId, agentId, options) {
+        return exports.TelephonyApiFp(this.configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.TelephonyApi = TelephonyApi;
 /**
  * UIApi - axios parameter creator
  * @export
@@ -6861,15 +7126,15 @@ exports.UIApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary List Products
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7031,15 +7296,15 @@ exports.UIApiFp = function (configuration) {
         /**
          *
          * @summary List Products
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7105,15 +7370,15 @@ exports.UIApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary List Products
-         * @param {string} [searchBy]
-         * @param {string} [searchValue]
-         * @param {string} [status]
-         * @param {string} [sortBy]
-         * @param {SortOrder} [sortOrder]
-         * @param {number} [skip]
-         * @param {number} [limit]
-         * @param {Array<string>} [tags]
-         * @param {Array<string>} [productIds]
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {Array<string>} [tags] Filter products by specific tags
+         * @param {Array<string>} [productIds] Filter by specific product IDs
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7163,15 +7428,15 @@ class UIApi extends base_1.BaseAPI {
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {Array<string>} [tags]
-     * @param {Array<string>} [productIds]
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {Array<string>} [tags] Filter products by specific tags
+     * @param {Array<string>} [productIds] Filter by specific product IDs
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
@@ -7211,7 +7476,7 @@ exports.VoiceModelsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7253,7 +7518,7 @@ exports.VoiceModelsApiFp = function (configuration) {
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7276,7 +7541,7 @@ exports.VoiceModelsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Get list of voices available for calls
-         * @summary Listvoicemodels
+         * @summary Get list of voices available for calls
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7294,7 +7559,7 @@ exports.VoiceModelsApiFactory = function (configuration, basePath, axios) {
 class VoiceModelsApi extends base_1.BaseAPI {
     /**
      * Get list of voices available for calls
-     * @summary Listvoicemodels
+     * @summary Get list of voices available for calls
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
