@@ -497,18 +497,33 @@ export interface ApiKeyRequest {
      * @type {string}
      * @memberof ApiKeyRequest
      */
-    key_type?: ApiKeyRequestKeyTypeEnum;
+    key_type?: string | null;
 }
-
 /**
-    * @export
-    * @enum {string}
-    */
-export enum ApiKeyRequestKeyTypeEnum {
-    ApiKey = 'api_key',
-    CallKey = 'call_key'
+ * 
+ * @export
+ * @interface AvailablePhoneNumber
+ */
+export interface AvailablePhoneNumber {
+    /**
+     * 
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    phoneNumber: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    locality: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    region: string | null;
 }
-
 /**
  * 
  * @export
@@ -10120,7 +10135,7 @@ export const TelephonyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+        async listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>> {
             const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).listAvailablePhonesV1(countryCode, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10234,7 +10249,7 @@ export const TelephonyApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<string>> {
+        listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<AvailablePhoneNumber>> {
             return TelephonyApiFp(configuration).listAvailablePhonesV1(countryCode, options).then((request) => request(axios, basePath));
         },
         /**

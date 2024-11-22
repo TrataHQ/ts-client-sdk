@@ -486,15 +486,32 @@ export interface ApiKeyRequest {
      * @type {string}
      * @memberof ApiKeyRequest
      */
-    key_type?: ApiKeyRequestKeyTypeEnum;
+    key_type?: string | null;
 }
 /**
-    * @export
-    * @enum {string}
-    */
-export declare enum ApiKeyRequestKeyTypeEnum {
-    ApiKey = "api_key",
-    CallKey = "call_key"
+ *
+ * @export
+ * @interface AvailablePhoneNumber
+ */
+export interface AvailablePhoneNumber {
+    /**
+     *
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    phoneNumber: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    locality: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
+    region: string | null;
 }
 /**
  *
@@ -6085,7 +6102,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
+    listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>>;
     /**
      *
      * @summary List Purchased Phones
@@ -6156,7 +6173,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<string>>;
+    listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<AvailablePhoneNumber>>;
     /**
      *
      * @summary List Purchased Phones
@@ -6232,7 +6249,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<string[]>>;
+    listAvailablePhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<AvailablePhoneNumber[]>>;
     /**
      *
      * @summary List Purchased Phones
