@@ -505,6 +505,12 @@ export interface AvailablePhoneNumber {
      * @type {string}
      * @memberof AvailablePhoneNumber
      */
+    countryCode: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AvailablePhoneNumber
+     */
     locality: string | null;
     /**
      *
