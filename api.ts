@@ -9868,15 +9868,11 @@ export const TelephonyApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @summary List Purchased Phones
-         * @param {string} countryCode 
+         * @param {string} [countryCode] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPurchasedPhonesV1: async (countryCode: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'countryCode' is not null or undefined
-            if (countryCode === null || countryCode === undefined) {
-                throw new RequiredError('countryCode','Required parameter countryCode was null or undefined when calling listPurchasedPhonesV1.');
-            }
+        listPurchasedPhonesV1: async (countryCode?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/telephony/phones`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10151,11 +10147,11 @@ export const TelephonyApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary List Purchased Phones
-         * @param {string} countryCode 
+         * @param {string} [countryCode] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listPurchasedPhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>> {
+        async listPurchasedPhonesV1(countryCode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>> {
             const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).listPurchasedPhonesV1(countryCode, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10261,11 +10257,11 @@ export const TelephonyApiFactory = function (configuration?: Configuration, base
         /**
          * 
          * @summary List Purchased Phones
-         * @param {string} countryCode 
+         * @param {string} [countryCode] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPurchasedPhonesV1(countryCode: string, options?: any): AxiosPromise<Array<TelephoneNumber>> {
+        listPurchasedPhonesV1(countryCode?: string, options?: any): AxiosPromise<Array<TelephoneNumber>> {
             return TelephonyApiFp(configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(axios, basePath));
         },
         /**
@@ -10358,12 +10354,12 @@ export class TelephonyApi extends BaseAPI {
     /**
      * 
      * @summary List Purchased Phones
-     * @param {string} countryCode 
+     * @param {string} [countryCode] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    public listPurchasedPhonesV1(countryCode: string, options?: any) {
+    public listPurchasedPhonesV1(countryCode?: string, options?: any) {
         return TelephonyApiFp(this.configuration).listPurchasedPhonesV1(countryCode, options).then((request) => request(this.axios, this.basePath));
     }
 

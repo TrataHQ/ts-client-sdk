@@ -6639,15 +6639,11 @@ exports.TelephonyApiAxiosParamCreator = function (configuration) {
         /**
          *
          * @summary List Purchased Phones
-         * @param {string} countryCode
+         * @param {string} [countryCode]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         listPurchasedPhonesV1: (countryCode, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'countryCode' is not null or undefined
-            if (countryCode === null || countryCode === undefined) {
-                throw new base_1.RequiredError('countryCode', 'Required parameter countryCode was null or undefined when calling listPurchasedPhonesV1.');
-            }
             const localVarPath = `/v1/telephony/phones`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6900,7 +6896,7 @@ exports.TelephonyApiFp = function (configuration) {
         /**
          *
          * @summary List Purchased Phones
-         * @param {string} countryCode
+         * @param {string} [countryCode]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7019,7 +7015,7 @@ exports.TelephonyApiFactory = function (configuration, basePath, axios) {
         /**
          *
          * @summary List Purchased Phones
-         * @param {string} countryCode
+         * @param {string} [countryCode]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -7112,7 +7108,7 @@ class TelephonyApi extends base_1.BaseAPI {
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} countryCode
+     * @param {string} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TelephonyApi

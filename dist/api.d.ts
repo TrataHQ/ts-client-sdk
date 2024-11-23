@@ -6041,11 +6041,11 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} countryCode
+     * @param {string} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1: (countryCode: string, options?: any) => Promise<RequestArgs>;
+    listPurchasedPhonesV1: (countryCode?: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary List Supported Countries
@@ -6112,11 +6112,11 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} countryCode
+     * @param {string} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    listPurchasedPhonesV1(countryCode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
     /**
      *
      * @summary List Supported Countries
@@ -6183,11 +6183,11 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} countryCode
+     * @param {string} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
+    listPurchasedPhonesV1(countryCode?: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
     /**
      *
      * @summary List Supported Countries
@@ -6259,12 +6259,12 @@ export declare class TelephonyApi extends BaseAPI {
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} countryCode
+     * @param {string} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listPurchasedPhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    listPurchasedPhonesV1(countryCode?: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
     /**
      *
      * @summary List Supported Countries
