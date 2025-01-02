@@ -193,6 +193,19 @@ export enum Accent {
 /**
  * 
  * @export
+ * @interface AcceptInviteRequest
+ */
+export interface AcceptInviteRequest {
+    /**
+     * Name of the user
+     * @type {string}
+     * @memberof AcceptInviteRequest
+     */
+    name?: string | null;
+}
+/**
+ * 
+ * @export
  * @interface ActionInput
  */
 export interface ActionInput {
@@ -465,6 +478,98 @@ export interface AgentConfig {
     fillersConfig?: string | null;
 }
 /**
+ * Connection represents an instance of an app with specific credentials and configuration
+ * @export
+ * @interface AgenticWorkflowDbModelsConnection
+ */
+export interface AgenticWorkflowDbModelsConnection {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    orgId?: string;
+    /**
+     * The name of the connection
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    name?: string;
+    /**
+     * The unique identifier of the app
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    appId?: string;
+    /**
+     * The version of the app
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    appVersion?: string;
+    /**
+     * The description of the connection
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    description?: string | null;
+    /**
+     * OAuth or API key authentication configuration
+     * @type {OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+    /**
+     * The unique identifier of the connection
+     * @type {string}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    id?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AgenticWorkflowModelsBaseBaseResponse
+ */
+export interface AgenticWorkflowModelsBaseBaseResponse {
+    /**
+     * The message of the response
+     * @type {string}
+     * @memberof AgenticWorkflowModelsBaseBaseResponse
+     */
+    message?: string;
+    /**
+     * The status of the response
+     * @type {string}
+     * @memberof AgenticWorkflowModelsBaseBaseResponse
+     */
+    status?: string;
+}
+/**
  * 
  * @export
  * @enum {string}
@@ -487,6 +592,56 @@ export enum AggregationPeriod {
 }
 
 /**
+ * API key authentication configuration
+ * @export
+ * @interface ApiKeyAuth
+ */
+export interface ApiKeyAuth {
+    /**
+     * The type of authentication
+     * @type {string}
+     * @memberof ApiKeyAuth
+     */
+    authType?: ApiKeyAuthAuthTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiKeyAuthAuthTypeEnum {
+    Apikey = 'apikey'
+}
+
+/**
+ * 
+ * @export
+ * @interface ApiKeyCredentials
+ */
+export interface ApiKeyCredentials {
+    /**
+     * Credential type identifier
+     * @type {string}
+     * @memberof ApiKeyCredentials
+     */
+    credentialsType?: ApiKeyCredentialsCredentialsTypeEnum;
+    /**
+     * The API key for the app
+     * @type {string}
+     * @memberof ApiKeyCredentials
+     */
+    apiKey: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ApiKeyCredentialsCredentialsTypeEnum {
+    Apikey = 'apikey'
+}
+
+/**
  * 
  * @export
  * @interface ApiKeyRequest
@@ -498,6 +653,297 @@ export interface ApiKeyRequest {
      * @memberof ApiKeyRequest
      */
     key_type?: string | null;
+}
+/**
+ * App represents an integration that can be connected to perform actions and triggers
+ * @export
+ * @interface App
+ */
+export interface App {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof App
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof App
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof App
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof App
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof App
+     */
+    orgId?: string;
+    /**
+     * The name of the app
+     * @type {string}
+     * @memberof App
+     */
+    name?: string;
+    /**
+     * The description of the app
+     * @type {string}
+     * @memberof App
+     */
+    description?: string | null;
+    /**
+     * API Endpoint URL for the app
+     * @type {string}
+     * @memberof App
+     */
+    endpointUrl?: string | null;
+    /**
+     * URL to the app\'s logo image
+     * @type {string}
+     * @memberof App
+     */
+    logoUrl?: string | null;
+    /**
+     * Authentication configuration for the app
+     * @type {Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>}
+     * @memberof App
+     */
+    auth: Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>;
+    /**
+     * The version of the app
+     * @type {string}
+     * @memberof App
+     */
+    version?: string;
+    /**
+     * The unique identifier of the app
+     * @type {string}
+     * @memberof App
+     */
+    id?: string;
+}
+/**
+ * AppAction represents an action that can be performed by an app
+ * @export
+ * @interface AppAction
+ */
+export interface AppAction {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof AppAction
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof AppAction
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof AppAction
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof AppAction
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof AppAction
+     */
+    orgId?: string;
+    /**
+     * The type of the step, can be either trigger or action
+     * @type {AppActionType}
+     * @memberof AppAction
+     */
+    actionType: AppActionType;
+    /**
+     * The name of the step. This name should be unique within the app
+     * @type {string}
+     * @memberof AppAction
+     */
+    name?: string;
+    /**
+     * The description of the step
+     * @type {string}
+     * @memberof AppAction
+     */
+    description?: string;
+    /**
+     * JSON Schema for the step data
+     * @type {object}
+     * @memberof AppAction
+     */
+    dataSchema: object;
+    /**
+     * JSON Schema for the UI representation
+     * @type {object}
+     * @memberof AppAction
+     */
+    uiSchema: object;
+    /**
+     * This represents how this action should be displayed in the UI
+     * @type {UiNodeType}
+     * @memberof AppAction
+     */
+    uiNodeType: UiNodeType;
+    /**
+     * The ID of the app that this action belongs to
+     * @type {string}
+     * @memberof AppAction
+     */
+    appId: string;
+    /**
+     * The version of the app that this action belongs to
+     * @type {string}
+     * @memberof AppAction
+     */
+    appVersion: string;
+    /**
+     * The unique identifier of the app action
+     * @type {string}
+     * @memberof AppAction
+     */
+    id?: string;
+}
+/**
+ * App Action Model
+ * @export
+ * @interface AppActionEntity
+ */
+export interface AppActionEntity {
+    /**
+     * The type of the step, can be either trigger or action
+     * @type {AppActionType}
+     * @memberof AppActionEntity
+     */
+    actionType: AppActionType;
+    /**
+     * The name of the step. This name should be unique within the app
+     * @type {string}
+     * @memberof AppActionEntity
+     */
+    name?: string;
+    /**
+     * The description of the step
+     * @type {string}
+     * @memberof AppActionEntity
+     */
+    description?: string;
+    /**
+     * JSON Schema for the step data
+     * @type {object}
+     * @memberof AppActionEntity
+     */
+    dataSchema: object;
+    /**
+     * JSON Schema for the UI representation
+     * @type {object}
+     * @memberof AppActionEntity
+     */
+    uiSchema: object;
+    /**
+     * This represents how this action should be displayed in the UI
+     * @type {UiNodeType}
+     * @memberof AppActionEntity
+     */
+    uiNodeType: UiNodeType;
+}
+/**
+ * Enum for step types
+ * @export
+ * @enum {string}
+ */
+export enum AppActionType {
+    TRIGGER = 'TRIGGER',
+    ACTION = 'ACTION'
+}
+
+/**
+ * App DTO Model filled by user
+ * @export
+ * @interface AppEntity
+ */
+export interface AppEntity {
+    /**
+     * The name of the app
+     * @type {string}
+     * @memberof AppEntity
+     */
+    name?: string;
+    /**
+     * The description of the app
+     * @type {string}
+     * @memberof AppEntity
+     */
+    description?: string | null;
+    /**
+     * API Endpoint URL for the app
+     * @type {string}
+     * @memberof AppEntity
+     */
+    endpointUrl?: string | null;
+    /**
+     * URL to the app\'s logo image
+     * @type {string}
+     * @memberof AppEntity
+     */
+    logoUrl?: string | null;
+    /**
+     * Authentication configuration for the app
+     * @type {Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>}
+     * @memberof AppEntity
+     */
+    auth: Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>;
+    /**
+     * The version of the app
+     * @type {string}
+     * @memberof AppEntity
+     */
+    version?: string;
+    /**
+     * Array of available actions with their configurations
+     * @type {Array<AppActionEntity>}
+     * @memberof AppEntity
+     */
+    actions: Array<AppActionEntity>;
+}
+/**
+ * 
+ * @export
+ * @interface AppResponse
+ */
+export interface AppResponse {
+    /**
+     * 
+     * @type {App}
+     * @memberof AppResponse
+     */
+    app: App;
+    /**
+     * 
+     * @type {Array<AppAction>}
+     * @memberof AppResponse
+     */
+    actions: Array<AppAction>;
 }
 /**
  * 
@@ -533,16 +979,72 @@ export interface AvailablePhoneNumber {
 /**
  * 
  * @export
- * @interface BaseResponse
+ * @interface BaseResponseInput
  */
-export interface BaseResponse {
+export interface BaseResponseInput {
     /**
      * Address line 1
      * @type {string}
-     * @memberof BaseResponse
+     * @memberof BaseResponseInput
      */
     message: string;
 }
+/**
+ * Basic authentication configuration
+ * @export
+ * @interface BasicAuth
+ */
+export interface BasicAuth {
+    /**
+     * The type of authentication
+     * @type {string}
+     * @memberof BasicAuth
+     */
+    authType?: BasicAuthAuthTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BasicAuthAuthTypeEnum {
+    Basic = 'basic'
+}
+
+/**
+ * 
+ * @export
+ * @interface BasicAuthCredentials
+ */
+export interface BasicAuthCredentials {
+    /**
+     * Credential type identifier
+     * @type {string}
+     * @memberof BasicAuthCredentials
+     */
+    credentialsType?: BasicAuthCredentialsCredentialsTypeEnum;
+    /**
+     * The username for the app
+     * @type {string}
+     * @memberof BasicAuthCredentials
+     */
+    username: string;
+    /**
+     * The password for the app
+     * @type {string}
+     * @memberof BasicAuthCredentials
+     */
+    password: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BasicAuthCredentialsCredentialsTypeEnum {
+    Basic = 'basic'
+}
+
 /**
  * 
  * @export
@@ -568,49 +1070,6 @@ export interface BatchMetricsResponse {
      * @memberof BatchMetricsResponse
      */
     responses: Array<MetricsResponse>;
-}
-/**
- * Additional product details which user can purchase
- * @export
- * @interface BillableProduct
- */
-export interface BillableProduct {
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    subscriptionTypeName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    name?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    description?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    price?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof BillableProduct
-     */
-    currency?: string;
 }
 /**
  * 
@@ -647,6 +1106,19 @@ export interface BodyUploadFileV1 {
 /**
  * 
  * @export
+ * @interface BodyUploadResellerFilesV1
+ */
+export interface BodyUploadResellerFilesV1 {
+    /**
+     * 
+     * @type {Array<any>}
+     * @memberof BodyUploadResellerFilesV1
+     */
+    files: Array<any>;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum CallSentiment {
@@ -675,75 +1147,131 @@ export interface Comment {
     rating: number;
 }
 /**
+ * Condition Model for branching/looping logic
+ * @export
+ * @interface Condition
+ */
+export interface Condition {
+    /**
+     * Condition expression to evaluate
+     * @type {string}
+     * @memberof Condition
+     */
+    when: string;
+    /**
+     * Next step ID if condition is true
+     * @type {string}
+     * @memberof Condition
+     */
+    stepId: string;
+}
+/**
+ * Core Connection Model
+ * @export
+ * @interface ConnectionCore
+ */
+export interface ConnectionCore {
+    /**
+     * The name of the connection
+     * @type {string}
+     * @memberof ConnectionCore
+     */
+    name?: string;
+    /**
+     * The unique identifier of the app
+     * @type {string}
+     * @memberof ConnectionCore
+     */
+    appId?: string;
+    /**
+     * The version of the app
+     * @type {string}
+     * @memberof ConnectionCore
+     */
+    appVersion?: string;
+    /**
+     * The description of the connection
+     * @type {string}
+     * @memberof ConnectionCore
+     */
+    description?: string | null;
+    /**
+     * OAuth or API key authentication configuration
+     * @type {OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials}
+     * @memberof ConnectionCore
+     */
+    credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+}
+/**
  * This represents the connection between the user and the assistant
  * @export
- * @interface Connection
+ * @interface ConnectionOutput
  */
-export interface Connection {
+export interface ConnectionOutput {
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     id?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     orgId?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     sourceName?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     sourceId?: string;
     /**
      * 
      * @type {object}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     sourceProps?: object | null;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     agentId?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     prospectId?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     createdBy?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     createdAt?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     updatedBy?: string;
     /**
      * 
      * @type {string}
-     * @memberof Connection
+     * @memberof ConnectionOutput
      */
     updatedAt?: string;
 }
@@ -1508,6 +2036,18 @@ export interface GuestOutput {
      * @type {string}
      * @memberof GuestOutput
      */
+    last_sent_date?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GuestOutput
+     */
+    sent_count?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GuestOutput
+     */
     createdBy?: string;
     /**
      * 
@@ -1899,11 +2439,17 @@ export interface MetricsResponse {
  */
 export interface Mission {
     /**
-     * Prompt instructions for LLM model
+     * Full prompt instructions for LLM model
      * @type {string}
      * @memberof Mission
      */
-    prompt: string;
+    prompt?: string | null;
+    /**
+     * Objective of the mission
+     * @type {string}
+     * @memberof Mission
+     */
+    objective?: string | null;
     /**
      * Greeting message to be read by the AI agent
      * @type {string}
@@ -1924,6 +2470,69 @@ export interface Mission {
     farewell?: string | null;
 }
 /**
+ * Defines how to determine the next step
+ * @export
+ * @interface NextStepResolver
+ */
+export interface NextStepResolver {
+    /**
+     * Array of conditions to evaluate
+     * @type {Array<Condition>}
+     * @memberof NextStepResolver
+     */
+    conditions?: Array<Condition> | null;
+    /**
+     * Direct next step ID
+     * @type {string}
+     * @memberof NextStepResolver
+     */
+    nextStepId?: string | null;
+}
+/**
+ * No authentication configuration
+ * @export
+ * @interface NoAuth
+ */
+export interface NoAuth {
+    /**
+     * The type of authentication
+     * @type {string}
+     * @memberof NoAuth
+     */
+    authType?: NoAuthAuthTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NoAuthAuthTypeEnum {
+    Noauth = 'noauth'
+}
+
+/**
+ * 
+ * @export
+ * @interface NoAuthCredentials
+ */
+export interface NoAuthCredentials {
+    /**
+     * Credential type identifier
+     * @type {string}
+     * @memberof NoAuthCredentials
+     */
+    credentialsType?: NoAuthCredentialsCredentialsTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NoAuthCredentialsCredentialsTypeEnum {
+    Noauth = 'noauth'
+}
+
+/**
  * 
  * @export
  * @interface NumberPurchaseRequest
@@ -1942,6 +2551,110 @@ export interface NumberPurchaseRequest {
      */
     phoneNumber: string;
 }
+/**
+ * OAuth authentication configuration
+ * @export
+ * @interface OAuth
+ */
+export interface OAuth {
+    /**
+     * The type of authentication
+     * @type {string}
+     * @memberof OAuth
+     */
+    authType?: OAuthAuthTypeEnum;
+    /**
+     * The client ID for the OAuth app
+     * @type {string}
+     * @memberof OAuth
+     */
+    clientId: string;
+    /**
+     * The client secret for the OAuth app
+     * @type {string}
+     * @memberof OAuth
+     */
+    clientSecret: string;
+    /**
+     * The redirect URI for the OAuth app
+     * @type {string}
+     * @memberof OAuth
+     */
+    redirectUri: string;
+    /**
+     * The scopes for the OAuth app
+     * @type {Array<string>}
+     * @memberof OAuth
+     */
+    scopes?: Array<string> | null;
+    /**
+     * The authorization URL for the OAuth app
+     * @type {string}
+     * @memberof OAuth
+     */
+    authUrl: string;
+    /**
+     * The token URL for the OAuth app
+     * @type {string}
+     * @memberof OAuth
+     */
+    tokenUrl: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OAuthAuthTypeEnum {
+    Oauth = 'oauth'
+}
+
+/**
+ * 
+ * @export
+ * @interface OAuthCredentials
+ */
+export interface OAuthCredentials {
+    /**
+     * Credential type identifier
+     * @type {string}
+     * @memberof OAuthCredentials
+     */
+    credentialsType?: OAuthCredentialsCredentialsTypeEnum;
+    /**
+     * The code for the OAuth app
+     * @type {string}
+     * @memberof OAuthCredentials
+     */
+    code: string | null;
+    /**
+     * The access token for the OAuth app
+     * @type {string}
+     * @memberof OAuthCredentials
+     */
+    accessToken: string | null;
+    /**
+     * The refresh token for the OAuth app
+     * @type {string}
+     * @memberof OAuthCredentials
+     */
+    refreshToken: string | null;
+    /**
+     * The expiration date of the access token
+     * @type {string}
+     * @memberof OAuthCredentials
+     */
+    expiresAt: string | null;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OAuthCredentialsCredentialsTypeEnum {
+    Oauth = 'oauth'
+}
+
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
@@ -2050,13 +2763,165 @@ export interface OrganizationOutput {
      * @type {string}
      * @memberof OrganizationOutput
      */
-    parentOrgId?: string | null;
+    parentOrgId?: string;
     /**
      * Type of the organization. Currently only CONSUMER & RESELLER are supported
      * @type {string}
      * @memberof OrganizationOutput
      */
     orgType?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface OrganizationSettings
+ */
+export interface OrganizationSettings {
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    orgId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    name?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    domain?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    stripeKey?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    brandColor?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    buttonColor?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    secondaryColor?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    favicon?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    faviconUrl?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    logo?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    logoUrl?: string | null;
+}
+/**
+ * Price details of the business
+ * @export
+ * @interface Price
+ */
+export interface Price {
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    parentOrgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    planName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    priceName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    description?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Price
+     */
+    price?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    currency?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    interval?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    stripePriceId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    stripeProductId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    priceType?: string;
 }
 /**
  * 
@@ -2748,6 +3613,12 @@ export interface Subscription {
      * @type {string}
      * @memberof Subscription
      */
+    parentOrgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Subscription
+     */
     orgId?: string;
     /**
      * 
@@ -2755,6 +3626,24 @@ export interface Subscription {
      * @memberof Subscription
      */
     subscriptionTypeName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Subscription
+     */
+    planName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Subscription
+     */
+    priceId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Subscription
+     */
+    stripeSubscriptionId?: string;
     /**
      * 
      * @type {number}
@@ -2936,6 +3825,18 @@ export interface Transcriber {
     providerProps?: object | null;
 }
 /**
+ * Enum for UI node types
+ * @export
+ * @enum {string}
+ */
+export enum UiNodeType {
+    ACTION = 'ACTION',
+    CONDITION = 'CONDITION',
+    LOOP = 'LOOP',
+    SUBFLOW = 'SUBFLOW'
+}
+
+/**
  * Payload for updating user details API
  * @export
  * @interface UpdateUserPayload
@@ -2953,6 +3854,73 @@ export interface UpdateUserPayload {
      * @memberof UpdateUserPayload
      */
     fullName: string | null;
+}
+/**
+ * Model representing the users under an organization
+ * @export
+ * @interface User
+ */
+export interface User {
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    email?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    role?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    fullName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    status: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    updatedAt?: string;
 }
 /**
  * User id to api key mapping table
@@ -3014,73 +3982,6 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     isActive?: boolean;
-}
-/**
- * Model representing the users under an organization
- * @export
- * @interface UserOutput
- */
-export interface UserOutput {
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    role?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    fullName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserOutput
-     */
-    updatedAt?: string;
 }
 /**
  * 
@@ -3210,6 +4111,226 @@ export enum VoiceOutputGenderEnum {
     Neutral = 'Neutral'
 }
 
+/**
+ * Workflow represents a sequence of steps that can be performed by an app
+ * @export
+ * @interface Workflow
+ */
+export interface Workflow {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Workflow
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Workflow
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Workflow
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Workflow
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Workflow
+     */
+    orgId?: string;
+    /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof Workflow
+     */
+    name?: string;
+    /**
+     * The description of the workflow
+     * @type {string}
+     * @memberof Workflow
+     */
+    description?: string | null;
+    /**
+     * The version of the workflow
+     * @type {string}
+     * @memberof Workflow
+     */
+    version?: string;
+    /**
+     * The steps of the workflow
+     * @type {{ [key: string]: WorkflowStepOutput; }}
+     * @memberof Workflow
+     */
+    steps: { [key: string]: WorkflowStepOutput; };
+    /**
+     * The id of the start step
+     * @type {string}
+     * @memberof Workflow
+     */
+    startStepId?: string;
+    /**
+     * The unique identifier of the workflow
+     * @type {string}
+     * @memberof Workflow
+     */
+    id?: string;
+}
+/**
+ * Core Workflow Model
+ * @export
+ * @interface WorkflowCore
+ */
+export interface WorkflowCore {
+    /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof WorkflowCore
+     */
+    name?: string;
+    /**
+     * The description of the workflow
+     * @type {string}
+     * @memberof WorkflowCore
+     */
+    description?: string | null;
+    /**
+     * The version of the workflow
+     * @type {string}
+     * @memberof WorkflowCore
+     */
+    version?: string;
+    /**
+     * The steps of the workflow
+     * @type {{ [key: string]: WorkflowStepInput; }}
+     * @memberof WorkflowCore
+     */
+    steps: { [key: string]: WorkflowStepInput; };
+    /**
+     * The id of the start step
+     * @type {string}
+     * @memberof WorkflowCore
+     */
+    startStepId?: string;
+}
+/**
+ * Flow Step Model
+ * @export
+ * @interface WorkflowStepInput
+ */
+export interface WorkflowStepInput {
+    /**
+     * The id of the step
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    stepId?: string;
+    /**
+     * The connection id of the app
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    appConnectionId?: string;
+    /**
+     * The id of the app
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    appId?: string;
+    /**
+     * The name of the app. It must match the app name in AppDefinition implementation
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    appName?: string;
+    /**
+     * The version of the app. It must match the app version in AppDefinition implementation
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    appVersion?: string;
+    /**
+     * The step to be performed
+     * @type {AppActionEntity}
+     * @memberof WorkflowStepInput
+     */
+    stepPayload?: AppActionEntity;
+    /**
+     * The data resolver on how to resolve the data for the step
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    dataResolver?: string | null;
+    /**
+     * Resolver for determining the next step
+     * @type {NextStepResolver}
+     * @memberof WorkflowStepInput
+     */
+    nextStepResolver: NextStepResolver;
+}
+/**
+ * Flow Step Model
+ * @export
+ * @interface WorkflowStepOutput
+ */
+export interface WorkflowStepOutput {
+    /**
+     * The id of the step
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    stepId?: string;
+    /**
+     * The connection id of the app
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    appConnectionId?: string;
+    /**
+     * The id of the app
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    appId?: string;
+    /**
+     * The name of the app. It must match the app name in AppDefinition implementation
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    appName?: string;
+    /**
+     * The version of the app. It must match the app version in AppDefinition implementation
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    appVersion?: string;
+    /**
+     * The step to be performed
+     * @type {AppActionEntity}
+     * @memberof WorkflowStepOutput
+     */
+    stepPayload?: AppActionEntity;
+    /**
+     * The data resolver on how to resolve the data for the step
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    dataResolver?: string | null;
+    /**
+     * Resolver for determining the next step
+     * @type {NextStepResolver}
+     * @memberof WorkflowStepOutput
+     */
+    nextStepResolver: NextStepResolver;
+}
 
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -3381,7 +4502,7 @@ export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ActionAgentLinkApiAxiosParamCreator(configuration).createActionAgentLinkV1(actionId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3396,7 +4517,7 @@ export const ActionAgentLinkApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ActionAgentLinkApiAxiosParamCreator(configuration).deleteActionAgentLinkV1(actionId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3434,7 +4555,7 @@ export const ActionAgentLinkApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        createActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ActionAgentLinkApiFp(configuration).createActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3445,7 +4566,7 @@ export const ActionAgentLinkApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ActionAgentLinkApiFp(configuration).deleteActionAgentLinkV1(actionId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3654,8 +4775,8 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * List All Actions Under the User&#39;s Organization
-         * @summary List All Actions Under the User&#39;s Organization
+         * List All Actions
+         * @summary List All Actions
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3811,7 +4932,7 @@ export const ActionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).deleteActionV1(actionId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -3833,8 +4954,8 @@ export const ActionsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All Actions Under the User&#39;s Organization
-         * @summary List All Actions Under the User&#39;s Organization
+         * List All Actions
+         * @summary List All Actions
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3893,7 +5014,7 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteActionV1(actionId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteActionV1(actionId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ActionsApiFp(configuration).deleteActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3907,8 +5028,8 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
             return ActionsApiFp(configuration).getActionV1(actionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All Actions Under the User&#39;s Organization
-         * @summary List All Actions Under the User&#39;s Organization
+         * List All Actions
+         * @summary List All Actions
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3980,8 +5101,8 @@ export class ActionsApi extends BaseAPI {
     }
 
     /**
-     * List All Actions Under the User&#39;s Organization
-     * @summary List All Actions Under the User&#39;s Organization
+     * List All Actions
+     * @summary List All Actions
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -4158,8 +5279,8 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * List All AI Agents Under the User&#39;s Organization
-         * @summary List All AI Agents Under the User&#39;s Organization
+         * List All AI Agents
+         * @summary List All AI Agents
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -4315,7 +5436,7 @@ export const AgentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await AgentsApiAxiosParamCreator(configuration).deleteAIAgentV1(agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -4337,8 +5458,8 @@ export const AgentsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All AI Agents Under the User&#39;s Organization
-         * @summary List All AI Agents Under the User&#39;s Organization
+         * List All AI Agents
+         * @summary List All AI Agents
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -4397,7 +5518,7 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAIAgentV1(agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteAIAgentV1(agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return AgentsApiFp(configuration).deleteAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4411,8 +5532,8 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
             return AgentsApiFp(configuration).getAIAgentV1(agentId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All AI Agents Under the User&#39;s Organization
-         * @summary List All AI Agents Under the User&#39;s Organization
+         * List All AI Agents
+         * @summary List All AI Agents
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -4484,8 +5605,8 @@ export class AgentsApi extends BaseAPI {
     }
 
     /**
-     * List All AI Agents Under the User&#39;s Organization
-     * @summary List All AI Agents Under the User&#39;s Organization
+     * List All AI Agents
+     * @summary List All AI Agents
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -4512,6 +5633,199 @@ export class AgentsApi extends BaseAPI {
      */
     public updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: any) {
         return AgentsApiFp(this.configuration).updateAIAgentV1(agentId, aIAgentInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * AnalyticsApi - axios parameter creator
+ * @export
+ */
+export const AnalyticsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get fine grained analytics data from Trata AI like call, duration stats, etc.
+         * @summary Get Metrics
+         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1MetricsPost: async (batchMetricsRequests: BatchMetricsRequests, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'batchMetricsRequests' is not null or undefined
+            if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
+                throw new RequiredError('batchMetricsRequests','Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
+            }
+            const localVarPath = `/v1/metrics`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof batchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {}) : (batchMetricsRequests || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get aggregated stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Aggregated Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOverallStatsV1StatsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/stats`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AnalyticsApi - functional programming interface
+ * @export
+ */
+export const AnalyticsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Get fine grained analytics data from Trata AI like call, duration stats, etc.
+         * @summary Get Metrics
+         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
+            const localVarAxiosArgs = await AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get aggregated stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Aggregated Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>> {
+            const localVarAxiosArgs = await AnalyticsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * AnalyticsApi - factory interface
+ * @export
+ */
+export const AnalyticsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Get fine grained analytics data from Trata AI like call, duration stats, etc.
+         * @summary Get Metrics
+         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse> {
+            return AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get aggregated stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Aggregated Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse> {
+            return AnalyticsApiFp(configuration).getOverallStatsV1StatsGet(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * AnalyticsApi - object-oriented interface
+ * @export
+ * @class AnalyticsApi
+ * @extends {BaseAPI}
+ */
+export class AnalyticsApi extends BaseAPI {
+    /**
+     * Get fine grained analytics data from Trata AI like call, duration stats, etc.
+     * @summary Get Metrics
+     * @param {BatchMetricsRequests} batchMetricsRequests 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    public getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any) {
+        return AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get aggregated stats from Trata AI like call count, prospect count, etc.
+     * @summary Get Aggregated Stats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    public getOverallStatsV1StatsGet(options?: any) {
+        return AnalyticsApiFp(this.configuration).getOverallStatsV1StatsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -4724,7 +6038,7 @@ export const ApiKeyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ApiKeyApiAxiosParamCreator(configuration).deleteApiKeyV1(keyId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -4783,7 +6097,7 @@ export const ApiKeyApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ApiKeyApiFp(configuration).deleteApiKeyV1(keyId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5112,7 +6426,7 @@ export const BillingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSubscriptionBillableProductsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BillableProduct>>> {
+        async getSubscriptionBillableProductsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>> {
             const localVarAxiosArgs = await BillingApiAxiosParamCreator(configuration).getSubscriptionBillableProductsV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -5179,7 +6493,7 @@ export const BillingApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionBillableProductsV1(options?: any): AxiosPromise<Array<BillableProduct>> {
+        getSubscriptionBillableProductsV1(options?: any): AxiosPromise<Array<Price>> {
             return BillingApiFp(configuration).getSubscriptionBillableProductsV1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -5439,7 +6753,7 @@ export const ConversationProspectLinkApiFp = function(configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ConversationProspectLinkApiAxiosParamCreator(configuration).createConversationProspectLinkV1(conversationId, prospectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -5454,7 +6768,7 @@ export const ConversationProspectLinkApiFp = function(configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ConversationProspectLinkApiAxiosParamCreator(configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -5492,7 +6806,7 @@ export const ConversationProspectLinkApiFactory = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponse> {
+        createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ConversationProspectLinkApiFp(configuration).createConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5503,7 +6817,7 @@ export const ConversationProspectLinkApiFactory = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ConversationProspectLinkApiFp(configuration).deleteConversationProspectLinkV1(conversationId, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5766,8 +7080,8 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * List All Conversations Under the User&#39;s Organization
-         * @summary List All Conversations Under the User&#39;s Organization
+         * List All Conversations
+         * @summary List All Conversations
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -5938,7 +7252,7 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).deleteConversationV1(conversationId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -5960,8 +7274,8 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All Conversations Under the User&#39;s Organization
-         * @summary List All Conversations Under the User&#39;s Organization
+         * List All Conversations
+         * @summary List All Conversations
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -6031,7 +7345,7 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteConversationV1(conversationId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteConversationV1(conversationId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ConversationsApiFp(configuration).deleteConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6045,8 +7359,8 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
             return ConversationsApiFp(configuration).getConversationV1(conversationId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All Conversations Under the User&#39;s Organization
-         * @summary List All Conversations Under the User&#39;s Organization
+         * List All Conversations
+         * @summary List All Conversations
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -6131,8 +7445,8 @@ export class ConversationsApi extends BaseAPI {
     }
 
     /**
-     * List All Conversations Under the User&#39;s Organization
-     * @summary List All Conversations Under the User&#39;s Organization
+     * List All Conversations
+     * @summary List All Conversations
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -6171,8 +7485,8 @@ export class ConversationsApi extends BaseAPI {
 export const DataPlaneApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createconnection
+         * Create a new connection for an AI Agent to start a voice conversation
+         * @summary Create Connection
          * @param {string} agentId 
          * @param {ConnectionSource} connectionSource 
          * @param {string} [prospectId] 
@@ -6233,8 +7547,8 @@ export const DataPlaneApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * 
-         * @summary Getplivoaudiostreamxml
+         * Get the audio stream xml for Plivo to start a voice conversation
+         * @summary Get Audio Stream XML For Plivo
          * @param {string} connectionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -6278,15 +7592,15 @@ export const DataPlaneApiAxiosParamCreator = function (configuration?: Configura
 export const DataPlaneApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Createconnection
+         * Create a new connection for an AI Agent to start a voice conversation
+         * @summary Create Connection
          * @param {string} agentId 
          * @param {ConnectionSource} connectionSource 
          * @param {string} [prospectId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connection>> {
+        async createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectionOutput>> {
             const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).createConnection(agentId, connectionSource, prospectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6294,13 +7608,13 @@ export const DataPlaneApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Getplivoaudiostreamxml
+         * Get the audio stream xml for Plivo to start a voice conversation
+         * @summary Get Audio Stream XML For Plivo
          * @param {string} connectionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).getPlivoAudioStreamXml(connectionId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6317,25 +7631,25 @@ export const DataPlaneApiFp = function(configuration?: Configuration) {
 export const DataPlaneApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Createconnection
+         * Create a new connection for an AI Agent to start a voice conversation
+         * @summary Create Connection
          * @param {string} agentId 
          * @param {ConnectionSource} connectionSource 
          * @param {string} [prospectId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<Connection> {
+        createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<ConnectionOutput> {
             return DataPlaneApiFp(configuration).createConnection(agentId, connectionSource, prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Getplivoaudiostreamxml
+         * Get the audio stream xml for Plivo to start a voice conversation
+         * @summary Get Audio Stream XML For Plivo
          * @param {string} connectionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponse> {
+        getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return DataPlaneApiFp(configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(axios, basePath));
         },
     };
@@ -6349,8 +7663,8 @@ export const DataPlaneApiFactory = function (configuration?: Configuration, base
  */
 export class DataPlaneApi extends BaseAPI {
     /**
-     * 
-     * @summary Createconnection
+     * Create a new connection for an AI Agent to start a voice conversation
+     * @summary Create Connection
      * @param {string} agentId 
      * @param {ConnectionSource} connectionSource 
      * @param {string} [prospectId] 
@@ -6363,8 +7677,8 @@ export class DataPlaneApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Getplivoaudiostreamxml
+     * Get the audio stream xml for Plivo to start a voice conversation
+     * @summary Get Audio Stream XML For Plivo
      * @param {string} connectionId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6378,19 +7692,438 @@ export class DataPlaneApi extends BaseAPI {
 
 
 /**
+ * FilesApi - axios parameter creator
+ * @export
+ */
+export const FilesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Delete files from Trata account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1: async (fileIds: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fileIds' is not null or undefined
+            if (fileIds === null || fileIds === undefined) {
+                throw new RequiredError('fileIds','Required parameter fileIds was null or undefined when calling deleteFileV1.');
+            }
+            const localVarPath = `/v1/files`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (fileIds !== undefined) {
+                localVarQueryParameter['file_ids'] = fileIds;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete files from Trata reseller account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerFilesV1: async (fileIds: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fileIds' is not null or undefined
+            if (fileIds === null || fileIds === undefined) {
+                throw new RequiredError('fileIds','Required parameter fileIds was null or undefined when calling deleteResellerFilesV1.');
+            }
+            const localVarPath = `/v1/resellers/files`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (fileIds !== undefined) {
+                localVarQueryParameter['file_ids'] = fileIds;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {string} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1: async (files: Array<any>, validator?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'files' is not null or undefined
+            if (files === null || files === undefined) {
+                throw new RequiredError('files','Required parameter files was null or undefined when calling uploadFileV1.');
+            }
+            const localVarPath = `/v1/files`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (validator !== undefined) {
+                localVarQueryParameter['validator'] = validator;
+            }
+
+            if (files) {
+            
+                localVarFormParams.append('files', files.join(COLLECTION_FORMATS.csv));
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadResellerFilesV1: async (files: Array<any>, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'files' is not null or undefined
+            if (files === null || files === undefined) {
+                throw new RequiredError('files','Required parameter files was null or undefined when calling uploadResellerFilesV1.');
+            }
+            const localVarPath = `/v1/resellers/files`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (files) {
+            
+                localVarFormParams.append('files', files.join(COLLECTION_FORMATS.csv));
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * FilesApi - functional programming interface
+ * @export
+ */
+export const FilesApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Delete files from Trata account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
+            const localVarAxiosArgs = await FilesApiAxiosParamCreator(configuration).deleteFileV1(fileIds, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete files from Trata reseller account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteResellerFilesV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
+            const localVarAxiosArgs = await FilesApiAxiosParamCreator(configuration).deleteResellerFilesV1(fileIds, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {string} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async uploadFileV1(files: Array<any>, validator?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
+            const localVarAxiosArgs = await FilesApiAxiosParamCreator(configuration).uploadFileV1(files, validator, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async uploadResellerFilesV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
+            const localVarAxiosArgs = await FilesApiAxiosParamCreator(configuration).uploadResellerFilesV1(files, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * FilesApi - factory interface
+ * @export
+ */
+export const FilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Delete files from Trata account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean> {
+            return FilesApiFp(configuration).deleteFileV1(fileIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete files from Trata reseller account
+         * @summary Delete Files
+         * @param {string} fileIds 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerFilesV1(fileIds: string, options?: any): AxiosPromise<boolean> {
+            return FilesApiFp(configuration).deleteResellerFilesV1(fileIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {string} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1(files: Array<any>, validator?: string, options?: any): AxiosPromise<Array<Files>> {
+            return FilesApiFp(configuration).uploadFileV1(files, validator, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Upload file to Trata account to use in AI Agents
+         * @summary Upload Files
+         * @param {Array<any>} files 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadResellerFilesV1(files: Array<any>, options?: any): AxiosPromise<Array<Files>> {
+            return FilesApiFp(configuration).uploadResellerFilesV1(files, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * FilesApi - object-oriented interface
+ * @export
+ * @class FilesApi
+ * @extends {BaseAPI}
+ */
+export class FilesApi extends BaseAPI {
+    /**
+     * Delete files from Trata account
+     * @summary Delete Files
+     * @param {string} fileIds 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public deleteFileV1(fileIds: string, options?: any) {
+        return FilesApiFp(this.configuration).deleteFileV1(fileIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete files from Trata reseller account
+     * @summary Delete Files
+     * @param {string} fileIds 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public deleteResellerFilesV1(fileIds: string, options?: any) {
+        return FilesApiFp(this.configuration).deleteResellerFilesV1(fileIds, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Upload file to Trata account to use in AI Agents
+     * @summary Upload Files
+     * @param {Array<any>} files 
+     * @param {string} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public uploadFileV1(files: Array<any>, validator?: string, options?: any) {
+        return FilesApiFp(this.configuration).uploadFileV1(files, validator, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Upload file to Trata account to use in AI Agents
+     * @summary Upload Files
+     * @param {Array<any>} files 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    public uploadResellerFilesV1(files: Array<any>, options?: any) {
+        return FilesApiFp(this.configuration).uploadResellerFilesV1(files, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
  * HealthApi - axios parameter creator
  * @export
  */
 export const HealthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Check the health of all Trata APIs
-         * @summary Check the Health of All TrataAPI
+         * Heart Beat check to check the health of Trata Backend
+         * @summary Heart Beat Status Of Trata Backend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         statusStatusGet: async (options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/status`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Heart Beat check to check the health of Workflow Service
+         * @summary Heart Beat Status Of Workflow Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusWorkflowsStatusGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflows/status`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -6423,13 +8156,26 @@ export const HealthApiAxiosParamCreator = function (configuration?: Configuratio
 export const HealthApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Check the health of all Trata APIs
-         * @summary Check the Health of All TrataAPI
+         * Heart Beat check to check the health of Trata Backend
+         * @summary Heart Beat Status Of Trata Backend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         async statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await HealthApiAxiosParamCreator(configuration).statusStatusGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Heart Beat check to check the health of Workflow Service
+         * @summary Heart Beat Status Of Workflow Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async statusWorkflowsStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await HealthApiAxiosParamCreator(configuration).statusWorkflowsStatusGet(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6445,13 +8191,22 @@ export const HealthApiFp = function(configuration?: Configuration) {
 export const HealthApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Check the health of all Trata APIs
-         * @summary Check the Health of All TrataAPI
+         * Heart Beat check to check the health of Trata Backend
+         * @summary Heart Beat Status Of Trata Backend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         statusStatusGet(options?: any): AxiosPromise<object> {
             return HealthApiFp(configuration).statusStatusGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Heart Beat check to check the health of Workflow Service
+         * @summary Heart Beat Status Of Workflow Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusWorkflowsStatusGet(options?: any): AxiosPromise<object> {
+            return HealthApiFp(configuration).statusWorkflowsStatusGet(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6464,14 +8219,25 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
  */
 export class HealthApi extends BaseAPI {
     /**
-     * Check the health of all Trata APIs
-     * @summary Check the Health of All TrataAPI
+     * Heart Beat check to check the health of Trata Backend
+     * @summary Heart Beat Status Of Trata Backend
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HealthApi
      */
     public statusStatusGet(options?: any) {
         return HealthApiFp(this.configuration).statusStatusGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Heart Beat check to check the health of Workflow Service
+     * @summary Heart Beat Status Of Workflow Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApi
+     */
+    public statusWorkflowsStatusGet(options?: any) {
+        return HealthApiFp(this.configuration).statusWorkflowsStatusGet(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -6622,8 +8388,8 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * List All Hives Under the User&#39;s Organization
-         * @summary List All Hives Under the User&#39;s Organization
+         * List All Hives
+         * @summary List All Hives
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -6779,7 +8545,7 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).deleteHiveV1(hiveId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6801,8 +8567,8 @@ export const HiveApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All Hives Under the User&#39;s Organization
-         * @summary List All Hives Under the User&#39;s Organization
+         * List All Hives
+         * @summary List All Hives
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -6861,7 +8627,7 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return HiveApiFp(configuration).deleteHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6875,8 +8641,8 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
             return HiveApiFp(configuration).getHiveV1(hiveId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All Hives Under the User&#39;s Organization
-         * @summary List All Hives Under the User&#39;s Organization
+         * List All Hives
+         * @summary List All Hives
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -6948,8 +8714,8 @@ export class HiveApi extends BaseAPI {
     }
 
     /**
-     * List All Hives Under the User&#39;s Organization
-     * @summary List All Hives Under the User&#39;s Organization
+     * List All Hives
+     * @summary List All Hives
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -7196,7 +8962,7 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await HiveAgentLinkApiAxiosParamCreator(configuration).createHiveAgentLinkV1(hiveId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7211,7 +8977,7 @@ export const HiveAgentLinkApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await HiveAgentLinkApiAxiosParamCreator(configuration).deleteHiveAgentLinkV1(hiveId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7263,7 +9029,7 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return HiveAgentLinkApiFp(configuration).createHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7274,7 +9040,7 @@ export const HiveAgentLinkApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return HiveAgentLinkApiFp(configuration).deleteHiveAgentLinkV1(hiveId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7369,10 +9135,15 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Accept invite and add new user to organization
          * @summary Acceptinvite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        acceptInviteV1: async (options: any = {}): Promise<RequestArgs> => {
+        acceptInviteV1: async (acceptInviteRequest: AcceptInviteRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'acceptInviteRequest' is not null or undefined
+            if (acceptInviteRequest === null || acceptInviteRequest === undefined) {
+                throw new RequiredError('acceptInviteRequest','Required parameter acceptInviteRequest was null or undefined when calling acceptInviteV1.');
+            }
             const localVarPath = `/v1/invites/accept`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7394,11 +9165,15 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof acceptInviteRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(acceptInviteRequest !== undefined ? acceptInviteRequest : {}) : (acceptInviteRequest || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -7447,54 +9222,6 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof bodyCreateOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateOrganizationV1 !== undefined ? bodyCreateOrganizationV1 : {}) : (bodyCreateOrganizationV1 || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Delete File
-         * @param {string} fileIds 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFileV1: async (fileIds: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fileIds' is not null or undefined
-            if (fileIds === null || fileIds === undefined) {
-                throw new RequiredError('fileIds','Required parameter fileIds was null or undefined when calling deleteFileV1.');
-            }
-            const localVarPath = `/v1/files`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (fileIds !== undefined) {
-                localVarQueryParameter['file_ids'] = fileIds;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -7587,6 +9314,45 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
+         * @summary Getorganizationbranding
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationBrandingV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/organizations/branding`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Getorganization
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -7627,10 +9393,17 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List of all open invites from the organization
          * @summary Listinvites
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listInvitesV1: async (options: any = {}): Promise<RequestArgs> => {
+        listInvitesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/invites`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7648,6 +9421,34 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
 
@@ -7893,58 +9694,6 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @summary Upload File
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadFileV1: async (files: Array<any>, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'files' is not null or undefined
-            if (files === null || files === undefined) {
-                throw new RequiredError('files','Required parameter files was null or undefined when calling uploadFileV1.');
-            }
-            const localVarPath = `/v1/files`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new FormData();
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (files) {
-            
-                localVarFormParams.append('files', files.join(COLLECTION_FORMATS.csv));
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -7957,11 +9706,12 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * Accept invite and add new user to organization
          * @summary Acceptinvite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async acceptInviteV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).acceptInviteV1(options);
+        async acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).acceptInviteV1(acceptInviteRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7974,22 +9724,8 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
+        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createOrganizationV1(bodyCreateOrganizationV1, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Delete File
-         * @param {string} fileIds 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteFileV1(fileIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8001,7 +9737,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteOrganizationV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -8015,8 +9751,21 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
+        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Getorganizationbranding
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOrganizationBrandingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings | object>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).getOrganizationBrandingV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8038,11 +9787,18 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * List of all open invites from the organization
          * @summary Listinvites
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listInvitesV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listInvitesV1(options);
+        async listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8061,7 +9817,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>> {
+        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -8105,22 +9861,8 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
+        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Upload File
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadFileV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).uploadFileV1(files, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8138,11 +9880,12 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * Accept invite and add new user to organization
          * @summary Acceptinvite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        acceptInviteV1(options?: any): AxiosPromise<UserOutput> {
-            return InternalApiFp(configuration).acceptInviteV1(options).then((request) => request(axios, basePath));
+        acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).acceptInviteV1(acceptInviteRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new organization and adds the user as the \"ADMIN\" user for the org
@@ -8151,18 +9894,8 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<UserOutput> {
+        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Delete File
-         * @param {string} fileIds 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean> {
-            return InternalApiFp(configuration).deleteFileV1(fileIds, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -8170,7 +9903,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteOrganizationV1(options?: any): AxiosPromise<BaseResponse> {
+        deleteOrganizationV1(options?: any): AxiosPromise<BaseResponseInput> {
             return InternalApiFp(configuration).deleteOrganizationV1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -8180,8 +9913,17 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserV1(userId: string, options?: any): AxiosPromise<UserOutput> {
+        deleteUserV1(userId: string, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Getorganizationbranding
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationBrandingV1(options?: any): AxiosPromise<OrganizationSettings | object> {
+            return InternalApiFp(configuration).getOrganizationBrandingV1(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -8195,11 +9937,18 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * List of all open invites from the organization
          * @summary Listinvites
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listInvitesV1(options?: any): AxiosPromise<Array<GuestOutput>> {
-            return InternalApiFp(configuration).listInvitesV1(options).then((request) => request(axios, basePath));
+        listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<GuestOutput>> {
+            return InternalApiFp(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Lists all users under the user\'s organization
@@ -8214,7 +9963,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserOutput>> {
+        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>> {
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8246,18 +9995,8 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<UserOutput> {
+        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Upload File
-         * @param {Array<any>} files 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadFileV1(files: Array<any>, options?: any): AxiosPromise<Array<Files>> {
-            return InternalApiFp(configuration).uploadFileV1(files, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8272,12 +10011,13 @@ export class InternalApi extends BaseAPI {
     /**
      * Accept invite and add new user to organization
      * @summary Acceptinvite
+     * @param {AcceptInviteRequest} acceptInviteRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public acceptInviteV1(options?: any) {
-        return InternalApiFp(this.configuration).acceptInviteV1(options).then((request) => request(this.axios, this.basePath));
+    public acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any) {
+        return InternalApiFp(this.configuration).acceptInviteV1(acceptInviteRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8290,18 +10030,6 @@ export class InternalApi extends BaseAPI {
      */
     public createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) {
         return InternalApiFp(this.configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Delete File
-     * @param {string} fileIds 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public deleteFileV1(fileIds: string, options?: any) {
-        return InternalApiFp(this.configuration).deleteFileV1(fileIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8329,6 +10057,17 @@ export class InternalApi extends BaseAPI {
 
     /**
      * 
+     * @summary Getorganizationbranding
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public getOrganizationBrandingV1(options?: any) {
+        return InternalApiFp(this.configuration).getOrganizationBrandingV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8341,12 +10080,19 @@ export class InternalApi extends BaseAPI {
     /**
      * List of all open invites from the organization
      * @summary Listinvites
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public listInvitesV1(options?: any) {
-        return InternalApiFp(this.configuration).listInvitesV1(options).then((request) => request(this.axios, this.basePath));
+    public listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
+        return InternalApiFp(this.configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8403,211 +10149,6 @@ export class InternalApi extends BaseAPI {
      */
     public updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any) {
         return InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Upload File
-     * @param {Array<any>} files 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public uploadFileV1(files: Array<any>, options?: any) {
-        return InternalApiFp(this.configuration).uploadFileV1(files, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * MetricsApi - axios parameter creator
- * @export
- */
-export const MetricsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Get call and other analytics data from Trata AI
-         * @summary Getmetrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMetricsV1MetricsPost: async (batchMetricsRequests: BatchMetricsRequests, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'batchMetricsRequests' is not null or undefined
-            if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
-                throw new RequiredError('batchMetricsRequests','Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
-            }
-            const localVarPath = `/v1/metrics`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof batchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {}) : (batchMetricsRequests || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get overall call stats and prospect stats data from Trata AI
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOverallStatsV1StatsGet: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/stats`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * MetricsApi - functional programming interface
- * @export
- */
-export const MetricsApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * Get call and other analytics data from Trata AI
-         * @summary Getmetrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
-            const localVarAxiosArgs = await MetricsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Get overall call stats and prospect stats data from Trata AI
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>> {
-            const localVarAxiosArgs = await MetricsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * MetricsApi - factory interface
- * @export
- */
-export const MetricsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * Get call and other analytics data from Trata AI
-         * @summary Getmetrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse> {
-            return MetricsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get overall call stats and prospect stats data from Trata AI
-         * @summary Getoverallstats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse> {
-            return MetricsApiFp(configuration).getOverallStatsV1StatsGet(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * MetricsApi - object-oriented interface
- * @export
- * @class MetricsApi
- * @extends {BaseAPI}
- */
-export class MetricsApi extends BaseAPI {
-    /**
-     * Get call and other analytics data from Trata AI
-     * @summary Getmetrics
-     * @param {BatchMetricsRequests} batchMetricsRequests 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MetricsApi
-     */
-    public getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any) {
-        return MetricsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get overall call stats and prospect stats data from Trata AI
-     * @summary Getoverallstats
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MetricsApi
-     */
-    public getOverallStatsV1StatsGet(options?: any) {
-        return MetricsApiFp(this.configuration).getOverallStatsV1StatsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -8803,8 +10344,8 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * List All Products Under the User&#39;s Organization
-         * @summary List All Products Under the User&#39;s Organization
+         * List All Products
+         * @summary List All Products
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -8970,7 +10511,7 @@ export const ProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).deleteProductV1(productId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -9006,8 +10547,8 @@ export const ProductsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All Products Under the User&#39;s Organization
-         * @summary List All Products Under the User&#39;s Organization
+         * List All Products
+         * @summary List All Products
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -9068,7 +10609,7 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteProductV1(productId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteProductV1(productId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ProductsApiFp(configuration).deleteProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -9092,8 +10633,8 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
             return ProductsApiFp(configuration).listAgentsOfProductV1(productId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All Products Under the User&#39;s Organization
-         * @summary List All Products Under the User&#39;s Organization
+         * List All Products
+         * @summary List All Products
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -9179,8 +10720,8 @@ export class ProductsApi extends BaseAPI {
     }
 
     /**
-     * List All Products Under the User&#39;s Organization
-     * @summary List All Products Under the User&#39;s Organization
+     * List All Products
+     * @summary List All Products
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -9359,8 +10900,8 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * List All Prospects Under the User&#39;s Organization
-         * @summary List All Prospects Under the User&#39;s Organization
+         * List All Prospects
+         * @summary List All Prospects
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -9516,7 +11057,7 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async deleteProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await ProspectsApiAxiosParamCreator(configuration).deleteProspectV1(prospectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -9538,8 +11079,8 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List All Prospects Under the User&#39;s Organization
-         * @summary List All Prospects Under the User&#39;s Organization
+         * List All Prospects
+         * @summary List All Prospects
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -9598,7 +11139,7 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteProspectV1(prospectId: string, options?: any): AxiosPromise<BaseResponse> {
+        deleteProspectV1(prospectId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return ProspectsApiFp(configuration).deleteProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -9612,8 +11153,8 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
             return ProspectsApiFp(configuration).getProspectV1(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List All Prospects Under the User&#39;s Organization
-         * @summary List All Prospects Under the User&#39;s Organization
+         * List All Prospects
+         * @summary List All Prospects
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -9685,8 +11226,8 @@ export class ProspectsApi extends BaseAPI {
     }
 
     /**
-     * List All Prospects Under the User&#39;s Organization
-     * @summary List All Prospects Under the User&#39;s Organization
+     * List All Prospects
+     * @summary List All Prospects
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -10123,7 +11664,7 @@ export const TelephonyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).linkPhoneToAgentV1(phoneId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10192,7 +11733,7 @@ export const TelephonyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async releasePhoneV1(phoneId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async releasePhoneV1(phoneId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).releasePhoneV1(phoneId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10207,7 +11748,7 @@ export const TelephonyApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponse>> {
+        async unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
             const localVarAxiosArgs = await TelephonyApiAxiosParamCreator(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10241,7 +11782,7 @@ export const TelephonyApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return TelephonyApiFp(configuration).linkPhoneToAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -10290,7 +11831,7 @@ export const TelephonyApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        releasePhoneV1(phoneId: string, options?: any): AxiosPromise<BaseResponse> {
+        releasePhoneV1(phoneId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return TelephonyApiFp(configuration).releasePhoneV1(phoneId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -10301,7 +11842,7 @@ export const TelephonyApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponse> {
+        unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return TelephonyApiFp(configuration).unlinkPhoneFromAgentV1(phoneId, agentId, options).then((request) => request(axios, basePath));
         },
     };
@@ -10842,8 +12383,8 @@ export class UIApi extends BaseAPI {
 export const VoiceModelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get list of voices available for calls
-         * @summary Get list of voices available for calls
+         * Get List Of Voices Available For Conversations
+         * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10890,8 +12431,8 @@ export const VoiceModelsApiAxiosParamCreator = function (configuration?: Configu
 export const VoiceModelsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Get list of voices available for calls
-         * @summary Get list of voices available for calls
+         * Get List Of Voices Available For Conversations
+         * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10912,8 +12453,8 @@ export const VoiceModelsApiFp = function(configuration?: Configuration) {
 export const VoiceModelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Get list of voices available for calls
-         * @summary Get list of voices available for calls
+         * Get List Of Voices Available For Conversations
+         * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10931,14 +12472,1601 @@ export const VoiceModelsApiFactory = function (configuration?: Configuration, ba
  */
 export class VoiceModelsApi extends BaseAPI {
     /**
-     * Get list of voices available for calls
-     * @summary Get list of voices available for calls
+     * Get List Of Voices Available For Conversations
+     * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
     public listVoiceModelsV1(options?: any) {
         return VoiceModelsApiFp(this.configuration).listVoiceModelsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * WorkflowsApi - axios parameter creator
+ * @export
+ */
+export const WorkflowsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create Workflow
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflowV1WorkflowsPost: async (workflowCore: WorkflowCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowCore' is not null or undefined
+            if (workflowCore === null || workflowCore === undefined) {
+                throw new RequiredError('workflowCore','Required parameter workflowCore was null or undefined when calling createWorkflowV1WorkflowsPost.');
+            }
+            const localVarPath = `/v1/workflows/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof workflowCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(workflowCore !== undefined ? workflowCore : {}) : (workflowCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkflowV1WorkflowsWorkflowIdDelete: async (workflowId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling deleteWorkflowV1WorkflowsWorkflowIdDelete.');
+            }
+            const localVarPath = `/v1/workflows/{workflow_id}`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readWorkflowV1WorkflowsWorkflowIdGet: async (workflowId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling readWorkflowV1WorkflowsWorkflowIdGet.');
+            }
+            const localVarPath = `/v1/workflows/{workflow_id}`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read Workflows
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readWorkflowsV1WorkflowsGet: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/workflows/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Trigger Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerWorkflowV1WorkflowsWorkflowIdTriggerPost: async (workflowId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling triggerWorkflowV1WorkflowsWorkflowIdTriggerPost.');
+            }
+            const localVarPath = `/v1/workflows/{workflow_id}/trigger`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update Workflow
+         * @param {string} workflowId 
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkflowV1WorkflowsWorkflowIdPut: async (workflowId: string, workflowCore: WorkflowCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling updateWorkflowV1WorkflowsWorkflowIdPut.');
+            }
+            // verify required parameter 'workflowCore' is not null or undefined
+            if (workflowCore === null || workflowCore === undefined) {
+                throw new RequiredError('workflowCore','Required parameter workflowCore was null or undefined when calling updateWorkflowV1WorkflowsWorkflowIdPut.');
+            }
+            const localVarPath = `/v1/workflows/{workflow_id}`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof workflowCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(workflowCore !== undefined ? workflowCore : {}) : (workflowCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsApi - functional programming interface
+ * @export
+ */
+export const WorkflowsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create Workflow
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).createWorkflowV1WorkflowsPost(workflowCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Delete Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).readWorkflowV1WorkflowsWorkflowIdGet(workflowId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read Workflows
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).readWorkflowsV1WorkflowsGet(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Trigger Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Update Workflow
+         * @param {string} workflowId 
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsApi - factory interface
+ * @export
+ */
+export const WorkflowsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Create Workflow
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any): AxiosPromise<Workflow> {
+            return WorkflowsApiFp(configuration).createWorkflowV1WorkflowsPost(workflowCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
+            return WorkflowsApiFp(configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any): AxiosPromise<Workflow> {
+            return WorkflowsApiFp(configuration).readWorkflowV1WorkflowsWorkflowIdGet(workflowId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read Workflows
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Workflow>> {
+            return WorkflowsApiFp(configuration).readWorkflowsV1WorkflowsGet(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Trigger Workflow
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
+            return WorkflowsApiFp(configuration).triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update Workflow
+         * @param {string} workflowId 
+         * @param {WorkflowCore} workflowCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): AxiosPromise<Workflow> {
+            return WorkflowsApiFp(configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * WorkflowsApi - object-oriented interface
+ * @export
+ * @class WorkflowsApi
+ * @extends {BaseAPI}
+ */
+export class WorkflowsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Create Workflow
+     * @param {WorkflowCore} workflowCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any) {
+        return WorkflowsApiFp(this.configuration).createWorkflowV1WorkflowsPost(workflowCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete Workflow
+     * @param {string} workflowId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any) {
+        return WorkflowsApiFp(this.configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read Workflow
+     * @param {string} workflowId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any) {
+        return WorkflowsApiFp(this.configuration).readWorkflowV1WorkflowsWorkflowIdGet(workflowId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read Workflows
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any) {
+        return WorkflowsApiFp(this.configuration).readWorkflowsV1WorkflowsGet(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Trigger Workflow
+     * @param {string} workflowId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any) {
+        return WorkflowsApiFp(this.configuration).triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update Workflow
+     * @param {string} workflowId 
+     * @param {WorkflowCore} workflowCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any) {
+        return WorkflowsApiFp(this.configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * WorkflowsAppsApi - axios parameter creator
+ * @export
+ */
+export const WorkflowsAppsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create App
+         * @param {AppEntity} appEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAppV1WorkflowsAppsPost: async (appEntity: AppEntity, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appEntity' is not null or undefined
+            if (appEntity === null || appEntity === undefined) {
+                throw new RequiredError('appEntity','Required parameter appEntity was null or undefined when calling createAppV1WorkflowsAppsPost.');
+            }
+            const localVarPath = `/v1/workflows/apps/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof appEntity !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(appEntity !== undefined ? appEntity : {}) : (appEntity || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAppV1WorkflowsAppsAppIdDelete: async (appId: string, version?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appId' is not null or undefined
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteAppV1WorkflowsAppsAppIdDelete.');
+            }
+            const localVarPath = `/v1/workflows/apps/{app_id}`
+                .replace(`{${"app_id"}}`, encodeURIComponent(String(appId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get Connections By App Id
+         * @param {string} appId 
+         * @param {string} version 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet: async (appId: string, version: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appId' is not null or undefined
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet.');
+            }
+            // verify required parameter 'version' is not null or undefined
+            if (version === null || version === undefined) {
+                throw new RequiredError('version','Required parameter version was null or undefined when calling getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet.');
+            }
+            const localVarPath = `/v1/workflows/apps/{app_id}/versions/{version}/connections`
+                .replace(`{${"app_id"}}`, encodeURIComponent(String(appId)))
+                .replace(`{${"version"}}`, encodeURIComponent(String(version)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readAppV1WorkflowsAppsAppIdGet: async (appId: string, version?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appId' is not null or undefined
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling readAppV1WorkflowsAppsAppIdGet.');
+            }
+            const localVarPath = `/v1/workflows/apps/{app_id}`
+                .replace(`{${"app_id"}}`, encodeURIComponent(String(appId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read Apps
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readAppsV1WorkflowsAppsGet: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/workflows/apps/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update App
+         * @param {string} appId 
+         * @param {AppEntity} appEntity 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAppV1WorkflowsAppsAppIdPut: async (appId: string, appEntity: AppEntity, version?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appId' is not null or undefined
+            if (appId === null || appId === undefined) {
+                throw new RequiredError('appId','Required parameter appId was null or undefined when calling updateAppV1WorkflowsAppsAppIdPut.');
+            }
+            // verify required parameter 'appEntity' is not null or undefined
+            if (appEntity === null || appEntity === undefined) {
+                throw new RequiredError('appEntity','Required parameter appEntity was null or undefined when calling updateAppV1WorkflowsAppsAppIdPut.');
+            }
+            const localVarPath = `/v1/workflows/apps/{app_id}`
+                .replace(`{${"app_id"}}`, encodeURIComponent(String(appId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof appEntity !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(appEntity !== undefined ? appEntity : {}) : (appEntity || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsAppsApi - functional programming interface
+ * @export
+ */
+export const WorkflowsAppsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create App
+         * @param {AppEntity} appEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).createAppV1WorkflowsAppsPost(appEntity, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Delete App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).deleteAppV1WorkflowsAppsAppIdDelete(appId, version, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Get Connections By App Id
+         * @param {string} appId 
+         * @param {string} version 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionCore>>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId, version, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).readAppV1WorkflowsAppsAppIdGet(appId, version, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read Apps
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppResponse>>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).readAppsV1WorkflowsAppsGet(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Update App
+         * @param {string} appId 
+         * @param {AppEntity} appEntity 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>> {
+            const localVarAxiosArgs = await WorkflowsAppsApiAxiosParamCreator(configuration).updateAppV1WorkflowsAppsAppIdPut(appId, appEntity, version, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsAppsApi - factory interface
+ * @export
+ */
+export const WorkflowsAppsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Create App
+         * @param {AppEntity} appEntity 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any): AxiosPromise<AppResponse> {
+            return WorkflowsAppsApiFp(configuration).createAppV1WorkflowsAppsPost(appEntity, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
+            return WorkflowsAppsApiFp(configuration).deleteAppV1WorkflowsAppsAppIdDelete(appId, version, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Connections By App Id
+         * @param {string} appId 
+         * @param {string} version 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any): AxiosPromise<Array<ConnectionCore>> {
+            return WorkflowsAppsApiFp(configuration).getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId, version, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read App
+         * @param {string} appId 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any): AxiosPromise<AppResponse> {
+            return WorkflowsAppsApiFp(configuration).readAppV1WorkflowsAppsAppIdGet(appId, version, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read Apps
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<AppResponse>> {
+            return WorkflowsAppsApiFp(configuration).readAppsV1WorkflowsAppsGet(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update App
+         * @param {string} appId 
+         * @param {AppEntity} appEntity 
+         * @param {string} [version] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any): AxiosPromise<AppResponse> {
+            return WorkflowsAppsApiFp(configuration).updateAppV1WorkflowsAppsAppIdPut(appId, appEntity, version, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * WorkflowsAppsApi - object-oriented interface
+ * @export
+ * @class WorkflowsAppsApi
+ * @extends {BaseAPI}
+ */
+export class WorkflowsAppsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Create App
+     * @param {AppEntity} appEntity 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).createAppV1WorkflowsAppsPost(appEntity, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete App
+     * @param {string} appId 
+     * @param {string} [version] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).deleteAppV1WorkflowsAppsAppIdDelete(appId, version, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Connections By App Id
+     * @param {string} appId 
+     * @param {string} version 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId, version, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read App
+     * @param {string} appId 
+     * @param {string} [version] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).readAppV1WorkflowsAppsAppIdGet(appId, version, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read Apps
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).readAppsV1WorkflowsAppsGet(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update App
+     * @param {string} appId 
+     * @param {AppEntity} appEntity 
+     * @param {string} [version] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsAppsApi
+     */
+    public updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any) {
+        return WorkflowsAppsApiFp(this.configuration).updateAppV1WorkflowsAppsAppIdPut(appId, appEntity, version, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * WorkflowsConnectionsApi - axios parameter creator
+ * @export
+ */
+export const WorkflowsConnectionsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create Connection
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConnectionV1WorkflowsConnectionsPost: async (connectionCore: ConnectionCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectionCore' is not null or undefined
+            if (connectionCore === null || connectionCore === undefined) {
+                throw new RequiredError('connectionCore','Required parameter connectionCore was null or undefined when calling createConnectionV1WorkflowsConnectionsPost.');
+            }
+            const localVarPath = `/v1/workflows/connections/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof connectionCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(connectionCore !== undefined ? connectionCore : {}) : (connectionCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Delete Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConnectionV1WorkflowsConnectionsConnectionIdDelete: async (connectionId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectionId' is not null or undefined
+            if (connectionId === null || connectionId === undefined) {
+                throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling deleteConnectionV1WorkflowsConnectionsConnectionIdDelete.');
+            }
+            const localVarPath = `/v1/workflows/connections/{connection_id}`
+                .replace(`{${"connection_id"}}`, encodeURIComponent(String(connectionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readConnectionV1WorkflowsConnectionsConnectionIdGet: async (connectionId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectionId' is not null or undefined
+            if (connectionId === null || connectionId === undefined) {
+                throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling readConnectionV1WorkflowsConnectionsConnectionIdGet.');
+            }
+            const localVarPath = `/v1/workflows/connections/{connection_id}`
+                .replace(`{${"connection_id"}}`, encodeURIComponent(String(connectionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Read Connections
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readConnectionsV1WorkflowsConnectionsGet: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/workflows/connections/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Update Connection
+         * @param {string} connectionId 
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateConnectionV1WorkflowsConnectionsConnectionIdPut: async (connectionId: string, connectionCore: ConnectionCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectionId' is not null or undefined
+            if (connectionId === null || connectionId === undefined) {
+                throw new RequiredError('connectionId','Required parameter connectionId was null or undefined when calling updateConnectionV1WorkflowsConnectionsConnectionIdPut.');
+            }
+            // verify required parameter 'connectionCore' is not null or undefined
+            if (connectionCore === null || connectionCore === undefined) {
+                throw new RequiredError('connectionCore','Required parameter connectionCore was null or undefined when calling updateConnectionV1WorkflowsConnectionsConnectionIdPut.');
+            }
+            const localVarPath = `/v1/workflows/connections/{connection_id}`
+                .replace(`{${"connection_id"}}`, encodeURIComponent(String(connectionId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof connectionCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(connectionCore !== undefined ? connectionCore : {}) : (connectionCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsConnectionsApi - functional programming interface
+ * @export
+ */
+export const WorkflowsConnectionsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Create Connection
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>> {
+            const localVarAxiosArgs = await WorkflowsConnectionsApiAxiosParamCreator(configuration).createConnectionV1WorkflowsConnectionsPost(connectionCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Delete Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await WorkflowsConnectionsApiAxiosParamCreator(configuration).deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>> {
+            const localVarAxiosArgs = await WorkflowsConnectionsApiAxiosParamCreator(configuration).readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Read Connections
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>> {
+            const localVarAxiosArgs = await WorkflowsConnectionsApiAxiosParamCreator(configuration).readConnectionsV1WorkflowsConnectionsGet(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary Update Connection
+         * @param {string} connectionId 
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>> {
+            const localVarAxiosArgs = await WorkflowsConnectionsApiAxiosParamCreator(configuration).updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId, connectionCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsConnectionsApi - factory interface
+ * @export
+ */
+export const WorkflowsConnectionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Create Connection
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection> {
+            return WorkflowsConnectionsApiFp(configuration).createConnectionV1WorkflowsConnectionsPost(connectionCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
+            return WorkflowsConnectionsApiFp(configuration).deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read Connection
+         * @param {string} connectionId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection> {
+            return WorkflowsConnectionsApiFp(configuration).readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Read Connections
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>> {
+            return WorkflowsConnectionsApiFp(configuration).readConnectionsV1WorkflowsConnectionsGet(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Update Connection
+         * @param {string} connectionId 
+         * @param {ConnectionCore} connectionCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection> {
+            return WorkflowsConnectionsApiFp(configuration).updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId, connectionCore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * WorkflowsConnectionsApi - object-oriented interface
+ * @export
+ * @class WorkflowsConnectionsApi
+ * @extends {BaseAPI}
+ */
+export class WorkflowsConnectionsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Create Connection
+     * @param {ConnectionCore} connectionCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsConnectionsApi
+     */
+    public createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any) {
+        return WorkflowsConnectionsApiFp(this.configuration).createConnectionV1WorkflowsConnectionsPost(connectionCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete Connection
+     * @param {string} connectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsConnectionsApi
+     */
+    public deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any) {
+        return WorkflowsConnectionsApiFp(this.configuration).deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read Connection
+     * @param {string} connectionId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsConnectionsApi
+     */
+    public readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any) {
+        return WorkflowsConnectionsApiFp(this.configuration).readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Read Connections
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsConnectionsApi
+     */
+    public readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any) {
+        return WorkflowsConnectionsApiFp(this.configuration).readConnectionsV1WorkflowsConnectionsGet(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Update Connection
+     * @param {string} connectionId 
+     * @param {ConnectionCore} connectionCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsConnectionsApi
+     */
+    public updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any) {
+        return WorkflowsConnectionsApiFp(this.configuration).updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId, connectionCore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
