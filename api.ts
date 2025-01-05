@@ -14455,3 +14455,124 @@ export class WorkflowsExecutionsApi extends BaseAPI {
 }
 
 
+/**
+ * WorkflowsSubWorkflowsApi - axios parameter creator
+ * @export
+ */
+export const WorkflowsSubWorkflowsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Returns all sub workflows which can be invoked for a given workflow step
+         * @summary Get Sub Workflows
+         * @param {WorkflowStepInput} workflowStepInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: async (workflowStepInput: WorkflowStepInput, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowStepInput' is not null or undefined
+            if (workflowStepInput === null || workflowStepInput === undefined) {
+                throw new RequiredError('workflowStepInput','Required parameter workflowStepInput was null or undefined when calling getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost.');
+            }
+            const localVarPath = `/v1/workflows/steps/sub_workflows`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof workflowStepInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(workflowStepInput !== undefined ? workflowStepInput : {}) : (workflowStepInput || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsSubWorkflowsApi - functional programming interface
+ * @export
+ */
+export const WorkflowsSubWorkflowsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Returns all sub workflows which can be invoked for a given workflow step
+         * @summary Get Sub Workflows
+         * @param {WorkflowStepInput} workflowStepInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await WorkflowsSubWorkflowsApiAxiosParamCreator(configuration).getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsSubWorkflowsApi - factory interface
+ * @export
+ */
+export const WorkflowsSubWorkflowsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Returns all sub workflows which can be invoked for a given workflow step
+         * @summary Get Sub Workflows
+         * @param {WorkflowStepInput} workflowStepInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): AxiosPromise<Array<Workflow>> {
+            return WorkflowsSubWorkflowsApiFp(configuration).getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * WorkflowsSubWorkflowsApi - object-oriented interface
+ * @export
+ * @class WorkflowsSubWorkflowsApi
+ * @extends {BaseAPI}
+ */
+export class WorkflowsSubWorkflowsApi extends BaseAPI {
+    /**
+     * Returns all sub workflows which can be invoked for a given workflow step
+     * @summary Get Sub Workflows
+     * @param {WorkflowStepInput} workflowStepInput 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsSubWorkflowsApi
+     */
+    public getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any) {
+        return WorkflowsSubWorkflowsApiFp(this.configuration).getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+

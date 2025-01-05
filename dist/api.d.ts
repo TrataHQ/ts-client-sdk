@@ -8775,3 +8775,62 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      */
     triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
 }
+/**
+ * WorkflowsSubWorkflowsApi - axios parameter creator
+ * @export
+ */
+export declare const WorkflowsSubWorkflowsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Returns all sub workflows which can be invoked for a given workflow step
+     * @summary Get Sub Workflows
+     * @param {WorkflowStepInput} workflowStepInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: (workflowStepInput: WorkflowStepInput, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * WorkflowsSubWorkflowsApi - functional programming interface
+ * @export
+ */
+export declare const WorkflowsSubWorkflowsApiFp: (configuration?: Configuration) => {
+    /**
+     * Returns all sub workflows which can be invoked for a given workflow step
+     * @summary Get Sub Workflows
+     * @param {WorkflowStepInput} workflowStepInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+};
+/**
+ * WorkflowsSubWorkflowsApi - factory interface
+ * @export
+ */
+export declare const WorkflowsSubWorkflowsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Returns all sub workflows which can be invoked for a given workflow step
+     * @summary Get Sub Workflows
+     * @param {WorkflowStepInput} workflowStepInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): AxiosPromise<Array<Workflow>>;
+};
+/**
+ * WorkflowsSubWorkflowsApi - object-oriented interface
+ * @export
+ * @class WorkflowsSubWorkflowsApi
+ * @extends {BaseAPI}
+ */
+export declare class WorkflowsSubWorkflowsApi extends BaseAPI {
+    /**
+     * Returns all sub workflows which can be invoked for a given workflow step
+     * @summary Get Sub Workflows
+     * @param {WorkflowStepInput} workflowStepInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsSubWorkflowsApi
+     */
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
+}
