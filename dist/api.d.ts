@@ -221,10 +221,10 @@ export interface ActionInput {
     parameters: object;
     /**
      * Endpoint for the action
-     * @type {HttpActionEndpoint | InternalActionEndpoint}
+     * @type {HttpActionEndpoint | InternalActionEndpoint | AgenticWorkflowActionEndpoint}
      * @memberof ActionInput
      */
-    endpoint: HttpActionEndpoint | InternalActionEndpoint;
+    endpoint: HttpActionEndpoint | InternalActionEndpoint | AgenticWorkflowActionEndpoint;
     /**
      * Text to be rendered to user when action is invoked
      * @type {string}
@@ -467,6 +467,19 @@ export interface AgentConfig {
      * @memberof AgentConfig
      */
     fillersConfig?: string | null;
+}
+/**
+ *
+ * @export
+ * @interface AgenticWorkflowActionEndpoint
+ */
+export interface AgenticWorkflowActionEndpoint {
+    /**
+     * Agentic workflow id
+     * @type {string}
+     * @memberof AgenticWorkflowActionEndpoint
+     */
+    workflowId: string;
 }
 /**
  * Connection represents an instance of an app with specific credentials and configuration
@@ -4137,6 +4150,43 @@ export interface Workflow {
     id?: string;
 }
 /**
+ * Workflow Context Model
+ * @export
+ * @interface WorkflowContext
+ */
+export interface WorkflowContext {
+    /**
+     * The ID of the organization
+     * @type {string}
+     * @memberof WorkflowContext
+     */
+    orgId: string;
+    /**
+     * The ID of the workflow
+     * @type {string}
+     * @memberof WorkflowContext
+     */
+    workflowId: string;
+    /**
+     * The input of the step
+     * @type {object}
+     * @memberof WorkflowContext
+     */
+    stepInput: object;
+    /**
+     * The response of the step
+     * @type {object}
+     * @memberof WorkflowContext
+     */
+    stepResponse: object;
+    /**
+     * The order of the steps
+     * @type {Array<string>}
+     * @memberof WorkflowContext
+     */
+    stepOrder: Array<string>;
+}
+/**
  * Core Workflow Model
  * @export
  * @interface WorkflowCore
@@ -4176,6 +4226,67 @@ export interface WorkflowCore {
     startStepId?: string;
 }
 /**
+ * WorkflowExecution represents a single execution of a workflow
+ * @export
+ * @interface WorkflowExecution
+ */
+export interface WorkflowExecution {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    orgId?: string;
+    /**
+     * The id of the workflow
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    workflowId?: string;
+    /**
+     * The id of the workflow run
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    workflowRunId?: string;
+    /**
+     * The status of the workflow execution
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    status?: string;
+    /**
+     * The unique identifier of the workflow execution
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    id?: string;
+}
+/**
  * Flow Step Model
  * @export
  * @interface WorkflowStepInput
@@ -4192,7 +4303,13 @@ export interface WorkflowStepInput {
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appConnectionId?: string;
+    appConnectionId?: string | null;
+    /**
+     * The app action id of the app
+     * @type {string}
+     * @memberof WorkflowStepInput
+     */
+    appActionId?: string;
     /**
      * The id of the app
      * @type {string}
@@ -4247,7 +4364,13 @@ export interface WorkflowStepOutput {
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appConnectionId?: string;
+    appConnectionId?: string | null;
+    /**
+     * The app action id of the app
+     * @type {string}
+     * @memberof WorkflowStepOutput
+     */
+    appActionId?: string;
     /**
      * The id of the app
      * @type {string}
@@ -4284,6 +4407,25 @@ export interface WorkflowStepOutput {
      * @memberof WorkflowStepOutput
      */
     nextStepResolver: NextStepResolver;
+}
+/**
+ *
+ * @export
+ * @interface WorkflowStepTriggerRequest
+ */
+export interface WorkflowStepTriggerRequest {
+    /**
+     *
+     * @type {WorkflowContext}
+     * @memberof WorkflowStepTriggerRequest
+     */
+    workflowContext: WorkflowContext;
+    /**
+     *
+     * @type {WorkflowStepInput}
+     * @memberof WorkflowStepTriggerRequest
+     */
+    workflowStep: WorkflowStepInput;
 }
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -7886,12 +8028,14 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
     readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      *
-     * @summary Trigger Workflow
+     * @summary Trigger Workflow Step
      * @param {string} workflowId
+     * @param {string} stepId
+     * @param {WorkflowStepTriggerRequest} workflowStepTriggerRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsWorkflowIdTriggerPost: (workflowId: string, options?: any) => Promise<RequestArgs>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost: (workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Workflow
@@ -7942,12 +8086,14 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
     readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
     /**
      *
-     * @summary Trigger Workflow
+     * @summary Trigger Workflow Step
      * @param {string} workflowId
+     * @param {string} stepId
+     * @param {WorkflowStepTriggerRequest} workflowStepTriggerRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      *
      * @summary Update Workflow
@@ -7998,12 +8144,14 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
     readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Workflow>>;
     /**
      *
-     * @summary Trigger Workflow
+     * @summary Trigger Workflow Step
      * @param {string} workflowId
+     * @param {string} stepId
+     * @param {WorkflowStepTriggerRequest} workflowStepTriggerRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): AxiosPromise<object>;
     /**
      *
      * @summary Update Workflow
@@ -8060,13 +8208,15 @@ export declare class WorkflowsApi extends BaseAPI {
     readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
     /**
      *
-     * @summary Trigger Workflow
+     * @summary Trigger Workflow Step
      * @param {string} workflowId
+     * @param {string} stepId
+     * @param {WorkflowStepTriggerRequest} workflowStepTriggerRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    triggerWorkflowV1WorkflowsWorkflowIdTriggerPost(workflowId: string, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<import("axios").AxiosResponse<object>>;
     /**
      *
      * @summary Update Workflow
@@ -8524,4 +8674,104 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @memberof WorkflowsConnectionsApi
      */
     updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+}
+/**
+ * WorkflowsExecutionsApi - axios parameter creator
+ * @export
+ */
+export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Workflow Info
+     * @param {string} workflowId
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet: (workflowId: string, runId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Trigger Workflow Execution
+     * @param {string} workflowId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, body: object, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * WorkflowsExecutionsApi - functional programming interface
+ * @export
+ */
+export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Workflow Info
+     * @param {string} workflowId
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowContext>>;
+    /**
+     *
+     * @summary Trigger Workflow Execution
+     * @param {string} workflowId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+};
+/**
+ * WorkflowsExecutionsApi - factory interface
+ * @export
+ */
+export declare const WorkflowsExecutionsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Get Workflow Info
+     * @param {string} workflowId
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): AxiosPromise<WorkflowContext>;
+    /**
+     *
+     * @summary Trigger Workflow Execution
+     * @param {string} workflowId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution>;
+};
+/**
+ * WorkflowsExecutionsApi - object-oriented interface
+ * @export
+ * @class WorkflowsExecutionsApi
+ * @extends {BaseAPI}
+ */
+export declare class WorkflowsExecutionsApi extends BaseAPI {
+    /**
+     *
+     * @summary Get Workflow Info
+     * @param {string} workflowId
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): Promise<import("axios").AxiosResponse<WorkflowContext>>;
+    /**
+     *
+     * @summary Trigger Workflow Execution
+     * @param {string} workflowId
+     * @param {object} body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
 }
