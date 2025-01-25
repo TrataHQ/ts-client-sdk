@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.UiNodeType = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.UiNodeType = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.MetricName = exports.Language = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -8661,6 +8661,99 @@ class WorkflowsApi extends base_1.BaseAPI {
 }
 exports.WorkflowsApi = WorkflowsApi;
 /**
+ * WorkflowsApiHubspotApi - axios parameter creator
+ * @export
+ */
+exports.WorkflowsApiHubspotApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Handle Hubspot Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/workflows/api/hubspot/webhook`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * WorkflowsApiHubspotApi - functional programming interface
+ * @export
+ */
+exports.WorkflowsApiHubspotApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Handle Hubspot Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.WorkflowsApiHubspotApiAxiosParamCreator(configuration).handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * WorkflowsApiHubspotApi - factory interface
+ * @export
+ */
+exports.WorkflowsApiHubspotApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Handle Hubspot Webhook
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options) {
+            return exports.WorkflowsApiHubspotApiFp(configuration).handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * WorkflowsApiHubspotApi - object-oriented interface
+ * @export
+ * @class WorkflowsApiHubspotApi
+ * @extends {BaseAPI}
+ */
+class WorkflowsApiHubspotApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Handle Hubspot Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApiHubspotApi
+     */
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options) {
+        return exports.WorkflowsApiHubspotApiFp(this.configuration).handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.WorkflowsApiHubspotApi = WorkflowsApiHubspotApi;
+/**
  * WorkflowsAppsApi - axios parameter creator
  * @export
  */
@@ -9647,22 +9740,70 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
+         * @summary Get Recent Workflow Run
+         * @param {string} workflowId
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet: (workflowId, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new base_1.RequiredError('workflowId', 'Required parameter workflowId was null or undefined when calling getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet.');
+            }
+            const localVarPath = `/v1/workflows/executions/{workflow_id}/run`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
          * @summary Get Workflow Info
          * @param {string} workflowId
          * @param {string} runId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet: (workflowId, runId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet: (workflowId, runId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'workflowId' is not null or undefined
             if (workflowId === null || workflowId === undefined) {
-                throw new base_1.RequiredError('workflowId', 'Required parameter workflowId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet.');
+                throw new base_1.RequiredError('workflowId', 'Required parameter workflowId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet.');
             }
             // verify required parameter 'runId' is not null or undefined
             if (runId === null || runId === undefined) {
-                throw new base_1.RequiredError('runId', 'Required parameter runId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet.');
+                throw new base_1.RequiredError('runId', 'Required parameter runId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet.');
             }
-            const localVarPath = `/v1/workflows/executions/{workflow_id}/run/{run_id}/history`
+            const localVarPath = `/v1/workflows/executions/{workflow_id}/run/{run_id}`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)))
                 .replace(`{${"run_id"}}`, encodeURIComponent(String(runId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -9718,14 +9859,6 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -9749,15 +9882,33 @@ exports.WorkflowsExecutionsApiFp = function (configuration) {
     return {
         /**
          *
+         * @summary Get Recent Workflow Run
+         * @param {string} workflowId
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.WorkflowsExecutionsApiAxiosParamCreator(configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
          * @summary Get Workflow Info
          * @param {string} workflowId
          * @param {string} runId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options) {
+        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WorkflowsExecutionsApiAxiosParamCreator(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options);
+                const localVarAxiosArgs = yield exports.WorkflowsExecutionsApiAxiosParamCreator(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9791,14 +9942,26 @@ exports.WorkflowsExecutionsApiFactory = function (configuration, basePath, axios
     return {
         /**
          *
+         * @summary Get Recent Workflow Run
+         * @param {string} workflowId
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options) {
+            return exports.WorkflowsExecutionsApiFp(configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
          * @summary Get Workflow Info
          * @param {string} workflowId
          * @param {string} runId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options) {
-            return exports.WorkflowsExecutionsApiFp(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options).then((request) => request(axios, basePath));
+        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options) {
+            return exports.WorkflowsExecutionsApiFp(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -9822,6 +9985,19 @@ exports.WorkflowsExecutionsApiFactory = function (configuration, basePath, axios
 class WorkflowsExecutionsApi extends base_1.BaseAPI {
     /**
      *
+     * @summary Get Recent Workflow Run
+     * @param {string} workflowId
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options) {
+        return exports.WorkflowsExecutionsApiFp(this.configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
      * @summary Get Workflow Info
      * @param {string} workflowId
      * @param {string} runId
@@ -9829,8 +10005,8 @@ class WorkflowsExecutionsApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options) {
-        return exports.WorkflowsExecutionsApiFp(this.configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId, runId, options).then((request) => request(this.axios, this.basePath));
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options) {
+        return exports.WorkflowsExecutionsApiFp(this.configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *

@@ -66,6 +66,12 @@ export interface AIAgentInput {
      * @memberof AIAgentInput
      */
     voice?: VoiceInput | null;
+    /**
+     * List of terms or phrases that the AI agent to prioritize for enhanced recognition
+     * @type {Array<string>}
+     * @memberof AIAgentInput
+     */
+    boostedKeywords?: Array<string> | null;
 }
 /**
  * AI agent configured by businesses
@@ -133,6 +139,12 @@ export interface AIAgentOutput {
      * @memberof AIAgentOutput
      */
     voice?: VoiceOutput | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AIAgentOutput
+     */
+    boostedKeywords?: Array<string> | null;
     /**
      *
      * @type {string}
@@ -547,6 +559,12 @@ export interface AgenticWorkflowDbModelsConnection {
      * @memberof AgenticWorkflowDbModelsConnection
      */
     credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+    /**
+     * Metadata for the connection
+     * @type {object}
+     * @memberof AgenticWorkflowDbModelsConnection
+     */
+    connectionMetaData?: object;
     /**
      * The unique identifier of the connection
      * @type {string}
@@ -1193,6 +1211,12 @@ export interface ConnectionCore {
      * @memberof ConnectionCore
      */
     credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+    /**
+     * Metadata for the connection
+     * @type {object}
+     * @memberof ConnectionCore
+     */
+    connectionMetaData?: object;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -2602,25 +2626,25 @@ export interface OAuthCredentials {
      * @type {string}
      * @memberof OAuthCredentials
      */
-    code: string | null;
+    code?: string | null;
     /**
      * The access token for the OAuth app
      * @type {string}
      * @memberof OAuthCredentials
      */
-    accessToken: string | null;
+    accessToken?: string | null;
     /**
      * The refresh token for the OAuth app
      * @type {string}
      * @memberof OAuthCredentials
      */
-    refreshToken: string | null;
+    refreshToken?: string | null;
     /**
      * The expiration date of the access token
      * @type {string}
      * @memberof OAuthCredentials
      */
-    expiresAt: string | null;
+    expiresAt?: string | null;
 }
 /**
     * @export
@@ -3571,6 +3595,37 @@ export declare enum Status {
     Inactive = "inactive"
 }
 /**
+ *
+ * @export
+ * @interface StepAppInfo
+ */
+export interface StepAppInfo {
+    /**
+     * The ID of the app
+     * @type {string}
+     * @memberof StepAppInfo
+     */
+    appId: string;
+    /**
+     * The name of the app
+     * @type {string}
+     * @memberof StepAppInfo
+     */
+    appName: string;
+    /**
+     * The version of the app
+     * @type {string}
+     * @memberof StepAppInfo
+     */
+    appVersion: string;
+    /**
+     * The name of the action
+     * @type {string}
+     * @memberof StepAppInfo
+     */
+    actionName: string;
+}
+/**
  * Subscription details of the business
  * @export
  * @interface Subscription
@@ -4180,11 +4235,13 @@ export interface WorkflowContext {
      */
     stepResponse: object;
     /**
-     * The order of the steps
-     * @type {Array<string>}
+     * The app info of the step
+     * @type {{ [key: string]: StepAppInfo; }}
      * @memberof WorkflowContext
      */
-    stepOrder: Array<string>;
+    stepAppInfo: {
+        [key: string]: StepAppInfo;
+    };
 }
 /**
  * Core Workflow Model
@@ -4426,6 +4483,25 @@ export interface WorkflowStepTriggerRequest {
      * @memberof WorkflowStepTriggerRequest
      */
     workflowStep: WorkflowStepInput;
+}
+/**
+ *
+ * @export
+ * @interface WorkflowStepTriggerResponse
+ */
+export interface WorkflowStepTriggerResponse {
+    /**
+     *
+     * @type {object}
+     * @memberof WorkflowStepTriggerResponse
+     */
+    input: object;
+    /**
+     *
+     * @type {object}
+     * @memberof WorkflowStepTriggerResponse
+     */
+    response: object;
 }
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -8093,7 +8169,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowStepTriggerResponse>>;
     /**
      *
      * @summary Update Workflow
@@ -8151,7 +8227,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): AxiosPromise<object>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): AxiosPromise<WorkflowStepTriggerResponse>;
     /**
      *
      * @summary Update Workflow
@@ -8216,7 +8292,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<import("axios").AxiosResponse<object>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<import("axios").AxiosResponse<WorkflowStepTriggerResponse>>;
     /**
      *
      * @summary Update Workflow
@@ -8227,6 +8303,61 @@ export declare class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<import("axios").AxiosResponse<Workflow>>;
+}
+/**
+ * WorkflowsApiHubspotApi - axios parameter creator
+ * @export
+ */
+export declare const WorkflowsApiHubspotApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Handle Hubspot Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options?: any) => Promise<RequestArgs>;
+};
+/**
+ * WorkflowsApiHubspotApi - functional programming interface
+ * @export
+ */
+export declare const WorkflowsApiHubspotApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Handle Hubspot Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+};
+/**
+ * WorkflowsApiHubspotApi - factory interface
+ * @export
+ */
+export declare const WorkflowsApiHubspotApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Handle Hubspot Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+};
+/**
+ * WorkflowsApiHubspotApi - object-oriented interface
+ * @export
+ * @class WorkflowsApiHubspotApi
+ * @extends {BaseAPI}
+ */
+export declare class WorkflowsApiHubspotApi extends BaseAPI {
+    /**
+     *
+     * @summary Handle Hubspot Webhook
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApiHubspotApi
+     */
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
 }
 /**
  * WorkflowsAppsApi - axios parameter creator
@@ -8682,13 +8813,23 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
 export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      *
+     * @summary Get Recent Workflow Run
+     * @param {string} workflowId
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet: (workflowId: string, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     *
      * @summary Get Workflow Info
      * @param {string} workflowId
      * @param {string} runId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet: (workflowId: string, runId: string, options?: any) => Promise<RequestArgs>;
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet: (workflowId: string, runId: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Trigger Workflow Execution
@@ -8706,13 +8847,23 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
 export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) => {
     /**
      *
+     * @summary Get Recent Workflow Run
+     * @param {string} workflowId
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowContext>>>;
+    /**
+     *
      * @summary Get Workflow Info
      * @param {string} workflowId
      * @param {string} runId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowContext>>;
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowContext>>;
     /**
      *
      * @summary Trigger Workflow Execution
@@ -8730,13 +8881,23 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
 export declare const WorkflowsExecutionsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      *
+     * @summary Get Recent Workflow Run
+     * @param {string} workflowId
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<WorkflowContext>>;
+    /**
+     *
      * @summary Get Workflow Info
      * @param {string} workflowId
      * @param {string} runId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): AxiosPromise<WorkflowContext>;
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any): AxiosPromise<WorkflowContext>;
     /**
      *
      * @summary Trigger Workflow Execution
@@ -8756,6 +8917,17 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
 export declare class WorkflowsExecutionsApi extends BaseAPI {
     /**
      *
+     * @summary Get Recent Workflow Run
+     * @param {string} workflowId
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<WorkflowContext[]>>;
+    /**
+     *
      * @summary Get Workflow Info
      * @param {string} workflowId
      * @param {string} runId
@@ -8763,7 +8935,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdHistoryGet(workflowId: string, runId: string, options?: any): Promise<import("axios").AxiosResponse<WorkflowContext>>;
+    getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any): Promise<import("axios").AxiosResponse<WorkflowContext>>;
     /**
      *
      * @summary Trigger Workflow Execution
