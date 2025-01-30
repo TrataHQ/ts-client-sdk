@@ -4351,6 +4351,24 @@ export interface WorkflowCore {
  */
 export interface WorkflowExecution {
     /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    workflowName: string;
+    /**
+     * The start timestamp of the workflow
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    workflowStartTimestamp: string | null;
+    /**
+     * The end timestamp of the workflow
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    workflowEndTimestamp: string | null;
+    /**
      * The id of the workflow
      * @type {string}
      * @memberof WorkflowExecution
