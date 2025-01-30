@@ -573,7 +573,7 @@ export interface AgenticWorkflowDbModelsConnection {
      * @type {object}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    connectionMetaData?: object;
+    connectionMetaData?: object | null;
     /**
      * The unique identifier of the connection
      * @type {string}
@@ -1237,7 +1237,7 @@ export interface ConnectionCore {
      * @type {object}
      * @memberof ConnectionCore
      */
-    connectionMetaData?: object;
+    connectionMetaData?: object | null;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -2796,6 +2796,12 @@ export interface OrganizationOutput {
      */
     updatedAt?: string;
     /**
+     * 
+     * @type {object}
+     * @memberof OrganizationOutput
+     */
+    internalProps: object | null;
+    /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
      * @memberof OrganizationOutput
@@ -3640,37 +3646,6 @@ export enum Status {
 }
 
 /**
- * 
- * @export
- * @interface StepAppInfo
- */
-export interface StepAppInfo {
-    /**
-     * The ID of the app
-     * @type {string}
-     * @memberof StepAppInfo
-     */
-    appId: string;
-    /**
-     * The name of the app
-     * @type {string}
-     * @memberof StepAppInfo
-     */
-    appName: string;
-    /**
-     * The version of the app
-     * @type {string}
-     * @memberof StepAppInfo
-     */
-    appVersion: string;
-    /**
-     * The name of the action
-     * @type {string}
-     * @memberof StepAppInfo
-     */
-    actionName: string;
-}
-/**
  * Subscription details of the business
  * @export
  * @interface Subscription
@@ -4253,6 +4228,49 @@ export interface Workflow {
     id?: string;
 }
 /**
+ * 
+ * @export
+ * @interface WorkflowActivityInfo
+ */
+export interface WorkflowActivityInfo {
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowActivityInfo
+     */
+    step_name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowActivityInfo
+     */
+    status: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof WorkflowActivityInfo
+     */
+    input: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof WorkflowActivityInfo
+     */
+    result: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowActivityInfo
+     */
+    start_time?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowActivityInfo
+     */
+    end_time?: string | null;
+}
+/**
  * Workflow Context Model
  * @export
  * @interface WorkflowContext
@@ -4271,6 +4289,12 @@ export interface WorkflowContext {
      */
     workflowId: string;
     /**
+     * The ID of the run
+     * @type {string}
+     * @memberof WorkflowContext
+     */
+    runId: string;
+    /**
      * The input of the step
      * @type {object}
      * @memberof WorkflowContext
@@ -4282,12 +4306,6 @@ export interface WorkflowContext {
      * @memberof WorkflowContext
      */
     stepResponse: object;
-    /**
-     * The app info of the step
-     * @type {{ [key: string]: StepAppInfo; }}
-     * @memberof WorkflowContext
-     */
-    stepAppInfo: { [key: string]: StepAppInfo; };
 }
 /**
  * Core Workflow Model
@@ -4327,65 +4345,41 @@ export interface WorkflowCore {
     startStepId?: string;
 }
 /**
- * WorkflowExecution represents a single execution of a workflow
+ * Core Workflow Execution Model
  * @export
  * @interface WorkflowExecution
  */
 export interface WorkflowExecution {
     /**
-     * The user who created.
-     * @type {string}
-     * @memberof WorkflowExecution
-     */
-    createdBy?: string;
-    /**
-     * The date and time it was created.
-     * @type {string}
-     * @memberof WorkflowExecution
-     */
-    createdAt?: string;
-    /**
-     * The user who last updated.
-     * @type {string}
-     * @memberof WorkflowExecution
-     */
-    updatedBy?: string;
-    /**
-     * The date and time when it was last updated.
-     * @type {string}
-     * @memberof WorkflowExecution
-     */
-    updatedAt?: string;
-    /**
-     * The workspace of the entity.
-     * @type {string}
-     * @memberof WorkflowExecution
-     */
-    orgId?: string;
-    /**
      * The id of the workflow
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowId?: string;
+    workflowId: string;
     /**
-     * The id of the workflow run
+     * The run id of the workflow
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowRunId?: string;
+    workflowRunId: string;
     /**
      * The status of the workflow execution
      * @type {string}
      * @memberof WorkflowExecution
      */
-    status?: string;
+    status: string;
     /**
-     * The unique identifier of the workflow execution
-     * @type {string}
+     * The activity info of the workflow execution
+     * @type {Array<WorkflowActivityInfo>}
      * @memberof WorkflowExecution
      */
-    id?: string;
+    activityInfo: Array<WorkflowActivityInfo>;
+    /**
+     * The final result of the workflow execution
+     * @type {object}
+     * @memberof WorkflowExecution
+     */
+    result: object;
 }
 /**
  * Flow Step Model
@@ -4429,12 +4423,6 @@ export interface WorkflowStepInput {
      * @memberof WorkflowStepInput
      */
     appVersion?: string;
-    /**
-     * The step to be performed
-     * @type {AppActionEntity}
-     * @memberof WorkflowStepInput
-     */
-    stepPayload?: AppActionEntity;
     /**
      * The data resolver on how to resolve the data for the step
      * @type {string}
@@ -4490,12 +4478,6 @@ export interface WorkflowStepOutput {
      * @memberof WorkflowStepOutput
      */
     appVersion?: string;
-    /**
-     * The step to be performed
-     * @type {AppActionEntity}
-     * @memberof WorkflowStepOutput
-     */
-    stepPayload?: AppActionEntity;
     /**
      * The data resolver on how to resolve the data for the step
      * @type {string}
@@ -14416,20 +14398,116 @@ export class WorkflowsConnectionsApi extends BaseAPI {
 export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Execute a workflow. This is an Sync call. This returns the status of the workflow
+         * @summary Execute Workflow
+         * @param {string} workflowId 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: async (workflowId: string, body: object, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost.');
+            }
+            // verify required parameter 'body' is not null or undefined
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost.');
+            }
+            const localVarPath = `/v1/workflows/executions/{workflow_id}/execute`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the status of a workflow given the run id
+         * @summary Get Workflow Status
+         * @param {string} runId 
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet: async (runId: string, workflowId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'runId' is not null or undefined
+            if (runId === null || runId === undefined) {
+                throw new RequiredError('runId','Required parameter runId was null or undefined when calling getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet.');
+            }
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet.');
+            }
+            const localVarPath = `/v1/workflows/executions/{workflow_id}/runs/{run_id}`
+                .replace(`{${"run_id"}}`, encodeURIComponent(String(runId)))
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
-         * @summary Get Recent Workflow Run
+         * @summary List Workflow Runs
          * @param {string} workflowId 
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet: async (workflowId: string, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet: async (workflowId: string, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowId' is not null or undefined
             if (workflowId === null || workflowId === undefined) {
-                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet.');
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet.');
             }
-            const localVarPath = `/v1/workflows/executions/{workflow_id}/run`
+            const localVarPath = `/v1/workflows/executions/{workflow_id}/runs`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -14471,72 +14549,21 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * 
-         * @summary Get Workflow Info
-         * @param {string} workflowId 
-         * @param {string} runId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet: async (workflowId: string, runId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'workflowId' is not null or undefined
-            if (workflowId === null || workflowId === undefined) {
-                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet.');
-            }
-            // verify required parameter 'runId' is not null or undefined
-            if (runId === null || runId === undefined) {
-                throw new RequiredError('runId','Required parameter runId was null or undefined when calling getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet.');
-            }
-            const localVarPath = `/v1/workflows/executions/{workflow_id}/run/{run_id}`
-                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)))
-                .replace(`{${"run_id"}}`, encodeURIComponent(String(runId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Trigger Workflow Execution
+         * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
+         * @summary Trigger Workflow
          * @param {string} workflowId 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost: async (workflowId: string, body: object, options: any = {}): Promise<RequestArgs> => {
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: async (workflowId: string, body: object, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowId' is not null or undefined
             if (workflowId === null || workflowId === undefined) {
-                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost.');
+                throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost.');
             }
             // verify required parameter 'body' is not null or undefined
             if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost.');
+                throw new RequiredError('body','Required parameter body was null or undefined when calling triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost.');
             }
             const localVarPath = `/v1/workflows/executions/{workflow_id}/trigger`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
@@ -14576,46 +14603,61 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
 export const WorkflowsExecutionsApiFp = function(configuration?: Configuration) {
     return {
         /**
+         * Execute a workflow. This is an Sync call. This returns the status of the workflow
+         * @summary Execute Workflow
+         * @param {string} workflowId 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
+            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get the status of a workflow given the run id
+         * @summary Get Workflow Status
+         * @param {string} runId 
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
+            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId, workflowId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * 
-         * @summary Get Recent Workflow Run
+         * @summary List Workflow Runs
          * @param {string} workflowId 
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowContext>>> {
-            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options);
+        async listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
+            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
             };
         },
         /**
-         * 
-         * @summary Get Workflow Info
-         * @param {string} workflowId 
-         * @param {string} runId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowContext>> {
-            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * 
-         * @summary Trigger Workflow Execution
+         * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
+         * @summary Trigger Workflow
          * @param {string} workflowId 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
-            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options);
+        async triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
+            const localVarAxiosArgs = await WorkflowsExecutionsApiAxiosParamCreator(configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14631,38 +14673,49 @@ export const WorkflowsExecutionsApiFp = function(configuration?: Configuration) 
 export const WorkflowsExecutionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
+         * Execute a workflow. This is an Sync call. This returns the status of the workflow
+         * @summary Execute Workflow
+         * @param {string} workflowId 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution> {
+            return WorkflowsExecutionsApiFp(configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the status of a workflow given the run id
+         * @summary Get Workflow Status
+         * @param {string} runId 
+         * @param {string} workflowId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any): AxiosPromise<WorkflowExecution> {
+            return WorkflowsExecutionsApiFp(configuration).getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId, workflowId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 
-         * @summary Get Recent Workflow Run
+         * @summary List Workflow Runs
          * @param {string} workflowId 
          * @param {number} [skip] 
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<WorkflowContext>> {
-            return WorkflowsExecutionsApiFp(configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options).then((request) => request(axios, basePath));
+        listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<WorkflowExecution>> {
+            return WorkflowsExecutionsApiFp(configuration).listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Get Workflow Info
-         * @param {string} workflowId 
-         * @param {string} runId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any): AxiosPromise<WorkflowContext> {
-            return WorkflowsExecutionsApiFp(configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Trigger Workflow Execution
+         * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
+         * @summary Trigger Workflow
          * @param {string} workflowId 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution> {
-            return WorkflowsExecutionsApiFp(configuration).triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(axios, basePath));
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution> {
+            return WorkflowsExecutionsApiFp(configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -14675,8 +14728,34 @@ export const WorkflowsExecutionsApiFactory = function (configuration?: Configura
  */
 export class WorkflowsExecutionsApi extends BaseAPI {
     /**
+     * Execute a workflow. This is an Sync call. This returns the status of the workflow
+     * @summary Execute Workflow
+     * @param {string} workflowId 
+     * @param {object} body 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    public executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any) {
+        return WorkflowsExecutionsApiFp(this.configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the status of a workflow given the run id
+     * @summary Get Workflow Status
+     * @param {string} runId 
+     * @param {string} workflowId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsExecutionsApi
+     */
+    public getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any) {
+        return WorkflowsExecutionsApiFp(this.configuration).getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId, workflowId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 
-     * @summary Get Recent Workflow Run
+     * @summary List Workflow Runs
      * @param {string} workflowId 
      * @param {number} [skip] 
      * @param {number} [limit] 
@@ -14684,34 +14763,21 @@ export class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    public getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId: string, skip?: number, limit?: number, options?: any) {
-        return WorkflowsExecutionsApiFp(this.configuration).getRecentWorkflowRunV1WorkflowsExecutionsWorkflowIdRunGet(workflowId, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any) {
+        return WorkflowsExecutionsApiFp(this.configuration).listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Get Workflow Info
-     * @param {string} workflowId 
-     * @param {string} runId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WorkflowsExecutionsApi
-     */
-    public getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId: string, runId: string, options?: any) {
-        return WorkflowsExecutionsApiFp(this.configuration).getWorkflowInfoV1WorkflowsExecutionsWorkflowIdRunRunIdGet(workflowId, runId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Trigger Workflow Execution
+     * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
+     * @summary Trigger Workflow
      * @param {string} workflowId 
      * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    public triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any) {
-        return WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowExecutionV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    public triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any) {
+        return WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
