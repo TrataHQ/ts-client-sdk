@@ -153,6 +153,18 @@ export interface AIAgentOutput {
      */
     boostedKeywords?: Array<string> | null;
     /**
+     * Application under which the AI agent is created
+     * @type {AppEnum}
+     * @memberof AIAgentOutput
+     */
+    app?: AppEnum | null;
+    /**
+     * Evaluation metrics for the conversation
+     * @type {ConversationEvaluationMetrics}
+     * @memberof AIAgentOutput
+     */
+    evaluationMetrics?: ConversationEvaluationMetrics | null;
+    /**
      * 
      * @type {string}
      * @memberof AIAgentOutput
@@ -372,6 +384,18 @@ export interface ActionOutput {
      */
     updatedAt?: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum Adaptability {
+    OpenToChange = 'open to change',
+    Resistant = 'resistant',
+    Indifferent = 'indifferent',
+    Custom = 'custom'
+}
+
 /**
  * 
  * @export
@@ -958,6 +982,16 @@ export interface AppEntity {
     actions: Array<AppActionEntity>;
 }
 /**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+export enum AppEnum {
+    TRATA = 'TRATA',
+    TRATASPARR = 'TRATA_SPARR'
+}
+
+/**
  * 
  * @export
  * @interface AppResponse
@@ -1152,6 +1186,18 @@ export interface BodyUploadResellerFilesV1 {
  * @export
  * @enum {string}
  */
+export enum BudgetSensitivity {
+    CostConscious = 'cost-conscious',
+    ValueDriven = 'value-driven',
+    PremiumBuyer = 'premium buyer',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 export enum CallSentiment {
     Positive = 'positive',
     Negative = 'negative',
@@ -1178,6 +1224,19 @@ export interface Comment {
     rating: number;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum CommunicationStyle {
+    Direct = 'direct',
+    Indirect = 'indirect',
+    Verbose = 'verbose',
+    Brief = 'brief',
+    Custom = 'custom'
+}
+
+/**
  * Condition Model for branching/looping logic
  * @export
  * @interface Condition
@@ -1196,6 +1255,19 @@ export interface Condition {
      */
     stepId: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum ConfidenceLevel {
+    Assertive = 'assertive',
+    Unsure = 'unsure',
+    Skeptical = 'skeptical',
+    Confident = 'confident',
+    Custom = 'custom'
+}
+
 /**
  * Core Connection Model
  * @export
@@ -1454,6 +1526,100 @@ export interface ConversationEndEventPayload {
     conversation: ConversationOutput;
 }
 /**
+ * Model which stores the evaluation metrics for the conversation
+ * @export
+ * @interface ConversationEvaluation
+ */
+export interface ConversationEvaluation {
+    /**
+     * 
+     * @type {Array<ConversationEvaluationData>}
+     * @memberof ConversationEvaluation
+     */
+    aiEvaluations?: Array<ConversationEvaluationData>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationEvaluation
+     */
+    aiEvaluationSummary?: string | null;
+    /**
+     * 
+     * @type {Array<ConversationEvaluationData>}
+     * @memberof ConversationEvaluation
+     */
+    humanEvaluations?: Array<ConversationEvaluationData> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationEvaluation
+     */
+    humanEvaluationSummary?: string | null;
+}
+/**
+ * Model which stores the result of the evaluation metric for a conversation
+ * @export
+ * @interface ConversationEvaluationData
+ */
+export interface ConversationEvaluationData {
+    /**
+     * Name of the evaluation metric
+     * @type {string}
+     * @memberof ConversationEvaluationData
+     */
+    name?: string;
+    /**
+     * Description about the evaluation metric
+     * @type {string}
+     * @memberof ConversationEvaluationData
+     */
+    description?: string;
+    /**
+     * Value of the evaluation metric
+     * @type {string}
+     * @memberof ConversationEvaluationData
+     */
+    value?: string;
+}
+/**
+ * Model which stores the details of each evaluation metric
+ * @export
+ * @interface ConversationEvaluationMetric
+ */
+export interface ConversationEvaluationMetric {
+    /**
+     * Name of the evaluation metric
+     * @type {string}
+     * @memberof ConversationEvaluationMetric
+     */
+    name?: string;
+    /**
+     * Description about the evaluation metric
+     * @type {string}
+     * @memberof ConversationEvaluationMetric
+     */
+    description?: string;
+}
+/**
+ * Model which stores all the evaluation metrics which is used to evaluate the conversation
+ * @export
+ * @interface ConversationEvaluationMetrics
+ */
+export interface ConversationEvaluationMetrics {
+    /**
+     * 
+     * @type {Array<ConversationEvaluationMetric>}
+     * @memberof ConversationEvaluationMetrics
+     */
+    qualitativeMetrics: Array<ConversationEvaluationMetric> | null;
+    /**
+     * 
+     * @type {Array<ConversationEvaluationMetric>}
+     * @memberof ConversationEvaluationMetrics
+     */
+    quantitativeMetrics: Array<ConversationEvaluationMetric> | null;
+}
+/**
  * Any feedback added to the conversation by business is managed here.
  * @export
  * @interface ConversationFeedback
@@ -1660,6 +1826,18 @@ export interface ConversationOutput {
      */
     conversationAnalytics?: ConversationAnalyticsModel | null;
     /**
+     * Application under which the conversation is created
+     * @type {AppEnum}
+     * @memberof ConversationOutput
+     */
+    app?: AppEnum | null;
+    /**
+     * Evaluation of the conversation
+     * @type {ConversationEvaluation}
+     * @memberof ConversationOutput
+     */
+    evaluation?: ConversationEvaluation | null;
+    /**
      * 
      * @type {string}
      * @memberof ConversationOutput
@@ -1855,6 +2033,19 @@ export interface Credit {
 /**
  * 
  * @export
+ * @enum {string}
+ */
+export enum DecisionMakingStyle {
+    Logical = 'logical',
+    Emotional = 'emotional',
+    Impulsive = 'impulsive',
+    Hesitant = 'hesitant',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
  * @interface DialogLine
  */
 export interface DialogLine {
@@ -1883,6 +2074,18 @@ export interface DialogLine {
      */
     message_id: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum EngagementLevel {
+    HighlyEngaged = 'highly engaged',
+    Distracted = 'distracted',
+    Uninterested = 'uninterested',
+    Custom = 'custom'
+}
+
 /**
  * 
  * @export
@@ -2013,6 +2216,29 @@ export interface Files {
      */
     updatedAt?: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum FollowUpExpectation {
+    ExpectsImmediateResponse = 'expects immediate response',
+    OkayWithDelays = 'okay with delays',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum FrustrationTolerance {
+    QuickToAnger = 'quick to anger',
+    Understanding = 'understanding',
+    Neutral = 'neutral',
+    Custom = 'custom'
+}
+
 /**
  * Guest users who are not verified by Trata yet
  * @export
@@ -2320,6 +2546,19 @@ export interface IntelligenceProvider {
     providerProps?: object | null;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum InteractionTone {
+    Professional = 'professional',
+    Casual = 'casual',
+    Friendly = 'friendly',
+    Authoritative = 'authoritative',
+    Custom = 'custom'
+}
+
+/**
  * Internal action endpoint to be used for calling the action inside the module. Not used by external users
  * @export
  * @interface InternalActionEndpoint
@@ -2376,6 +2615,8 @@ export interface LanguageAccentCombo {
 export enum MetricName {
     CALLS = 'CALLS',
     CALLDURATION = 'CALL_DURATION',
+    SPARRCALLS = 'SPARR_CALLS',
+    SPARRCALLDURATION = 'SPARR_CALL_DURATION',
     APPOINTMENTSCHEDULED = 'APPOINTMENT_SCHEDULED',
     PROSPECTS = 'PROSPECTS',
     INTERESTED = 'INTERESTED',
@@ -2506,6 +2747,18 @@ export interface Mission {
      */
     farewell?: string | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum NegotiationStyle {
+    HardBargainer = 'hard bargainer',
+    FriendlyNegotiator = 'friendly negotiator',
+    NonNegotiator = 'non-negotiator',
+    Custom = 'custom'
+}
+
 /**
  * Defines how to determine the next step
  * @export
@@ -2887,6 +3140,193 @@ export interface OrganizationSettings {
      */
     logoUrl?: string | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum PatienceLevel {
+    Impatient = 'impatient',
+    Neutral = 'neutral',
+    VeryPatient = 'very patient',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
+ * @interface PersonaAttributesAndTraits
+ */
+export interface PersonaAttributesAndTraits {
+    /**
+     * Geographical location
+     * @type {string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    location?: string | null;
+    /**
+     * Persona\'s job or industry
+     * @type {string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    occupation?: string | null;
+    /**
+     * Level of experience
+     * @type {string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    experience_level?: string | null;
+    /**
+     * 
+     * @type {PatienceLevel | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    patience_level?: PatienceLevel | string | null;
+    /**
+     * 
+     * @type {DecisionMakingStyle | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    decision_making_style?: DecisionMakingStyle | string | null;
+    /**
+     * 
+     * @type {CommunicationStyle | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    communication_style?: CommunicationStyle | string | null;
+    /**
+     * 
+     * @type {ConfidenceLevel | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    confidence_level?: ConfidenceLevel | string | null;
+    /**
+     * 
+     * @type {Adaptability | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    adaptability?: Adaptability | string | null;
+    /**
+     * Persona\'s main goal
+     * @type {string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    primary_goal?: string | null;
+    /**
+     * 
+     * @type {UrgencyLevel | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    urgency_level?: UrgencyLevel | string | null;
+    /**
+     * 
+     * @type {TechnicalKnowledge | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    technical_knowledge?: TechnicalKnowledge | string | null;
+    /**
+     * 
+     * @type {BudgetSensitivity | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    budget_sensitivity?: BudgetSensitivity | string | null;
+    /**
+     * 
+     * @type {FrustrationTolerance | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    frustration_tolerance?: FrustrationTolerance | string | null;
+    /**
+     * 
+     * @type {EngagementLevel | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    engagement_level?: EngagementLevel | string | null;
+    /**
+     * 
+     * @type {TrustLevel | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    trust_level?: TrustLevel | string | null;
+    /**
+     * 
+     * @type {ResistanceToUpselling | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    resistance_to_upselling?: ResistanceToUpselling | string | null;
+    /**
+     * Common objections
+     * @type {Array<string>}
+     * @memberof PersonaAttributesAndTraits
+     */
+    objection_type?: Array<string> | null;
+    /**
+     * 
+     * @type {NegotiationStyle | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    negotiation_style?: NegotiationStyle | string | null;
+    /**
+     * List of pain points
+     * @type {Array<string>}
+     * @memberof PersonaAttributesAndTraits
+     */
+    pain_points?: Array<string> | null;
+    /**
+     * Common questions
+     * @type {Array<string>}
+     * @memberof PersonaAttributesAndTraits
+     */
+    common_questions?: Array<string> | null;
+    /**
+     * 
+     * @type {InteractionTone | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    preferred_tone?: InteractionTone | string | null;
+    /**
+     * 
+     * @type {PreferredCommunicationMethod | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    preferred_communication_method?: PreferredCommunicationMethod | string | null;
+    /**
+     * 
+     * @type {PreferredPace | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    preferred_pace?: PreferredPace | string | null;
+    /**
+     * 
+     * @type {FollowUpExpectation | string}
+     * @memberof PersonaAttributesAndTraits
+     */
+    follow_up_expectation?: FollowUpExpectation | string | null;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum PreferredCommunicationMethod {
+    Chat = 'chat',
+    Phone = 'phone',
+    Email = 'email',
+    InPerson = 'in-person',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum PreferredPace {
+    FastAndEfficient = 'fast and efficient',
+    SlowAndDetailed = 'slow and detailed',
+    Custom = 'custom'
+}
+
 /**
  * Price details of the business
  * @export
@@ -3531,6 +3971,18 @@ export enum ProspectStatus {
  * @export
  * @enum {string}
  */
+export enum ResistanceToUpselling {
+    OpenToSuggestions = 'open to suggestions',
+    Resistant = 'resistant',
+    Indifferent = 'indifferent',
+    Custom = 'custom'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 export enum Role {
     ADMIN = 'ADMIN',
     READONLY = 'READ_ONLY',
@@ -3591,6 +4043,50 @@ export enum SortOrder {
     Desc = 'desc'
 }
 
+/**
+ * 
+ * @export
+ * @interface SparrStatsData
+ */
+export interface SparrStatsData {
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    no_of_calls: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    average_call_duration: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    average_talking_ratio: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    average_dialogs_per_call: number;
+}
+/**
+ * 
+ * @export
+ * @interface SparrStatsResponse
+ */
+export interface SparrStatsResponse {
+    /**
+     * Sparring stats of the organization
+     * @type {SparrStatsData}
+     * @memberof SparrStatsResponse
+     */
+    response: SparrStatsData;
+}
 /**
  * 
  * @export
@@ -3776,6 +4272,18 @@ export interface TaxDetailsOutput {
     taxProps: object | null;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum TechnicalKnowledge {
+    Beginner = 'beginner',
+    Intermediate = 'intermediate',
+    Expert = 'expert',
+    Custom = 'custom'
+}
+
+/**
  * Telephone number details of the business
  * @export
  * @interface TelephoneNumber
@@ -3868,6 +4376,18 @@ export interface Transcriber {
     providerProps?: object | null;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum TrustLevel {
+    Skeptical = 'skeptical',
+    Neutral = 'neutral',
+    Trusting = 'trusting',
+    Custom = 'custom'
+}
+
+/**
  * Enum for UI node types
  * @export
  * @enum {string}
@@ -3898,6 +4418,18 @@ export interface UpdateUserPayload {
      */
     fullName: string | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum UrgencyLevel {
+    Immediate = 'immediate',
+    JustBrowsing = 'just browsing',
+    LongTermInterest = 'long-term interest',
+    Custom = 'custom'
+}
+
 /**
  * Model representing the users under an organization
  * @export
@@ -4050,6 +4582,73 @@ export interface ValidationError {
      * @memberof ValidationError
      */
     type: string;
+}
+/**
+ * Virtual prospect details for sparring
+ * @export
+ * @interface VirtualProspect
+ */
+export interface VirtualProspect {
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    description?: string | null;
+    /**
+     * 
+     * @type {PersonaAttributesAndTraits}
+     * @memberof VirtualProspect
+     */
+    personaAttributes: PersonaAttributesAndTraits | null;
+    /**
+     * Additional information about the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    additionalInfo?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VirtualProspect
+     */
+    updatedAt?: string;
 }
 /**
  * 
@@ -11470,6 +12069,502 @@ export class ProspectsApi extends BaseAPI {
      */
     public updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any) {
         return ProspectsApiFp(this.configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * SparringApi - axios parameter creator
+ * @export
+ */
+export const SparringApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a virtual prospect
+         * @summary Create Virtual Prospect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createVirtualProspectV1SparrVirtualProspectsPost: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/virtual-prospects`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a virtual prospect
+         * @summary Delete Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete: async (prospectId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'prospectId' is not null or undefined
+            if (prospectId === null || prospectId === undefined) {
+                throw new RequiredError('prospectId','Required parameter prospectId was null or undefined when calling deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete.');
+            }
+            const localVarPath = `/v1/sparr/virtual-prospects/{prospect_id}`
+                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get sparring stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Sparring Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSparringStatsV1SparrSparringStatsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/sparring-stats`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a virtual prospect
+         * @summary Get Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectV1SparrVirtualProspectsProspectIdGet: async (prospectId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'prospectId' is not null or undefined
+            if (prospectId === null || prospectId === undefined) {
+                throw new RequiredError('prospectId','Required parameter prospectId was null or undefined when calling getVirtualProspectV1SparrVirtualProspectsProspectIdGet.');
+            }
+            const localVarPath = `/v1/sparr/virtual-prospects/{prospect_id}`
+                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVirtualProspectsV1SparrVirtualProspectsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/virtual-prospects`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a virtual prospect
+         * @summary Update Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: async (prospectId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'prospectId' is not null or undefined
+            if (prospectId === null || prospectId === undefined) {
+                throw new RequiredError('prospectId','Required parameter prospectId was null or undefined when calling updateVirtualProspectV1SparrVirtualProspectsProspectIdPut.');
+            }
+            const localVarPath = `/v1/sparr/virtual-prospects/{prospect_id}`
+                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SparringApi - functional programming interface
+ * @export
+ */
+export const SparringApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Create a virtual prospect
+         * @summary Create Virtual Prospect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createVirtualProspectV1SparrVirtualProspectsPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).createVirtualProspectV1SparrVirtualProspectsPost(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a virtual prospect
+         * @summary Delete Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get sparring stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Sparring Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSparringStatsV1SparrSparringStatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).getSparringStatsV1SparrSparringStatsGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a virtual prospect
+         * @summary Get Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listVirtualProspectsV1SparrVirtualProspectsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspect>>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a virtual prospect
+         * @summary Update Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * SparringApi - factory interface
+ * @export
+ */
+export const SparringApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Create a virtual prospect
+         * @summary Create Virtual Prospect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createVirtualProspectV1SparrVirtualProspectsPost(options?: any): AxiosPromise<VirtualProspect> {
+            return SparringApiFp(configuration).createVirtualProspectV1SparrVirtualProspectsPost(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a virtual prospect
+         * @summary Delete Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any): AxiosPromise<BaseResponseInput> {
+            return SparringApiFp(configuration).deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get sparring stats from Trata AI like call count, prospect count, etc.
+         * @summary Get Sparring Stats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSparringStatsV1SparrSparringStatsGet(options?: any): AxiosPromise<SparrStatsResponse> {
+            return SparringApiFp(configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a virtual prospect
+         * @summary Get Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): AxiosPromise<VirtualProspect> {
+            return SparringApiFp(configuration).getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVirtualProspectsV1SparrVirtualProspectsGet(options?: any): AxiosPromise<Array<VirtualProspect>> {
+            return SparringApiFp(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a virtual prospect
+         * @summary Update Virtual Prospect
+         * @param {string} prospectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any): AxiosPromise<VirtualProspect> {
+            return SparringApiFp(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * SparringApi - object-oriented interface
+ * @export
+ * @class SparringApi
+ * @extends {BaseAPI}
+ */
+export class SparringApi extends BaseAPI {
+    /**
+     * Create a virtual prospect
+     * @summary Create Virtual Prospect
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public createVirtualProspectV1SparrVirtualProspectsPost(options?: any) {
+        return SparringApiFp(this.configuration).createVirtualProspectV1SparrVirtualProspectsPost(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a virtual prospect
+     * @summary Delete Virtual Prospect
+     * @param {string} prospectId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any) {
+        return SparringApiFp(this.configuration).deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get sparring stats from Trata AI like call count, prospect count, etc.
+     * @summary Get Sparring Stats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public getSparringStatsV1SparrSparringStatsGet(options?: any) {
+        return SparringApiFp(this.configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a virtual prospect
+     * @summary Get Virtual Prospect
+     * @param {string} prospectId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any) {
+        return SparringApiFp(this.configuration).getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public listVirtualProspectsV1SparrVirtualProspectsGet(options?: any) {
+        return SparringApiFp(this.configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a virtual prospect
+     * @summary Update Virtual Prospect
+     * @param {string} prospectId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any) {
+        return SparringApiFp(this.configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
