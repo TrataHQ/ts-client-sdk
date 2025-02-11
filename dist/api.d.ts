@@ -72,6 +72,12 @@ export interface AIAgentInput {
      * @memberof AIAgentInput
      */
     boostedKeywords?: Array<string> | null;
+    /**
+     * App in which the AI agent is running
+     * @type {AppEnum}
+     * @memberof AIAgentInput
+     */
+    app?: AppEnum | null;
 }
 /**
  * AI agent configured by businesses
@@ -383,8 +389,7 @@ export interface ActionOutput {
 export declare enum Adaptability {
     OpenToChange = "open to change",
     Resistant = "resistant",
-    Indifferent = "indifferent",
-    Custom = "custom"
+    Indifferent = "indifferent"
 }
 /**
  *
@@ -1167,8 +1172,7 @@ export interface BodyUploadResellerFilesV1 {
 export declare enum BudgetSensitivity {
     CostConscious = "cost-conscious",
     ValueDriven = "value-driven",
-    PremiumBuyer = "premium buyer",
-    Custom = "custom"
+    PremiumBuyer = "premium buyer"
 }
 /**
  *
@@ -1208,8 +1212,7 @@ export declare enum CommunicationStyle {
     Direct = "direct",
     Indirect = "indirect",
     Verbose = "verbose",
-    Brief = "brief",
-    Custom = "custom"
+    Brief = "brief"
 }
 /**
  * Condition Model for branching/looping logic
@@ -1239,8 +1242,7 @@ export declare enum ConfidenceLevel {
     Assertive = "assertive",
     Unsure = "unsure",
     Skeptical = "skeptical",
-    Confident = "confident",
-    Custom = "custom"
+    Confident = "confident"
 }
 /**
  * Core Connection Model
@@ -2008,8 +2010,7 @@ export declare enum DecisionMakingStyle {
     Logical = "logical",
     Emotional = "emotional",
     Impulsive = "impulsive",
-    Hesitant = "hesitant",
-    Custom = "custom"
+    Hesitant = "hesitant"
 }
 /**
  *
@@ -2050,8 +2051,7 @@ export interface DialogLine {
 export declare enum EngagementLevel {
     HighlyEngaged = "highly engaged",
     Distracted = "distracted",
-    Uninterested = "uninterested",
-    Custom = "custom"
+    Uninterested = "uninterested"
 }
 /**
  *
@@ -2190,8 +2190,7 @@ export interface Files {
  */
 export declare enum FollowUpExpectation {
     ExpectsImmediateResponse = "expects immediate response",
-    OkayWithDelays = "okay with delays",
-    Custom = "custom"
+    OkayWithDelays = "okay with delays"
 }
 /**
  *
@@ -2201,8 +2200,7 @@ export declare enum FollowUpExpectation {
 export declare enum FrustrationTolerance {
     QuickToAnger = "quick to anger",
     Understanding = "understanding",
-    Neutral = "neutral",
-    Custom = "custom"
+    Neutral = "neutral"
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -2516,8 +2514,7 @@ export declare enum InteractionTone {
     Professional = "professional",
     Casual = "casual",
     Friendly = "friendly",
-    Authoritative = "authoritative",
-    Custom = "custom"
+    Authoritative = "authoritative"
 }
 /**
  * Internal action endpoint to be used for calling the action inside the module. Not used by external users
@@ -2714,8 +2711,7 @@ export interface Mission {
 export declare enum NegotiationStyle {
     HardBargainer = "hard bargainer",
     FriendlyNegotiator = "friendly negotiator",
-    NonNegotiator = "non-negotiator",
-    Custom = "custom"
+    NonNegotiator = "non-negotiator"
 }
 /**
  * Defines how to determine the next step
@@ -3098,8 +3094,7 @@ export interface OrganizationSettings {
 export declare enum PatienceLevel {
     Impatient = "impatient",
     Neutral = "neutral",
-    VeryPatient = "very patient",
-    Custom = "custom"
+    VeryPatient = "very patient"
 }
 /**
  *
@@ -3261,8 +3256,7 @@ export declare enum PreferredCommunicationMethod {
     Chat = "chat",
     Phone = "phone",
     Email = "email",
-    InPerson = "in-person",
-    Custom = "custom"
+    InPerson = "in-person"
 }
 /**
  *
@@ -3271,8 +3265,7 @@ export declare enum PreferredCommunicationMethod {
  */
 export declare enum PreferredPace {
     FastAndEfficient = "fast and efficient",
-    SlowAndDetailed = "slow and detailed",
-    Custom = "custom"
+    SlowAndDetailed = "slow and detailed"
 }
 /**
  * Price details of the business
@@ -3918,8 +3911,7 @@ export declare enum ProspectStatus {
 export declare enum ResistanceToUpselling {
     OpenToSuggestions = "open to suggestions",
     Resistant = "resistant",
-    Indifferent = "indifferent",
-    Custom = "custom"
+    Indifferent = "indifferent"
 }
 /**
  *
@@ -4219,8 +4211,7 @@ export interface TaxDetailsOutput {
 export declare enum TechnicalKnowledge {
     Beginner = "beginner",
     Intermediate = "intermediate",
-    Expert = "expert",
-    Custom = "custom"
+    Expert = "expert"
 }
 /**
  * Telephone number details of the business
@@ -4322,8 +4313,7 @@ export interface Transcriber {
 export declare enum TrustLevel {
     Skeptical = "skeptical",
     Neutral = "neutral",
-    Trusting = "trusting",
-    Custom = "custom"
+    Trusting = "trusting"
 }
 /**
  * Enum for UI node types
@@ -4363,8 +4353,7 @@ export interface UpdateUserPayload {
 export declare enum UrgencyLevel {
     Immediate = "immediate",
     JustBrowsing = "just browsing",
-    LongTermInterest = "long-term interest",
-    Custom = "custom"
+    LongTermInterest = "long-term interest"
 }
 /**
  * Model representing the users under an organization
@@ -4520,69 +4509,119 @@ export interface ValidationError {
     type: string;
 }
 /**
- * Virtual prospect details for sparring
+ * Link table to store the list of ai agents accessible for each virtual prospect
  * @export
- * @interface VirtualProspect
+ * @interface VirtualProspectAIAgentLink
  */
-export interface VirtualProspect {
+export interface VirtualProspectAIAgentLink {
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectAIAgentLink
+     */
+    virtualProspectId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VirtualProspectAIAgentLink
+     */
+    aiAgentId?: string;
+}
+/**
+ *
+ * @export
+ * @interface VirtualProspectInput
+ */
+export interface VirtualProspectInput {
+    /**
+     * Name of the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspectInput
+     */
+    name: string;
+    /**
+     * Description of the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspectInput
+     */
+    description?: string | null;
+    /**
+     * Attributes of the virtual prospect
+     * @type {PersonaAttributesAndTraits}
+     * @memberof VirtualProspectInput
+     */
+    attributes: PersonaAttributesAndTraits;
+    /**
+     * Additional information about the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspectInput
+     */
+    additionalInfo?: string | null;
+}
+/**
+ * Virtual prospect details for sparring
+ * @export
+ * @interface VirtualProspectOutput
+ */
+export interface VirtualProspectOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof VirtualProspectOutput
      */
     id?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     orgId?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     name?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     description?: string | null;
     /**
      *
      * @type {PersonaAttributesAndTraits}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     personaAttributes: PersonaAttributesAndTraits | null;
     /**
      * Additional information about the virtual prospect
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     additionalInfo?: string | null;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     createdBy?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     createdAt?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     updatedBy?: string;
     /**
      *
      * @type {string}
-     * @memberof VirtualProspect
+     * @memberof VirtualProspectOutput
      */
     updatedAt?: string;
 }
@@ -5466,6 +5505,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
     /**
      * List All AI Agents
      * @summary List All AI Agents
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -5476,7 +5516,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listAIAgentsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5519,6 +5559,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
     /**
      * List All AI Agents
      * @summary List All AI Agents
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -5529,7 +5570,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5572,6 +5613,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
     /**
      * List All AI Agents
      * @summary List All AI Agents
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -5582,7 +5624,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5630,6 +5672,7 @@ export declare class AgentsApi extends BaseAPI {
     /**
      * List All AI Agents
      * @summary List All AI Agents
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -5641,7 +5684,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5662,17 +5705,19 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost: (batchMetricsRequests: BatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    getMetricsV1MetricsPost: (batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet: (options?: any) => Promise<RequestArgs>;
+    getOverallStatsV1StatsGet: (app?: AppEnum, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -5683,17 +5728,19 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -5704,17 +5751,19 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse>;
+    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): AxiosPromise<BatchMetricsResponse>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(options?: any): AxiosPromise<StatsResponse>;
+    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): AxiosPromise<StatsResponse>;
 };
 /**
  * AnalyticsApi - object-oriented interface
@@ -5727,19 +5776,21 @@ export declare class AnalyticsApi extends BaseAPI {
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getOverallStatsV1StatsGet(options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
 }
 /**
  * ApiKeyApi - axios parameter creator
@@ -8106,10 +8157,11 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * Create a virtual prospect
      * @summary Create Virtual Prospect
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost: (options?: any) => Promise<RequestArgs>;
+    createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput: VirtualProspectInput, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -8134,20 +8186,37 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      */
     getVirtualProspectV1SparrVirtualProspectsProspectIdGet: (prospectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * List all virtual prospects
-     * @summary List Virtual Prospects
+     * Link a virtual prospect to an agent
+     * @summary Link Virtual Prospect to Agent
+     * @param {string} prospectId
+     * @param {string} agentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet: (options?: any) => Promise<RequestArgs>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
      * @param {string} prospectId
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any) => Promise<RequestArgs>;
 };
 /**
  * SparringApi - functional programming interface
@@ -8157,10 +8226,11 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
     /**
      * Create a virtual prospect
      * @summary Create Virtual Prospect
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -8183,22 +8253,39 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
-     * List all virtual prospects
-     * @summary List Virtual Prospects
+     * Link a virtual prospect to an agent
+     * @summary Link Virtual Prospect to Agent
+     * @param {string} prospectId
+     * @param {string} agentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspect>>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectAIAgentLink>>;
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
      * @param {string} prospectId
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspect>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
 };
 /**
  * SparringApi - factory interface
@@ -8208,10 +8295,11 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
     /**
      * Create a virtual prospect
      * @summary Create Virtual Prospect
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(options?: any): AxiosPromise<VirtualProspect>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): AxiosPromise<VirtualProspectOutput>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -8234,22 +8322,39 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): AxiosPromise<VirtualProspect>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): AxiosPromise<VirtualProspectOutput>;
     /**
-     * List all virtual prospects
-     * @summary List Virtual Prospects
+     * Link a virtual prospect to an agent
+     * @summary Link Virtual Prospect to Agent
+     * @param {string} prospectId
+     * @param {string} agentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(options?: any): AxiosPromise<Array<VirtualProspect>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): AxiosPromise<VirtualProspectAIAgentLink>;
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
      * @param {string} prospectId
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any): AxiosPromise<VirtualProspect>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): AxiosPromise<VirtualProspectOutput>;
 };
 /**
  * SparringApi - object-oriented interface
@@ -8261,11 +8366,12 @@ export declare class SparringApi extends BaseAPI {
     /**
      * Create a virtual prospect
      * @summary Create Virtual Prospect
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(options?: any): Promise<import("axios").AxiosResponse<VirtualProspect>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -8291,24 +8397,42 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspect>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
     /**
-     * List all virtual prospects
-     * @summary List Virtual Prospects
+     * Link a virtual prospect to an agent
+     * @summary Link Virtual Prospect to Agent
+     * @param {string} prospectId
+     * @param {string} agentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(options?: any): Promise<import("axios").AxiosResponse<VirtualProspect[]>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectAIAgentLink>>;
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
      * @param {string} prospectId
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspect>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
 }
 /**
  * TelephonyApi - axios parameter creator

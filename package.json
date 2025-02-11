@@ -1,6 +1,6 @@
 {
   "name": "@trata/ts-client-sdk",
-  "version": "1.0.30",
+  "version": "1.0.0",
   "description": "OpenAPI client for @trata/ts-client-sdk",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [

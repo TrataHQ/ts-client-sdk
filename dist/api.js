@@ -61,7 +61,6 @@ var Adaptability;
     Adaptability["OpenToChange"] = "open to change";
     Adaptability["Resistant"] = "resistant";
     Adaptability["Indifferent"] = "indifferent";
-    Adaptability["Custom"] = "custom";
 })(Adaptability = exports.Adaptability || (exports.Adaptability = {}));
 /**
  *
@@ -147,7 +146,6 @@ var BudgetSensitivity;
     BudgetSensitivity["CostConscious"] = "cost-conscious";
     BudgetSensitivity["ValueDriven"] = "value-driven";
     BudgetSensitivity["PremiumBuyer"] = "premium buyer";
-    BudgetSensitivity["Custom"] = "custom";
 })(BudgetSensitivity = exports.BudgetSensitivity || (exports.BudgetSensitivity = {}));
 /**
  *
@@ -171,7 +169,6 @@ var CommunicationStyle;
     CommunicationStyle["Indirect"] = "indirect";
     CommunicationStyle["Verbose"] = "verbose";
     CommunicationStyle["Brief"] = "brief";
-    CommunicationStyle["Custom"] = "custom";
 })(CommunicationStyle = exports.CommunicationStyle || (exports.CommunicationStyle = {}));
 /**
  *
@@ -184,7 +181,6 @@ var ConfidenceLevel;
     ConfidenceLevel["Unsure"] = "unsure";
     ConfidenceLevel["Skeptical"] = "skeptical";
     ConfidenceLevel["Confident"] = "confident";
-    ConfidenceLevel["Custom"] = "custom";
 })(ConfidenceLevel = exports.ConfidenceLevel || (exports.ConfidenceLevel = {}));
 /**
     * @export
@@ -226,7 +222,6 @@ var DecisionMakingStyle;
     DecisionMakingStyle["Emotional"] = "emotional";
     DecisionMakingStyle["Impulsive"] = "impulsive";
     DecisionMakingStyle["Hesitant"] = "hesitant";
-    DecisionMakingStyle["Custom"] = "custom";
 })(DecisionMakingStyle = exports.DecisionMakingStyle || (exports.DecisionMakingStyle = {}));
 /**
  *
@@ -238,7 +233,6 @@ var EngagementLevel;
     EngagementLevel["HighlyEngaged"] = "highly engaged";
     EngagementLevel["Distracted"] = "distracted";
     EngagementLevel["Uninterested"] = "uninterested";
-    EngagementLevel["Custom"] = "custom";
 })(EngagementLevel = exports.EngagementLevel || (exports.EngagementLevel = {}));
 /**
  *
@@ -249,7 +243,6 @@ var FollowUpExpectation;
 (function (FollowUpExpectation) {
     FollowUpExpectation["ExpectsImmediateResponse"] = "expects immediate response";
     FollowUpExpectation["OkayWithDelays"] = "okay with delays";
-    FollowUpExpectation["Custom"] = "custom";
 })(FollowUpExpectation = exports.FollowUpExpectation || (exports.FollowUpExpectation = {}));
 /**
  *
@@ -261,7 +254,6 @@ var FrustrationTolerance;
     FrustrationTolerance["QuickToAnger"] = "quick to anger";
     FrustrationTolerance["Understanding"] = "understanding";
     FrustrationTolerance["Neutral"] = "neutral";
-    FrustrationTolerance["Custom"] = "custom";
 })(FrustrationTolerance = exports.FrustrationTolerance || (exports.FrustrationTolerance = {}));
 /**
  *
@@ -295,7 +287,6 @@ var InteractionTone;
     InteractionTone["Casual"] = "casual";
     InteractionTone["Friendly"] = "friendly";
     InteractionTone["Authoritative"] = "authoritative";
-    InteractionTone["Custom"] = "custom";
 })(InteractionTone = exports.InteractionTone || (exports.InteractionTone = {}));
 /**
  *
@@ -334,7 +325,6 @@ var NegotiationStyle;
     NegotiationStyle["HardBargainer"] = "hard bargainer";
     NegotiationStyle["FriendlyNegotiator"] = "friendly negotiator";
     NegotiationStyle["NonNegotiator"] = "non-negotiator";
-    NegotiationStyle["Custom"] = "custom";
 })(NegotiationStyle = exports.NegotiationStyle || (exports.NegotiationStyle = {}));
 /**
     * @export
@@ -378,7 +368,6 @@ var PatienceLevel;
     PatienceLevel["Impatient"] = "impatient";
     PatienceLevel["Neutral"] = "neutral";
     PatienceLevel["VeryPatient"] = "very patient";
-    PatienceLevel["Custom"] = "custom";
 })(PatienceLevel = exports.PatienceLevel || (exports.PatienceLevel = {}));
 /**
  *
@@ -391,7 +380,6 @@ var PreferredCommunicationMethod;
     PreferredCommunicationMethod["Phone"] = "phone";
     PreferredCommunicationMethod["Email"] = "email";
     PreferredCommunicationMethod["InPerson"] = "in-person";
-    PreferredCommunicationMethod["Custom"] = "custom";
 })(PreferredCommunicationMethod = exports.PreferredCommunicationMethod || (exports.PreferredCommunicationMethod = {}));
 /**
  *
@@ -402,7 +390,6 @@ var PreferredPace;
 (function (PreferredPace) {
     PreferredPace["FastAndEfficient"] = "fast and efficient";
     PreferredPace["SlowAndDetailed"] = "slow and detailed";
-    PreferredPace["Custom"] = "custom";
 })(PreferredPace = exports.PreferredPace || (exports.PreferredPace = {}));
 /**
     * @export
@@ -607,7 +594,6 @@ var ResistanceToUpselling;
     ResistanceToUpselling["OpenToSuggestions"] = "open to suggestions";
     ResistanceToUpselling["Resistant"] = "resistant";
     ResistanceToUpselling["Indifferent"] = "indifferent";
-    ResistanceToUpselling["Custom"] = "custom";
 })(ResistanceToUpselling = exports.ResistanceToUpselling || (exports.ResistanceToUpselling = {}));
 /**
  *
@@ -650,7 +636,6 @@ var TechnicalKnowledge;
     TechnicalKnowledge["Beginner"] = "beginner";
     TechnicalKnowledge["Intermediate"] = "intermediate";
     TechnicalKnowledge["Expert"] = "expert";
-    TechnicalKnowledge["Custom"] = "custom";
 })(TechnicalKnowledge = exports.TechnicalKnowledge || (exports.TechnicalKnowledge = {}));
 /**
  *
@@ -662,7 +647,6 @@ var TrustLevel;
     TrustLevel["Skeptical"] = "skeptical";
     TrustLevel["Neutral"] = "neutral";
     TrustLevel["Trusting"] = "trusting";
-    TrustLevel["Custom"] = "custom";
 })(TrustLevel = exports.TrustLevel || (exports.TrustLevel = {}));
 /**
  * Enum for UI node types
@@ -686,7 +670,6 @@ var UrgencyLevel;
     UrgencyLevel["Immediate"] = "immediate";
     UrgencyLevel["JustBrowsing"] = "just browsing";
     UrgencyLevel["LongTermInterest"] = "long-term interest";
-    UrgencyLevel["Custom"] = "custom";
 })(UrgencyLevel = exports.UrgencyLevel || (exports.UrgencyLevel = {}));
 /**
     * @export
@@ -1592,6 +1575,7 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -1602,7 +1586,7 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAIAgentsV1: (app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/ai-agents`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -1619,6 +1603,9 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
             if (searchBy !== undefined) {
                 localVarQueryParameter['search_by'] = searchBy;
@@ -1758,6 +1745,7 @@ exports.AgentsApiFp = function (configuration) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -1768,9 +1756,9 @@ exports.AgentsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AgentsApiAxiosParamCreator(configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+                const localVarAxiosArgs = yield exports.AgentsApiAxiosParamCreator(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1835,6 +1823,7 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -1845,8 +1834,8 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.AgentsApiFp(configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return exports.AgentsApiFp(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific AI Agent by ID
@@ -1904,6 +1893,7 @@ class AgentsApi extends base_1.BaseAPI {
     /**
      * List All AI Agents
      * @summary List All AI Agents
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -1915,8 +1905,8 @@ class AgentsApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.AgentsApiFp(this.configuration).listAIAgentsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        return exports.AgentsApiFp(this.configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a Specific AI Agent by ID
@@ -1942,10 +1932,11 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
          * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost: (batchMetricsRequests, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getMetricsV1MetricsPost: (batchMetricsRequests, app, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'batchMetricsRequests' is not null or undefined
             if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
                 throw new base_1.RequiredError('batchMetricsRequests', 'Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
@@ -1967,6 +1958,9 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -1983,10 +1977,11 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOverallStatsV1StatsGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getOverallStatsV1StatsGet: (app, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/stats`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2003,6 +1998,9 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -2026,12 +2024,13 @@ exports.AnalyticsApiFp = function (configuration) {
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
          * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost(batchMetricsRequests, options) {
+        getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options);
+                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2041,12 +2040,13 @@ exports.AnalyticsApiFp = function (configuration) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOverallStatsV1StatsGet(options) {
+        getOverallStatsV1StatsGet(app, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(options);
+                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(app, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2065,20 +2065,22 @@ exports.AnalyticsApiFactory = function (configuration, basePath, axios) {
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
          * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost(batchMetricsRequests, options) {
-            return exports.AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(axios, basePath));
+        getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
+            return exports.AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(axios, basePath));
         },
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOverallStatsV1StatsGet(options) {
-            return exports.AnalyticsApiFp(configuration).getOverallStatsV1StatsGet(options).then((request) => request(axios, basePath));
+        getOverallStatsV1StatsGet(app, options) {
+            return exports.AnalyticsApiFp(configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2093,22 +2095,24 @@ class AnalyticsApi extends base_1.BaseAPI {
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequests, options) {
-        return exports.AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
+        return exports.AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getOverallStatsV1StatsGet(options) {
-        return exports.AnalyticsApiFp(this.configuration).getOverallStatsV1StatsGet(options).then((request) => request(this.axios, this.basePath));
+    getOverallStatsV1StatsGet(app, options) {
+        return exports.AnalyticsApiFp(this.configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AnalyticsApi = AnalyticsApi;
@@ -7207,10 +7211,15 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
         /**
          * Create a virtual prospect
          * @summary Create Virtual Prospect
+         * @param {VirtualProspectInput} virtualProspectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createVirtualProspectV1SparrVirtualProspectsPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'virtualProspectInput' is not null or undefined
+            if (virtualProspectInput === null || virtualProspectInput === undefined) {
+                throw new base_1.RequiredError('virtualProspectInput', 'Required parameter virtualProspectInput was null or undefined when calling createVirtualProspectV1SparrVirtualProspectsPost.');
+            }
             const localVarPath = `/v1/sparr/virtual-prospects`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7228,11 +7237,14 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof virtualProspectInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(virtualProspectInput !== undefined ? virtualProspectInput : {}) : (virtualProspectInput || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -7353,19 +7365,31 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * List all virtual prospects
-         * @summary List Virtual Prospects
+         * Link a virtual prospect to an agent
+         * @summary Link Virtual Prospect to Agent
+         * @param {string} prospectId
+         * @param {string} agentId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVirtualProspectsV1SparrVirtualProspectsGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/virtual-prospects`;
+        linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId, agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'prospectId' is not null or undefined
+            if (prospectId === null || prospectId === undefined) {
+                throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost.');
+            }
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost.');
+            }
+            const localVarPath = `/v1/sparr/virtual-prospects/{prospect_id}/agent/{agent_id}/link`
+                .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)))
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication HTTPBearer required
@@ -7387,16 +7411,83 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Update a virtual prospect
-         * @summary Update Virtual Prospect
-         * @param {string} prospectId
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/virtual-prospects`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a virtual prospect
+         * @summary Update Virtual Prospect
+         * @param {string} prospectId
+         * @param {VirtualProspectInput} virtualProspectInput
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId, virtualProspectInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'prospectId' is not null or undefined
             if (prospectId === null || prospectId === undefined) {
                 throw new base_1.RequiredError('prospectId', 'Required parameter prospectId was null or undefined when calling updateVirtualProspectV1SparrVirtualProspectsProspectIdPut.');
+            }
+            // verify required parameter 'virtualProspectInput' is not null or undefined
+            if (virtualProspectInput === null || virtualProspectInput === undefined) {
+                throw new base_1.RequiredError('virtualProspectInput', 'Required parameter virtualProspectInput was null or undefined when calling updateVirtualProspectV1SparrVirtualProspectsProspectIdPut.');
             }
             const localVarPath = `/v1/sparr/virtual-prospects/{prospect_id}`
                 .replace(`{${"prospect_id"}}`, encodeURIComponent(String(prospectId)));
@@ -7416,11 +7507,14 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof virtualProspectInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(virtualProspectInput !== undefined ? virtualProspectInput : {}) : (virtualProspectInput || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -7437,12 +7531,13 @@ exports.SparringApiFp = function (configuration) {
         /**
          * Create a virtual prospect
          * @summary Create Virtual Prospect
+         * @param {VirtualProspectInput} virtualProspectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createVirtualProspectV1SparrVirtualProspectsPost(options) {
+        createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).createVirtualProspectV1SparrVirtualProspectsPost(options);
+                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -7497,14 +7592,38 @@ exports.SparringApiFp = function (configuration) {
             });
         },
         /**
-         * List all virtual prospects
-         * @summary List Virtual Prospects
+         * Link a virtual prospect to an agent
+         * @summary Link Virtual Prospect to Agent
+         * @param {string} prospectId
+         * @param {string} agentId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVirtualProspectsV1SparrVirtualProspectsGet(options) {
+        linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options);
+                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -7515,12 +7634,13 @@ exports.SparringApiFp = function (configuration) {
          * Update a virtual prospect
          * @summary Update Virtual Prospect
          * @param {string} prospectId
+         * @param {VirtualProspectInput} virtualProspectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options) {
+        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options);
+                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -7538,11 +7658,12 @@ exports.SparringApiFactory = function (configuration, basePath, axios) {
         /**
          * Create a virtual prospect
          * @summary Create Virtual Prospect
+         * @param {VirtualProspectInput} virtualProspectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createVirtualProspectV1SparrVirtualProspectsPost(options) {
-            return exports.SparringApiFp(configuration).createVirtualProspectV1SparrVirtualProspectsPost(options).then((request) => request(axios, basePath));
+        createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options) {
+            return exports.SparringApiFp(configuration).createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a virtual prospect
@@ -7574,23 +7695,42 @@ exports.SparringApiFactory = function (configuration, basePath, axios) {
             return exports.SparringApiFp(configuration).getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List all virtual prospects
-         * @summary List Virtual Prospects
+         * Link a virtual prospect to an agent
+         * @summary Link Virtual Prospect to Agent
+         * @param {string} prospectId
+         * @param {string} agentId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVirtualProspectsV1SparrVirtualProspectsGet(options) {
-            return exports.SparringApiFp(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options).then((request) => request(axios, basePath));
+        linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options) {
+            return exports.SparringApiFp(configuration).linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List all virtual prospects
+         * @summary List Virtual Prospects
+         * @param {string} [searchBy] Field name to search by
+         * @param {string} [searchValue] Value to search for in the specified field
+         * @param {string} [status] Filter by status
+         * @param {string} [sortBy] Field to sort by
+         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+         * @param {number} [skip] Number of records to skip
+         * @param {number} [limit] Maximum number of records to return
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return exports.SparringApiFp(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a virtual prospect
          * @summary Update Virtual Prospect
          * @param {string} prospectId
+         * @param {VirtualProspectInput} virtualProspectInput
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options) {
-            return exports.SparringApiFp(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options).then((request) => request(axios, basePath));
+        updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options) {
+            return exports.SparringApiFp(configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7604,12 +7744,13 @@ class SparringApi extends base_1.BaseAPI {
     /**
      * Create a virtual prospect
      * @summary Create Virtual Prospect
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(options) {
-        return exports.SparringApiFp(this.configuration).createVirtualProspectV1SparrVirtualProspectsPost(options).then((request) => request(this.axios, this.basePath));
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options) {
+        return exports.SparringApiFp(this.configuration).createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a virtual prospect
@@ -7644,25 +7785,45 @@ class SparringApi extends base_1.BaseAPI {
         return exports.SparringApiFp(this.configuration).getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * List all virtual prospects
-     * @summary List Virtual Prospects
+     * Link a virtual prospect to an agent
+     * @summary Link Virtual Prospect to Agent
+     * @param {string} prospectId
+     * @param {string} agentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(options) {
-        return exports.SparringApiFp(this.configuration).listVirtualProspectsV1SparrVirtualProspectsGet(options).then((request) => request(this.axios, this.basePath));
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options) {
+        return exports.SparringApiFp(this.configuration).linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId, agentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List all virtual prospects
+     * @summary List Virtual Prospects
+     * @param {string} [searchBy] Field name to search by
+     * @param {string} [searchValue] Value to search for in the specified field
+     * @param {string} [status] Filter by status
+     * @param {string} [sortBy] Field to sort by
+     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
+     * @param {number} [skip] Number of records to skip
+     * @param {number} [limit] Maximum number of records to return
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        return exports.SparringApiFp(this.configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
      * @param {string} prospectId
+     * @param {VirtualProspectInput} virtualProspectInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options) {
-        return exports.SparringApiFp(this.configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, options).then((request) => request(this.axios, this.basePath));
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options) {
+        return exports.SparringApiFp(this.configuration).updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId, virtualProspectInput, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SparringApi = SparringApi;
