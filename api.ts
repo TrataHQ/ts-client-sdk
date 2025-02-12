@@ -1191,17 +1191,6 @@ export interface BodyUploadResellerFilesV1 {
  * @export
  * @enum {string}
  */
-export enum BudgetSensitivity {
-    CostConscious = 'cost-conscious',
-    ValueDriven = 'value-driven',
-    PremiumBuyer = 'premium buyer'
-}
-
-/**
- * 
- * @export
- * @enum {string}
- */
 export enum CallSentiment {
     Positive = 'positive',
     Negative = 'negative',
@@ -1258,18 +1247,6 @@ export interface Condition {
      */
     stepId: string;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum ConfidenceLevel {
-    Assertive = 'assertive',
-    Unsure = 'unsure',
-    Skeptical = 'skeptical',
-    Confident = 'confident'
-}
-
 /**
  * Core Connection Model
  * @export
@@ -2221,16 +2198,6 @@ export interface Files {
  * @export
  * @enum {string}
  */
-export enum FollowUpExpectation {
-    ExpectsImmediateResponse = 'expects immediate response',
-    OkayWithDelays = 'okay with delays'
-}
-
-/**
- * 
- * @export
- * @enum {string}
- */
 export enum FrustrationTolerance {
     QuickToAnger = 'quick to anger',
     Understanding = 'understanding',
@@ -3154,24 +3121,6 @@ export enum PatienceLevel {
  */
 export interface PersonaAttributesAndTraits {
     /**
-     * Geographical location
-     * @type {string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    location?: string | null;
-    /**
-     * Persona\'s job or industry
-     * @type {string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    occupation?: string | null;
-    /**
-     * Level of experience
-     * @type {string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    experience_level?: string | null;
-    /**
      * 
      * @type {PatienceLevel | string}
      * @memberof PersonaAttributesAndTraits
@@ -3191,40 +3140,10 @@ export interface PersonaAttributesAndTraits {
     communication_style?: CommunicationStyle | string | null;
     /**
      * 
-     * @type {ConfidenceLevel | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    confidence_level?: ConfidenceLevel | string | null;
-    /**
-     * 
      * @type {Adaptability | string}
      * @memberof PersonaAttributesAndTraits
      */
     adaptability?: Adaptability | string | null;
-    /**
-     * Persona\'s main goal
-     * @type {string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    primary_goal?: string | null;
-    /**
-     * 
-     * @type {UrgencyLevel | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    urgency_level?: UrgencyLevel | string | null;
-    /**
-     * 
-     * @type {TechnicalKnowledge | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    technical_knowledge?: TechnicalKnowledge | string | null;
-    /**
-     * 
-     * @type {BudgetSensitivity | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    budget_sensitivity?: BudgetSensitivity | string | null;
     /**
      * 
      * @type {FrustrationTolerance | string}
@@ -3239,87 +3158,17 @@ export interface PersonaAttributesAndTraits {
     engagement_level?: EngagementLevel | string | null;
     /**
      * 
-     * @type {TrustLevel | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    trust_level?: TrustLevel | string | null;
-    /**
-     * 
-     * @type {ResistanceToUpselling | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    resistance_to_upselling?: ResistanceToUpselling | string | null;
-    /**
-     * Common objections
-     * @type {Array<string>}
-     * @memberof PersonaAttributesAndTraits
-     */
-    objection_type?: Array<string> | null;
-    /**
-     * 
-     * @type {NegotiationStyle | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    negotiation_style?: NegotiationStyle | string | null;
-    /**
-     * List of pain points
-     * @type {Array<string>}
-     * @memberof PersonaAttributesAndTraits
-     */
-    pain_points?: Array<string> | null;
-    /**
-     * Common questions
-     * @type {Array<string>}
-     * @memberof PersonaAttributesAndTraits
-     */
-    common_questions?: Array<string> | null;
-    /**
-     * 
      * @type {InteractionTone | string}
      * @memberof PersonaAttributesAndTraits
      */
     preferred_tone?: InteractionTone | string | null;
     /**
      * 
-     * @type {PreferredCommunicationMethod | string}
+     * @type {NegotiationStyle | string}
      * @memberof PersonaAttributesAndTraits
      */
-    preferred_communication_method?: PreferredCommunicationMethod | string | null;
-    /**
-     * 
-     * @type {PreferredPace | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    preferred_pace?: PreferredPace | string | null;
-    /**
-     * 
-     * @type {FollowUpExpectation | string}
-     * @memberof PersonaAttributesAndTraits
-     */
-    follow_up_expectation?: FollowUpExpectation | string | null;
+    negotiation_style?: NegotiationStyle | string | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum PreferredCommunicationMethod {
-    Chat = 'chat',
-    Phone = 'phone',
-    Email = 'email',
-    InPerson = 'in-person'
-}
-
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum PreferredPace {
-    FastAndEfficient = 'fast and efficient',
-    SlowAndDetailed = 'slow and detailed'
-}
-
 /**
  * Price details of the business
  * @export
@@ -3964,17 +3813,6 @@ export enum ProspectStatus {
  * @export
  * @enum {string}
  */
-export enum ResistanceToUpselling {
-    OpenToSuggestions = 'open to suggestions',
-    Resistant = 'resistant',
-    Indifferent = 'indifferent'
-}
-
-/**
- * 
- * @export
- * @enum {string}
- */
 export enum Role {
     ADMIN = 'ADMIN',
     READONLY = 'READ_ONLY',
@@ -4264,17 +4102,6 @@ export interface TaxDetailsOutput {
     taxProps: object | null;
 }
 /**
- * 
- * @export
- * @enum {string}
- */
-export enum TechnicalKnowledge {
-    Beginner = 'beginner',
-    Intermediate = 'intermediate',
-    Expert = 'expert'
-}
-
-/**
  * Telephone number details of the business
  * @export
  * @interface TelephoneNumber
@@ -4367,17 +4194,6 @@ export interface Transcriber {
     providerProps?: object | null;
 }
 /**
- * 
- * @export
- * @enum {string}
- */
-export enum TrustLevel {
-    Skeptical = 'skeptical',
-    Neutral = 'neutral',
-    Trusting = 'trusting'
-}
-
-/**
  * Enum for UI node types
  * @export
  * @enum {string}
@@ -4408,17 +4224,6 @@ export interface UpdateUserPayload {
      */
     fullName: string | null;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum UrgencyLevel {
-    Immediate = 'immediate',
-    JustBrowsing = 'just browsing',
-    LongTermInterest = 'long-term interest'
-}
-
 /**
  * Model representing the users under an organization
  * @export
