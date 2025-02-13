@@ -4419,7 +4419,7 @@ export interface VirtualProspectInput {
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectInput
      */
-    attributes: PersonaAttributesAndTraits;
+    personaAttributes: PersonaAttributesAndTraits;
     /**
      * Additional information about the virtual prospect
      * @type {string}
@@ -12081,6 +12081,51 @@ export const SparringApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: async (agentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet.');
+            }
+            const localVarPath = `/v1/sparr/agent/{agent_id}/virtual-prospect`
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId 
@@ -12355,6 +12400,20 @@ export const SparringApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId 
@@ -12457,6 +12516,16 @@ export const SparringApiFactory = function (configuration?: Configuration, baseP
             return SparringApiFp(configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>> {
+            return SparringApiFp(configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId 
@@ -12547,6 +12616,18 @@ export class SparringApi extends BaseAPI {
      */
     public getSparringStatsV1SparrSparringStatsGet(options?: any) {
         return SparringApiFp(this.configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    public getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any) {
+        return SparringApiFp(this.configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

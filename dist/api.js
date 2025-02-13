@@ -7226,6 +7226,46 @@ exports.SparringApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'agentId' is not null or undefined
+            if (agentId === null || agentId === undefined) {
+                throw new base_1.RequiredError('agentId', 'Required parameter agentId was null or undefined when calling getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet.');
+            }
+            const localVarPath = `/v1/sparr/agent/{agent_id}/virtual-prospect`
+                .replace(`{${"agent_id"}}`, encodeURIComponent(String(agentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId
@@ -7477,6 +7517,22 @@ exports.SparringApiFp = function (configuration) {
             });
         },
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparringApiAxiosParamCreator(configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId
@@ -7586,6 +7642,16 @@ exports.SparringApiFactory = function (configuration, basePath, axios) {
             return exports.SparringApiFp(configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get virtual prospect associated with an agent
+         * @summary Get Virtual Prospect by Agent ID
+         * @param {string} agentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options) {
+            return exports.SparringApiFp(configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a virtual prospect
          * @summary Get Virtual Prospect
          * @param {string} prospectId
@@ -7673,6 +7739,17 @@ class SparringApi extends base_1.BaseAPI {
      */
     getSparringStatsV1SparrSparringStatsGet(options) {
         return exports.SparringApiFp(this.configuration).getSparringStatsV1SparrSparringStatsGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options) {
+        return exports.SparringApiFp(this.configuration).getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a virtual prospect

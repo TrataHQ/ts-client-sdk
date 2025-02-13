@@ -4364,7 +4364,7 @@ export interface VirtualProspectInput {
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectInput
      */
-    attributes: PersonaAttributesAndTraits;
+    personaAttributes: PersonaAttributesAndTraits;
     /**
      * Additional information about the virtual prospect
      * @type {string}
@@ -7992,6 +7992,14 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      */
     getSparringStatsV1SparrSparringStatsGet: (options?: any) => Promise<RequestArgs>;
     /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
      * @param {string} prospectId
@@ -8061,6 +8069,14 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      */
     getSparringStatsV1SparrSparringStatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>>;
     /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
      * @param {string} prospectId
@@ -8129,6 +8145,14 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getSparringStatsV1SparrSparringStatsGet(options?: any): AxiosPromise<SparrStatsResponse>;
+    /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -8203,6 +8227,15 @@ export declare class SparringApi extends BaseAPI {
      * @memberof SparringApi
      */
     getSparringStatsV1SparrSparringStatsGet(options?: any): Promise<import("axios").AxiosResponse<SparrStatsResponse>>;
+    /**
+     * Get virtual prospect associated with an agent
+     * @summary Get Virtual Prospect by Agent ID
+     * @param {string} agentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparringApi
+     */
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
