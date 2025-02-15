@@ -217,7 +217,8 @@ export enum Accent {
     Indian = 'Indian',
     Australian = 'Australian',
     British = 'British',
-    Hindi = 'Hindi'
+    Hindi = 'Hindi',
+    MiddleEastern = 'Middle Eastern'
 }
 
 /**
@@ -1725,6 +1726,12 @@ export interface ConversationInput {
      * @memberof ConversationInput
      */
     adminComments?: Array<Comment> | null;
+    /**
+     * Stats of the conversation
+     * @type {ConversationStatsModel}
+     * @memberof ConversationInput
+     */
+    conversationStats?: ConversationStatsModel | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -1804,6 +1811,12 @@ export interface ConversationOutput {
      * @memberof ConversationOutput
      */
     conversationAnalytics?: ConversationAnalyticsModel | null;
+    /**
+     * Stats of the conversation
+     * @type {ConversationStatsModel}
+     * @memberof ConversationOutput
+     */
+    conversationStats?: ConversationStatsModel | null;
     /**
      * Application under which the conversation is created
      * @type {AppEnum}
@@ -1941,6 +1954,31 @@ export enum ConversationStartEventPayloadTypeEnum {
     ConversationStart = 'conversation_start'
 }
 
+/**
+ * 
+ * @export
+ * @interface ConversationStatsModel
+ */
+export interface ConversationStatsModel {
+    /**
+     * Total number of dialogs in the conversation
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    total_dialog: number;
+    /**
+     * Ratio of Agent dialogs to total dialogs
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    agent_dialog_ratio: number;
+    /**
+     * Ratio of User dialogs to total dialogs
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    user_dialog_ratio: number;
+}
 /**
  * 
  * @export
@@ -3896,13 +3934,19 @@ export interface SparrStatsData {
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_talking_ratio: number;
+    average_dialogs: number;
     /**
      * 
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_dialogs_per_call: number;
+    average_agent_dialog_ratio: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    average_user_dialog_ratio: number;
 }
 /**
  * 
@@ -7765,6 +7809,7 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app] 
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -7775,7 +7820,7 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listConversationsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/conversations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7793,6 +7838,10 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
 
             if (searchBy !== undefined) {
@@ -7959,6 +8008,7 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app] 
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -7969,8 +8019,8 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
-            const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
+            const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8044,6 +8094,7 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app] 
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -8054,8 +8105,8 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>> {
-            return ConversationsApiFp(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>> {
+            return ConversationsApiFp(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Conversation by ID
@@ -8130,6 +8181,7 @@ export class ConversationsApi extends BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app] 
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -8141,8 +8193,8 @@ export class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    public listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return ConversationsApiFp(this.configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
+        return ConversationsApiFp(this.configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

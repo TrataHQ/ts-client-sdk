@@ -210,7 +210,8 @@ export declare enum Accent {
     Indian = "Indian",
     Australian = "Australian",
     British = "British",
-    Hindi = "Hindi"
+    Hindi = "Hindi",
+    MiddleEastern = "Middle Eastern"
 }
 /**
  *
@@ -1699,6 +1700,12 @@ export interface ConversationInput {
      * @memberof ConversationInput
      */
     adminComments?: Array<Comment> | null;
+    /**
+     * Stats of the conversation
+     * @type {ConversationStatsModel}
+     * @memberof ConversationInput
+     */
+    conversationStats?: ConversationStatsModel | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -1778,6 +1785,12 @@ export interface ConversationOutput {
      * @memberof ConversationOutput
      */
     conversationAnalytics?: ConversationAnalyticsModel | null;
+    /**
+     * Stats of the conversation
+     * @type {ConversationStatsModel}
+     * @memberof ConversationOutput
+     */
+    conversationStats?: ConversationStatsModel | null;
     /**
      * Application under which the conversation is created
      * @type {AppEnum}
@@ -1911,6 +1924,31 @@ export interface ConversationStartEventPayload {
     */
 export declare enum ConversationStartEventPayloadTypeEnum {
     ConversationStart = "conversation_start"
+}
+/**
+ *
+ * @export
+ * @interface ConversationStatsModel
+ */
+export interface ConversationStatsModel {
+    /**
+     * Total number of dialogs in the conversation
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    total_dialog: number;
+    /**
+     * Ratio of Agent dialogs to total dialogs
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    agent_dialog_ratio: number;
+    /**
+     * Ratio of User dialogs to total dialogs
+     * @type {number}
+     * @memberof ConversationStatsModel
+     */
+    user_dialog_ratio: number;
 }
 /**
  *
@@ -3843,13 +3881,19 @@ export interface SparrStatsData {
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_talking_ratio: number;
+    average_dialogs: number;
     /**
      *
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_dialogs_per_call: number;
+    average_agent_dialog_ratio: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrStatsData
+     */
+    average_user_dialog_ratio: number;
 }
 /**
  *
@@ -6105,6 +6149,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -6115,7 +6160,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listConversationsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6167,6 +6212,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -6177,7 +6223,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6229,6 +6275,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -6239,7 +6286,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6297,6 +6344,7 @@ export declare class ConversationsApi extends BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -6308,7 +6356,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID

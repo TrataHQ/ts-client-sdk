@@ -39,6 +39,7 @@ var Accent;
     Accent["Australian"] = "Australian";
     Accent["British"] = "British";
     Accent["Hindi"] = "Hindi";
+    Accent["MiddleEastern"] = "Middle Eastern";
 })(Accent = exports.Accent || (exports.Accent = {}));
 /**
  *
@@ -3185,6 +3186,7 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3195,7 +3197,7 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1: (searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConversationsV1: (app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/conversations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -3212,6 +3214,9 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
             if (searchBy !== undefined) {
                 localVarQueryParameter['search_by'] = searchBy;
@@ -3368,6 +3373,7 @@ exports.ConversationsApiFp = function (configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3378,9 +3384,9 @@ exports.ConversationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConversationsApiAxiosParamCreator(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+                const localVarAxiosArgs = yield exports.ConversationsApiAxiosParamCreator(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3456,6 +3462,7 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
         /**
          * List All Conversations
          * @summary List All Conversations
+         * @param {AppEnum} [app]
          * @param {string} [searchBy] Field name to search by
          * @param {string} [searchValue] Value to search for in the specified field
          * @param {string} [status] Filter by status
@@ -3466,8 +3473,8 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-            return exports.ConversationsApiFp(configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+            return exports.ConversationsApiFp(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Conversation by ID
@@ -3537,6 +3544,7 @@ class ConversationsApi extends base_1.BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
+     * @param {AppEnum} [app]
      * @param {string} [searchBy] Field name to search by
      * @param {string} [searchValue] Value to search for in the specified field
      * @param {string} [status] Filter by status
@@ -3548,8 +3556,8 @@ class ConversationsApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
-        return exports.ConversationsApiFp(this.configuration).listConversationsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options) {
+        return exports.ConversationsApiFp(this.configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a Specific Conversation by ID
