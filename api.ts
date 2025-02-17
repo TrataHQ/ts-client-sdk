@@ -85,6 +85,12 @@ export interface AIAgentInput {
      * @memberof AIAgentInput
      */
     app?: AppEnum | null;
+    /**
+     * Evaluation metrics for the conversation
+     * @type {ConversationEvaluationMetrics}
+     * @memberof AIAgentInput
+     */
+    evaluationMetrics?: ConversationEvaluationMetrics | null;
 }
 /**
  * AI agent configured by businesses
@@ -1513,28 +1519,40 @@ export interface ConversationEndEventPayload {
 export interface ConversationEvaluation {
     /**
      * 
-     * @type {Array<ConversationEvaluationData>}
-     * @memberof ConversationEvaluation
-     */
-    aiEvaluations?: Array<ConversationEvaluationData>;
-    /**
-     * 
      * @type {string}
      * @memberof ConversationEvaluation
      */
-    aiEvaluationSummary?: string | null;
+    aiEvaluationSummary: string | null;
     /**
      * 
      * @type {Array<ConversationEvaluationData>}
      * @memberof ConversationEvaluation
      */
-    humanEvaluations?: Array<ConversationEvaluationData> | null;
+    aiQualitativeEvaluation: Array<ConversationEvaluationData>;
+    /**
+     * 
+     * @type {Array<ConversationEvaluationData>}
+     * @memberof ConversationEvaluation
+     */
+    aiQuantitativeEvaluation: Array<ConversationEvaluationData>;
     /**
      * 
      * @type {string}
      * @memberof ConversationEvaluation
      */
-    humanEvaluationSummary?: string | null;
+    humanEvaluationSummary: string | null;
+    /**
+     * 
+     * @type {Array<ConversationEvaluationData>}
+     * @memberof ConversationEvaluation
+     */
+    humanQualitativeEvaluation: Array<ConversationEvaluationData> | null;
+    /**
+     * 
+     * @type {Array<ConversationEvaluationData>}
+     * @memberof ConversationEvaluation
+     */
+    humanQuantitativeEvaluation: Array<ConversationEvaluationData> | null;
 }
 /**
  * Model which stores the result of the evaluation metric for a conversation
@@ -1685,6 +1703,12 @@ export interface ConversationInput {
      */
     agentId: string;
     /**
+     * App in which the conversation is created
+     * @type {AppEnum}
+     * @memberof ConversationInput
+     */
+    app?: AppEnum | null;
+    /**
      * URL to the full transcript of the conversation
      * @type {Array<DialogLine>}
      * @memberof ConversationInput
@@ -1732,6 +1756,12 @@ export interface ConversationInput {
      * @memberof ConversationInput
      */
     conversationStats?: ConversationStatsModel | null;
+    /**
+     * Evaluation of the conversation
+     * @type {ConversationEvaluation}
+     * @memberof ConversationInput
+     */
+    evaluation?: ConversationEvaluation | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -4470,6 +4500,12 @@ export interface VirtualProspectInput {
      * @memberof VirtualProspectInput
      */
     additionalInfo?: string | null;
+    /**
+     * Voice of the virtual prospect
+     * @type {VoiceInput}
+     * @memberof VirtualProspectInput
+     */
+    voice?: VoiceInput | null;
 }
 /**
  * Virtual prospect details for sparring
@@ -4513,6 +4549,12 @@ export interface VirtualProspectOutput {
      * @memberof VirtualProspectOutput
      */
     additionalInfo?: string | null;
+    /**
+     * 
+     * @type {VoiceOutput}
+     * @memberof VirtualProspectOutput
+     */
+    voice?: VoiceOutput | null;
     /**
      * 
      * @type {string}
