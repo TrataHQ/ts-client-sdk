@@ -1528,13 +1528,19 @@ export interface ConversationEvaluation {
      * @type {Array<ConversationEvaluationData>}
      * @memberof ConversationEvaluation
      */
-    aiQualitativeEvaluation: Array<ConversationEvaluationData>;
+    aiEvaluations: Array<ConversationEvaluationData>;
     /**
      * 
-     * @type {Array<ConversationEvaluationData>}
+     * @type {string | Array<string>}
      * @memberof ConversationEvaluation
      */
-    aiQuantitativeEvaluation: Array<ConversationEvaluationData>;
+    aiWhatWentWell: string | Array<string> | null;
+    /**
+     * 
+     * @type {string | Array<string>}
+     * @memberof ConversationEvaluation
+     */
+    aiWhatCanBeImproved: string | Array<string> | null;
     /**
      * 
      * @type {string}
@@ -1546,13 +1552,19 @@ export interface ConversationEvaluation {
      * @type {Array<ConversationEvaluationData>}
      * @memberof ConversationEvaluation
      */
-    humanQualitativeEvaluation: Array<ConversationEvaluationData> | null;
+    humanEvaluations: Array<ConversationEvaluationData> | null;
     /**
      * 
-     * @type {Array<ConversationEvaluationData>}
+     * @type {string | Array<string>}
      * @memberof ConversationEvaluation
      */
-    humanQuantitativeEvaluation: Array<ConversationEvaluationData> | null;
+    humanWhatWentWell: string | Array<string> | null;
+    /**
+     * 
+     * @type {string | Array<string>}
+     * @memberof ConversationEvaluation
+     */
+    humanWhatCanBeImproved: string | Array<string> | null;
 }
 /**
  * Model which stores the result of the evaluation metric for a conversation
