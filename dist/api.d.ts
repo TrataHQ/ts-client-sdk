@@ -4001,7 +4001,8 @@ export interface StatsResponse {
  */
 export declare enum Status {
     Active = "active",
-    Inactive = "inactive"
+    Inactive = "inactive",
+    Pending = "pending"
 }
 /**
  * Subscription details of the business
@@ -4237,25 +4238,6 @@ export declare enum UiNodeType {
     SUBFLOW = "SUBFLOW"
 }
 /**
- * Payload for updating user details API
- * @export
- * @interface UpdateUserPayload
- */
-export interface UpdateUserPayload {
-    /**
-     *
-     * @type {Role}
-     * @memberof UpdateUserPayload
-     */
-    role: Role | null;
-    /**
-     *
-     * @type {string}
-     * @memberof UpdateUserPayload
-     */
-    fullName: string | null;
-}
-/**
  * Model representing the users under an organization
  * @export
  * @interface User
@@ -4273,6 +4255,12 @@ export interface User {
      * @memberof User
      */
     email?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof User
+     */
+    phoneNumber?: string | null;
     /**
      *
      * @type {string}
@@ -4382,6 +4370,37 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     isActive?: boolean;
+}
+/**
+ * Payload for creating a new user
+ * @export
+ * @interface UserPayload
+ */
+export interface UserPayload {
+    /**
+     *
+     * @type {string}
+     * @memberof UserPayload
+     */
+    email?: string | null;
+    /**
+     *
+     * @type {Role}
+     * @memberof UserPayload
+     */
+    role?: Role | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UserPayload
+     */
+    fullName?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UserPayload
+     */
+    phoneNumber?: string | null;
 }
 /**
  *
@@ -5205,10 +5224,12 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listActionsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -5258,10 +5279,12 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -5311,10 +5334,12 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ActionOutput>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -5369,11 +5394,13 @@ export declare class ActionsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -5425,10 +5452,12 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listAIAgentsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5479,10 +5508,12 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5533,10 +5564,12 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5592,11 +5625,13 @@ export declare class AgentsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -6211,10 +6246,12 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listConversationsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6274,10 +6311,12 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6337,10 +6376,12 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6406,11 +6447,13 @@ export declare class ConversationsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6807,10 +6850,12 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -6860,10 +6905,12 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -6913,10 +6960,12 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Hive>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -6971,11 +7020,13 @@ export declare class HiveApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
+    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -7175,6 +7226,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new user
+     * @summary Createuser
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUserV1: (userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
+    /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
@@ -7204,6 +7263,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     getOrganizationV1: (options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Getuserbyid
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserByIdV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List of all open invites from the organization
      * @summary Listinvites
      * @param {string} [searchBy] Field name to search by
@@ -7213,10 +7280,12 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listInvitesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -7227,10 +7296,12 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -7252,11 +7323,11 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * Update user details
      * @summary Updateuser
      * @param {string} userId
-     * @param {UpdateUserPayload} updateUserPayload
+     * @param {UserPayload} userPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1: (userId: string, updateUserPayload: UpdateUserPayload, options?: any) => Promise<RequestArgs>;
+    updateUserV1: (userId: string, userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -7279,6 +7350,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     * Create a new user
+     * @summary Createuser
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUserV1(userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      *
      * @summary Deleteorganization
@@ -7309,6 +7388,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     getOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
+     *
+     * @summary Getuserbyid
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
      * List of all open invites from the organization
      * @summary Listinvites
      * @param {string} [searchBy] Field name to search by
@@ -7318,10 +7405,12 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -7332,10 +7421,12 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -7357,11 +7448,11 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * Update user details
      * @summary Updateuser
      * @param {string} userId
-     * @param {UpdateUserPayload} updateUserPayload
+     * @param {UserPayload} userPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * InternalApi - factory interface
@@ -7384,6 +7475,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User>;
+    /**
+     * Create a new user
+     * @summary Createuser
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createUserV1(userPayload: UserPayload, options?: any): AxiosPromise<User>;
     /**
      *
      * @summary Deleteorganization
@@ -7414,6 +7513,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     getOrganizationV1(options?: any): AxiosPromise<OrganizationOutput>;
     /**
+     *
+     * @summary Getuserbyid
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserByIdV1(userId: string, options?: any): AxiosPromise<User>;
+    /**
      * List of all open invites from the organization
      * @summary Listinvites
      * @param {string} [searchBy] Field name to search by
@@ -7423,10 +7530,12 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<GuestOutput>>;
+    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -7437,10 +7546,12 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -7462,11 +7573,11 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * Update user details
      * @summary Updateuser
      * @param {string} userId
-     * @param {UpdateUserPayload} updateUserPayload
+     * @param {UserPayload} userPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -7493,6 +7604,15 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Create a new user
+     * @summary Createuser
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    createUserV1(userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
     /**
      *
      * @summary Deleteorganization
@@ -7527,6 +7647,15 @@ export declare class InternalApi extends BaseAPI {
      */
     getOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
+     *
+     * @summary Getuserbyid
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    getUserByIdV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
      * List of all open invites from the organization
      * @summary Listinvites
      * @param {string} [searchBy] Field name to search by
@@ -7536,11 +7665,13 @@ export declare class InternalApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -7551,11 +7682,13 @@ export declare class InternalApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -7579,12 +7712,12 @@ export declare class InternalApi extends BaseAPI {
      * Update user details
      * @summary Updateuser
      * @param {string} userId
-     * @param {UpdateUserPayload} updateUserPayload
+     * @param {UserPayload} userPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
  * ProductsApi - axios parameter creator
@@ -7885,10 +8018,12 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listProspectsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -7938,10 +8073,12 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
+    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -7991,10 +8128,12 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ProspectOutput>>;
+    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ProspectOutput>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -8049,11 +8188,13 @@ export declare class ProspectsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
+    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -8128,10 +8269,12 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -8205,10 +8348,12 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -8282,10 +8427,12 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -8367,11 +8514,13 @@ export declare class SparringApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect

@@ -4054,7 +4054,8 @@ export interface StatsResponse {
  */
 export enum Status {
     Active = 'active',
-    Inactive = 'inactive'
+    Inactive = 'inactive',
+    Pending = 'pending'
 }
 
 /**
@@ -4292,25 +4293,6 @@ export enum UiNodeType {
 }
 
 /**
- * Payload for updating user details API
- * @export
- * @interface UpdateUserPayload
- */
-export interface UpdateUserPayload {
-    /**
-     * 
-     * @type {Role}
-     * @memberof UpdateUserPayload
-     */
-    role: Role | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateUserPayload
-     */
-    fullName: string | null;
-}
-/**
  * Model representing the users under an organization
  * @export
  * @interface User
@@ -4328,6 +4310,12 @@ export interface User {
      * @memberof User
      */
     email?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    phoneNumber?: string | null;
     /**
      * 
      * @type {string}
@@ -4437,6 +4425,37 @@ export interface UserApiKeyLink {
      * @memberof UserApiKeyLink
      */
     isActive?: boolean;
+}
+/**
+ * Payload for creating a new user
+ * @export
+ * @interface UserPayload
+ */
+export interface UserPayload {
+    /**
+     * 
+     * @type {string}
+     * @memberof UserPayload
+     */
+    email?: string | null;
+    /**
+     * 
+     * @type {Role}
+     * @memberof UserPayload
+     */
+    role?: Role | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserPayload
+     */
+    fullName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserPayload
+     */
+    phoneNumber?: string | null;
 }
 /**
  * 
@@ -5541,10 +5560,12 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listActionsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/actions`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -5590,6 +5611,14 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -5720,11 +5749,13 @@ export const ActionsApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>> {
-            const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>> {
+            const localVarAxiosArgs = await ActionsApiAxiosParamCreator(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -5794,11 +5825,13 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ActionOutput>> {
-            return ActionsApiFp(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ActionOutput>> {
+            return ActionsApiFp(configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Action by ID
@@ -5867,12 +5900,14 @@ export class ActionsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    public listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return ActionsApiFp(this.configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ActionsApiFp(this.configuration).listActionsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6046,10 +6081,12 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listAIAgentsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ai-agents`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6099,6 +6136,14 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -6230,11 +6275,13 @@ export const AgentsApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>> {
-            const localVarAxiosArgs = await AgentsApiAxiosParamCreator(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>> {
+            const localVarAxiosArgs = await AgentsApiAxiosParamCreator(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6305,11 +6352,13 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<AIAgentOutput>> {
-            return AgentsApiFp(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>> {
+            return AgentsApiFp(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific AI Agent by ID
@@ -6379,12 +6428,14 @@ export class AgentsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    public listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return AgentsApiFp(this.configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return AgentsApiFp(this.configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -7871,10 +7922,12 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listConversationsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/conversations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7924,6 +7977,14 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -8070,11 +8131,13 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
-            const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
+            const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8156,11 +8219,13 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ConversationOutput>> {
-            return ConversationsApiFp(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>> {
+            return ConversationsApiFp(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Conversation by ID
@@ -8243,12 +8308,14 @@ export class ConversationsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    public listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return ConversationsApiFp(this.configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ConversationsApiFp(this.configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9186,10 +9253,12 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listHivesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listHivesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/hives`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9235,6 +9304,14 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -9365,11 +9442,13 @@ export const HiveApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>> {
-            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>> {
+            const localVarAxiosArgs = await HiveApiAxiosParamCreator(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9439,11 +9518,13 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<Hive>> {
-            return HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Hive>> {
+            return HiveApiFp(configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Hive by ID
@@ -9512,12 +9593,14 @@ export class HiveApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    public listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return HiveApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return HiveApiFp(this.configuration).listHivesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10018,6 +10101,54 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Create a new user
+         * @summary Createuser
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUserV1: async (userPayload: UserPayload, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userPayload' is not null or undefined
+            if (userPayload === null || userPayload === undefined) {
+                throw new RequiredError('userPayload','Required parameter userPayload was null or undefined when calling createUserV1.');
+            }
+            const localVarPath = `/v1/users`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof userPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(userPayload !== undefined ? userPayload : {}) : (userPayload || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @summary Deleteorganization
          * @param {*} [options] Override http request option.
@@ -10180,6 +10311,51 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * 
+         * @summary Getuserbyid
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserByIdV1: async (userId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling getUserByIdV1.');
+            }
+            const localVarPath = `/v1/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List of all open invites from the organization
          * @summary Listinvites
          * @param {string} [searchBy] Field name to search by
@@ -10189,10 +10365,12 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listInvitesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listInvitesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/invites`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10240,6 +10418,14 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['limit'] = limit;
             }
 
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
 
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -10263,10 +10449,12 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listUsersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/users`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10312,6 +10500,14 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -10433,18 +10629,18 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
          * Update user details
          * @summary Updateuser
          * @param {string} userId 
-         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {UserPayload} userPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserV1: async (userId: string, updateUserPayload: UpdateUserPayload, options: any = {}): Promise<RequestArgs> => {
+        updateUserV1: async (userId: string, userPayload: UserPayload, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUserV1.');
             }
-            // verify required parameter 'updateUserPayload' is not null or undefined
-            if (updateUserPayload === null || updateUserPayload === undefined) {
-                throw new RequiredError('updateUserPayload','Required parameter updateUserPayload was null or undefined when calling updateUserV1.');
+            // verify required parameter 'userPayload' is not null or undefined
+            if (userPayload === null || userPayload === undefined) {
+                throw new RequiredError('userPayload','Required parameter userPayload was null or undefined when calling updateUserV1.');
             }
             const localVarPath = `/v1/users/{user_id}`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
@@ -10475,8 +10671,8 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof updateUserPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(updateUserPayload !== undefined ? updateUserPayload : {}) : (updateUserPayload || "");
+            const needsSerialization = (typeof userPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(userPayload !== undefined ? userPayload : {}) : (userPayload || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -10515,6 +10711,20 @@ export const InternalApiFp = function(configuration?: Configuration) {
          */
         async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createOrganizationV1(bodyCreateOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new user
+         * @summary Createuser
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createUserV1(userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createUserV1(userPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10574,6 +10784,20 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * 
+         * @summary Getuserbyid
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).getUserByIdV1(userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List of all open invites from the organization
          * @summary Listinvites
          * @param {string} [searchBy] Field name to search by
@@ -10583,11 +10807,13 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10603,11 +10829,13 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10646,12 +10874,12 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * Update user details
          * @summary Updateuser
          * @param {string} userId 
-         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {UserPayload} userPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, updateUserPayload, options);
+        async updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, userPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10685,6 +10913,16 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          */
         createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User> {
             return InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user
+         * @summary Createuser
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUserV1(userPayload: UserPayload, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).createUserV1(userPayload, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -10724,6 +10962,16 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).getOrganizationV1(options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Getuserbyid
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserByIdV1(userId: string, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).getUserByIdV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List of all open invites from the organization
          * @summary Listinvites
          * @param {string} [searchBy] Field name to search by
@@ -10733,11 +10981,13 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<GuestOutput>> {
-            return InternalApiFp(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>> {
+            return InternalApiFp(configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Lists all users under the user\'s organization
@@ -10749,11 +10999,13 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<User>> {
-            return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
+            return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
@@ -10780,12 +11032,12 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * Update user details
          * @summary Updateuser
          * @param {string} userId 
-         * @param {UpdateUserPayload} updateUserPayload 
+         * @param {UserPayload} userPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any): AxiosPromise<User> {
-            return InternalApiFp(configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(axios, basePath));
+        updateUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User> {
+            return InternalApiFp(configuration).updateUserV1(userId, userPayload, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10819,6 +11071,18 @@ export class InternalApi extends BaseAPI {
      */
     public createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) {
         return InternalApiFp(this.configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new user
+     * @summary Createuser
+     * @param {UserPayload} userPayload 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public createUserV1(userPayload: UserPayload, options?: any) {
+        return InternalApiFp(this.configuration).createUserV1(userPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10867,6 +11131,18 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @summary Getuserbyid
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public getUserByIdV1(userId: string, options?: any) {
+        return InternalApiFp(this.configuration).getUserByIdV1(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * List of all open invites from the organization
      * @summary Listinvites
      * @param {string} [searchBy] Field name to search by
@@ -10876,12 +11152,14 @@ export class InternalApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return InternalApiFp(this.configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return InternalApiFp(this.configuration).listInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10894,12 +11172,14 @@ export class InternalApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10931,13 +11211,13 @@ export class InternalApi extends BaseAPI {
      * Update user details
      * @summary Updateuser
      * @param {string} userId 
-     * @param {UpdateUserPayload} updateUserPayload 
+     * @param {UserPayload} userPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public updateUserV1(userId: string, updateUserPayload: UpdateUserPayload, options?: any) {
-        return InternalApiFp(this.configuration).updateUserV1(userId, updateUserPayload, options).then((request) => request(this.axios, this.basePath));
+    public updateUserV1(userId: string, userPayload: UserPayload, options?: any) {
+        return InternalApiFp(this.configuration).updateUserV1(userId, userPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -11698,10 +11978,12 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProspectsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listProspectsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/prospects`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11747,6 +12029,14 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -11877,11 +12167,13 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>> {
-            const localVarAxiosArgs = await ProspectsApiAxiosParamCreator(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>> {
+            const localVarAxiosArgs = await ProspectsApiAxiosParamCreator(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -11951,11 +12243,13 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<ProspectOutput>> {
-            return ProspectsApiFp(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ProspectOutput>> {
+            return ProspectsApiFp(configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Prospect by ID
@@ -12024,12 +12318,14 @@ export class ProspectsApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    public listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return ProspectsApiFp(this.configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ProspectsApiFp(this.configuration).listProspectsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -12337,10 +12633,12 @@ export const SparringApiAxiosParamCreator = function (configuration?: Configurat
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVirtualProspectsV1SparrVirtualProspectsGet: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        listVirtualProspectsV1SparrVirtualProspectsGet: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/sparr/virtual-prospects`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12386,6 +12684,14 @@ export const SparringApiAxiosParamCreator = function (configuration?: Configurat
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
             }
 
 
@@ -12558,11 +12864,13 @@ export const SparringApiFp = function(configuration?: Configuration) {
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>> {
-            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options);
+        async listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>> {
+            const localVarAxiosArgs = await SparringApiAxiosParamCreator(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12662,11 +12970,13 @@ export const SparringApiFactory = function (configuration?: Configuration, baseP
          * @param {SortOrder} [sortOrder] Sort order (asc or desc)
          * @param {number} [skip] Number of records to skip
          * @param {number} [limit] Maximum number of records to return
+         * @param {string} [updatedAfter] Filter records updated after this timestamp
+         * @param {string} [updatedBefore] Filter records updated before this timestamp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any): AxiosPromise<Array<VirtualProspectOutput>> {
-            return SparringApiFp(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(axios, basePath));
+        listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>> {
+            return SparringApiFp(configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a virtual prospect
@@ -12771,12 +13081,14 @@ export class SparringApi extends BaseAPI {
      * @param {SortOrder} [sortOrder] Sort order (asc or desc)
      * @param {number} [skip] Number of records to skip
      * @param {number} [limit] Maximum number of records to return
+     * @param {string} [updatedAfter] Filter records updated after this timestamp
+     * @param {string} [updatedBefore] Filter records updated before this timestamp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    public listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, options?: any) {
-        return SparringApiFp(this.configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, options).then((request) => request(this.axios, this.basePath));
+    public listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return SparringApiFp(this.configuration).listVirtualProspectsV1SparrVirtualProspectsGet(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
