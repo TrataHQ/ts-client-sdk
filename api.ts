@@ -1417,7 +1417,7 @@ export interface ConversationAnalyticsModel {
      * @type {string}
      * @memberof ConversationAnalyticsModel
      */
-    summary: string;
+    summary: string | null;
     /**
      * List of action items and the next steps to be performed from the conversation details.
      * @type {Array<string>}
@@ -2112,7 +2112,7 @@ export interface DialogLine {
      * @type {string}
      * @memberof DialogLine
      */
-    speaker: string;
+    speaker: DialogLineSpeakerEnum;
     /**
      * 
      * @type {string}
@@ -2132,6 +2132,18 @@ export interface DialogLine {
      */
     message_id: string;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DialogLineSpeakerEnum {
+    USER = 'USER',
+    AI = 'AI',
+    TOOL = 'TOOL',
+    AITOOLREQUEST = 'AI - TOOL REQUEST'
+}
+
 /**
  * 
  * @export
@@ -3327,6 +3339,12 @@ export interface Price {
      * @memberof Price
      */
     priceType?: string;
+    /**
+     * List of features included in this price tier
+     * @type {Array<string>}
+     * @memberof Price
+     */
+    features?: Array<string> | null;
 }
 /**
  * 
@@ -4537,6 +4555,18 @@ export interface VirtualProspectInput {
      * @memberof VirtualProspectInput
      */
     voice?: VoiceInput | null;
+    /**
+     * Type of the virtual prospect
+     * @type {VirtualProspectTypeEnum}
+     * @memberof VirtualProspectInput
+     */
+    virtualProspectType: VirtualProspectTypeEnum;
+    /**
+     * Context for the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspectInput
+     */
+    context?: string | null;
 }
 /**
  * Virtual prospect details for sparring
@@ -4587,6 +4617,18 @@ export interface VirtualProspectOutput {
      */
     voice?: VoiceOutput | null;
     /**
+     * Context for the virtual prospect
+     * @type {string}
+     * @memberof VirtualProspectOutput
+     */
+    context?: string | null;
+    /**
+     * Type of the virtual prospect
+     * @type {VirtualProspectTypeEnum}
+     * @memberof VirtualProspectOutput
+     */
+    virtualProspectType?: VirtualProspectTypeEnum;
+    /**
      * 
      * @type {string}
      * @memberof VirtualProspectOutput
@@ -4611,6 +4653,16 @@ export interface VirtualProspectOutput {
      */
     updatedAt?: string;
 }
+/**
+ * Enum which stores the list of types of sparring calls
+ * @export
+ * @enum {string}
+ */
+export enum VirtualProspectTypeEnum {
+    INBOUND = 'INBOUND',
+    OUTBOUND = 'OUTBOUND'
+}
+
 /**
  * 
  * @export
@@ -5553,15 +5605,15 @@ export const ActionsApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * List All Actions
          * @summary List All Actions
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5742,15 +5794,15 @@ export const ActionsApiFp = function(configuration?: Configuration) {
         /**
          * List All Actions
          * @summary List All Actions
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5818,15 +5870,15 @@ export const ActionsApiFactory = function (configuration?: Configuration, basePa
         /**
          * List All Actions
          * @summary List All Actions
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -5893,15 +5945,15 @@ export class ActionsApi extends BaseAPI {
     /**
      * List All Actions
      * @summary List All Actions
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
@@ -6074,15 +6126,15 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
          * List All AI Agents
          * @summary List All AI Agents
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6268,15 +6320,15 @@ export const AgentsApiFp = function(configuration?: Configuration) {
          * List All AI Agents
          * @summary List All AI Agents
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6345,15 +6397,15 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
          * List All AI Agents
          * @summary List All AI Agents
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -6421,15 +6473,15 @@ export class AgentsApi extends BaseAPI {
      * List All AI Agents
      * @summary List All AI Agents
      * @param {AppEnum} [app] 
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
@@ -7915,15 +7967,15 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
          * List All Conversations
          * @summary List All Conversations
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8124,15 +8176,15 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
          * List All Conversations
          * @summary List All Conversations
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8212,15 +8264,15 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
          * List All Conversations
          * @summary List All Conversations
          * @param {AppEnum} [app] 
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -8301,15 +8353,15 @@ export class ConversationsApi extends BaseAPI {
      * List All Conversations
      * @summary List All Conversations
      * @param {AppEnum} [app] 
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
@@ -9246,15 +9298,15 @@ export const HiveApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * List All Hives
          * @summary List All Hives
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9435,15 +9487,15 @@ export const HiveApiFp = function(configuration?: Configuration) {
         /**
          * List All Hives
          * @summary List All Hives
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9511,15 +9563,15 @@ export const HiveApiFactory = function (configuration?: Configuration, basePath?
         /**
          * List All Hives
          * @summary List All Hives
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -9586,15 +9638,15 @@ export class HiveApi extends BaseAPI {
     /**
      * List All Hives
      * @summary List All Hives
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
@@ -10358,15 +10410,15 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List of all open invites from the organization
          * @summary Listinvites
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10442,15 +10494,15 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10800,15 +10852,15 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * List of all open invites from the organization
          * @summary Listinvites
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10822,15 +10874,15 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10974,15 +11026,15 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * List of all open invites from the organization
          * @summary Listinvites
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -10992,15 +11044,15 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -11145,15 +11197,15 @@ export class InternalApi extends BaseAPI {
     /**
      * List of all open invites from the organization
      * @summary Listinvites
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
@@ -11165,15 +11217,15 @@ export class InternalApi extends BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
@@ -11415,19 +11467,21 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List All Products
          * @summary List All Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        listProductsV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11475,11 +11529,19 @@ export const ProductsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['limit'] = limit;
             }
 
-            if (tags) {
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+            if (tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
             }
 
-            if (productIds) {
+            if (productIds !== undefined) {
                 localVarQueryParameter['product_ids'] = productIds;
             }
 
@@ -11618,20 +11680,22 @@ export const ProductsApiFp = function(configuration?: Configuration) {
         /**
          * List All Products
          * @summary List All Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>> {
-            const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options);
+        async listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>> {
+            const localVarAxiosArgs = await ProductsApiAxiosParamCreator(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -11704,20 +11768,22 @@ export const ProductsApiFactory = function (configuration?: Configuration, baseP
         /**
          * List All Products
          * @summary List All Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductOutput>> {
-            return ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
+        listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): AxiosPromise<Array<ProductOutput>> {
+            return ProductsApiFp(configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Specific Product by ID
@@ -11791,21 +11857,23 @@ export class ProductsApi extends BaseAPI {
     /**
      * List All Products
      * @summary List All Products
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {Array<string>} [tags] Filter products by specific tags
-     * @param {Array<string>} [productIds] Filter by specific product IDs
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {string} [tags] 
+     * @param {string} [productIds] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) {
-        return ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(this.axios, this.basePath));
+    public listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any) {
+        return ProductsApiFp(this.configuration).listProductsV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -11971,15 +12039,15 @@ export const ProspectsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List All Prospects
          * @summary List All Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12160,15 +12228,15 @@ export const ProspectsApiFp = function(configuration?: Configuration) {
         /**
          * List All Prospects
          * @summary List All Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12236,15 +12304,15 @@ export const ProspectsApiFactory = function (configuration?: Configuration, base
         /**
          * List All Prospects
          * @summary List All Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12311,15 +12379,15 @@ export class ProspectsApi extends BaseAPI {
     /**
      * List All Prospects
      * @summary List All Prospects
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
@@ -12626,15 +12694,15 @@ export const SparringApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List all virtual prospects
          * @summary List Virtual Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12857,15 +12925,15 @@ export const SparringApiFp = function(configuration?: Configuration) {
         /**
          * List all virtual prospects
          * @summary List Virtual Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12963,15 +13031,15 @@ export const SparringApiFactory = function (configuration?: Configuration, baseP
         /**
          * List all virtual prospects
          * @summary List Virtual Prospects
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {string} [updatedAfter] Filter records updated after this timestamp
-         * @param {string} [updatedBefore] Filter records updated before this timestamp
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13074,15 +13142,15 @@ export class SparringApi extends BaseAPI {
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {string} [updatedAfter] Filter records updated after this timestamp
-     * @param {string} [updatedBefore] Filter records updated before this timestamp
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
@@ -13856,19 +13924,21 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsDetailedV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        listProductsDetailedV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ui/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13916,11 +13986,19 @@ export const UIApiAxiosParamCreator = function (configuration?: Configuration) {
                 localVarQueryParameter['limit'] = limit;
             }
 
-            if (tags) {
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+            if (tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
             }
 
-            if (productIds) {
+            if (productIds !== undefined) {
                 localVarQueryParameter['product_ids'] = productIds;
             }
 
@@ -14051,20 +14129,22 @@ export const UIApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>> {
-            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options);
+        async listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>> {
+            const localVarAxiosArgs = await UIApiAxiosParamCreator(configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14120,20 +14200,22 @@ export const UIApiFactory = function (configuration?: Configuration, basePath?: 
         /**
          * 
          * @summary List Products
-         * @param {string} [searchBy] Field name to search by
-         * @param {string} [searchValue] Value to search for in the specified field
-         * @param {string} [status] Filter by status
-         * @param {string} [sortBy] Field to sort by
-         * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-         * @param {number} [skip] Number of records to skip
-         * @param {number} [limit] Maximum number of records to return
-         * @param {Array<string>} [tags] Filter products by specific tags
-         * @param {Array<string>} [productIds] Filter by specific product IDs
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {string} [tags] 
+         * @param {string} [productIds] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any): AxiosPromise<Array<ProductWithAgents>> {
-            return UIApiFp(configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(axios, basePath));
+        listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): AxiosPromise<Array<ProductWithAgents>> {
+            return UIApiFp(configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14180,21 +14262,23 @@ export class UIApi extends BaseAPI {
     /**
      * 
      * @summary List Products
-     * @param {string} [searchBy] Field name to search by
-     * @param {string} [searchValue] Value to search for in the specified field
-     * @param {string} [status] Filter by status
-     * @param {string} [sortBy] Field to sort by
-     * @param {SortOrder} [sortOrder] Sort order (asc or desc)
-     * @param {number} [skip] Number of records to skip
-     * @param {number} [limit] Maximum number of records to return
-     * @param {Array<string>} [tags] Filter products by specific tags
-     * @param {Array<string>} [productIds] Filter by specific product IDs
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {string} [tags] 
+     * @param {string} [productIds] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    public listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, tags?: Array<string>, productIds?: Array<string>, options?: any) {
-        return UIApiFp(this.configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, tags, productIds, options).then((request) => request(this.axios, this.basePath));
+    public listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any) {
+        return UIApiFp(this.configuration).listProductsDetailedV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, tags, productIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
