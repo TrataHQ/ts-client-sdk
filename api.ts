@@ -3290,12 +3290,6 @@ export interface Price {
      * @type {string}
      * @memberof Price
      */
-    planName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Price
-     */
     priceName?: string;
     /**
      * 
@@ -3310,17 +3304,17 @@ export interface Price {
      */
     price?: number;
     /**
-     * 
-     * @type {string}
+     * Determines customer/reseller using custom price or default price
+     * @type {boolean}
      * @memberof Price
      */
-    currency?: string;
+    isDefault?: boolean | null;
     /**
      * 
      * @type {string}
      * @memberof Price
      */
-    interval?: string;
+    currency?: string;
     /**
      * 
      * @type {string}
@@ -3335,10 +3329,22 @@ export interface Price {
     stripeProductId?: string | null;
     /**
      * 
+     * @type {PriceInterval}
+     * @memberof Price
+     */
+    priceInterval?: PriceInterval;
+    /**
+     * 
      * @type {string}
      * @memberof Price
      */
-    priceType?: string;
+    creditsPhoneNumbers?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Price
+     */
+    creditsCallSeconds?: string | null;
     /**
      * List of features included in this price tier
      * @type {Array<string>}
@@ -3346,6 +3352,16 @@ export interface Price {
      */
     features?: Array<string> | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum PriceInterval {
+    Recurring = 'recurring',
+    OneTime = 'one_time'
+}
+
 /**
  * 
  * @export
@@ -4560,7 +4576,7 @@ export interface VirtualProspectInput {
      * @type {VirtualProspectTypeEnum}
      * @memberof VirtualProspectInput
      */
-    virtualProspectType: VirtualProspectTypeEnum;
+    virtualProspectType?: VirtualProspectTypeEnum | null;
     /**
      * Context for the virtual prospect
      * @type {string}
