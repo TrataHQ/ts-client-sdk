@@ -1129,6 +1129,25 @@ export interface BatchMetricsResponse {
 /**
  *
  * @export
+ * @interface BodyCreateCustomerOrganizationV1
+ */
+export interface BodyCreateCustomerOrganizationV1 {
+    /**
+     *
+     * @type {OrganizationInput}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     *
+     * @type {string}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ *
+ * @export
  * @interface BodyCreateOrganizationV1
  */
 export interface BodyCreateOrganizationV1 {
@@ -1142,6 +1161,25 @@ export interface BodyCreateOrganizationV1 {
      *
      * @type {string}
      * @memberof BodyCreateOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ *
+ * @export
+ * @interface BodyCreateResellerOrganizationV1
+ */
+export interface BodyCreateResellerOrganizationV1 {
+    /**
+     *
+     * @type {OrganizationInput}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     *
+     * @type {string}
+     * @memberof BodyCreateResellerOrganizationV1
      */
     adminUserName: string;
 }
@@ -2063,6 +2101,46 @@ export interface Credit {
 /**
  *
  * @export
+ * @interface CreditRequest
+ */
+export interface CreditRequest {
+    /**
+     * Credit type
+     * @type {CreditType}
+     * @memberof CreditRequest
+     */
+    creditTypeName: CreditType;
+    /**
+     * Credit value
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    creditValue: string;
+    /**
+     * Start date
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    startDate: string;
+    /**
+     * End date
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    endDate: string;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum CreditType {
+    PhoneNumbers = "phone_numbers",
+    CallSeconds = "call_seconds"
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum DecisionMakingStyle {
@@ -2952,6 +3030,62 @@ export declare enum OAuthCredentialsCredentialsTypeEnum {
     Oauth = "oauth"
 }
 /**
+ *
+ * @export
+ * @interface OrgUsersPriceCredits
+ */
+export interface OrgUsersPriceCredits {
+    /**
+     *
+     * @type {OrganizationOutput}
+     * @memberof OrgUsersPriceCredits
+     */
+    organization: OrganizationOutput;
+    /**
+     *
+     * @type {Array<User>}
+     * @memberof OrgUsersPriceCredits
+     */
+    users: Array<User>;
+    /**
+     *
+     * @type {Array<Price>}
+     * @memberof OrgUsersPriceCredits
+     */
+    prices?: Array<Price> | null;
+    /**
+     *
+     * @type {Array<Credit>}
+     * @memberof OrgUsersPriceCredits
+     */
+    credits?: Array<Credit> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof OrgUsersPriceCredits
+     */
+    resellerAdminUserCredentials?: string | null;
+}
+/**
+ *
+ * @export
+ * @interface OrgWithUsers
+ */
+export interface OrgWithUsers {
+    /**
+     *
+     * @type {OrganizationOutput}
+     * @memberof OrgWithUsers
+     */
+    organization: OrganizationOutput;
+    /**
+     *
+     * @type {Array<User>}
+     * @memberof OrgWithUsers
+     */
+    users: Array<User>;
+}
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -3310,6 +3444,61 @@ export interface Price {
 export declare enum PriceInterval {
     Recurring = "recurring",
     OneTime = "one_time"
+}
+/**
+ *
+ * @export
+ * @interface PricingRequest
+ */
+export interface PricingRequest {
+    /**
+     * Price name
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    priceName: string;
+    /**
+     * Description
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    description: string;
+    /**
+     * Price in the lowest denomination of the currency
+     * @type {number}
+     * @memberof PricingRequest
+     */
+    price?: number;
+    /**
+     * Currency
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    currency: string;
+    /**
+     * Price interval
+     * @type {PriceInterval}
+     * @memberof PricingRequest
+     */
+    priceInterval: PriceInterval;
+    /**
+     * Maximum number of phone numbers to be purchased for the given price.
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    creditsPhoneNumbers: string;
+    /**
+     * Maximum number of call seconds to be purchased for the given price.
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    creditsCallSeconds: string;
+    /**
+     * List of features included in this price tier
+     * @type {Array<string>}
+     * @memberof PricingRequest
+     */
+    features?: Array<string> | null;
 }
 /**
  *
@@ -3871,6 +4060,25 @@ export declare enum ProspectStatus {
 /**
  *
  * @export
+ * @interface ResellerBatchMetricsRequests
+ */
+export interface ResellerBatchMetricsRequests {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ResellerBatchMetricsRequests
+     */
+    organization: Array<string>;
+    /**
+     *
+     * @type {Array<MetricsRequest>}
+     * @memberof ResellerBatchMetricsRequests
+     */
+    requests: Array<MetricsRequest>;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum Role {
@@ -4267,6 +4475,31 @@ export declare enum UiNodeType {
     CONDITION = "CONDITION",
     LOOP = "LOOP",
     SUBFLOW = "SUBFLOW"
+}
+/**
+ *
+ * @export
+ * @interface UpdateResellerOrganizationRequest
+ */
+export interface UpdateResellerOrganizationRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    name?: string | null;
+    /**
+     *
+     * @type {AddressInput}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    address?: AddressInput | null;
+    /**
+     *
+     * @type {TaxDetailsInput}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    tax?: TaxDetailsInput | null;
 }
 /**
  * Model representing the users under an organization
@@ -8277,6 +8510,1048 @@ export declare class ProspectsApi extends BaseAPI {
      * @memberof ProspectsApi
      */
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+}
+/**
+ * ResellerApi - axios parameter creator
+ * @export
+ */
+export declare const ResellerApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Accept invite and add new user to organization
+     * @summary Accept Invite
+     * @param {AcceptInviteRequest} acceptInviteRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    acceptResellerUserInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add credits to customer
+     * @summary Add Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {Array<CreditRequest>} creditRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerCustomerCreditsV1: (customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add Reseller settings
+     * @summary Organization Settings
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: any) => Promise<RequestArgs>;
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any) => Promise<RequestArgs>;
+    /**
+     * Override pricing for customer
+     * @summary Create Customer Pricing
+     * @param {string} customerOrgId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPricingV1: (customerOrgId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a user
+     * @summary Delete Reseller User
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteResellerUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+     * @summary Get Customer Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get organization settings
+     * @summary Get Organization Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationSettingsV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get reseller credits
+     * @summary Get Reseller Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCreditsV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get reseller customer by id
+     * @summary Get Reseller Customer By Id
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerByIdV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get resellers customer credits
+     * @summary Get Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerCreditsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get resellers customer pricing
+     * @summary Get Reseller Customer Pricing
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerPricingV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get reseller customers
+     * @summary Get Reseller Customers
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get analytics data for Reseller
+     * @summary Get Reseller Metrics
+     * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerMetricsV1: (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a reseller organization by id
+     * @summary Get Reseller Organization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get pricing details for a reseller
+     * @summary Get Reseller Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerPricingV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * List of all open invites from the organization
+     * @summary List Reseller User Invites
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUserInvitesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Lists all users under the user\'s organization
+     * @summary List Reseller Users
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Send invite to a user on behalf of a customer organization
+     * @summary Invite Customer Users
+     * @param {string} customerOrgId
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendCustomerUserInviteV1: (customerOrgId: string, guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    /**
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * @summary Invite Users
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendResellerUserInviteV1: (guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    /**
+     * Sync reseller stripe customer
+     * @summary Stripe Sync
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeSyncV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Update customer pricing
+     * @summary Update Customer Pricing
+     * @param {string} customerOrgId
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerPricingV1: (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a reseller organization
+     * @summary Update Reseller Organization
+     * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerOrganizationV1: (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update organization settings
+     * @summary Organization Settings Update
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update user details
+     * @summary Update Reseller User
+     * @param {string} userId
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerUserV1: (userId: string, userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ResellerApi - functional programming interface
+ * @export
+ */
+export declare const ResellerApiFp: (configuration?: Configuration) => {
+    /**
+     * Accept invite and add new user to organization
+     * @summary Accept Invite
+     * @param {AcceptInviteRequest} acceptInviteRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     * Add credits to customer
+     * @summary Add Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {Array<CreditRequest>} creditRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
+     * Add Reseller settings
+     * @summary Organization Settings
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     * Override pricing for customer
+     * @summary Create Customer Pricing
+     * @param {string} customerOrgId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     * Delete a user
+     * @summary Delete Reseller User
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteResellerUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
+     * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+     * @summary Get Customer Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    /**
+     * Get organization settings
+     * @summary Get Organization Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationSettingsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    /**
+     * Get reseller credits
+     * @summary Get Reseller Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
+     * Get reseller customer by id
+     * @summary Get Reseller Customer By Id
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
+    /**
+     * Get resellers customer credits
+     * @summary Get Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
+     * Get resellers customer pricing
+     * @summary Get Reseller Customer Pricing
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerPricingV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    /**
+     * Get reseller customers
+     * @summary Get Reseller Customers
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
+    /**
+     * Get analytics data for Reseller
+     * @summary Get Reseller Metrics
+     * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    /**
+     * Get a reseller organization by id
+     * @summary Get Reseller Organization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>>;
+    /**
+     * Get pricing details for a reseller
+     * @summary Get Reseller Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    /**
+     * List of all open invites from the organization
+     * @summary List Reseller User Invites
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    /**
+     * Lists all users under the user\'s organization
+     * @summary List Reseller Users
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    /**
+     * Send invite to a user on behalf of a customer organization
+     * @summary Invite Customer Users
+     * @param {string} customerOrgId
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    /**
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * @summary Invite Users
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    /**
+     * Sync reseller stripe customer
+     * @summary Stripe Sync
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeSyncV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    /**
+     * Update customer pricing
+     * @summary Update Customer Pricing
+     * @param {string} customerOrgId
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    /**
+     * Update a reseller organization
+     * @summary Update Reseller Organization
+     * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    /**
+     * Update organization settings
+     * @summary Organization Settings Update
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    /**
+     * Update user details
+     * @summary Update Reseller User
+     * @param {string} userId
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+};
+/**
+ * ResellerApi - factory interface
+ * @export
+ */
+export declare const ResellerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Accept invite and add new user to organization
+     * @summary Accept Invite
+     * @param {AcceptInviteRequest} acceptInviteRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User>;
+    /**
+     * Add credits to customer
+     * @summary Add Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {Array<CreditRequest>} creditRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any): AxiosPromise<Array<Credit>>;
+    /**
+     * Add Reseller settings
+     * @summary Organization Settings
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings>;
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<User>;
+    /**
+     * Override pricing for customer
+     * @summary Create Customer Pricing
+     * @param {string} customerOrgId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User>;
+    /**
+     * Delete a user
+     * @summary Delete Reseller User
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteResellerUserV1(userId: string, options?: any): AxiosPromise<User>;
+    /**
+     * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+     * @summary Get Customer Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<string>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    /**
+     * Get organization settings
+     * @summary Get Organization Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrganizationSettingsV1(options?: any): AxiosPromise<OrganizationSettings>;
+    /**
+     * Get reseller credits
+     * @summary Get Reseller Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    /**
+     * Get reseller customer by id
+     * @summary Get Reseller Customer By Id
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerByIdV1(customerOrgId: string, options?: any): AxiosPromise<OrgUsersPriceCredits>;
+    /**
+     * Get resellers customer credits
+     * @summary Get Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): AxiosPromise<Array<Credit>>;
+    /**
+     * Get resellers customer pricing
+     * @summary Get Reseller Customer Pricing
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerPricingV1(customerOrgId: string, options?: any): AxiosPromise<Array<Price>>;
+    /**
+     * Get reseller customers
+     * @summary Get Reseller Customers
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
+    /**
+     * Get analytics data for Reseller
+     * @summary Get Reseller Metrics
+     * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse>;
+    /**
+     * Get a reseller organization by id
+     * @summary Get Reseller Organization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerOrganizationV1(options?: any): AxiosPromise<OrgWithUsers>;
+    /**
+     * Get pricing details for a reseller
+     * @summary Get Reseller Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    /**
+     * List of all open invites from the organization
+     * @summary List Reseller User Invites
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
+    /**
+     * Lists all users under the user\'s organization
+     * @summary List Reseller Users
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    /**
+     * Send invite to a user on behalf of a customer organization
+     * @summary Invite Customer Users
+     * @param {string} customerOrgId
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    /**
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * @summary Invite Users
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    /**
+     * Sync reseller stripe customer
+     * @summary Stripe Sync
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeSyncV1(options?: any): AxiosPromise<BaseResponseInput>;
+    /**
+     * Update customer pricing
+     * @summary Update Customer Pricing
+     * @param {string} customerOrgId
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    /**
+     * Update a reseller organization
+     * @summary Update Reseller Organization
+     * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): AxiosPromise<OrganizationOutput>;
+    /**
+     * Update organization settings
+     * @summary Organization Settings Update
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings>;
+    /**
+     * Update user details
+     * @summary Update Reseller User
+     * @param {string} userId
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User>;
+};
+/**
+ * ResellerApi - object-oriented interface
+ * @export
+ * @class ResellerApi
+ * @extends {BaseAPI}
+ */
+export declare class ResellerApi extends BaseAPI {
+    /**
+     * Accept invite and add new user to organization
+     * @summary Accept Invite
+     * @param {AcceptInviteRequest} acceptInviteRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Add credits to customer
+     * @summary Add Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {Array<CreditRequest>} creditRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
+     * Add Reseller settings
+     * @summary Organization Settings
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Override pricing for customer
+     * @summary Create Customer Pricing
+     * @param {string} customerOrgId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Delete a user
+     * @summary Delete Reseller User
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    deleteResellerUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+     * @summary Get Customer Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getCustomerCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getCustomerPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    /**
+     * Get organization settings
+     * @summary Get Organization Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getOrganizationSettingsV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    /**
+     * Get reseller credits
+     * @summary Get Reseller Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
+     * Get reseller customer by id
+     * @summary Get Reseller Customer By Id
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
+    /**
+     * Get resellers customer credits
+     * @summary Get Reseller Customer Credits
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
+     * Get resellers customer pricing
+     * @summary Get Reseller Customer Pricing
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerCustomerPricingV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    /**
+     * Get reseller customers
+     * @summary Get Reseller Customers
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
+    /**
+     * Get analytics data for Reseller
+     * @summary Get Reseller Metrics
+     * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    /**
+     * Get a reseller organization by id
+     * @summary Get Reseller Organization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<OrgWithUsers>>;
+    /**
+     * Get pricing details for a reseller
+     * @summary Get Reseller Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    /**
+     * List of all open invites from the organization
+     * @summary List Reseller User Invites
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    /**
+     * Lists all users under the user\'s organization
+     * @summary List Reseller Users
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    /**
+     * Send invite to a user on behalf of a customer organization
+     * @summary Invite Customer Users
+     * @param {string} customerOrgId
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    /**
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * @summary Invite Users
+     * @param {GuestInput} guestInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    /**
+     * Sync reseller stripe customer
+     * @summary Stripe Sync
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    stripeSyncV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
+     * Update customer pricing
+     * @summary Update Customer Pricing
+     * @param {string} customerOrgId
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    /**
+     * Update a reseller organization
+     * @summary Update Reseller Organization
+     * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    /**
+     * Update organization settings
+     * @summary Organization Settings Update
+     * @param {OrganizationSettings} organizationSettings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    /**
+     * Update user details
+     * @summary Update Reseller User
+     * @param {string} userId
+     * @param {UserPayload} userPayload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
  * SparringApi - axios parameter creator

@@ -1151,6 +1151,25 @@ export interface BatchMetricsResponse {
 /**
  * 
  * @export
+ * @interface BodyCreateCustomerOrganizationV1
+ */
+export interface BodyCreateCustomerOrganizationV1 {
+    /**
+     * 
+     * @type {OrganizationInput}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     * 
+     * @type {string}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ * 
+ * @export
  * @interface BodyCreateOrganizationV1
  */
 export interface BodyCreateOrganizationV1 {
@@ -1164,6 +1183,25 @@ export interface BodyCreateOrganizationV1 {
      * 
      * @type {string}
      * @memberof BodyCreateOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ * 
+ * @export
+ * @interface BodyCreateResellerOrganizationV1
+ */
+export interface BodyCreateResellerOrganizationV1 {
+    /**
+     * 
+     * @type {OrganizationInput}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     * 
+     * @type {string}
+     * @memberof BodyCreateResellerOrganizationV1
      */
     adminUserName: string;
 }
@@ -2092,6 +2130,47 @@ export interface Credit {
 /**
  * 
  * @export
+ * @interface CreditRequest
+ */
+export interface CreditRequest {
+    /**
+     * Credit type
+     * @type {CreditType}
+     * @memberof CreditRequest
+     */
+    creditTypeName: CreditType;
+    /**
+     * Credit value
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    creditValue: string;
+    /**
+     * Start date
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    startDate: string;
+    /**
+     * End date
+     * @type {string}
+     * @memberof CreditRequest
+     */
+    endDate: string;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum CreditType {
+    PhoneNumbers = 'phone_numbers',
+    CallSeconds = 'call_seconds'
+}
+
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum DecisionMakingStyle {
@@ -3001,6 +3080,62 @@ export enum OAuthCredentialsCredentialsTypeEnum {
 }
 
 /**
+ * 
+ * @export
+ * @interface OrgUsersPriceCredits
+ */
+export interface OrgUsersPriceCredits {
+    /**
+     * 
+     * @type {OrganizationOutput}
+     * @memberof OrgUsersPriceCredits
+     */
+    organization: OrganizationOutput;
+    /**
+     * 
+     * @type {Array<User>}
+     * @memberof OrgUsersPriceCredits
+     */
+    users: Array<User>;
+    /**
+     * 
+     * @type {Array<Price>}
+     * @memberof OrgUsersPriceCredits
+     */
+    prices?: Array<Price> | null;
+    /**
+     * 
+     * @type {Array<Credit>}
+     * @memberof OrgUsersPriceCredits
+     */
+    credits?: Array<Credit> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrgUsersPriceCredits
+     */
+    resellerAdminUserCredentials?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface OrgWithUsers
+ */
+export interface OrgWithUsers {
+    /**
+     * 
+     * @type {OrganizationOutput}
+     * @memberof OrgWithUsers
+     */
+    organization: OrganizationOutput;
+    /**
+     * 
+     * @type {Array<User>}
+     * @memberof OrgWithUsers
+     */
+    users: Array<User>;
+}
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -3362,6 +3497,61 @@ export enum PriceInterval {
     OneTime = 'one_time'
 }
 
+/**
+ * 
+ * @export
+ * @interface PricingRequest
+ */
+export interface PricingRequest {
+    /**
+     * Price name
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    priceName: string;
+    /**
+     * Description
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    description: string;
+    /**
+     * Price in the lowest denomination of the currency
+     * @type {number}
+     * @memberof PricingRequest
+     */
+    price?: number;
+    /**
+     * Currency
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    currency: string;
+    /**
+     * Price interval
+     * @type {PriceInterval}
+     * @memberof PricingRequest
+     */
+    priceInterval: PriceInterval;
+    /**
+     * Maximum number of phone numbers to be purchased for the given price.
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    creditsPhoneNumbers: string;
+    /**
+     * Maximum number of call seconds to be purchased for the given price.
+     * @type {string}
+     * @memberof PricingRequest
+     */
+    creditsCallSeconds: string;
+    /**
+     * List of features included in this price tier
+     * @type {Array<string>}
+     * @memberof PricingRequest
+     */
+    features?: Array<string> | null;
+}
 /**
  * 
  * @export
@@ -3925,6 +4115,25 @@ export enum ProspectStatus {
 /**
  * 
  * @export
+ * @interface ResellerBatchMetricsRequests
+ */
+export interface ResellerBatchMetricsRequests {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ResellerBatchMetricsRequests
+     */
+    organization: Array<string>;
+    /**
+     * 
+     * @type {Array<MetricsRequest>}
+     * @memberof ResellerBatchMetricsRequests
+     */
+    requests: Array<MetricsRequest>;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum Role {
@@ -4326,6 +4535,31 @@ export enum UiNodeType {
     SUBFLOW = 'SUBFLOW'
 }
 
+/**
+ * 
+ * @export
+ * @interface UpdateResellerOrganizationRequest
+ */
+export interface UpdateResellerOrganizationRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    name?: string | null;
+    /**
+     * 
+     * @type {AddressInput}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    address?: AddressInput | null;
+    /**
+     * 
+     * @type {TaxDetailsInput}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    tax?: TaxDetailsInput | null;
+}
 /**
  * Model representing the users under an organization
  * @export
@@ -12423,6 +12657,2530 @@ export class ProspectsApi extends BaseAPI {
      */
     public updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any) {
         return ProspectsApiFp(this.configuration).updateProspectV1(prospectId, prospectInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * ResellerApi - axios parameter creator
+ * @export
+ */
+export const ResellerApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Accept invite and add new user to organization
+         * @summary Accept Invite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        acceptResellerUserInviteV1: async (acceptInviteRequest: AcceptInviteRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'acceptInviteRequest' is not null or undefined
+            if (acceptInviteRequest === null || acceptInviteRequest === undefined) {
+                throw new RequiredError('acceptInviteRequest','Required parameter acceptInviteRequest was null or undefined when calling acceptResellerUserInviteV1.');
+            }
+            const localVarPath = `/v1/resellers/invites/accept`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof acceptInviteRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(acceptInviteRequest !== undefined ? acceptInviteRequest : {}) : (acceptInviteRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add credits to customer
+         * @summary Add Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {Array<CreditRequest>} creditRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResellerCustomerCreditsV1: async (customerOrgId: string, creditRequest: Array<CreditRequest>, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling addResellerCustomerCreditsV1.');
+            }
+            // verify required parameter 'creditRequest' is not null or undefined
+            if (creditRequest === null || creditRequest === undefined) {
+                throw new RequiredError('creditRequest','Required parameter creditRequest was null or undefined when calling addResellerCustomerCreditsV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/credits`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof creditRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(creditRequest !== undefined ? creditRequest : {}) : (creditRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add Reseller settings
+         * @summary Organization Settings
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResellerSettingsV1: async (organizationSettings: OrganizationSettings, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'organizationSettings' is not null or undefined
+            if (organizationSettings === null || organizationSettings === undefined) {
+                throw new RequiredError('organizationSettings','Required parameter organizationSettings was null or undefined when calling addResellerSettingsV1.');
+            }
+            const localVarPath = `/v1/resellers/settings`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof organizationSettings !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(organizationSettings !== undefined ? organizationSettings : {}) : (organizationSettings || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerOrganizationV1: async (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bodyCreateCustomerOrganizationV1' is not null or undefined
+            if (bodyCreateCustomerOrganizationV1 === null || bodyCreateCustomerOrganizationV1 === undefined) {
+                throw new RequiredError('bodyCreateCustomerOrganizationV1','Required parameter bodyCreateCustomerOrganizationV1 was null or undefined when calling createCustomerOrganizationV1.');
+            }
+            const localVarPath = `/v1/resellers/customers`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyCreateCustomerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateCustomerOrganizationV1 !== undefined ? bodyCreateCustomerOrganizationV1 : {}) : (bodyCreateCustomerOrganizationV1 || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Override pricing for customer
+         * @summary Create Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPricingV1: async (customerOrgId: string, pricingRequest: PricingRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling createCustomerPricingV1.');
+            }
+            // verify required parameter 'pricingRequest' is not null or undefined
+            if (pricingRequest === null || pricingRequest === undefined) {
+                throw new RequiredError('pricingRequest','Required parameter pricingRequest was null or undefined when calling createCustomerPricingV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/pricing`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof pricingRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(pricingRequest !== undefined ? pricingRequest : {}) : (pricingRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1: async (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bodyCreateResellerOrganizationV1' is not null or undefined
+            if (bodyCreateResellerOrganizationV1 === null || bodyCreateResellerOrganizationV1 === undefined) {
+                throw new RequiredError('bodyCreateResellerOrganizationV1','Required parameter bodyCreateResellerOrganizationV1 was null or undefined when calling createResellerOrganizationV1.');
+            }
+            const localVarPath = `/v1/resellers/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyCreateResellerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateResellerOrganizationV1 !== undefined ? bodyCreateResellerOrganizationV1 : {}) : (bodyCreateResellerOrganizationV1 || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a user
+         * @summary Delete Reseller User
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerUserV1: async (userId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteResellerUserV1.');
+            }
+            const localVarPath = `/v1/resellers/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+         * @summary Get Customer Credentials
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerCredentialsV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getCustomerCredentialsV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/credentials`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get customer credits
+         * @summary Get Customer Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerCreditsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/customers/credits`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get customer pricing
+         * @summary Get Customer Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerPricingV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/customers/pricing`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get organization settings
+         * @summary Get Organization Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationSettingsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/settings`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get reseller credits
+         * @summary Get Reseller Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCreditsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/credits`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get reseller customer by id
+         * @summary Get Reseller Customer By Id
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerByIdV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerByIdV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get resellers customer credits
+         * @summary Get Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerCreditsV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerCreditsV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/credits`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get resellers customer pricing
+         * @summary Get Reseller Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerPricingV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerPricingV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/pricing`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get reseller customers
+         * @summary Get Reseller Customers
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/customers`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get analytics data for Reseller
+         * @summary Get Reseller Metrics
+         * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerMetricsV1: async (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resellerBatchMetricsRequests' is not null or undefined
+            if (resellerBatchMetricsRequests === null || resellerBatchMetricsRequests === undefined) {
+                throw new RequiredError('resellerBatchMetricsRequests','Required parameter resellerBatchMetricsRequests was null or undefined when calling getResellerMetricsV1.');
+            }
+            const localVarPath = `/v1/resellers/metrics`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof resellerBatchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(resellerBatchMetricsRequests !== undefined ? resellerBatchMetricsRequests : {}) : (resellerBatchMetricsRequests || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a reseller organization by id
+         * @summary Get Reseller Organization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerOrganizationV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get pricing details for a reseller
+         * @summary Get Reseller Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerPricingV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/pricing`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List of all open invites from the organization
+         * @summary List Reseller User Invites
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerUserInvitesV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/invites`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Lists all users under the user\'s organization
+         * @summary List Reseller Users
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerUsersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/users`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send invite to a user on behalf of a customer organization
+         * @summary Invite Customer Users
+         * @param {string} customerOrgId 
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendCustomerUserInviteV1: async (customerOrgId: string, guestInput: GuestInput, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling sendCustomerUserInviteV1.');
+            }
+            // verify required parameter 'guestInput' is not null or undefined
+            if (guestInput === null || guestInput === undefined) {
+                throw new RequiredError('guestInput','Required parameter guestInput was null or undefined when calling sendCustomerUserInviteV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/users/invites`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof guestInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(guestInput !== undefined ? guestInput : {}) : (guestInput || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * @summary Invite Users
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendResellerUserInviteV1: async (guestInput: GuestInput, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'guestInput' is not null or undefined
+            if (guestInput === null || guestInput === undefined) {
+                throw new RequiredError('guestInput','Required parameter guestInput was null or undefined when calling sendResellerUserInviteV1.');
+            }
+            const localVarPath = `/v1/resellers/invites`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof guestInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(guestInput !== undefined ? guestInput : {}) : (guestInput || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Sync reseller stripe customer
+         * @summary Stripe Sync
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeSyncV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/settings/stripe-sync`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update customer pricing
+         * @summary Update Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomerPricingV1: async (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling updateCustomerPricingV1.');
+            }
+            // verify required parameter 'priceId' is not null or undefined
+            if (priceId === null || priceId === undefined) {
+                throw new RequiredError('priceId','Required parameter priceId was null or undefined when calling updateCustomerPricingV1.');
+            }
+            // verify required parameter 'pricingRequest' is not null or undefined
+            if (pricingRequest === null || pricingRequest === undefined) {
+                throw new RequiredError('pricingRequest','Required parameter pricingRequest was null or undefined when calling updateCustomerPricingV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/pricing/{price_id}`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)))
+                .replace(`{${"price_id"}}`, encodeURIComponent(String(priceId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof pricingRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(pricingRequest !== undefined ? pricingRequest : {}) : (pricingRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a reseller organization
+         * @summary Update Reseller Organization
+         * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerOrganizationV1: async (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'updateResellerOrganizationRequest' is not null or undefined
+            if (updateResellerOrganizationRequest === null || updateResellerOrganizationRequest === undefined) {
+                throw new RequiredError('updateResellerOrganizationRequest','Required parameter updateResellerOrganizationRequest was null or undefined when calling updateResellerOrganizationV1.');
+            }
+            const localVarPath = `/v1/resellers/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof updateResellerOrganizationRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(updateResellerOrganizationRequest !== undefined ? updateResellerOrganizationRequest : {}) : (updateResellerOrganizationRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update organization settings
+         * @summary Organization Settings Update
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerSettingsV1: async (organizationSettings: OrganizationSettings, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'organizationSettings' is not null or undefined
+            if (organizationSettings === null || organizationSettings === undefined) {
+                throw new RequiredError('organizationSettings','Required parameter organizationSettings was null or undefined when calling updateResellerSettingsV1.');
+            }
+            const localVarPath = `/v1/resellers/settings`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof organizationSettings !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(organizationSettings !== undefined ? organizationSettings : {}) : (organizationSettings || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update user details
+         * @summary Update Reseller User
+         * @param {string} userId 
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerUserV1: async (userId: string, userPayload: UserPayload, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateResellerUserV1.');
+            }
+            // verify required parameter 'userPayload' is not null or undefined
+            if (userPayload === null || userPayload === undefined) {
+                throw new RequiredError('userPayload','Required parameter userPayload was null or undefined when calling updateResellerUserV1.');
+            }
+            const localVarPath = `/v1/resellers/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof userPayload !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(userPayload !== undefined ? userPayload : {}) : (userPayload || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ResellerApi - functional programming interface
+ * @export
+ */
+export const ResellerApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Accept invite and add new user to organization
+         * @summary Accept Invite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).acceptResellerUserInviteV1(acceptInviteRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Add credits to customer
+         * @summary Add Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {Array<CreditRequest>} creditRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).addResellerCustomerCreditsV1(customerOrgId, creditRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Add Reseller settings
+         * @summary Organization Settings
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).addResellerSettingsV1(organizationSettings, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Override pricing for customer
+         * @summary Create Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createCustomerPricingV1(customerOrgId, pricingRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a user
+         * @summary Delete Reseller User
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteResellerUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).deleteResellerUserV1(userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+         * @summary Get Customer Credentials
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getCustomerCredentialsV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get customer credits
+         * @summary Get Customer Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getCustomerCreditsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get customer pricing
+         * @summary Get Customer Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getCustomerPricingV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get organization settings
+         * @summary Get Organization Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOrganizationSettingsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getOrganizationSettingsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get reseller credits
+         * @summary Get Reseller Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCreditsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get reseller customer by id
+         * @summary Get Reseller Customer By Id
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomerByIdV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get resellers customer credits
+         * @summary Get Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerCreditsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomerCreditsV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get resellers customer pricing
+         * @summary Get Reseller Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerPricingV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomerPricingV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get reseller customers
+         * @summary Get Reseller Customers
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get analytics data for Reseller
+         * @summary Get Reseller Metrics
+         * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerMetricsV1(resellerBatchMetricsRequests, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a reseller organization by id
+         * @summary Get Reseller Organization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerOrganizationV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get pricing details for a reseller
+         * @summary Get Reseller Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerPricingV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * List of all open invites from the organization
+         * @summary List Reseller User Invites
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).listResellerUserInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Lists all users under the user\'s organization
+         * @summary List Reseller Users
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Send invite to a user on behalf of a customer organization
+         * @summary Invite Customer Users
+         * @param {string} customerOrgId 
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).sendCustomerUserInviteV1(customerOrgId, guestInput, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * @summary Invite Users
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendResellerUserInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).sendResellerUserInviteV1(guestInput, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Sync reseller stripe customer
+         * @summary Stripe Sync
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async stripeSyncV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).stripeSyncV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update customer pricing
+         * @summary Update Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateCustomerPricingV1(customerOrgId, priceId, pricingRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a reseller organization
+         * @summary Update Reseller Organization
+         * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateResellerOrganizationV1(updateResellerOrganizationRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update organization settings
+         * @summary Organization Settings Update
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateResellerSettingsV1(organizationSettings, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update user details
+         * @summary Update Reseller User
+         * @param {string} userId 
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateResellerUserV1(userId, userPayload, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * ResellerApi - factory interface
+ * @export
+ */
+export const ResellerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Accept invite and add new user to organization
+         * @summary Accept Invite
+         * @param {AcceptInviteRequest} acceptInviteRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User> {
+            return ResellerApiFp(configuration).acceptResellerUserInviteV1(acceptInviteRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add credits to customer
+         * @summary Add Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {Array<CreditRequest>} creditRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any): AxiosPromise<Array<Credit>> {
+            return ResellerApiFp(configuration).addResellerCustomerCreditsV1(customerOrgId, creditRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add Reseller settings
+         * @summary Organization Settings
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings> {
+            return ResellerApiFp(configuration).addResellerSettingsV1(organizationSettings, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<User> {
+            return ResellerApiFp(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Override pricing for customer
+         * @summary Create Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price> {
+            return ResellerApiFp(configuration).createCustomerPricingV1(customerOrgId, pricingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User> {
+            return ResellerApiFp(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a user
+         * @summary Delete Reseller User
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerUserV1(userId: string, options?: any): AxiosPromise<User> {
+            return ResellerApiFp(configuration).deleteResellerUserV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+         * @summary Get Customer Credentials
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<string> {
+            return ResellerApiFp(configuration).getCustomerCredentialsV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get customer credits
+         * @summary Get Customer Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerCreditsV1(options?: any): AxiosPromise<Array<Credit>> {
+            return ResellerApiFp(configuration).getCustomerCreditsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get customer pricing
+         * @summary Get Customer Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerPricingV1(options?: any): AxiosPromise<Array<Price>> {
+            return ResellerApiFp(configuration).getCustomerPricingV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get organization settings
+         * @summary Get Organization Settings
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrganizationSettingsV1(options?: any): AxiosPromise<OrganizationSettings> {
+            return ResellerApiFp(configuration).getOrganizationSettingsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get reseller credits
+         * @summary Get Reseller Credits
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCreditsV1(options?: any): AxiosPromise<Array<Credit>> {
+            return ResellerApiFp(configuration).getResellerCreditsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get reseller customer by id
+         * @summary Get Reseller Customer By Id
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerByIdV1(customerOrgId: string, options?: any): AxiosPromise<OrgUsersPriceCredits> {
+            return ResellerApiFp(configuration).getResellerCustomerByIdV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get resellers customer credits
+         * @summary Get Reseller Customer Credits
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerCreditsV1(customerOrgId: string, options?: any): AxiosPromise<Array<Credit>> {
+            return ResellerApiFp(configuration).getResellerCustomerCreditsV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get resellers customer pricing
+         * @summary Get Reseller Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerPricingV1(customerOrgId: string, options?: any): AxiosPromise<Array<Price>> {
+            return ResellerApiFp(configuration).getResellerCustomerPricingV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get reseller customers
+         * @summary Get Reseller Customers
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>> {
+            return ResellerApiFp(configuration).getResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get analytics data for Reseller
+         * @summary Get Reseller Metrics
+         * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse> {
+            return ResellerApiFp(configuration).getResellerMetricsV1(resellerBatchMetricsRequests, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a reseller organization by id
+         * @summary Get Reseller Organization
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerOrganizationV1(options?: any): AxiosPromise<OrgWithUsers> {
+            return ResellerApiFp(configuration).getResellerOrganizationV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get pricing details for a reseller
+         * @summary Get Reseller Pricing
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerPricingV1(options?: any): AxiosPromise<Array<Price>> {
+            return ResellerApiFp(configuration).getResellerPricingV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List of all open invites from the organization
+         * @summary List Reseller User Invites
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>> {
+            return ResellerApiFp(configuration).listResellerUserInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Lists all users under the user\'s organization
+         * @summary List Reseller Users
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
+            return ResellerApiFp(configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send invite to a user on behalf of a customer organization
+         * @summary Invite Customer Users
+         * @param {string} customerOrgId 
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
+            return ResellerApiFp(configuration).sendCustomerUserInviteV1(customerOrgId, guestInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Invite a new user to an organization or resend invite to the user if the user is already invited
+         * @summary Invite Users
+         * @param {GuestInput} guestInput 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendResellerUserInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
+            return ResellerApiFp(configuration).sendResellerUserInviteV1(guestInput, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Sync reseller stripe customer
+         * @summary Stripe Sync
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeSyncV1(options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerApiFp(configuration).stripeSyncV1(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update customer pricing
+         * @summary Update Customer Pricing
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {PricingRequest} pricingRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price> {
+            return ResellerApiFp(configuration).updateCustomerPricingV1(customerOrgId, priceId, pricingRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a reseller organization
+         * @summary Update Reseller Organization
+         * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): AxiosPromise<OrganizationOutput> {
+            return ResellerApiFp(configuration).updateResellerOrganizationV1(updateResellerOrganizationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update organization settings
+         * @summary Organization Settings Update
+         * @param {OrganizationSettings} organizationSettings 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings> {
+            return ResellerApiFp(configuration).updateResellerSettingsV1(organizationSettings, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update user details
+         * @summary Update Reseller User
+         * @param {string} userId 
+         * @param {UserPayload} userPayload 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User> {
+            return ResellerApiFp(configuration).updateResellerUserV1(userId, userPayload, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ResellerApi - object-oriented interface
+ * @export
+ * @class ResellerApi
+ * @extends {BaseAPI}
+ */
+export class ResellerApi extends BaseAPI {
+    /**
+     * Accept invite and add new user to organization
+     * @summary Accept Invite
+     * @param {AcceptInviteRequest} acceptInviteRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any) {
+        return ResellerApiFp(this.configuration).acceptResellerUserInviteV1(acceptInviteRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add credits to customer
+     * @summary Add Reseller Customer Credits
+     * @param {string} customerOrgId 
+     * @param {Array<CreditRequest>} creditRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public addResellerCustomerCreditsV1(customerOrgId: string, creditRequest: Array<CreditRequest>, options?: any) {
+        return ResellerApiFp(this.configuration).addResellerCustomerCreditsV1(customerOrgId, creditRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add Reseller settings
+     * @summary Organization Settings
+     * @param {OrganizationSettings} organizationSettings 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any) {
+        return ResellerApiFp(this.configuration).addResellerSettingsV1(organizationSettings, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any) {
+        return ResellerApiFp(this.configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Override pricing for customer
+     * @summary Create Customer Pricing
+     * @param {string} customerOrgId 
+     * @param {PricingRequest} pricingRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any) {
+        return ResellerApiFp(this.configuration).createCustomerPricingV1(customerOrgId, pricingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) {
+        return ResellerApiFp(this.configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a user
+     * @summary Delete Reseller User
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public deleteResellerUserV1(userId: string, options?: any) {
+        return ResellerApiFp(this.configuration).deleteResellerUserV1(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
+     * @summary Get Customer Credentials
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getCustomerCredentialsV1(customerOrgId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getCustomerCredentialsV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getCustomerCreditsV1(options?: any) {
+        return ResellerApiFp(this.configuration).getCustomerCreditsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getCustomerPricingV1(options?: any) {
+        return ResellerApiFp(this.configuration).getCustomerPricingV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get organization settings
+     * @summary Get Organization Settings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getOrganizationSettingsV1(options?: any) {
+        return ResellerApiFp(this.configuration).getOrganizationSettingsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get reseller credits
+     * @summary Get Reseller Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCreditsV1(options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCreditsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get reseller customer by id
+     * @summary Get Reseller Customer By Id
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomerByIdV1(customerOrgId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomerByIdV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get resellers customer credits
+     * @summary Get Reseller Customer Credits
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomerCreditsV1(customerOrgId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomerCreditsV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get resellers customer pricing
+     * @summary Get Reseller Customer Pricing
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomerPricingV1(customerOrgId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomerPricingV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get reseller customers
+     * @summary Get Reseller Customers
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get analytics data for Reseller
+     * @summary Get Reseller Metrics
+     * @param {ResellerBatchMetricsRequests} resellerBatchMetricsRequests 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerMetricsV1(resellerBatchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a reseller organization by id
+     * @summary Get Reseller Organization
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerOrganizationV1(options?: any) {
+        return ResellerApiFp(this.configuration).getResellerOrganizationV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get pricing details for a reseller
+     * @summary Get Reseller Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerPricingV1(options?: any) {
+        return ResellerApiFp(this.configuration).getResellerPricingV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List of all open invites from the organization
+     * @summary List Reseller User Invites
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerApiFp(this.configuration).listResellerUserInvitesV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists all users under the user\'s organization
+     * @summary List Reseller Users
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerApiFp(this.configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send invite to a user on behalf of a customer organization
+     * @summary Invite Customer Users
+     * @param {string} customerOrgId 
+     * @param {GuestInput} guestInput 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any) {
+        return ResellerApiFp(this.configuration).sendCustomerUserInviteV1(customerOrgId, guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Invite a new user to an organization or resend invite to the user if the user is already invited
+     * @summary Invite Users
+     * @param {GuestInput} guestInput 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public sendResellerUserInviteV1(guestInput: GuestInput, options?: any) {
+        return ResellerApiFp(this.configuration).sendResellerUserInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Sync reseller stripe customer
+     * @summary Stripe Sync
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public stripeSyncV1(options?: any) {
+        return ResellerApiFp(this.configuration).stripeSyncV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update customer pricing
+     * @summary Update Customer Pricing
+     * @param {string} customerOrgId 
+     * @param {string} priceId 
+     * @param {PricingRequest} pricingRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any) {
+        return ResellerApiFp(this.configuration).updateCustomerPricingV1(customerOrgId, priceId, pricingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a reseller organization
+     * @summary Update Reseller Organization
+     * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any) {
+        return ResellerApiFp(this.configuration).updateResellerOrganizationV1(updateResellerOrganizationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update organization settings
+     * @summary Organization Settings Update
+     * @param {OrganizationSettings} organizationSettings 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any) {
+        return ResellerApiFp(this.configuration).updateResellerSettingsV1(organizationSettings, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update user details
+     * @summary Update Reseller User
+     * @param {string} userId 
+     * @param {UserPayload} userPayload 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any) {
+        return ResellerApiFp(this.configuration).updateResellerUserV1(userId, userPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
