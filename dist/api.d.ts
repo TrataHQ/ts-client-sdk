@@ -3435,6 +3435,12 @@ export interface Price {
      * @memberof Price
      */
     features?: Array<string> | null;
+    /**
+     *
+     * @type {PriceMetadata}
+     * @memberof Price
+     */
+    price_metadata?: PriceMetadata;
 }
 /**
  *
@@ -3444,6 +3450,25 @@ export interface Price {
 export declare enum PriceInterval {
     Recurring = "recurring",
     OneTime = "one_time"
+}
+/**
+ *
+ * @export
+ * @interface PriceMetadata
+ */
+export interface PriceMetadata {
+    /**
+     * Number of phone numbers to be purchased for the given price.
+     * @type {string}
+     * @memberof PriceMetadata
+     */
+    trata_phone_numbers: string;
+    /**
+     * Number of call seconds to be purchased for the given price.
+     * @type {string}
+     * @memberof PriceMetadata
+     */
+    trata_call_seconds: string;
 }
 /**
  *
@@ -4056,6 +4081,25 @@ export declare enum ProspectStatus {
     NOTINTERESTED = "NOT_INTERESTED",
     PRODUCTORDERPLACED = "PRODUCT_ORDER_PLACED",
     SERVICEORDERPLACED = "SERVICE_ORDER_PLACED"
+}
+/**
+ *
+ * @export
+ * @interface ResellerAdminUserCredentials
+ */
+export interface ResellerAdminUserCredentials {
+    /**
+     * Username of the reseller admin user
+     * @type {string}
+     * @memberof ResellerAdminUserCredentials
+     */
+    username: string;
+    /**
+     * Password of the reseller admin user
+     * @type {string}
+     * @memberof ResellerAdminUserCredentials
+     */
+    password: string;
 }
 /**
  *
@@ -7546,6 +7590,20 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1: (options?: any) => Promise<RequestArgs>;
+    /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
@@ -7671,6 +7729,20 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
@@ -7795,6 +7867,20 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerPricingV1(options?: any): AxiosPromise<Array<Price>>;
     /**
      *
      * @summary Getorganizationbranding
@@ -7927,6 +8013,22 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    /**
+     * Get customer credits
+     * @summary Get Customer Credits
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    getCustomerCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
+     * Get customer pricing
+     * @summary Get Customer Pricing
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    getCustomerPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      *
      * @summary Getorganizationbranding
@@ -8583,19 +8685,12 @@ export declare const ResellerApiAxiosParamCreator: (configuration?: Configuratio
      */
     getCustomerCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get customer credits
-     * @summary Get Customer Credits
+     * Get customer default pricing
+     * @summary Get Customer Default Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1: (options?: any) => Promise<RequestArgs>;
-    /**
-     * Get customer pricing
-     * @summary Get Customer Pricing
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getCustomerPricingV1: (options?: any) => Promise<RequestArgs>;
+    getCustomerDefaultPricingV1: (options?: any) => Promise<RequestArgs>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -8603,6 +8698,14 @@ export declare const ResellerApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     getOrganizationSettingsV1: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Get the reseller admin user basic auth credentials
+     * @summary Get Reseller Admin User Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerAdminUserCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get reseller credits
      * @summary Get Reseller Credits
@@ -8729,6 +8832,15 @@ export declare const ResellerApiAxiosParamCreator: (configuration?: Configuratio
      */
     stripeSyncV1: (options?: any) => Promise<RequestArgs>;
     /**
+     * Update customer default pricing
+     * @summary Update Customer Default Pricing
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -8836,19 +8948,12 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      */
     getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
-     * Get customer credits
-     * @summary Get Customer Credits
+     * Get customer default pricing
+     * @summary Get Customer Default Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
-    /**
-     * Get customer pricing
-     * @summary Get Customer Pricing
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getCustomerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getCustomerDefaultPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -8856,6 +8961,14 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getOrganizationSettingsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    /**
+     * Get the reseller admin user basic auth credentials
+     * @summary Get Reseller Admin User Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerAdminUserCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerAdminUserCredentials>>;
     /**
      * Get reseller credits
      * @summary Get Reseller Credits
@@ -8982,6 +9095,15 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      */
     stripeSyncV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
+     * Update customer default pricing
+     * @summary Update Customer Default Pricing
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -9089,19 +9211,12 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      */
     getCustomerCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<string>;
     /**
-     * Get customer credits
-     * @summary Get Customer Credits
+     * Get customer default pricing
+     * @summary Get Customer Default Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
-    /**
-     * Get customer pricing
-     * @summary Get Customer Pricing
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getCustomerPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    getCustomerDefaultPricingV1(options?: any): AxiosPromise<Array<Price>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -9109,6 +9224,14 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getOrganizationSettingsV1(options?: any): AxiosPromise<OrganizationSettings>;
+    /**
+     * Get the reseller admin user basic auth credentials
+     * @summary Get Reseller Admin User Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerAdminUserCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<ResellerAdminUserCredentials>;
     /**
      * Get reseller credits
      * @summary Get Reseller Credits
@@ -9235,6 +9358,15 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      */
     stripeSyncV1(options?: any): AxiosPromise<BaseResponseInput>;
     /**
+     * Update customer default pricing
+     * @summary Update Customer Default Pricing
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -9352,21 +9484,13 @@ export declare class ResellerApi extends BaseAPI {
      */
     getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
-     * Get customer credits
-     * @summary Get Customer Credits
+     * Get customer default pricing
+     * @summary Get Customer Default Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerApi
      */
-    getCustomerCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
-    /**
-     * Get customer pricing
-     * @summary Get Customer Pricing
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ResellerApi
-     */
-    getCustomerPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getCustomerDefaultPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -9375,6 +9499,15 @@ export declare class ResellerApi extends BaseAPI {
      * @memberof ResellerApi
      */
     getOrganizationSettingsV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    /**
+     * Get the reseller admin user basic auth credentials
+     * @summary Get Reseller Admin User Credentials
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getResellerAdminUserCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<ResellerAdminUserCredentials>>;
     /**
      * Get reseller credits
      * @summary Get Reseller Credits
@@ -9513,6 +9646,16 @@ export declare class ResellerApi extends BaseAPI {
      * @memberof ResellerApi
      */
     stripeSyncV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
+     * Update customer default pricing
+     * @summary Update Customer Default Pricing
+     * @param {string} priceId
+     * @param {PricingRequest} pricingRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing
