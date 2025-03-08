@@ -1199,6 +1199,19 @@ export interface BodyUploadFileV1 {
 /**
  *
  * @export
+ * @interface BodyUploadFileV1WorkflowsWorkflowIdFilePost
+ */
+export interface BodyUploadFileV1WorkflowsWorkflowIdFilePost {
+    /**
+     *
+     * @type {any}
+     * @memberof BodyUploadFileV1WorkflowsWorkflowIdFilePost
+     */
+    file: any;
+}
+/**
+ *
+ * @export
  * @interface BodyUploadResellerFilesV1
  */
 export interface BodyUploadResellerFilesV1 {
@@ -4544,6 +4557,25 @@ export interface UpdateResellerOrganizationRequest {
      * @memberof UpdateResellerOrganizationRequest
      */
     tax?: TaxDetailsInput | null;
+}
+/**
+ *
+ * @export
+ * @interface UploadFileResponse
+ */
+export interface UploadFileResponse {
+    /**
+     *
+     * @type {string}
+     * @memberof UploadFileResponse
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UploadFileResponse
+     */
+    fileUrl: string;
 }
 /**
  * Model representing the users under an organization
@@ -10609,10 +10641,11 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AppEnum, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10632,6 +10665,15 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     updateWorkflowV1WorkflowsWorkflowIdPut: (workflowId: string, workflowCore: WorkflowCore, options?: any) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Upload File
+     * @param {string} workflowId
+     * @param {any} file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId: string, file: any, options?: any) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsApi - functional programming interface
@@ -10667,10 +10709,11 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10690,6 +10733,15 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {string} workflowId
+     * @param {any} file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadFileResponse>>;
 };
 /**
  * WorkflowsApi - factory interface
@@ -10725,10 +10777,11 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Workflow>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): AxiosPromise<Array<Workflow>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10748,6 +10801,15 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): AxiosPromise<Workflow>;
+    /**
+     *
+     * @summary Upload File
+     * @param {string} workflowId
+     * @param {any} file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): AxiosPromise<UploadFileResponse>;
 };
 /**
  * WorkflowsApi - object-oriented interface
@@ -10788,11 +10850,12 @@ export declare class WorkflowsApi extends BaseAPI {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10814,6 +10877,16 @@ export declare class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<import("axios").AxiosResponse<Workflow>>;
+    /**
+     *
+     * @summary Upload File
+     * @param {string} workflowId
+     * @param {any} file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): Promise<import("axios").AxiosResponse<UploadFileResponse>>;
 }
 /**
  * WorkflowsApiHubspotApi - axios parameter creator

@@ -12033,10 +12033,11 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readWorkflowsV1WorkflowsGet: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        readWorkflowsV1WorkflowsGet: (skip, limit, app, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/workflows/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12059,6 +12060,9 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
             }
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -12172,6 +12176,57 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         *
+         * @summary Upload File
+         * @param {string} workflowId
+         * @param {any} file
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId, file, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'workflowId' is not null or undefined
+            if (workflowId === null || workflowId === undefined) {
+                throw new base_1.RequiredError('workflowId', 'Required parameter workflowId was null or undefined when calling uploadFileV1WorkflowsWorkflowIdFilePost.');
+            }
+            // verify required parameter 'file' is not null or undefined
+            if (file === null || file === undefined) {
+                throw new base_1.RequiredError('file', 'Required parameter file was null or undefined when calling uploadFileV1WorkflowsWorkflowIdFilePost.');
+            }
+            const localVarPath = `/v1/workflows/{workflow_id}/file`
+                .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            const localVarFormParams = new FormData();
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (file !== undefined) {
+                localVarFormParams.append('file', file);
+            }
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = localVarFormParams;
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -12233,12 +12288,13 @@ exports.WorkflowsApiFp = function (configuration) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readWorkflowsV1WorkflowsGet(skip, limit, options) {
+        readWorkflowsV1WorkflowsGet(skip, limit, app, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.WorkflowsApiAxiosParamCreator(configuration).readWorkflowsV1WorkflowsGet(skip, limit, options);
+                const localVarAxiosArgs = yield exports.WorkflowsApiAxiosParamCreator(configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12274,6 +12330,23 @@ exports.WorkflowsApiFp = function (configuration) {
         updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.WorkflowsApiAxiosParamCreator(configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         *
+         * @summary Upload File
+         * @param {string} workflowId
+         * @param {any} file
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.WorkflowsApiAxiosParamCreator(configuration).uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12323,11 +12396,12 @@ exports.WorkflowsApiFactory = function (configuration, basePath, axios) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {AppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readWorkflowsV1WorkflowsGet(skip, limit, options) {
-            return exports.WorkflowsApiFp(configuration).readWorkflowsV1WorkflowsGet(skip, limit, options).then((request) => request(axios, basePath));
+        readWorkflowsV1WorkflowsGet(skip, limit, app, options) {
+            return exports.WorkflowsApiFp(configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -12351,6 +12425,17 @@ exports.WorkflowsApiFactory = function (configuration, basePath, axios) {
          */
         updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options) {
             return exports.WorkflowsApiFp(configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Upload File
+         * @param {string} workflowId
+         * @param {any} file
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options) {
+            return exports.WorkflowsApiFp(configuration).uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12399,12 +12484,13 @@ class WorkflowsApi extends base_1.BaseAPI {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {AppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowsV1WorkflowsGet(skip, limit, options) {
-        return exports.WorkflowsApiFp(this.configuration).readWorkflowsV1WorkflowsGet(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    readWorkflowsV1WorkflowsGet(skip, limit, app, options) {
+        return exports.WorkflowsApiFp(this.configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *
@@ -12430,6 +12516,18 @@ class WorkflowsApi extends base_1.BaseAPI {
      */
     updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options) {
         return exports.WorkflowsApiFp(this.configuration).updateWorkflowV1WorkflowsWorkflowIdPut(workflowId, workflowCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Upload File
+     * @param {string} workflowId
+     * @param {any} file
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options) {
+        return exports.WorkflowsApiFp(this.configuration).uploadFileV1WorkflowsWorkflowIdFilePost(workflowId, file, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.WorkflowsApi = WorkflowsApi;
