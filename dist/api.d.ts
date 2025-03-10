@@ -2154,6 +2154,67 @@ export declare enum CreditType {
 /**
  *
  * @export
+ * @interface CustomerBranding
+ */
+export interface CustomerBranding {
+    /**
+     * Name of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    name?: string | null;
+    /**
+     * Brand color of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    brandColor?: string | null;
+    /**
+     * Button color of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    buttonColor?: string | null;
+    /**
+     * Secondary color of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    secondaryColor?: string | null;
+    /**
+     * Text color of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    textColor?: string | null;
+    /**
+     * Favicon of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    favicon?: string | null;
+    /**
+     * Favicon URL of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    faviconUrl?: string | null;
+    /**
+     * Logo of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    logo?: string | null;
+    /**
+     * Logo URL of the organization
+     * @type {string}
+     * @memberof CustomerBranding
+     */
+    logoUrl?: string | null;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum DecisionMakingStyle {
@@ -3268,6 +3329,12 @@ export interface OrganizationSettings {
      * @memberof OrganizationSettings
      */
     secondaryColor?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationSettings
+     */
+    textColor?: string | null;
     /**
      *
      * @type {string}
@@ -4953,6 +5020,18 @@ export interface VoiceInput {
      * @memberof VoiceInput
      */
     modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VoiceInput
+     */
+    playbackSpeed?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VoiceInput
+     */
+    backgroundNoise?: boolean;
 }
 /**
     * @export
@@ -5018,6 +5097,18 @@ export interface VoiceOutput {
      * @memberof VoiceOutput
      */
     modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VoiceOutput
+     */
+    playbackSpeed?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VoiceOutput
+     */
+    backgroundNoise?: boolean;
 }
 /**
     * @export
@@ -7780,7 +7871,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings | object>>;
+    getOrganizationBrandingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerBranding | object>>;
     /**
      *
      * @summary Getorganization
@@ -7919,7 +8010,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: any): AxiosPromise<OrganizationSettings | object>;
+    getOrganizationBrandingV1(options?: any): AxiosPromise<CustomerBranding | object>;
     /**
      *
      * @summary Getorganization
@@ -8068,7 +8159,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getOrganizationBrandingV1(options?: any): Promise<import("axios").AxiosResponse<object | OrganizationSettings>>;
+    getOrganizationBrandingV1(options?: any): Promise<import("axios").AxiosResponse<object | CustomerBranding>>;
     /**
      *
      * @summary Getorganization
@@ -8724,6 +8815,23 @@ export declare const ResellerApiAxiosParamCreator: (configuration?: Configuratio
      */
     getCustomerDefaultPricingV1: (options?: any) => Promise<RequestArgs>;
     /**
+     * Get all invites for a customer organization
+     * @summary Get Customer Invites
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerInvitesV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get organization settings
      * @summary Get Organization Settings
      * @param {*} [options] Override http request option.
@@ -8873,6 +8981,15 @@ export declare const ResellerApiAxiosParamCreator: (configuration?: Configuratio
      */
     updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
     /**
+     * Update a customer organization under a reseller organization
+     * @summary Update Customer
+     * @param {string} customerOrgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerOrganizationV1: (customerOrgId: string, organizationInput: OrganizationInput, options?: any) => Promise<RequestArgs>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -8986,6 +9103,23 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getCustomerDefaultPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    /**
+     * Get all invites for a customer organization
+     * @summary Get Customer Invites
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -9136,6 +9270,15 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      */
     updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
     /**
+     * Update a customer organization under a reseller organization
+     * @summary Update Customer
+     * @param {string} customerOrgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -9249,6 +9392,23 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getCustomerDefaultPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    /**
+     * Get all invites for a customer organization
+     * @summary Get Customer Invites
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -9399,6 +9559,15 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      */
     updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
     /**
+     * Update a customer organization under a reseller organization
+     * @summary Update Customer
+     * @param {string} customerOrgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): AxiosPromise<OrganizationOutput>;
+    /**
      * Update customer pricing
      * @summary Update Customer Pricing
      * @param {string} customerOrgId
@@ -9523,6 +9692,24 @@ export declare class ResellerApi extends BaseAPI {
      * @memberof ResellerApi
      */
     getCustomerDefaultPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    /**
+     * Get all invites for a customer organization
+     * @summary Get Customer Invites
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    getCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings
@@ -9688,6 +9875,16 @@ export declare class ResellerApi extends BaseAPI {
      * @memberof ResellerApi
      */
     updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    /**
+     * Update a customer organization under a reseller organization
+     * @summary Update Customer
+     * @param {string} customerOrgId
+     * @param {OrganizationInput} organizationInput
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing
