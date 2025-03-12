@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricName = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnum = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceOutputGenderEnum = exports.SparrVoiceLanguage = exports.SparrVoiceInputGenderEnum = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricName = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -63,6 +63,16 @@ var Adaptability;
     Adaptability["Resistant"] = "resistant";
     Adaptability["Indifferent"] = "indifferent";
 })(Adaptability = exports.Adaptability || (exports.Adaptability = {}));
+/**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+var AgenticWorkflowAdkModelsWorkflowAppEnum;
+(function (AgenticWorkflowAdkModelsWorkflowAppEnum) {
+    AgenticWorkflowAdkModelsWorkflowAppEnum["TRATA"] = "TRATA";
+    AgenticWorkflowAdkModelsWorkflowAppEnum["TRATASPARR"] = "TRATA_SPARR";
+})(AgenticWorkflowAdkModelsWorkflowAppEnum = exports.AgenticWorkflowAdkModelsWorkflowAppEnum || (exports.AgenticWorkflowAdkModelsWorkflowAppEnum = {}));
 /**
  *
  * @export
@@ -116,11 +126,23 @@ var AppActionType;
  * @export
  * @enum {string}
  */
-var AppEnum;
-(function (AppEnum) {
-    AppEnum["TRATA"] = "TRATA";
-    AppEnum["TRATASPARR"] = "TRATA_SPARR";
-})(AppEnum = exports.AppEnum || (exports.AppEnum = {}));
+var AppEnumInput;
+(function (AppEnumInput) {
+    AppEnumInput["TRATA"] = "TRATA";
+    AppEnumInput["TRATASPARR"] = "TRATA_SPARR";
+    AppEnumInput["TRATASPARRV1"] = "TRATA_SPARR_V1";
+})(AppEnumInput = exports.AppEnumInput || (exports.AppEnumInput = {}));
+/**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+var AppEnumOutput;
+(function (AppEnumOutput) {
+    AppEnumOutput["TRATA"] = "TRATA";
+    AppEnumOutput["TRATASPARR"] = "TRATA_SPARR";
+    AppEnumOutput["TRATASPARRV1"] = "TRATA_SPARR_V1";
+})(AppEnumOutput = exports.AppEnumOutput || (exports.AppEnumOutput = {}));
 /**
     * @export
     * @enum {string}
@@ -582,6 +604,179 @@ var SortOrder;
     SortOrder["Asc"] = "asc";
     SortOrder["Desc"] = "desc";
 })(SortOrder = exports.SortOrder || (exports.SortOrder = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrAdaptability;
+(function (SparrAdaptability) {
+    SparrAdaptability["OpenToChange"] = "open to change";
+    SparrAdaptability["Resistant"] = "resistant";
+    SparrAdaptability["Indifferent"] = "indifferent";
+})(SparrAdaptability = exports.SparrAdaptability || (exports.SparrAdaptability = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrCommunicationStyle;
+(function (SparrCommunicationStyle) {
+    SparrCommunicationStyle["Direct"] = "direct";
+    SparrCommunicationStyle["Indirect"] = "indirect";
+    SparrCommunicationStyle["Verbose"] = "verbose";
+    SparrCommunicationStyle["Brief"] = "brief";
+})(SparrCommunicationStyle = exports.SparrCommunicationStyle || (exports.SparrCommunicationStyle = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrDecisionMakingStyle;
+(function (SparrDecisionMakingStyle) {
+    SparrDecisionMakingStyle["Logical"] = "logical";
+    SparrDecisionMakingStyle["Emotional"] = "emotional";
+    SparrDecisionMakingStyle["Impulsive"] = "impulsive";
+    SparrDecisionMakingStyle["Hesitant"] = "hesitant";
+})(SparrDecisionMakingStyle = exports.SparrDecisionMakingStyle || (exports.SparrDecisionMakingStyle = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var SparrDialogLineSpeakerEnum;
+(function (SparrDialogLineSpeakerEnum) {
+    SparrDialogLineSpeakerEnum["USER"] = "USER";
+    SparrDialogLineSpeakerEnum["AI"] = "AI";
+    SparrDialogLineSpeakerEnum["TOOL"] = "TOOL";
+    SparrDialogLineSpeakerEnum["AITOOLREQUEST"] = "AI - TOOL REQUEST";
+})(SparrDialogLineSpeakerEnum = exports.SparrDialogLineSpeakerEnum || (exports.SparrDialogLineSpeakerEnum = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrEngagementLevel;
+(function (SparrEngagementLevel) {
+    SparrEngagementLevel["HighlyEngaged"] = "highly engaged";
+    SparrEngagementLevel["Distracted"] = "distracted";
+    SparrEngagementLevel["Uninterested"] = "uninterested";
+})(SparrEngagementLevel = exports.SparrEngagementLevel || (exports.SparrEngagementLevel = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrExcitementLevel;
+(function (SparrExcitementLevel) {
+    SparrExcitementLevel["Neutral"] = "neutral";
+    SparrExcitementLevel["Interested"] = "interested";
+    SparrExcitementLevel["Excited"] = "excited";
+    SparrExcitementLevel["Overjoyed"] = "overjoyed";
+    SparrExcitementLevel["Euphoric"] = "euphoric";
+})(SparrExcitementLevel = exports.SparrExcitementLevel || (exports.SparrExcitementLevel = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrFrustrationTolerance;
+(function (SparrFrustrationTolerance) {
+    SparrFrustrationTolerance["Neutral"] = "neutral";
+    SparrFrustrationTolerance["QuickToAnger"] = "quick to anger";
+    SparrFrustrationTolerance["Understanding"] = "understanding";
+})(SparrFrustrationTolerance = exports.SparrFrustrationTolerance || (exports.SparrFrustrationTolerance = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrInteractionTone;
+(function (SparrInteractionTone) {
+    SparrInteractionTone["Casual"] = "casual";
+    SparrInteractionTone["Professional"] = "professional";
+    SparrInteractionTone["Friendly"] = "friendly";
+    SparrInteractionTone["Authoritative"] = "authoritative";
+})(SparrInteractionTone = exports.SparrInteractionTone || (exports.SparrInteractionTone = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrNegotiationStyle;
+(function (SparrNegotiationStyle) {
+    SparrNegotiationStyle["HardBargainer"] = "hard bargainer";
+    SparrNegotiationStyle["FriendlyNegotiator"] = "friendly negotiator";
+    SparrNegotiationStyle["NonNegotiator"] = "non-negotiator";
+})(SparrNegotiationStyle = exports.SparrNegotiationStyle || (exports.SparrNegotiationStyle = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrPatienceLevel;
+(function (SparrPatienceLevel) {
+    SparrPatienceLevel["Neutral"] = "neutral";
+    SparrPatienceLevel["VeryPatient"] = "very patient";
+    SparrPatienceLevel["Impatient"] = "impatient";
+})(SparrPatienceLevel = exports.SparrPatienceLevel || (exports.SparrPatienceLevel = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrRudenessLevel;
+(function (SparrRudenessLevel) {
+    SparrRudenessLevel["Courteous"] = "courteous";
+    SparrRudenessLevel["Direct"] = "direct";
+    SparrRudenessLevel["Irritable"] = "irritable";
+    SparrRudenessLevel["Aggressive"] = "aggressive";
+    SparrRudenessLevel["Toxic"] = "toxic";
+})(SparrRudenessLevel = exports.SparrRudenessLevel || (exports.SparrRudenessLevel = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrVoiceAccent;
+(function (SparrVoiceAccent) {
+    SparrVoiceAccent["American"] = "American";
+    SparrVoiceAccent["Indian"] = "Indian";
+    SparrVoiceAccent["Australian"] = "Australian";
+    SparrVoiceAccent["British"] = "British";
+    SparrVoiceAccent["Hindi"] = "Hindi";
+    SparrVoiceAccent["MiddleEastern"] = "Middle Eastern";
+})(SparrVoiceAccent = exports.SparrVoiceAccent || (exports.SparrVoiceAccent = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var SparrVoiceInputGenderEnum;
+(function (SparrVoiceInputGenderEnum) {
+    SparrVoiceInputGenderEnum["Male"] = "Male";
+    SparrVoiceInputGenderEnum["Female"] = "Female";
+    SparrVoiceInputGenderEnum["Neutral"] = "Neutral";
+})(SparrVoiceInputGenderEnum = exports.SparrVoiceInputGenderEnum || (exports.SparrVoiceInputGenderEnum = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrVoiceLanguage;
+(function (SparrVoiceLanguage) {
+    SparrVoiceLanguage["English"] = "English";
+    SparrVoiceLanguage["Spanish"] = "Spanish";
+    SparrVoiceLanguage["Hindi"] = "Hindi";
+})(SparrVoiceLanguage = exports.SparrVoiceLanguage || (exports.SparrVoiceLanguage = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var SparrVoiceOutputGenderEnum;
+(function (SparrVoiceOutputGenderEnum) {
+    SparrVoiceOutputGenderEnum["Male"] = "Male";
+    SparrVoiceOutputGenderEnum["Female"] = "Female";
+    SparrVoiceOutputGenderEnum["Neutral"] = "Neutral";
+})(SparrVoiceOutputGenderEnum = exports.SparrVoiceOutputGenderEnum || (exports.SparrVoiceOutputGenderEnum = {}));
 /**
  *
  * @export
@@ -1533,7 +1728,7 @@ exports.AgentsApiAxiosParamCreator = function (configuration) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -1711,7 +1906,7 @@ exports.AgentsApiFp = function (configuration) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -1791,7 +1986,7 @@ exports.AgentsApiFactory = function (configuration, basePath, axios) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -1863,7 +2058,7 @@ class AgentsApi extends base_1.BaseAPI {
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -1949,7 +2144,7 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2012,7 +2207,7 @@ exports.AnalyticsApiFp = function (configuration) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2047,7 +2242,7 @@ exports.AnalyticsApiFactory = function (configuration, basePath, axios) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -2078,7 +2273,7 @@ class AnalyticsApi extends base_1.BaseAPI {
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
@@ -3256,7 +3451,7 @@ exports.ConversationsApiAxiosParamCreator = function (configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -3451,7 +3646,7 @@ exports.ConversationsApiFp = function (configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -3542,7 +3737,7 @@ exports.ConversationsApiFactory = function (configuration, basePath, axios) {
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app]
+         * @param {AppEnumInput} [app]
          * @param {string} [searchBy]
          * @param {string} [searchValue]
          * @param {string} [status]
@@ -3626,7 +3821,7 @@ class ConversationsApi extends base_1.BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -10251,6 +10446,1308 @@ class ResellerApi extends base_1.BaseAPI {
 }
 exports.ResellerApi = ResellerApi;
 /**
+ * SparrApi - axios parameter creator
+ * @export
+ */
+exports.SparrApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackV1: (feedbackCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackCore' is not null or undefined
+            if (feedbackCore === null || feedbackCore === undefined) {
+                throw new base_1.RequiredError('feedbackCore', 'Required parameter feedbackCore was null or undefined when calling createFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof feedbackCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(feedbackCore !== undefined ? feedbackCore : {}) : (feedbackCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaV1: (personaCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new base_1.RequiredError('personaCore', 'Required parameter personaCore was null or undefined when calling createPersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioV1: (scenarioCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new base_1.RequiredError('scenarioCore', 'Required parameter scenarioCore was null or undefined when calling createScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackV1: (feedbackId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new base_1.RequiredError('feedbackId', 'Required parameter feedbackId was null or undefined when calling deleteFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaV1: (personaId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new base_1.RequiredError('personaId', 'Required parameter personaId was null or undefined when calling deletePersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioV1: (scenarioId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new base_1.RequiredError('scenarioId', 'Required parameter scenarioId was null or undefined when calling deleteScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackV1: (feedbackId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new base_1.RequiredError('feedbackId', 'Required parameter feedbackId was null or undefined when calling getFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaV1: (personaId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new base_1.RequiredError('personaId', 'Required parameter personaId was null or undefined when calling getPersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioV1: (scenarioId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new base_1.RequiredError('scenarioId', 'Required parameter scenarioId was null or undefined when calling getScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbacksV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusSparrStatusGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/sparr/status`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackV1: (feedbackId, feedbackCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new base_1.RequiredError('feedbackId', 'Required parameter feedbackId was null or undefined when calling updateFeedbackV1.');
+            }
+            // verify required parameter 'feedbackCore' is not null or undefined
+            if (feedbackCore === null || feedbackCore === undefined) {
+                throw new base_1.RequiredError('feedbackCore', 'Required parameter feedbackCore was null or undefined when calling updateFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof feedbackCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(feedbackCore !== undefined ? feedbackCore : {}) : (feedbackCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaV1: (personaId, personaCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new base_1.RequiredError('personaId', 'Required parameter personaId was null or undefined when calling updatePersonaV1.');
+            }
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new base_1.RequiredError('personaCore', 'Required parameter personaCore was null or undefined when calling updatePersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioV1: (scenarioId, scenarioCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new base_1.RequiredError('scenarioId', 'Required parameter scenarioId was null or undefined when calling updateScenarioV1.');
+            }
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new base_1.RequiredError('scenarioCore', 'Required parameter scenarioCore was null or undefined when calling updateScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * SparrApi - functional programming interface
+ * @export
+ */
+exports.SparrApiFp = function (configuration) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackV1(feedbackCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createFeedbackV1(feedbackCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaV1(personaCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createPersonaV1(personaCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioV1(scenarioCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createScenarioV1(scenarioCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackV1(feedbackId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteFeedbackV1(feedbackId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaV1(personaId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deletePersonaV1(personaId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioV1(scenarioId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteScenarioV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackV1(feedbackId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getFeedbackV1(feedbackId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaV1(personaId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getPersonaV1(personaId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioV1(scenarioId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getScenarioV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbacksV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listPersonasV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusSparrStatusGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).statusSparrStatusGet(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackV1(feedbackId, feedbackCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateFeedbackV1(feedbackId, feedbackCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaV1(personaId, personaCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updatePersonaV1(personaId, personaCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioV1(scenarioId, scenarioCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateScenarioV1(scenarioId, scenarioCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * SparrApi - factory interface
+ * @export
+ */
+exports.SparrApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackV1(feedbackCore, options) {
+            return exports.SparrApiFp(configuration).createFeedbackV1(feedbackCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaV1(personaCore, options) {
+            return exports.SparrApiFp(configuration).createPersonaV1(personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioV1(scenarioCore, options) {
+            return exports.SparrApiFp(configuration).createScenarioV1(scenarioCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackV1(feedbackId, options) {
+            return exports.SparrApiFp(configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaV1(personaId, options) {
+            return exports.SparrApiFp(configuration).deletePersonaV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioV1(scenarioId, options) {
+            return exports.SparrApiFp(configuration).deleteScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackV1(feedbackId, options) {
+            return exports.SparrApiFp(configuration).getFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaV1(personaId, options) {
+            return exports.SparrApiFp(configuration).getPersonaV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioV1(scenarioId, options) {
+            return exports.SparrApiFp(configuration).getScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbacksV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listPersonasV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listScenariosV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusSparrStatusGet(options) {
+            return exports.SparrApiFp(configuration).statusSparrStatusGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId
+         * @param {FeedbackCore} feedbackCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackV1(feedbackId, feedbackCore, options) {
+            return exports.SparrApiFp(configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId
+         * @param {PersonaCore} personaCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaV1(personaId, personaCore, options) {
+            return exports.SparrApiFp(configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId
+         * @param {ScenarioCore} scenarioCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioV1(scenarioId, scenarioCore, options) {
+            return exports.SparrApiFp(configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * SparrApi - object-oriented interface
+ * @export
+ * @class SparrApi
+ * @extends {BaseAPI}
+ */
+class SparrApi extends base_1.BaseAPI {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createFeedbackV1(feedbackCore, options) {
+        return exports.SparrApiFp(this.configuration).createFeedbackV1(feedbackCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPersonaV1(personaCore, options) {
+        return exports.SparrApiFp(this.configuration).createPersonaV1(personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createScenarioV1(scenarioCore, options) {
+        return exports.SparrApiFp(this.configuration).createScenarioV1(scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFeedbackV1(feedbackId, options) {
+        return exports.SparrApiFp(this.configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deletePersonaV1(personaId, options) {
+        return exports.SparrApiFp(this.configuration).deletePersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteScenarioV1(scenarioId, options) {
+        return exports.SparrApiFp(this.configuration).deleteScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFeedbackV1(feedbackId, options) {
+        return exports.SparrApiFp(this.configuration).getFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getPersonaV1(personaId, options) {
+        return exports.SparrApiFp(this.configuration).getPersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getScenarioV1(scenarioId, options) {
+        return exports.SparrApiFp(this.configuration).getScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listFeedbacksV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPersonasV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listPersonasV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listScenariosV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listScenariosV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    statusSparrStatusGet(options) {
+        return exports.SparrApiFp(this.configuration).statusSparrStatusGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateFeedbackV1(feedbackId, feedbackCore, options) {
+        return exports.SparrApiFp(this.configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updatePersonaV1(personaId, personaCore, options) {
+        return exports.SparrApiFp(this.configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateScenarioV1(scenarioId, scenarioCore, options) {
+        return exports.SparrApiFp(this.configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.SparrApi = SparrApi;
+/**
  * SparringApi - axios parameter creator
  * @export
  */
@@ -12261,7 +13758,7 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
-         * @param {AppEnum} [app]
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12516,7 +14013,7 @@ exports.WorkflowsApiFp = function (configuration) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
-         * @param {AppEnum} [app]
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12624,7 +14121,7 @@ exports.WorkflowsApiFactory = function (configuration, basePath, axios) {
          * @summary Read Workflows
          * @param {number} [skip]
          * @param {number} [limit]
-         * @param {AppEnum} [app]
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12712,7 +14209,7 @@ class WorkflowsApi extends base_1.BaseAPI {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi

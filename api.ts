@@ -81,10 +81,10 @@ export interface AIAgentInput {
     boostedKeywords?: Array<string> | null;
     /**
      * App in which the AI agent is running
-     * @type {AppEnum}
+     * @type {AppEnumInput}
      * @memberof AIAgentInput
      */
-    app?: AppEnum | null;
+    app?: AppEnumInput | null;
     /**
      * Evaluation metrics for the conversation
      * @type {ConversationEvaluationMetrics}
@@ -166,10 +166,10 @@ export interface AIAgentOutput {
     boostedKeywords?: Array<string> | null;
     /**
      * Application under which the AI agent is created
-     * @type {AppEnum}
+     * @type {AppEnumOutput}
      * @memberof AIAgentOutput
      */
-    app?: AppEnum | null;
+    app?: AppEnumOutput | null;
     /**
      * Evaluation metrics for the conversation
      * @type {ConversationEvaluationMetrics}
@@ -539,6 +539,16 @@ export interface AgenticWorkflowActionEndpoint {
     workflowId: string;
 }
 /**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+export enum AgenticWorkflowAdkModelsWorkflowAppEnum {
+    TRATA = 'TRATA',
+    TRATASPARR = 'TRATA_SPARR'
+}
+
+/**
  * Connection represents an instance of an app with specific credentials and configuration
  * @export
  * @interface AgenticWorkflowDbModelsConnection
@@ -658,6 +668,56 @@ export enum AggregationPeriod {
     DAILY = 'DAILY'
 }
 
+/**
+ * 
+ * @export
+ * @interface AnalyticsModelInput
+ */
+export interface AnalyticsModelInput {
+    /**
+     * 
+     * @type {SparrModelsAnalyticsConversationAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    /**
+     * 
+     * @type {GoalsAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    goals_analytics: GoalsAnalyticsModel;
+    /**
+     * 
+     * @type {CoachAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    coach_analytics: CoachAnalyticsModel;
+}
+/**
+ * 
+ * @export
+ * @interface AnalyticsModelOutput
+ */
+export interface AnalyticsModelOutput {
+    /**
+     * 
+     * @type {SparrModelsAnalyticsConversationAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    /**
+     * 
+     * @type {GoalsAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    goals_analytics: GoalsAnalyticsModel;
+    /**
+     * 
+     * @type {CoachAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    coach_analytics: CoachAnalyticsModel;
+}
 /**
  * API key authentication configuration
  * @export
@@ -998,9 +1058,21 @@ export interface AppEntity {
  * @export
  * @enum {string}
  */
-export enum AppEnum {
+export enum AppEnumInput {
     TRATA = 'TRATA',
-    TRATASPARR = 'TRATA_SPARR'
+    TRATASPARR = 'TRATA_SPARR',
+    TRATASPARRV1 = 'TRATA_SPARR_V1'
+}
+
+/**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+export enum AppEnumOutput {
+    TRATA = 'TRATA',
+    TRATASPARR = 'TRATA_SPARR',
+    TRATASPARRV1 = 'TRATA_SPARR_V1'
 }
 
 /**
@@ -1258,6 +1330,19 @@ export enum CallSentiment {
 /**
  * 
  * @export
+ * @interface CoachAnalyticsModel
+ */
+export interface CoachAnalyticsModel {
+    /**
+     * Provide 2 to 3 straightforward examples of how the role player could have improved their handling of the conversation. Quote the exact words used by the role player and suggest an alternative response that better aligns with the intended goals. Additionally, specify which goal could have been better achieved with the improved response.
+     * @type {Array<string>}
+     * @memberof CoachAnalyticsModel
+     */
+    coaching_points?: Array<string> | null;
+}
+/**
+ * 
+ * @export
  * @interface Comment
  */
 export interface Comment {
@@ -1460,61 +1545,61 @@ export enum ConnectionSourceSourceNameEnum {
 /**
  * Expected output of the post conversation task
  * @export
- * @interface ConversationAnalyticsModel
+ * @interface ConversationAnalyticsModelInput
  */
-export interface ConversationAnalyticsModel {
+export interface ConversationAnalyticsModelInput {
     /**
      * Summary of the conversation happened with important details on the conversation. The summary should be concise and to the point. It should contain the important details of the conversation like name, phone number, email, address and any other details shared by the user.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     summary: string | null;
     /**
      * List of action items and the next steps to be performed from the conversation details.
      * @type {Array<string>}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     action_items: Array<string> | null;
     /**
      * If the user has given consent to store the audio of the conversation. Unless the user explicitly says yes, this should be false.
      * @type {boolean}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     is_audio_consent_given: boolean;
     /**
      * Extracted email address of the caller from the conversation details. Email should be a valid email address format
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     email_address_of_caller: string | null;
     /**
      * Extracted name of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     name_of_caller: string | null;
     /**
      * Extracted phone number of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     phone_number_of_caller: string | null;
     /**
      * Extracted address of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     address_of_caller: string | null;
     /**
      * Sentiment of the caller based on the conversation details.
      * @type {CallSentiment}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     sentiment_of_caller: CallSentiment;
     /**
      * Status of the prospect after this conversation.
      * @type {ProspectStatus}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     prospectStatus: ProspectStatus | null;
 }
@@ -1767,10 +1852,10 @@ export interface ConversationInput {
     agentId: string;
     /**
      * App in which the conversation is created
-     * @type {AppEnum}
+     * @type {AppEnumInput}
      * @memberof ConversationInput
      */
-    app?: AppEnum | null;
+    app?: AppEnumInput | null;
     /**
      * URL to the full transcript of the conversation
      * @type {Array<DialogLine>}
@@ -1803,10 +1888,10 @@ export interface ConversationInput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalyticsModel}
+     * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationInput
      */
-    conversationAnalytics?: ConversationAnalyticsModel | null;
+    conversationAnalytics?: ConversationAnalyticsModelInput | null;
     /**
      * Comments from the admin on the conversation
      * @type {Array<Comment>}
@@ -1900,10 +1985,10 @@ export interface ConversationOutput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalyticsModel}
+     * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationOutput
      */
-    conversationAnalytics?: ConversationAnalyticsModel | null;
+    conversationAnalytics?: ConversationAnalyticsModelInput | null;
     /**
      * Stats of the conversation
      * @type {ConversationStatsModel}
@@ -1912,10 +1997,10 @@ export interface ConversationOutput {
     conversationStats?: ConversationStatsModel | null;
     /**
      * Application under which the conversation is created
-     * @type {AppEnum}
+     * @type {AppEnumOutput}
      * @memberof ConversationOutput
      */
-    app?: AppEnum | null;
+    app?: AppEnumOutput | null;
     /**
      * Evaluation of the conversation
      * @type {ConversationEvaluation}
@@ -2384,6 +2469,122 @@ export interface ExternalServicePorviderOutput {
     providerProps: object | null;
 }
 /**
+ * Feedback represents a feedback that can be given to a persona
+ * @export
+ * @interface Feedback
+ */
+export interface Feedback {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Feedback
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Feedback
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Feedback
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Feedback
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Feedback
+     */
+    orgId?: string;
+    /**
+     * The top insights from the conversation
+     * @type {Array<string>}
+     * @memberof Feedback
+     */
+    topInsights: Array<string>;
+    /**
+     * The URL of the recording of the conversation
+     * @type {string}
+     * @memberof Feedback
+     */
+    recordingUrl: string;
+    /**
+     * The transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof Feedback
+     */
+    transcript: Array<SparrDialogLine>;
+    /**
+     * The analytics of the conversation
+     * @type {AnalyticsModelOutput}
+     * @memberof Feedback
+     */
+    analytics: AnalyticsModelOutput;
+    /**
+     * The overall score of the conversation out of 100 based on the weightage of each goal
+     * @type {number}
+     * @memberof Feedback
+     */
+    overallScore: number;
+    /**
+     * The unique identifier of the feedback
+     * @type {string}
+     * @memberof Feedback
+     */
+    id?: string;
+    /**
+     * The version of the feedback
+     * @type {number}
+     * @memberof Feedback
+     */
+    version?: number;
+}
+/**
+ * 
+ * @export
+ * @interface FeedbackCore
+ */
+export interface FeedbackCore {
+    /**
+     * The top insights from the conversation
+     * @type {Array<string>}
+     * @memberof FeedbackCore
+     */
+    topInsights: Array<string>;
+    /**
+     * The URL of the recording of the conversation
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    recordingUrl: string;
+    /**
+     * The transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof FeedbackCore
+     */
+    transcript: Array<SparrDialogLine>;
+    /**
+     * The analytics of the conversation
+     * @type {AnalyticsModelInput}
+     * @memberof FeedbackCore
+     */
+    analytics: AnalyticsModelInput;
+    /**
+     * The overall score of the conversation out of 100 based on the weightage of each goal
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    overallScore: number;
+}
+/**
  * Stores the map of file id with respective file URL in storage manager
  * @export
  * @interface Files
@@ -2449,6 +2650,50 @@ export enum FrustrationTolerance {
     Neutral = 'neutral'
 }
 
+/**
+ * 
+ * @export
+ * @interface Goal
+ */
+export interface Goal {
+    /**
+     * The name of the goal
+     * @type {string}
+     * @memberof Goal
+     */
+    name: string;
+    /**
+     * The description of the goal
+     * @type {string}
+     * @memberof Goal
+     */
+    description: string;
+    /**
+     * The weightage of the goal
+     * @type {number}
+     * @memberof Goal
+     */
+    weightage: number;
+}
+/**
+ * 
+ * @export
+ * @interface GoalsAnalyticsModel
+ */
+export interface GoalsAnalyticsModel {
+    /**
+     * 
+     * @type {any}
+     * @memberof GoalsAnalyticsModel
+     */
+    qualitative_goals: any | null;
+    /**
+     * 
+     * @type {any}
+     * @memberof GoalsAnalyticsModel
+     */
+    quantitative_goals: any | null;
+}
 /**
  * Guest users who are not verified by Trata yet
  * @export
@@ -3156,6 +3401,25 @@ export enum OAuthCredentialsCredentialsTypeEnum {
 /**
  * 
  * @export
+ * @interface Objection
+ */
+export interface Objection {
+    /**
+     * The objection to be handled
+     * @type {string}
+     * @memberof Objection
+     */
+    objection: string;
+    /**
+     * The rebuttal to the objection
+     * @type {string}
+     * @memberof Objection
+     */
+    rebuttal: string;
+}
+/**
+ * 
+ * @export
  * @interface OrgUsersPriceCredits
  */
 export interface OrgUsersPriceCredits {
@@ -3422,6 +3686,121 @@ export enum PatienceLevel {
 }
 
 /**
+ * Persona represents a persona that can be used in a scenario
+ * @export
+ * @interface Persona
+ */
+export interface Persona {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Persona
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Persona
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Persona
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Persona
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Persona
+     */
+    orgId?: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    name: string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    title: string;
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    company: string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    context: string;
+    /**
+     * The voice of the persona
+     * @type {SparrVoiceOutput}
+     * @memberof Persona
+     */
+    voice: SparrVoiceOutput;
+    /**
+     * The demeanor of the persona
+     * @type {SparrDemeanorOutput}
+     * @memberof Persona
+     */
+    demeanor: SparrDemeanorOutput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    additionalBackground: string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof Persona
+     */
+    workHistory: Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    linkedInUrl: string;
+    /**
+     * The Twitter URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    twitterUrl: string | null;
+    /**
+     * The website URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    blogUrl: string | null;
+    /**
+     * The unique identifier of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    id?: string;
+    /**
+     * The version of the persona
+     * @type {number}
+     * @memberof Persona
+     */
+    version?: number;
+}
+/**
  * 
  * @export
  * @interface PersonaAttributesAndTraits
@@ -3475,6 +3854,79 @@ export interface PersonaAttributesAndTraits {
      * @memberof PersonaAttributesAndTraits
      */
     negotiation_style?: NegotiationStyle | string | null;
+}
+/**
+ * 
+ * @export
+ * @interface PersonaCore
+ */
+export interface PersonaCore {
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    name: string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    title: string;
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    company: string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    context: string;
+    /**
+     * The voice of the persona
+     * @type {SparrVoiceInput}
+     * @memberof PersonaCore
+     */
+    voice: SparrVoiceInput;
+    /**
+     * The demeanor of the persona
+     * @type {SparrDemeanorInput}
+     * @memberof PersonaCore
+     */
+    demeanor: SparrDemeanorInput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    additionalBackground: string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof PersonaCore
+     */
+    workHistory: Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    linkedInUrl: string;
+    /**
+     * The Twitter URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    twitterUrl: string | null;
+    /**
+     * The website URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    blogUrl: string | null;
 }
 /**
  * Price details of the business
@@ -4286,6 +4738,134 @@ export interface RoleTemplate {
     roleDescription: string;
 }
 /**
+ * Scenario represents a sequence of steps that can be performed by an app
+ * @export
+ * @interface Scenario
+ */
+export interface Scenario {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Scenario
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Scenario
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Scenario
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Scenario
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Scenario
+     */
+    orgId?: string;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    name: string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    description: string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof Scenario
+     */
+    objections: Array<Objection>;
+    /**
+     * The qualitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof Scenario
+     */
+    qualitative_goals: Array<Goal>;
+    /**
+     * The quantitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof Scenario
+     */
+    quantitative_goals?: Array<Goal>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof Scenario
+     */
+    playbook: Array<Step>;
+    /**
+     * The unique identifier of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    id?: string;
+    /**
+     * The version of the scenario
+     * @type {number}
+     * @memberof Scenario
+     */
+    version?: number;
+}
+/**
+ * 
+ * @export
+ * @interface ScenarioCore
+ */
+export interface ScenarioCore {
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    name: string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    description: string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof ScenarioCore
+     */
+    objections: Array<Objection>;
+    /**
+     * The qualitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof ScenarioCore
+     */
+    qualitative_goals: Array<Goal>;
+    /**
+     * The quantitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof ScenarioCore
+     */
+    quantitative_goals?: Array<Goal>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof ScenarioCore
+     */
+    playbook: Array<Step>;
+}
+/**
  * 
  * @export
  * @interface Sequence
@@ -4318,6 +4898,340 @@ export interface Sequence {
 export enum SortOrder {
     Asc = 'asc',
     Desc = 'desc'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrAdaptability {
+    OpenToChange = 'open to change',
+    Resistant = 'resistant',
+    Indifferent = 'indifferent'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrCommunicationStyle {
+    Direct = 'direct',
+    Indirect = 'indirect',
+    Verbose = 'verbose',
+    Brief = 'brief'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrDecisionMakingStyle {
+    Logical = 'logical',
+    Emotional = 'emotional',
+    Impulsive = 'impulsive',
+    Hesitant = 'hesitant'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrDemeanorInput
+ */
+export interface SparrDemeanorInput {
+    /**
+     * 
+     * @type {SparrPersonaAttributesAndTraits}
+     * @memberof SparrDemeanorInput
+     */
+    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    /**
+     * 
+     * @type {SparrExcitementLevel | string}
+     * @memberof SparrDemeanorInput
+     */
+    excitementLevel?: SparrExcitementLevel | string | null;
+    /**
+     * 
+     * @type {SparrRudenessLevel | string}
+     * @memberof SparrDemeanorInput
+     */
+    rudenessLevel?: SparrRudenessLevel | string | null;
+}
+/**
+ * 
+ * @export
+ * @interface SparrDemeanorOutput
+ */
+export interface SparrDemeanorOutput {
+    /**
+     * 
+     * @type {SparrPersonaAttributesAndTraits}
+     * @memberof SparrDemeanorOutput
+     */
+    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    /**
+     * 
+     * @type {SparrExcitementLevel | string}
+     * @memberof SparrDemeanorOutput
+     */
+    excitementLevel?: SparrExcitementLevel | string | null;
+    /**
+     * 
+     * @type {SparrRudenessLevel | string}
+     * @memberof SparrDemeanorOutput
+     */
+    rudenessLevel?: SparrRudenessLevel | string | null;
+}
+/**
+ * 
+ * @export
+ * @interface SparrDialogLine
+ */
+export interface SparrDialogLine {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    speaker: SparrDialogLineSpeakerEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    message: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    timestamp: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    message_id: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SparrDialogLineSpeakerEnum {
+    USER = 'USER',
+    AI = 'AI',
+    TOOL = 'TOOL',
+    AITOOLREQUEST = 'AI - TOOL REQUEST'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrEngagementLevel {
+    HighlyEngaged = 'highly engaged',
+    Distracted = 'distracted',
+    Uninterested = 'uninterested'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrExcitementLevel {
+    Neutral = 'neutral',
+    Interested = 'interested',
+    Excited = 'excited',
+    Overjoyed = 'overjoyed',
+    Euphoric = 'euphoric'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrFrustrationTolerance {
+    Neutral = 'neutral',
+    QuickToAnger = 'quick to anger',
+    Understanding = 'understanding'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrInteractionTone {
+    Casual = 'casual',
+    Professional = 'professional',
+    Friendly = 'friendly',
+    Authoritative = 'authoritative'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrLanguageAccentCombo
+ */
+export interface SparrLanguageAccentCombo {
+    /**
+     * 
+     * @type {SparrVoiceLanguage}
+     * @memberof SparrLanguageAccentCombo
+     */
+    language: SparrVoiceLanguage;
+    /**
+     * 
+     * @type {SparrVoiceAccent}
+     * @memberof SparrLanguageAccentCombo
+     */
+    accent: SparrVoiceAccent;
+}
+/**
+ * Expected output of the post conversation task
+ * @export
+ * @interface SparrModelsAnalyticsConversationAnalyticsModel
+ */
+export interface SparrModelsAnalyticsConversationAnalyticsModel {
+    /**
+     * This is a sparring conversation. So you have to evaluate the role player\'s conversation skill and provide feedback summary on the same to role player when the role player is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Keep the feedback summary fun, quirky and engaging. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {string}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    evaluation_summary: string | null;
+    /**
+     * List of top insights from the role player\'s conversation details. This should be a list of 3-5 points based on the conversation details.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    top_insights: Array<string> | null;
+    /**
+     * Provide a list of what went well in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 3-5 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    what_went_well: Array<string> | null;
+    /**
+     * Provide a list of what can be improved in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 2-3 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    what_can_be_improved: Array<string> | null;
+}
+/**
+ * 
+ * @export
+ * @interface SparrModelsBaseBaseResponse
+ */
+export interface SparrModelsBaseBaseResponse {
+    /**
+     * The message of the response
+     * @type {string}
+     * @memberof SparrModelsBaseBaseResponse
+     */
+    message?: string;
+    /**
+     * The status of the response
+     * @type {string}
+     * @memberof SparrModelsBaseBaseResponse
+     */
+    status?: string;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrNegotiationStyle {
+    HardBargainer = 'hard bargainer',
+    FriendlyNegotiator = 'friendly negotiator',
+    NonNegotiator = 'non-negotiator'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrPatienceLevel {
+    Neutral = 'neutral',
+    VeryPatient = 'very patient',
+    Impatient = 'impatient'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrPersonaAttributesAndTraits
+ */
+export interface SparrPersonaAttributesAndTraits {
+    /**
+     * 
+     * @type {SparrPatienceLevel | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    patience_level?: SparrPatienceLevel | string | null;
+    /**
+     * 
+     * @type {SparrDecisionMakingStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    decision_making_style?: SparrDecisionMakingStyle | string | null;
+    /**
+     * 
+     * @type {SparrCommunicationStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    communication_style?: SparrCommunicationStyle | string | null;
+    /**
+     * 
+     * @type {SparrAdaptability | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    adaptability?: SparrAdaptability | string | null;
+    /**
+     * 
+     * @type {SparrFrustrationTolerance | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    frustration_tolerance?: SparrFrustrationTolerance | string | null;
+    /**
+     * 
+     * @type {SparrEngagementLevel | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    engagement_level?: SparrEngagementLevel | string | null;
+    /**
+     * 
+     * @type {SparrInteractionTone | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    preferred_tone?: SparrInteractionTone | string | null;
+    /**
+     * 
+     * @type {SparrNegotiationStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    negotiation_style?: SparrNegotiationStyle | string | null;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrRudenessLevel {
+    Courteous = 'courteous',
+    Direct = 'direct',
+    Irritable = 'irritable',
+    Aggressive = 'aggressive',
+    Toxic = 'toxic'
 }
 
 /**
@@ -4369,6 +5283,164 @@ export interface SparrStatsResponse {
      * @memberof SparrStatsResponse
      */
     response: SparrStatsData;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrVoiceAccent {
+    American = 'American',
+    Indian = 'Indian',
+    Australian = 'Australian',
+    British = 'British',
+    Hindi = 'Hindi',
+    MiddleEastern = 'Middle Eastern'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrVoiceInput
+ */
+export interface SparrVoiceInput {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    gender: SparrVoiceInputGenderEnum;
+    /**
+     * 
+     * @type {SparrLanguageAccentCombo}
+     * @memberof SparrVoiceInput
+     */
+    languageAccent: SparrLanguageAccentCombo;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    modelId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    playbackSpeed?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SparrVoiceInput
+     */
+    backgroundNoise?: boolean;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SparrVoiceInputGenderEnum {
+    Male = 'Male',
+    Female = 'Female',
+    Neutral = 'Neutral'
+}
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrVoiceLanguage {
+    English = 'English',
+    Spanish = 'Spanish',
+    Hindi = 'Hindi'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrVoiceOutput
+ */
+export interface SparrVoiceOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    gender: SparrVoiceOutputGenderEnum;
+    /**
+     * 
+     * @type {SparrLanguageAccentCombo}
+     * @memberof SparrVoiceOutput
+     */
+    languageAccent: SparrLanguageAccentCombo;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    modelId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    playbackSpeed?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SparrVoiceOutput
+     */
+    backgroundNoise?: boolean;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SparrVoiceOutputGenderEnum {
+    Male = 'Male',
+    Female = 'Female',
+    Neutral = 'Neutral'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrWorkDetails
+ */
+export interface SparrWorkDetails {
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    companyName: string | null;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    jobTitle: string | null;
+    /**
+     * The description of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    description: string | null;
+    /**
+     * The start date of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    startDate: string | null;
+    /**
+     * The end date of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    endDate: string | null;
 }
 /**
  * 
@@ -4425,6 +5497,25 @@ export enum Status {
     Pending = 'pending'
 }
 
+/**
+ * 
+ * @export
+ * @interface Step
+ */
+export interface Step {
+    /**
+     * The name of the step
+     * @type {string}
+     * @memberof Step
+     */
+    name: string;
+    /**
+     * The description of the step
+     * @type {string}
+     * @memberof Step
+     */
+    description: string;
+}
 /**
  * Subscription details of the business
  * @export
@@ -6542,7 +7633,7 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -6555,7 +7646,7 @@ export const AgentsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        listAIAgentsV1: async (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/ai-agents`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6736,7 +7827,7 @@ export const AgentsApiFp = function(configuration?: Configuration) {
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -6749,7 +7840,7 @@ export const AgentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>> {
+        async listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>> {
             const localVarAxiosArgs = await AgentsApiAxiosParamCreator(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -6813,7 +7904,7 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
         /**
          * List All AI Agents
          * @summary List All AI Agents
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -6826,7 +7917,7 @@ export const AgentsApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>> {
+        listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>> {
             return AgentsApiFp(configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6889,7 +7980,7 @@ export class AgentsApi extends BaseAPI {
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app] 
+     * @param {AppEnumInput} [app] 
      * @param {string} [searchBy] 
      * @param {string} [searchValue] 
      * @param {string} [status] 
@@ -6903,7 +7994,7 @@ export class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    public listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+    public listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
         return AgentsApiFp(this.configuration).listAIAgentsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6985,11 +8076,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOverallStatsV1StatsGet: async (app?: AppEnum, options: any = {}): Promise<RequestArgs> => {
+        getOverallStatsV1StatsGet: async (app?: AppEnumInput, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/stats`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7053,11 +8144,11 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOverallStatsV1StatsGet(app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>> {
+        async getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>> {
             const localVarAxiosArgs = await AnalyticsApiAxiosParamCreator(configuration).getOverallStatsV1StatsGet(app, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -7087,11 +8178,11 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
          * @summary Get Aggregated Stats
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOverallStatsV1StatsGet(app?: AppEnum, options?: any): AxiosPromise<StatsResponse> {
+        getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): AxiosPromise<StatsResponse> {
             return AnalyticsApiFp(configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(axios, basePath));
         },
     };
@@ -7120,12 +8211,12 @@ export class AnalyticsApi extends BaseAPI {
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app] 
+     * @param {AppEnumInput} [app] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    public getOverallStatsV1StatsGet(app?: AppEnum, options?: any) {
+    public getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any) {
         return AnalyticsApiFp(this.configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8383,7 +9474,7 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -8396,7 +9487,7 @@ export const ConversationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1: async (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        listConversationsV1: async (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/conversations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8592,7 +9683,7 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -8605,7 +9696,7 @@ export const ConversationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
+        async listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>> {
             const localVarAxiosArgs = await ConversationsApiAxiosParamCreator(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -8680,7 +9771,7 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
         /**
          * List All Conversations
          * @summary List All Conversations
-         * @param {AppEnum} [app] 
+         * @param {AppEnumInput} [app] 
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -8693,7 +9784,7 @@ export const ConversationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>> {
+        listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>> {
             return ConversationsApiFp(configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8769,7 +9860,7 @@ export class ConversationsApi extends BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app] 
+     * @param {AppEnumInput} [app] 
      * @param {string} [searchBy] 
      * @param {string} [searchValue] 
      * @param {string} [status] 
@@ -8783,7 +9874,7 @@ export class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    public listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+    public listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
         return ConversationsApiFp(this.configuration).listConversationsV1(app, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15846,6 +16937,1387 @@ export class ResellerApi extends BaseAPI {
 
 
 /**
+ * SparrApi - axios parameter creator
+ * @export
+ */
+export const SparrApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackV1: async (feedbackCore: FeedbackCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'feedbackCore' is not null or undefined
+            if (feedbackCore === null || feedbackCore === undefined) {
+                throw new RequiredError('feedbackCore','Required parameter feedbackCore was null or undefined when calling createFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof feedbackCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(feedbackCore !== undefined ? feedbackCore : {}) : (feedbackCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaV1: async (personaCore: PersonaCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new RequiredError('personaCore','Required parameter personaCore was null or undefined when calling createPersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioV1: async (scenarioCore: ScenarioCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new RequiredError('scenarioCore','Required parameter scenarioCore was null or undefined when calling createScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackV1: async (feedbackId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new RequiredError('feedbackId','Required parameter feedbackId was null or undefined when calling deleteFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaV1: async (personaId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling deletePersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioV1: async (scenarioId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling deleteScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackV1: async (feedbackId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new RequiredError('feedbackId','Required parameter feedbackId was null or undefined when calling getFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaV1: async (personaId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling getPersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioV1: async (scenarioId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling getScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbacksV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusSparrStatusGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sparr/status`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId 
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackV1: async (feedbackId: string, feedbackCore: FeedbackCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'feedbackId' is not null or undefined
+            if (feedbackId === null || feedbackId === undefined) {
+                throw new RequiredError('feedbackId','Required parameter feedbackId was null or undefined when calling updateFeedbackV1.');
+            }
+            // verify required parameter 'feedbackCore' is not null or undefined
+            if (feedbackCore === null || feedbackCore === undefined) {
+                throw new RequiredError('feedbackCore','Required parameter feedbackCore was null or undefined when calling updateFeedbackV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
+                .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof feedbackCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(feedbackCore !== undefined ? feedbackCore : {}) : (feedbackCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaV1: async (personaId: string, personaCore: PersonaCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling updatePersonaV1.');
+            }
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new RequiredError('personaCore','Required parameter personaCore was null or undefined when calling updatePersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioV1: async (scenarioId: string, scenarioCore: ScenarioCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling updateScenarioV1.');
+            }
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new RequiredError('scenarioCore','Required parameter scenarioCore was null or undefined when calling updateScenarioV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SparrApi - functional programming interface
+ * @export
+ */
+export const SparrApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createFeedbackV1(feedbackCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createPersonaV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createPersonaV1(personaCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createScenarioV1(scenarioCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).deleteFeedbackV1(feedbackId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).deletePersonaV1(personaId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).deleteScenarioV1(scenarioId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getFeedbackV1(feedbackId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getPersonaV1(personaId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getScenarioV1(scenarioId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFeedbacksV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listPersonasV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listPersonasV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async statusSparrStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).statusSparrStatusGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId 
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).updateFeedbackV1(feedbackId, feedbackCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).updatePersonaV1(personaId, personaCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).updateScenarioV1(scenarioId, scenarioCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * SparrApi - factory interface
+ * @export
+ */
+export const SparrApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Create a new feedback
+         * @summary Create Feedback
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackV1(feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback> {
+            return SparrApiFp(configuration).createFeedbackV1(feedbackCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
+            return SparrApiFp(configuration).createPersonaV1(personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario> {
+            return SparrApiFp(configuration).createScenarioV1(scenarioCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a feedback
+         * @summary Delete Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackV1(feedbackId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrApiFp(configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrApiFp(configuration).deletePersonaV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrApiFp(configuration).deleteScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific feedback by ID
+         * @summary Get Feedback
+         * @param {string} feedbackId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackV1(feedbackId: string, options?: any): AxiosPromise<Feedback> {
+            return SparrApiFp(configuration).getFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona> {
+            return SparrApiFp(configuration).getPersonaV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario> {
+            return SparrApiFp(configuration).getScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all feedbacks
+         * @summary Get Feedbacks
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbacksV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Feedback>> {
+            return SparrApiFp(configuration).listFeedbacksV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>> {
+            return SparrApiFp(configuration).listPersonasV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>> {
+            return SparrApiFp(configuration).listScenariosV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Heart Beat check to check the health of Sparr Service
+         * @summary Heart Beat Status Of Sparr Service
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        statusSparrStatusGet(options?: any): AxiosPromise<object> {
+            return SparrApiFp(configuration).statusSparrStatusGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a feedback
+         * @summary Update Feedback
+         * @param {string} feedbackId 
+         * @param {FeedbackCore} feedbackCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback> {
+            return SparrApiFp(configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
+            return SparrApiFp(configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario> {
+            return SparrApiFp(configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * SparrApi - object-oriented interface
+ * @export
+ * @class SparrApi
+ * @extends {BaseAPI}
+ */
+export class SparrApi extends BaseAPI {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public createFeedbackV1(feedbackCore: FeedbackCore, options?: any) {
+        return SparrApiFp(this.configuration).createFeedbackV1(feedbackCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public createPersonaV1(personaCore: PersonaCore, options?: any) {
+        return SparrApiFp(this.configuration).createPersonaV1(personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public createScenarioV1(scenarioCore: ScenarioCore, options?: any) {
+        return SparrApiFp(this.configuration).createScenarioV1(scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public deleteFeedbackV1(feedbackId: string, options?: any) {
+        return SparrApiFp(this.configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public deletePersonaV1(personaId: string, options?: any) {
+        return SparrApiFp(this.configuration).deletePersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public deleteScenarioV1(scenarioId: string, options?: any) {
+        return SparrApiFp(this.configuration).deleteScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getFeedbackV1(feedbackId: string, options?: any) {
+        return SparrApiFp(this.configuration).getFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getPersonaV1(personaId: string, options?: any) {
+        return SparrApiFp(this.configuration).getPersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getScenarioV1(scenarioId: string, options?: any) {
+        return SparrApiFp(this.configuration).getScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public listFeedbacksV1(skip?: number, limit?: number, options?: any) {
+        return SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public listPersonasV1(skip?: number, limit?: number, options?: any) {
+        return SparrApiFp(this.configuration).listPersonasV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public listScenariosV1(skip?: number, limit?: number, options?: any) {
+        return SparrApiFp(this.configuration).listScenariosV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public statusSparrStatusGet(options?: any) {
+        return SparrApiFp(this.configuration).statusSparrStatusGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId 
+     * @param {FeedbackCore} feedbackCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any) {
+        return SparrApiFp(this.configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId 
+     * @param {PersonaCore} personaCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any) {
+        return SparrApiFp(this.configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId 
+     * @param {ScenarioCore} scenarioCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any) {
+        return SparrApiFp(this.configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
  * SparringApi - axios parameter creator
  * @export
  */
@@ -17999,11 +20471,11 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @summary Read Workflows
          * @param {number} [skip] 
          * @param {number} [limit] 
-         * @param {AppEnum} [app] 
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readWorkflowsV1WorkflowsGet: async (skip?: number, limit?: number, app?: AppEnum, options: any = {}): Promise<RequestArgs> => {
+        readWorkflowsV1WorkflowsGet: async (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/workflows/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18276,11 +20748,11 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @summary Read Workflows
          * @param {number} [skip] 
          * @param {number} [limit] 
-         * @param {AppEnum} [app] 
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+        async readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
             const localVarAxiosArgs = await WorkflowsApiAxiosParamCreator(configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -18377,11 +20849,11 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @summary Read Workflows
          * @param {number} [skip] 
          * @param {number} [limit] 
-         * @param {AppEnum} [app] 
+         * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): AxiosPromise<Array<Workflow>> {
+        readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): AxiosPromise<Array<Workflow>> {
             return WorkflowsApiFp(configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options).then((request) => request(axios, basePath));
         },
         /**
@@ -18469,12 +20941,12 @@ export class WorkflowsApi extends BaseAPI {
      * @summary Read Workflows
      * @param {number} [skip] 
      * @param {number} [limit] 
-     * @param {AppEnum} [app] 
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    public readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any) {
+    public readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any) {
         return WorkflowsApiFp(this.configuration).readWorkflowsV1WorkflowsGet(skip, limit, app, options).then((request) => request(this.axios, this.basePath));
     }
 

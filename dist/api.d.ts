@@ -74,10 +74,10 @@ export interface AIAgentInput {
     boostedKeywords?: Array<string> | null;
     /**
      * App in which the AI agent is running
-     * @type {AppEnum}
+     * @type {AppEnumInput}
      * @memberof AIAgentInput
      */
-    app?: AppEnum | null;
+    app?: AppEnumInput | null;
     /**
      * Evaluation metrics for the conversation
      * @type {ConversationEvaluationMetrics}
@@ -159,10 +159,10 @@ export interface AIAgentOutput {
     boostedKeywords?: Array<string> | null;
     /**
      * Application under which the AI agent is created
-     * @type {AppEnum}
+     * @type {AppEnumOutput}
      * @memberof AIAgentOutput
      */
-    app?: AppEnum | null;
+    app?: AppEnumOutput | null;
     /**
      * Evaluation metrics for the conversation
      * @type {ConversationEvaluationMetrics}
@@ -529,6 +529,15 @@ export interface AgenticWorkflowActionEndpoint {
     workflowId: string;
 }
 /**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+export declare enum AgenticWorkflowAdkModelsWorkflowAppEnum {
+    TRATA = "TRATA",
+    TRATASPARR = "TRATA_SPARR"
+}
+/**
  * Connection represents an instance of an app with specific credentials and configuration
  * @export
  * @interface AgenticWorkflowDbModelsConnection
@@ -645,6 +654,56 @@ export declare enum AggregationPeriod {
     MONTHLY = "MONTHLY",
     WEEKLY = "WEEKLY",
     DAILY = "DAILY"
+}
+/**
+ *
+ * @export
+ * @interface AnalyticsModelInput
+ */
+export interface AnalyticsModelInput {
+    /**
+     *
+     * @type {SparrModelsAnalyticsConversationAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    /**
+     *
+     * @type {GoalsAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    goals_analytics: GoalsAnalyticsModel;
+    /**
+     *
+     * @type {CoachAnalyticsModel}
+     * @memberof AnalyticsModelInput
+     */
+    coach_analytics: CoachAnalyticsModel;
+}
+/**
+ *
+ * @export
+ * @interface AnalyticsModelOutput
+ */
+export interface AnalyticsModelOutput {
+    /**
+     *
+     * @type {SparrModelsAnalyticsConversationAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    /**
+     *
+     * @type {GoalsAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    goals_analytics: GoalsAnalyticsModel;
+    /**
+     *
+     * @type {CoachAnalyticsModel}
+     * @memberof AnalyticsModelOutput
+     */
+    coach_analytics: CoachAnalyticsModel;
 }
 /**
  * API key authentication configuration
@@ -981,9 +1040,20 @@ export interface AppEntity {
  * @export
  * @enum {string}
  */
-export declare enum AppEnum {
+export declare enum AppEnumInput {
     TRATA = "TRATA",
-    TRATASPARR = "TRATA_SPARR"
+    TRATASPARR = "TRATA_SPARR",
+    TRATASPARRV1 = "TRATA_SPARR_V1"
+}
+/**
+ * Enum which stores the list of apps which are used to create the conversation
+ * @export
+ * @enum {string}
+ */
+export declare enum AppEnumOutput {
+    TRATA = "TRATA",
+    TRATASPARR = "TRATA_SPARR",
+    TRATASPARRV1 = "TRATA_SPARR_V1"
 }
 /**
  *
@@ -1235,6 +1305,19 @@ export declare enum CallSentiment {
 /**
  *
  * @export
+ * @interface CoachAnalyticsModel
+ */
+export interface CoachAnalyticsModel {
+    /**
+     * Provide 2 to 3 straightforward examples of how the role player could have improved their handling of the conversation. Quote the exact words used by the role player and suggest an alternative response that better aligns with the intended goals. Additionally, specify which goal could have been better achieved with the improved response.
+     * @type {Array<string>}
+     * @memberof CoachAnalyticsModel
+     */
+    coaching_points?: Array<string> | null;
+}
+/**
+ *
+ * @export
  * @interface Comment
  */
 export interface Comment {
@@ -1434,61 +1517,61 @@ export declare enum ConnectionSourceSourceNameEnum {
 /**
  * Expected output of the post conversation task
  * @export
- * @interface ConversationAnalyticsModel
+ * @interface ConversationAnalyticsModelInput
  */
-export interface ConversationAnalyticsModel {
+export interface ConversationAnalyticsModelInput {
     /**
      * Summary of the conversation happened with important details on the conversation. The summary should be concise and to the point. It should contain the important details of the conversation like name, phone number, email, address and any other details shared by the user.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     summary: string | null;
     /**
      * List of action items and the next steps to be performed from the conversation details.
      * @type {Array<string>}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     action_items: Array<string> | null;
     /**
      * If the user has given consent to store the audio of the conversation. Unless the user explicitly says yes, this should be false.
      * @type {boolean}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     is_audio_consent_given: boolean;
     /**
      * Extracted email address of the caller from the conversation details. Email should be a valid email address format
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     email_address_of_caller: string | null;
     /**
      * Extracted name of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     name_of_caller: string | null;
     /**
      * Extracted phone number of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     phone_number_of_caller: string | null;
     /**
      * Extracted address of the caller from the conversation details.
      * @type {string}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     address_of_caller: string | null;
     /**
      * Sentiment of the caller based on the conversation details.
      * @type {CallSentiment}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     sentiment_of_caller: CallSentiment;
     /**
      * Status of the prospect after this conversation.
      * @type {ProspectStatus}
-     * @memberof ConversationAnalyticsModel
+     * @memberof ConversationAnalyticsModelInput
      */
     prospectStatus: ProspectStatus | null;
 }
@@ -1741,10 +1824,10 @@ export interface ConversationInput {
     agentId: string;
     /**
      * App in which the conversation is created
-     * @type {AppEnum}
+     * @type {AppEnumInput}
      * @memberof ConversationInput
      */
-    app?: AppEnum | null;
+    app?: AppEnumInput | null;
     /**
      * URL to the full transcript of the conversation
      * @type {Array<DialogLine>}
@@ -1777,10 +1860,10 @@ export interface ConversationInput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalyticsModel}
+     * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationInput
      */
-    conversationAnalytics?: ConversationAnalyticsModel | null;
+    conversationAnalytics?: ConversationAnalyticsModelInput | null;
     /**
      * Comments from the admin on the conversation
      * @type {Array<Comment>}
@@ -1874,10 +1957,10 @@ export interface ConversationOutput {
     timestampEnd?: string | null;
     /**
      * Analytics of the conversation
-     * @type {ConversationAnalyticsModel}
+     * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationOutput
      */
-    conversationAnalytics?: ConversationAnalyticsModel | null;
+    conversationAnalytics?: ConversationAnalyticsModelInput | null;
     /**
      * Stats of the conversation
      * @type {ConversationStatsModel}
@@ -1886,10 +1969,10 @@ export interface ConversationOutput {
     conversationStats?: ConversationStatsModel | null;
     /**
      * Application under which the conversation is created
-     * @type {AppEnum}
+     * @type {AppEnumOutput}
      * @memberof ConversationOutput
      */
-    app?: AppEnum | null;
+    app?: AppEnumOutput | null;
     /**
      * Evaluation of the conversation
      * @type {ConversationEvaluation}
@@ -2350,6 +2433,122 @@ export interface ExternalServicePorviderOutput {
     providerProps: object | null;
 }
 /**
+ * Feedback represents a feedback that can be given to a persona
+ * @export
+ * @interface Feedback
+ */
+export interface Feedback {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Feedback
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Feedback
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Feedback
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Feedback
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Feedback
+     */
+    orgId?: string;
+    /**
+     * The top insights from the conversation
+     * @type {Array<string>}
+     * @memberof Feedback
+     */
+    topInsights: Array<string>;
+    /**
+     * The URL of the recording of the conversation
+     * @type {string}
+     * @memberof Feedback
+     */
+    recordingUrl: string;
+    /**
+     * The transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof Feedback
+     */
+    transcript: Array<SparrDialogLine>;
+    /**
+     * The analytics of the conversation
+     * @type {AnalyticsModelOutput}
+     * @memberof Feedback
+     */
+    analytics: AnalyticsModelOutput;
+    /**
+     * The overall score of the conversation out of 100 based on the weightage of each goal
+     * @type {number}
+     * @memberof Feedback
+     */
+    overallScore: number;
+    /**
+     * The unique identifier of the feedback
+     * @type {string}
+     * @memberof Feedback
+     */
+    id?: string;
+    /**
+     * The version of the feedback
+     * @type {number}
+     * @memberof Feedback
+     */
+    version?: number;
+}
+/**
+ *
+ * @export
+ * @interface FeedbackCore
+ */
+export interface FeedbackCore {
+    /**
+     * The top insights from the conversation
+     * @type {Array<string>}
+     * @memberof FeedbackCore
+     */
+    topInsights: Array<string>;
+    /**
+     * The URL of the recording of the conversation
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    recordingUrl: string;
+    /**
+     * The transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof FeedbackCore
+     */
+    transcript: Array<SparrDialogLine>;
+    /**
+     * The analytics of the conversation
+     * @type {AnalyticsModelInput}
+     * @memberof FeedbackCore
+     */
+    analytics: AnalyticsModelInput;
+    /**
+     * The overall score of the conversation out of 100 based on the weightage of each goal
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    overallScore: number;
+}
+/**
  * Stores the map of file id with respective file URL in storage manager
  * @export
  * @interface Files
@@ -2413,6 +2612,50 @@ export declare enum FrustrationTolerance {
     QuickToAnger = "quick to anger",
     Understanding = "understanding",
     Neutral = "neutral"
+}
+/**
+ *
+ * @export
+ * @interface Goal
+ */
+export interface Goal {
+    /**
+     * The name of the goal
+     * @type {string}
+     * @memberof Goal
+     */
+    name: string;
+    /**
+     * The description of the goal
+     * @type {string}
+     * @memberof Goal
+     */
+    description: string;
+    /**
+     * The weightage of the goal
+     * @type {number}
+     * @memberof Goal
+     */
+    weightage: number;
+}
+/**
+ *
+ * @export
+ * @interface GoalsAnalyticsModel
+ */
+export interface GoalsAnalyticsModel {
+    /**
+     *
+     * @type {any}
+     * @memberof GoalsAnalyticsModel
+     */
+    qualitative_goals: any | null;
+    /**
+     *
+     * @type {any}
+     * @memberof GoalsAnalyticsModel
+     */
+    quantitative_goals: any | null;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -3106,6 +3349,25 @@ export declare enum OAuthCredentialsCredentialsTypeEnum {
 /**
  *
  * @export
+ * @interface Objection
+ */
+export interface Objection {
+    /**
+     * The objection to be handled
+     * @type {string}
+     * @memberof Objection
+     */
+    objection: string;
+    /**
+     * The rebuttal to the objection
+     * @type {string}
+     * @memberof Objection
+     */
+    rebuttal: string;
+}
+/**
+ *
+ * @export
  * @interface OrgUsersPriceCredits
  */
 export interface OrgUsersPriceCredits {
@@ -3371,6 +3633,121 @@ export declare enum PatienceLevel {
     VeryPatient = "very patient"
 }
 /**
+ * Persona represents a persona that can be used in a scenario
+ * @export
+ * @interface Persona
+ */
+export interface Persona {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Persona
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Persona
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Persona
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Persona
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Persona
+     */
+    orgId?: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    name: string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    title: string;
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    company: string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    context: string;
+    /**
+     * The voice of the persona
+     * @type {SparrVoiceOutput}
+     * @memberof Persona
+     */
+    voice: SparrVoiceOutput;
+    /**
+     * The demeanor of the persona
+     * @type {SparrDemeanorOutput}
+     * @memberof Persona
+     */
+    demeanor: SparrDemeanorOutput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    additionalBackground: string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof Persona
+     */
+    workHistory: Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    linkedInUrl: string;
+    /**
+     * The Twitter URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    twitterUrl: string | null;
+    /**
+     * The website URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    blogUrl: string | null;
+    /**
+     * The unique identifier of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    id?: string;
+    /**
+     * The version of the persona
+     * @type {number}
+     * @memberof Persona
+     */
+    version?: number;
+}
+/**
  *
  * @export
  * @interface PersonaAttributesAndTraits
@@ -3424,6 +3801,79 @@ export interface PersonaAttributesAndTraits {
      * @memberof PersonaAttributesAndTraits
      */
     negotiation_style?: NegotiationStyle | string | null;
+}
+/**
+ *
+ * @export
+ * @interface PersonaCore
+ */
+export interface PersonaCore {
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    name: string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    title: string;
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    company: string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    context: string;
+    /**
+     * The voice of the persona
+     * @type {SparrVoiceInput}
+     * @memberof PersonaCore
+     */
+    voice: SparrVoiceInput;
+    /**
+     * The demeanor of the persona
+     * @type {SparrDemeanorInput}
+     * @memberof PersonaCore
+     */
+    demeanor: SparrDemeanorInput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    additionalBackground: string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof PersonaCore
+     */
+    workHistory: Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    linkedInUrl: string;
+    /**
+     * The Twitter URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    twitterUrl: string | null;
+    /**
+     * The website URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    blogUrl: string | null;
 }
 /**
  * Price details of the business
@@ -4230,6 +4680,134 @@ export interface RoleTemplate {
     roleDescription: string;
 }
 /**
+ * Scenario represents a sequence of steps that can be performed by an app
+ * @export
+ * @interface Scenario
+ */
+export interface Scenario {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Scenario
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Scenario
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Scenario
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Scenario
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Scenario
+     */
+    orgId?: string;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    name: string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    description: string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof Scenario
+     */
+    objections: Array<Objection>;
+    /**
+     * The qualitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof Scenario
+     */
+    qualitative_goals: Array<Goal>;
+    /**
+     * The quantitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof Scenario
+     */
+    quantitative_goals?: Array<Goal>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof Scenario
+     */
+    playbook: Array<Step>;
+    /**
+     * The unique identifier of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    id?: string;
+    /**
+     * The version of the scenario
+     * @type {number}
+     * @memberof Scenario
+     */
+    version?: number;
+}
+/**
+ *
+ * @export
+ * @interface ScenarioCore
+ */
+export interface ScenarioCore {
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    name: string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    description: string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof ScenarioCore
+     */
+    objections: Array<Objection>;
+    /**
+     * The qualitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof ScenarioCore
+     */
+    qualitative_goals: Array<Goal>;
+    /**
+     * The quantitative goals to be achieved for the scenario
+     * @type {Array<Goal>}
+     * @memberof ScenarioCore
+     */
+    quantitative_goals?: Array<Goal>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof ScenarioCore
+     */
+    playbook: Array<Step>;
+}
+/**
  *
  * @export
  * @interface Sequence
@@ -4262,6 +4840,328 @@ export interface Sequence {
 export declare enum SortOrder {
     Asc = "asc",
     Desc = "desc"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrAdaptability {
+    OpenToChange = "open to change",
+    Resistant = "resistant",
+    Indifferent = "indifferent"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrCommunicationStyle {
+    Direct = "direct",
+    Indirect = "indirect",
+    Verbose = "verbose",
+    Brief = "brief"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrDecisionMakingStyle {
+    Logical = "logical",
+    Emotional = "emotional",
+    Impulsive = "impulsive",
+    Hesitant = "hesitant"
+}
+/**
+ *
+ * @export
+ * @interface SparrDemeanorInput
+ */
+export interface SparrDemeanorInput {
+    /**
+     *
+     * @type {SparrPersonaAttributesAndTraits}
+     * @memberof SparrDemeanorInput
+     */
+    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    /**
+     *
+     * @type {SparrExcitementLevel | string}
+     * @memberof SparrDemeanorInput
+     */
+    excitementLevel?: SparrExcitementLevel | string | null;
+    /**
+     *
+     * @type {SparrRudenessLevel | string}
+     * @memberof SparrDemeanorInput
+     */
+    rudenessLevel?: SparrRudenessLevel | string | null;
+}
+/**
+ *
+ * @export
+ * @interface SparrDemeanorOutput
+ */
+export interface SparrDemeanorOutput {
+    /**
+     *
+     * @type {SparrPersonaAttributesAndTraits}
+     * @memberof SparrDemeanorOutput
+     */
+    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    /**
+     *
+     * @type {SparrExcitementLevel | string}
+     * @memberof SparrDemeanorOutput
+     */
+    excitementLevel?: SparrExcitementLevel | string | null;
+    /**
+     *
+     * @type {SparrRudenessLevel | string}
+     * @memberof SparrDemeanorOutput
+     */
+    rudenessLevel?: SparrRudenessLevel | string | null;
+}
+/**
+ *
+ * @export
+ * @interface SparrDialogLine
+ */
+export interface SparrDialogLine {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    speaker: SparrDialogLineSpeakerEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    timestamp: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLine
+     */
+    message_id: string;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum SparrDialogLineSpeakerEnum {
+    USER = "USER",
+    AI = "AI",
+    TOOL = "TOOL",
+    AITOOLREQUEST = "AI - TOOL REQUEST"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrEngagementLevel {
+    HighlyEngaged = "highly engaged",
+    Distracted = "distracted",
+    Uninterested = "uninterested"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrExcitementLevel {
+    Neutral = "neutral",
+    Interested = "interested",
+    Excited = "excited",
+    Overjoyed = "overjoyed",
+    Euphoric = "euphoric"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrFrustrationTolerance {
+    Neutral = "neutral",
+    QuickToAnger = "quick to anger",
+    Understanding = "understanding"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrInteractionTone {
+    Casual = "casual",
+    Professional = "professional",
+    Friendly = "friendly",
+    Authoritative = "authoritative"
+}
+/**
+ *
+ * @export
+ * @interface SparrLanguageAccentCombo
+ */
+export interface SparrLanguageAccentCombo {
+    /**
+     *
+     * @type {SparrVoiceLanguage}
+     * @memberof SparrLanguageAccentCombo
+     */
+    language: SparrVoiceLanguage;
+    /**
+     *
+     * @type {SparrVoiceAccent}
+     * @memberof SparrLanguageAccentCombo
+     */
+    accent: SparrVoiceAccent;
+}
+/**
+ * Expected output of the post conversation task
+ * @export
+ * @interface SparrModelsAnalyticsConversationAnalyticsModel
+ */
+export interface SparrModelsAnalyticsConversationAnalyticsModel {
+    /**
+     * This is a sparring conversation. So you have to evaluate the role player\'s conversation skill and provide feedback summary on the same to role player when the role player is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Keep the feedback summary fun, quirky and engaging. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {string}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    evaluation_summary: string | null;
+    /**
+     * List of top insights from the role player\'s conversation details. This should be a list of 3-5 points based on the conversation details.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    top_insights: Array<string> | null;
+    /**
+     * Provide a list of what went well in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 3-5 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    what_went_well: Array<string> | null;
+    /**
+     * Provide a list of what can be improved in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 2-3 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     * @type {Array<string>}
+     * @memberof SparrModelsAnalyticsConversationAnalyticsModel
+     */
+    what_can_be_improved: Array<string> | null;
+}
+/**
+ *
+ * @export
+ * @interface SparrModelsBaseBaseResponse
+ */
+export interface SparrModelsBaseBaseResponse {
+    /**
+     * The message of the response
+     * @type {string}
+     * @memberof SparrModelsBaseBaseResponse
+     */
+    message?: string;
+    /**
+     * The status of the response
+     * @type {string}
+     * @memberof SparrModelsBaseBaseResponse
+     */
+    status?: string;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrNegotiationStyle {
+    HardBargainer = "hard bargainer",
+    FriendlyNegotiator = "friendly negotiator",
+    NonNegotiator = "non-negotiator"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrPatienceLevel {
+    Neutral = "neutral",
+    VeryPatient = "very patient",
+    Impatient = "impatient"
+}
+/**
+ *
+ * @export
+ * @interface SparrPersonaAttributesAndTraits
+ */
+export interface SparrPersonaAttributesAndTraits {
+    /**
+     *
+     * @type {SparrPatienceLevel | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    patience_level?: SparrPatienceLevel | string | null;
+    /**
+     *
+     * @type {SparrDecisionMakingStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    decision_making_style?: SparrDecisionMakingStyle | string | null;
+    /**
+     *
+     * @type {SparrCommunicationStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    communication_style?: SparrCommunicationStyle | string | null;
+    /**
+     *
+     * @type {SparrAdaptability | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    adaptability?: SparrAdaptability | string | null;
+    /**
+     *
+     * @type {SparrFrustrationTolerance | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    frustration_tolerance?: SparrFrustrationTolerance | string | null;
+    /**
+     *
+     * @type {SparrEngagementLevel | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    engagement_level?: SparrEngagementLevel | string | null;
+    /**
+     *
+     * @type {SparrInteractionTone | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    preferred_tone?: SparrInteractionTone | string | null;
+    /**
+     *
+     * @type {SparrNegotiationStyle | string}
+     * @memberof SparrPersonaAttributesAndTraits
+     */
+    negotiation_style?: SparrNegotiationStyle | string | null;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrRudenessLevel {
+    Courteous = "courteous",
+    Direct = "direct",
+    Irritable = "irritable",
+    Aggressive = "aggressive",
+    Toxic = "toxic"
 }
 /**
  *
@@ -4316,6 +5216,158 @@ export interface SparrStatsResponse {
 /**
  *
  * @export
+ * @enum {string}
+ */
+export declare enum SparrVoiceAccent {
+    American = "American",
+    Indian = "Indian",
+    Australian = "Australian",
+    British = "British",
+    Hindi = "Hindi",
+    MiddleEastern = "Middle Eastern"
+}
+/**
+ *
+ * @export
+ * @interface SparrVoiceInput
+ */
+export interface SparrVoiceInput {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    gender: SparrVoiceInputGenderEnum;
+    /**
+     *
+     * @type {SparrLanguageAccentCombo}
+     * @memberof SparrVoiceInput
+     */
+    languageAccent: SparrLanguageAccentCombo;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceInput
+     */
+    playbackSpeed?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SparrVoiceInput
+     */
+    backgroundNoise?: boolean;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum SparrVoiceInputGenderEnum {
+    Male = "Male",
+    Female = "Female",
+    Neutral = "Neutral"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrVoiceLanguage {
+    English = "English",
+    Spanish = "Spanish",
+    Hindi = "Hindi"
+}
+/**
+ *
+ * @export
+ * @interface SparrVoiceOutput
+ */
+export interface SparrVoiceOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    gender: SparrVoiceOutputGenderEnum;
+    /**
+     *
+     * @type {SparrLanguageAccentCombo}
+     * @memberof SparrVoiceOutput
+     */
+    languageAccent: SparrLanguageAccentCombo;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrVoiceOutput
+     */
+    playbackSpeed?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SparrVoiceOutput
+     */
+    backgroundNoise?: boolean;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum SparrVoiceOutputGenderEnum {
+    Male = "Male",
+    Female = "Female",
+    Neutral = "Neutral"
+}
+/**
+ *
+ * @export
+ * @interface SparrWorkDetails
+ */
+export interface SparrWorkDetails {
+    /**
+     * The company of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    companyName: string | null;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    jobTitle: string | null;
+    /**
+     * The description of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    description: string | null;
+    /**
+     * The start date of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    startDate: string | null;
+    /**
+     * The end date of the persona
+     * @type {string}
+     * @memberof SparrWorkDetails
+     */
+    endDate: string | null;
+}
+/**
+ *
+ * @export
  * @interface StatsData
  */
 export interface StatsData {
@@ -4366,6 +5418,25 @@ export declare enum Status {
     Active = "active",
     Inactive = "inactive",
     Pending = "pending"
+}
+/**
+ *
+ * @export
+ * @interface Step
+ */
+export interface Step {
+    /**
+     * The name of the step
+     * @type {string}
+     * @memberof Step
+     */
+    name: string;
+    /**
+     * The description of the step
+     * @type {string}
+     * @memberof Step
+     */
+    description: string;
 }
 /**
  * Subscription details of the business
@@ -5908,7 +6979,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -5921,7 +6992,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listAIAgentsV1: (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -5964,7 +7035,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -5977,7 +7048,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -6020,7 +7091,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6033,7 +7104,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -6081,7 +7152,7 @@ export declare class AgentsApi extends BaseAPI {
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6095,7 +7166,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -6124,11 +7195,11 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet: (app?: AppEnum, options?: any) => Promise<RequestArgs>;
+    getOverallStatsV1StatsGet: (app?: AppEnumInput, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -6147,11 +7218,11 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -6170,11 +7241,11 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): AxiosPromise<StatsResponse>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): AxiosPromise<StatsResponse>;
 };
 /**
  * AnalyticsApi - object-oriented interface
@@ -6196,12 +7267,12 @@ export declare class AnalyticsApi extends BaseAPI {
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getOverallStatsV1StatsGet(app?: AppEnum, options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
 }
 /**
  * ApiKeyApi - axios parameter creator
@@ -6702,7 +7773,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6715,7 +7786,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1: (app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listConversationsV1: (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6767,7 +7838,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6780,7 +7851,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6832,7 +7903,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6845,7 +7916,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -6903,7 +7974,7 @@ export declare class ConversationsApi extends BaseAPI {
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnum} [app]
+     * @param {AppEnumInput} [app]
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -6917,7 +7988,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(app?: AppEnum, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -9926,6 +10997,580 @@ export declare class ResellerApi extends BaseAPI {
     updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
+ * SparrApi - axios parameter creator
+ * @export
+ */
+export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackV1: (feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbacksV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    statusSparrStatusGet: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * SparrApi - functional programming interface
+ * @export
+ */
+export declare const SparrApiFp: (configuration?: Configuration) => {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbacksV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    statusSparrStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+};
+/**
+ * SparrApi - factory interface
+ * @export
+ */
+export declare const SparrApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackV1(feedbackId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackV1(feedbackId: string, options?: any): AxiosPromise<Feedback>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbacksV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Feedback>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    statusSparrStatusGet(options?: any): AxiosPromise<object>;
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+};
+/**
+ * SparrApi - object-oriented interface
+ * @export
+ * @class SparrApi
+ * @extends {BaseAPI}
+ */
+export declare class SparrApi extends BaseAPI {
+    /**
+     * Create a new feedback
+     * @summary Create Feedback
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPersonaV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Delete a feedback
+     * @summary Delete Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deletePersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific feedback by ID
+     * @summary Get Feedback
+     * @param {string} feedbackId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getPersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Get all feedbacks
+     * @summary Get Feedbacks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listFeedbacksV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPersonasV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listScenariosV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    /**
+     * Heart Beat check to check the health of Sparr Service
+     * @summary Heart Beat Status Of Sparr Service
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    statusSparrStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    /**
+     * Update a feedback
+     * @summary Update Feedback
+     * @param {string} feedbackId
+     * @param {FeedbackCore} feedbackCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+}
+/**
  * SparringApi - axios parameter creator
  * @export
  */
@@ -10838,11 +12483,11 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AppEnum, options?: any) => Promise<RequestArgs>;
+    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10906,11 +12551,11 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -10974,11 +12619,11 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): AxiosPromise<Array<Workflow>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): AxiosPromise<Array<Workflow>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -11047,12 +12692,12 @@ export declare class WorkflowsApi extends BaseAPI {
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AppEnum, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
     /**
      *
      * @summary Trigger Workflow Step
