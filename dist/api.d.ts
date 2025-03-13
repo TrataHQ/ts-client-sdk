@@ -2469,6 +2469,36 @@ export interface Feedback {
      */
     orgId?: string;
     /**
+     * The ID of the user
+     * @type {string}
+     * @memberof Feedback
+     */
+    userId: string;
+    /**
+     * The ID of the scenario
+     * @type {string}
+     * @memberof Feedback
+     */
+    scenarioId: string;
+    /**
+     * The ID of the persona
+     * @type {string}
+     * @memberof Feedback
+     */
+    personaId: string;
+    /**
+     * The start timestamp of the conversation
+     * @type {string}
+     * @memberof Feedback
+     */
+    startTimestamp: string;
+    /**
+     * The end timestamp of the conversation
+     * @type {string}
+     * @memberof Feedback
+     */
+    endTimestamp: string;
+    /**
      * The top insights from the conversation
      * @type {Array<string>}
      * @memberof Feedback
@@ -2517,6 +2547,36 @@ export interface Feedback {
  * @interface FeedbackCore
  */
 export interface FeedbackCore {
+    /**
+     * The ID of the user
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    userId: string;
+    /**
+     * The ID of the scenario
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    scenarioId: string;
+    /**
+     * The ID of the persona
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    personaId: string;
+    /**
+     * The start timestamp of the conversation
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    startTimestamp: string;
+    /**
+     * The end timestamp of the conversation
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    endTimestamp: string;
     /**
      * The top insights from the conversation
      * @type {Array<string>}
@@ -8852,6 +8912,13 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Propel Sign Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    propelSignUpV1WebhooksPropelSignUpPost: (options?: any) => Promise<RequestArgs>;
+    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
@@ -8991,6 +9058,13 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
+     *
+     * @summary Propel Sign Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    propelSignUpV1WebhooksPropelSignUpPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
@@ -9129,6 +9203,13 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    /**
+     *
+     * @summary Propel Sign Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    propelSignUpV1WebhooksPropelSignUpPost(options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -9282,6 +9363,14 @@ export declare class InternalApi extends BaseAPI {
      * @memberof InternalApi
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    /**
+     *
+     * @summary Propel Sign Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    propelSignUpV1WebhooksPropelSignUpPost(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers

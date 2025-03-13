@@ -5933,6 +5933,32 @@ exports.InternalApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Propel Sign Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        propelSignUpV1WebhooksPropelSignUpPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/webhooks/propel/sign-up`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
@@ -6282,6 +6308,21 @@ exports.InternalApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Propel Sign Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        propelSignUpV1WebhooksPropelSignUpPost(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.InternalApiAxiosParamCreator(configuration).propelSignUpV1WebhooksPropelSignUpPost(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
@@ -6471,6 +6512,15 @@ exports.InternalApiFactory = function (configuration, basePath, axios) {
             return exports.InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Propel Sign Up
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        propelSignUpV1WebhooksPropelSignUpPost(options) {
+            return exports.InternalApiFp(configuration).propelSignUpV1WebhooksPropelSignUpPost(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput
@@ -6653,6 +6703,16 @@ class InternalApi extends base_1.BaseAPI {
      */
     listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
         return exports.InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Propel Sign Up
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    propelSignUpV1WebhooksPropelSignUpPost(options) {
+        return exports.InternalApiFp(this.configuration).propelSignUpV1WebhooksPropelSignUpPost(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
