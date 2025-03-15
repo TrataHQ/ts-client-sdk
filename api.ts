@@ -239,6 +239,12 @@ export interface AcceptInviteRequest {
      * @memberof AcceptInviteRequest
      */
     name?: string | null;
+    /**
+     * Password for the user
+     * @type {string}
+     * @memberof AcceptInviteRequest
+     */
+    password?: string | null;
 }
 /**
  * 
@@ -2817,6 +2823,12 @@ export interface GuestOutput {
     last_sent_date?: string;
     /**
      * 
+     * @type {string}
+     * @memberof GuestOutput
+     */
+    guestInviteCode?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof GuestOutput
      */
@@ -3534,6 +3546,17 @@ export interface OrgWithUsers {
     users: Array<User>;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum OrganizationInitializationStatus {
+    PENDING = 'PENDING',
+    COMPLETED = 'COMPLETED',
+    FAILED = 'FAILED'
+}
+
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -3612,6 +3635,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     externalReferenceIds: Array<ExternalServicePorviderOutput> | null;
+    /**
+     * 
+     * @type {OrganizationInitializationStatus}
+     * @memberof OrganizationOutput
+     */
+    isInitialized?: OrganizationInitializationStatus;
     /**
      * 
      * @type {string}
@@ -3848,6 +3877,12 @@ export interface Persona {
      */
     blogUrl: string | null;
     /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof Persona
+     */
+    isInherited?: boolean;
+    /**
      * The unique identifier of the persona
      * @type {string}
      * @memberof Persona
@@ -3987,6 +4022,12 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     blogUrl: string | null;
+    /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof PersonaCore
+     */
+    isInherited?: boolean;
 }
 /**
  * Price details of the business
@@ -4870,6 +4911,12 @@ export interface Scenario {
      */
     playbook: Array<Step>;
     /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof Scenario
+     */
+    isInherited?: boolean;
+    /**
      * The unique identifier of the scenario
      * @type {string}
      * @memberof Scenario
@@ -4924,6 +4971,12 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     playbook: Array<Step>;
+    /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof ScenarioCore
+     */
+    isInherited?: boolean;
 }
 /**
  * 
@@ -12222,43 +12275,14 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
-         * @summary Propel Sign Up
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        propelSignUpV1WebhooksPropelSignUpPost: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/webhooks/propel/sign-up`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
+         * @param {string} [app] The app to use for the invite
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendInviteV1: async (guestInput: GuestInput, options: any = {}): Promise<RequestArgs> => {
+        sendInviteV1: async (guestInput: GuestInput, app?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'guestInput' is not null or undefined
             if (guestInput === null || guestInput === undefined) {
                 throw new RequiredError('guestInput','Required parameter guestInput was null or undefined when calling sendInviteV1.');
@@ -12280,6 +12304,10 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (app !== undefined) {
+                localVarQueryParameter['app'] = app;
             }
 
 
@@ -12596,27 +12624,15 @@ export const InternalApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
-         * @summary Propel Sign Up
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async propelSignUpV1WebhooksPropelSignUpPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).propelSignUpV1WebhooksPropelSignUpPost(options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
+         * @param {string} [app] The app to use for the invite
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).sendInviteV1(guestInput, options);
+        async sendInviteV1(guestInput: GuestInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).sendInviteV1(guestInput, app, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12793,23 +12809,15 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Propel Sign Up
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        propelSignUpV1WebhooksPropelSignUpPost(options?: any): AxiosPromise<BaseResponseInput> {
-            return InternalApiFp(configuration).propelSignUpV1WebhooksPropelSignUpPost(options).then((request) => request(axios, basePath));
-        },
-        /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
          * @summary Inviteusers
          * @param {GuestInput} guestInput 
+         * @param {string} [app] The app to use for the invite
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
-            return InternalApiFp(configuration).sendInviteV1(guestInput, options).then((request) => request(axios, basePath));
+        sendInviteV1(guestInput: GuestInput, app?: string, options?: any): AxiosPromise<GuestOutput> {
+            return InternalApiFp(configuration).sendInviteV1(guestInput, app, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -12999,26 +13007,16 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Propel Sign Up
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public propelSignUpV1WebhooksPropelSignUpPost(options?: any) {
-        return InternalApiFp(this.configuration).propelSignUpV1WebhooksPropelSignUpPost(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput 
+     * @param {string} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public sendInviteV1(guestInput: GuestInput, options?: any) {
-        return InternalApiFp(this.configuration).sendInviteV1(guestInput, options).then((request) => request(this.axios, this.basePath));
+    public sendInviteV1(guestInput: GuestInput, app?: string, options?: any) {
+        return InternalApiFp(this.configuration).sendInviteV1(guestInput, app, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

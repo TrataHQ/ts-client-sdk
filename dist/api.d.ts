@@ -231,6 +231,12 @@ export interface AcceptInviteRequest {
      * @memberof AcceptInviteRequest
      */
     name?: string | null;
+    /**
+     * Password for the user
+     * @type {string}
+     * @memberof AcceptInviteRequest
+     */
+    password?: string | null;
 }
 /**
  *
@@ -2780,6 +2786,12 @@ export interface GuestOutput {
     last_sent_date?: string;
     /**
      *
+     * @type {string}
+     * @memberof GuestOutput
+     */
+    guestInviteCode?: string | null;
+    /**
+     *
      * @type {number}
      * @memberof GuestOutput
      */
@@ -3482,6 +3494,16 @@ export interface OrgWithUsers {
     users: Array<User>;
 }
 /**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum OrganizationInitializationStatus {
+    PENDING = "PENDING",
+    COMPLETED = "COMPLETED",
+    FAILED = "FAILED"
+}
+/**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
  * @interface OrganizationInput
@@ -3560,6 +3582,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     externalReferenceIds: Array<ExternalServicePorviderOutput> | null;
+    /**
+     *
+     * @type {OrganizationInitializationStatus}
+     * @memberof OrganizationOutput
+     */
+    isInitialized?: OrganizationInitializationStatus;
     /**
      *
      * @type {string}
@@ -3795,6 +3823,12 @@ export interface Persona {
      */
     blogUrl: string | null;
     /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof Persona
+     */
+    isInherited?: boolean;
+    /**
      * The unique identifier of the persona
      * @type {string}
      * @memberof Persona
@@ -3934,6 +3968,12 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     blogUrl: string | null;
+    /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof PersonaCore
+     */
+    isInherited?: boolean;
 }
 /**
  * Price details of the business
@@ -4812,6 +4852,12 @@ export interface Scenario {
      */
     playbook: Array<Step>;
     /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof Scenario
+     */
+    isInherited?: boolean;
+    /**
      * The unique identifier of the scenario
      * @type {string}
      * @memberof Scenario
@@ -4866,6 +4912,12 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     playbook: Array<Step>;
+    /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof ScenarioCore
+     */
+    isInherited?: boolean;
 }
 /**
  *
@@ -8912,20 +8964,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
-     * @summary Propel Sign Up
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    propelSignUpV1WebhooksPropelSignUpPost: (options?: any) => Promise<RequestArgs>;
-    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
+     * @param {string} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1: (guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    sendInviteV1: (guestInput: GuestInput, app?: string, options?: any) => Promise<RequestArgs>;
     /**
      *
      * @summary Updateorganization
@@ -9058,20 +9104,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
-     *
-     * @summary Propel Sign Up
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    propelSignUpV1WebhooksPropelSignUpPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
-    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
+     * @param {string} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
      *
      * @summary Updateorganization
@@ -9204,20 +9244,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
     /**
-     *
-     * @summary Propel Sign Up
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    propelSignUpV1WebhooksPropelSignUpPost(options?: any): AxiosPromise<BaseResponseInput>;
-    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
+     * @param {string} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): AxiosPromise<GuestOutput>;
     /**
      *
      * @summary Updateorganization
@@ -9364,22 +9398,15 @@ export declare class InternalApi extends BaseAPI {
      */
     listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
-     *
-     * @summary Propel Sign Up
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    propelSignUpV1WebhooksPropelSignUpPost(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
-    /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
+     * @param {string} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    sendInviteV1(guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
     /**
      *
      * @summary Updateorganization
