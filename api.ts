@@ -10111,6 +10111,95 @@ export const DataPlaneApiAxiosParamCreator = function (configuration?: Configura
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName] 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConnections: async (sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/connections`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (sourceName !== undefined) {
+                localVarQueryParameter['sourceName'] = sourceName;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -10150,6 +10239,29 @@ export const DataPlaneApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName] 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>> {
+            const localVarAxiosArgs = await DataPlaneApiAxiosParamCreator(configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -10180,6 +10292,25 @@ export const DataPlaneApiFactory = function (configuration?: Configuration, base
          */
         getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponseInput> {
             return DataPlaneApiFp(configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName] 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConnectionOutput>> {
+            return DataPlaneApiFp(configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10215,6 +10346,27 @@ export class DataPlaneApi extends BaseAPI {
      */
     public getPlivoAudioStreamXml(connectionId: string, options?: any) {
         return DataPlaneApiFp(this.configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName] 
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    public listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return DataPlaneApiFp(this.configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

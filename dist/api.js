@@ -3955,6 +3955,80 @@ exports.DataPlaneApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName]
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConnections: (sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/connections`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (sourceName !== undefined) {
+                localVarQueryParameter['sourceName'] = sourceName;
+            }
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3997,6 +4071,31 @@ exports.DataPlaneApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName]
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DataPlaneApiAxiosParamCreator(configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -4026,6 +4125,25 @@ exports.DataPlaneApiFactory = function (configuration, basePath, axios) {
          */
         getPlivoAudioStreamXml(connectionId, options) {
             return exports.DataPlaneApiFp(configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List connections
+         * @summary Listconnections
+         * @param {string} [sourceName]
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+            return exports.DataPlaneApiFp(configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4059,6 +4177,26 @@ class DataPlaneApi extends base_1.BaseAPI {
      */
     getPlivoAudioStreamXml(connectionId, options) {
         return exports.DataPlaneApiFp(this.configuration).getPlivoAudioStreamXml(connectionId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName]
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+        return exports.DataPlaneApiFp(this.configuration).listConnections(sourceName, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.DataPlaneApi = DataPlaneApi;

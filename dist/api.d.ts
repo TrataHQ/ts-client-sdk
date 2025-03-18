@@ -8135,6 +8135,23 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     getPlivoAudioStreamXml: (connectionId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName]
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConnections: (sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -8159,6 +8176,23 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName]
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -8183,6 +8217,23 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName]
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConnectionOutput>>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -8211,6 +8262,24 @@ export declare class DataPlaneApi extends BaseAPI {
      * @memberof DataPlaneApi
      */
     getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
+     * List connections
+     * @summary Listconnections
+     * @param {string} [sourceName]
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataPlaneApi
+     */
+    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConnectionOutput[]>>;
 }
 /**
  * FilesApi - axios parameter creator
