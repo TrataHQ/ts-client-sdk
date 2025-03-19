@@ -3883,6 +3883,12 @@ export interface Persona {
      */
     isInherited?: boolean;
     /**
+     * The profile picture URL of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    profilePictureUrl: string | null;
+    /**
      * The unique identifier of the persona
      * @type {string}
      * @memberof Persona
@@ -4028,6 +4034,12 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     isInherited?: boolean;
+    /**
+     * The profile picture URL of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    profilePictureUrl: string | null;
 }
 /**
  * Price details of the business
@@ -5419,12 +5431,6 @@ export enum SparrVoiceAccent {
 export interface SparrVoiceInput {
     /**
      * 
-     * @type {string}
-     * @memberof SparrVoiceInput
-     */
-    gender: SparrVoiceInputGenderEnum;
-    /**
-     * 
      * @type {SparrLanguageAccentCombo}
      * @memberof SparrVoiceInput
      */
@@ -5448,17 +5454,6 @@ export interface SparrVoiceInput {
      */
     backgroundNoise?: boolean;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SparrVoiceInputGenderEnum {
-    Male = 'Male',
-    Female = 'Female',
-    Neutral = 'Neutral'
-}
-
 /**
  * 
  * @export
@@ -5478,12 +5473,6 @@ export enum SparrVoiceLanguage {
 export interface SparrVoiceOutput {
     /**
      * 
-     * @type {string}
-     * @memberof SparrVoiceOutput
-     */
-    gender: SparrVoiceOutputGenderEnum;
-    /**
-     * 
      * @type {SparrLanguageAccentCombo}
      * @memberof SparrVoiceOutput
      */
@@ -5507,17 +5496,6 @@ export interface SparrVoiceOutput {
      */
     backgroundNoise?: boolean;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SparrVoiceOutputGenderEnum {
-    Male = 'Male',
-    Female = 'Female',
-    Neutral = 'Neutral'
-}
-
 /**
  * 
  * @export
