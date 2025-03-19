@@ -17630,6 +17630,54 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importLinkedinPersonaV1: async (linkedinUrl: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'linkedinUrl' is not null or undefined
+            if (linkedinUrl === null || linkedinUrl === undefined) {
+                throw new RequiredError('linkedinUrl','Required parameter linkedinUrl was null or undefined when calling importLinkedinPersonaV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/import-linkedin`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (linkedinUrl !== undefined) {
+                localVarQueryParameter['linkedin_url'] = linkedinUrl;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] 
@@ -18104,6 +18152,20 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).importLinkedinPersonaV1(linkedinUrl, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] 
@@ -18306,6 +18368,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).getScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importLinkedinPersonaV1(linkedinUrl: string, options?: any): AxiosPromise<Persona> {
+            return SparrApiFp(configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] 
@@ -18496,6 +18568,18 @@ export class SparrApi extends BaseAPI {
      */
     public getScenarioV1(scenarioId: string, options?: any) {
         return SparrApiFp(this.configuration).getScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public importLinkedinPersonaV1(linkedinUrl: string, options?: any) {
+        return SparrApiFp(this.configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -11259,6 +11259,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip]
@@ -11398,6 +11406,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
     /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip]
@@ -11536,6 +11552,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -11686,6 +11710,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
