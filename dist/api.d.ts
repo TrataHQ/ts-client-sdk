@@ -685,6 +685,12 @@ export interface AnalyticsModelInput {
      * @memberof AnalyticsModelInput
      */
     coach_analytics: CoachAnalyticsModel;
+    /**
+     *
+     * @type {SystemMetrics}
+     * @memberof AnalyticsModelInput
+     */
+    system_metrics: SystemMetrics | null;
 }
 /**
  *
@@ -710,6 +716,12 @@ export interface AnalyticsModelOutput {
      * @memberof AnalyticsModelOutput
      */
     coach_analytics: CoachAnalyticsModel;
+    /**
+     *
+     * @type {SystemMetrics}
+     * @memberof AnalyticsModelOutput
+     */
+    system_metrics: SystemMetrics | null;
 }
 /**
  * API key authentication configuration
@@ -1179,28 +1191,28 @@ export declare enum BasicAuthCredentialsCredentialsTypeEnum {
 /**
  *
  * @export
- * @interface BatchMetricsRequests
+ * @interface BatchMetricsRequestsInput
  */
-export interface BatchMetricsRequests {
+export interface BatchMetricsRequestsInput {
     /**
      *
-     * @type {Array<MetricsRequest>}
-     * @memberof BatchMetricsRequests
+     * @type {Array<MetricsRequestInput>}
+     * @memberof BatchMetricsRequestsInput
      */
-    requests: Array<MetricsRequest>;
+    requests: Array<MetricsRequestInput>;
 }
 /**
  *
  * @export
- * @interface BatchMetricsResponse
+ * @interface BatchMetricsResponseInput
  */
-export interface BatchMetricsResponse {
+export interface BatchMetricsResponseInput {
     /**
      *
-     * @type {Array<MetricsResponse>}
-     * @memberof BatchMetricsResponse
+     * @type {Array<MetricsResponseInput>}
+     * @memberof BatchMetricsResponseInput
      */
-    responses: Array<MetricsResponse>;
+    responses: Array<MetricsResponseInput>;
 }
 /**
  *
@@ -2715,13 +2727,7 @@ export interface GoalsAnalyticsModel {
      * @type {any}
      * @memberof GoalsAnalyticsModel
      */
-    qualitative_goals: any | null;
-    /**
-     *
-     * @type {any}
-     * @memberof GoalsAnalyticsModel
-     */
-    quantitative_goals: any | null;
+    goals: any | null;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -3094,9 +3100,40 @@ export interface LanguageAccentCombo {
 /**
  *
  * @export
+ * @interface LongestMonologue
+ */
+export interface LongestMonologue {
+    /**
+     *
+     * @type {string}
+     * @memberof LongestMonologue
+     */
+    message: string;
+    /**
+     *
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    start_at_seconds: number;
+    /**
+     *
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    end_at_seconds: number;
+    /**
+     *
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    duration: number;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
-export declare enum MetricName {
+export declare enum MetricNameInput {
     CALLS = "CALLS",
     CALLDURATION = "CALL_DURATION",
     SPARRCALLS = "SPARR_CALLS",
@@ -3128,68 +3165,68 @@ export interface MetricResponseDataPoint {
 /**
  *
  * @export
- * @interface MetricsRequest
+ * @interface MetricsRequestInput
  */
-export interface MetricsRequest {
+export interface MetricsRequestInput {
     /**
      * Unique identifier for the metric request. This can be helped to co-relate the request and response
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     id: string;
     /**
      * Name of the metric
-     * @type {MetricName}
-     * @memberof MetricsRequest
+     * @type {MetricNameInput}
+     * @memberof MetricsRequestInput
      */
-    name: MetricName;
+    name: MetricNameInput;
     /**
      * Start date to get metric request
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     fromDate: string;
     /**
      * End date until get metric request
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     toDate: string;
     /**
      * Aggregation period for the metric request
      * @type {AggregationPeriod}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     aggregationPeriod: AggregationPeriod;
     /**
      * Aggregation formula for the metric request
      * @type {AggregationFormula}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     aggregationFormula: AggregationFormula;
 }
 /**
  *
  * @export
- * @interface MetricsResponse
+ * @interface MetricsResponseInput
  */
-export interface MetricsResponse {
+export interface MetricsResponseInput {
     /**
      * Unique identifier for the metric response. This will help co-relate the request and response
      * @type {string}
-     * @memberof MetricsResponse
+     * @memberof MetricsResponseInput
      */
     id: string;
     /**
      * Name of the metric
-     * @type {MetricName}
-     * @memberof MetricsResponse
+     * @type {MetricNameInput}
+     * @memberof MetricsResponseInput
      */
-    name: MetricName;
+    name: MetricNameInput;
     /**
      * List of data points for the metric response
      * @type {Array<MetricResponseDataPoint>}
-     * @memberof MetricsResponse
+     * @memberof MetricsResponseInput
      */
     datapoints: Array<MetricResponseDataPoint>;
 }
@@ -3988,6 +4025,43 @@ export interface PersonaCore {
     profilePictureUrl: string | null;
 }
 /**
+ *
+ * @export
+ * @interface PersonaSearchResponse
+ */
+export interface PersonaSearchResponse {
+    /**
+     *
+     * @type {Array<Persona>}
+     * @memberof PersonaSearchResponse
+     */
+    items: Array<Persona>;
+    /**
+     *
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    pages: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    current_page: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    page_size: number;
+}
+/**
  * Price details of the business
  * @export
  * @interface Price
@@ -4757,10 +4831,10 @@ export interface ResellerBatchMetricsRequests {
     organization: Array<string>;
     /**
      *
-     * @type {Array<MetricsRequest>}
+     * @type {Array<MetricsRequestInput>}
      * @memberof ResellerBatchMetricsRequests
      */
-    requests: Array<MetricsRequest>;
+    requests: Array<MetricsRequestInput>;
 }
 /**
  *
@@ -4846,17 +4920,11 @@ export interface Scenario {
      */
     objections: Array<Objection>;
     /**
-     * The qualitative goals to be achieved for the scenario
+     * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof Scenario
      */
-    qualitative_goals: Array<Goal>;
-    /**
-     * The quantitative goals to be achieved for the scenario
-     * @type {Array<Goal>}
-     * @memberof Scenario
-     */
-    quantitative_goals?: Array<Goal>;
+    goals: Array<Goal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -4907,17 +4975,11 @@ export interface ScenarioCore {
      */
     objections: Array<Objection>;
     /**
-     * The qualitative goals to be achieved for the scenario
+     * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof ScenarioCore
      */
-    qualitative_goals: Array<Goal>;
-    /**
-     * The quantitative goals to be achieved for the scenario
-     * @type {Array<Goal>}
-     * @memberof ScenarioCore
-     */
-    quantitative_goals?: Array<Goal>;
+    goals: Array<Goal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -4930,6 +4992,43 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     isInherited?: boolean;
+}
+/**
+ *
+ * @export
+ * @interface ScenarioSearchResponse
+ */
+export interface ScenarioSearchResponse {
+    /**
+     *
+     * @type {Array<Scenario>}
+     * @memberof ScenarioSearchResponse
+     */
+    items: Array<Scenario>;
+    /**
+     *
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    pages: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    current_page: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    page_size: number;
 }
 /**
  *
@@ -5091,6 +5190,74 @@ export declare enum SparrDialogLineSpeakerEnum {
 /**
  *
  * @export
+ * @interface SparrDialogLineWithSentiment
+ */
+export interface SparrDialogLineWithSentiment {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    speaker: SparrDialogLineWithSentimentSpeakerEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    message: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    start_at_seconds: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    end_at_seconds: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    sentiment: SparrDialogLineWithSentimentSentimentEnum;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    sentiment_score: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    id: string;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum SparrDialogLineWithSentimentSpeakerEnum {
+    USER = "USER",
+    AI = "AI",
+    TOOL = "TOOL",
+    AITOOLREQUEST = "AI - TOOL REQUEST"
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum SparrDialogLineWithSentimentSentimentEnum {
+    POSITIVE = "POSITIVE",
+    NEGATIVE = "NEGATIVE",
+    NEUTRAL = "NEUTRAL"
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum SparrEngagementLevel {
@@ -5151,6 +5318,32 @@ export interface SparrLanguageAccentCombo {
     accent: SparrVoiceAccent;
 }
 /**
+ *
+ * @export
+ * @interface SparrModelsAnalyticsBatchMetricsRequests
+ */
+export interface SparrModelsAnalyticsBatchMetricsRequests {
+    /**
+     *
+     * @type {Array<SparrModelsAnalyticsMetricsRequest>}
+     * @memberof SparrModelsAnalyticsBatchMetricsRequests
+     */
+    requests: Array<SparrModelsAnalyticsMetricsRequest>;
+}
+/**
+ *
+ * @export
+ * @interface SparrModelsAnalyticsBatchMetricsResponse
+ */
+export interface SparrModelsAnalyticsBatchMetricsResponse {
+    /**
+     *
+     * @type {Array<SparrModelsAnalyticsMetricsResponse>}
+     * @memberof SparrModelsAnalyticsBatchMetricsResponse
+     */
+    responses: Array<SparrModelsAnalyticsMetricsResponse>;
+}
+/**
  * Expected output of the post conversation task
  * @export
  * @interface SparrModelsAnalyticsConversationAnalyticsModel
@@ -5180,6 +5373,84 @@ export interface SparrModelsAnalyticsConversationAnalyticsModel {
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
     what_can_be_improved: Array<string> | null;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrModelsAnalyticsMetricName {
+    CALLS = "CALLS",
+    CALLDURATION = "CALL_DURATION",
+    TALKRATIO = "TALK_RATIO"
+}
+/**
+ *
+ * @export
+ * @interface SparrModelsAnalyticsMetricsRequest
+ */
+export interface SparrModelsAnalyticsMetricsRequest {
+    /**
+     * Unique identifier for the metric request. This can be helped to co-relate the request and response
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    id: string;
+    /**
+     * Name of the metric
+     * @type {SparrModelsAnalyticsMetricName}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    name: SparrModelsAnalyticsMetricName;
+    /**
+     * Start date to get metric request
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    fromDate: string;
+    /**
+     * End date until get metric request
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    toDate: string;
+    /**
+     * Aggregation period for the metric request
+     * @type {AggregationPeriod}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    aggregationPeriod: AggregationPeriod;
+    /**
+     * Aggregation formula for the metric request
+     * @type {AggregationFormula}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    aggregationFormula: AggregationFormula;
+}
+/**
+ *
+ * @export
+ * @interface SparrModelsAnalyticsMetricsResponse
+ */
+export interface SparrModelsAnalyticsMetricsResponse {
+    /**
+     * Unique identifier for the metric response. This will help co-relate the request and response
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    id: string;
+    /**
+     * Name of the metric
+     * @type {SparrModelsAnalyticsMetricName}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    name: SparrModelsAnalyticsMetricName;
+    /**
+     * List of data points for the metric response
+     * @type {Array<MetricResponseDataPoint>}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    datapoints: Array<MetricResponseDataPoint>;
 }
 /**
  *
@@ -5623,6 +5894,43 @@ export interface SubscriptionInfo {
      * @memberof SubscriptionInfo
      */
     credits?: Array<Credit> | null;
+}
+/**
+ *
+ * @export
+ * @interface SystemMetrics
+ */
+export interface SystemMetrics {
+    /**
+     *
+     * @type {string}
+     * @memberof SystemMetrics
+     */
+    average_sentiment?: string | null;
+    /**
+     *
+     * @type {any}
+     * @memberof SystemMetrics
+     */
+    filler_words?: any | null;
+    /**
+     *
+     * @type {LongestMonologue}
+     * @memberof SystemMetrics
+     */
+    longest_monologue?: LongestMonologue | null;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemMetrics
+     */
+    speech_pace?: number | null;
+    /**
+     *
+     * @type {Array<SparrDialogLineWithSentiment>}
+     * @memberof SystemMetrics
+     */
+    dialog_lines_sentiment?: Array<SparrDialogLineWithSentiment> | null;
 }
 /**
  *
@@ -7280,12 +7588,12 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
      * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost: (batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any) => Promise<RequestArgs>;
+    getMetricsV1MetricsPost: (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -7303,12 +7611,12 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
      * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -7326,12 +7634,12 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
      * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): AxiosPromise<BatchMetricsResponse>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): AxiosPromise<BatchMetricsResponseInput>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -7351,13 +7659,13 @@ export declare class AnalyticsApi extends BaseAPI {
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
      * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -10427,7 +10735,7 @@ export declare const ResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization
@@ -10716,7 +11024,7 @@ export declare const ResellerApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponseInput>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization
@@ -11025,7 +11333,7 @@ export declare class ResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerApi
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponse>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization
@@ -11225,6 +11533,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId
@@ -11275,6 +11591,26 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listScenariosV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -11372,6 +11708,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId
@@ -11422,6 +11766,26 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -11519,6 +11883,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getFeedbackV1(feedbackId: string, options?: any): AxiosPromise<Feedback>;
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId
@@ -11569,6 +11941,26 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -11675,6 +12067,15 @@ export declare class SparrApi extends BaseAPI {
      */
     getFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse>>;
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId
@@ -11731,6 +12132,28 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service

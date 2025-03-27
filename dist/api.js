@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricName = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineWithSentimentSpeakerEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -315,17 +315,17 @@ var Language;
  * @export
  * @enum {string}
  */
-var MetricName;
-(function (MetricName) {
-    MetricName["CALLS"] = "CALLS";
-    MetricName["CALLDURATION"] = "CALL_DURATION";
-    MetricName["SPARRCALLS"] = "SPARR_CALLS";
-    MetricName["SPARRCALLDURATION"] = "SPARR_CALL_DURATION";
-    MetricName["APPOINTMENTSCHEDULED"] = "APPOINTMENT_SCHEDULED";
-    MetricName["PROSPECTS"] = "PROSPECTS";
-    MetricName["INTERESTED"] = "INTERESTED";
-    MetricName["NOTINTERESTED"] = "NOT_INTERESTED";
-})(MetricName = exports.MetricName || (exports.MetricName = {}));
+var MetricNameInput;
+(function (MetricNameInput) {
+    MetricNameInput["CALLS"] = "CALLS";
+    MetricNameInput["CALLDURATION"] = "CALL_DURATION";
+    MetricNameInput["SPARRCALLS"] = "SPARR_CALLS";
+    MetricNameInput["SPARRCALLDURATION"] = "SPARR_CALL_DURATION";
+    MetricNameInput["APPOINTMENTSCHEDULED"] = "APPOINTMENT_SCHEDULED";
+    MetricNameInput["PROSPECTS"] = "PROSPECTS";
+    MetricNameInput["INTERESTED"] = "INTERESTED";
+    MetricNameInput["NOTINTERESTED"] = "NOT_INTERESTED";
+})(MetricNameInput = exports.MetricNameInput || (exports.MetricNameInput = {}));
 /**
  *
  * @export
@@ -662,6 +662,27 @@ var SparrDialogLineSpeakerEnum;
     SparrDialogLineSpeakerEnum["AITOOLREQUEST"] = "AI - TOOL REQUEST";
 })(SparrDialogLineSpeakerEnum = exports.SparrDialogLineSpeakerEnum || (exports.SparrDialogLineSpeakerEnum = {}));
 /**
+    * @export
+    * @enum {string}
+    */
+var SparrDialogLineWithSentimentSpeakerEnum;
+(function (SparrDialogLineWithSentimentSpeakerEnum) {
+    SparrDialogLineWithSentimentSpeakerEnum["USER"] = "USER";
+    SparrDialogLineWithSentimentSpeakerEnum["AI"] = "AI";
+    SparrDialogLineWithSentimentSpeakerEnum["TOOL"] = "TOOL";
+    SparrDialogLineWithSentimentSpeakerEnum["AITOOLREQUEST"] = "AI - TOOL REQUEST";
+})(SparrDialogLineWithSentimentSpeakerEnum = exports.SparrDialogLineWithSentimentSpeakerEnum || (exports.SparrDialogLineWithSentimentSpeakerEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var SparrDialogLineWithSentimentSentimentEnum;
+(function (SparrDialogLineWithSentimentSentimentEnum) {
+    SparrDialogLineWithSentimentSentimentEnum["POSITIVE"] = "POSITIVE";
+    SparrDialogLineWithSentimentSentimentEnum["NEGATIVE"] = "NEGATIVE";
+    SparrDialogLineWithSentimentSentimentEnum["NEUTRAL"] = "NEUTRAL";
+})(SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineWithSentimentSentimentEnum || (exports.SparrDialogLineWithSentimentSentimentEnum = {}));
+/**
  *
  * @export
  * @enum {string}
@@ -708,6 +729,17 @@ var SparrInteractionTone;
     SparrInteractionTone["Friendly"] = "friendly";
     SparrInteractionTone["Authoritative"] = "authoritative";
 })(SparrInteractionTone = exports.SparrInteractionTone || (exports.SparrInteractionTone = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var SparrModelsAnalyticsMetricName;
+(function (SparrModelsAnalyticsMetricName) {
+    SparrModelsAnalyticsMetricName["CALLS"] = "CALLS";
+    SparrModelsAnalyticsMetricName["CALLDURATION"] = "CALL_DURATION";
+    SparrModelsAnalyticsMetricName["TALKRATIO"] = "TALK_RATIO";
+})(SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsMetricName || (exports.SparrModelsAnalyticsMetricName = {}));
 /**
  *
  * @export
@@ -2089,15 +2121,15 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
          * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost: (batchMetricsRequests, app, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'batchMetricsRequests' is not null or undefined
-            if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
-                throw new base_1.RequiredError('batchMetricsRequests', 'Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
+        getMetricsV1MetricsPost: (batchMetricsRequestsInput, app, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'batchMetricsRequestsInput' is not null or undefined
+            if (batchMetricsRequestsInput === null || batchMetricsRequestsInput === undefined) {
+                throw new base_1.RequiredError('batchMetricsRequestsInput', 'Required parameter batchMetricsRequestsInput was null or undefined when calling getMetricsV1MetricsPost.');
             }
             const localVarPath = `/v1/metrics`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -2125,8 +2157,8 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof batchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {}) : (batchMetricsRequests || "");
+            const needsSerialization = (typeof batchMetricsRequestsInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(batchMetricsRequestsInput !== undefined ? batchMetricsRequestsInput : {}) : (batchMetricsRequestsInput || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -2181,14 +2213,14 @@ exports.AnalyticsApiFp = function (configuration) {
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
          * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
+        getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options);
+                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2222,13 +2254,13 @@ exports.AnalyticsApiFactory = function (configuration, basePath, axios) {
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
          * @param {string} [app]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
-            return exports.AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(axios, basePath));
+        getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options) {
+            return exports.AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options).then((request) => request(axios, basePath));
         },
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
@@ -2252,14 +2284,14 @@ class AnalyticsApi extends base_1.BaseAPI {
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
      * @param {string} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequests, app, options) {
-        return exports.AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(this.axios, this.basePath));
+    getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options) {
+        return exports.AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
@@ -10874,6 +10906,48 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'sparrModelsAnalyticsBatchMetricsRequests' is not null or undefined
+            if (sparrModelsAnalyticsBatchMetricsRequests === null || sparrModelsAnalyticsBatchMetricsRequests === undefined) {
+                throw new base_1.RequiredError('sparrModelsAnalyticsBatchMetricsRequests', 'Required parameter sparrModelsAnalyticsBatchMetricsRequests was null or undefined when calling getMetricsV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/metrics`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof sparrModelsAnalyticsBatchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(sparrModelsAnalyticsBatchMetricsRequests !== undefined ? sparrModelsAnalyticsBatchMetricsRequests : {}) : (sparrModelsAnalyticsBatchMetricsRequests || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId
@@ -11110,6 +11184,106 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchPersonasV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchScenariosV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -11412,6 +11586,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId
@@ -11504,6 +11694,42 @@ exports.SparrApiFp = function (configuration) {
         listScenariosV1(skip, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchPersonasV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchScenariosV1(query, page, size, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11655,6 +11881,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).getFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options) {
+            return exports.SparrApiFp(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId
@@ -11716,6 +11952,30 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         listScenariosV1(skip, limit, options) {
             return exports.SparrApiFp(configuration).listScenariosV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasV1(query, page, size, options) {
+            return exports.SparrApiFp(configuration).searchPersonasV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosV1(query, page, size, options) {
+            return exports.SparrApiFp(configuration).searchScenariosV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Heart Beat check to check the health of Sparr Service
@@ -11846,6 +12106,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).getFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options) {
+        return exports.SparrApiFp(this.configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId
@@ -11913,6 +12184,32 @@ class SparrApi extends base_1.BaseAPI {
      */
     listScenariosV1(skip, limit, options) {
         return exports.SparrApiFp(this.configuration).listScenariosV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchPersonasV1(query, page, size, options) {
+        return exports.SparrApiFp(this.configuration).searchPersonasV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchScenariosV1(query, page, size, options) {
+        return exports.SparrApiFp(this.configuration).searchScenariosV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Heart Beat check to check the health of Sparr Service

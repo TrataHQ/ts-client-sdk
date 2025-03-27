@@ -698,6 +698,12 @@ export interface AnalyticsModelInput {
      * @memberof AnalyticsModelInput
      */
     coach_analytics: CoachAnalyticsModel;
+    /**
+     * 
+     * @type {SystemMetrics}
+     * @memberof AnalyticsModelInput
+     */
+    system_metrics: SystemMetrics | null;
 }
 /**
  * 
@@ -723,6 +729,12 @@ export interface AnalyticsModelOutput {
      * @memberof AnalyticsModelOutput
      */
     coach_analytics: CoachAnalyticsModel;
+    /**
+     * 
+     * @type {SystemMetrics}
+     * @memberof AnalyticsModelOutput
+     */
+    system_metrics: SystemMetrics | null;
 }
 /**
  * API key authentication configuration
@@ -1203,28 +1215,28 @@ export enum BasicAuthCredentialsCredentialsTypeEnum {
 /**
  * 
  * @export
- * @interface BatchMetricsRequests
+ * @interface BatchMetricsRequestsInput
  */
-export interface BatchMetricsRequests {
+export interface BatchMetricsRequestsInput {
     /**
      * 
-     * @type {Array<MetricsRequest>}
-     * @memberof BatchMetricsRequests
+     * @type {Array<MetricsRequestInput>}
+     * @memberof BatchMetricsRequestsInput
      */
-    requests: Array<MetricsRequest>;
+    requests: Array<MetricsRequestInput>;
 }
 /**
  * 
  * @export
- * @interface BatchMetricsResponse
+ * @interface BatchMetricsResponseInput
  */
-export interface BatchMetricsResponse {
+export interface BatchMetricsResponseInput {
     /**
      * 
-     * @type {Array<MetricsResponse>}
-     * @memberof BatchMetricsResponse
+     * @type {Array<MetricsResponseInput>}
+     * @memberof BatchMetricsResponseInput
      */
-    responses: Array<MetricsResponse>;
+    responses: Array<MetricsResponseInput>;
 }
 /**
  * 
@@ -2752,13 +2764,7 @@ export interface GoalsAnalyticsModel {
      * @type {any}
      * @memberof GoalsAnalyticsModel
      */
-    qualitative_goals: any | null;
-    /**
-     * 
-     * @type {any}
-     * @memberof GoalsAnalyticsModel
-     */
-    quantitative_goals: any | null;
+    goals: any | null;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -3136,9 +3142,40 @@ export interface LanguageAccentCombo {
 /**
  * 
  * @export
+ * @interface LongestMonologue
+ */
+export interface LongestMonologue {
+    /**
+     * 
+     * @type {string}
+     * @memberof LongestMonologue
+     */
+    message: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    start_at_seconds: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    end_at_seconds: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LongestMonologue
+     */
+    duration: number;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
-export enum MetricName {
+export enum MetricNameInput {
     CALLS = 'CALLS',
     CALLDURATION = 'CALL_DURATION',
     SPARRCALLS = 'SPARR_CALLS',
@@ -3171,68 +3208,68 @@ export interface MetricResponseDataPoint {
 /**
  * 
  * @export
- * @interface MetricsRequest
+ * @interface MetricsRequestInput
  */
-export interface MetricsRequest {
+export interface MetricsRequestInput {
     /**
      * Unique identifier for the metric request. This can be helped to co-relate the request and response
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     id: string;
     /**
      * Name of the metric
-     * @type {MetricName}
-     * @memberof MetricsRequest
+     * @type {MetricNameInput}
+     * @memberof MetricsRequestInput
      */
-    name: MetricName;
+    name: MetricNameInput;
     /**
      * Start date to get metric request
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     fromDate: string;
     /**
      * End date until get metric request
      * @type {string}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     toDate: string;
     /**
      * Aggregation period for the metric request
      * @type {AggregationPeriod}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     aggregationPeriod: AggregationPeriod;
     /**
      * Aggregation formula for the metric request
      * @type {AggregationFormula}
-     * @memberof MetricsRequest
+     * @memberof MetricsRequestInput
      */
     aggregationFormula: AggregationFormula;
 }
 /**
  * 
  * @export
- * @interface MetricsResponse
+ * @interface MetricsResponseInput
  */
-export interface MetricsResponse {
+export interface MetricsResponseInput {
     /**
      * Unique identifier for the metric response. This will help co-relate the request and response
      * @type {string}
-     * @memberof MetricsResponse
+     * @memberof MetricsResponseInput
      */
     id: string;
     /**
      * Name of the metric
-     * @type {MetricName}
-     * @memberof MetricsResponse
+     * @type {MetricNameInput}
+     * @memberof MetricsResponseInput
      */
-    name: MetricName;
+    name: MetricNameInput;
     /**
      * List of data points for the metric response
      * @type {Array<MetricResponseDataPoint>}
-     * @memberof MetricsResponse
+     * @memberof MetricsResponseInput
      */
     datapoints: Array<MetricResponseDataPoint>;
 }
@@ -4042,6 +4079,43 @@ export interface PersonaCore {
     profilePictureUrl: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface PersonaSearchResponse
+ */
+export interface PersonaSearchResponse {
+    /**
+     * 
+     * @type {Array<Persona>}
+     * @memberof PersonaSearchResponse
+     */
+    items: Array<Persona>;
+    /**
+     * 
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    pages: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    current_page: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PersonaSearchResponse
+     */
+    page_size: number;
+}
+/**
  * Price details of the business
  * @export
  * @interface Price
@@ -4815,10 +4889,10 @@ export interface ResellerBatchMetricsRequests {
     organization: Array<string>;
     /**
      * 
-     * @type {Array<MetricsRequest>}
+     * @type {Array<MetricsRequestInput>}
      * @memberof ResellerBatchMetricsRequests
      */
-    requests: Array<MetricsRequest>;
+    requests: Array<MetricsRequestInput>;
 }
 /**
  * 
@@ -4905,17 +4979,11 @@ export interface Scenario {
      */
     objections: Array<Objection>;
     /**
-     * The qualitative goals to be achieved for the scenario
+     * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof Scenario
      */
-    qualitative_goals: Array<Goal>;
-    /**
-     * The quantitative goals to be achieved for the scenario
-     * @type {Array<Goal>}
-     * @memberof Scenario
-     */
-    quantitative_goals?: Array<Goal>;
+    goals: Array<Goal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -4966,17 +5034,11 @@ export interface ScenarioCore {
      */
     objections: Array<Objection>;
     /**
-     * The qualitative goals to be achieved for the scenario
+     * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof ScenarioCore
      */
-    qualitative_goals: Array<Goal>;
-    /**
-     * The quantitative goals to be achieved for the scenario
-     * @type {Array<Goal>}
-     * @memberof ScenarioCore
-     */
-    quantitative_goals?: Array<Goal>;
+    goals: Array<Goal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -4989,6 +5051,43 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     isInherited?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface ScenarioSearchResponse
+ */
+export interface ScenarioSearchResponse {
+    /**
+     * 
+     * @type {Array<Scenario>}
+     * @memberof ScenarioSearchResponse
+     */
+    items: Array<Scenario>;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    pages: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    current_page: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ScenarioSearchResponse
+     */
+    page_size: number;
 }
 /**
  * 
@@ -5156,6 +5255,76 @@ export enum SparrDialogLineSpeakerEnum {
 /**
  * 
  * @export
+ * @interface SparrDialogLineWithSentiment
+ */
+export interface SparrDialogLineWithSentiment {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    speaker: SparrDialogLineWithSentimentSpeakerEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    message: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    start_at_seconds: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    end_at_seconds: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    sentiment: SparrDialogLineWithSentimentSentimentEnum;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    sentiment_score: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithSentiment
+     */
+    id: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SparrDialogLineWithSentimentSpeakerEnum {
+    USER = 'USER',
+    AI = 'AI',
+    TOOL = 'TOOL',
+    AITOOLREQUEST = 'AI - TOOL REQUEST'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SparrDialogLineWithSentimentSentimentEnum {
+    POSITIVE = 'POSITIVE',
+    NEGATIVE = 'NEGATIVE',
+    NEUTRAL = 'NEUTRAL'
+}
+
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum SparrEngagementLevel {
@@ -5220,6 +5389,32 @@ export interface SparrLanguageAccentCombo {
     accent: SparrVoiceAccent;
 }
 /**
+ * 
+ * @export
+ * @interface SparrModelsAnalyticsBatchMetricsRequests
+ */
+export interface SparrModelsAnalyticsBatchMetricsRequests {
+    /**
+     * 
+     * @type {Array<SparrModelsAnalyticsMetricsRequest>}
+     * @memberof SparrModelsAnalyticsBatchMetricsRequests
+     */
+    requests: Array<SparrModelsAnalyticsMetricsRequest>;
+}
+/**
+ * 
+ * @export
+ * @interface SparrModelsAnalyticsBatchMetricsResponse
+ */
+export interface SparrModelsAnalyticsBatchMetricsResponse {
+    /**
+     * 
+     * @type {Array<SparrModelsAnalyticsMetricsResponse>}
+     * @memberof SparrModelsAnalyticsBatchMetricsResponse
+     */
+    responses: Array<SparrModelsAnalyticsMetricsResponse>;
+}
+/**
  * Expected output of the post conversation task
  * @export
  * @interface SparrModelsAnalyticsConversationAnalyticsModel
@@ -5249,6 +5444,85 @@ export interface SparrModelsAnalyticsConversationAnalyticsModel {
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
     what_can_be_improved: Array<string> | null;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum SparrModelsAnalyticsMetricName {
+    CALLS = 'CALLS',
+    CALLDURATION = 'CALL_DURATION',
+    TALKRATIO = 'TALK_RATIO'
+}
+
+/**
+ * 
+ * @export
+ * @interface SparrModelsAnalyticsMetricsRequest
+ */
+export interface SparrModelsAnalyticsMetricsRequest {
+    /**
+     * Unique identifier for the metric request. This can be helped to co-relate the request and response
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    id: string;
+    /**
+     * Name of the metric
+     * @type {SparrModelsAnalyticsMetricName}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    name: SparrModelsAnalyticsMetricName;
+    /**
+     * Start date to get metric request
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    fromDate: string;
+    /**
+     * End date until get metric request
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    toDate: string;
+    /**
+     * Aggregation period for the metric request
+     * @type {AggregationPeriod}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    aggregationPeriod: AggregationPeriod;
+    /**
+     * Aggregation formula for the metric request
+     * @type {AggregationFormula}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    aggregationFormula: AggregationFormula;
+}
+/**
+ * 
+ * @export
+ * @interface SparrModelsAnalyticsMetricsResponse
+ */
+export interface SparrModelsAnalyticsMetricsResponse {
+    /**
+     * Unique identifier for the metric response. This will help co-relate the request and response
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    id: string;
+    /**
+     * Name of the metric
+     * @type {SparrModelsAnalyticsMetricName}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    name: SparrModelsAnalyticsMetricName;
+    /**
+     * List of data points for the metric response
+     * @type {Array<MetricResponseDataPoint>}
+     * @memberof SparrModelsAnalyticsMetricsResponse
+     */
+    datapoints: Array<MetricResponseDataPoint>;
 }
 /**
  * 
@@ -5698,6 +5972,43 @@ export interface SubscriptionInfo {
      * @memberof SubscriptionInfo
      */
     credits?: Array<Credit> | null;
+}
+/**
+ * 
+ * @export
+ * @interface SystemMetrics
+ */
+export interface SystemMetrics {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemMetrics
+     */
+    average_sentiment?: string | null;
+    /**
+     * 
+     * @type {any}
+     * @memberof SystemMetrics
+     */
+    filler_words?: any | null;
+    /**
+     * 
+     * @type {LongestMonologue}
+     * @memberof SystemMetrics
+     */
+    longest_monologue?: LongestMonologue | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemMetrics
+     */
+    speech_pace?: number | null;
+    /**
+     * 
+     * @type {Array<SparrDialogLineWithSentiment>}
+     * @memberof SystemMetrics
+     */
+    dialog_lines_sentiment?: Array<SparrDialogLineWithSentiment> | null;
 }
 /**
  * 
@@ -8114,15 +8425,15 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput 
          * @param {string} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost: async (batchMetricsRequests: BatchMetricsRequests, app?: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'batchMetricsRequests' is not null or undefined
-            if (batchMetricsRequests === null || batchMetricsRequests === undefined) {
-                throw new RequiredError('batchMetricsRequests','Required parameter batchMetricsRequests was null or undefined when calling getMetricsV1MetricsPost.');
+        getMetricsV1MetricsPost: async (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'batchMetricsRequestsInput' is not null or undefined
+            if (batchMetricsRequestsInput === null || batchMetricsRequestsInput === undefined) {
+                throw new RequiredError('batchMetricsRequestsInput','Required parameter batchMetricsRequestsInput was null or undefined when calling getMetricsV1MetricsPost.');
             }
             const localVarPath = `/v1/metrics`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -8156,8 +8467,8 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof batchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(batchMetricsRequests !== undefined ? batchMetricsRequests : {}) : (batchMetricsRequests || "");
+            const needsSerialization = (typeof batchMetricsRequestsInput !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(batchMetricsRequestsInput !== undefined ? batchMetricsRequestsInput : {}) : (batchMetricsRequestsInput || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -8220,13 +8531,13 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput 
          * @param {string} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
-            const localVarAxiosArgs = await AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options);
+        async getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>> {
+            const localVarAxiosArgs = await AnalyticsApiAxiosParamCreator(configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8258,13 +8569,13 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
         /**
          * Get fine grained analytics data from Trata AI like call, duration stats, etc.
          * @summary Get Metrics
-         * @param {BatchMetricsRequests} batchMetricsRequests 
+         * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput 
          * @param {string} [app] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any): AxiosPromise<BatchMetricsResponse> {
-            return AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(axios, basePath));
+        getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): AxiosPromise<BatchMetricsResponseInput> {
+            return AnalyticsApiFp(configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options).then((request) => request(axios, basePath));
         },
         /**
          * Get aggregated stats from Trata AI like call count, prospect count, etc.
@@ -8289,14 +8600,14 @@ export class AnalyticsApi extends BaseAPI {
     /**
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
-     * @param {BatchMetricsRequests} batchMetricsRequests 
+     * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput 
      * @param {string} [app] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    public getMetricsV1MetricsPost(batchMetricsRequests: BatchMetricsRequests, app?: string, options?: any) {
-        return AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequests, app, options).then((request) => request(this.axios, this.basePath));
+    public getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any) {
+        return AnalyticsApiFp(this.configuration).getMetricsV1MetricsPost(batchMetricsRequestsInput, app, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -16205,7 +16516,7 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponse>> {
+        async getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerMetricsV1(resellerBatchMetricsRequests, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -16615,7 +16926,7 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponse> {
+        getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponseInput> {
             return ResellerApiFp(configuration).getResellerMetricsV1(resellerBatchMetricsRequests, options).then((request) => request(axios, basePath));
         },
         /**
@@ -17518,6 +17829,54 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1: async (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sparrModelsAnalyticsBatchMetricsRequests' is not null or undefined
+            if (sparrModelsAnalyticsBatchMetricsRequests === null || sparrModelsAnalyticsBatchMetricsRequests === undefined) {
+                throw new RequiredError('sparrModelsAnalyticsBatchMetricsRequests','Required parameter sparrModelsAnalyticsBatchMetricsRequests was null or undefined when calling getMetricsV1.');
+            }
+            const localVarPath = `/v1/sparr/feedbacks/metrics`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof sparrModelsAnalyticsBatchMetricsRequests !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(sparrModelsAnalyticsBatchMetricsRequests !== undefined ? sparrModelsAnalyticsBatchMetricsRequests : {}) : (sparrModelsAnalyticsBatchMetricsRequests || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId 
@@ -17787,6 +18146,122 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new RequiredError('query','Required parameter query was null or undefined when calling searchPersonasV1.');
+            }
+            const localVarPath = `/v1/sparr/personas/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new RequiredError('query','Required parameter query was null or undefined when calling searchScenariosV1.');
+            }
+            const localVarPath = `/v1/sparr/scenarios/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
             }
 
 
@@ -18102,6 +18577,20 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId 
@@ -18183,6 +18672,38 @@ export const SparrApiFp = function(configuration?: Configuration) {
          */
         async listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>> {
             const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).searchPersonasV1(query, page, size, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).searchScenariosV1(query, page, size, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18326,6 +18847,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).getFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get metrics for a given batch of metrics requests
+         * @summary Get Metrics
+         * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse> {
+            return SparrApiFp(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific persona by ID
          * @summary Get Persona
          * @param {string} personaId 
@@ -18387,6 +18918,30 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>> {
             return SparrApiFp(configuration).listScenariosV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse> {
+            return SparrApiFp(configuration).searchPersonasV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse> {
+            return SparrApiFp(configuration).searchScenariosV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Heart Beat check to check the health of Sparr Service
@@ -18525,6 +19080,18 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
+     * Get metrics for a given batch of metrics requests
+     * @summary Get Metrics
+     * @param {SparrModelsAnalyticsBatchMetricsRequests} sparrModelsAnalyticsBatchMetricsRequests 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any) {
+        return SparrApiFp(this.configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get a specific persona by ID
      * @summary Get Persona
      * @param {string} personaId 
@@ -18597,6 +19164,34 @@ export class SparrApi extends BaseAPI {
      */
     public listScenariosV1(skip?: number, limit?: number, options?: any) {
         return SparrApiFp(this.configuration).listScenariosV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public searchPersonasV1(query: string, page?: number, size?: number, options?: any) {
+        return SparrApiFp(this.configuration).searchPersonasV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public searchScenariosV1(query: string, page?: number, size?: number, options?: any) {
+        return SparrApiFp(this.configuration).searchScenariosV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
