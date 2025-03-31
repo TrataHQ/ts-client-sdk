@@ -691,6 +691,12 @@ export interface AnalyticsModelInput {
      * @memberof AnalyticsModelInput
      */
     system_metrics: SystemMetrics | null;
+    /**
+     *
+     * @type {any}
+     * @memberof AnalyticsModelInput
+     */
+    weighted_scores: any | null;
 }
 /**
  *
@@ -722,6 +728,12 @@ export interface AnalyticsModelOutput {
      * @memberof AnalyticsModelOutput
      */
     system_metrics: SystemMetrics | null;
+    /**
+     *
+     * @type {any}
+     * @memberof AnalyticsModelOutput
+     */
+    weighted_scores: any | null;
 }
 /**
  * API key authentication configuration
@@ -2493,6 +2505,12 @@ export interface Feedback {
      */
     userId: string;
     /**
+     * The ID of the AI agent
+     * @type {string}
+     * @memberof Feedback
+     */
+    aiAgentId: string | null;
+    /**
      * The ID of the scenario
      * @type {string}
      * @memberof Feedback
@@ -2571,6 +2589,12 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     userId: string;
+    /**
+     * The ID of the AI agent
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    aiAgentId: string | null;
     /**
      * The ID of the scenario
      * @type {string}
@@ -2684,6 +2708,25 @@ export interface Files {
 /**
  *
  * @export
+ * @interface FillerWords
+ */
+export interface FillerWords {
+    /**
+     *
+     * @type {any}
+     * @memberof FillerWords
+     */
+    words: any | null;
+    /**
+     *
+     * @type {number}
+     * @memberof FillerWords
+     */
+    total: number | null;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum FrustrationTolerance {
@@ -2710,7 +2753,7 @@ export interface Goal {
      */
     description: string;
     /**
-     * The weightage of the goal
+     * The weightage of the goal in percentage
      * @type {number}
      * @memberof Goal
      */
@@ -2724,10 +2767,10 @@ export interface Goal {
 export interface GoalsAnalyticsModel {
     /**
      *
-     * @type {any}
+     * @type {object}
      * @memberof GoalsAnalyticsModel
      */
-    goals: any | null;
+    goals: object | null;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -5906,31 +5949,31 @@ export interface SystemMetrics {
      * @type {string}
      * @memberof SystemMetrics
      */
-    average_sentiment?: string | null;
+    average_sentiment: string | null;
     /**
      *
-     * @type {any}
+     * @type {FillerWords}
      * @memberof SystemMetrics
      */
-    filler_words?: any | null;
+    filler_words: FillerWords | null;
     /**
      *
      * @type {LongestMonologue}
      * @memberof SystemMetrics
      */
-    longest_monologue?: LongestMonologue | null;
+    longest_monologue: LongestMonologue | null;
     /**
      *
      * @type {number}
      * @memberof SystemMetrics
      */
-    speech_pace?: number | null;
+    speech_pace: number | null;
     /**
      *
      * @type {Array<SparrDialogLineWithSentiment>}
      * @memberof SystemMetrics
      */
-    dialog_lines_sentiment?: Array<SparrDialogLineWithSentiment> | null;
+    dialog_lines_sentiment: Array<SparrDialogLineWithSentiment> | null;
 }
 /**
  *
