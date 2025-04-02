@@ -2499,11 +2499,17 @@ export interface Feedback {
      */
     orgId?: string;
     /**
-     * The ID of the user
+     * The ID of the user who made the call
      * @type {string}
      * @memberof Feedback
      */
     userId: string;
+    /**
+     * The name of the user who made the call
+     * @type {string}
+     * @memberof Feedback
+     */
+    userName: string | null;
     /**
      * The ID of the AI agent
      * @type {string}
@@ -2565,6 +2571,12 @@ export interface Feedback {
      */
     overallScore: number;
     /**
+     * The status of the feedback
+     * @type {string}
+     * @memberof Feedback
+     */
+    status?: string;
+    /**
      * The unique identifier of the feedback
      * @type {string}
      * @memberof Feedback
@@ -2584,11 +2596,17 @@ export interface Feedback {
  */
 export interface FeedbackCore {
     /**
-     * The ID of the user
+     * The ID of the user who made the call
      * @type {string}
      * @memberof FeedbackCore
      */
     userId: string;
+    /**
+     * The name of the user who made the call
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    userName: string | null;
     /**
      * The ID of the AI agent
      * @type {string}
@@ -2649,6 +2667,12 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     overallScore: number;
+    /**
+     * The status of the feedback
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    status?: string;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -3915,6 +3939,12 @@ export interface Persona {
      */
     profilePictureUrl: string | null;
     /**
+     * The status of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    status?: string;
+    /**
      * The unique identifier of the persona
      * @type {string}
      * @memberof Persona
@@ -4066,6 +4096,12 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     profilePictureUrl: string | null;
+    /**
+     * The status of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    status?: string;
 }
 /**
  *
@@ -4963,6 +4999,12 @@ export interface Scenario {
      */
     objections: Array<Objection>;
     /**
+     * The type of call to be used for this scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    callType?: string | null;
+    /**
      * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof Scenario
@@ -4980,6 +5022,12 @@ export interface Scenario {
      * @memberof Scenario
      */
     isInherited?: boolean;
+    /**
+     * The status of the scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    status?: string;
     /**
      * The unique identifier of the scenario
      * @type {string}
@@ -5018,6 +5066,12 @@ export interface ScenarioCore {
      */
     objections: Array<Objection>;
     /**
+     * The type of call to be used for this scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    callType?: string | null;
+    /**
      * The goals to be achieved for the scenario
      * @type {Array<Goal>}
      * @memberof ScenarioCore
@@ -5035,6 +5089,12 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     isInherited?: boolean;
+    /**
+     * The status of the scenario
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    status?: string;
 }
 /**
  *
