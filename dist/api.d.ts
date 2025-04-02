@@ -3873,12 +3873,6 @@ export interface Persona {
      */
     title: string;
     /**
-     * The company of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    company: string;
-    /**
      * The context of the persona
      * @type {string}
      * @memberof Persona
@@ -4030,12 +4024,6 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     title: string;
-    /**
-     * The company of the persona
-     * @type {string}
-     * @memberof PersonaCore
-     */
-    company: string;
     /**
      * The context of the persona
      * @type {string}
