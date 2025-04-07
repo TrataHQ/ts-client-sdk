@@ -739,6 +739,9 @@ var SparrModelsAnalyticsMetricName;
     SparrModelsAnalyticsMetricName["CALLS"] = "CALLS";
     SparrModelsAnalyticsMetricName["CALLDURATION"] = "CALL_DURATION";
     SparrModelsAnalyticsMetricName["TALKRATIO"] = "TALK_RATIO";
+    SparrModelsAnalyticsMetricName["AVERAGEFILLERWORDSCOUNT"] = "AVERAGE_FILLER_WORDS_COUNT";
+    SparrModelsAnalyticsMetricName["AVERAGEOVERALLSCORE"] = "AVERAGE_OVERALL_SCORE";
+    SparrModelsAnalyticsMetricName["AVERAGELONGESTMONOLOGUE"] = "AVERAGE_LONGEST_MONOLOGUE";
 })(SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsMetricName || (exports.SparrModelsAnalyticsMetricName = {}));
 /**
  *
@@ -11072,12 +11075,15 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         /**
          * Get all feedbacks
          * @summary Get Feedbacks
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [fromDate] Start date for filtering feedbacks
+         * @param {string} [toDate] End date for filtering feedbacks
+         * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listFeedbacksV1: (skip, limit, fromDate, toDate, userFilter, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/sparr/feedbacks/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11100,6 +11106,15 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (fromDate !== undefined) {
+                localVarQueryParameter['from_date'] = fromDate;
+            }
+            if (toDate !== undefined) {
+                localVarQueryParameter['to_date'] = toDate;
+            }
+            if (userFilter !== undefined) {
+                localVarQueryParameter['user_filter'] = userFilter;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -11652,14 +11667,17 @@ exports.SparrApiFp = function (configuration) {
         /**
          * Get all feedbacks
          * @summary Get Feedbacks
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [fromDate] Start date for filtering feedbacks
+         * @param {string} [toDate] End date for filtering feedbacks
+         * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1(skip, limit, options) {
+        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11923,13 +11941,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
         /**
          * Get all feedbacks
          * @summary Get Feedbacks
-         * @param {number} [skip]
-         * @param {number} [limit]
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [fromDate] Start date for filtering feedbacks
+         * @param {string} [toDate] End date for filtering feedbacks
+         * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1(skip, limit, options) {
-            return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, options).then((request) => request(axios, basePath));
+        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
+            return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all personas
@@ -12152,14 +12173,17 @@ class SparrApi extends base_1.BaseAPI {
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
-     * @param {number} [skip]
-     * @param {number} [limit]
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [fromDate] Start date for filtering feedbacks
+     * @param {string} [toDate] End date for filtering feedbacks
+     * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip, limit, options) {
-        return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
+        return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all personas
