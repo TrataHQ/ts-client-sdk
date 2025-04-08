@@ -2176,6 +2176,104 @@ export interface CountryInfo {
     name: string;
 }
 /**
+ * Course represents a course that can be used in a scenario
+ * @export
+ * @interface Course
+ */
+export interface Course {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Course
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Course
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Course
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Course
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Course
+     */
+    orgId?: string;
+    /**
+     * The name of the course
+     * @type {string}
+     * @memberof Course
+     */
+    name: string;
+    /**
+     * The description of the course
+     * @type {string}
+     * @memberof Course
+     */
+    description: string;
+    /**
+     * The status of the course
+     * @type {string}
+     * @memberof Course
+     */
+    status: string;
+    /**
+     * The tags of the course
+     * @type {Array<string>}
+     * @memberof Course
+     */
+    tags: Array<string>;
+    /**
+     * The unique identifier of the course
+     * @type {string}
+     * @memberof Course
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface CourseCore
+ */
+export interface CourseCore {
+    /**
+     * The name of the course
+     * @type {string}
+     * @memberof CourseCore
+     */
+    name: string;
+    /**
+     * The description of the course
+     * @type {string}
+     * @memberof CourseCore
+     */
+    description: string;
+    /**
+     * The status of the course
+     * @type {string}
+     * @memberof CourseCore
+     */
+    status: string;
+    /**
+     * The tags of the course
+     * @type {Array<string>}
+     * @memberof CourseCore
+     */
+    tags: Array<string>;
+}
+/**
  * Credits details of the business
  * @export
  * @interface Credit
@@ -3357,6 +3455,188 @@ export interface Mission {
      * @memberof Mission
      */
     farewell?: string | null;
+}
+/**
+ * Module represents a module that can be used in a course
+ * @export
+ * @interface Module
+ */
+export interface Module {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Module
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Module
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Module
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Module
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Module
+     */
+    orgId?: string;
+    /**
+     * The name of the module
+     * @type {string}
+     * @memberof Module
+     */
+    name: string;
+    /**
+     * The description of the module
+     * @type {string}
+     * @memberof Module
+     */
+    description: string;
+    /**
+     * The tags of the module
+     * @type {Array<string>}
+     * @memberof Module
+     */
+    tags: Array<string>;
+    /**
+     * The difficulty level of the module
+     * @type {string}
+     * @memberof Module
+     */
+    difficultyLevel: string;
+    /**
+     * The ID of the persona
+     * @type {string}
+     * @memberof Module
+     */
+    personaId: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof Module
+     */
+    personaName: string | null;
+    /**
+     * The ID of the scenario
+     * @type {string}
+     * @memberof Module
+     */
+    scenarioId: string;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof Module
+     */
+    scenarioName: string | null;
+    /**
+     * The ID of the course
+     * @type {string}
+     * @memberof Module
+     */
+    courseId: string;
+    /**
+     * The name of the course
+     * @type {string}
+     * @memberof Module
+     */
+    courseName: string | null;
+    /**
+     * The expected completion score of the module out of 100
+     * @type {number}
+     * @memberof Module
+     */
+    passingScorePercentage: number;
+    /**
+     * The unique identifier of the module
+     * @type {string}
+     * @memberof Module
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface ModuleCore
+ */
+export interface ModuleCore {
+    /**
+     * The name of the module
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    name: string;
+    /**
+     * The description of the module
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    description: string;
+    /**
+     * The tags of the module
+     * @type {Array<string>}
+     * @memberof ModuleCore
+     */
+    tags: Array<string>;
+    /**
+     * The difficulty level of the module
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    difficultyLevel: string;
+    /**
+     * The ID of the persona
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    personaId: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    personaName: string | null;
+    /**
+     * The ID of the scenario
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    scenarioId: string;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    scenarioName: string | null;
+    /**
+     * The ID of the course
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    courseId: string;
+    /**
+     * The name of the course
+     * @type {string}
+     * @memberof ModuleCore
+     */
+    courseName: string | null;
+    /**
+     * The expected completion score of the module out of 100
+     * @type {number}
+     * @memberof ModuleCore
+     */
+    passingScorePercentage: number;
 }
 /**
  *
@@ -6376,6 +6656,183 @@ export interface UserApiKeyLink {
     isActive?: boolean;
 }
 /**
+ * UserCourseAssignment represents a user\'s assignment to a course
+ * @export
+ * @interface UserCourseAssignment
+ */
+export interface UserCourseAssignment {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    orgId?: string;
+    /**
+     * The ID of the user who is taking the course
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    userId: string;
+    /**
+     * The ID of the course
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    courseId: string;
+    /**
+     * The completion status of the course
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    courseCompletionStatus: string;
+    /**
+     * The score of the course out of 100
+     * @type {number}
+     * @memberof UserCourseAssignment
+     */
+    courseScore: number;
+    /**
+     * The unique identifier of the user course assignment
+     * @type {string}
+     * @memberof UserCourseAssignment
+     */
+    id?: string;
+}
+/**
+ * UserModuleAttempt represents a user\'s attempt at a module
+ * @export
+ * @interface UserModuleAttempt
+ */
+export interface UserModuleAttempt {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    orgId?: string;
+    /**
+     * The ID of the user who is taking the module
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    userId: string;
+    /**
+     * The ID of the module
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    moduleId: string;
+    /**
+     * The completion status of the module
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    attemptStatus: string;
+    /**
+     * The score of the module out of 100
+     * @type {number}
+     * @memberof UserModuleAttempt
+     */
+    attemptScore: number;
+    /**
+     * The ID of the feedback
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    feedbackId: string;
+    /**
+     * The unique identifier of the user module attempt
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface UserModuleAttemptCore
+ */
+export interface UserModuleAttemptCore {
+    /**
+     * The ID of the user who is taking the module
+     * @type {string}
+     * @memberof UserModuleAttemptCore
+     */
+    userId: string;
+    /**
+     * The ID of the module
+     * @type {string}
+     * @memberof UserModuleAttemptCore
+     */
+    moduleId: string;
+    /**
+     * The completion status of the module
+     * @type {string}
+     * @memberof UserModuleAttemptCore
+     */
+    attemptStatus: string;
+    /**
+     * The score of the module out of 100
+     * @type {number}
+     * @memberof UserModuleAttemptCore
+     */
+    attemptScore: number;
+    /**
+     * The ID of the feedback
+     * @type {string}
+     * @memberof UserModuleAttemptCore
+     */
+    feedbackId: string;
+}
+/**
  * Payload for creating a new user
  * @export
  * @interface UserPayload
@@ -6405,6 +6862,89 @@ export interface UserPayload {
      * @memberof UserPayload
      */
     phoneNumber?: string | null;
+}
+/**
+ *
+ * @export
+ * @interface UserRecentActivity
+ */
+export interface UserRecentActivity {
+    /**
+     *
+     * @type {string}
+     * @memberof UserRecentActivity
+     */
+    date: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserRecentActivity
+     */
+    sparr_persona_name: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserRecentActivity
+     */
+    sparr_scenario_name: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserRecentActivity
+     */
+    sentiment: string;
+    /**
+     *
+     * @type {number}
+     * @memberof UserRecentActivity
+     */
+    score: number;
+}
+/**
+ *
+ * @export
+ * @interface UserStats
+ */
+export interface UserStats {
+    /**
+     *
+     * @type {{ [key: string]: UserStatsItem; }}
+     * @memberof UserStats
+     */
+    sparr_stats: {
+        [key: string]: UserStatsItem;
+    };
+    /**
+     *
+     * @type {Array<UserRecentActivity>}
+     * @memberof UserStats
+     */
+    recent_activity: Array<UserRecentActivity>;
+}
+/**
+ *
+ * @export
+ * @interface UserStatsItem
+ */
+export interface UserStatsItem {
+    /**
+     *
+     * @type {number}
+     * @memberof UserStatsItem
+     */
+    total_calls: number;
+    /**
+     *
+     * @type {number}
+     * @memberof UserStatsItem
+     */
+    average_score: number;
+    /**
+     *
+     * @type {number}
+     * @memberof UserStatsItem
+     */
+    total_sparr_minutes: number;
 }
 /**
  *
@@ -11601,6 +12141,41 @@ export declare class ResellerApi extends BaseAPI {
  */
 export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Add a module to a course
+     * @summary Add Course Module
+     * @param {string} courseId
+     * @param {ModuleCore} moduleCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCourseModuleV1: (courseId: string, moduleCore: ModuleCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a module attempt for a user
+     * @summary Add Module Attempt
+     * @param {string} moduleId
+     * @param {UserModuleAttemptCore} userModuleAttemptCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModuleAttemptV1: (moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Assign a course to a user
+     * @summary Assign Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseV1: (courseCore: CourseCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -11625,6 +12200,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createScenarioV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a feedback
      * @summary Delete Feedback
      * @param {string} feedbackId
@@ -11648,6 +12231,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -11681,6 +12272,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Search personas by name, title and company
+     * @summary Get User Stats
+     * @param {string} userId User ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserStatsV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
      * @param {string} linkedinUrl
@@ -11688,6 +12287,24 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     importLinkedinPersonaV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all modules for a course
+     * @summary Get Course Modules
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCourseModulesV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all courses
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -11719,6 +12336,41 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listScenariosV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
+     * Get all course assignments for a user
+     * @summary Get User Assignments
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserAssignmentsV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all module attempts for a user
+     * @summary Get User Module Attempts
+     * @param {string} moduleId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserModuleAttemptsV1: (moduleId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Remove a module from a course
+     * @summary Remove Course Module
+     * @param {string} courseId
+     * @param {string} moduleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCourseModuleV1: (courseId: string, moduleId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Revoke a course from a user
+     * @summary Revoke Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    revokeCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -11745,6 +12397,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     statusSparrStatusGet: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseV1: (courseId: string, courseCore: CourseCore, options?: any) => Promise<RequestArgs>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -11779,6 +12440,41 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
  */
 export declare const SparrApiFp: (configuration?: Configuration) => {
     /**
+     * Add a module to a course
+     * @summary Add Course Module
+     * @param {string} courseId
+     * @param {ModuleCore} moduleCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCourseModuleV1(courseId: string, moduleCore: ModuleCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Module>>;
+    /**
+     * Add a module attempt for a user
+     * @summary Add Module Attempt
+     * @param {string} moduleId
+     * @param {UserModuleAttemptCore} userModuleAttemptCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModuleAttempt>>;
+    /**
+     * Assign a course to a user
+     * @summary Assign Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseV1(courseCore: CourseCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Course>>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -11803,6 +12499,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
     /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a feedback
      * @summary Delete Feedback
      * @param {string} feedbackId
@@ -11826,6 +12530,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Course>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -11859,6 +12571,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
     /**
+     * Search personas by name, title and company
+     * @summary Get User Stats
+     * @param {string} userId User ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserStatsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserStats>>;
+    /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
      * @param {string} linkedinUrl
@@ -11866,6 +12586,24 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Get all modules for a course
+     * @summary Get Course Modules
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCourseModulesV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Module>>>;
+    /**
+     * Get all courses
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Course>>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -11897,6 +12635,41 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
     /**
+     * Get all course assignments for a user
+     * @summary Get User Assignments
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserAssignmentsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignment>>>;
+    /**
+     * Get all module attempts for a user
+     * @summary Get User Module Attempts
+     * @param {string} moduleId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttempt>>>;
+    /**
+     * Remove a module from a course
+     * @summary Remove Course Module
+     * @param {string} courseId
+     * @param {string} moduleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCourseModuleV1(courseId: string, moduleId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Revoke a course from a user
+     * @summary Revoke Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    revokeCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -11923,6 +12696,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     statusSparrStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseV1(courseId: string, courseCore: CourseCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Course>>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -11957,6 +12739,41 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
  */
 export declare const SparrApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Add a module to a course
+     * @summary Add Course Module
+     * @param {string} courseId
+     * @param {ModuleCore} moduleCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addCourseModuleV1(courseId: string, moduleCore: ModuleCore, options?: any): AxiosPromise<Module>;
+    /**
+     * Add a module attempt for a user
+     * @summary Add Module Attempt
+     * @param {string} moduleId
+     * @param {UserModuleAttemptCore} userModuleAttemptCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): AxiosPromise<UserModuleAttempt>;
+    /**
+     * Assign a course to a user
+     * @summary Assign Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<UserCourseAssignment>;
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseV1(courseCore: CourseCore, options?: any): AxiosPromise<Course>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -11981,6 +12798,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
     /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
      * Delete a feedback
      * @summary Delete Feedback
      * @param {string} feedbackId
@@ -12004,6 +12829,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteScenarioV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseV1(courseId: string, options?: any): AxiosPromise<Course>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -12037,6 +12870,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
     /**
+     * Search personas by name, title and company
+     * @summary Get User Stats
+     * @param {string} userId User ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserStatsV1(userId: string, options?: any): AxiosPromise<UserStats>;
+    /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
      * @param {string} linkedinUrl
@@ -12044,6 +12885,24 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
+    /**
+     * Get all modules for a course
+     * @summary Get Course Modules
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCourseModulesV1(courseId: string, options?: any): AxiosPromise<Array<Module>>;
+    /**
+     * Get all courses
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<Course>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -12075,6 +12934,41 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
     /**
+     * Get all course assignments for a user
+     * @summary Get User Assignments
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignment>>;
+    /**
+     * Get all module attempts for a user
+     * @summary Get User Module Attempts
+     * @param {string} moduleId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): AxiosPromise<Array<UserModuleAttempt>>;
+    /**
+     * Remove a module from a course
+     * @summary Remove Course Module
+     * @param {string} courseId
+     * @param {string} moduleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeCourseModuleV1(courseId: string, moduleId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Revoke a course from a user
+     * @summary Revoke Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    revokeCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -12101,6 +12995,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     statusSparrStatusGet(options?: any): AxiosPromise<object>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseV1(courseId: string, courseCore: CourseCore, options?: any): AxiosPromise<Course>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -12137,6 +13040,45 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
  */
 export declare class SparrApi extends BaseAPI {
     /**
+     * Add a module to a course
+     * @summary Add Course Module
+     * @param {string} courseId
+     * @param {ModuleCore} moduleCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    addCourseModuleV1(courseId: string, moduleCore: ModuleCore, options?: any): Promise<import("axios").AxiosResponse<Module>>;
+    /**
+     * Add a module attempt for a user
+     * @summary Add Module Attempt
+     * @param {string} moduleId
+     * @param {UserModuleAttemptCore} userModuleAttemptCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttempt>>;
+    /**
+     * Assign a course to a user
+     * @summary Assign Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    assignCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createCourseV1(courseCore: CourseCore, options?: any): Promise<import("axios").AxiosResponse<Course>>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -12164,6 +13106,15 @@ export declare class SparrApi extends BaseAPI {
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
     /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a feedback
      * @summary Delete Feedback
      * @param {string} feedbackId
@@ -12190,6 +13141,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     deleteScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<Course>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -12227,6 +13187,15 @@ export declare class SparrApi extends BaseAPI {
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
     /**
+     * Search personas by name, title and company
+     * @summary Get User Stats
+     * @param {string} userId User ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getUserStatsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserStats>>;
+    /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
      * @param {string} linkedinUrl
@@ -12235,6 +13204,26 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Get all modules for a course
+     * @summary Get Course Modules
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listCourseModulesV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<Module[]>>;
+    /**
+     * Get all courses
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<Course[]>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -12269,6 +13258,45 @@ export declare class SparrApi extends BaseAPI {
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
     /**
+     * Get all course assignments for a user
+     * @summary Get User Assignments
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listUserAssignmentsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment[]>>;
+    /**
+     * Get all module attempts for a user
+     * @summary Get User Module Attempts
+     * @param {string} moduleId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttempt[]>>;
+    /**
+     * Remove a module from a course
+     * @summary Remove Course Module
+     * @param {string} courseId
+     * @param {string} moduleId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    removeCourseModuleV1(courseId: string, moduleId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Revoke a course from a user
+     * @summary Revoke Course
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    revokeCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -12298,6 +13326,16 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     statusSparrStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseCore} courseCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateCourseV1(courseId: string, courseCore: CourseCore, options?: any): Promise<import("axios").AxiosResponse<Course>>;
     /**
      * Update a feedback
      * @summary Update Feedback
