@@ -10623,54 +10623,6 @@ exports.ResellerApi = ResellerApi;
 exports.SparrApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Add a module to a course
-         * @summary Add Course Module
-         * @param {string} courseId
-         * @param {ModuleCore} moduleCore
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addCourseModuleV1: (courseId, moduleCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'courseId' is not null or undefined
-            if (courseId === null || courseId === undefined) {
-                throw new base_1.RequiredError('courseId', 'Required parameter courseId was null or undefined when calling addCourseModuleV1.');
-            }
-            // verify required parameter 'moduleCore' is not null or undefined
-            if (moduleCore === null || moduleCore === undefined) {
-                throw new base_1.RequiredError('moduleCore', 'Required parameter moduleCore was null or undefined when calling addCourseModuleV1.');
-            }
-            const localVarPath = `/v1/sparr/courses/{course_id}/modules`
-                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof moduleCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(moduleCore !== undefined ? moduleCore : {}) : (moduleCore || "");
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
          * Add a module attempt for a user
          * @summary Add Module Attempt
          * @param {string} moduleId
@@ -10767,14 +10719,14 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         /**
          * Create a new course
          * @summary Create Course
-         * @param {CourseCore} courseCore
+         * @param {CourseRequest} courseRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCourseV1: (courseCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'courseCore' is not null or undefined
-            if (courseCore === null || courseCore === undefined) {
-                throw new base_1.RequiredError('courseCore', 'Required parameter courseCore was null or undefined when calling createCourseV1.');
+        createCourseV1: (courseRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'courseRequest' is not null or undefined
+            if (courseRequest === null || courseRequest === undefined) {
+                throw new base_1.RequiredError('courseRequest', 'Required parameter courseRequest was null or undefined when calling createCourseV1.');
             }
             const localVarPath = `/v1/sparr/courses/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -10799,8 +10751,8 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof courseCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseCore !== undefined ? courseCore : {}) : (courseCore || "");
+            const needsSerialization = (typeof courseRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseRequest !== undefined ? courseRequest : {}) : (courseRequest || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -11377,46 +11329,6 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get all modules for a course
-         * @summary Get Course Modules
-         * @param {string} courseId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listCourseModulesV1: (courseId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'courseId' is not null or undefined
-            if (courseId === null || courseId === undefined) {
-                throw new base_1.RequiredError('courseId', 'Required parameter courseId was null or undefined when calling listCourseModulesV1.');
-            }
-            const localVarPath = `/v1/sparr/courses/{course_id}/modules`
-                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
          * Get all courses
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
@@ -11687,52 +11599,6 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Remove a module from a course
-         * @summary Remove Course Module
-         * @param {string} courseId
-         * @param {string} moduleId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeCourseModuleV1: (courseId, moduleId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'courseId' is not null or undefined
-            if (courseId === null || courseId === undefined) {
-                throw new base_1.RequiredError('courseId', 'Required parameter courseId was null or undefined when calling removeCourseModuleV1.');
-            }
-            // verify required parameter 'moduleId' is not null or undefined
-            if (moduleId === null || moduleId === undefined) {
-                throw new base_1.RequiredError('moduleId', 'Required parameter moduleId was null or undefined when calling removeCourseModuleV1.');
-            }
-            const localVarPath = `/v1/sparr/courses/{course_id}/modules/{module_id}`
-                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)))
-                .replace(`{${"module_id"}}`, encodeURIComponent(String(moduleId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
          * Revoke a course from a user
          * @summary Revoke Course
          * @param {string} courseId
@@ -11908,18 +11774,18 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * Update a course
          * @summary Update Course
          * @param {string} courseId
-         * @param {CourseCore} courseCore
+         * @param {CourseUpdateRequest} courseUpdateRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCourseV1: (courseId, courseCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateCourseV1: (courseId, courseUpdateRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'courseId' is not null or undefined
             if (courseId === null || courseId === undefined) {
                 throw new base_1.RequiredError('courseId', 'Required parameter courseId was null or undefined when calling updateCourseV1.');
             }
-            // verify required parameter 'courseCore' is not null or undefined
-            if (courseCore === null || courseCore === undefined) {
-                throw new base_1.RequiredError('courseCore', 'Required parameter courseCore was null or undefined when calling updateCourseV1.');
+            // verify required parameter 'courseUpdateRequest' is not null or undefined
+            if (courseUpdateRequest === null || courseUpdateRequest === undefined) {
+                throw new base_1.RequiredError('courseUpdateRequest', 'Required parameter courseUpdateRequest was null or undefined when calling updateCourseV1.');
             }
             const localVarPath = `/v1/sparr/courses/{course_id}`
                 .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
@@ -11945,8 +11811,8 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof courseCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseCore !== undefined ? courseCore : {}) : (courseCore || "");
+            const needsSerialization = (typeof courseUpdateRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseUpdateRequest !== undefined ? courseUpdateRequest : {}) : (courseUpdateRequest || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -12105,23 +11971,6 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
 exports.SparrApiFp = function (configuration) {
     return {
         /**
-         * Add a module to a course
-         * @summary Add Course Module
-         * @param {string} courseId
-         * @param {ModuleCore} moduleCore
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addCourseModuleV1(courseId, moduleCore, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).addCourseModuleV1(courseId, moduleCore, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
          * Add a module attempt for a user
          * @summary Add Module Attempt
          * @param {string} moduleId
@@ -12158,13 +12007,13 @@ exports.SparrApiFp = function (configuration) {
         /**
          * Create a new course
          * @summary Create Course
-         * @param {CourseCore} courseCore
+         * @param {CourseRequest} courseRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCourseV1(courseCore, options) {
+        createCourseV1(courseRequest, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createCourseV1(courseCore, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createCourseV1(courseRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12396,22 +12245,6 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
-         * Get all modules for a course
-         * @summary Get Course Modules
-         * @param {string} courseId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listCourseModulesV1(courseId, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listCourseModulesV1(courseId, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
          * Get all courses
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
@@ -12517,23 +12350,6 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
-         * Remove a module from a course
-         * @summary Remove Course Module
-         * @param {string} courseId
-         * @param {string} moduleId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeCourseModuleV1(courseId, moduleId, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).removeCourseModuleV1(courseId, moduleId, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
          * Revoke a course from a user
          * @summary Revoke Course
          * @param {string} courseId
@@ -12605,13 +12421,13 @@ exports.SparrApiFp = function (configuration) {
          * Update a course
          * @summary Update Course
          * @param {string} courseId
-         * @param {CourseCore} courseCore
+         * @param {CourseUpdateRequest} courseUpdateRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCourseV1(courseId, courseCore, options) {
+        updateCourseV1(courseId, courseUpdateRequest, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateCourseV1(courseId, courseCore, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateCourseV1(courseId, courseUpdateRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12678,17 +12494,6 @@ exports.SparrApiFp = function (configuration) {
 exports.SparrApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Add a module to a course
-         * @summary Add Course Module
-         * @param {string} courseId
-         * @param {ModuleCore} moduleCore
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addCourseModuleV1(courseId, moduleCore, options) {
-            return exports.SparrApiFp(configuration).addCourseModuleV1(courseId, moduleCore, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Add a module attempt for a user
          * @summary Add Module Attempt
          * @param {string} moduleId
@@ -12713,12 +12518,12 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
         /**
          * Create a new course
          * @summary Create Course
-         * @param {CourseCore} courseCore
+         * @param {CourseRequest} courseRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCourseV1(courseCore, options) {
-            return exports.SparrApiFp(configuration).createCourseV1(courseCore, options).then((request) => request(axios, basePath));
+        createCourseV1(courseRequest, options) {
+            return exports.SparrApiFp(configuration).createCourseV1(courseRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new feedback
@@ -12861,16 +12666,6 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all modules for a course
-         * @summary Get Course Modules
-         * @param {string} courseId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listCourseModulesV1(courseId, options) {
-            return exports.SparrApiFp(configuration).listCourseModulesV1(courseId, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get all courses
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
@@ -12940,17 +12735,6 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).listUserModuleAttemptsV1(moduleId, userId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove a module from a course
-         * @summary Remove Course Module
-         * @param {string} courseId
-         * @param {string} moduleId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        removeCourseModuleV1(courseId, moduleId, options) {
-            return exports.SparrApiFp(configuration).removeCourseModuleV1(courseId, moduleId, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Revoke a course from a user
          * @summary Revoke Course
          * @param {string} courseId
@@ -12998,12 +12782,12 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          * Update a course
          * @summary Update Course
          * @param {string} courseId
-         * @param {CourseCore} courseCore
+         * @param {CourseUpdateRequest} courseUpdateRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCourseV1(courseId, courseCore, options) {
-            return exports.SparrApiFp(configuration).updateCourseV1(courseId, courseCore, options).then((request) => request(axios, basePath));
+        updateCourseV1(courseId, courseUpdateRequest, options) {
+            return exports.SparrApiFp(configuration).updateCourseV1(courseId, courseUpdateRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a feedback
@@ -13048,18 +12832,6 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
  */
 class SparrApi extends base_1.BaseAPI {
     /**
-     * Add a module to a course
-     * @summary Add Course Module
-     * @param {string} courseId
-     * @param {ModuleCore} moduleCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    addCourseModuleV1(courseId, moduleCore, options) {
-        return exports.SparrApiFp(this.configuration).addCourseModuleV1(courseId, moduleCore, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
      * Add a module attempt for a user
      * @summary Add Module Attempt
      * @param {string} moduleId
@@ -13086,13 +12858,13 @@ class SparrApi extends base_1.BaseAPI {
     /**
      * Create a new course
      * @summary Create Course
-     * @param {CourseCore} courseCore
+     * @param {CourseRequest} courseRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCourseV1(courseCore, options) {
-        return exports.SparrApiFp(this.configuration).createCourseV1(courseCore, options).then((request) => request(this.axios, this.basePath));
+    createCourseV1(courseRequest, options) {
+        return exports.SparrApiFp(this.configuration).createCourseV1(courseRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new feedback
@@ -13249,17 +13021,6 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get all modules for a course
-     * @summary Get Course Modules
-     * @param {string} courseId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    listCourseModulesV1(courseId, options) {
-        return exports.SparrApiFp(this.configuration).listCourseModulesV1(courseId, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
      * Get all courses
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
@@ -13335,18 +13096,6 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).listUserModuleAttemptsV1(moduleId, userId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Remove a module from a course
-     * @summary Remove Course Module
-     * @param {string} courseId
-     * @param {string} moduleId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    removeCourseModuleV1(courseId, moduleId, options) {
-        return exports.SparrApiFp(this.configuration).removeCourseModuleV1(courseId, moduleId, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
      * Revoke a course from a user
      * @summary Revoke Course
      * @param {string} courseId
@@ -13398,13 +13147,13 @@ class SparrApi extends base_1.BaseAPI {
      * Update a course
      * @summary Update Course
      * @param {string} courseId
-     * @param {CourseCore} courseCore
+     * @param {CourseUpdateRequest} courseUpdateRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateCourseV1(courseId, courseCore, options) {
-        return exports.SparrApiFp(this.configuration).updateCourseV1(courseId, courseCore, options).then((request) => request(this.axios, this.basePath));
+    updateCourseV1(courseId, courseUpdateRequest, options) {
+        return exports.SparrApiFp(this.configuration).updateCourseV1(courseId, courseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a feedback
