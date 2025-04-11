@@ -2271,7 +2271,7 @@ export interface Course {
      * @type {Array<string>}
      * @memberof Course
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The unique identifier of the course
      * @type {string}
@@ -2314,7 +2314,7 @@ export interface CourseCore {
      * @type {Array<string>}
      * @memberof CourseCore
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
 }
 /**
  * 
@@ -2756,6 +2756,18 @@ export interface Feedback {
      */
     endTimestamp: string;
     /**
+     * The time in seconds when sparring started
+     * @type {number}
+     * @memberof Feedback
+     */
+    startSparringAt?: number;
+    /**
+     * The time in seconds when sparring ended
+     * @type {number}
+     * @memberof Feedback
+     */
+    endSparringAt?: number;
+    /**
      * The top insights from the conversation
      * @type {Array<string>}
      * @memberof Feedback
@@ -2864,6 +2876,18 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     endTimestamp: string;
+    /**
+     * The time in seconds when sparring started
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    startSparringAt?: number;
+    /**
+     * The time in seconds when sparring ended
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    endSparringAt?: number;
     /**
      * The top insights from the conversation
      * @type {Array<string>}
@@ -3621,7 +3645,7 @@ export interface Module {
      * @type {Array<string>}
      * @memberof Module
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3676,6 +3700,12 @@ export interface Module {
      * @memberof Module
      */
     courseName: string | null;
+    /**
+     * The order of the module in the course
+     * @type {number}
+     * @memberof Module
+     */
+    moduleOrder: number;
 }
 /**
  * 
@@ -3700,7 +3730,7 @@ export interface ModuleCore {
      * @type {Array<string>}
      * @memberof ModuleCore
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3761,7 +3791,7 @@ export interface ModuleUpdateRequest {
      * @type {Array<string>}
      * @memberof ModuleUpdateRequest
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3803,7 +3833,7 @@ export interface ModuleUpdateRequest {
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    id: string;
+    id?: string | null;
 }
 /**
  * 
@@ -4203,6 +4233,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     internalProps: object | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof OrganizationOutput
+     */
+    adminProps: object | null;
     /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
@@ -5782,7 +5818,7 @@ export interface SparrDialogLineWithSentiment {
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    speaker: SparrDialogLineWithSentimentSpeakerEnum;
+    speaker: string;
     /**
      * 
      * @type {string}
@@ -5821,16 +5857,6 @@ export interface SparrDialogLineWithSentiment {
     id: string;
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SparrDialogLineWithSentimentSpeakerEnum {
-    USER = 'USER',
-    AI = 'AI',
-    TOOL = 'TOOL',
-    AITOOLREQUEST = 'AI - TOOL REQUEST'
-}
 /**
     * @export
     * @enum {string}
@@ -5981,7 +6007,9 @@ export enum SparrModelsAnalyticsMetricName {
     TALKRATIO = 'TALK_RATIO',
     AVERAGEFILLERWORDSCOUNT = 'AVERAGE_FILLER_WORDS_COUNT',
     AVERAGEOVERALLSCORE = 'AVERAGE_OVERALL_SCORE',
-    AVERAGELONGESTMONOLOGUE = 'AVERAGE_LONGEST_MONOLOGUE'
+    AVERAGELONGESTMONOLOGUE = 'AVERAGE_LONGEST_MONOLOGUE',
+    AVERAGEMODULESCOMPLETED = 'AVERAGE_MODULES_COMPLETED',
+    AVERAGEACTIVEDAYS = 'AVERAGE_ACTIVE_DAYS'
 }
 
 /**
@@ -22920,6 +22948,45 @@ export class UIApi extends BaseAPI {
 export const VoiceModelsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSparrVoiceModelsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr-voice-models`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -22968,6 +23035,19 @@ export const VoiceModelsApiAxiosParamCreator = function (configuration?: Configu
 export const VoiceModelsApiFp = function(configuration?: Configuration) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSparrVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>> {
+            const localVarAxiosArgs = await VoiceModelsApiAxiosParamCreator(configuration).listSparrVoiceModelsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -22990,6 +23070,15 @@ export const VoiceModelsApiFp = function(configuration?: Configuration) {
 export const VoiceModelsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSparrVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>> {
+            return VoiceModelsApiFp(configuration).listSparrVoiceModelsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -23008,6 +23097,17 @@ export const VoiceModelsApiFactory = function (configuration?: Configuration, ba
  * @extends {BaseAPI}
  */
 export class VoiceModelsApi extends BaseAPI {
+    /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VoiceModelsApi
+     */
+    public listSparrVoiceModelsV1(options?: any) {
+        return VoiceModelsApiFp(this.configuration).listSparrVoiceModelsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations

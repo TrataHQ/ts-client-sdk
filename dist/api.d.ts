@@ -2240,7 +2240,7 @@ export interface Course {
      * @type {Array<string>}
      * @memberof Course
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The unique identifier of the course
      * @type {string}
@@ -2283,7 +2283,7 @@ export interface CourseCore {
      * @type {Array<string>}
      * @memberof CourseCore
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
 }
 /**
  *
@@ -2720,6 +2720,18 @@ export interface Feedback {
      */
     endTimestamp: string;
     /**
+     * The time in seconds when sparring started
+     * @type {number}
+     * @memberof Feedback
+     */
+    startSparringAt?: number;
+    /**
+     * The time in seconds when sparring ended
+     * @type {number}
+     * @memberof Feedback
+     */
+    endSparringAt?: number;
+    /**
      * The top insights from the conversation
      * @type {Array<string>}
      * @memberof Feedback
@@ -2828,6 +2840,18 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     endTimestamp: string;
+    /**
+     * The time in seconds when sparring started
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    startSparringAt?: number;
+    /**
+     * The time in seconds when sparring ended
+     * @type {number}
+     * @memberof FeedbackCore
+     */
+    endSparringAt?: number;
     /**
      * The top insights from the conversation
      * @type {Array<string>}
@@ -3578,7 +3602,7 @@ export interface Module {
      * @type {Array<string>}
      * @memberof Module
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3633,6 +3657,12 @@ export interface Module {
      * @memberof Module
      */
     courseName: string | null;
+    /**
+     * The order of the module in the course
+     * @type {number}
+     * @memberof Module
+     */
+    moduleOrder: number;
 }
 /**
  *
@@ -3657,7 +3687,7 @@ export interface ModuleCore {
      * @type {Array<string>}
      * @memberof ModuleCore
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3718,7 +3748,7 @@ export interface ModuleUpdateRequest {
      * @type {Array<string>}
      * @memberof ModuleUpdateRequest
      */
-    tags: Array<string>;
+    tags?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
@@ -3760,7 +3790,7 @@ export interface ModuleUpdateRequest {
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    id: string;
+    id?: string | null;
 }
 /**
  *
@@ -4150,6 +4180,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     internalProps: object | null;
+    /**
+     *
+     * @type {object}
+     * @memberof OrganizationOutput
+     */
+    adminProps: object | null;
     /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
@@ -5717,7 +5753,7 @@ export interface SparrDialogLineWithSentiment {
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    speaker: SparrDialogLineWithSentimentSpeakerEnum;
+    speaker: string;
     /**
      *
      * @type {string}
@@ -5754,16 +5790,6 @@ export interface SparrDialogLineWithSentiment {
      * @memberof SparrDialogLineWithSentiment
      */
     id: string;
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum SparrDialogLineWithSentimentSpeakerEnum {
-    USER = "USER",
-    AI = "AI",
-    TOOL = "TOOL",
-    AITOOLREQUEST = "AI - TOOL REQUEST"
 }
 /**
     * @export
@@ -5910,7 +5936,9 @@ export declare enum SparrModelsAnalyticsMetricName {
     TALKRATIO = "TALK_RATIO",
     AVERAGEFILLERWORDSCOUNT = "AVERAGE_FILLER_WORDS_COUNT",
     AVERAGEOVERALLSCORE = "AVERAGE_OVERALL_SCORE",
-    AVERAGELONGESTMONOLOGUE = "AVERAGE_LONGEST_MONOLOGUE"
+    AVERAGELONGESTMONOLOGUE = "AVERAGE_LONGEST_MONOLOGUE",
+    AVERAGEMODULESCOMPLETED = "AVERAGE_MODULES_COMPLETED",
+    AVERAGEACTIVEDAYS = "AVERAGE_ACTIVE_DAYS"
 }
 /**
  *
@@ -14214,6 +14242,13 @@ export declare class UIApi extends BaseAPI {
  */
 export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSparrVoiceModelsV1: (options?: any) => Promise<RequestArgs>;
+    /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
@@ -14227,6 +14262,13 @@ export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configura
  */
 export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
     /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSparrVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
+    /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
@@ -14239,6 +14281,13 @@ export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const VoiceModelsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSparrVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
@@ -14254,6 +14303,14 @@ export declare const VoiceModelsApiFactory: (configuration?: Configuration, base
  * @extends {BaseAPI}
  */
 export declare class VoiceModelsApi extends BaseAPI {
+    /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VoiceModelsApi
+     */
+    listSparrVoiceModelsV1(options?: any): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations

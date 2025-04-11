@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineWithSentimentSpeakerEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerApi = exports.ResellerApiFactory = exports.ResellerApiFp = exports.ResellerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditType = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -665,17 +665,6 @@ var SparrDialogLineSpeakerEnum;
     * @export
     * @enum {string}
     */
-var SparrDialogLineWithSentimentSpeakerEnum;
-(function (SparrDialogLineWithSentimentSpeakerEnum) {
-    SparrDialogLineWithSentimentSpeakerEnum["USER"] = "USER";
-    SparrDialogLineWithSentimentSpeakerEnum["AI"] = "AI";
-    SparrDialogLineWithSentimentSpeakerEnum["TOOL"] = "TOOL";
-    SparrDialogLineWithSentimentSpeakerEnum["AITOOLREQUEST"] = "AI - TOOL REQUEST";
-})(SparrDialogLineWithSentimentSpeakerEnum = exports.SparrDialogLineWithSentimentSpeakerEnum || (exports.SparrDialogLineWithSentimentSpeakerEnum = {}));
-/**
-    * @export
-    * @enum {string}
-    */
 var SparrDialogLineWithSentimentSentimentEnum;
 (function (SparrDialogLineWithSentimentSentimentEnum) {
     SparrDialogLineWithSentimentSentimentEnum["POSITIVE"] = "POSITIVE";
@@ -742,6 +731,8 @@ var SparrModelsAnalyticsMetricName;
     SparrModelsAnalyticsMetricName["AVERAGEFILLERWORDSCOUNT"] = "AVERAGE_FILLER_WORDS_COUNT";
     SparrModelsAnalyticsMetricName["AVERAGEOVERALLSCORE"] = "AVERAGE_OVERALL_SCORE";
     SparrModelsAnalyticsMetricName["AVERAGELONGESTMONOLOGUE"] = "AVERAGE_LONGEST_MONOLOGUE";
+    SparrModelsAnalyticsMetricName["AVERAGEMODULESCOMPLETED"] = "AVERAGE_MODULES_COMPLETED";
+    SparrModelsAnalyticsMetricName["AVERAGEACTIVEDAYS"] = "AVERAGE_ACTIVE_DAYS";
 })(SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsMetricName || (exports.SparrModelsAnalyticsMetricName = {}));
 /**
  *
@@ -14977,6 +14968,40 @@ exports.UIApi = UIApi;
 exports.VoiceModelsApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSparrVoiceModelsV1: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr-voice-models`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -15019,6 +15044,21 @@ exports.VoiceModelsApiAxiosParamCreator = function (configuration) {
 exports.VoiceModelsApiFp = function (configuration) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSparrVoiceModelsV1(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VoiceModelsApiAxiosParamCreator(configuration).listSparrVoiceModelsV1(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -15042,6 +15082,15 @@ exports.VoiceModelsApiFp = function (configuration) {
 exports.VoiceModelsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
+         * Get List Of Voices Available For Sparr
+         * @summary Get List Of Voices Available For Sparr
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSparrVoiceModelsV1(options) {
+            return exports.VoiceModelsApiFp(configuration).listSparrVoiceModelsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get List Of Voices Available For Conversations
          * @summary Get List Of Voices Available For Conversations
          * @param {*} [options] Override http request option.
@@ -15059,6 +15108,16 @@ exports.VoiceModelsApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class VoiceModelsApi extends base_1.BaseAPI {
+    /**
+     * Get List Of Voices Available For Sparr
+     * @summary Get List Of Voices Available For Sparr
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VoiceModelsApi
+     */
+    listSparrVoiceModelsV1(options) {
+        return exports.VoiceModelsApiFp(this.configuration).listSparrVoiceModelsV1(options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
