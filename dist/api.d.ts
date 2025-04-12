@@ -6985,6 +6985,25 @@ export interface UserModuleAttemptCore {
     feedbackId: string;
 }
 /**
+ *
+ * @export
+ * @interface UserModuleAttemptWithModuleResponse
+ */
+export interface UserModuleAttemptWithModuleResponse {
+    /**
+     *
+     * @type {UserModuleAttemptCore}
+     * @memberof UserModuleAttemptWithModuleResponse
+     */
+    attempt: UserModuleAttemptCore;
+    /**
+     *
+     * @type {ModuleCore}
+     * @memberof UserModuleAttemptWithModuleResponse
+     */
+    module: ModuleCore;
+}
+/**
  * Payload for creating a new user
  * @export
  * @interface UserPayload
@@ -12479,6 +12498,17 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listUserAssignmentsV1: (userId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get all module attempts with module information for a user in a specific course
+     * @summary Get User Course Attempts
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserCourseAttemptsV1: (courseId: string, userId: string, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
      * @param {string} moduleId
@@ -12752,6 +12782,17 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listUserAssignmentsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignment>>>;
     /**
+     * Get all module attempts with module information for a user in a specific course
+     * @summary Get User Course Attempts
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptWithModuleResponse>>>;
+    /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
      * @param {string} moduleId
@@ -13024,6 +13065,17 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignment>>;
+    /**
+     * Get all module attempts with module information for a user in a specific course
+     * @summary Get User Course Attempts
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserModuleAttemptWithModuleResponse>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -13321,6 +13373,18 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     listUserAssignmentsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment[]>>;
+    /**
+     * Get all module attempts with module information for a user in a specific course
+     * @summary Get User Course Attempts
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptWithModuleResponse[]>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts

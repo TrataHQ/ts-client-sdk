@@ -7064,6 +7064,25 @@ export interface UserModuleAttemptCore {
     feedbackId: string;
 }
 /**
+ * 
+ * @export
+ * @interface UserModuleAttemptWithModuleResponse
+ */
+export interface UserModuleAttemptWithModuleResponse {
+    /**
+     * 
+     * @type {UserModuleAttemptCore}
+     * @memberof UserModuleAttemptWithModuleResponse
+     */
+    attempt: UserModuleAttemptCore;
+    /**
+     * 
+     * @type {ModuleCore}
+     * @memberof UserModuleAttemptWithModuleResponse
+     */
+    module: ModuleCore;
+}
+/**
  * Payload for creating a new user
  * @export
  * @interface UserPayload
@@ -19378,6 +19397,67 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Get all module attempts with module information for a user in a specific course
+         * @summary Get User Course Attempts
+         * @param {string} courseId 
+         * @param {string} userId 
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserCourseAttemptsV1: async (courseId: string, userId: string, skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling listUserCourseAttemptsV1.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserCourseAttemptsV1.');
+            }
+            const localVarPath = `/v1/sparr/courses/{course_id}/attempts/users/{user_id}`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all module attempts for a user
          * @summary Get User Module Attempts
          * @param {string} moduleId 
@@ -20169,6 +20249,23 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get all module attempts with module information for a user in a specific course
+         * @summary Get User Course Attempts
+         * @param {string} courseId 
+         * @param {string} userId 
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptWithModuleResponse>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listUserCourseAttemptsV1(courseId, userId, skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get all module attempts for a user
          * @summary Get User Module Attempts
          * @param {string} moduleId 
@@ -20541,6 +20638,19 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignment>> {
             return SparrApiFp(configuration).listUserAssignmentsV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all module attempts with module information for a user in a specific course
+         * @summary Get User Course Attempts
+         * @param {string} courseId 
+         * @param {string} userId 
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserModuleAttemptWithModuleResponse>> {
+            return SparrApiFp(configuration).listUserCourseAttemptsV1(courseId, userId, skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all module attempts for a user
@@ -20923,6 +21033,21 @@ export class SparrApi extends BaseAPI {
      */
     public listUserAssignmentsV1(userId: string, options?: any) {
         return SparrApiFp(this.configuration).listUserAssignmentsV1(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all module attempts with module information for a user in a specific course
+     * @summary Get User Course Attempts
+     * @param {string} courseId 
+     * @param {string} userId 
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any) {
+        return SparrApiFp(this.configuration).listUserCourseAttemptsV1(courseId, userId, skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
