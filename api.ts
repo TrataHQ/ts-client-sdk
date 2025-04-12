@@ -7070,17 +7070,17 @@ export interface UserModuleAttemptCore {
  */
 export interface UserModuleAttemptWithModuleResponse {
     /**
-     * 
-     * @type {UserModuleAttemptCore}
+     * The module attempt
+     * @type {UserModuleAttempt}
      * @memberof UserModuleAttemptWithModuleResponse
      */
-    attempt: UserModuleAttemptCore;
+    attempt: UserModuleAttempt;
     /**
-     * 
-     * @type {ModuleCore}
+     * The module information
+     * @type {Module}
      * @memberof UserModuleAttemptWithModuleResponse
      */
-    module: ModuleCore;
+    module: Module;
 }
 /**
  * Payload for creating a new user
