@@ -2251,6 +2251,16 @@ export interface Course {
 /**
  *
  * @export
+ * @enum {string}
+ */
+export declare enum CourseCompletionStatus {
+    NOTSTARTED = "NOT_STARTED",
+    INPROGRESS = "IN_PROGRESS",
+    COMPLETED = "COMPLETED"
+}
+/**
+ *
+ * @export
  * @interface CourseCore
  */
 export interface CourseCore {
@@ -2750,6 +2760,12 @@ export interface Feedback {
      */
     transcript: Array<SparrDialogLine>;
     /**
+     * The complete transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof Feedback
+     */
+    completeTranscript?: Array<SparrDialogLine> | null;
+    /**
      * The analytics of the conversation
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
@@ -2870,6 +2886,12 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     transcript: Array<SparrDialogLine>;
+    /**
+     * The complete transcript of the conversation
+     * @type {Array<SparrDialogLine>}
+     * @memberof FeedbackCore
+     */
+    completeTranscript?: Array<SparrDialogLine> | null;
     /**
      * The analytics of the conversation
      * @type {AnalyticsModelInput}
@@ -3663,6 +3685,47 @@ export interface Module {
      * @memberof Module
      */
     moduleOrder: number;
+}
+/**
+ *
+ * @export
+ * @interface ModuleAnalytics
+ */
+export interface ModuleAnalytics {
+    /**
+     * The module information
+     * @type {Module}
+     * @memberof ModuleAnalytics
+     */
+    module: Module;
+    /**
+     * The number of attempts
+     * @type {number}
+     * @memberof ModuleAnalytics
+     */
+    numberOfAttempts: number;
+    /**
+     * The status of the last attempt
+     * @type {ModuleAttemptStatus}
+     * @memberof ModuleAnalytics
+     */
+    lastAttemptStatus: ModuleAttemptStatus;
+    /**
+     * Whether the module is completed
+     * @type {boolean}
+     * @memberof ModuleAnalytics
+     */
+    isModuleCompleted: boolean;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum ModuleAttemptStatus {
+    PASSED = "PASSED",
+    FAILED = "FAILED",
+    NOTATTEMPTED = "NOT_ATTEMPTED"
 }
 /**
  *
@@ -6483,6 +6546,12 @@ export interface SystemMetrics {
     speech_pace: number | null;
     /**
      *
+     * @type {number}
+     * @memberof SystemMetrics
+     */
+    user_talk_ratio?: number | null;
+    /**
+     *
      * @type {Array<SparrDialogLineWithSentiment>}
      * @memberof SystemMetrics
      */
@@ -6856,11 +6925,17 @@ export interface UserCourseAssignment {
      */
     courseId: string;
     /**
-     * The completion status of the course
+     * The name of the course
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    courseCompletionStatus: string;
+    courseName: string | null;
+    /**
+     * The completion status of the course
+     * @type {CourseCompletionStatus}
+     * @memberof UserCourseAssignment
+     */
+    courseCompletionStatus: CourseCompletionStatus;
     /**
      * The score of the course out of 100
      * @type {number}
@@ -6873,6 +6948,25 @@ export interface UserCourseAssignment {
      * @memberof UserCourseAssignment
      */
     id?: string;
+}
+/**
+ *
+ * @export
+ * @interface UserCourseAssignmentAnalyticsResponse
+ */
+export interface UserCourseAssignmentAnalyticsResponse {
+    /**
+     * The course assignment
+     * @type {UserCourseAssignment}
+     * @memberof UserCourseAssignmentAnalyticsResponse
+     */
+    userCourseAssignment: UserCourseAssignment;
+    /**
+     * Analytics for the course for all modules
+     * @type {Array<ModuleAnalytics>}
+     * @memberof UserCourseAssignmentAnalyticsResponse
+     */
+    courseAnalytics: Array<ModuleAnalytics>;
 }
 /**
  * UserModuleAttempt represents a user\'s attempt at a module
@@ -6917,6 +7011,12 @@ export interface UserModuleAttempt {
      */
     userId: string;
     /**
+     * The ID of the course
+     * @type {string}
+     * @memberof UserModuleAttempt
+     */
+    courseId: string;
+    /**
      * The ID of the module
      * @type {string}
      * @memberof UserModuleAttempt
@@ -6924,10 +7024,10 @@ export interface UserModuleAttempt {
     moduleId: string;
     /**
      * The completion status of the module
-     * @type {string}
+     * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttempt
      */
-    attemptStatus: string;
+    attemptStatus: ModuleAttemptStatus;
     /**
      * The score of the module out of 100
      * @type {number}
@@ -6960,6 +7060,12 @@ export interface UserModuleAttemptCore {
      */
     userId: string;
     /**
+     * The ID of the course
+     * @type {string}
+     * @memberof UserModuleAttemptCore
+     */
+    courseId: string;
+    /**
      * The ID of the module
      * @type {string}
      * @memberof UserModuleAttemptCore
@@ -6967,10 +7073,10 @@ export interface UserModuleAttemptCore {
     moduleId: string;
     /**
      * The completion status of the module
-     * @type {string}
+     * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptCore
      */
-    attemptStatus: string;
+    attemptStatus: ModuleAttemptStatus;
     /**
      * The score of the module out of 100
      * @type {number}
@@ -6987,21 +7093,75 @@ export interface UserModuleAttemptCore {
 /**
  *
  * @export
- * @interface UserModuleAttemptWithModuleResponse
+ * @interface UserModuleAttemptResponse
  */
-export interface UserModuleAttemptWithModuleResponse {
+export interface UserModuleAttemptResponse {
     /**
-     * The module attempt
-     * @type {UserModuleAttempt}
-     * @memberof UserModuleAttemptWithModuleResponse
+     * The ID of the user who is taking the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
      */
-    attempt: UserModuleAttempt;
+    userId: string;
     /**
-     * The module information
-     * @type {Module}
-     * @memberof UserModuleAttemptWithModuleResponse
+     * The ID of the course
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
      */
-    module: Module;
+    courseId: string;
+    /**
+     * The ID of the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    moduleId: string;
+    /**
+     * The completion status of the module
+     * @type {ModuleAttemptStatus}
+     * @memberof UserModuleAttemptResponse
+     */
+    attemptStatus: ModuleAttemptStatus;
+    /**
+     * The score of the module out of 100
+     * @type {number}
+     * @memberof UserModuleAttemptResponse
+     */
+    attemptScore: number;
+    /**
+     * The ID of the user module attempt
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    id: string;
+    /**
+     * The ID of the feedback
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    feedbackId: string;
+    /**
+     * The name of the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    moduleName: string | null;
+    /**
+     * The passing score percentage of the module
+     * @type {number}
+     * @memberof UserModuleAttemptResponse
+     */
+    passingScorePercentage: number;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    personaName: string | null;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    scenarioName: string | null;
 }
 /**
  * Payload for creating a new user
@@ -12490,7 +12650,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listScenariosV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all course assignments for a user
+     * Get all course assignments for a user with analytics
      * @summary Get User Assignments
      * @param {string} userId
      * @param {*} [options] Override http request option.
@@ -12553,6 +12713,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     statusSparrStatusGet: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Update course completion status
+     * @summary Update Course Completion Status
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {CourseCompletionStatus} completionStatus
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseCompletionStatusV1: (courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any) => Promise<RequestArgs>;
     /**
      * Update a course
      * @summary Update Course
@@ -12774,13 +12944,13 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
     /**
-     * Get all course assignments for a user
+     * Get all course assignments for a user with analytics
      * @summary Get User Assignments
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignment>>>;
+    listUserAssignmentsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -12791,7 +12961,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptWithModuleResponse>>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -12800,7 +12970,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttempt>>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -12837,6 +13007,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     statusSparrStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    /**
+     * Update course completion status
+     * @summary Update Course Completion Status
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {CourseCompletionStatus} completionStatus
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
      * Update a course
      * @summary Update Course
@@ -13058,13 +13238,13 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
     /**
-     * Get all course assignments for a user
+     * Get all course assignments for a user with analytics
      * @summary Get User Assignments
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignment>>;
+    listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -13075,7 +13255,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserModuleAttemptWithModuleResponse>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -13084,7 +13264,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): AxiosPromise<Array<UserModuleAttempt>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -13121,6 +13301,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     statusSparrStatusGet(options?: any): AxiosPromise<object>;
+    /**
+     * Update course completion status
+     * @summary Update Course Completion Status
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {CourseCompletionStatus} completionStatus
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): AxiosPromise<UserCourseAssignment>;
     /**
      * Update a course
      * @summary Update Course
@@ -13365,14 +13555,14 @@ export declare class SparrApi extends BaseAPI {
      */
     listScenariosV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
     /**
-     * Get all course assignments for a user
+     * Get all course assignments for a user with analytics
      * @summary Get User Assignments
      * @param {string} userId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserAssignmentsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment[]>>;
+    listUserAssignmentsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignmentAnalyticsResponse[]>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -13384,7 +13574,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptWithModuleResponse[]>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -13394,7 +13584,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttempt[]>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -13435,6 +13625,17 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     statusSparrStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    /**
+     * Update course completion status
+     * @summary Update Course Completion Status
+     * @param {string} courseId
+     * @param {string} userId
+     * @param {CourseCompletionStatus} completionStatus
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
     /**
      * Update a course
      * @summary Update Course
