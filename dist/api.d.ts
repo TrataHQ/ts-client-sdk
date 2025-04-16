@@ -7151,6 +7151,12 @@ export interface UserModuleAttemptResponse {
      */
     passingScorePercentage: number;
     /**
+     * The difficulty level of the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    difficultyLevel: string;
+    /**
      * The name of the persona
      * @type {string}
      * @memberof UserModuleAttemptResponse
@@ -7162,6 +7168,30 @@ export interface UserModuleAttemptResponse {
      * @memberof UserModuleAttemptResponse
      */
     scenarioName: string | null;
+    /**
+     * The date and time the module was created
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    createdAt: string;
+    /**
+     * The user who created the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    createdBy: string | null;
+    /**
+     * The date and time the module was updated
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    updatedAt: string | null;
+    /**
+     * The user who updated the module
+     * @type {string}
+     * @memberof UserModuleAttemptResponse
+     */
+    updatedBy: string | null;
 }
 /**
  * Payload for creating a new user
