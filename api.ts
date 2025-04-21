@@ -1127,6 +1127,17 @@ export interface AppResponse {
 /**
  * 
  * @export
+ * @enum {string}
+ */
+export enum AuthRole {
+    Owner = 'Owner',
+    Admin = 'Admin',
+    Member = 'Member'
+}
+
+/**
+ * 
+ * @export
  * @interface AvailablePhoneNumber
  */
 export interface AvailablePhoneNumber {
@@ -4130,10 +4141,10 @@ export interface OrgUsersPriceCredits {
     organization: OrganizationOutput;
     /**
      * 
-     * @type {Array<User>}
+     * @type {Array<UserOutput>}
      * @memberof OrgUsersPriceCredits
      */
-    users: Array<User>;
+    users: Array<UserOutput>;
     /**
      * 
      * @type {Array<Price>}
@@ -4167,10 +4178,10 @@ export interface OrgWithUsers {
     organization: OrganizationOutput;
     /**
      * 
-     * @type {Array<User>}
+     * @type {Array<UserOutput>}
      * @memberof OrgWithUsers
      */
-    users: Array<User>;
+    users: Array<UserOutput>;
 }
 /**
  * 
@@ -4219,6 +4230,18 @@ export interface OrganizationInput {
      * @memberof OrganizationInput
      */
     agentConfig?: AgentConfig | null;
+    /**
+     * Application type for the organization
+     * @type {AppEnumInput}
+     * @memberof OrganizationInput
+     */
+    app?: AppEnumInput | null;
+    /**
+     * Type of the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    orgType?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -4316,6 +4339,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     orgType?: string | null;
+    /**
+     * 
+     * @type {AppEnumOutput}
+     * @memberof OrganizationOutput
+     */
+    app?: AppEnumOutput;
 }
 /**
  * 
@@ -6305,6 +6334,49 @@ export interface SparrStatsResponse {
     response: SparrStatsData;
 }
 /**
+ * Protocol defining the required user attributes
+ * @export
+ * @interface SparrUtilsAuthUser
+ */
+export interface SparrUtilsAuthUser {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrUtilsAuthUser
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrUtilsAuthUser
+     */
+    email: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrUtilsAuthUser
+     */
+    name: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrUtilsAuthUser
+     */
+    role: string | null;
+    /**
+     * 
+     * @type {TenantModel}
+     * @memberof SparrUtilsAuthUser
+     */
+    tenantModel: TenantModel;
+    /**
+     * 
+     * @type {object}
+     * @memberof SparrUtilsAuthUser
+     */
+    metadata?: object | null;
+}
+/**
  * 
  * @export
  * @enum {string}
@@ -6745,6 +6817,19 @@ export interface TelephoneNumber {
 /**
  * 
  * @export
+ * @interface TenantModel
+ */
+export interface TenantModel {
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof TenantModel
+     */
+    orgId?: string;
+}
+/**
+ * 
+ * @export
  * @interface Transcriber
  */
 export interface Transcriber {
@@ -6807,6 +6892,25 @@ export interface UpdateResellerOrganizationRequest {
 /**
  * 
  * @export
+ * @interface UpdateUserRequest
+ */
+export interface UpdateUserRequest {
+    /**
+     * Name of the user
+     * @type {string}
+     * @memberof UpdateUserRequest
+     */
+    name: string;
+    /**
+     * Role of the user
+     * @type {AuthRole}
+     * @memberof UpdateUserRequest
+     */
+    role: AuthRole;
+}
+/**
+ * 
+ * @export
  * @interface UploadFileResponse
  */
 export interface UploadFileResponse {
@@ -6822,79 +6926,6 @@ export interface UploadFileResponse {
      * @memberof UploadFileResponse
      */
     fileUrl: string;
-}
-/**
- * Model representing the users under an organization
- * @export
- * @interface User
- */
-export interface User {
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    email?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    phoneNumber?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    orgId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    role?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    fullName?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    status: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    createdBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    createdAt?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    updatedBy?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    updatedAt?: string;
 }
 /**
  * User id to api key mapping table
@@ -7273,6 +7304,79 @@ export interface UserModuleAttemptResponse {
      * @memberof UserModuleAttemptResponse
      */
     updatedBy: string | null;
+}
+/**
+ * Model representing the users under an organization
+ * @export
+ * @interface UserOutput
+ */
+export interface UserOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    email?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    phoneNumber?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    role?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    fullName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    status: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserOutput
+     */
+    updatedAt?: string;
 }
 /**
  * Payload for creating a new user
@@ -11687,6 +11791,124 @@ export class DataPlaneApi extends BaseAPI {
 
 
 /**
+ * DefaultApi - axios parameter creator
+ * @export
+ */
+export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Delete a reseller\'s customer and all associated data  Args:     customer_id: The ID of the customer organization to delete     user: The authenticated user making the request      Returns:     Dict with status message  Raises:     HTTPException: If customer not found or other error occurs
+         * @summary Delete Customer
+         * @param {string} customerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomerV1ResellersCustomersCustomerIdDelete: async (customerId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerId' is not null or undefined
+            if (customerId === null || customerId === undefined) {
+                throw new RequiredError('customerId','Required parameter customerId was null or undefined when calling deleteCustomerV1ResellersCustomersCustomerIdDelete.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_id}`
+                .replace(`{${"customer_id"}}`, encodeURIComponent(String(customerId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * DefaultApi - functional programming interface
+ * @export
+ */
+export const DefaultApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Delete a reseller\'s customer and all associated data  Args:     customer_id: The ID of the customer organization to delete     user: The authenticated user making the request      Returns:     Dict with status message  Raises:     HTTPException: If customer not found or other error occurs
+         * @summary Delete Customer
+         * @param {string} customerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+            const localVarAxiosArgs = await DefaultApiAxiosParamCreator(configuration).deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * DefaultApi - factory interface
+ * @export
+ */
+export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Delete a reseller\'s customer and all associated data  Args:     customer_id: The ID of the customer organization to delete     user: The authenticated user making the request      Returns:     Dict with status message  Raises:     HTTPException: If customer not found or other error occurs
+         * @summary Delete Customer
+         * @param {string} customerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId: string, options?: any): AxiosPromise<{ [key: string]: string; }> {
+            return DefaultApiFp(configuration).deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * DefaultApi - object-oriented interface
+ * @export
+ * @class DefaultApi
+ * @extends {BaseAPI}
+ */
+export class DefaultApi extends BaseAPI {
+    /**
+     * Delete a reseller\'s customer and all associated data  Args:     customer_id: The ID of the customer organization to delete     user: The authenticated user making the request      Returns:     Dict with status message  Raises:     HTTPException: If customer not found or other error occurs
+     * @summary Delete Customer
+     * @param {string} customerId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId: string, options?: any) {
+        return DefaultApiFp(this.configuration).deleteCustomerV1ResellersCustomersCustomerIdDelete(customerId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
  * FilesApi - axios parameter creator
  * @export
  */
@@ -13917,7 +14139,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).acceptInviteV1(acceptInviteRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -13931,7 +14153,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createOrganizationV1(bodyCreateOrganizationV1, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -13945,7 +14167,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createUserV1(userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async createUserV1(userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).createUserV1(userPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -13972,7 +14194,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).deleteUserV1(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -14038,7 +14260,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async getUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).getUserByIdV1(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -14082,7 +14304,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -14127,7 +14349,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).updateUserV1(userId, userPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -14150,7 +14372,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User> {
+        acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).acceptInviteV1(acceptInviteRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14160,7 +14382,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User> {
+        createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).createOrganizationV1(bodyCreateOrganizationV1, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14170,7 +14392,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createUserV1(userPayload: UserPayload, options?: any): AxiosPromise<User> {
+        createUserV1(userPayload: UserPayload, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).createUserV1(userPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14189,7 +14411,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUserV1(userId: string, options?: any): AxiosPromise<User> {
+        deleteUserV1(userId: string, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).deleteUserV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14235,7 +14457,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserByIdV1(userId: string, options?: any): AxiosPromise<User> {
+        getUserByIdV1(userId: string, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).getUserByIdV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14271,7 +14493,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
+        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<UserOutput>> {
             return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14304,7 +14526,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User> {
+        updateUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<UserOutput> {
             return InternalApiFp(configuration).updateUserV1(userId, userPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -15808,6 +16030,57 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Create a checkout session for a reseller customer
+         * @summary Create Checkout Session For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForResellerCustomerV1: async (customerOrgId: string, priceId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling createCheckoutSessionForResellerCustomerV1.');
+            }
+            // verify required parameter 'priceId' is not null or undefined
+            if (priceId === null || priceId === undefined) {
+                throw new RequiredError('priceId','Required parameter priceId was null or undefined when calling createCheckoutSessionForResellerCustomerV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/pricing/{price_id}/checkout`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)))
+                .replace(`{${"price_id"}}`, encodeURIComponent(String(priceId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Creates a new customer organization under a reseller organization
          * @summary Create Customer
          * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
@@ -15951,6 +16224,57 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof bodyCreateResellerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateResellerOrganizationV1 !== undefined ? bodyCreateResellerOrganizationV1 : {}) : (bodyCreateResellerOrganizationV1 || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete reseller customer user
+         * @summary Delete Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerCustomerUserV1: async (customerOrgId: string, userId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling deleteResellerCustomerUserV1.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteResellerCustomerUserV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/users/{user_id}`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -16435,6 +16759,147 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Get resellers customer user by id
+         * @summary Get Reseller Customer User By Id
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerUserByIdV1: async (customerOrgId: string, userId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerUserByIdV1.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling getResellerCustomerUserByIdV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/users/{user_id}`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get resellers customer users
+         * @summary Get Reseller Customer Users
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerUsersV1: async (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerUsersV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/users`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get reseller customers
          * @summary Get Reseller Customers
          * @param {string} [searchBy] 
@@ -16645,6 +17110,51 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * 
+         * @summary Get Reseller User By Id
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerUserByIdV1: async (userId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling getResellerUserByIdV1.');
+            }
+            const localVarPath = `/v1/resellers/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List of all open invites from the organization
          * @summary List Reseller User Invites
          * @param {string} [searchBy] 
@@ -16797,6 +17307,60 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
 
             if (updatedBefore !== undefined) {
                 localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Revoke an invite for a customer organization
+         * @summary Revoke Customer Invite
+         * @param {string} customerOrgId 
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        revokeCustomerInviteV1: async (customerOrgId: string, email: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling revokeCustomerInviteV1.');
+            }
+            // verify required parameter 'email' is not null or undefined
+            if (email === null || email === undefined) {
+                throw new RequiredError('email','Required parameter email was null or undefined when calling revokeCustomerInviteV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/invites/revoke`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
             }
 
 
@@ -17122,6 +17686,66 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Update reseller customer user
+         * @summary Update Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {UpdateUserRequest} updateUserRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerCustomerUserV1: async (customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling updateResellerCustomerUserV1.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateResellerCustomerUserV1.');
+            }
+            // verify required parameter 'updateUserRequest' is not null or undefined
+            if (updateUserRequest === null || updateUserRequest === undefined) {
+                throw new RequiredError('updateUserRequest','Required parameter updateUserRequest was null or undefined when calling updateResellerCustomerUserV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/users/{user_id}`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof updateUserRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(updateUserRequest !== undefined ? updateUserRequest : {}) : (updateUserRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update a reseller organization
          * @summary Update Reseller Organization
          * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
@@ -17287,7 +17911,7 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).acceptResellerUserInviteV1(acceptInviteRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -17324,13 +17948,28 @@ export const ResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a checkout session for a reseller customer
+         * @summary Create Checkout Session For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createCheckoutSessionForResellerCustomerV1(customerOrgId, priceId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Creates a new customer organization under a reseller organization
          * @summary Create Customer
          * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -17359,8 +17998,23 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete reseller customer user
+         * @summary Delete Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).deleteResellerCustomerUserV1(customerOrgId, userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17373,7 +18027,7 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteResellerUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async deleteResellerUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).deleteResellerUserV1(userId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -17513,6 +18167,44 @@ export const ResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get resellers customer user by id
+         * @summary Get Reseller Customer User By Id
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomerUserByIdV1(customerOrgId, userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get resellers customer users
+         * @summary Get Reseller Customer Users
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerCustomerUsersV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get reseller customers
          * @summary Get Reseller Customers
          * @param {string} [searchBy] 
@@ -17575,6 +18267,20 @@ export const ResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * 
+         * @summary Get Reseller User By Id
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).getResellerUserByIdV1(userId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List of all open invites from the organization
          * @summary List Reseller User Invites
          * @param {string} [searchBy] 
@@ -17611,8 +18317,23 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+        async listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserOutput>>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Revoke an invite for a customer organization
+         * @summary Revoke Customer Invite
+         * @param {string} customerOrgId 
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).revokeCustomerInviteV1(customerOrgId, email, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17626,7 +18347,7 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>> {
+        async sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput | BaseResponseInput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).sendCustomerUserInviteV1(customerOrgId, guestInput, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -17707,6 +18428,22 @@ export const ResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Update reseller customer user
+         * @summary Update Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {UpdateUserRequest} updateUserRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrUtilsAuthUser>> {
+            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateResellerCustomerUserV1(customerOrgId, userId, updateUserRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Update a reseller organization
          * @summary Update Reseller Organization
          * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
@@ -17742,7 +18479,7 @@ export const ResellerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutput>> {
             const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).updateResellerUserV1(userId, userPayload, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -17765,7 +18502,7 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User> {
+        acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<UserOutput> {
             return ResellerApiFp(configuration).acceptResellerUserInviteV1(acceptInviteRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -17790,13 +18527,24 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
             return ResellerApiFp(configuration).addResellerSettingsV1(organizationSettings, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a checkout session for a reseller customer
+         * @summary Create Checkout Session For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any): AxiosPromise<string> {
+            return ResellerApiFp(configuration).createCheckoutSessionForResellerCustomerV1(customerOrgId, priceId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Creates a new customer organization under a reseller organization
          * @summary Create Customer
          * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<User> {
+        createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<UserOutput> {
             return ResellerApiFp(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options).then((request) => request(axios, basePath));
         },
         /**
@@ -17817,8 +18565,19 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User> {
+        createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<UserOutput> {
             return ResellerApiFp(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete reseller customer user
+         * @summary Delete Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerApiFp(configuration).deleteResellerCustomerUserV1(customerOrgId, userId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a user
@@ -17827,7 +18586,7 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteResellerUserV1(userId: string, options?: any): AxiosPromise<User> {
+        deleteResellerUserV1(userId: string, options?: any): AxiosPromise<UserOutput> {
             return ResellerApiFp(configuration).deleteResellerUserV1(userId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -17927,6 +18686,36 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
             return ResellerApiFp(configuration).getResellerCustomerPricingV1(customerOrgId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get resellers customer user by id
+         * @summary Get Reseller Customer User By Id
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any): AxiosPromise<UserOutput> {
+            return ResellerApiFp(configuration).getResellerCustomerUserByIdV1(customerOrgId, userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get resellers customer users
+         * @summary Get Reseller Customer Users
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<UserOutput>> {
+            return ResellerApiFp(configuration).getResellerCustomerUsersV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get reseller customers
          * @summary Get Reseller Customers
          * @param {string} [searchBy] 
@@ -17973,6 +18762,16 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
             return ResellerApiFp(configuration).getResellerPricingV1(options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Get Reseller User By Id
+         * @param {string} userId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerUserByIdV1(userId: string, options?: any): AxiosPromise<UserOutput> {
+            return ResellerApiFp(configuration).getResellerUserByIdV1(userId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List of all open invites from the organization
          * @summary List Reseller User Invites
          * @param {string} [searchBy] 
@@ -18005,8 +18804,19 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
+        listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<UserOutput>> {
             return ResellerApiFp(configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Revoke an invite for a customer organization
+         * @summary Revoke Customer Invite
+         * @param {string} customerOrgId 
+         * @param {string} email 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerApiFp(configuration).revokeCustomerInviteV1(customerOrgId, email, options).then((request) => request(axios, basePath));
         },
         /**
          * Send invite to a user on behalf of a customer organization
@@ -18016,7 +18826,7 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput> {
+        sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput | BaseResponseInput> {
             return ResellerApiFp(configuration).sendCustomerUserInviteV1(customerOrgId, guestInput, options).then((request) => request(axios, basePath));
         },
         /**
@@ -18073,6 +18883,18 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
             return ResellerApiFp(configuration).updateCustomerPricingV1(customerOrgId, priceId, pricingRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update reseller customer user
+         * @summary Update Reseller Customer User
+         * @param {string} customerOrgId 
+         * @param {string} userId 
+         * @param {UpdateUserRequest} updateUserRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any): AxiosPromise<SparrUtilsAuthUser> {
+            return ResellerApiFp(configuration).updateResellerCustomerUserV1(customerOrgId, userId, updateUserRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a reseller organization
          * @summary Update Reseller Organization
          * @param {UpdateResellerOrganizationRequest} updateResellerOrganizationRequest 
@@ -18100,7 +18922,7 @@ export const ResellerApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User> {
+        updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<UserOutput> {
             return ResellerApiFp(configuration).updateResellerUserV1(userId, userPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -18151,6 +18973,19 @@ export class ResellerApi extends BaseAPI {
     }
 
     /**
+     * Create a checkout session for a reseller customer
+     * @summary Create Checkout Session For Reseller Customer
+     * @param {string} customerOrgId 
+     * @param {string} priceId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any) {
+        return ResellerApiFp(this.configuration).createCheckoutSessionForResellerCustomerV1(customerOrgId, priceId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Creates a new customer organization under a reseller organization
      * @summary Create Customer
      * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
@@ -18185,6 +19020,19 @@ export class ResellerApi extends BaseAPI {
      */
     public createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) {
         return ResellerApiFp(this.configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete reseller customer user
+     * @summary Delete Reseller Customer User
+     * @param {string} customerOrgId 
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any) {
+        return ResellerApiFp(this.configuration).deleteResellerCustomerUserV1(customerOrgId, userId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18314,6 +19162,40 @@ export class ResellerApi extends BaseAPI {
     }
 
     /**
+     * Get resellers customer user by id
+     * @summary Get Reseller Customer User By Id
+     * @param {string} customerOrgId 
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomerUserByIdV1(customerOrgId, userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get resellers customer users
+     * @summary Get Reseller Customer Users
+     * @param {string} customerOrgId 
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerCustomerUsersV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get reseller customers
      * @summary Get Reseller Customers
      * @param {string} [searchBy] 
@@ -18368,6 +19250,18 @@ export class ResellerApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @summary Get Reseller User By Id
+     * @param {string} userId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public getResellerUserByIdV1(userId: string, options?: any) {
+        return ResellerApiFp(this.configuration).getResellerUserByIdV1(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites
      * @param {string} [searchBy] 
@@ -18405,6 +19299,19 @@ export class ResellerApi extends BaseAPI {
      */
     public listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
         return ResellerApiFp(this.configuration).listResellerUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Revoke an invite for a customer organization
+     * @summary Revoke Customer Invite
+     * @param {string} customerOrgId 
+     * @param {string} email 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any) {
+        return ResellerApiFp(this.configuration).revokeCustomerInviteV1(customerOrgId, email, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18481,6 +19388,20 @@ export class ResellerApi extends BaseAPI {
      */
     public updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any) {
         return ResellerApiFp(this.configuration).updateCustomerPricingV1(customerOrgId, priceId, pricingRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update reseller customer user
+     * @summary Update Reseller Customer User
+     * @param {string} customerOrgId 
+     * @param {string} userId 
+     * @param {UpdateUserRequest} updateUserRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerApi
+     */
+    public updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any) {
+        return ResellerApiFp(this.configuration).updateResellerCustomerUserV1(customerOrgId, userId, updateUserRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
