@@ -1239,6 +1239,25 @@ export interface BatchMetricsResponseInput {
 /**
  *
  * @export
+ * @interface BodyCreateCustomerOrganizationV1
+ */
+export interface BodyCreateCustomerOrganizationV1 {
+    /**
+     *
+     * @type {OrganizationInput}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    customer_org: OrganizationInput;
+    /**
+     *
+     * @type {string}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ *
+ * @export
  * @interface BodyCreateOrganizationV1
  */
 export interface BodyCreateOrganizationV1 {
@@ -11263,101 +11282,18 @@ export declare class ProspectsApi extends BaseAPI {
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
 }
 /**
- * ResellerApi - axios parameter creator
- * @export
- */
-export declare const ResellerApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     * Get reseller customers
-     * @summary List Reseller Customers V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listResellerCustomersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
-};
-/**
- * ResellerApi - functional programming interface
- * @export
- */
-export declare const ResellerApiFp: (configuration?: Configuration) => {
-    /**
-     * Get reseller customers
-     * @summary List Reseller Customers V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
-};
-/**
- * ResellerApi - factory interface
- * @export
- */
-export declare const ResellerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Get reseller customers
-     * @summary List Reseller Customers V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
-};
-/**
- * ResellerApi - object-oriented interface
- * @export
- * @class ResellerApi
- * @extends {BaseAPI}
- */
-export declare class ResellerApi extends BaseAPI {
-    /**
-     * Get reseller customers
-     * @summary List Reseller Customers V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ResellerApi
-     */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
-}
-/**
  * ResellerCustomerApi - axios parameter creator
  * @export
  */
 export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer V1
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -11383,6 +11319,22 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      */
     getResellerCustomerByIdV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get reseller customers
+     * @summary List Reseller Customers V1
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerCustomersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
      * @param {string} customerOrgId
@@ -11397,6 +11349,14 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
  * @export
  */
 export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer V1
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -11422,6 +11382,22 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
     /**
+     * Get reseller customers
+     * @summary List Reseller Customers V1
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
+    /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
      * @param {string} customerOrgId
@@ -11436,6 +11412,14 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const ResellerCustomerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer V1
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -11461,6 +11445,22 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): AxiosPromise<OrgUsersPriceCredits>;
     /**
+     * Get reseller customers
+     * @summary List Reseller Customers V1
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
+    /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
      * @param {string} customerOrgId
@@ -11477,6 +11477,15 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
  * @extends {BaseAPI}
  */
 export declare class ResellerCustomerApi extends BaseAPI {
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer V1
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -11504,6 +11513,23 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @memberof ResellerCustomerApi
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
+    /**
+     * Get reseller customers
+     * @summary List Reseller Customers V1
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -12546,11 +12572,10 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
-     * @param {string} customerOrgId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    createStripeAccountLinkV1: (options?: any) => Promise<RequestArgs>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -12575,11 +12600,10 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
-     * @param {string} customerOrgId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createStripeAccountLinkV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -12604,11 +12628,10 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
-     * @param {string} customerOrgId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(customerOrgId: string, options?: any): AxiosPromise<string>;
+    createStripeAccountLinkV1(options?: any): AxiosPromise<string>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -12636,12 +12659,11 @@ export declare class ResellerPricingApi extends BaseAPI {
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
-     * @param {string} customerOrgId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    createStripeAccountLinkV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createStripeAccountLinkV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection

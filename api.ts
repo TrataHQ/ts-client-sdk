@@ -1264,6 +1264,25 @@ export interface BatchMetricsResponseInput {
 /**
  * 
  * @export
+ * @interface BodyCreateCustomerOrganizationV1
+ */
+export interface BodyCreateCustomerOrganizationV1 {
+    /**
+     * 
+     * @type {OrganizationInput}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    customer_org: OrganizationInput;
+    /**
+     * 
+     * @type {string}
+     * @memberof BodyCreateCustomerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ * 
+ * @export
  * @interface BodyCreateOrganizationV1
  */
 export interface BodyCreateOrganizationV1 {
@@ -15502,34 +15521,30 @@ export class ProspectsApi extends BaseAPI {
 
 
 /**
- * ResellerApi - axios parameter creator
+ * ResellerCustomerApi - axios parameter creator
  * @export
  */
-export const ResellerApiAxiosParamCreator = function (configuration?: Configuration) {
+export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get reseller customers
-         * @summary List Reseller Customers V1
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {string} [updatedAfter] 
-         * @param {string} [updatedBefore] 
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer V1
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listResellerCustomersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        createCustomerOrganizationV1: async (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bodyCreateCustomerOrganizationV1' is not null or undefined
+            if (bodyCreateCustomerOrganizationV1 === null || bodyCreateCustomerOrganizationV1 === undefined) {
+                throw new RequiredError('bodyCreateCustomerOrganizationV1','Required parameter bodyCreateCustomerOrganizationV1 was null or undefined when calling createCustomerOrganizationV1.');
+            }
             const localVarPath = `/v1/resellers/customers`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -15542,152 +15557,23 @@ export const ResellerApiAxiosParamCreator = function (configuration?: Configurat
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
             }
 
-            if (searchBy !== undefined) {
-                localVarQueryParameter['search_by'] = searchBy;
-            }
-
-            if (searchValue !== undefined) {
-                localVarQueryParameter['search_value'] = searchValue;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-
-            if (sortOrder !== undefined) {
-                localVarQueryParameter['sort_order'] = sortOrder;
-            }
-
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (updatedAfter !== undefined) {
-                localVarQueryParameter['updated_after'] = updatedAfter;
-            }
-
-            if (updatedBefore !== undefined) {
-                localVarQueryParameter['updated_before'] = updatedBefore;
-            }
-
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyCreateCustomerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateCustomerOrganizationV1 !== undefined ? bodyCreateCustomerOrganizationV1 : {}) : (bodyCreateCustomerOrganizationV1 || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         },
-    }
-};
-
-/**
- * ResellerApi - functional programming interface
- * @export
- */
-export const ResellerApiFp = function(configuration?: Configuration) {
-    return {
-        /**
-         * Get reseller customers
-         * @summary List Reseller Customers V1
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {string} [updatedAfter] 
-         * @param {string} [updatedBefore] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>> {
-            const localVarAxiosArgs = await ResellerApiAxiosParamCreator(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-    }
-};
-
-/**
- * ResellerApi - factory interface
- * @export
- */
-export const ResellerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    return {
-        /**
-         * Get reseller customers
-         * @summary List Reseller Customers V1
-         * @param {string} [searchBy] 
-         * @param {string} [searchValue] 
-         * @param {string} [status] 
-         * @param {string} [sortBy] 
-         * @param {SortOrder} [sortOrder] 
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {string} [updatedAfter] 
-         * @param {string} [updatedBefore] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>> {
-            return ResellerApiFp(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * ResellerApi - object-oriented interface
- * @export
- * @class ResellerApi
- * @extends {BaseAPI}
- */
-export class ResellerApi extends BaseAPI {
-    /**
-     * Get reseller customers
-     * @summary List Reseller Customers V1
-     * @param {string} [searchBy] 
-     * @param {string} [searchValue] 
-     * @param {string} [status] 
-     * @param {string} [sortBy] 
-     * @param {SortOrder} [sortOrder] 
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {string} [updatedAfter] 
-     * @param {string} [updatedBefore] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ResellerApi
-     */
-    public listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
-        return ResellerApiFp(this.configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
-    }
-
-}
-
-
-/**
- * ResellerCustomerApi - axios parameter creator
- * @export
- */
-export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
         /**
          * Delete a reseller\'s customer and all associated data
          * @summary Delete Customer V1
@@ -15824,6 +15710,90 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * Get reseller customers
+         * @summary List Reseller Customers V1
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerCustomersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/customers`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update a customer organization under a reseller organization
          * @summary Update Customer V1
          * @param {string} customerOrgId 
@@ -15887,6 +15857,20 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
 export const ResellerCustomerApiFp = function(configuration?: Configuration) {
     return {
         /**
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer V1
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerCustomerApiAxiosParamCreator(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Delete a reseller\'s customer and all associated data
          * @summary Delete Customer V1
          * @param {string} customerOrgId 
@@ -15929,6 +15913,28 @@ export const ResellerCustomerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get reseller customers
+         * @summary List Reseller Customers V1
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>> {
+            const localVarAxiosArgs = await ResellerCustomerApiAxiosParamCreator(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Update a customer organization under a reseller organization
          * @summary Update Customer V1
          * @param {string} customerOrgId 
@@ -15952,6 +15958,16 @@ export const ResellerCustomerApiFp = function(configuration?: Configuration) {
  */
 export const ResellerCustomerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
+        /**
+         * Creates a new customer organization under a reseller organization
+         * @summary Create Customer V1
+         * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerCustomerApiFp(configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
         /**
          * Delete a reseller\'s customer and all associated data
          * @summary Delete Customer V1
@@ -15983,6 +15999,24 @@ export const ResellerCustomerApiFactory = function (configuration?: Configuratio
             return ResellerCustomerApiFp(configuration).getResellerCustomerByIdV1(customerOrgId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get reseller customers
+         * @summary List Reseller Customers V1
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>> {
+            return ResellerCustomerApiFp(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a customer organization under a reseller organization
          * @summary Update Customer V1
          * @param {string} customerOrgId 
@@ -16003,6 +16037,18 @@ export const ResellerCustomerApiFactory = function (configuration?: Configuratio
  * @extends {BaseAPI}
  */
 export class ResellerCustomerApi extends BaseAPI {
+    /**
+     * Creates a new customer organization under a reseller organization
+     * @summary Create Customer V1
+     * @param {BodyCreateCustomerOrganizationV1} bodyCreateCustomerOrganizationV1 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    public createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any) {
+        return ResellerCustomerApiFp(this.configuration).createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -16037,6 +16083,26 @@ export class ResellerCustomerApi extends BaseAPI {
      */
     public getResellerCustomerByIdV1(customerOrgId: string, options?: any) {
         return ResellerCustomerApiFp(this.configuration).getResellerCustomerByIdV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get reseller customers
+     * @summary List Reseller Customers V1
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    public listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCustomerApiFp(this.configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18388,15 +18454,10 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
         /**
          * Creates a new account link URL for the reseller
          * @summary Create Stripe Account Link
-         * @param {string} customerOrgId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStripeAccountLinkV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'customerOrgId' is not null or undefined
-            if (customerOrgId === null || customerOrgId === undefined) {
-                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling createStripeAccountLinkV1.');
-            }
+        createStripeAccountLinkV1: async (options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/resellers/stripe-account`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18414,10 +18475,6 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (customerOrgId !== undefined) {
-                localVarQueryParameter['customer_org_id'] = customerOrgId;
             }
 
 
@@ -18498,12 +18555,11 @@ export const ResellerPricingApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new account link URL for the reseller
          * @summary Create Stripe Account Link
-         * @param {string} customerOrgId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStripeAccountLinkV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).createStripeAccountLinkV1(customerOrgId, options);
+        async createStripeAccountLinkV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).createStripeAccountLinkV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18544,12 +18600,11 @@ export const ResellerPricingApiFactory = function (configuration?: Configuration
         /**
          * Creates a new account link URL for the reseller
          * @summary Create Stripe Account Link
-         * @param {string} customerOrgId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStripeAccountLinkV1(customerOrgId: string, options?: any): AxiosPromise<string> {
-            return ResellerPricingApiFp(configuration).createStripeAccountLinkV1(customerOrgId, options).then((request) => request(axios, basePath));
+        createStripeAccountLinkV1(options?: any): AxiosPromise<string> {
+            return ResellerPricingApiFp(configuration).createStripeAccountLinkV1(options).then((request) => request(axios, basePath));
         },
         /**
          * Disconnect reseller stripe account connection
@@ -18585,13 +18640,12 @@ export class ResellerPricingApi extends BaseAPI {
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
-     * @param {string} customerOrgId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    public createStripeAccountLinkV1(customerOrgId: string, options?: any) {
-        return ResellerPricingApiFp(this.configuration).createStripeAccountLinkV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    public createStripeAccountLinkV1(options?: any) {
+        return ResellerPricingApiFp(this.configuration).createStripeAccountLinkV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
