@@ -242,9 +242,11 @@ var CreditTypeEnum;
 (function (CreditTypeEnum) {
     CreditTypeEnum["PhoneNumbers"] = "phone_numbers";
     CreditTypeEnum["CallSeconds"] = "call_seconds";
+    CreditTypeEnum["CallHours"] = "call_hours";
     CreditTypeEnum["Emails"] = "emails";
     CreditTypeEnum["LeadGeneration"] = "lead_generation";
     CreditTypeEnum["LinkedInScraping"] = "linked_in_scraping";
+    CreditTypeEnum["Courses"] = "courses";
 })(CreditTypeEnum = exports.CreditTypeEnum || (exports.CreditTypeEnum = {}));
 /**
  *
@@ -350,6 +352,7 @@ var MetricNameInput;
     MetricNameInput["PROSPECTS"] = "PROSPECTS";
     MetricNameInput["INTERESTED"] = "INTERESTED";
     MetricNameInput["NOTINTERESTED"] = "NOT_INTERESTED";
+    MetricNameInput["NEWCUSTOMERS"] = "NEW_CUSTOMERS";
 })(MetricNameInput = exports.MetricNameInput || (exports.MetricNameInput = {}));
 /**
  *
@@ -10243,6 +10246,48 @@ exports.ResellerMetricsApi = ResellerMetricsApi;
 exports.ResellerOrganizationApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1: (bodyCreateResellerOrganizationV1, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'bodyCreateResellerOrganizationV1' is not null or undefined
+            if (bodyCreateResellerOrganizationV1 === null || bodyCreateResellerOrganizationV1 === undefined) {
+                throw new base_1.RequiredError('bodyCreateResellerOrganizationV1', 'Required parameter bodyCreateResellerOrganizationV1 was null or undefined when calling createResellerOrganizationV1.');
+            }
+            const localVarPath = `/v1/resellers/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof bodyCreateResellerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyCreateResellerOrganizationV1 !== undefined ? bodyCreateResellerOrganizationV1 : {}) : (bodyCreateResellerOrganizationV1 || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -10361,6 +10406,22 @@ exports.ResellerOrganizationApiAxiosParamCreator = function (configuration) {
 exports.ResellerOrganizationApiFp = function (configuration) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ResellerOrganizationApiAxiosParamCreator(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -10415,6 +10476,16 @@ exports.ResellerOrganizationApiFp = function (configuration) {
 exports.ResellerOrganizationApiFactory = function (configuration, basePath, axios) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options) {
+            return exports.ResellerOrganizationApiFp(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -10451,6 +10522,17 @@ exports.ResellerOrganizationApiFactory = function (configuration, basePath, axio
  * @extends {BaseAPI}
  */
 class ResellerOrganizationApi extends base_1.BaseAPI {
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerOrganizationApi
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options) {
+        return exports.ResellerOrganizationApiFp(this.configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1

@@ -1302,6 +1302,25 @@ export interface BodyCreateOrganizationV1 {
 /**
  * 
  * @export
+ * @interface BodyCreateResellerOrganizationV1
+ */
+export interface BodyCreateResellerOrganizationV1 {
+    /**
+     * 
+     * @type {OrganizationInput}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     * 
+     * @type {string}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ * 
+ * @export
  * @interface BodyUploadFileV1
  */
 export interface BodyUploadFileV1 {
@@ -2426,25 +2445,6 @@ export interface Credit {
     durationEnd?: string;
 }
 /**
- * Credit quantity combo details for a price tier
- * @export
- * @interface CreditQuantityCombo
- */
-export interface CreditQuantityCombo {
-    /**
-     * Type of the credit
-     * @type {CreditTypeEnum}
-     * @memberof CreditQuantityCombo
-     */
-    creditType?: CreditTypeEnum;
-    /**
-     * Quantity of the credit
-     * @type {number}
-     * @memberof CreditQuantityCombo
-     */
-    creditQuantity?: number;
-}
-/**
  * Enum for the type of credit
  * @export
  * @enum {string}
@@ -2452,9 +2452,11 @@ export interface CreditQuantityCombo {
 export enum CreditTypeEnum {
     PhoneNumbers = 'phone_numbers',
     CallSeconds = 'call_seconds',
+    CallHours = 'call_hours',
     Emails = 'emails',
     LeadGeneration = 'lead_generation',
-    LinkedInScraping = 'linked_in_scraping'
+    LinkedInScraping = 'linked_in_scraping',
+    Courses = 'courses'
 }
 
 /**
@@ -3471,7 +3473,8 @@ export enum MetricNameInput {
     APPOINTMENTSCHEDULED = 'APPOINTMENT_SCHEDULED',
     PROSPECTS = 'PROSPECTS',
     INTERESTED = 'INTERESTED',
-    NOTINTERESTED = 'NOT_INTERESTED'
+    NOTINTERESTED = 'NOT_INTERESTED',
+    NEWCUSTOMERS = 'NEW_CUSTOMERS'
 }
 
 /**
@@ -4197,6 +4200,18 @@ export interface OrganizationInput {
      */
     externalReferenceIds?: Array<ExternalServicePorviderInput> | null;
     /**
+     * Billing email address of the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    billingEmailAddress?: string | null;
+    /**
+     * Website URL of the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    websiteUrl?: string | null;
+    /**
      * Configurations for all the agents going to be created in this org
      * @type {AgentConfig}
      * @memberof OrganizationInput
@@ -4251,6 +4266,24 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     tax: TaxDetailsOutput | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OrganizationOutput
+     */
+    isActiveSubscription?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    billingEmailAddress?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    websiteUrl?: string | null;
     /**
      * 
      * @type {Array<ExternalServicePorviderOutput>}
@@ -4774,10 +4807,10 @@ export interface Price {
     priceInterval?: PriceInterval | null;
     /**
      * List of price items included in this price tier
-     * @type {Array<PriceItemOutput>}
+     * @type {Array<PriceItem>}
      * @memberof Price
      */
-    priceItems?: Array<PriceItemOutput> | null;
+    priceItems?: Array<PriceItem> | null;
     /**
      * 
      * @type {string}
@@ -4818,76 +4851,39 @@ export enum PriceInterval {
 /**
  * Price item details for a price tier
  * @export
- * @interface PriceItemInput
+ * @interface PriceItem
  */
-export interface PriceItemInput {
+export interface PriceItem {
     /**
      * Name of the price item
      * @type {string}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     name?: string;
     /**
      * Description of the price item
      * @type {string}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     description?: string;
     /**
      * Quantity of the price item
      * @type {number}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     quantity?: number;
     /**
      * Price of the price item in the lowest currency unit (e.g. cents, paise)
      * @type {number}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
-    price?: number;
+    pricePerQuantity?: number;
     /**
-     * List of credits to be applicable for the given price item
-     * @type {Array<CreditQuantityCombo>}
-     * @memberof PriceItemInput
+     * Type of the credit
+     * @type {CreditTypeEnum}
+     * @memberof PriceItem
      */
-    creditQuantityCombo?: Array<CreditQuantityCombo>;
-}
-/**
- * Price item details for a price tier
- * @export
- * @interface PriceItemOutput
- */
-export interface PriceItemOutput {
-    /**
-     * Name of the price item
-     * @type {string}
-     * @memberof PriceItemOutput
-     */
-    name?: string;
-    /**
-     * Description of the price item
-     * @type {string}
-     * @memberof PriceItemOutput
-     */
-    description?: string;
-    /**
-     * Quantity of the price item
-     * @type {number}
-     * @memberof PriceItemOutput
-     */
-    quantity?: number;
-    /**
-     * Price of the price item in the lowest currency unit (e.g. cents, paise)
-     * @type {number}
-     * @memberof PriceItemOutput
-     */
-    price?: number;
-    /**
-     * List of credits to be applicable for the given price item
-     * @type {Array<CreditQuantityCombo>}
-     * @memberof PriceItemOutput
-     */
-    creditQuantityCombo?: Array<CreditQuantityCombo>;
+    creditType?: CreditTypeEnum;
 }
 /**
  * 
@@ -4908,12 +4904,6 @@ export interface PricingRequest {
      */
     description: string;
     /**
-     * Price in the lowest denomination of the currency
-     * @type {number}
-     * @memberof PricingRequest
-     */
-    price?: number;
-    /**
      * Currency
      * @type {string}
      * @memberof PricingRequest
@@ -4927,10 +4917,10 @@ export interface PricingRequest {
     priceInterval: PriceInterval;
     /**
      * List of price items included in this price tier
-     * @type {Array<PriceItemInput>}
+     * @type {Array<PriceItem>}
      * @memberof PricingRequest
      */
-    priceItems?: Array<PriceItemInput> | null;
+    priceItems?: Array<PriceItem> | null;
 }
 /**
  * 
@@ -6825,6 +6815,18 @@ export interface UpdateResellerOrganizationRequest {
      * @memberof UpdateResellerOrganizationRequest
      */
     tax?: TaxDetailsInput | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    billingEmailAddress?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    websiteUrl?: string | null;
 }
 /**
  * 
@@ -18142,6 +18144,54 @@ export class ResellerMetricsApi extends BaseAPI {
 export const ResellerOrganizationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1: async (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bodyCreateResellerOrganizationV1' is not null or undefined
+            if (bodyCreateResellerOrganizationV1 === null || bodyCreateResellerOrganizationV1 === undefined) {
+                throw new RequiredError('bodyCreateResellerOrganizationV1','Required parameter bodyCreateResellerOrganizationV1 was null or undefined when calling createResellerOrganizationV1.');
+            }
+            const localVarPath = `/v1/resellers/organizations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyCreateResellerOrganizationV1 !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyCreateResellerOrganizationV1 !== undefined ? bodyCreateResellerOrganizationV1 : {}) : (bodyCreateResellerOrganizationV1 || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -18277,6 +18327,20 @@ export const ResellerOrganizationApiAxiosParamCreator = function (configuration?
 export const ResellerOrganizationApiFp = function(configuration?: Configuration) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await ResellerOrganizationApiAxiosParamCreator(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -18326,6 +18390,16 @@ export const ResellerOrganizationApiFp = function(configuration?: Configuration)
 export const ResellerOrganizationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
+         * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+         * @summary Create Reseller Organization V1
+         * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User> {
+            return ResellerOrganizationApiFp(configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a reseller organization
          * @summary Delete Reseller Organization V1
          * @param {*} [options] Override http request option.
@@ -18363,6 +18437,18 @@ export const ResellerOrganizationApiFactory = function (configuration?: Configur
  * @extends {BaseAPI}
  */
 export class ResellerOrganizationApi extends BaseAPI {
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerOrganizationApi
+     */
+    public createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) {
+        return ResellerOrganizationApiFp(this.configuration).createResellerOrganizationV1(bodyCreateResellerOrganizationV1, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1

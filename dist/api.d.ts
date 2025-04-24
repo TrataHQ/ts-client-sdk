@@ -1277,6 +1277,25 @@ export interface BodyCreateOrganizationV1 {
 /**
  *
  * @export
+ * @interface BodyCreateResellerOrganizationV1
+ */
+export interface BodyCreateResellerOrganizationV1 {
+    /**
+     *
+     * @type {OrganizationInput}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    org: OrganizationInput;
+    /**
+     *
+     * @type {string}
+     * @memberof BodyCreateResellerOrganizationV1
+     */
+    adminUserName: string;
+}
+/**
+ *
+ * @export
  * @interface BodyUploadFileV1
  */
 export interface BodyUploadFileV1 {
@@ -2393,25 +2412,6 @@ export interface Credit {
     durationEnd?: string;
 }
 /**
- * Credit quantity combo details for a price tier
- * @export
- * @interface CreditQuantityCombo
- */
-export interface CreditQuantityCombo {
-    /**
-     * Type of the credit
-     * @type {CreditTypeEnum}
-     * @memberof CreditQuantityCombo
-     */
-    creditType?: CreditTypeEnum;
-    /**
-     * Quantity of the credit
-     * @type {number}
-     * @memberof CreditQuantityCombo
-     */
-    creditQuantity?: number;
-}
-/**
  * Enum for the type of credit
  * @export
  * @enum {string}
@@ -2419,9 +2419,11 @@ export interface CreditQuantityCombo {
 export declare enum CreditTypeEnum {
     PhoneNumbers = "phone_numbers",
     CallSeconds = "call_seconds",
+    CallHours = "call_hours",
     Emails = "emails",
     LeadGeneration = "lead_generation",
-    LinkedInScraping = "linked_in_scraping"
+    LinkedInScraping = "linked_in_scraping",
+    Courses = "courses"
 }
 /**
  *
@@ -3427,7 +3429,8 @@ export declare enum MetricNameInput {
     APPOINTMENTSCHEDULED = "APPOINTMENT_SCHEDULED",
     PROSPECTS = "PROSPECTS",
     INTERESTED = "INTERESTED",
-    NOTINTERESTED = "NOT_INTERESTED"
+    NOTINTERESTED = "NOT_INTERESTED",
+    NEWCUSTOMERS = "NEW_CUSTOMERS"
 }
 /**
  *
@@ -4141,6 +4144,18 @@ export interface OrganizationInput {
      */
     externalReferenceIds?: Array<ExternalServicePorviderInput> | null;
     /**
+     * Billing email address of the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    billingEmailAddress?: string | null;
+    /**
+     * Website URL of the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    websiteUrl?: string | null;
+    /**
      * Configurations for all the agents going to be created in this org
      * @type {AgentConfig}
      * @memberof OrganizationInput
@@ -4195,6 +4210,24 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     tax: TaxDetailsOutput | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof OrganizationOutput
+     */
+    isActiveSubscription?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    billingEmailAddress?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    websiteUrl?: string | null;
     /**
      *
      * @type {Array<ExternalServicePorviderOutput>}
@@ -4717,10 +4750,10 @@ export interface Price {
     priceInterval?: PriceInterval | null;
     /**
      * List of price items included in this price tier
-     * @type {Array<PriceItemOutput>}
+     * @type {Array<PriceItem>}
      * @memberof Price
      */
-    priceItems?: Array<PriceItemOutput> | null;
+    priceItems?: Array<PriceItem> | null;
     /**
      *
      * @type {string}
@@ -4760,76 +4793,39 @@ export declare enum PriceInterval {
 /**
  * Price item details for a price tier
  * @export
- * @interface PriceItemInput
+ * @interface PriceItem
  */
-export interface PriceItemInput {
+export interface PriceItem {
     /**
      * Name of the price item
      * @type {string}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     name?: string;
     /**
      * Description of the price item
      * @type {string}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     description?: string;
     /**
      * Quantity of the price item
      * @type {number}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
     quantity?: number;
     /**
      * Price of the price item in the lowest currency unit (e.g. cents, paise)
      * @type {number}
-     * @memberof PriceItemInput
+     * @memberof PriceItem
      */
-    price?: number;
+    pricePerQuantity?: number;
     /**
-     * List of credits to be applicable for the given price item
-     * @type {Array<CreditQuantityCombo>}
-     * @memberof PriceItemInput
+     * Type of the credit
+     * @type {CreditTypeEnum}
+     * @memberof PriceItem
      */
-    creditQuantityCombo?: Array<CreditQuantityCombo>;
-}
-/**
- * Price item details for a price tier
- * @export
- * @interface PriceItemOutput
- */
-export interface PriceItemOutput {
-    /**
-     * Name of the price item
-     * @type {string}
-     * @memberof PriceItemOutput
-     */
-    name?: string;
-    /**
-     * Description of the price item
-     * @type {string}
-     * @memberof PriceItemOutput
-     */
-    description?: string;
-    /**
-     * Quantity of the price item
-     * @type {number}
-     * @memberof PriceItemOutput
-     */
-    quantity?: number;
-    /**
-     * Price of the price item in the lowest currency unit (e.g. cents, paise)
-     * @type {number}
-     * @memberof PriceItemOutput
-     */
-    price?: number;
-    /**
-     * List of credits to be applicable for the given price item
-     * @type {Array<CreditQuantityCombo>}
-     * @memberof PriceItemOutput
-     */
-    creditQuantityCombo?: Array<CreditQuantityCombo>;
+    creditType?: CreditTypeEnum;
 }
 /**
  *
@@ -4850,12 +4846,6 @@ export interface PricingRequest {
      */
     description: string;
     /**
-     * Price in the lowest denomination of the currency
-     * @type {number}
-     * @memberof PricingRequest
-     */
-    price?: number;
-    /**
      * Currency
      * @type {string}
      * @memberof PricingRequest
@@ -4869,10 +4859,10 @@ export interface PricingRequest {
     priceInterval: PriceInterval;
     /**
      * List of price items included in this price tier
-     * @type {Array<PriceItemInput>}
+     * @type {Array<PriceItem>}
      * @memberof PricingRequest
      */
-    priceItems?: Array<PriceItemInput> | null;
+    priceItems?: Array<PriceItem> | null;
 }
 /**
  *
@@ -6743,6 +6733,18 @@ export interface UpdateResellerOrganizationRequest {
      * @memberof UpdateResellerOrganizationRequest
      */
     tax?: TaxDetailsInput | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    billingEmailAddress?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UpdateResellerOrganizationRequest
+     */
+    websiteUrl?: string | null;
 }
 /**
  *
@@ -12445,6 +12447,14 @@ export declare class ResellerMetricsApi extends BaseAPI {
  */
 export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
@@ -12473,6 +12483,14 @@ export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: 
  */
 export declare const ResellerOrganizationApiFp: (configuration?: Configuration) => {
     /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
@@ -12500,6 +12518,14 @@ export declare const ResellerOrganizationApiFp: (configuration?: Configuration) 
  * @export
  */
 export declare const ResellerOrganizationApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
@@ -12530,6 +12556,15 @@ export declare const ResellerOrganizationApiFactory: (configuration?: Configurat
  * @extends {BaseAPI}
  */
 export declare class ResellerOrganizationApi extends BaseAPI {
+    /**
+     * Creates a new reseller organization and adds the created user as the \'ADMIN\' user for the org
+     * @summary Create Reseller Organization V1
+     * @param {BodyCreateResellerOrganizationV1} bodyCreateResellerOrganizationV1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerOrganizationApi
+     */
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
