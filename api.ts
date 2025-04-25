@@ -1238,6 +1238,25 @@ export enum BasicAuthCredentialsCredentialsTypeEnum {
 /**
  * 
  * @export
+ * @interface BasicCredentials
+ */
+export interface BasicCredentials {
+    /**
+     * Email of the user
+     * @type {string}
+     * @memberof BasicCredentials
+     */
+    email: string;
+    /**
+     * Password of the user
+     * @type {string}
+     * @memberof BasicCredentials
+     */
+    password: string;
+}
+/**
+ * 
+ * @export
  * @interface BatchMetricsRequestsInput
  */
 export interface BatchMetricsRequestsInput {
@@ -2454,7 +2473,6 @@ export enum CreditTypeEnum {
     CallSeconds = 'call_seconds',
     CallHours = 'call_hours',
     Emails = 'emails',
-    LeadGeneration = 'lead_generation',
     LinkedInScraping = 'linked_in_scraping',
     Courses = 'courses'
 }
@@ -5509,6 +5527,7 @@ export interface ResellerBatchMetricsRequests {
 export enum Role {
     ADMIN = 'ADMIN',
     READONLY = 'READ_ONLY',
+    OWNER = 'OWNER',
     RESELLERADMIN = 'RESELLER_ADMIN'
 }
 
@@ -15622,6 +15641,51 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * Get the basic credentials of a customer organization under a reseller organization.
+         * @summary Get Customer Basic Credentials V1
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerBasicCredentialsV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getCustomerBasicCredentialsV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/basic_credentials`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
          * @summary Get Customer Credentials V1
          * @param {string} customerOrgId 
@@ -15887,6 +15951,20 @@ export const ResellerCustomerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get the basic credentials of a customer organization under a reseller organization.
+         * @summary Get Customer Basic Credentials V1
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>> {
+            const localVarAxiosArgs = await ResellerCustomerApiAxiosParamCreator(configuration).getCustomerBasicCredentialsV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
          * @summary Get Customer Credentials V1
          * @param {string} customerOrgId 
@@ -15981,6 +16059,16 @@ export const ResellerCustomerApiFactory = function (configuration?: Configuratio
             return ResellerCustomerApiFp(configuration).deleteResellerCustomerV1(customerOrgId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get the basic credentials of a customer organization under a reseller organization.
+         * @summary Get Customer Basic Credentials V1
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<BasicCredentials> {
+            return ResellerCustomerApiFp(configuration).getCustomerBasicCredentialsV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
          * @summary Get Customer Credentials V1
          * @param {string} customerOrgId 
@@ -16061,6 +16149,18 @@ export class ResellerCustomerApi extends BaseAPI {
      */
     public deleteResellerCustomerV1(customerOrgId: string, options?: any) {
         return ResellerCustomerApiFp(this.configuration).deleteResellerCustomerV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the basic credentials of a customer organization under a reseller organization.
+     * @summary Get Customer Basic Credentials V1
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    public getCustomerBasicCredentialsV1(customerOrgId: string, options?: any) {
+        return ResellerCustomerApiFp(this.configuration).getCustomerBasicCredentialsV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -16263,7 +16363,7 @@ export const ResellerCustomerDefaultPricingApiAxiosParamCreator = function (conf
          * @throws {RequiredError}
          */
         getCustomerDefaultPricingV1: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/resellers/customers/pricing`;
+            const localVarPath = `/v1/resellers/customers/pricing/default`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16312,7 +16412,7 @@ export const ResellerCustomerDefaultPricingApiAxiosParamCreator = function (conf
             if (pricingRequest === null || pricingRequest === undefined) {
                 throw new RequiredError('pricingRequest','Required parameter pricingRequest was null or undefined when calling updateCustomerDefaultPricingV1.');
             }
-            const localVarPath = `/v1/resellers/customers/pricing/{price_id}`
+            const localVarPath = `/v1/resellers/customers/pricing/default/{price_id}`
                 .replace(`{${"price_id"}}`, encodeURIComponent(String(priceId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;

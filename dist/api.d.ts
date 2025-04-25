@@ -1213,6 +1213,25 @@ export declare enum BasicAuthCredentialsCredentialsTypeEnum {
 /**
  *
  * @export
+ * @interface BasicCredentials
+ */
+export interface BasicCredentials {
+    /**
+     * Email of the user
+     * @type {string}
+     * @memberof BasicCredentials
+     */
+    email: string;
+    /**
+     * Password of the user
+     * @type {string}
+     * @memberof BasicCredentials
+     */
+    password: string;
+}
+/**
+ *
+ * @export
  * @interface BatchMetricsRequestsInput
  */
 export interface BatchMetricsRequestsInput {
@@ -2421,7 +2440,6 @@ export declare enum CreditTypeEnum {
     CallSeconds = "call_seconds",
     CallHours = "call_hours",
     Emails = "emails",
-    LeadGeneration = "lead_generation",
     LinkedInScraping = "linked_in_scraping",
     Courses = "courses"
 }
@@ -5448,6 +5466,7 @@ export interface ResellerBatchMetricsRequests {
 export declare enum Role {
     ADMIN = "ADMIN",
     READONLY = "READ_ONLY",
+    OWNER = "OWNER",
     RESELLERADMIN = "RESELLER_ADMIN"
 }
 /**
@@ -11305,6 +11324,14 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      */
     deleteResellerCustomerV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get the basic credentials of a customer organization under a reseller organization.
+     * @summary Get Customer Basic Credentials V1
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerBasicCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
      * @param {string} customerOrgId
@@ -11368,6 +11395,14 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      */
     deleteResellerCustomerV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
+     * Get the basic credentials of a customer organization under a reseller organization.
+     * @summary Get Customer Basic Credentials V1
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>>;
+    /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
      * @param {string} customerOrgId
@@ -11430,6 +11465,14 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @throws {RequiredError}
      */
     deleteResellerCustomerV1(customerOrgId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    /**
+     * Get the basic credentials of a customer organization under a reseller organization.
+     * @summary Get Customer Basic Credentials V1
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<BasicCredentials>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -11497,6 +11540,15 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @memberof ResellerCustomerApi
      */
     deleteResellerCustomerV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
+     * Get the basic credentials of a customer organization under a reseller organization.
+     * @summary Get Customer Basic Credentials V1
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerApi
+     */
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<BasicCredentials>>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
