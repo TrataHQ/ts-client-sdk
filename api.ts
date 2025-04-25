@@ -18595,17 +18595,21 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
         /**
          * Adds a new account link to the customer organization
          * @summary Add Stripe Account Link To Customer Org
-         * @param {string} stripeAccountId 
+         * @param {string} code 
+         * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1: async (stripeAccountId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'stripeAccountId' is not null or undefined
-            if (stripeAccountId === null || stripeAccountId === undefined) {
-                throw new RequiredError('stripeAccountId','Required parameter stripeAccountId was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+        addStripeAccountLinkToCustomerOrgV1: async (code: string, state: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'code' is not null or undefined
+            if (code === null || code === undefined) {
+                throw new RequiredError('code','Required parameter code was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
             }
-            const localVarPath = `/v1/resellers/stripe-account/{stripe_account_id}/link`
-                .replace(`{${"stripe_account_id"}}`, encodeURIComponent(String(stripeAccountId)));
+            // verify required parameter 'state' is not null or undefined
+            if (state === null || state === undefined) {
+                throw new RequiredError('state','Required parameter state was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+            }
+            const localVarPath = `/v1/resellers/stripe-account/link`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -18622,6 +18626,14 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (code !== undefined) {
+                localVarQueryParameter['code'] = code;
+            }
+
+            if (state !== undefined) {
+                localVarQueryParameter['state'] = state;
             }
 
 
@@ -18644,13 +18656,13 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
          * @throws {RequiredError}
          */
         createStripeAccountLinkV1: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/resellers/stripe-account`;
+            const localVarPath = `/v1/resellers/stripe-account/connect-link`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -18727,12 +18739,13 @@ export const ResellerPricingApiFp = function(configuration?: Configuration) {
         /**
          * Adds a new account link to the customer organization
          * @summary Add Stripe Account Link To Customer Org
-         * @param {string} stripeAccountId 
+         * @param {string} code 
+         * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToCustomerOrgV1(stripeAccountId, options);
+        async addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18776,12 +18789,13 @@ export const ResellerPricingApiFactory = function (configuration?: Configuration
         /**
          * Adds a new account link to the customer organization
          * @summary Add Stripe Account Link To Customer Org
-         * @param {string} stripeAccountId 
+         * @param {string} code 
+         * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any): AxiosPromise<BaseResponseInput> {
-            return ResellerPricingApiFp(configuration).addStripeAccountLinkToCustomerOrgV1(stripeAccountId, options).then((request) => request(axios, basePath));
+        addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerPricingApiFp(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new account link URL for the reseller
@@ -18814,13 +18828,14 @@ export class ResellerPricingApi extends BaseAPI {
     /**
      * Adds a new account link to the customer organization
      * @summary Add Stripe Account Link To Customer Org
-     * @param {string} stripeAccountId 
+     * @param {string} code 
+     * @param {string} state 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    public addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any) {
-        return ResellerPricingApiFp(this.configuration).addStripeAccountLinkToCustomerOrgV1(stripeAccountId, options).then((request) => request(this.axios, this.basePath));
+    public addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any) {
+        return ResellerPricingApiFp(this.configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

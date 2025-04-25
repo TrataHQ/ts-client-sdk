@@ -12651,11 +12651,12 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
     /**
      * Adds a new account link to the customer organization
      * @summary Add Stripe Account Link To Customer Org
-     * @param {string} stripeAccountId
+     * @param {string} code
+     * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1: (stripeAccountId: string, options?: any) => Promise<RequestArgs>;
+    addStripeAccountLinkToCustomerOrgV1: (code: string, state: string, options?: any) => Promise<RequestArgs>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12679,11 +12680,12 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
     /**
      * Adds a new account link to the customer organization
      * @summary Add Stripe Account Link To Customer Org
-     * @param {string} stripeAccountId
+     * @param {string} code
+     * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12707,11 +12709,12 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
     /**
      * Adds a new account link to the customer organization
      * @summary Add Stripe Account Link To Customer Org
-     * @param {string} stripeAccountId
+     * @param {string} code
+     * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12737,12 +12740,13 @@ export declare class ResellerPricingApi extends BaseAPI {
     /**
      * Adds a new account link to the customer organization
      * @summary Add Stripe Account Link To Customer Org
-     * @param {string} stripeAccountId
+     * @param {string} code
+     * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    addStripeAccountLinkToCustomerOrgV1(stripeAccountId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
