@@ -2594,50 +2594,50 @@ export interface ExternalReference {
 /**
  *
  * @export
- * @interface ExternalServicePorviderInput
+ * @interface ExternalServiceProviderInput
  */
-export interface ExternalServicePorviderInput {
+export interface ExternalServiceProviderInput {
     /**
      * External service provider name
      * @type {string}
-     * @memberof ExternalServicePorviderInput
+     * @memberof ExternalServiceProviderInput
      */
     providerName: string;
     /**
      * External service identifier
      * @type {string}
-     * @memberof ExternalServicePorviderInput
+     * @memberof ExternalServiceProviderInput
      */
     id: string;
     /**
      * Props for the external service provider
      * @type {object}
-     * @memberof ExternalServicePorviderInput
+     * @memberof ExternalServiceProviderInput
      */
     providerProps: object | null;
 }
 /**
  *
  * @export
- * @interface ExternalServicePorviderOutput
+ * @interface ExternalServiceProviderOutput
  */
-export interface ExternalServicePorviderOutput {
+export interface ExternalServiceProviderOutput {
     /**
      *
      * @type {string}
-     * @memberof ExternalServicePorviderOutput
+     * @memberof ExternalServiceProviderOutput
      */
     providerName: string;
     /**
      *
      * @type {string}
-     * @memberof ExternalServicePorviderOutput
+     * @memberof ExternalServiceProviderOutput
      */
     id: string;
     /**
      *
      * @type {object}
-     * @memberof ExternalServicePorviderOutput
+     * @memberof ExternalServiceProviderOutput
      */
     providerProps: object | null;
 }
@@ -4157,10 +4157,10 @@ export interface OrganizationInput {
     tax?: TaxDetailsInput | null;
     /**
      * External references for the organization
-     * @type {Array<ExternalServicePorviderInput>}
+     * @type {Array<ExternalServiceProviderInput>}
      * @memberof OrganizationInput
      */
-    externalReferenceIds?: Array<ExternalServicePorviderInput> | null;
+    externalReferenceIds?: Array<ExternalServiceProviderInput> | null;
     /**
      * Billing email address of the organization
      * @type {string}
@@ -4248,10 +4248,10 @@ export interface OrganizationOutput {
     websiteUrl?: string | null;
     /**
      *
-     * @type {Array<ExternalServicePorviderOutput>}
+     * @type {Array<ExternalServiceProviderOutput>}
      * @memberof OrganizationOutput
      */
-    externalReferenceIds: Array<ExternalServicePorviderOutput> | null;
+    externalReferenceIds: Array<ExternalServiceProviderOutput> | null;
     /**
      *
      * @type {OrganizationInitializationStatus}
