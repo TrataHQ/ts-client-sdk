@@ -5522,6 +5522,19 @@ export interface ResellerBatchMetricsRequests {
 /**
  * 
  * @export
+ * @interface ResellerPaymentAccountDetails
+ */
+export interface ResellerPaymentAccountDetails {
+    /**
+     * Business name of the reseller
+     * @type {string}
+     * @memberof ResellerPaymentAccountDetails
+     */
+    businessName: string | null;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum Role {
@@ -18689,6 +18702,45 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Get stripe account details
+         * @summary Get Stripe Account Details
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStripeAccountDetailsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/stripe-account`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Disconnect reseller stripe account connection
          * @summary Revoke Stripe Connection
          * @param {*} [options] Override http request option.
@@ -18765,6 +18817,19 @@ export const ResellerPricingApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get stripe account details
+         * @summary Get Stripe Account Details
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStripeAccountDetailsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>> {
+            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).getStripeAccountDetailsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Disconnect reseller stripe account connection
          * @summary Revoke Stripe Connection
          * @param {*} [options] Override http request option.
@@ -18807,6 +18872,15 @@ export const ResellerPricingApiFactory = function (configuration?: Configuration
             return ResellerPricingApiFp(configuration).createStripeAccountLinkV1(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get stripe account details
+         * @summary Get Stripe Account Details
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStripeAccountDetailsV1(options?: any): AxiosPromise<ResellerPaymentAccountDetails> {
+            return ResellerPricingApiFp(configuration).getStripeAccountDetailsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Disconnect reseller stripe account connection
          * @summary Revoke Stripe Connection
          * @param {*} [options] Override http request option.
@@ -18847,6 +18921,17 @@ export class ResellerPricingApi extends BaseAPI {
      */
     public createStripeAccountLinkV1(options?: any) {
         return ResellerPricingApiFp(this.configuration).createStripeAccountLinkV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get stripe account details
+     * @summary Get Stripe Account Details
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerPricingApi
+     */
+    public getStripeAccountDetailsV1(options?: any) {
+        return ResellerPricingApiFp(this.configuration).getStripeAccountDetailsV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

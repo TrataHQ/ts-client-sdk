@@ -5461,6 +5461,19 @@ export interface ResellerBatchMetricsRequests {
 /**
  *
  * @export
+ * @interface ResellerPaymentAccountDetails
+ */
+export interface ResellerPaymentAccountDetails {
+    /**
+     * Business name of the reseller
+     * @type {string}
+     * @memberof ResellerPaymentAccountDetails
+     */
+    businessName: string | null;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum Role {
@@ -12665,6 +12678,13 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
      */
     createStripeAccountLinkV1: (options?: any) => Promise<RequestArgs>;
     /**
+     * Get stripe account details
+     * @summary Get Stripe Account Details
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStripeAccountDetailsV1: (options?: any) => Promise<RequestArgs>;
+    /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
@@ -12694,6 +12714,13 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
      */
     createStripeAccountLinkV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
+     * Get stripe account details
+     * @summary Get Stripe Account Details
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStripeAccountDetailsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>>;
+    /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
@@ -12722,6 +12749,13 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
      * @throws {RequiredError}
      */
     createStripeAccountLinkV1(options?: any): AxiosPromise<string>;
+    /**
+     * Get stripe account details
+     * @summary Get Stripe Account Details
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStripeAccountDetailsV1(options?: any): AxiosPromise<ResellerPaymentAccountDetails>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -12755,6 +12789,14 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @memberof ResellerPricingApi
      */
     createStripeAccountLinkV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    /**
+     * Get stripe account details
+     * @summary Get Stripe Account Details
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerPricingApi
+     */
+    getStripeAccountDetailsV1(options?: any): Promise<import("axios").AxiosResponse<ResellerPaymentAccountDetails>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
