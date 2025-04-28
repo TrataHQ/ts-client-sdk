@@ -2441,7 +2441,11 @@ export declare enum CreditTypeEnum {
     CallHours = "call_hours",
     Emails = "emails",
     LinkedInScraping = "linked_in_scraping",
-    Courses = "courses"
+    Courses = "courses",
+    RecordingAndTranscription = "recording_and_transcription",
+    Users = "users",
+    AdvancedIntelligence = "advanced_intelligence",
+    RolePlayCustomization = "role_play_customization"
 }
 /**
  *
@@ -3445,6 +3449,27 @@ export declare enum MetricNameInput {
     SPARRCALLS = "SPARR_CALLS",
     SPARRCALLDURATION = "SPARR_CALL_DURATION",
     APPOINTMENTSCHEDULED = "APPOINTMENT_SCHEDULED",
+    CREDITSCONSUMED = "CREDITS_CONSUMED",
+    CREDITSCONSUMEDPHONENUMBERS = "CREDITS_CONSUMED_PHONE_NUMBERS",
+    CREDITSCONSUMEDCALLSECONDS = "CREDITS_CONSUMED_CALL_SECONDS",
+    CREDITSCONSUMEDEMAILS = "CREDITS_CONSUMED_EMAILS",
+    CREDITSCONSUMEDLEADGENERATION = "CREDITS_CONSUMED_LEAD_GENERATION",
+    CREDITSCONSUMEDLINKEDINSCRAPING = "CREDITS_CONSUMED_LINKED_IN_SCRAPING",
+    CREDITSCONSUMEDCOURSES = "CREDITS_CONSUMED_COURSES",
+    CREDITSTOTAL = "CREDITS_TOTAL",
+    CREDITSTOTALPHONENUMBERS = "CREDITS_TOTAL_PHONE_NUMBERS",
+    CREDITSTOTALCALLSECONDS = "CREDITS_TOTAL_CALL_SECONDS",
+    CREDITSTOTALEMAILS = "CREDITS_TOTAL_EMAILS",
+    CREDITSTOTALLEADGENERATION = "CREDITS_TOTAL_LEAD_GENERATION",
+    CREDITSTOTALLINKEDINSCRAPING = "CREDITS_TOTAL_LINKED_IN_SCRAPING",
+    CREDITSTOTALCOURSES = "CREDITS_TOTAL_COURSES",
+    CREDITBURNRATE = "CREDIT_BURN_RATE",
+    CREDITBURNRATEPHONENUMBERS = "CREDIT_BURN_RATE_PHONE_NUMBERS",
+    CREDITBURNRATECALLSECONDS = "CREDIT_BURN_RATE_CALL_SECONDS",
+    CREDITBURNRATEEMAILS = "CREDIT_BURN_RATE_EMAILS",
+    CREDITBURNRATELEADGENERATION = "CREDIT_BURN_RATE_LEAD_GENERATION",
+    CREDITBURNRATELINKEDINSCRAPING = "CREDIT_BURN_RATE_LINKED_IN_SCRAPING",
+    CREDITBURNRATECOURSES = "CREDIT_BURN_RATE_COURSES",
     PROSPECTS = "PROSPECTS",
     INTERESTED = "INTERESTED",
     NOTINTERESTED = "NOT_INTERESTED",
@@ -3453,19 +3478,19 @@ export declare enum MetricNameInput {
 /**
  *
  * @export
- * @interface MetricResponseDataPoint
+ * @interface MetricResponseDataPointInput
  */
-export interface MetricResponseDataPoint {
+export interface MetricResponseDataPointInput {
     /**
      * Timestamp of the data point
      * @type {string}
-     * @memberof MetricResponseDataPoint
+     * @memberof MetricResponseDataPointInput
      */
     timestamp: string;
     /**
      * Value which will be a string representation of integer or floating number
      * @type {string}
-     * @memberof MetricResponseDataPoint
+     * @memberof MetricResponseDataPointInput
      */
     value: string;
 }
@@ -3532,10 +3557,10 @@ export interface MetricsResponseInput {
     name: MetricNameInput;
     /**
      * List of data points for the metric response
-     * @type {Array<MetricResponseDataPoint>}
+     * @type {Array<MetricResponseDataPointInput>}
      * @memberof MetricsResponseInput
      */
-    datapoints: Array<MetricResponseDataPoint>;
+    datapoints: Array<MetricResponseDataPointInput>;
 }
 /**
  *
@@ -4831,13 +4856,13 @@ export interface PriceItem {
      * @type {number}
      * @memberof PriceItem
      */
-    quantity?: number;
+    quantity?: number | null;
     /**
      * Price of the price item in the lowest currency unit (e.g. cents, paise)
      * @type {number}
      * @memberof PriceItem
      */
-    pricePerQuantity?: number;
+    pricePerQuantity?: number | null;
     /**
      * Type of the credit
      * @type {CreditTypeEnum}
@@ -6048,6 +6073,31 @@ export declare enum SparrModelsAnalyticsMetricName {
 /**
  *
  * @export
+ * @interface SparrModelsAnalyticsMetricResponseDataPoint
+ */
+export interface SparrModelsAnalyticsMetricResponseDataPoint {
+    /**
+     * Timestamp of the data point
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    timestamp: string;
+    /**
+     * Value which will be a string representation of integer or floating number
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    value: string;
+    /**
+     * Optional weight value for the data point
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    weight?: string | null;
+}
+/**
+ *
+ * @export
  * @interface SparrModelsAnalyticsMetricsRequest
  */
 export interface SparrModelsAnalyticsMetricsRequest {
@@ -6108,10 +6158,10 @@ export interface SparrModelsAnalyticsMetricsResponse {
     name: SparrModelsAnalyticsMetricName;
     /**
      * List of data points for the metric response
-     * @type {Array<MetricResponseDataPoint>}
+     * @type {Array<SparrModelsAnalyticsMetricResponseDataPoint>}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
-    datapoints: Array<MetricResponseDataPoint>;
+    datapoints: Array<SparrModelsAnalyticsMetricResponseDataPoint>;
 }
 /**
  *
@@ -12662,14 +12712,14 @@ export declare class ResellerOrganizationApi extends BaseAPI {
  */
 export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code
      * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1: (code: string, state: string, options?: any) => Promise<RequestArgs>;
+    addStripeAccountLinkToResellerOrgV1: (code: string, state: string, options?: any) => Promise<RequestArgs>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12698,14 +12748,14 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
  */
 export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code
      * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12734,14 +12784,14 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
  */
 export declare const ResellerPricingApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code
      * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -12772,15 +12822,15 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
  */
 export declare class ResellerPricingApi extends BaseAPI {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code
      * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link

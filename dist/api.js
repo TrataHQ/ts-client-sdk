@@ -246,6 +246,10 @@ var CreditTypeEnum;
     CreditTypeEnum["Emails"] = "emails";
     CreditTypeEnum["LinkedInScraping"] = "linked_in_scraping";
     CreditTypeEnum["Courses"] = "courses";
+    CreditTypeEnum["RecordingAndTranscription"] = "recording_and_transcription";
+    CreditTypeEnum["Users"] = "users";
+    CreditTypeEnum["AdvancedIntelligence"] = "advanced_intelligence";
+    CreditTypeEnum["RolePlayCustomization"] = "role_play_customization";
 })(CreditTypeEnum = exports.CreditTypeEnum || (exports.CreditTypeEnum = {}));
 /**
  *
@@ -348,6 +352,27 @@ var MetricNameInput;
     MetricNameInput["SPARRCALLS"] = "SPARR_CALLS";
     MetricNameInput["SPARRCALLDURATION"] = "SPARR_CALL_DURATION";
     MetricNameInput["APPOINTMENTSCHEDULED"] = "APPOINTMENT_SCHEDULED";
+    MetricNameInput["CREDITSCONSUMED"] = "CREDITS_CONSUMED";
+    MetricNameInput["CREDITSCONSUMEDPHONENUMBERS"] = "CREDITS_CONSUMED_PHONE_NUMBERS";
+    MetricNameInput["CREDITSCONSUMEDCALLSECONDS"] = "CREDITS_CONSUMED_CALL_SECONDS";
+    MetricNameInput["CREDITSCONSUMEDEMAILS"] = "CREDITS_CONSUMED_EMAILS";
+    MetricNameInput["CREDITSCONSUMEDLEADGENERATION"] = "CREDITS_CONSUMED_LEAD_GENERATION";
+    MetricNameInput["CREDITSCONSUMEDLINKEDINSCRAPING"] = "CREDITS_CONSUMED_LINKED_IN_SCRAPING";
+    MetricNameInput["CREDITSCONSUMEDCOURSES"] = "CREDITS_CONSUMED_COURSES";
+    MetricNameInput["CREDITSTOTAL"] = "CREDITS_TOTAL";
+    MetricNameInput["CREDITSTOTALPHONENUMBERS"] = "CREDITS_TOTAL_PHONE_NUMBERS";
+    MetricNameInput["CREDITSTOTALCALLSECONDS"] = "CREDITS_TOTAL_CALL_SECONDS";
+    MetricNameInput["CREDITSTOTALEMAILS"] = "CREDITS_TOTAL_EMAILS";
+    MetricNameInput["CREDITSTOTALLEADGENERATION"] = "CREDITS_TOTAL_LEAD_GENERATION";
+    MetricNameInput["CREDITSTOTALLINKEDINSCRAPING"] = "CREDITS_TOTAL_LINKED_IN_SCRAPING";
+    MetricNameInput["CREDITSTOTALCOURSES"] = "CREDITS_TOTAL_COURSES";
+    MetricNameInput["CREDITBURNRATE"] = "CREDIT_BURN_RATE";
+    MetricNameInput["CREDITBURNRATEPHONENUMBERS"] = "CREDIT_BURN_RATE_PHONE_NUMBERS";
+    MetricNameInput["CREDITBURNRATECALLSECONDS"] = "CREDIT_BURN_RATE_CALL_SECONDS";
+    MetricNameInput["CREDITBURNRATEEMAILS"] = "CREDIT_BURN_RATE_EMAILS";
+    MetricNameInput["CREDITBURNRATELEADGENERATION"] = "CREDIT_BURN_RATE_LEAD_GENERATION";
+    MetricNameInput["CREDITBURNRATELINKEDINSCRAPING"] = "CREDIT_BURN_RATE_LINKED_IN_SCRAPING";
+    MetricNameInput["CREDITBURNRATECOURSES"] = "CREDIT_BURN_RATE_COURSES";
     MetricNameInput["PROSPECTS"] = "PROSPECTS";
     MetricNameInput["INTERESTED"] = "INTERESTED";
     MetricNameInput["NOTINTERESTED"] = "NOT_INTERESTED";
@@ -10650,21 +10675,21 @@ exports.ResellerOrganizationApi = ResellerOrganizationApi;
 exports.ResellerPricingApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code
          * @param {string} state
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1: (code, state, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addStripeAccountLinkToResellerOrgV1: (code, state, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'code' is not null or undefined
             if (code === null || code === undefined) {
-                throw new base_1.RequiredError('code', 'Required parameter code was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+                throw new base_1.RequiredError('code', 'Required parameter code was null or undefined when calling addStripeAccountLinkToResellerOrgV1.');
             }
             // verify required parameter 'state' is not null or undefined
             if (state === null || state === undefined) {
-                throw new base_1.RequiredError('state', 'Required parameter state was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+                throw new base_1.RequiredError('state', 'Required parameter state was null or undefined when calling addStripeAccountLinkToResellerOrgV1.');
             }
             const localVarPath = `/v1/resellers/stripe-account/link`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -10810,16 +10835,16 @@ exports.ResellerPricingApiAxiosParamCreator = function (configuration) {
 exports.ResellerPricingApiFp = function (configuration) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code
          * @param {string} state
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1(code, state, options) {
+        addStripeAccountLinkToResellerOrgV1(code, state, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options);
+                const localVarAxiosArgs = yield exports.ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToResellerOrgV1(code, state, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10880,15 +10905,15 @@ exports.ResellerPricingApiFp = function (configuration) {
 exports.ResellerPricingApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code
          * @param {string} state
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1(code, state, options) {
-            return exports.ResellerPricingApiFp(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(axios, basePath));
+        addStripeAccountLinkToResellerOrgV1(code, state, options) {
+            return exports.ResellerPricingApiFp(configuration).addStripeAccountLinkToResellerOrgV1(code, state, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new account link URL for the reseller
@@ -10927,16 +10952,16 @@ exports.ResellerPricingApiFactory = function (configuration, basePath, axios) {
  */
 class ResellerPricingApi extends base_1.BaseAPI {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code
      * @param {string} state
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    addStripeAccountLinkToCustomerOrgV1(code, state, options) {
-        return exports.ResellerPricingApiFp(this.configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(this.axios, this.basePath));
+    addStripeAccountLinkToResellerOrgV1(code, state, options) {
+        return exports.ResellerPricingApiFp(this.configuration).addStripeAccountLinkToResellerOrgV1(code, state, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Creates a new account link URL for the reseller

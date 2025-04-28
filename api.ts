@@ -2474,7 +2474,11 @@ export enum CreditTypeEnum {
     CallHours = 'call_hours',
     Emails = 'emails',
     LinkedInScraping = 'linked_in_scraping',
-    Courses = 'courses'
+    Courses = 'courses',
+    RecordingAndTranscription = 'recording_and_transcription',
+    Users = 'users',
+    AdvancedIntelligence = 'advanced_intelligence',
+    RolePlayCustomization = 'role_play_customization'
 }
 
 /**
@@ -3489,6 +3493,27 @@ export enum MetricNameInput {
     SPARRCALLS = 'SPARR_CALLS',
     SPARRCALLDURATION = 'SPARR_CALL_DURATION',
     APPOINTMENTSCHEDULED = 'APPOINTMENT_SCHEDULED',
+    CREDITSCONSUMED = 'CREDITS_CONSUMED',
+    CREDITSCONSUMEDPHONENUMBERS = 'CREDITS_CONSUMED_PHONE_NUMBERS',
+    CREDITSCONSUMEDCALLSECONDS = 'CREDITS_CONSUMED_CALL_SECONDS',
+    CREDITSCONSUMEDEMAILS = 'CREDITS_CONSUMED_EMAILS',
+    CREDITSCONSUMEDLEADGENERATION = 'CREDITS_CONSUMED_LEAD_GENERATION',
+    CREDITSCONSUMEDLINKEDINSCRAPING = 'CREDITS_CONSUMED_LINKED_IN_SCRAPING',
+    CREDITSCONSUMEDCOURSES = 'CREDITS_CONSUMED_COURSES',
+    CREDITSTOTAL = 'CREDITS_TOTAL',
+    CREDITSTOTALPHONENUMBERS = 'CREDITS_TOTAL_PHONE_NUMBERS',
+    CREDITSTOTALCALLSECONDS = 'CREDITS_TOTAL_CALL_SECONDS',
+    CREDITSTOTALEMAILS = 'CREDITS_TOTAL_EMAILS',
+    CREDITSTOTALLEADGENERATION = 'CREDITS_TOTAL_LEAD_GENERATION',
+    CREDITSTOTALLINKEDINSCRAPING = 'CREDITS_TOTAL_LINKED_IN_SCRAPING',
+    CREDITSTOTALCOURSES = 'CREDITS_TOTAL_COURSES',
+    CREDITBURNRATE = 'CREDIT_BURN_RATE',
+    CREDITBURNRATEPHONENUMBERS = 'CREDIT_BURN_RATE_PHONE_NUMBERS',
+    CREDITBURNRATECALLSECONDS = 'CREDIT_BURN_RATE_CALL_SECONDS',
+    CREDITBURNRATEEMAILS = 'CREDIT_BURN_RATE_EMAILS',
+    CREDITBURNRATELEADGENERATION = 'CREDIT_BURN_RATE_LEAD_GENERATION',
+    CREDITBURNRATELINKEDINSCRAPING = 'CREDIT_BURN_RATE_LINKED_IN_SCRAPING',
+    CREDITBURNRATECOURSES = 'CREDIT_BURN_RATE_COURSES',
     PROSPECTS = 'PROSPECTS',
     INTERESTED = 'INTERESTED',
     NOTINTERESTED = 'NOT_INTERESTED',
@@ -3498,19 +3523,19 @@ export enum MetricNameInput {
 /**
  * 
  * @export
- * @interface MetricResponseDataPoint
+ * @interface MetricResponseDataPointInput
  */
-export interface MetricResponseDataPoint {
+export interface MetricResponseDataPointInput {
     /**
      * Timestamp of the data point
      * @type {string}
-     * @memberof MetricResponseDataPoint
+     * @memberof MetricResponseDataPointInput
      */
     timestamp: string;
     /**
      * Value which will be a string representation of integer or floating number
      * @type {string}
-     * @memberof MetricResponseDataPoint
+     * @memberof MetricResponseDataPointInput
      */
     value: string;
 }
@@ -3577,10 +3602,10 @@ export interface MetricsResponseInput {
     name: MetricNameInput;
     /**
      * List of data points for the metric response
-     * @type {Array<MetricResponseDataPoint>}
+     * @type {Array<MetricResponseDataPointInput>}
      * @memberof MetricsResponseInput
      */
-    datapoints: Array<MetricResponseDataPoint>;
+    datapoints: Array<MetricResponseDataPointInput>;
 }
 /**
  * 
@@ -4889,13 +4914,13 @@ export interface PriceItem {
      * @type {number}
      * @memberof PriceItem
      */
-    quantity?: number;
+    quantity?: number | null;
     /**
      * Price of the price item in the lowest currency unit (e.g. cents, paise)
      * @type {number}
      * @memberof PriceItem
      */
-    pricePerQuantity?: number;
+    pricePerQuantity?: number | null;
     /**
      * Type of the credit
      * @type {CreditTypeEnum}
@@ -6123,6 +6148,31 @@ export enum SparrModelsAnalyticsMetricName {
 /**
  * 
  * @export
+ * @interface SparrModelsAnalyticsMetricResponseDataPoint
+ */
+export interface SparrModelsAnalyticsMetricResponseDataPoint {
+    /**
+     * Timestamp of the data point
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    timestamp: string;
+    /**
+     * Value which will be a string representation of integer or floating number
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    value: string;
+    /**
+     * Optional weight value for the data point
+     * @type {string}
+     * @memberof SparrModelsAnalyticsMetricResponseDataPoint
+     */
+    weight?: string | null;
+}
+/**
+ * 
+ * @export
  * @interface SparrModelsAnalyticsMetricsRequest
  */
 export interface SparrModelsAnalyticsMetricsRequest {
@@ -6183,10 +6233,10 @@ export interface SparrModelsAnalyticsMetricsResponse {
     name: SparrModelsAnalyticsMetricName;
     /**
      * List of data points for the metric response
-     * @type {Array<MetricResponseDataPoint>}
+     * @type {Array<SparrModelsAnalyticsMetricResponseDataPoint>}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
-    datapoints: Array<MetricResponseDataPoint>;
+    datapoints: Array<SparrModelsAnalyticsMetricResponseDataPoint>;
 }
 /**
  * 
@@ -18606,21 +18656,21 @@ export class ResellerOrganizationApi extends BaseAPI {
 export const ResellerPricingApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code 
          * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1: async (code: string, state: string, options: any = {}): Promise<RequestArgs> => {
+        addStripeAccountLinkToResellerOrgV1: async (code: string, state: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'code' is not null or undefined
             if (code === null || code === undefined) {
-                throw new RequiredError('code','Required parameter code was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+                throw new RequiredError('code','Required parameter code was null or undefined when calling addStripeAccountLinkToResellerOrgV1.');
             }
             // verify required parameter 'state' is not null or undefined
             if (state === null || state === undefined) {
-                throw new RequiredError('state','Required parameter state was null or undefined when calling addStripeAccountLinkToCustomerOrgV1.');
+                throw new RequiredError('state','Required parameter state was null or undefined when calling addStripeAccountLinkToResellerOrgV1.');
             }
             const localVarPath = `/v1/resellers/stripe-account/link`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -18789,15 +18839,15 @@ export const ResellerPricingApiAxiosParamCreator = function (configuration?: Con
 export const ResellerPricingApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code 
          * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options);
+        async addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerPricingApiAxiosParamCreator(configuration).addStripeAccountLinkToResellerOrgV1(code, state, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18852,15 +18902,15 @@ export const ResellerPricingApiFp = function(configuration?: Configuration) {
 export const ResellerPricingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Adds a new account link to the customer organization
-         * @summary Add Stripe Account Link To Customer Org
+         * Adds a new account link to the reseller organization
+         * @summary Add Stripe Account Link To Reseller Org
          * @param {string} code 
          * @param {string} state 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput> {
-            return ResellerPricingApiFp(configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(axios, basePath));
+        addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerPricingApiFp(configuration).addStripeAccountLinkToResellerOrgV1(code, state, options).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new account link URL for the reseller
@@ -18900,16 +18950,16 @@ export const ResellerPricingApiFactory = function (configuration?: Configuration
  */
 export class ResellerPricingApi extends BaseAPI {
     /**
-     * Adds a new account link to the customer organization
-     * @summary Add Stripe Account Link To Customer Org
+     * Adds a new account link to the reseller organization
+     * @summary Add Stripe Account Link To Reseller Org
      * @param {string} code 
      * @param {string} state 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    public addStripeAccountLinkToCustomerOrgV1(code: string, state: string, options?: any) {
-        return ResellerPricingApiFp(this.configuration).addStripeAccountLinkToCustomerOrgV1(code, state, options).then((request) => request(this.axios, this.basePath));
+    public addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any) {
+        return ResellerPricingApiFp(this.configuration).addStripeAccountLinkToResellerOrgV1(code, state, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
