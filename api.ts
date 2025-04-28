@@ -1266,6 +1266,12 @@ export interface BatchMetricsRequestsInput {
      * @memberof BatchMetricsRequestsInput
      */
     requests: Array<MetricsRequestInput>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof BatchMetricsRequestsInput
+     */
+    orgIds?: Array<string> | null;
 }
 /**
  * 
@@ -5536,7 +5542,7 @@ export interface ResellerBatchMetricsRequests {
      * @type {Array<string>}
      * @memberof ResellerBatchMetricsRequests
      */
-    organization: Array<string>;
+    organizations: Array<string>;
     /**
      * 
      * @type {Array<MetricsRequestInput>}
