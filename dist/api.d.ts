@@ -13332,6 +13332,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     assignCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a checkout session for a price
+     * @summary Create Checkout Session For Price
+     * @param {string} priceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForPriceV1: (priceId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new course
      * @summary Create Course
      * @param {CourseRequest} courseRequest
@@ -13404,6 +13412,13 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get credits
+     * @summary Get Credits V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCreditsV1: (options?: any) => Promise<RequestArgs>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -13427,6 +13442,13 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getPersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get pricing
+     * @summary Get Pricing V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPricingV1: (options?: any) => Promise<RequestArgs>;
     /**
      * Retrieve a specific scenario by ID
      * @summary Get Scenario
@@ -13626,6 +13648,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     assignCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
+     * Create a checkout session for a price
+     * @summary Create Checkout Session For Price
+     * @param {string} priceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForPriceV1(priceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
      * Create a new course
      * @summary Create Course
      * @param {CourseRequest} courseRequest
@@ -13698,6 +13728,13 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
+     * Get credits
+     * @summary Get Credits V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -13721,6 +13758,13 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Get pricing
+     * @summary Get Pricing V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Retrieve a specific scenario by ID
      * @summary Get Scenario
@@ -13920,6 +13964,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     assignCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<UserCourseAssignment>;
     /**
+     * Create a checkout session for a price
+     * @summary Create Checkout Session For Price
+     * @param {string} priceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCheckoutSessionForPriceV1(priceId: string, options?: any): AxiosPromise<string>;
+    /**
      * Create a new course
      * @summary Create Course
      * @param {CourseRequest} courseRequest
@@ -13992,6 +14044,13 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getCourseV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
     /**
+     * Get credits
+     * @summary Get Credits V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -14015,6 +14074,13 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona>;
+    /**
+     * Get pricing
+     * @summary Get Pricing V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPricingV1(options?: any): AxiosPromise<Array<Price>>;
     /**
      * Retrieve a specific scenario by ID
      * @summary Get Scenario
@@ -14218,6 +14284,15 @@ export declare class SparrApi extends BaseAPI {
      */
     assignCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
     /**
+     * Create a checkout session for a price
+     * @summary Create Checkout Session For Price
+     * @param {string} priceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createCheckoutSessionForPriceV1(priceId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    /**
      * Create a new course
      * @summary Create Course
      * @param {CourseRequest} courseRequest
@@ -14299,6 +14374,14 @@ export declare class SparrApi extends BaseAPI {
      */
     getCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
+     * Get credits
+     * @summary Get Credits V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -14325,6 +14408,14 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     getPersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Get pricing
+     * @summary Get Pricing V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      * Retrieve a specific scenario by ID
      * @summary Get Scenario

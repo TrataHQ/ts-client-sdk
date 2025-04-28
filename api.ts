@@ -20141,6 +20141,51 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Create a checkout session for a price
+         * @summary Create Checkout Session For Price
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForPriceV1: async (priceId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'priceId' is not null or undefined
+            if (priceId === null || priceId === undefined) {
+                throw new RequiredError('priceId','Required parameter priceId was null or undefined when calling createCheckoutSessionForPriceV1.');
+            }
+            const localVarPath = `/v1/sparr/pricing/{price_id}/checkout`
+                .replace(`{${"price_id"}}`, encodeURIComponent(String(priceId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create a new course
          * @summary Create Course
          * @param {CourseRequest} courseRequest 
@@ -20558,6 +20603,45 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Get credits
+         * @summary Get Credits V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCreditsV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/credits`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId 
@@ -20664,6 +20748,45 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             }
             const localVarPath = `/v1/sparr/personas/{persona_id}`
                 .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get pricing
+         * @summary Get Pricing V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPricingV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/pricing`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -21719,6 +21842,20 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a checkout session for a price
+         * @summary Create Checkout Session For Price
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCheckoutSessionForPriceV1(priceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createCheckoutSessionForPriceV1(priceId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Create a new course
          * @summary Create Course
          * @param {CourseRequest} courseRequest 
@@ -21845,6 +21982,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get credits
+         * @summary Get Credits V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getCreditsV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId 
@@ -21881,6 +22031,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
          */
         async getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
             const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getPersonaV1(personaId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get pricing
+         * @summary Get Pricing V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getPricingV1(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -22206,6 +22369,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).assignCourseV1(courseId, userId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a checkout session for a price
+         * @summary Create Checkout Session For Price
+         * @param {string} priceId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCheckoutSessionForPriceV1(priceId: string, options?: any): AxiosPromise<string> {
+            return SparrApiFp(configuration).createCheckoutSessionForPriceV1(priceId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new course
          * @summary Create Course
          * @param {CourseRequest} courseRequest 
@@ -22296,6 +22469,15 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).getCourseV1(courseId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get credits
+         * @summary Get Credits V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCreditsV1(options?: any): AxiosPromise<Array<Credit>> {
+            return SparrApiFp(configuration).getCreditsV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId 
@@ -22324,6 +22506,15 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona> {
             return SparrApiFp(configuration).getPersonaV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get pricing
+         * @summary Get Pricing V1
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPricingV1(options?: any): AxiosPromise<Array<Price>> {
+            return SparrApiFp(configuration).getPricingV1(options).then((request) => request(axios, basePath));
         },
         /**
          * Retrieve a specific scenario by ID
@@ -22574,6 +22765,18 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
+     * Create a checkout session for a price
+     * @summary Create Checkout Session For Price
+     * @param {string} priceId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public createCheckoutSessionForPriceV1(priceId: string, options?: any) {
+        return SparrApiFp(this.configuration).createCheckoutSessionForPriceV1(priceId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Create a new course
      * @summary Create Course
      * @param {CourseRequest} courseRequest 
@@ -22682,6 +22885,17 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
+     * Get credits
+     * @summary Get Credits V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getCreditsV1(options?: any) {
+        return SparrApiFp(this.configuration).getCreditsV1(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId 
@@ -22715,6 +22929,17 @@ export class SparrApi extends BaseAPI {
      */
     public getPersonaV1(personaId: string, options?: any) {
         return SparrApiFp(this.configuration).getPersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get pricing
+     * @summary Get Pricing V1
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public getPricingV1(options?: any) {
+        return SparrApiFp(this.configuration).getPricingV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
