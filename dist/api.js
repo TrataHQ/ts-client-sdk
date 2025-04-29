@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -373,6 +373,16 @@ var MetricNameInput;
     MetricNameInput["CREDITBURNRATELEADGENERATION"] = "CREDIT_BURN_RATE_LEAD_GENERATION";
     MetricNameInput["CREDITBURNRATELINKEDINSCRAPING"] = "CREDIT_BURN_RATE_LINKED_IN_SCRAPING";
     MetricNameInput["CREDITBURNRATECOURSES"] = "CREDIT_BURN_RATE_COURSES";
+    MetricNameInput["TOTALREVENUE"] = "TOTAL_REVENUE";
+    MetricNameInput["PROFIT"] = "PROFIT";
+    MetricNameInput["REVENUEBYSUBSCRIPTION"] = "REVENUE_BY_SUBSCRIPTION";
+    MetricNameInput["REVENUEBYADDONS"] = "REVENUE_BY_ADD_ONS";
+    MetricNameInput["MONTHLYRECURRINGREVENUE"] = "MONTHLY_RECURRING_REVENUE";
+    MetricNameInput["ONETIMEREVENUE"] = "ONE_TIME_REVENUE";
+    MetricNameInput["ACTIVESUBSCRIPTIONS"] = "ACTIVE_SUBSCRIPTIONS";
+    MetricNameInput["NUMBEROFACTIVEPAYINGCUSTOMERS"] = "NUMBER_OF_ACTIVE_PAYING_CUSTOMERS";
+    MetricNameInput["AVERAGEREVENUEPERACTIVEPAYINGCUSTOMER"] = "AVERAGE_REVENUE_PER_ACTIVE_PAYING_CUSTOMER";
+    MetricNameInput["TOTALHOURSCONSUMED"] = "TOTAL_HOURS_CONSUMED";
     MetricNameInput["PROSPECTS"] = "PROSPECTS";
     MetricNameInput["INTERESTED"] = "INTERESTED";
     MetricNameInput["NOTINTERESTED"] = "NOT_INTERESTED";
@@ -8459,6 +8469,179 @@ class ResellerCustomerApi extends base_1.BaseAPI {
     }
 }
 exports.ResellerCustomerApi = ResellerCustomerApi;
+/**
+ * ResellerCustomerAuditLogsApi - axios parameter creator
+ * @export
+ */
+exports.ResellerCustomerAuditLogsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: (customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new base_1.RequiredError('customerOrgId', 'Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet.');
+            }
+            const localVarPath = `/v1/resellers/reseller/customer/{customer_org_id}/audit-logs`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * ResellerCustomerAuditLogsApi - functional programming interface
+ * @export
+ */
+exports.ResellerCustomerAuditLogsApiFp = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * ResellerCustomerAuditLogsApi - factory interface
+ * @export
+ */
+exports.ResellerCustomerAuditLogsApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         *
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId
+         * @param {string} [searchBy]
+         * @param {string} [searchValue]
+         * @param {string} [status]
+         * @param {string} [sortBy]
+         * @param {SortOrder} [sortOrder]
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [updatedAfter]
+         * @param {string} [updatedBefore]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+            return exports.ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * ResellerCustomerAuditLogsApi - object-oriented interface
+ * @export
+ * @class ResellerCustomerAuditLogsApi
+ * @extends {BaseAPI}
+ */
+class ResellerCustomerAuditLogsApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerAuditLogsApi
+     */
+    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+        return exports.ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.ResellerCustomerAuditLogsApi = ResellerCustomerAuditLogsApi;
 /**
  * ResellerCustomerCheckoutApi - axios parameter creator
  * @export

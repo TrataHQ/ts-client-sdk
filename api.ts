@@ -1125,6 +1125,49 @@ export interface AppResponse {
     actions: Array<AppAction>;
 }
 /**
+ * Audit log details of the business
+ * @export
+ * @interface AuditLog
+ */
+export interface AuditLog {
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    orgId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    createdAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    createdBy?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    action?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuditLog
+     */
+    description?: string;
+}
+/**
  * 
  * @export
  * @enum {string}
@@ -3520,6 +3563,16 @@ export enum MetricNameInput {
     CREDITBURNRATELEADGENERATION = 'CREDIT_BURN_RATE_LEAD_GENERATION',
     CREDITBURNRATELINKEDINSCRAPING = 'CREDIT_BURN_RATE_LINKED_IN_SCRAPING',
     CREDITBURNRATECOURSES = 'CREDIT_BURN_RATE_COURSES',
+    TOTALREVENUE = 'TOTAL_REVENUE',
+    PROFIT = 'PROFIT',
+    REVENUEBYSUBSCRIPTION = 'REVENUE_BY_SUBSCRIPTION',
+    REVENUEBYADDONS = 'REVENUE_BY_ADD_ONS',
+    MONTHLYRECURRINGREVENUE = 'MONTHLY_RECURRING_REVENUE',
+    ONETIMEREVENUE = 'ONE_TIME_REVENUE',
+    ACTIVESUBSCRIPTIONS = 'ACTIVE_SUBSCRIPTIONS',
+    NUMBEROFACTIVEPAYINGCUSTOMERS = 'NUMBER_OF_ACTIVE_PAYING_CUSTOMERS',
+    AVERAGEREVENUEPERACTIVEPAYINGCUSTOMER = 'AVERAGE_REVENUE_PER_ACTIVE_PAYING_CUSTOMER',
+    TOTALHOURSCONSUMED = 'TOTAL_HOURS_CONSUMED',
     PROSPECTS = 'PROSPECTS',
     INTERESTED = 'INTERESTED',
     NOTINTERESTED = 'NOT_INTERESTED',
@@ -6674,6 +6727,12 @@ export interface Subscription {
      * @memberof Subscription
      */
     updatedAt?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Subscription
+     */
+    nextRenewalDate?: string;
 }
 /**
  * Subscription details of the business
@@ -16287,6 +16346,196 @@ export class ResellerCustomerApi extends BaseAPI {
      */
     public updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any) {
         return ResellerCustomerApiFp(this.configuration).updateCustomerOrganizationV1(customerOrgId, organizationInput, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * ResellerCustomerAuditLogsApi - axios parameter creator
+ * @export
+ */
+export const ResellerCustomerAuditLogsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: async (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet.');
+            }
+            const localVarPath = `/v1/resellers/reseller/customer/{customer_org_id}/audit-logs`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCustomerAuditLogsApi - functional programming interface
+ * @export
+ */
+export const ResellerCustomerAuditLogsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>> {
+            const localVarAxiosArgs = await ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCustomerAuditLogsApi - factory interface
+ * @export
+ */
+export const ResellerCustomerAuditLogsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Get Reseller Customer Audit Logs
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>> {
+            return ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ResellerCustomerAuditLogsApi - object-oriented interface
+ * @export
+ * @class ResellerCustomerAuditLogsApi
+ * @extends {BaseAPI}
+ */
+export class ResellerCustomerAuditLogsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId 
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerAuditLogsApi
+     */
+    public getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

@@ -1105,6 +1105,49 @@ export interface AppResponse {
     actions: Array<AppAction>;
 }
 /**
+ * Audit log details of the business
+ * @export
+ * @interface AuditLog
+ */
+export interface AuditLog {
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    id?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    orgId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    createdAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    createdBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    action?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuditLog
+     */
+    description?: string;
+}
+/**
  *
  * @export
  * @enum {string}
@@ -3476,6 +3519,16 @@ export declare enum MetricNameInput {
     CREDITBURNRATELEADGENERATION = "CREDIT_BURN_RATE_LEAD_GENERATION",
     CREDITBURNRATELINKEDINSCRAPING = "CREDIT_BURN_RATE_LINKED_IN_SCRAPING",
     CREDITBURNRATECOURSES = "CREDIT_BURN_RATE_COURSES",
+    TOTALREVENUE = "TOTAL_REVENUE",
+    PROFIT = "PROFIT",
+    REVENUEBYSUBSCRIPTION = "REVENUE_BY_SUBSCRIPTION",
+    REVENUEBYADDONS = "REVENUE_BY_ADD_ONS",
+    MONTHLYRECURRINGREVENUE = "MONTHLY_RECURRING_REVENUE",
+    ONETIMEREVENUE = "ONE_TIME_REVENUE",
+    ACTIVESUBSCRIPTIONS = "ACTIVE_SUBSCRIPTIONS",
+    NUMBEROFACTIVEPAYINGCUSTOMERS = "NUMBER_OF_ACTIVE_PAYING_CUSTOMERS",
+    AVERAGEREVENUEPERACTIVEPAYINGCUSTOMER = "AVERAGE_REVENUE_PER_ACTIVE_PAYING_CUSTOMER",
+    TOTALHOURSCONSUMED = "TOTAL_HOURS_CONSUMED",
     PROSPECTS = "PROSPECTS",
     INTERESTED = "INTERESTED",
     NOTINTERESTED = "NOT_INTERESTED",
@@ -6593,6 +6646,12 @@ export interface Subscription {
      * @memberof Subscription
      */
     updatedAt?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Subscription
+     */
+    nextRenewalDate?: string;
 }
 /**
  * Subscription details of the business
@@ -11663,6 +11722,101 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @memberof ResellerCustomerApi
      */
     updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+}
+/**
+ * ResellerCustomerAuditLogsApi - axios parameter creator
+ * @export
+ */
+export declare const ResellerCustomerAuditLogsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ResellerCustomerAuditLogsApi - functional programming interface
+ * @export
+ */
+export declare const ResellerCustomerAuditLogsApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
+};
+/**
+ * ResellerCustomerAuditLogsApi - factory interface
+ * @export
+ */
+export declare const ResellerCustomerAuditLogsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>>;
+};
+/**
+ * ResellerCustomerAuditLogsApi - object-oriented interface
+ * @export
+ * @class ResellerCustomerAuditLogsApi
+ * @extends {BaseAPI}
+ */
+export declare class ResellerCustomerAuditLogsApi extends BaseAPI {
+    /**
+     *
+     * @summary Get Reseller Customer Audit Logs
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerAuditLogsApi
+     */
+    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AuditLog[]>>;
 }
 /**
  * ResellerCustomerCheckoutApi - axios parameter creator
