@@ -5481,7 +5481,7 @@ export interface ResellerBatchMetricsRequests {
      * @type {Array<string>}
      * @memberof ResellerBatchMetricsRequests
      */
-    organizations: Array<string>;
+    organizations?: Array<string> | null;
     /**
      *
      * @type {Array<MetricsRequestInput>}
@@ -11820,6 +11820,65 @@ export declare class ResellerCustomerDefaultPricingApi extends BaseAPI {
     updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
 }
 /**
+ * ResellerCustomerPortalApi - axios parameter creator
+ * @export
+ */
+export declare const ResellerCustomerPortalApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Create a customer portal for a reseller customer
+     * @summary Create Customer Portal For Reseller Customer
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalForResellerCustomerV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ResellerCustomerPortalApi - functional programming interface
+ * @export
+ */
+export declare const ResellerCustomerPortalApiFp: (configuration?: Configuration) => {
+    /**
+     * Create a customer portal for a reseller customer
+     * @summary Create Customer Portal For Reseller Customer
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+};
+/**
+ * ResellerCustomerPortalApi - factory interface
+ * @export
+ */
+export declare const ResellerCustomerPortalApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Create a customer portal for a reseller customer
+     * @summary Create Customer Portal For Reseller Customer
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): AxiosPromise<string>;
+};
+/**
+ * ResellerCustomerPortalApi - object-oriented interface
+ * @export
+ * @class ResellerCustomerPortalApi
+ * @extends {BaseAPI}
+ */
+export declare class ResellerCustomerPortalApi extends BaseAPI {
+    /**
+     * Create a customer portal for a reseller customer
+     * @summary Create Customer Portal For Reseller Customer
+     * @param {string} customerOrgId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerPortalApi
+     */
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+}
+/**
  * ResellerCustomerPricingApi - axios parameter creator
  * @export
  */
@@ -13348,6 +13407,13 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createCourseV1: (courseRequest: CourseRequest, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a customer portal for customer
+     * @summary Create Customer Portal
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalV1: (options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -13664,6 +13730,13 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createCourseV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
+     * Create a customer portal for customer
+     * @summary Create Customer Portal
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -13979,6 +14052,13 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createCourseV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse>;
+    /**
+     * Create a customer portal for customer
+     * @summary Create Customer Portal
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCustomerPortalV1(options?: any): AxiosPromise<string>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -14301,6 +14381,14 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     createCourseV1(courseRequest: CourseRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    /**
+     * Create a customer portal for customer
+     * @summary Create Customer Portal
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createCustomerPortalV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Create a new feedback
      * @summary Create Feedback

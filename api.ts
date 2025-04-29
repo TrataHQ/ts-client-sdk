@@ -5542,7 +5542,7 @@ export interface ResellerBatchMetricsRequests {
      * @type {Array<string>}
      * @memberof ResellerBatchMetricsRequests
      */
-    organizations: Array<string>;
+    organizations?: Array<string> | null;
     /**
      * 
      * @type {Array<MetricsRequestInput>}
@@ -16622,6 +16622,124 @@ export class ResellerCustomerDefaultPricingApi extends BaseAPI {
 
 
 /**
+ * ResellerCustomerPortalApi - axios parameter creator
+ * @export
+ */
+export const ResellerCustomerPortalApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a customer portal for a reseller customer
+         * @summary Create Customer Portal For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPortalForResellerCustomerV1: async (customerOrgId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling createCustomerPortalForResellerCustomerV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/portal`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCustomerPortalApi - functional programming interface
+ * @export
+ */
+export const ResellerCustomerPortalApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Create a customer portal for a reseller customer
+         * @summary Create Customer Portal For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await ResellerCustomerPortalApiAxiosParamCreator(configuration).createCustomerPortalForResellerCustomerV1(customerOrgId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCustomerPortalApi - factory interface
+ * @export
+ */
+export const ResellerCustomerPortalApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Create a customer portal for a reseller customer
+         * @summary Create Customer Portal For Reseller Customer
+         * @param {string} customerOrgId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): AxiosPromise<string> {
+            return ResellerCustomerPortalApiFp(configuration).createCustomerPortalForResellerCustomerV1(customerOrgId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ResellerCustomerPortalApi - object-oriented interface
+ * @export
+ * @class ResellerCustomerPortalApi
+ * @extends {BaseAPI}
+ */
+export class ResellerCustomerPortalApi extends BaseAPI {
+    /**
+     * Create a customer portal for a reseller customer
+     * @summary Create Customer Portal For Reseller Customer
+     * @param {string} customerOrgId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCustomerPortalApi
+     */
+    public createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any) {
+        return ResellerCustomerPortalApiFp(this.configuration).createCustomerPortalForResellerCustomerV1(customerOrgId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
  * ResellerCustomerPricingApi - axios parameter creator
  * @export
  */
@@ -20234,6 +20352,45 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Create a customer portal for customer
+         * @summary Create Customer Portal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPortalV1: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/sparr/customers/portal`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore 
@@ -21870,6 +22027,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a customer portal for customer
+         * @summary Create Customer Portal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomerPortalV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createCustomerPortalV1(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore 
@@ -22389,6 +22559,15 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).createCourseV1(courseRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a customer portal for customer
+         * @summary Create Customer Portal
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomerPortalV1(options?: any): AxiosPromise<string> {
+            return SparrApiFp(configuration).createCustomerPortalV1(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore 
@@ -22786,6 +22965,17 @@ export class SparrApi extends BaseAPI {
      */
     public createCourseV1(courseRequest: CourseRequest, options?: any) {
         return SparrApiFp(this.configuration).createCourseV1(courseRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a customer portal for customer
+     * @summary Create Customer Portal
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public createCustomerPortalV1(options?: any) {
+        return SparrApiFp(this.configuration).createCustomerPortalV1(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
