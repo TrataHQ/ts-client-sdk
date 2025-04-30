@@ -8491,12 +8491,12 @@ exports.ResellerCustomerAuditLogsApiAxiosParamCreator = function (configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: (customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'customerOrgId' is not null or undefined
             if (customerOrgId === null || customerOrgId === undefined) {
-                throw new base_1.RequiredError('customerOrgId', 'Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet.');
+                throw new base_1.RequiredError('customerOrgId', 'Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet.');
             }
-            const localVarPath = `/v1/resellers/reseller/customer/{customer_org_id}/audit-logs`
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/audit-logs`
                 .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8575,9 +8575,9 @@ exports.ResellerCustomerAuditLogsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+        getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+                const localVarAxiosArgs = yield exports.ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8608,8 +8608,8 @@ exports.ResellerCustomerAuditLogsApiFactory = function (configuration, basePath,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
-            return exports.ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+            return exports.ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8637,8 +8637,8 @@ class ResellerCustomerAuditLogsApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerAuditLogsApi
      */
-    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
-        return exports.ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options) {
+        return exports.ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ResellerCustomerAuditLogsApi = ResellerCustomerAuditLogsApi;

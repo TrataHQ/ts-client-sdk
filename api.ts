@@ -4331,6 +4331,12 @@ export interface OrganizationInput {
      * @memberof OrganizationInput
      */
     orgType?: string | null;
+    /**
+     * Additional information about the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    additionalInfo?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -4458,6 +4464,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     status?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    additionalInfo?: string | null;
 }
 /**
  * 
@@ -16373,12 +16385,12 @@ export const ResellerCustomerAuditLogsApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: async (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: async (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'customerOrgId' is not null or undefined
             if (customerOrgId === null || customerOrgId === undefined) {
-                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet.');
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet.');
             }
-            const localVarPath = `/v1/resellers/reseller/customer/{customer_org_id}/audit-logs`
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/audit-logs`
                 .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16472,8 +16484,8 @@ export const ResellerCustomerAuditLogsApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>> {
-            const localVarAxiosArgs = await ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+        async getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>> {
+            const localVarAxiosArgs = await ResellerCustomerAuditLogsApiAxiosParamCreator(configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -16504,8 +16516,8 @@ export const ResellerCustomerAuditLogsApiFactory = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>> {
-            return ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>> {
+            return ResellerCustomerAuditLogsApiFp(configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -16534,8 +16546,8 @@ export class ResellerCustomerAuditLogsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerAuditLogsApi
      */
-    public getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
-        return ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    public getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCustomerAuditLogsApiFp(this.configuration).getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

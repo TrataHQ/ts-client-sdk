@@ -4275,6 +4275,12 @@ export interface OrganizationInput {
      * @memberof OrganizationInput
      */
     orgType?: string | null;
+    /**
+     * Additional information about the organization
+     * @type {string}
+     * @memberof OrganizationInput
+     */
+    additionalInfo?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -4402,6 +4408,12 @@ export interface OrganizationOutput {
      * @memberof OrganizationOutput
      */
     status?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
+    additionalInfo?: string | null;
 }
 /**
  *
@@ -11744,7 +11756,7 @@ export declare const ResellerCustomerAuditLogsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerAuditLogsApi - functional programming interface
@@ -11767,7 +11779,7 @@ export declare const ResellerCustomerAuditLogsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - factory interface
@@ -11790,7 +11802,7 @@ export declare const ResellerCustomerAuditLogsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - object-oriented interface
@@ -11816,7 +11828,7 @@ export declare class ResellerCustomerAuditLogsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerAuditLogsApi
      */
-    getResellerCustomerAuditLogsV1ResellersResellerCustomerCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AuditLog[]>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AuditLog[]>>;
 }
 /**
  * ResellerCustomerCheckoutApi - axios parameter creator
