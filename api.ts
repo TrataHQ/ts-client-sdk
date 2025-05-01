@@ -5618,6 +5618,19 @@ export interface ResellerBatchMetricsRequests {
 /**
  * 
  * @export
+ * @interface ResellerCourseAssignment
+ */
+export interface ResellerCourseAssignment {
+    /**
+     * List of organization ids to assign the course to
+     * @type {Array<string>}
+     * @memberof ResellerCourseAssignment
+     */
+    orgs: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface ResellerPaymentAccountDetails
  */
 export interface ResellerPaymentAccountDetails {
@@ -15682,6 +15695,136 @@ export class ProspectsApi extends BaseAPI {
 
 
 /**
+ * ResellerCourseAssignmentsApi - axios parameter creator
+ * @export
+ */
+export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Assign Course To Reseller Customer
+         * @param {string} courseId 
+         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost: async (courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost.');
+            }
+            // verify required parameter 'resellerCourseAssignment' is not null or undefined
+            if (resellerCourseAssignment === null || resellerCourseAssignment === undefined) {
+                throw new RequiredError('resellerCourseAssignment','Required parameter resellerCourseAssignment was null or undefined when calling assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost.');
+            }
+            const localVarPath = `/v1/resellers/reseller/courses/{course_id}/assignment`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof resellerCourseAssignment !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(resellerCourseAssignment !== undefined ? resellerCourseAssignment : {}) : (resellerCourseAssignment || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCourseAssignmentsApi - functional programming interface
+ * @export
+ */
+export const ResellerCourseAssignmentsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Assign Course To Reseller Customer
+         * @param {string} courseId 
+         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * ResellerCourseAssignmentsApi - factory interface
+ * @export
+ */
+export const ResellerCourseAssignmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * 
+         * @summary Assign Course To Reseller Customer
+         * @param {string} courseId 
+         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerCourseAssignmentsApiFp(configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ResellerCourseAssignmentsApi - object-oriented interface
+ * @export
+ * @class ResellerCourseAssignmentsApi
+ * @extends {BaseAPI}
+ */
+export class ResellerCourseAssignmentsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Assign Course To Reseller Customer
+     * @param {string} courseId 
+     * @param {ResellerCourseAssignment} resellerCourseAssignment 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    public assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
  * ResellerCustomerApi - axios parameter creator
  * @export
  */
@@ -15916,8 +16059,12 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Get reseller customers
+         * List reseller customers with prices, users and credits
          * @summary List Reseller Customers V1
+         * @param {string} [searchQuery] Search query
+         * @param {boolean} [expandPrices] Whether to expand the prices
+         * @param {boolean} [expandUsers] Whether to expand the users
+         * @param {boolean} [expandCredits] Whether to expand the credits
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -15930,7 +16077,7 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listResellerCustomersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        listResellerCustomersV1: async (searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/resellers/customers`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15948,6 +16095,22 @@ export const ResellerCustomerApiAxiosParamCreator = function (configuration?: Co
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchQuery !== undefined) {
+                localVarQueryParameter['search_query'] = searchQuery;
+            }
+
+            if (expandPrices !== undefined) {
+                localVarQueryParameter['expand_prices'] = expandPrices;
+            }
+
+            if (expandUsers !== undefined) {
+                localVarQueryParameter['expand_users'] = expandUsers;
+            }
+
+            if (expandCredits !== undefined) {
+                localVarQueryParameter['expand_credits'] = expandCredits;
             }
 
             if (searchBy !== undefined) {
@@ -16133,8 +16296,12 @@ export const ResellerCustomerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get reseller customers
+         * List reseller customers with prices, users and credits
          * @summary List Reseller Customers V1
+         * @param {string} [searchQuery] Search query
+         * @param {boolean} [expandPrices] Whether to expand the prices
+         * @param {boolean} [expandUsers] Whether to expand the users
+         * @param {boolean} [expandCredits] Whether to expand the credits
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -16147,8 +16314,8 @@ export const ResellerCustomerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>> {
-            const localVarAxiosArgs = await ResellerCustomerApiAxiosParamCreator(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+        async listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>> {
+            const localVarAxiosArgs = await ResellerCustomerApiAxiosParamCreator(configuration).listResellerCustomersV1(searchQuery, expandPrices, expandUsers, expandCredits, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -16229,8 +16396,12 @@ export const ResellerCustomerApiFactory = function (configuration?: Configuratio
             return ResellerCustomerApiFp(configuration).getResellerCustomerByIdV1(customerOrgId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get reseller customers
+         * List reseller customers with prices, users and credits
          * @summary List Reseller Customers V1
+         * @param {string} [searchQuery] Search query
+         * @param {boolean} [expandPrices] Whether to expand the prices
+         * @param {boolean} [expandUsers] Whether to expand the users
+         * @param {boolean} [expandCredits] Whether to expand the credits
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -16243,8 +16414,8 @@ export const ResellerCustomerApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>> {
-            return ResellerCustomerApiFp(configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>> {
+            return ResellerCustomerApiFp(configuration).listResellerCustomersV1(searchQuery, expandPrices, expandUsers, expandCredits, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a customer organization under a reseller organization
@@ -16328,8 +16499,12 @@ export class ResellerCustomerApi extends BaseAPI {
     }
 
     /**
-     * Get reseller customers
+     * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
+     * @param {string} [searchQuery] Search query
+     * @param {boolean} [expandPrices] Whether to expand the prices
+     * @param {boolean} [expandUsers] Whether to expand the users
+     * @param {boolean} [expandCredits] Whether to expand the credits
      * @param {string} [searchBy] 
      * @param {string} [searchValue] 
      * @param {string} [status] 
@@ -16343,8 +16518,8 @@ export class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    public listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
-        return ResellerCustomerApiFp(this.configuration).listResellerCustomersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    public listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCustomerApiFp(this.configuration).listResellerCustomersV1(searchQuery, expandPrices, expandUsers, expandCredits, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21375,7 +21550,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Get all courses
+         * Get all courses including reseller assignments
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
          * @param {number} [limit] Limit for pagination
@@ -22523,7 +22698,7 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get all courses
+         * Get all courses including reseller assignments
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
          * @param {number} [limit] Limit for pagination
@@ -22987,7 +23162,7 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all courses
+         * Get all courses including reseller assignments
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
          * @param {number} [limit] Limit for pagination
@@ -23430,7 +23605,7 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
-     * Get all courses
+     * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination

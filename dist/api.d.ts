@@ -5557,6 +5557,19 @@ export interface ResellerBatchMetricsRequests {
 /**
  *
  * @export
+ * @interface ResellerCourseAssignment
+ */
+export interface ResellerCourseAssignment {
+    /**
+     * List of organization ids to assign the course to
+     * @type {Array<string>}
+     * @memberof ResellerCourseAssignment
+     */
+    orgs: Array<string>;
+}
+/**
+ *
+ * @export
  * @interface ResellerPaymentAccountDetails
  */
 export interface ResellerPaymentAccountDetails {
@@ -11443,6 +11456,69 @@ export declare class ProspectsApi extends BaseAPI {
     updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
 }
 /**
+ * ResellerCourseAssignmentsApi - axios parameter creator
+ * @export
+ */
+export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Assign Course To Reseller Customer
+     * @param {string} courseId
+     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost: (courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * ResellerCourseAssignmentsApi - functional programming interface
+ * @export
+ */
+export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Assign Course To Reseller Customer
+     * @param {string} courseId
+     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+};
+/**
+ * ResellerCourseAssignmentsApi - factory interface
+ * @export
+ */
+export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Assign Course To Reseller Customer
+     * @param {string} courseId
+     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): AxiosPromise<BaseResponseInput>;
+};
+/**
+ * ResellerCourseAssignmentsApi - object-oriented interface
+ * @export
+ * @class ResellerCourseAssignmentsApi
+ * @extends {BaseAPI}
+ */
+export declare class ResellerCourseAssignmentsApi extends BaseAPI {
+    /**
+     *
+     * @summary Assign Course To Reseller Customer
+     * @param {string} courseId
+     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+}
+/**
  * ResellerCustomerApi - axios parameter creator
  * @export
  */
@@ -11488,8 +11564,12 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      */
     getResellerCustomerByIdV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get reseller customers
+     * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
+     * @param {string} [searchQuery] Search query
+     * @param {boolean} [expandPrices] Whether to expand the prices
+     * @param {boolean} [expandUsers] Whether to expand the users
+     * @param {boolean} [expandCredits] Whether to expand the credits
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -11502,7 +11582,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listResellerCustomersV1: (searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -11559,8 +11639,12 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
     /**
-     * Get reseller customers
+     * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
+     * @param {string} [searchQuery] Search query
+     * @param {boolean} [expandPrices] Whether to expand the prices
+     * @param {boolean} [expandUsers] Whether to expand the users
+     * @param {boolean} [expandCredits] Whether to expand the credits
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -11573,7 +11657,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
+    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -11630,8 +11714,12 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): AxiosPromise<OrgUsersPriceCredits>;
     /**
-     * Get reseller customers
+     * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
+     * @param {string} [searchQuery] Search query
+     * @param {boolean} [expandPrices] Whether to expand the prices
+     * @param {boolean} [expandUsers] Whether to expand the users
+     * @param {boolean} [expandCredits] Whether to expand the credits
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -11644,7 +11732,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
+    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -11708,8 +11796,12 @@ export declare class ResellerCustomerApi extends BaseAPI {
      */
     getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
     /**
-     * Get reseller customers
+     * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
+     * @param {string} [searchQuery] Search query
+     * @param {boolean} [expandPrices] Whether to expand the prices
+     * @param {boolean} [expandUsers] Whether to expand the users
+     * @param {boolean} [expandCredits] Whether to expand the credits
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -11723,7 +11815,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    listResellerCustomersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
+    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -13706,7 +13798,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     importLinkedinPersonaV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all courses
+     * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
@@ -14029,7 +14121,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Get all courses
+     * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
@@ -14352,7 +14444,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
     /**
-     * Get all courses
+     * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
@@ -14698,7 +14790,7 @@ export declare class SparrApi extends BaseAPI {
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Get all courses
+     * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
