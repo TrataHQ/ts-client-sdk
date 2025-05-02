@@ -5557,15 +5557,21 @@ export interface ResellerBatchMetricsRequests {
 /**
  *
  * @export
- * @interface ResellerCourseAssignment
+ * @interface ResellerMultiCourseAssignment
  */
-export interface ResellerCourseAssignment {
+export interface ResellerMultiCourseAssignment {
     /**
-     * List of organization ids to assign the course to
+     *
      * @type {Array<string>}
-     * @memberof ResellerCourseAssignment
+     * @memberof ResellerMultiCourseAssignment
      */
-    orgs: Array<string>;
+    courses?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ResellerMultiCourseAssignment
+     */
+    orgs?: Array<string> | null;
 }
 /**
  *
@@ -11461,14 +11467,47 @@ export declare class ProspectsApi extends BaseAPI {
  */
 export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Assign Course To Reseller Customer
-     * @param {string} courseId
-     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * Assign multiple courses to multiple reseller customers
+     * @summary Assign Multiple Courses To Reseller Customers
+     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost: (courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any) => Promise<RequestArgs>;
+    assignMultipleCoursesToResellerCustomersV1: (resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all courses that have been assigned to a specific customer
+     * @summary Get Assigned Courses By Customer V1
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all customers that have been assigned a specific course
+     * @summary Get Customers By Assigned Course V1
+     * @param {string} courseId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomersByAssignedCourseV1: (courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ResellerCourseAssignmentsApi - functional programming interface
@@ -11476,14 +11515,47 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
  */
 export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configuration) => {
     /**
-     *
-     * @summary Assign Course To Reseller Customer
-     * @param {string} courseId
-     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * Assign multiple courses to multiple reseller customers
+     * @summary Assign Multiple Courses To Reseller Customers
+     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    /**
+     * Get all courses that have been assigned to a specific customer
+     * @summary Get Assigned Courses By Customer V1
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Course>>>;
+    /**
+     * Get all customers that have been assigned a specific course
+     * @summary Get Customers By Assigned Course V1
+     * @param {string} courseId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrganizationOutput>>>;
 };
 /**
  * ResellerCourseAssignmentsApi - factory interface
@@ -11491,14 +11563,47 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
  */
 export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     *
-     * @summary Assign Course To Reseller Customer
-     * @param {string} courseId
-     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * Assign multiple courses to multiple reseller customers
+     * @summary Assign Multiple Courses To Reseller Customers
+     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): AxiosPromise<BaseResponseInput>;
+    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): AxiosPromise<BaseResponseInput>;
+    /**
+     * Get all courses that have been assigned to a specific customer
+     * @summary Get Assigned Courses By Customer V1
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Course>>;
+    /**
+     * Get all customers that have been assigned a specific course
+     * @summary Get Customers By Assigned Course V1
+     * @param {string} courseId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrganizationOutput>>;
 };
 /**
  * ResellerCourseAssignmentsApi - object-oriented interface
@@ -11508,15 +11613,50 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
  */
 export declare class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
-     *
-     * @summary Assign Course To Reseller Customer
-     * @param {string} courseId
-     * @param {ResellerCourseAssignment} resellerCourseAssignment
+     * Assign multiple courses to multiple reseller customers
+     * @summary Assign Multiple Courses To Reseller Customers
+     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
+     * Get all courses that have been assigned to a specific customer
+     * @summary Get Assigned Courses By Customer V1
+     * @param {string} customerOrgId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<Course[]>>;
+    /**
+     * Get all customers that have been assigned a specific course
+     * @summary Get Customers By Assigned Course V1
+     * @param {string} courseId
+     * @param {string} [searchBy]
+     * @param {string} [searchValue]
+     * @param {string} [status]
+     * @param {string} [sortBy]
+     * @param {SortOrder} [sortOrder]
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [updatedAfter]
+     * @param {string} [updatedBefore]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput[]>>;
 }
 /**
  * ResellerCustomerApi - axios parameter creator
@@ -14955,6 +15095,670 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+}
+/**
+ * SparrResellerApi - axios parameter creator
+ * @export
+ */
+export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseRequest} courseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseResellerV1: (courseRequest: CourseRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaResellerV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioResellerV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaResellerV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all courses including reseller assignments
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesResellerV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseUpdateRequest} courseUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioResellerV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * SparrResellerApi - functional programming interface
+ * @export
+ */
+export declare const SparrResellerApiFp: (configuration?: Configuration) => {
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseRequest} courseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Get all courses including reseller assignments
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseUpdateRequest} courseUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+};
+/**
+ * SparrResellerApi - factory interface
+ * @export
+ */
+export declare const SparrResellerApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseRequest} courseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createCourseResellerV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPersonaResellerV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteCourseResellerV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCourseResellerV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
+    /**
+     * Get all courses including reseller assignments
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listScenariosResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseUpdateRequest} courseUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+};
+/**
+ * SparrResellerApi - object-oriented interface
+ * @export
+ * @class SparrResellerApi
+ * @extends {BaseAPI}
+ */
+export declare class SparrResellerApi extends BaseAPI {
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseRequest} courseRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deletePersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getPersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Get all courses including reseller assignments
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listScenariosResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId
+     * @param {CourseUpdateRequest} courseUpdateRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId
+     * @param {PersonaCore} personaCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId
+     * @param {ScenarioCore} scenarioCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
 }
 /**
  * SparringApi - axios parameter creator

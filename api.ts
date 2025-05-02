@@ -5618,15 +5618,21 @@ export interface ResellerBatchMetricsRequests {
 /**
  * 
  * @export
- * @interface ResellerCourseAssignment
+ * @interface ResellerMultiCourseAssignment
  */
-export interface ResellerCourseAssignment {
+export interface ResellerMultiCourseAssignment {
     /**
-     * List of organization ids to assign the course to
+     * 
      * @type {Array<string>}
-     * @memberof ResellerCourseAssignment
+     * @memberof ResellerMultiCourseAssignment
      */
-    orgs: Array<string>;
+    courses?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ResellerMultiCourseAssignment
+     */
+    orgs?: Array<string> | null;
 }
 /**
  * 
@@ -15701,24 +15707,18 @@ export class ProspectsApi extends BaseAPI {
 export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Assign Course To Reseller Customer
-         * @param {string} courseId 
-         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * Assign multiple courses to multiple reseller customers
+         * @summary Assign Multiple Courses To Reseller Customers
+         * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost: async (courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'courseId' is not null or undefined
-            if (courseId === null || courseId === undefined) {
-                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost.');
+        assignMultipleCoursesToResellerCustomersV1: async (resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resellerMultiCourseAssignment' is not null or undefined
+            if (resellerMultiCourseAssignment === null || resellerMultiCourseAssignment === undefined) {
+                throw new RequiredError('resellerMultiCourseAssignment','Required parameter resellerMultiCourseAssignment was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
             }
-            // verify required parameter 'resellerCourseAssignment' is not null or undefined
-            if (resellerCourseAssignment === null || resellerCourseAssignment === undefined) {
-                throw new RequiredError('resellerCourseAssignment','Required parameter resellerCourseAssignment was null or undefined when calling assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost.');
-            }
-            const localVarPath = `/v1/resellers/reseller/courses/{course_id}/assignment`
-                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarPath = `/v1/resellers/courses/assign`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -15746,8 +15746,188 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof resellerCourseAssignment !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(resellerCourseAssignment !== undefined ? resellerCourseAssignment : {}) : (resellerCourseAssignment || "");
+            const needsSerialization = (typeof resellerMultiCourseAssignment !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(resellerMultiCourseAssignment !== undefined ? resellerMultiCourseAssignment : {}) : (resellerMultiCourseAssignment || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all courses that have been assigned to a specific customer
+         * @summary Get Assigned Courses By Customer V1
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAssignedCoursesByCustomerV1: async (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customerOrgId' is not null or undefined
+            if (customerOrgId === null || customerOrgId === undefined) {
+                throw new RequiredError('customerOrgId','Required parameter customerOrgId was null or undefined when calling getAssignedCoursesByCustomerV1.');
+            }
+            const localVarPath = `/v1/resellers/customers/{customer_org_id}/courses`
+                .replace(`{${"customer_org_id"}}`, encodeURIComponent(String(customerOrgId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all customers that have been assigned a specific course
+         * @summary Get Customers By Assigned Course V1
+         * @param {string} courseId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomersByAssignedCourseV1: async (courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling getCustomersByAssignedCourseV1.');
+            }
+            const localVarPath = `/v1/resellers/courses/{course_id}/customers`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (searchBy !== undefined) {
+                localVarQueryParameter['search_by'] = searchBy;
+            }
+
+            if (searchValue !== undefined) {
+                localVarQueryParameter['search_value'] = searchValue;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (sortOrder !== undefined) {
+                localVarQueryParameter['sort_order'] = sortOrder;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (updatedAfter !== undefined) {
+                localVarQueryParameter['updated_after'] = updatedAfter;
+            }
+
+            if (updatedBefore !== undefined) {
+                localVarQueryParameter['updated_before'] = updatedBefore;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -15764,15 +15944,60 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
 export const ResellerCourseAssignmentsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Assign Course To Reseller Customer
-         * @param {string} courseId 
-         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * Assign multiple courses to multiple reseller customers
+         * @summary Assign Multiple Courses To Reseller Customers
+         * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options);
+        async assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all courses that have been assigned to a specific customer
+         * @summary Get Assigned Courses By Customer V1
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Course>>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).getAssignedCoursesByCustomerV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all customers that have been assigned a specific course
+         * @summary Get Customers By Assigned Course V1
+         * @param {string} courseId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrganizationOutput>>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).getCustomersByAssignedCourseV1(courseId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15788,15 +16013,52 @@ export const ResellerCourseAssignmentsApiFp = function(configuration?: Configura
 export const ResellerCourseAssignmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
-         * @summary Assign Course To Reseller Customer
-         * @param {string} courseId 
-         * @param {ResellerCourseAssignment} resellerCourseAssignment 
+         * Assign multiple courses to multiple reseller customers
+         * @summary Assign Multiple Courses To Reseller Customers
+         * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any): AxiosPromise<BaseResponseInput> {
-            return ResellerCourseAssignmentsApiFp(configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options).then((request) => request(axios, basePath));
+        assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all courses that have been assigned to a specific customer
+         * @summary Get Assigned Courses By Customer V1
+         * @param {string} customerOrgId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Course>> {
+            return ResellerCourseAssignmentsApiFp(configuration).getAssignedCoursesByCustomerV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all customers that have been assigned a specific course
+         * @summary Get Customers By Assigned Course V1
+         * @param {string} courseId 
+         * @param {string} [searchBy] 
+         * @param {string} [searchValue] 
+         * @param {string} [status] 
+         * @param {string} [sortBy] 
+         * @param {SortOrder} [sortOrder] 
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {string} [updatedAfter] 
+         * @param {string} [updatedBefore] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrganizationOutput>> {
+            return ResellerCourseAssignmentsApiFp(configuration).getCustomersByAssignedCourseV1(courseId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15809,16 +16071,57 @@ export const ResellerCourseAssignmentsApiFactory = function (configuration?: Con
  */
 export class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
-     * 
-     * @summary Assign Course To Reseller Customer
-     * @param {string} courseId 
-     * @param {ResellerCourseAssignment} resellerCourseAssignment 
+     * Assign multiple courses to multiple reseller customers
+     * @summary Assign Multiple Courses To Reseller Customers
+     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    public assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId: string, resellerCourseAssignment: ResellerCourseAssignment, options?: any) {
-        return ResellerCourseAssignmentsApiFp(this.configuration).assignCourseToResellerCustomerV1ResellersResellerCoursesCourseIdAssignmentPost(courseId, resellerCourseAssignment, options).then((request) => request(this.axios, this.basePath));
+    public assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all courses that have been assigned to a specific customer
+     * @summary Get Assigned Courses By Customer V1
+     * @param {string} customerOrgId 
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    public getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).getAssignedCoursesByCustomerV1(customerOrgId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all customers that have been assigned a specific course
+     * @summary Get Customers By Assigned Course V1
+     * @param {string} courseId 
+     * @param {string} [searchBy] 
+     * @param {string} [searchValue] 
+     * @param {string} [status] 
+     * @param {string} [sortBy] 
+     * @param {SortOrder} [sortOrder] 
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {string} [updatedAfter] 
+     * @param {string} [updatedBefore] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ResellerCourseAssignmentsApi
+     */
+    public getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).getCustomersByAssignedCourseV1(courseId, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -23816,6 +24119,1616 @@ export class SparrApi extends BaseAPI {
      */
     public updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any) {
         return SparrApiFp(this.configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+}
+
+
+/**
+ * SparrResellerApi - axios parameter creator
+ * @export
+ */
+export const SparrResellerApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new course
+         * @summary Create Course
+         * @param {CourseRequest} courseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCourseResellerV1: async (courseRequest: CourseRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseRequest' is not null or undefined
+            if (courseRequest === null || courseRequest === undefined) {
+                throw new RequiredError('courseRequest','Required parameter courseRequest was null or undefined when calling createCourseResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/courses/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof courseRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(courseRequest !== undefined ? courseRequest : {}) : (courseRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaResellerV1: async (personaCore: PersonaCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new RequiredError('personaCore','Required parameter personaCore was null or undefined when calling createPersonaResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioResellerV1: async (scenarioCore: ScenarioCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new RequiredError('scenarioCore','Required parameter scenarioCore was null or undefined when calling createScenarioResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a course
+         * @summary Delete Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCourseResellerV1: async (courseId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling deleteCourseResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/courses/{course_id}`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaResellerV1: async (personaId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling deletePersonaResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioResellerV1: async (scenarioId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling deleteScenarioResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a specific course by ID
+         * @summary Get Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCourseResellerV1: async (courseId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling getCourseResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/courses/{course_id}`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaResellerV1: async (personaId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling getPersonaResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioResellerV1: async (scenarioId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling getScenarioResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importLinkedinPersonaResellerV1: async (linkedinUrl: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'linkedinUrl' is not null or undefined
+            if (linkedinUrl === null || linkedinUrl === undefined) {
+                throw new RequiredError('linkedinUrl','Required parameter linkedinUrl was null or undefined when calling importLinkedinPersonaResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/import-linkedin`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (linkedinUrl !== undefined) {
+                localVarQueryParameter['linkedin_url'] = linkedinUrl;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all courses including reseller assignments
+         * @summary Get Courses
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [status] Filter by status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCoursesResellerV1: async (skip?: number, limit?: number, status?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/sparr/courses/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasResellerV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosResellerV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/resellers/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasResellerV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new RequiredError('query','Required parameter query was null or undefined when calling searchPersonasResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosResellerV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new RequiredError('query','Required parameter query was null or undefined when calling searchScenariosResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/scenarios/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a course
+         * @summary Update Course
+         * @param {string} courseId 
+         * @param {CourseUpdateRequest} courseUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCourseResellerV1: async (courseId: string, courseUpdateRequest: CourseUpdateRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'courseId' is not null or undefined
+            if (courseId === null || courseId === undefined) {
+                throw new RequiredError('courseId','Required parameter courseId was null or undefined when calling updateCourseResellerV1.');
+            }
+            // verify required parameter 'courseUpdateRequest' is not null or undefined
+            if (courseUpdateRequest === null || courseUpdateRequest === undefined) {
+                throw new RequiredError('courseUpdateRequest','Required parameter courseUpdateRequest was null or undefined when calling updateCourseResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/courses/{course_id}`
+                .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof courseUpdateRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(courseUpdateRequest !== undefined ? courseUpdateRequest : {}) : (courseUpdateRequest || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaResellerV1: async (personaId: string, personaCore: PersonaCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'personaId' is not null or undefined
+            if (personaId === null || personaId === undefined) {
+                throw new RequiredError('personaId','Required parameter personaId was null or undefined when calling updatePersonaResellerV1.');
+            }
+            // verify required parameter 'personaCore' is not null or undefined
+            if (personaCore === null || personaCore === undefined) {
+                throw new RequiredError('personaCore','Required parameter personaCore was null or undefined when calling updatePersonaResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/personas/{persona_id}`
+                .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioResellerV1: async (scenarioId: string, scenarioCore: ScenarioCore, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scenarioId' is not null or undefined
+            if (scenarioId === null || scenarioId === undefined) {
+                throw new RequiredError('scenarioId','Required parameter scenarioId was null or undefined when calling updateScenarioResellerV1.');
+            }
+            // verify required parameter 'scenarioCore' is not null or undefined
+            if (scenarioCore === null || scenarioCore === undefined) {
+                throw new RequiredError('scenarioCore','Required parameter scenarioCore was null or undefined when calling updateScenarioResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/scenarios/{scenario_id}`
+                .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof scenarioCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(scenarioCore !== undefined ? scenarioCore : {}) : (scenarioCore || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SparrResellerApi - functional programming interface
+ * @export
+ */
+export const SparrResellerApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Create a new course
+         * @summary Create Course
+         * @param {CourseRequest} courseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).createCourseResellerV1(courseRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).createPersonaResellerV1(personaCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).createScenarioResellerV1(scenarioCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a course
+         * @summary Delete Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).deleteCourseResellerV1(courseId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).deletePersonaResellerV1(personaId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).deleteScenarioResellerV1(scenarioId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a specific course by ID
+         * @summary Get Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).getCourseResellerV1(courseId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).getPersonaResellerV1(personaId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).getScenarioResellerV1(scenarioId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).importLinkedinPersonaResellerV1(linkedinUrl, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all courses including reseller assignments
+         * @summary Get Courses
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [status] Filter by status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).listCoursesResellerV1(skip, limit, status, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).listPersonasResellerV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listScenariosResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).listScenariosResellerV1(skip, limit, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).searchPersonasResellerV1(query, page, size, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).searchScenariosResellerV1(query, page, size, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a course
+         * @summary Update Course
+         * @param {string} courseId 
+         * @param {CourseUpdateRequest} courseUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).updateCourseResellerV1(courseId, courseUpdateRequest, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).updatePersonaResellerV1(personaId, personaCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>> {
+            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * SparrResellerApi - factory interface
+ * @export
+ */
+export const SparrResellerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Create a new course
+         * @summary Create Course
+         * @param {CourseRequest} courseRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCourseResellerV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse> {
+            return SparrResellerApiFp(configuration).createCourseResellerV1(courseRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new persona
+         * @summary Create Persona
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPersonaResellerV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
+            return SparrResellerApiFp(configuration).createPersonaResellerV1(personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new scenario
+         * @summary Create Scenario
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario> {
+            return SparrResellerApiFp(configuration).createScenarioResellerV1(scenarioCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a course
+         * @summary Delete Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCourseResellerV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrResellerApiFp(configuration).deleteCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a persona
+         * @summary Delete Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrResellerApiFp(configuration).deletePersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a scenario
+         * @summary Delete Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
+            return SparrResellerApiFp(configuration).deleteScenarioResellerV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific course by ID
+         * @summary Get Course
+         * @param {string} courseId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCourseResellerV1(courseId: string, options?: any): AxiosPromise<CourseResponse> {
+            return SparrResellerApiFp(configuration).getCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific persona by ID
+         * @summary Get Persona
+         * @param {string} personaId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona> {
+            return SparrResellerApiFp(configuration).getPersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a specific scenario by ID
+         * @summary Get Scenario
+         * @param {string} scenarioId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<Scenario> {
+            return SparrResellerApiFp(configuration).getScenarioResellerV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Import a persona from LinkedIn URL
+         * @summary Import Linkedin Persona
+         * @param {string} linkedinUrl 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): AxiosPromise<Persona> {
+            return SparrResellerApiFp(configuration).importLinkedinPersonaResellerV1(linkedinUrl, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all courses including reseller assignments
+         * @summary Get Courses
+         * @param {number} [skip] Skip for pagination
+         * @param {number} [limit] Limit for pagination
+         * @param {string} [status] Filter by status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>> {
+            return SparrResellerApiFp(configuration).listCoursesResellerV1(skip, limit, status, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all personas
+         * @summary Get Personas
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>> {
+            return SparrResellerApiFp(configuration).listPersonasResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve all scenarios
+         * @summary Get Scenarios
+         * @param {number} [skip] 
+         * @param {number} [limit] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listScenariosResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>> {
+            return SparrResellerApiFp(configuration).listScenariosResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search personas by name, title and company
+         * @summary Search Personas
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse> {
+            return SparrResellerApiFp(configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search scenarios by name and description
+         * @summary Search Scenarios
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse> {
+            return SparrResellerApiFp(configuration).searchScenariosResellerV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a course
+         * @summary Update Course
+         * @param {string} courseId 
+         * @param {CourseUpdateRequest} courseUpdateRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse> {
+            return SparrResellerApiFp(configuration).updateCourseResellerV1(courseId, courseUpdateRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a persona
+         * @summary Update Persona
+         * @param {string} personaId 
+         * @param {PersonaCore} personaCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
+            return SparrResellerApiFp(configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a scenario
+         * @summary Update Scenario
+         * @param {string} scenarioId 
+         * @param {ScenarioCore} scenarioCore 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario> {
+            return SparrResellerApiFp(configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * SparrResellerApi - object-oriented interface
+ * @export
+ * @class SparrResellerApi
+ * @extends {BaseAPI}
+ */
+export class SparrResellerApi extends BaseAPI {
+    /**
+     * Create a new course
+     * @summary Create Course
+     * @param {CourseRequest} courseRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public createCourseResellerV1(courseRequest: CourseRequest, options?: any) {
+        return SparrResellerApiFp(this.configuration).createCourseResellerV1(courseRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new persona
+     * @summary Create Persona
+     * @param {PersonaCore} personaCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public createPersonaResellerV1(personaCore: PersonaCore, options?: any) {
+        return SparrResellerApiFp(this.configuration).createPersonaResellerV1(personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new scenario
+     * @summary Create Scenario
+     * @param {ScenarioCore} scenarioCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any) {
+        return SparrResellerApiFp(this.configuration).createScenarioResellerV1(scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a course
+     * @summary Delete Course
+     * @param {string} courseId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public deleteCourseResellerV1(courseId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).deleteCourseResellerV1(courseId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a persona
+     * @summary Delete Persona
+     * @param {string} personaId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public deletePersonaResellerV1(personaId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).deletePersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a scenario
+     * @summary Delete Scenario
+     * @param {string} scenarioId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public deleteScenarioResellerV1(scenarioId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).deleteScenarioResellerV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a specific course by ID
+     * @summary Get Course
+     * @param {string} courseId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public getCourseResellerV1(courseId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).getCourseResellerV1(courseId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a specific persona by ID
+     * @summary Get Persona
+     * @param {string} personaId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public getPersonaResellerV1(personaId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).getPersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a specific scenario by ID
+     * @summary Get Scenario
+     * @param {string} scenarioId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public getScenarioResellerV1(scenarioId: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).getScenarioResellerV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Import a persona from LinkedIn URL
+     * @summary Import Linkedin Persona
+     * @param {string} linkedinUrl 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).importLinkedinPersonaResellerV1(linkedinUrl, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all courses including reseller assignments
+     * @summary Get Courses
+     * @param {number} [skip] Skip for pagination
+     * @param {number} [limit] Limit for pagination
+     * @param {string} [status] Filter by status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any) {
+        return SparrResellerApiFp(this.configuration).listCoursesResellerV1(skip, limit, status, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all personas
+     * @summary Get Personas
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public listPersonasResellerV1(skip?: number, limit?: number, options?: any) {
+        return SparrResellerApiFp(this.configuration).listPersonasResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve all scenarios
+     * @summary Get Scenarios
+     * @param {number} [skip] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public listScenariosResellerV1(skip?: number, limit?: number, options?: any) {
+        return SparrResellerApiFp(this.configuration).listScenariosResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search personas by name, title and company
+     * @summary Search Personas
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any) {
+        return SparrResellerApiFp(this.configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search scenarios by name and description
+     * @summary Search Scenarios
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any) {
+        return SparrResellerApiFp(this.configuration).searchScenariosResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a course
+     * @summary Update Course
+     * @param {string} courseId 
+     * @param {CourseUpdateRequest} courseUpdateRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) {
+        return SparrResellerApiFp(this.configuration).updateCourseResellerV1(courseId, courseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a persona
+     * @summary Update Persona
+     * @param {string} personaId 
+     * @param {PersonaCore} personaCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any) {
+        return SparrResellerApiFp(this.configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a scenario
+     * @summary Update Scenario
+     * @param {string} scenarioId 
+     * @param {ScenarioCore} scenarioCore 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    public updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any) {
+        return SparrResellerApiFp(this.configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
