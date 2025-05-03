@@ -2331,6 +2331,15 @@ export interface Course {
  * @export
  * @enum {string}
  */
+export declare enum CourseAssignmentStatus {
+    Assigned = "assigned",
+    Unassigned = "unassigned"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 export declare enum CourseCompletionStatus {
     NOTSTARTED = "NOT_STARTED",
     INPROGRESS = "IN_PROGRESS",
@@ -2429,6 +2438,25 @@ export interface CourseUpdateRequest {
      * @memberof CourseUpdateRequest
      */
     modules: Array<ModuleUpdateRequest>;
+}
+/**
+ *
+ * @export
+ * @interface CourseWithAssignmentStatus
+ */
+export interface CourseWithAssignmentStatus {
+    /**
+     *
+     * @type {Course}
+     * @memberof CourseWithAssignmentStatus
+     */
+    course: Course;
+    /**
+     * Course assignment status (assigned/unassigned)
+     * @type {CourseAssignmentStatus}
+     * @memberof CourseWithAssignmentStatus
+     */
+    status?: CourseAssignmentStatus;
 }
 /**
  * Credits details of the business
@@ -4185,6 +4213,25 @@ export interface OrgUsersPriceCredits {
      * @memberof OrgUsersPriceCredits
      */
     resellerAdminUserCredentials?: string | null;
+}
+/**
+ *
+ * @export
+ * @interface OrgWithCourseAssignment
+ */
+export interface OrgWithCourseAssignment {
+    /**
+     *
+     * @type {OrganizationOutput}
+     * @memberof OrgWithCourseAssignment
+     */
+    organization: OrganizationOutput;
+    /**
+     * Course assignment status (assigned/unassigned)
+     * @type {CourseAssignmentStatus}
+     * @memberof OrgWithCourseAssignment
+     */
+    status?: CourseAssignmentStatus;
 }
 /**
  *
@@ -6070,13 +6117,13 @@ export declare enum SparrInteractionTone {
  */
 export interface SparrLanguageAccentCombo {
     /**
-     *
+     * The language of the voice
      * @type {SparrVoiceLanguage}
      * @memberof SparrLanguageAccentCombo
      */
     language: SparrVoiceLanguage;
     /**
-     *
+     * The accent of the voice
      * @type {SparrVoiceAccent}
      * @memberof SparrLanguageAccentCombo
      */
@@ -6461,7 +6508,20 @@ export interface SparrVoiceInput {
 export declare enum SparrVoiceLanguage {
     English = "English",
     Spanish = "Spanish",
-    Hindi = "Hindi"
+    French = "French",
+    German = "German",
+    Italian = "Italian",
+    Portuguese = "Portuguese",
+    Dutch = "Dutch",
+    Polish = "Polish",
+    Russian = "Russian",
+    Japanese = "Japanese",
+    Korean = "Korean",
+    Chinese = "Chinese",
+    Arabic = "Arabic",
+    Hindi = "Hindi",
+    Bengali = "Bengali",
+    Turkish = "Turkish"
 }
 /**
  *
@@ -11492,7 +11552,7 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
      */
     getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all customers that have been assigned a specific course
+     * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
      * @param {string} [searchBy]
@@ -11538,9 +11598,9 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Course>>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseWithAssignmentStatus>>>;
     /**
-     * Get all customers that have been assigned a specific course
+     * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
      * @param {string} [searchBy]
@@ -11555,7 +11615,7 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrganizationOutput>>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgWithCourseAssignment>>>;
 };
 /**
  * ResellerCourseAssignmentsApi - factory interface
@@ -11586,9 +11646,9 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Course>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<CourseWithAssignmentStatus>>;
     /**
-     * Get all customers that have been assigned a specific course
+     * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
      * @param {string} [searchBy]
@@ -11603,7 +11663,7 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrganizationOutput>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgWithCourseAssignment>>;
 };
 /**
  * ResellerCourseAssignmentsApi - object-oriented interface
@@ -11638,9 +11698,9 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<Course[]>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<CourseWithAssignmentStatus[]>>;
     /**
-     * Get all customers that have been assigned a specific course
+     * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
      * @param {string} [searchBy]
@@ -11656,7 +11716,7 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput[]>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgWithCourseAssignment[]>>;
 }
 /**
  * ResellerCustomerApi - axios parameter creator
@@ -13914,7 +13974,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getPricingV1: (options?: any) => Promise<RequestArgs>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -13960,7 +14020,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -13969,7 +14029,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listPersonasV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14237,7 +14297,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -14283,7 +14343,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14292,7 +14352,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listPersonasV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14560,7 +14620,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getPricingV1(options?: any): AxiosPromise<Array<Price>>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -14606,7 +14666,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): AxiosPromise<Array<Feedback>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14615,7 +14675,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listPersonasV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14903,7 +14963,7 @@ export declare class SparrApi extends BaseAPI {
      */
     getPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -14954,7 +15014,7 @@ export declare class SparrApi extends BaseAPI {
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -14964,7 +15024,7 @@ export declare class SparrApi extends BaseAPI {
      */
     listPersonasV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15166,7 +15226,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     getPersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -15192,7 +15252,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     listCoursesResellerV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15201,7 +15261,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     listPersonasResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15327,7 +15387,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -15353,7 +15413,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15362,7 +15422,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15488,7 +15548,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -15514,7 +15574,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15523,7 +15583,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     listPersonasResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15659,7 +15719,7 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Retrieve a specific scenario by ID
+     * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
      * @param {*} [options] Override http request option.
@@ -15688,7 +15748,7 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
     /**
-     * Get all personas
+     * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
      * @param {number} [skip]
      * @param {number} [limit]
@@ -15698,7 +15758,7 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
-     * Retrieve all scenarios
+     * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
