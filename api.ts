@@ -2397,10 +2397,10 @@ export interface CourseAssignmentCustomers {
 export interface CourseAssignmentRequest {
     /**
      * Course assignment action
-     * @type {CourseAssignmentAction}
+     * @type {Array<CourseAssignmentAction>}
      * @memberof CourseAssignmentRequest
      */
-    action: CourseAssignmentAction;
+    action: Array<CourseAssignmentAction>;
     /**
      * List of course IDs
      * @type {Array<string>}
