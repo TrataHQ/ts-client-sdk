@@ -2331,6 +2331,61 @@ export interface Course {
  * @export
  * @enum {string}
  */
+export declare enum CourseAssignmentAction {
+    Add = "add",
+    Remove = "remove",
+    AddAll = "add_all",
+    RemoveAll = "remove_all"
+}
+/**
+ *
+ * @export
+ * @interface CourseAssignmentCustomers
+ */
+export interface CourseAssignmentCustomers {
+    /**
+     * List of added organization IDs
+     * @type {Array<string>}
+     * @memberof CourseAssignmentCustomers
+     */
+    added?: Array<string> | null;
+    /**
+     * List of removed organization IDs
+     * @type {Array<string>}
+     * @memberof CourseAssignmentCustomers
+     */
+    removed?: Array<string> | null;
+}
+/**
+ *
+ * @export
+ * @interface CourseAssignmentRequest
+ */
+export interface CourseAssignmentRequest {
+    /**
+     * Course assignment action
+     * @type {CourseAssignmentAction}
+     * @memberof CourseAssignmentRequest
+     */
+    action: CourseAssignmentAction;
+    /**
+     * List of course IDs
+     * @type {Array<string>}
+     * @memberof CourseAssignmentRequest
+     */
+    courseIds: Array<string>;
+    /**
+     * Payload for add/remove actions
+     * @type {CourseAssignmentCustomers}
+     * @memberof CourseAssignmentRequest
+     */
+    payload?: CourseAssignmentCustomers | null;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 export declare enum CourseAssignmentStatus {
     Assigned = "assigned",
     Unassigned = "unassigned"
@@ -5600,25 +5655,6 @@ export interface ResellerBatchMetricsRequests {
      * @memberof ResellerBatchMetricsRequests
      */
     requests: Array<MetricsRequestInput>;
-}
-/**
- *
- * @export
- * @interface ResellerMultiCourseAssignment
- */
-export interface ResellerMultiCourseAssignment {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof ResellerMultiCourseAssignment
-     */
-    courses?: Array<string> | null;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof ResellerMultiCourseAssignment
-     */
-    orgs?: Array<string> | null;
 }
 /**
  *
@@ -11529,11 +11565,11 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
     /**
      * Assign multiple courses to multiple reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
+     * @param {CourseAssignmentRequest} courseAssignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1: (resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any) => Promise<RequestArgs>;
+    assignMultipleCoursesToResellerCustomersV1: (courseAssignmentRequest: CourseAssignmentRequest, options?: any) => Promise<RequestArgs>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11577,11 +11613,11 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
     /**
      * Assign multiple courses to multiple reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
+     * @param {CourseAssignmentRequest} courseAssignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11625,11 +11661,11 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
     /**
      * Assign multiple courses to multiple reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
+     * @param {CourseAssignmentRequest} courseAssignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): AxiosPromise<BaseResponseInput>;
+    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11675,12 +11711,12 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
      * Assign multiple courses to multiple reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {ResellerMultiCourseAssignment} resellerMultiCourseAssignment
+     * @param {CourseAssignmentRequest} courseAssignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    assignMultipleCoursesToResellerCustomersV1(resellerMultiCourseAssignment: ResellerMultiCourseAssignment, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
