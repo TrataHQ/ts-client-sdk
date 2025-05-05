@@ -1105,6 +1105,40 @@ export interface AppResponse {
     actions: Array<AppAction>;
 }
 /**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum AssignmentOperation {
+    Assign = "assign",
+    Remove = "remove"
+}
+/**
+ *
+ * @export
+ * @interface AssignmentRequest
+ */
+export interface AssignmentRequest {
+    /**
+     * Whether to assign or remove courses
+     * @type {AssignmentOperation}
+     * @memberof AssignmentRequest
+     */
+    operation: AssignmentOperation;
+    /**
+     * Either \'all\' or a list of course IDs
+     * @type {string | Array<string>}
+     * @memberof AssignmentRequest
+     */
+    courses: string | Array<string>;
+    /**
+     * Either \'all\' or a list of customer IDs
+     * @type {string | Array<string>}
+     * @memberof AssignmentRequest
+     */
+    customers: string | Array<string>;
+}
+/**
  * Audit log details of the business
  * @export
  * @interface AuditLog
@@ -2325,61 +2359,6 @@ export interface Course {
      * @memberof Course
      */
     id?: string;
-}
-/**
- *
- * @export
- * @enum {string}
- */
-export declare enum CourseAssignmentAction {
-    Add = "add",
-    Remove = "remove",
-    AddAll = "add_all",
-    RemoveAll = "remove_all"
-}
-/**
- *
- * @export
- * @interface CourseAssignmentCustomers
- */
-export interface CourseAssignmentCustomers {
-    /**
-     * List of added organization IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentCustomers
-     */
-    added?: Array<string> | null;
-    /**
-     * List of removed organization IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentCustomers
-     */
-    removed?: Array<string> | null;
-}
-/**
- *
- * @export
- * @interface CourseAssignmentRequest
- */
-export interface CourseAssignmentRequest {
-    /**
-     * Course assignment action
-     * @type {Array<CourseAssignmentAction>}
-     * @memberof CourseAssignmentRequest
-     */
-    action: Array<CourseAssignmentAction>;
-    /**
-     * List of course IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentRequest
-     */
-    courseIds: Array<string>;
-    /**
-     * Payload for add/remove actions
-     * @type {CourseAssignmentCustomers}
-     * @memberof CourseAssignmentRequest
-     */
-    payload?: CourseAssignmentCustomers | null;
 }
 /**
  *
@@ -6544,20 +6523,7 @@ export interface SparrVoiceInput {
 export declare enum SparrVoiceLanguage {
     English = "English",
     Spanish = "Spanish",
-    French = "French",
-    German = "German",
-    Italian = "Italian",
-    Portuguese = "Portuguese",
-    Dutch = "Dutch",
-    Polish = "Polish",
-    Russian = "Russian",
-    Japanese = "Japanese",
-    Korean = "Korean",
-    Chinese = "Chinese",
-    Arabic = "Arabic",
-    Hindi = "Hindi",
-    Bengali = "Bengali",
-    Turkish = "Turkish"
+    Hindi = "Hindi"
 }
 /**
  *
@@ -11563,13 +11529,13 @@ export declare class ProspectsApi extends BaseAPI {
  */
 export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest
+     * @param {AssignmentRequest} assignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1: (courseAssignmentRequest: CourseAssignmentRequest, options?: any) => Promise<RequestArgs>;
+    assignMultipleCoursesToResellerCustomersV1: (assignmentRequest: AssignmentRequest, options?: any) => Promise<RequestArgs>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11611,13 +11577,13 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
  */
 export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configuration) => {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest
+     * @param {AssignmentRequest} assignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11659,13 +11625,13 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
  */
 export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest
+     * @param {AssignmentRequest} assignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): AxiosPromise<BaseResponseInput>;
+    assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -11709,14 +11675,14 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
  */
 export declare class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest
+     * @param {AssignmentRequest} assignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -13995,7 +13961,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any) => Promise<RequestArgs>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -14318,7 +14284,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -14641,7 +14607,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -14982,7 +14948,7 @@ export declare class SparrApi extends BaseAPI {
      */
     getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse>>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -15254,7 +15220,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     getCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -15415,7 +15381,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     getCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -15576,7 +15542,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     getCourseResellerV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -15746,7 +15712,7 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     getCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.

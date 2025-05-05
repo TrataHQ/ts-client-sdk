@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.CourseAssignmentAction = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AssignmentOperation = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -148,6 +148,16 @@ var AppEnumOutput;
  * @export
  * @enum {string}
  */
+var AssignmentOperation;
+(function (AssignmentOperation) {
+    AssignmentOperation["Assign"] = "assign";
+    AssignmentOperation["Remove"] = "remove";
+})(AssignmentOperation = exports.AssignmentOperation || (exports.AssignmentOperation = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 var AuthRole;
 (function (AuthRole) {
     AuthRole["Owner"] = "Owner";
@@ -222,18 +232,6 @@ var ConversationStartEventPayloadTypeEnum;
 (function (ConversationStartEventPayloadTypeEnum) {
     ConversationStartEventPayloadTypeEnum["ConversationStart"] = "conversation_start";
 })(ConversationStartEventPayloadTypeEnum = exports.ConversationStartEventPayloadTypeEnum || (exports.ConversationStartEventPayloadTypeEnum = {}));
-/**
- *
- * @export
- * @enum {string}
- */
-var CourseAssignmentAction;
-(function (CourseAssignmentAction) {
-    CourseAssignmentAction["Add"] = "add";
-    CourseAssignmentAction["Remove"] = "remove";
-    CourseAssignmentAction["AddAll"] = "add_all";
-    CourseAssignmentAction["RemoveAll"] = "remove_all";
-})(CourseAssignmentAction = exports.CourseAssignmentAction || (exports.CourseAssignmentAction = {}));
 /**
  *
  * @export
@@ -890,20 +888,7 @@ var SparrVoiceLanguage;
 (function (SparrVoiceLanguage) {
     SparrVoiceLanguage["English"] = "English";
     SparrVoiceLanguage["Spanish"] = "Spanish";
-    SparrVoiceLanguage["French"] = "French";
-    SparrVoiceLanguage["German"] = "German";
-    SparrVoiceLanguage["Italian"] = "Italian";
-    SparrVoiceLanguage["Portuguese"] = "Portuguese";
-    SparrVoiceLanguage["Dutch"] = "Dutch";
-    SparrVoiceLanguage["Polish"] = "Polish";
-    SparrVoiceLanguage["Russian"] = "Russian";
-    SparrVoiceLanguage["Japanese"] = "Japanese";
-    SparrVoiceLanguage["Korean"] = "Korean";
-    SparrVoiceLanguage["Chinese"] = "Chinese";
-    SparrVoiceLanguage["Arabic"] = "Arabic";
     SparrVoiceLanguage["Hindi"] = "Hindi";
-    SparrVoiceLanguage["Bengali"] = "Bengali";
-    SparrVoiceLanguage["Turkish"] = "Turkish";
 })(SparrVoiceLanguage = exports.SparrVoiceLanguage || (exports.SparrVoiceLanguage = {}));
 /**
  *
@@ -7872,16 +7857,16 @@ exports.ProspectsApi = ProspectsApi;
 exports.ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest
+         * @param {AssignmentRequest} assignmentRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1: (courseAssignmentRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'courseAssignmentRequest' is not null or undefined
-            if (courseAssignmentRequest === null || courseAssignmentRequest === undefined) {
-                throw new base_1.RequiredError('courseAssignmentRequest', 'Required parameter courseAssignmentRequest was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
+        assignMultipleCoursesToResellerCustomersV1: (assignmentRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'assignmentRequest' is not null or undefined
+            if (assignmentRequest === null || assignmentRequest === undefined) {
+                throw new base_1.RequiredError('assignmentRequest', 'Required parameter assignmentRequest was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
             }
             const localVarPath = `/v1/resellers/courses/assign`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -7906,8 +7891,8 @@ exports.ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration)
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof courseAssignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseAssignmentRequest !== undefined ? courseAssignmentRequest : {}) : (courseAssignmentRequest || "");
+            const needsSerialization = (typeof assignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(assignmentRequest !== undefined ? assignmentRequest : {}) : (assignmentRequest || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -8074,15 +8059,15 @@ exports.ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration)
 exports.ResellerCourseAssignmentsApiFp = function (configuration) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest
+         * @param {AssignmentRequest} assignmentRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options) {
+        assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options);
+                const localVarAxiosArgs = yield exports.ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8148,14 +8133,14 @@ exports.ResellerCourseAssignmentsApiFp = function (configuration) {
 exports.ResellerCourseAssignmentsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest
+         * @param {AssignmentRequest} assignmentRequest
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options) {
-            return exports.ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options).then((request) => request(axios, basePath));
+        assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options) {
+            return exports.ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all courses that have been assigned to a specific customer
@@ -8205,15 +8190,15 @@ exports.ResellerCourseAssignmentsApiFactory = function (configuration, basePath,
  */
 class ResellerCourseAssignmentsApi extends base_1.BaseAPI {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest
+     * @param {AssignmentRequest} assignmentRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options) {
-        return exports.ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options) {
+        return exports.ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all courses that have been assigned to a specific customer
@@ -13356,7 +13341,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -14558,7 +14543,7 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -15083,7 +15068,7 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -15499,7 +15484,7 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.
@@ -16045,7 +16030,7 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -16661,7 +16646,7 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -16926,7 +16911,7 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).getCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
          * @param {*} [options] Override http request option.
@@ -17133,7 +17118,7 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).getCourseResellerV1(courseId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
      * @param {*} [options] Override http request option.

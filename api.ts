@@ -1125,6 +1125,41 @@ export interface AppResponse {
     actions: Array<AppAction>;
 }
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum AssignmentOperation {
+    Assign = 'assign',
+    Remove = 'remove'
+}
+
+/**
+ * 
+ * @export
+ * @interface AssignmentRequest
+ */
+export interface AssignmentRequest {
+    /**
+     * Whether to assign or remove courses
+     * @type {AssignmentOperation}
+     * @memberof AssignmentRequest
+     */
+    operation: AssignmentOperation;
+    /**
+     * Either \'all\' or a list of course IDs
+     * @type {string | Array<string>}
+     * @memberof AssignmentRequest
+     */
+    courses: string | Array<string>;
+    /**
+     * Either \'all\' or a list of customer IDs
+     * @type {string | Array<string>}
+     * @memberof AssignmentRequest
+     */
+    customers: string | Array<string>;
+}
+/**
  * Audit log details of the business
  * @export
  * @interface AuditLog
@@ -2357,62 +2392,6 @@ export interface Course {
      * @memberof Course
      */
     id?: string;
-}
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum CourseAssignmentAction {
-    Add = 'add',
-    Remove = 'remove',
-    AddAll = 'add_all',
-    RemoveAll = 'remove_all'
-}
-
-/**
- * 
- * @export
- * @interface CourseAssignmentCustomers
- */
-export interface CourseAssignmentCustomers {
-    /**
-     * List of added organization IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentCustomers
-     */
-    added?: Array<string> | null;
-    /**
-     * List of removed organization IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentCustomers
-     */
-    removed?: Array<string> | null;
-}
-/**
- * 
- * @export
- * @interface CourseAssignmentRequest
- */
-export interface CourseAssignmentRequest {
-    /**
-     * Course assignment action
-     * @type {Array<CourseAssignmentAction>}
-     * @memberof CourseAssignmentRequest
-     */
-    action: Array<CourseAssignmentAction>;
-    /**
-     * List of course IDs
-     * @type {Array<string>}
-     * @memberof CourseAssignmentRequest
-     */
-    courseIds: Array<string>;
-    /**
-     * Payload for add/remove actions
-     * @type {CourseAssignmentCustomers}
-     * @memberof CourseAssignmentRequest
-     */
-    payload?: CourseAssignmentCustomers | null;
 }
 /**
  * 
@@ -6625,20 +6604,7 @@ export interface SparrVoiceInput {
 export enum SparrVoiceLanguage {
     English = 'English',
     Spanish = 'Spanish',
-    French = 'French',
-    German = 'German',
-    Italian = 'Italian',
-    Portuguese = 'Portuguese',
-    Dutch = 'Dutch',
-    Polish = 'Polish',
-    Russian = 'Russian',
-    Japanese = 'Japanese',
-    Korean = 'Korean',
-    Chinese = 'Chinese',
-    Arabic = 'Arabic',
-    Hindi = 'Hindi',
-    Bengali = 'Bengali',
-    Turkish = 'Turkish'
+    Hindi = 'Hindi'
 }
 
 /**
@@ -15805,16 +15771,16 @@ export class ProspectsApi extends BaseAPI {
 export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest 
+         * @param {AssignmentRequest} assignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1: async (courseAssignmentRequest: CourseAssignmentRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'courseAssignmentRequest' is not null or undefined
-            if (courseAssignmentRequest === null || courseAssignmentRequest === undefined) {
-                throw new RequiredError('courseAssignmentRequest','Required parameter courseAssignmentRequest was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
+        assignMultipleCoursesToResellerCustomersV1: async (assignmentRequest: AssignmentRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'assignmentRequest' is not null or undefined
+            if (assignmentRequest === null || assignmentRequest === undefined) {
+                throw new RequiredError('assignmentRequest','Required parameter assignmentRequest was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
             }
             const localVarPath = `/v1/resellers/courses/assign`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -15844,8 +15810,8 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof courseAssignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(courseAssignmentRequest !== undefined ? courseAssignmentRequest : {}) : (courseAssignmentRequest || "");
+            const needsSerialization = (typeof assignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(assignmentRequest !== undefined ? assignmentRequest : {}) : (assignmentRequest || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -16042,14 +16008,14 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
 export const ResellerCourseAssignmentsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest 
+         * @param {AssignmentRequest} assignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options);
+        async assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -16111,14 +16077,14 @@ export const ResellerCourseAssignmentsApiFp = function(configuration?: Configura
 export const ResellerCourseAssignmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Assign multiple courses to multiple reseller customers
+         * Assign or remove courses for reseller customers
          * @summary Assign Multiple Courses To Reseller Customers
-         * @param {CourseAssignmentRequest} courseAssignmentRequest 
+         * @param {AssignmentRequest} assignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any): AxiosPromise<BaseResponseInput> {
-            return ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options).then((request) => request(axios, basePath));
+        assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all courses that have been assigned to a specific customer
@@ -16169,15 +16135,15 @@ export const ResellerCourseAssignmentsApiFactory = function (configuration?: Con
  */
 export class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
-     * Assign multiple courses to multiple reseller customers
+     * Assign or remove courses for reseller customers
      * @summary Assign Multiple Courses To Reseller Customers
-     * @param {CourseAssignmentRequest} courseAssignmentRequest 
+     * @param {AssignmentRequest} assignmentRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    public assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest: CourseAssignmentRequest, options?: any) {
-        return ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(courseAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    public assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21729,7 +21695,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -23030,7 +22996,7 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -23514,7 +23480,7 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -23947,7 +23913,7 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId 
      * @param {*} [options] Override http request option.
@@ -24553,7 +24519,7 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -25228,7 +25194,7 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -25472,7 +25438,7 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
             return SparrResellerApiFp(configuration).getCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific persona by ID
+         * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId 
          * @param {*} [options] Override http request option.
@@ -25687,7 +25653,7 @@ export class SparrResellerApi extends BaseAPI {
     }
 
     /**
-     * Get a specific persona by ID
+     * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId 
      * @param {*} [options] Override http request option.
