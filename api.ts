@@ -1125,41 +1125,6 @@ export interface AppResponse {
     actions: Array<AppAction>;
 }
 /**
- * 
- * @export
- * @enum {string}
- */
-export enum AssignmentOperation {
-    Assign = 'assign',
-    Remove = 'remove'
-}
-
-/**
- * 
- * @export
- * @interface AssignmentRequest
- */
-export interface AssignmentRequest {
-    /**
-     * Whether to assign or remove courses
-     * @type {AssignmentOperation}
-     * @memberof AssignmentRequest
-     */
-    operation: AssignmentOperation;
-    /**
-     * Either \'all\' or a list of course IDs
-     * @type {string | Array<string>}
-     * @memberof AssignmentRequest
-     */
-    courses: string | Array<string>;
-    /**
-     * Either \'all\' or a list of customer IDs
-     * @type {string | Array<string>}
-     * @memberof AssignmentRequest
-     */
-    customers: string | Array<string>;
-}
-/**
  * Audit log details of the business
  * @export
  * @interface AuditLog
@@ -1471,6 +1436,41 @@ export enum CallSentiment {
     Neutral = 'neutral'
 }
 
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum ChangeAssignmentOperation {
+    Assign = 'assign',
+    Remove = 'remove'
+}
+
+/**
+ * 
+ * @export
+ * @interface ChangeAssignmentRequest
+ */
+export interface ChangeAssignmentRequest {
+    /**
+     * Whether to assign or remove courses
+     * @type {ChangeAssignmentOperation}
+     * @memberof ChangeAssignmentRequest
+     */
+    operation: ChangeAssignmentOperation;
+    /**
+     * Either \'all\' or a list of course IDs
+     * @type {string | Array<string>}
+     * @memberof ChangeAssignmentRequest
+     */
+    courses: string | Array<string>;
+    /**
+     * Either \'all\' or a list of customer IDs
+     * @type {string | Array<string>}
+     * @memberof ChangeAssignmentRequest
+     */
+    customers: string | Array<string>;
+}
 /**
  * 
  * @export
@@ -15772,23 +15772,23 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
     return {
         /**
          * Assign or remove courses for reseller customers
-         * @summary Assign Multiple Courses To Reseller Customers
-         * @param {AssignmentRequest} assignmentRequest 
+         * @summary Change Reseller Course Assignments
+         * @param {ChangeAssignmentRequest} changeAssignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1: async (assignmentRequest: AssignmentRequest, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'assignmentRequest' is not null or undefined
-            if (assignmentRequest === null || assignmentRequest === undefined) {
-                throw new RequiredError('assignmentRequest','Required parameter assignmentRequest was null or undefined when calling assignMultipleCoursesToResellerCustomersV1.');
+        changeResellerCourseAssignmentsV1: async (changeAssignmentRequest: ChangeAssignmentRequest, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'changeAssignmentRequest' is not null or undefined
+            if (changeAssignmentRequest === null || changeAssignmentRequest === undefined) {
+                throw new RequiredError('changeAssignmentRequest','Required parameter changeAssignmentRequest was null or undefined when calling changeResellerCourseAssignmentsV1.');
             }
-            const localVarPath = `/v1/resellers/courses/assign`;
+            const localVarPath = `/v1/resellers/course-assignments/change`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -15810,8 +15810,8 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof assignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(assignmentRequest !== undefined ? assignmentRequest : {}) : (assignmentRequest || "");
+            const needsSerialization = (typeof changeAssignmentRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(changeAssignmentRequest !== undefined ? changeAssignmentRequest : {}) : (changeAssignmentRequest || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -16009,13 +16009,13 @@ export const ResellerCourseAssignmentsApiFp = function(configuration?: Configura
     return {
         /**
          * Assign or remove courses for reseller customers
-         * @summary Assign Multiple Courses To Reseller Customers
-         * @param {AssignmentRequest} assignmentRequest 
+         * @summary Change Reseller Course Assignments
+         * @param {ChangeAssignmentRequest} changeAssignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
-            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options);
+        async changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await ResellerCourseAssignmentsApiAxiosParamCreator(configuration).changeResellerCourseAssignmentsV1(changeAssignmentRequest, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -16078,13 +16078,13 @@ export const ResellerCourseAssignmentsApiFactory = function (configuration?: Con
     return {
         /**
          * Assign or remove courses for reseller customers
-         * @summary Assign Multiple Courses To Reseller Customers
-         * @param {AssignmentRequest} assignmentRequest 
+         * @summary Change Reseller Course Assignments
+         * @param {ChangeAssignmentRequest} changeAssignmentRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any): AxiosPromise<BaseResponseInput> {
-            return ResellerCourseAssignmentsApiFp(configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(axios, basePath));
+        changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any): AxiosPromise<BaseResponseInput> {
+            return ResellerCourseAssignmentsApiFp(configuration).changeResellerCourseAssignmentsV1(changeAssignmentRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all courses that have been assigned to a specific customer
@@ -16136,14 +16136,14 @@ export const ResellerCourseAssignmentsApiFactory = function (configuration?: Con
 export class ResellerCourseAssignmentsApi extends BaseAPI {
     /**
      * Assign or remove courses for reseller customers
-     * @summary Assign Multiple Courses To Reseller Customers
-     * @param {AssignmentRequest} assignmentRequest 
+     * @summary Change Reseller Course Assignments
+     * @param {ChangeAssignmentRequest} changeAssignmentRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    public assignMultipleCoursesToResellerCustomersV1(assignmentRequest: AssignmentRequest, options?: any) {
-        return ResellerCourseAssignmentsApiFp(this.configuration).assignMultipleCoursesToResellerCustomersV1(assignmentRequest, options).then((request) => request(this.axios, this.basePath));
+    public changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any) {
+        return ResellerCourseAssignmentsApiFp(this.configuration).changeResellerCourseAssignmentsV1(changeAssignmentRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
