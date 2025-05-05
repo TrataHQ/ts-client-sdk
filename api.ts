@@ -15782,7 +15782,7 @@ export const ResellerCourseAssignmentsApiAxiosParamCreator = function (configura
             if (changeAssignmentRequest === null || changeAssignmentRequest === undefined) {
                 throw new RequiredError('changeAssignmentRequest','Required parameter changeAssignmentRequest was null or undefined when calling changeResellerCourseAssignmentsV1.');
             }
-            const localVarPath = `/v1/resellers/course-assignments/change`;
+            const localVarPath = `/v1/resellers/course-assignments`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
