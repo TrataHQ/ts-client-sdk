@@ -14021,10 +14021,11 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [fromDate] Start date for filtering feedbacks
      * @param {string} [toDate] End date for filtering feedbacks
      * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any) => Promise<RequestArgs>;
+    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -14344,10 +14345,11 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {string} [fromDate] Start date for filtering feedbacks
      * @param {string} [toDate] End date for filtering feedbacks
      * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -14667,10 +14669,11 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [fromDate] Start date for filtering feedbacks
      * @param {string} [toDate] End date for filtering feedbacks
      * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): AxiosPromise<Array<Feedback>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): AxiosPromise<Array<Feedback>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -15014,11 +15017,12 @@ export declare class SparrApi extends BaseAPI {
      * @param {string} [fromDate] Start date for filtering feedbacks
      * @param {string} [toDate] End date for filtering feedbacks
      * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas

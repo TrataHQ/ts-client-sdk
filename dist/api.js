@@ -13597,10 +13597,11 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @param {string} [fromDate] Start date for filtering feedbacks
          * @param {string} [toDate] End date for filtering feedbacks
          * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+         * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1: (skip, limit, fromDate, toDate, userFilter, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listFeedbacksV1: (skip, limit, fromDate, toDate, userFilter, statusFilter, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/sparr/feedbacks/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13632,6 +13633,9 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             if (userFilter !== undefined) {
                 localVarQueryParameter['user_filter'] = userFilter;
+            }
+            if (statusFilter !== undefined) {
+                localVarQueryParameter['status_filter'] = statusFilter;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -14654,12 +14658,13 @@ exports.SparrApiFp = function (configuration) {
          * @param {string} [fromDate] Start date for filtering feedbacks
          * @param {string} [toDate] End date for filtering feedbacks
          * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+         * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
+        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15143,11 +15148,12 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          * @param {string} [fromDate] Start date for filtering feedbacks
          * @param {string} [toDate] End date for filtering feedbacks
          * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+         * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
-            return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options).then((request) => request(axios, basePath));
+        listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options) {
+            return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all personas that are either directly owned or available through reseller course assignments
@@ -15565,12 +15571,13 @@ class SparrApi extends base_1.BaseAPI {
      * @param {string} [fromDate] Start date for filtering feedbacks
      * @param {string} [toDate] End date for filtering feedbacks
      * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options) {
-        return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, options).then((request) => request(this.axios, this.basePath));
+    listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options) {
+        return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
