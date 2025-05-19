@@ -13772,6 +13772,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
+         * @param {boolean} [showResellerOwner] Show owner users
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -13784,7 +13785,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1: async (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
+        listUsersV1: async (showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/users`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13802,6 +13803,10 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
                     ? configuration.accessToken()
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (showResellerOwner !== undefined) {
+                localVarQueryParameter['showResellerOwner'] = showResellerOwner;
             }
 
             if (searchBy !== undefined) {
@@ -14183,6 +14188,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
+         * @param {boolean} [showResellerOwner] Show owner users
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -14195,8 +14201,8 @@ export const InternalApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
-            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
+        async listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>> {
+            const localVarAxiosArgs = await InternalApiAxiosParamCreator(configuration).listUsersV1(showResellerOwner, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14372,6 +14378,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
         /**
          * Lists all users under the user\'s organization
          * @summary Listusers
+         * @param {boolean} [showResellerOwner] Show owner users
          * @param {string} [searchBy] 
          * @param {string} [searchValue] 
          * @param {string} [status] 
@@ -14384,8 +14391,8 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
-            return InternalApiFp(configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
+        listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>> {
+            return InternalApiFp(configuration).listUsersV1(showResellerOwner, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(axios, basePath));
         },
         /**
          * Invite a new user to an organization or resend invite to the user if the user is already invited
@@ -14568,6 +14575,7 @@ export class InternalApi extends BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
+     * @param {boolean} [showResellerOwner] Show owner users
      * @param {string} [searchBy] 
      * @param {string} [searchValue] 
      * @param {string} [status] 
@@ -14581,8 +14589,8 @@ export class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    public listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
-        return InternalApiFp(this.configuration).listUsersV1(searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
+    public listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) {
+        return InternalApiFp(this.configuration).listUsersV1(showResellerOwner, searchBy, searchValue, status, sortBy, sortOrder, skip, limit, updatedAfter, updatedBefore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

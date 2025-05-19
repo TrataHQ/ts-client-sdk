@@ -10550,6 +10550,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
+     * @param {boolean} [showResellerOwner] Show owner users
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -10562,7 +10563,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listUsersV1: (showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -10690,6 +10691,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
+     * @param {boolean} [showResellerOwner] Show owner users
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -10702,7 +10704,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -10830,6 +10832,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
+     * @param {boolean} [showResellerOwner] Show owner users
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -10842,7 +10845,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -10983,6 +10986,7 @@ export declare class InternalApi extends BaseAPI {
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
+     * @param {boolean} [showResellerOwner] Show owner users
      * @param {string} [searchBy]
      * @param {string} [searchValue]
      * @param {string} [status]
@@ -10996,7 +11000,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
