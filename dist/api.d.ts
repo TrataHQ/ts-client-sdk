@@ -697,6 +697,18 @@ export interface AnalyticsModelInput {
      * @memberof AnalyticsModelInput
      */
     weighted_scores: any | null;
+    /**
+     *
+     * @type {Array<PlaybookAnalyticsModel>}
+     * @memberof AnalyticsModelInput
+     */
+    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    /**
+     *
+     * @type {Array<TrackerAnalyticsModel>}
+     * @memberof AnalyticsModelInput
+     */
+    tracker_analytics: Array<TrackerAnalyticsModel> | null;
 }
 /**
  *
@@ -734,6 +746,18 @@ export interface AnalyticsModelOutput {
      * @memberof AnalyticsModelOutput
      */
     weighted_scores: any | null;
+    /**
+     *
+     * @type {Array<PlaybookAnalyticsModel>}
+     * @memberof AnalyticsModelOutput
+     */
+    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    /**
+     *
+     * @type {Array<TrackerAnalyticsModel>}
+     * @memberof AnalyticsModelOutput
+     */
+    tracker_analytics: Array<TrackerAnalyticsModel> | null;
 }
 /**
  * API key authentication configuration
@@ -1390,6 +1414,19 @@ export interface BodyUploadFileV1WorkflowsWorkflowIdFilePost {
 /**
  *
  * @export
+ * @interface BodyUploadFilesV1
+ */
+export interface BodyUploadFilesV1 {
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof BodyUploadFilesV1
+     */
+    files: Array<any>;
+}
+/**
+ *
+ * @export
  * @interface BodyUploadResellerFilesV1
  */
 export interface BodyUploadResellerFilesV1 {
@@ -1456,6 +1493,37 @@ export interface CoachAnalyticsModel {
      * @memberof CoachAnalyticsModel
      */
     coaching_points?: Array<string> | null;
+}
+/**
+ * Combined response model that includes evaluator and its optional components
+ * @export
+ * @interface CombinedEvaluatorResponse
+ */
+export interface CombinedEvaluatorResponse {
+    /**
+     * The evaluator object
+     * @type {Evaluator}
+     * @memberof CombinedEvaluatorResponse
+     */
+    evaluator: Evaluator;
+    /**
+     * Optional playbook object
+     * @type {Playbook}
+     * @memberof CombinedEvaluatorResponse
+     */
+    playbook?: Playbook | null;
+    /**
+     * Optional goals object
+     * @type {SparrDbModelsGoal}
+     * @memberof CombinedEvaluatorResponse
+     */
+    goals?: SparrDbModelsGoal | null;
+    /**
+     * Optional tracker object
+     * @type {Tracker}
+     * @memberof CombinedEvaluatorResponse
+     */
+    tracker?: Tracker | null;
 }
 /**
  *
@@ -2682,6 +2750,201 @@ export declare enum EngagementLevel {
     Uninterested = "uninterested"
 }
 /**
+ * Mapping table between entities and their tags (simple string tags)
+ * @export
+ * @interface EntityTag
+ */
+export interface EntityTag {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof EntityTag
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof EntityTag
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof EntityTag
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof EntityTag
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof EntityTag
+     */
+    orgId?: string;
+    /**
+     * The unique identifier of the entity tag
+     * @type {string}
+     * @memberof EntityTag
+     */
+    id?: string;
+    /**
+     * Type of entity being tagged (e.g., scenario, persona, course, evaluator)
+     * @type {string}
+     * @memberof EntityTag
+     */
+    entityType?: string;
+    /**
+     * ID of the entity being tagged
+     * @type {string}
+     * @memberof EntityTag
+     */
+    entityId?: string;
+    /**
+     * Name of the tag
+     * @type {string}
+     * @memberof EntityTag
+     */
+    tagName?: string;
+}
+/**
+ *
+ * @export
+ * @interface Evaluator
+ */
+export interface Evaluator {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Evaluator
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Evaluator
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Evaluator
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Evaluator
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Evaluator
+     */
+    orgId?: string;
+    /**
+     * The name of the evaluator
+     * @type {string}
+     * @memberof Evaluator
+     */
+    name: string;
+    /**
+     * The description of the evaluator
+     * @type {string}
+     * @memberof Evaluator
+     */
+    description: string;
+    /**
+     * The ID of the goals
+     * @type {string}
+     * @memberof Evaluator
+     */
+    goals_id?: string | null;
+    /**
+     * The ID of the playbook
+     * @type {string}
+     * @memberof Evaluator
+     */
+    playbook_id?: string | null;
+    /**
+     * The ID of the tracker
+     * @type {string}
+     * @memberof Evaluator
+     */
+    tracker_id?: string | null;
+    /**
+     * The source of the playbook
+     * @type {Array<string>}
+     * @memberof Evaluator
+     */
+    generator_source?: Array<string> | null;
+    /**
+     * The status of the evaluator
+     * @type {string}
+     * @memberof Evaluator
+     */
+    status?: string;
+    /**
+     * The unique identifier of the evaluator
+     * @type {string}
+     * @memberof Evaluator
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface EvaluatorCore
+ */
+export interface EvaluatorCore {
+    /**
+     * The name of the evaluator
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    name: string;
+    /**
+     * The description of the evaluator
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    description: string;
+    /**
+     * The ID of the goals
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    goals_id?: string | null;
+    /**
+     * The ID of the playbook
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    playbook_id?: string | null;
+    /**
+     * The ID of the tracker
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    tracker_id?: string | null;
+    /**
+     * The source of the playbook
+     * @type {Array<string>}
+     * @memberof EvaluatorCore
+     */
+    generator_source?: Array<string> | null;
+    /**
+     * The status of the evaluator
+     * @type {string}
+     * @memberof EvaluatorCore
+     */
+    status?: string;
+}
+/**
  *
  * @export
  * @interface ExternalReference
@@ -3105,6 +3368,49 @@ export interface FillerWords {
 /**
  *
  * @export
+ * @interface FlexibleGenerationRequest
+ */
+export interface FlexibleGenerationRequest {
+    /**
+     * Name for the generated evaluator
+     * @type {string}
+     * @memberof FlexibleGenerationRequest
+     */
+    name: string;
+    /**
+     * Description for the generated evaluator
+     * @type {string}
+     * @memberof FlexibleGenerationRequest
+     */
+    description?: string | null;
+    /**
+     * List of file IDs to generate content from
+     * @type {Array<string>}
+     * @memberof FlexibleGenerationRequest
+     */
+    file_ids?: Array<string> | null;
+    /**
+     * Optional playbook core data
+     * @type {PlaybookCore}
+     * @memberof FlexibleGenerationRequest
+     */
+    playbook_core?: PlaybookCore | null;
+    /**
+     * Optional goals core data
+     * @type {GoalCore}
+     * @memberof FlexibleGenerationRequest
+     */
+    goals_core?: GoalCore | null;
+    /**
+     * Optional tracker core data
+     * @type {TrackerCore}
+     * @memberof FlexibleGenerationRequest
+     */
+    tracker_core?: TrackerCore | null;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum FrustrationTolerance {
@@ -3115,25 +3421,56 @@ export declare enum FrustrationTolerance {
 /**
  *
  * @export
- * @interface Goal
+ * @interface GoalCore
  */
-export interface Goal {
+export interface GoalCore {
+    /**
+     * The name of the goals collection
+     * @type {string}
+     * @memberof GoalCore
+     */
+    name: string;
+    /**
+     * The description of the goals collection
+     * @type {string}
+     * @memberof GoalCore
+     */
+    description: string;
+    /**
+     * The list of goals
+     * @type {Array<GoalInput>}
+     * @memberof GoalCore
+     */
+    goals: Array<GoalInput>;
+    /**
+     * The status of the goals collection
+     * @type {string}
+     * @memberof GoalCore
+     */
+    status?: string;
+}
+/**
+ *
+ * @export
+ * @interface GoalInput
+ */
+export interface GoalInput {
     /**
      * The name of the goal
      * @type {string}
-     * @memberof Goal
+     * @memberof GoalInput
      */
     name: string;
     /**
      * The description of the goal
      * @type {string}
-     * @memberof Goal
+     * @memberof GoalInput
      */
     description: string;
     /**
      * The weightage of the goal in percentage
      * @type {number}
-     * @memberof Goal
+     * @memberof GoalInput
      */
     weightage: number;
 }
@@ -3149,6 +3486,43 @@ export interface GoalsAnalyticsModel {
      * @memberof GoalsAnalyticsModel
      */
     goals: object | null;
+}
+/**
+ *
+ * @export
+ * @interface GoalsSearchResponse
+ */
+export interface GoalsSearchResponse {
+    /**
+     *
+     * @type {Array<SparrDbModelsGoal>}
+     * @memberof GoalsSearchResponse
+     */
+    items: Array<SparrDbModelsGoal>;
+    /**
+     *
+     * @type {number}
+     * @memberof GoalsSearchResponse
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GoalsSearchResponse
+     */
+    pages: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GoalsSearchResponse
+     */
+    current_page: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GoalsSearchResponse
+     */
+    page_size: number;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -3719,6 +4093,61 @@ export interface Mission {
      * @memberof Mission
      */
     farewell?: string | null;
+}
+/**
+ * FileUpload represents information about uploaded files in the system
+ * @export
+ * @interface ModelFile
+ */
+export interface ModelFile {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    orgId?: string;
+    /**
+     * The original name of the uploaded file
+     * @type {string}
+     * @memberof ModelFile
+     */
+    filename: string;
+    /**
+     * The signed storage URL where the file is stored.
+     * @type {string}
+     * @memberof ModelFile
+     */
+    file_url: string;
+    /**
+     * The unique identifier of the file
+     * @type {string}
+     * @memberof ModelFile
+     */
+    id?: string;
 }
 /**
  * Module represents a module that can be used in a course
@@ -4878,6 +5307,184 @@ export interface PersonaSearchResponse {
     page_size: number;
 }
 /**
+ * Playbook represents a sequence of steps that can be followed
+ * @export
+ * @interface Playbook
+ */
+export interface Playbook {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Playbook
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Playbook
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Playbook
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Playbook
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Playbook
+     */
+    orgId?: string;
+    /**
+     * The name of the playbook
+     * @type {string}
+     * @memberof Playbook
+     */
+    name: string;
+    /**
+     * The description of the playbook
+     * @type {string}
+     * @memberof Playbook
+     */
+    description: string;
+    /**
+     * The steps in the playbook
+     * @type {Array<Step>}
+     * @memberof Playbook
+     */
+    steps: Array<Step>;
+    /**
+     * The status of the playbook
+     * @type {string}
+     * @memberof Playbook
+     */
+    status?: string;
+    /**
+     * The unique identifier of the playbook
+     * @type {string}
+     * @memberof Playbook
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface PlaybookAnalyticsModel
+ */
+export interface PlaybookAnalyticsModel {
+    /**
+     * Name of the playbook step
+     * @type {string}
+     * @memberof PlaybookAnalyticsModel
+     */
+    name: string;
+    /**
+     * Description of the playbook step
+     * @type {string}
+     * @memberof PlaybookAnalyticsModel
+     */
+    description: string;
+    /**
+     * Whether the playbook step was covered in the conversation
+     * @type {boolean}
+     * @memberof PlaybookAnalyticsModel
+     */
+    covered: boolean;
+    /**
+     * Dialogue of the user in the conversation
+     * @type {string}
+     * @memberof PlaybookAnalyticsModel
+     */
+    user_dialogue: string;
+    /**
+     * specific observation on how it was handled
+     * @type {string}
+     * @memberof PlaybookAnalyticsModel
+     */
+    feedback?: string | null;
+    /**
+     * Suggestions for the user\'s dialogue
+     * @type {string}
+     * @memberof PlaybookAnalyticsModel
+     */
+    suggestions?: string | null;
+}
+/**
+ *
+ * @export
+ * @interface PlaybookCore
+ */
+export interface PlaybookCore {
+    /**
+     * The name of the playbook
+     * @type {string}
+     * @memberof PlaybookCore
+     */
+    name: string;
+    /**
+     * The description of the playbook
+     * @type {string}
+     * @memberof PlaybookCore
+     */
+    description: string;
+    /**
+     * The steps in the playbook
+     * @type {Array<Step>}
+     * @memberof PlaybookCore
+     */
+    steps: Array<Step>;
+    /**
+     * The status of the playbook
+     * @type {string}
+     * @memberof PlaybookCore
+     */
+    status?: string;
+}
+/**
+ *
+ * @export
+ * @interface PlaybookSearchResponse
+ */
+export interface PlaybookSearchResponse {
+    /**
+     *
+     * @type {Array<Playbook>}
+     * @memberof PlaybookSearchResponse
+     */
+    items: Array<Playbook>;
+    /**
+     *
+     * @type {number}
+     * @memberof PlaybookSearchResponse
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PlaybookSearchResponse
+     */
+    pages: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PlaybookSearchResponse
+     */
+    current_page: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PlaybookSearchResponse
+     */
+    page_size: number;
+}
+/**
  * Price tier details of the business
  * @export
  * @interface Price
@@ -5740,10 +6347,10 @@ export interface Scenario {
     callType?: string | null;
     /**
      * The goals to be achieved for the scenario
-     * @type {Array<Goal>}
+     * @type {Array<SparrModelsScenarioGoal>}
      * @memberof Scenario
      */
-    goals: Array<Goal>;
+    goals: Array<SparrModelsScenarioGoal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -5756,6 +6363,12 @@ export interface Scenario {
      * @memberof Scenario
      */
     isInherited?: boolean;
+    /**
+     * The ID of the evaluator
+     * @type {string}
+     * @memberof Scenario
+     */
+    evaluatorId?: string | null;
     /**
      * The status of the scenario
      * @type {string}
@@ -5807,10 +6420,10 @@ export interface ScenarioCore {
     callType?: string | null;
     /**
      * The goals to be achieved for the scenario
-     * @type {Array<Goal>}
+     * @type {Array<GoalInput>}
      * @memberof ScenarioCore
      */
-    goals: Array<Goal>;
+    goals: Array<GoalInput>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
@@ -5823,6 +6436,12 @@ export interface ScenarioCore {
      * @memberof ScenarioCore
      */
     isInherited?: boolean;
+    /**
+     * The ID of the evaluator
+     * @type {string}
+     * @memberof ScenarioCore
+     */
+    evaluatorId?: string | null;
     /**
      * The status of the scenario
      * @type {string}
@@ -5921,6 +6540,73 @@ export declare enum SparrCommunicationStyle {
     Indirect = "indirect",
     Verbose = "verbose",
     Brief = "brief"
+}
+/**
+ * Goal represents a collection of goals with weightages
+ * @export
+ * @interface SparrDbModelsGoal
+ */
+export interface SparrDbModelsGoal {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    orgId?: string;
+    /**
+     * The name of the goals collection
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    name: string;
+    /**
+     * The description of the goals collection
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    description: string;
+    /**
+     * The list of goals
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof SparrDbModelsGoal
+     */
+    goals: Array<SparrModelsScenarioGoal>;
+    /**
+     * The status of the goals collection
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    status?: string;
+    /**
+     * The unique identifier of the goals collection
+     * @type {string}
+     * @memberof SparrDbModelsGoal
+     */
+    id?: string;
 }
 /**
  *
@@ -6333,6 +7019,31 @@ export interface SparrModelsBaseBaseResponse {
      * @memberof SparrModelsBaseBaseResponse
      */
     status?: string;
+}
+/**
+ *
+ * @export
+ * @interface SparrModelsScenarioGoal
+ */
+export interface SparrModelsScenarioGoal {
+    /**
+     * The name of the goal
+     * @type {string}
+     * @memberof SparrModelsScenarioGoal
+     */
+    name: string;
+    /**
+     * The description of the goal
+     * @type {string}
+     * @memberof SparrModelsScenarioGoal
+     */
+    description: string;
+    /**
+     * The weightage of the goal in percentage
+     * @type {number}
+     * @memberof SparrModelsScenarioGoal
+     */
+    weightage: number;
 }
 /**
  *
@@ -6809,6 +7520,19 @@ export interface SystemMetrics {
     dialog_lines_sentiment: Array<SparrDialogLineWithSentiment> | null;
 }
 /**
+ * Request model for creating a tag
+ * @export
+ * @interface TagCreate
+ */
+export interface TagCreate {
+    /**
+     * Name of the tag to create
+     * @type {string}
+     * @memberof TagCreate
+     */
+    tagName: string;
+}
+/**
  *
  * @export
  * @interface TaxDetailsInput
@@ -6912,6 +7636,191 @@ export interface TelephoneNumber {
      * @memberof TelephoneNumber
      */
     updatedAt?: string;
+}
+/**
+ * Tracker represents a collection of keywords with name and description
+ * @export
+ * @interface Tracker
+ */
+export interface Tracker {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof Tracker
+     */
+    createdBy?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof Tracker
+     */
+    createdAt?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof Tracker
+     */
+    updatedBy?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof Tracker
+     */
+    updatedAt?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof Tracker
+     */
+    orgId?: string;
+    /**
+     * The name of the tracker
+     * @type {string}
+     * @memberof Tracker
+     */
+    name: string;
+    /**
+     * The description of the tracker
+     * @type {string}
+     * @memberof Tracker
+     */
+    description: string;
+    /**
+     * The list of tracking categories with their keywords
+     * @type {Array<TrackingCategory>}
+     * @memberof Tracker
+     */
+    tracking_categories: Array<TrackingCategory>;
+    /**
+     * The status of the tracker
+     * @type {string}
+     * @memberof Tracker
+     */
+    status?: string;
+    /**
+     * The unique identifier of the tracker
+     * @type {string}
+     * @memberof Tracker
+     */
+    id?: string;
+}
+/**
+ *
+ * @export
+ * @interface TrackerAnalyticsModel
+ */
+export interface TrackerAnalyticsModel {
+    /**
+     * Name of the tracker
+     * @type {string}
+     * @memberof TrackerAnalyticsModel
+     */
+    name: string;
+    /**
+     * Description of the tracker
+     * @type {string}
+     * @memberof TrackerAnalyticsModel
+     */
+    description: string;
+    /**
+     * Keywords used in the conversation
+     * @type {any}
+     * @memberof TrackerAnalyticsModel
+     */
+    keywords_used?: any | null;
+}
+/**
+ *
+ * @export
+ * @interface TrackerCore
+ */
+export interface TrackerCore {
+    /**
+     * The name of the tracker
+     * @type {string}
+     * @memberof TrackerCore
+     */
+    name: string;
+    /**
+     * The description of the tracker
+     * @type {string}
+     * @memberof TrackerCore
+     */
+    description: string;
+    /**
+     * The list of tracking categories with their keywords
+     * @type {Array<TrackingCategory>}
+     * @memberof TrackerCore
+     */
+    tracking_categories: Array<TrackingCategory>;
+    /**
+     * The status of the tracker
+     * @type {string}
+     * @memberof TrackerCore
+     */
+    status?: string;
+}
+/**
+ *
+ * @export
+ * @interface TrackerSearchResponse
+ */
+export interface TrackerSearchResponse {
+    /**
+     *
+     * @type {Array<Tracker>}
+     * @memberof TrackerSearchResponse
+     */
+    items: Array<Tracker>;
+    /**
+     *
+     * @type {number}
+     * @memberof TrackerSearchResponse
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TrackerSearchResponse
+     */
+    pages: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TrackerSearchResponse
+     */
+    current_page: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TrackerSearchResponse
+     */
+    page_size: number;
+}
+/**
+ *
+ * @export
+ * @interface TrackingCategory
+ */
+export interface TrackingCategory {
+    /**
+     * The name of the tracking category
+     * @type {string}
+     * @memberof TrackingCategory
+     */
+    name: string;
+    /**
+     * The description of what to track in this category
+     * @type {string}
+     * @memberof TrackingCategory
+     */
+    description: string;
+    /**
+     * List of keywords provided by user or generated for this tracking category
+     * @type {Array<string>}
+     * @memberof TrackingCategory
+     */
+    keywords: Array<string>;
 }
 /**
  *
@@ -13855,6 +14764,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     assignCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Attach a tag to an entity
+     * @summary Attach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {TagCreate} tagCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType: string, entityId: string, tagCreate: TagCreate, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
      * @param {string} priceId
@@ -13886,6 +14805,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createFeedbackV1: (feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsV1: (goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -13893,6 +14820,22 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     createPersonaV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookV1: (playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPostCallEvaluationParamsV1: (evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -13902,6 +14845,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createScenarioV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerV1: (trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -13909,6 +14860,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -13918,6 +14877,22 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     deleteFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete a file
+     * @summary Delete File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1: (fileId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a persona
      * @summary Delete Persona
      * @param {string} personaId
@@ -13926,6 +14901,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     deletePersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -13933,6 +14916,32 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Detach a tag from an entity
+     * @summary Detach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: any) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -13949,6 +14958,32 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getCreditsV1: (options?: any) => Promise<RequestArgs>;
     /**
+     * Get all entities of a type that have a specific tag
+     * @summary Get Entities By Tag
+     * @param {string} entityType
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType: string, tagName: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all tags for an entity
+     * @summary Get Entity Tags
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType: string, entityId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -13956,6 +14991,22 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific file by ID
+     * @summary Get File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFileV1: (fileId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -13973,6 +15024,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getPersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -13987,6 +15046,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -14014,6 +15081,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listCoursesV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listEvaluatorV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
@@ -14027,23 +15103,52 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listGoalsV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listScenariosV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -14082,6 +15187,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     revokeCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -14092,6 +15207,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     searchPersonasV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -14101,6 +15226,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     searchScenariosV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -14128,6 +15263,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     updateCourseV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) => Promise<RequestArgs>;
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -14136,6 +15280,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsV1: (goalsId: string, goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -14146,6 +15299,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookV1: (playbookId: string, playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -14154,6 +15316,23 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     updateScenarioV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerV1: (trackerId: string, trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+     * @summary Upload Files
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFilesV1: (files: Array<any>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * SparrApi - functional programming interface
@@ -14178,6 +15357,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     assignCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    /**
+     * Attach a tag to an entity
+     * @summary Attach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {TagCreate} tagCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntityTag>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -14210,6 +15399,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsV1(goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -14217,6 +15414,22 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
+    /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -14226,6 +15439,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerV1(trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -14233,6 +15454,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -14242,6 +15471,22 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     deleteFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a file
+     * @summary Delete File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(fileId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a persona
      * @summary Delete Persona
      * @param {string} personaId
@@ -14250,6 +15495,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -14257,6 +15510,32 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Detach a tag from an entity
+     * @summary Detach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -14273,6 +15552,32 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
+     * Get all entities of a type that have a specific tag
+     * @summary Get Entities By Tag
+     * @param {string} entityType
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    /**
+     * Get all tags for an entity
+     * @summary Get Entity Tags
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -14280,6 +15585,22 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    /**
+     * Get a specific file by ID
+     * @summary Get File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFileV1(fileId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -14297,6 +15618,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
+    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -14311,6 +15640,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -14338,6 +15675,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listEvaluatorV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
@@ -14351,23 +15697,52 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listGoalsV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -14406,6 +15781,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     revokeCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -14416,6 +15801,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -14425,6 +15820,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -14452,6 +15857,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -14460,6 +15874,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -14470,6 +15893,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -14478,6 +15910,23 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    /**
+     * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+     * @summary Upload Files
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFilesV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
 };
 /**
  * SparrApi - factory interface
@@ -14502,6 +15951,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     assignCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<UserCourseAssignment>;
+    /**
+     * Attach a tag to an entity
+     * @summary Attach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {TagCreate} tagCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): AxiosPromise<EntityTag>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -14534,6 +15993,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     createFeedbackV1(feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
     /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsV1(goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -14541,6 +16008,22 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
+    /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -14550,6 +16033,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerV1(trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -14557,6 +16048,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteCourseV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorV1(paramsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -14566,6 +16065,22 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     deleteFeedbackV1(feedbackId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
+     * Delete a file
+     * @summary Delete File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFileV1(fileId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsV1(goalsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
      * Delete a persona
      * @summary Delete Persona
      * @param {string} personaId
@@ -14574,6 +16089,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -14581,6 +16104,32 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteScenarioV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerV1(trackerId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Detach a tag from an entity
+     * @summary Detach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -14597,6 +16146,32 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
     /**
+     * Get all entities of a type that have a specific tag
+     * @summary Get Entities By Tag
+     * @param {string} entityType
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): AxiosPromise<Array<EntityTag>>;
+    /**
+     * Get all tags for an entity
+     * @summary Get Entity Tags
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): AxiosPromise<Array<EntityTag>>;
+    /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorV1(paramsId: string, options?: any): AxiosPromise<Evaluator>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -14604,6 +16179,22 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getFeedbackV1(feedbackId: string, options?: any): AxiosPromise<Feedback>;
+    /**
+     * Get a specific file by ID
+     * @summary Get File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFileV1(fileId: string, options?: any): AxiosPromise<any>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsV1(goalsId: string, options?: any): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -14621,6 +16212,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookV1(playbookId: string, options?: any): AxiosPromise<Playbook>;
+    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -14635,6 +16234,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerV1(trackerId: string, options?: any): AxiosPromise<Tracker>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -14662,6 +16269,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
     /**
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listEvaluatorV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Evaluator>>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
@@ -14675,23 +16291,52 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): AxiosPromise<Array<Feedback>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
+    listGoalsV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<SparrDbModelsGoal>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Scenario>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Tracker>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -14730,6 +16375,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     revokeCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<GoalsSearchResponse>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -14740,6 +16395,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -14749,6 +16414,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     searchScenariosV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<TrackerSearchResponse>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -14776,6 +16451,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse>;
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -14784,6 +16468,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -14794,6 +16487,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -14802,6 +16504,23 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    /**
+     * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+     * @summary Upload Files
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadFilesV1(files: Array<any>, options?: any): AxiosPromise<Array<any>>;
 };
 /**
  * SparrApi - object-oriented interface
@@ -14830,6 +16549,17 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     assignCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    /**
+     * Attach a tag to an entity
+     * @summary Attach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {TagCreate} tagCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): Promise<import("axios").AxiosResponse<EntityTag>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -14866,6 +16596,15 @@ export declare class SparrApi extends BaseAPI {
      */
     createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createGoalsV1(goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -14874,6 +16613,24 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPlaybookV1(playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
+    /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -14884,6 +16641,15 @@ export declare class SparrApi extends BaseAPI {
      */
     createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createTrackerV1(trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -14892,6 +16658,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     deleteCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteEvaluatorV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -14902,6 +16677,24 @@ export declare class SparrApi extends BaseAPI {
      */
     deleteFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a file
+     * @summary Delete File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFileV1(fileId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteGoalsV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a persona
      * @summary Delete Persona
      * @param {string} personaId
@@ -14911,6 +16704,15 @@ export declare class SparrApi extends BaseAPI {
      */
     deletePersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deletePlaybookV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -14919,6 +16721,35 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     deleteScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteTrackerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Detach a tag from an entity
+     * @summary Detach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -14937,6 +16768,35 @@ export declare class SparrApi extends BaseAPI {
      */
     getCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
     /**
+     * Get all entities of a type that have a specific tag
+     * @summary Get Entities By Tag
+     * @param {string} entityType
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    /**
+     * Get all tags for an entity
+     * @summary Get Entity Tags
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEvaluatorV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -14945,6 +16805,24 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     getFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    /**
+     * Get a specific file by ID
+     * @summary Get File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFileV1(fileId: string, options?: any): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getGoalsV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -14964,6 +16842,15 @@ export declare class SparrApi extends BaseAPI {
      */
     getPersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getPlaybookV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
+    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -14980,6 +16867,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     getScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getTrackerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -15010,6 +16906,16 @@ export declare class SparrApi extends BaseAPI {
      */
     listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
     /**
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listEvaluatorV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
@@ -15024,25 +16930,57 @@ export declare class SparrApi extends BaseAPI {
      */
     listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listPersonasV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listGoalsV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPlaybooksV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Playbook[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listScenariosV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listTrackerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Tracker[]>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -15085,6 +17023,17 @@ export declare class SparrApi extends BaseAPI {
      */
     revokeCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchGoalsV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -15096,6 +17045,17 @@ export declare class SparrApi extends BaseAPI {
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PlaybookSearchResponse>>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15106,6 +17066,17 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchTrackerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -15136,6 +17107,16 @@ export declare class SparrApi extends BaseAPI {
      */
     updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -15145,6 +17126,16 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15156,6 +17147,16 @@ export declare class SparrApi extends BaseAPI {
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15165,6 +17166,25 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    /**
+     * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+     * @summary Upload Files
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    uploadFilesV1(files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<any[]>>;
 }
 /**
  * SparrResellerApi - axios parameter creator
@@ -15180,6 +17200,22 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     createCourseResellerV1: (courseRequest: CourseRequest, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createEvaluatorResellerV1: (evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsResellerV1: (goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -15187,6 +17223,14 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     createPersonaResellerV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookResellerV1: (playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -15196,6 +17240,14 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     createScenarioResellerV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerResellerV1: (trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -15203,6 +17255,22 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     deleteCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorResellerV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsResellerV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15212,6 +17280,14 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     deletePersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookResellerV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -15219,6 +17295,22 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     deleteScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerResellerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorResellerV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: any) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15228,6 +17320,22 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     getCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorResellerV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsResellerV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
@@ -15236,6 +17344,14 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     getPersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookResellerV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
@@ -15243,6 +17359,14 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     getScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerResellerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15262,23 +17386,71 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     listCoursesResellerV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listEvaluatorResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listGoalsResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listScenariosResellerV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -15290,6 +17462,16 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15300,6 +17482,16 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    /**
      * Update a course
      * @summary Update Course
      * @param {string} courseId
@@ -15308,6 +17500,24 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorResellerV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsResellerV1: (goalsId: string, goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15318,6 +17528,15 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookResellerV1: (playbookId: string, playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15326,6 +17545,15 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     updateScenarioResellerV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerResellerV1: (trackerId: string, trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
 };
 /**
  * SparrResellerApi - functional programming interface
@@ -15341,6 +17569,22 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsResellerV1(goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -15348,6 +17592,14 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -15357,6 +17609,14 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -15364,6 +17624,22 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorResellerV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsResellerV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15373,6 +17649,14 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -15380,6 +17664,22 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerResellerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15389,6 +17689,22 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     getCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorResellerV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsResellerV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
@@ -15397,6 +17713,14 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
+    /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
@@ -15404,6 +17728,14 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerResellerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15423,23 +17755,71 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    /**
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listGoalsResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
+    /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -15451,6 +17831,16 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15461,6 +17851,16 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
+    /**
      * Update a course
      * @summary Update Course
      * @param {string} courseId
@@ -15469,6 +17869,24 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15479,6 +17897,15 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15487,6 +17914,15 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
 };
 /**
  * SparrResellerApi - factory interface
@@ -15502,6 +17938,22 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     createCourseResellerV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse>;
     /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createGoalsResellerV1(goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -15509,6 +17961,14 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -15518,6 +17978,14 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -15525,6 +17993,22 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     deleteCourseResellerV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteEvaluatorResellerV1(paramsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteGoalsResellerV1(goalsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15534,6 +18018,14 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deletePlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -15541,6 +18033,22 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     deleteScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteTrackerResellerV1(trackerId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15550,6 +18058,22 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     getCourseResellerV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
     /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getEvaluatorResellerV1(paramsId: string, options?: any): AxiosPromise<Evaluator>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGoalsResellerV1(goalsId: string, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
@@ -15558,6 +18082,14 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<Playbook>;
+    /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
@@ -15565,6 +18097,14 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     getScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTrackerResellerV1(trackerId: string, options?: any): AxiosPromise<Tracker>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15584,23 +18124,71 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Persona>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Evaluator>>;
+    /**
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listGoalsResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<SparrDbModelsGoal>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Scenario>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Scenario>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listTrackerResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Tracker>>;
+    /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<GoalsSearchResponse>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -15612,6 +18200,16 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15622,6 +18220,16 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
     /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<TrackerSearchResponse>;
+    /**
      * Update a course
      * @summary Update Course
      * @param {string} courseId
@@ -15630,6 +18238,24 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse>;
+    /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15640,6 +18266,15 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15648,6 +18283,15 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
 };
 /**
  * SparrResellerApi - object-oriented interface
@@ -15666,6 +18310,24 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createGoalsResellerV1(goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -15674,6 +18336,15 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -15684,6 +18355,15 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -15692,6 +18372,24 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     deleteCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteEvaluatorResellerV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteGoalsResellerV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15702,6 +18400,15 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     deletePersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deletePlaybookResellerV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -15710,6 +18417,24 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteTrackerResellerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15720,6 +18445,24 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     getCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getEvaluatorResellerV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getGoalsResellerV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
@@ -15729,6 +18472,15 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getPlaybookResellerV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
+    /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
@@ -15737,6 +18489,15 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     getScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getTrackerResellerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15758,25 +18519,78 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listPersonasResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    /**
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listGoalsResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Playbook[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listScenariosResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listTrackerResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Tracker[]>>;
+    /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -15789,6 +18603,17 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PlaybookSearchResponse>>;
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15800,6 +18625,17 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
     /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
+    /**
      * Update a course
      * @summary Update Course
      * @param {string} courseId
@@ -15809,6 +18645,26 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15820,6 +18676,16 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15829,6 +18695,16 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
 }
 /**
  * SparringApi - axios parameter creator

@@ -12790,6 +12790,60 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Attach a tag to an entity
+         * @summary Attach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {TagCreate} tagCreate
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType, entityId, tagCreate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'entityType' is not null or undefined
+            if (entityType === null || entityType === undefined) {
+                throw new base_1.RequiredError('entityType', 'Required parameter entityType was null or undefined when calling attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost.');
+            }
+            // verify required parameter 'entityId' is not null or undefined
+            if (entityId === null || entityId === undefined) {
+                throw new base_1.RequiredError('entityId', 'Required parameter entityId was null or undefined when calling attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost.');
+            }
+            // verify required parameter 'tagCreate' is not null or undefined
+            if (tagCreate === null || tagCreate === undefined) {
+                throw new base_1.RequiredError('tagCreate', 'Required parameter tagCreate was null or undefined when calling attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost.');
+            }
+            const localVarPath = `/v1/sparr/entity-tags/{entity_type}/{entity_id}/tags`
+                .replace(`{${"entity_type"}}`, encodeURIComponent(String(entityType)))
+                .replace(`{${"entity_id"}}`, encodeURIComponent(String(entityId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof tagCreate !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(tagCreate !== undefined ? tagCreate : {}) : (tagCreate || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a checkout session for a price
          * @summary Create Checkout Session For Price
          * @param {string} priceId
@@ -12948,6 +13002,48 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsV1: (goalCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalCore' is not null or undefined
+            if (goalCore === null || goalCore === undefined) {
+                throw new base_1.RequiredError('goalCore', 'Required parameter goalCore was null or undefined when calling createGoalsV1.');
+            }
+            const localVarPath = `/v1/sparr/goals/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof goalCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(goalCore !== undefined ? goalCore : {}) : (goalCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -12984,6 +13080,90 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookV1: (playbookCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookCore' is not null or undefined
+            if (playbookCore === null || playbookCore === undefined) {
+                throw new base_1.RequiredError('playbookCore', 'Required parameter playbookCore was null or undefined when calling createPlaybookV1.');
+            }
+            const localVarPath = `/v1/sparr/playbooks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPostCallEvaluationParamsV1: (evaluatorCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'evaluatorCore' is not null or undefined
+            if (evaluatorCore === null || evaluatorCore === undefined) {
+                throw new base_1.RequiredError('evaluatorCore', 'Required parameter evaluatorCore was null or undefined when calling createPostCallEvaluationParamsV1.');
+            }
+            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof evaluatorCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(evaluatorCore !== undefined ? evaluatorCore : {}) : (evaluatorCore || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -13032,6 +13212,48 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerV1: (trackerCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerCore' is not null or undefined
+            if (trackerCore === null || trackerCore === undefined) {
+                throw new base_1.RequiredError('trackerCore', 'Required parameter trackerCore was null or undefined when calling createTrackerV1.');
+            }
+            const localVarPath = `/v1/sparr/trackers/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof trackerCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(trackerCore !== undefined ? trackerCore : {}) : (trackerCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -13045,6 +13267,46 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/sparr/courses/{course_id}`
                 .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorV1: (paramsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling deleteEvaluatorV1.');
+            }
+            const localVarPath = `/v1/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13112,6 +13374,86 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Delete a file
+         * @summary Delete File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1: (fileId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'fileId' is not null or undefined
+            if (fileId === null || fileId === undefined) {
+                throw new base_1.RequiredError('fileId', 'Required parameter fileId was null or undefined when calling deleteFileV1.');
+            }
+            const localVarPath = `/v1/sparr/files/{file_id}`
+                .replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsV1: (goalsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling deleteGoalsV1.');
+            }
+            const localVarPath = `/v1/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a persona
          * @summary Delete Persona
          * @param {string} personaId
@@ -13125,6 +13467,46 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/sparr/personas/{persona_id}`
                 .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookV1: (playbookId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling deletePlaybookV1.');
+            }
+            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13186,6 +13568,140 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerV1: (trackerId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling deleteTrackerV1.');
+            }
+            const localVarPath = `/v1/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Detach a tag from an entity
+         * @summary Detach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType, entityId, tagName, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'entityType' is not null or undefined
+            if (entityType === null || entityType === undefined) {
+                throw new base_1.RequiredError('entityType', 'Required parameter entityType was null or undefined when calling detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete.');
+            }
+            // verify required parameter 'entityId' is not null or undefined
+            if (entityId === null || entityId === undefined) {
+                throw new base_1.RequiredError('entityId', 'Required parameter entityId was null or undefined when calling detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete.');
+            }
+            // verify required parameter 'tagName' is not null or undefined
+            if (tagName === null || tagName === undefined) {
+                throw new base_1.RequiredError('tagName', 'Required parameter tagName was null or undefined when calling detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete.');
+            }
+            const localVarPath = `/v1/sparr/entity-tags/{entity_type}/{entity_id}/tags/{tag_name}`
+                .replace(`{${"entity_type"}}`, encodeURIComponent(String(entityType)))
+                .replace(`{${"entity_id"}}`, encodeURIComponent(String(entityId)))
+                .replace(`{${"tag_name"}}`, encodeURIComponent(String(tagName)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorV1: (flexibleGenerationRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'flexibleGenerationRequest' is not null or undefined
+            if (flexibleGenerationRequest === null || flexibleGenerationRequest === undefined) {
+                throw new base_1.RequiredError('flexibleGenerationRequest', 'Required parameter flexibleGenerationRequest was null or undefined when calling generateEvaluatorV1.');
+            }
+            const localVarPath = `/v1/sparr/evaluators/generate`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof flexibleGenerationRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(flexibleGenerationRequest !== undefined ? flexibleGenerationRequest : {}) : (flexibleGenerationRequest || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -13266,6 +13782,138 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get all entities of a type that have a specific tag
+         * @summary Get Entities By Tag
+         * @param {string} entityType
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType, tagName, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'entityType' is not null or undefined
+            if (entityType === null || entityType === undefined) {
+                throw new base_1.RequiredError('entityType', 'Required parameter entityType was null or undefined when calling getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet.');
+            }
+            // verify required parameter 'tagName' is not null or undefined
+            if (tagName === null || tagName === undefined) {
+                throw new base_1.RequiredError('tagName', 'Required parameter tagName was null or undefined when calling getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet.');
+            }
+            const localVarPath = `/v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name}`
+                .replace(`{${"entity_type"}}`, encodeURIComponent(String(entityType)))
+                .replace(`{${"tag_name"}}`, encodeURIComponent(String(tagName)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all tags for an entity
+         * @summary Get Entity Tags
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType, entityId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'entityType' is not null or undefined
+            if (entityType === null || entityType === undefined) {
+                throw new base_1.RequiredError('entityType', 'Required parameter entityType was null or undefined when calling getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet.');
+            }
+            // verify required parameter 'entityId' is not null or undefined
+            if (entityId === null || entityId === undefined) {
+                throw new base_1.RequiredError('entityId', 'Required parameter entityId was null or undefined when calling getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet.');
+            }
+            const localVarPath = `/v1/sparr/entity-tags/{entity_type}/{entity_id}/tags`
+                .replace(`{${"entity_type"}}`, encodeURIComponent(String(entityType)))
+                .replace(`{${"entity_id"}}`, encodeURIComponent(String(entityId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorV1: (paramsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling getEvaluatorV1.');
+            }
+            const localVarPath = `/v1/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -13279,6 +13927,86 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/sparr/feedbacks/{feedback_id}`
                 .replace(`{${"feedback_id"}}`, encodeURIComponent(String(feedbackId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific file by ID
+         * @summary Get File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFileV1: (fileId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'fileId' is not null or undefined
+            if (fileId === null || fileId === undefined) {
+                throw new base_1.RequiredError('fileId', 'Required parameter fileId was null or undefined when calling getFileV1.');
+            }
+            const localVarPath = `/v1/sparr/files/{file_id}`
+                .replace(`{${"file_id"}}`, encodeURIComponent(String(fileId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsV1: (goalsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling getGoalsV1.');
+            }
+            const localVarPath = `/v1/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13388,6 +14116,46 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookV1: (playbookId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling getPlaybookV1.');
+            }
+            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -13435,6 +14203,46 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/sparr/scenarios/{scenario_id}`
                 .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerV1: (trackerId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling getTrackerV1.');
+            }
+            const localVarPath = `/v1/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13590,6 +14398,48 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEvaluatorV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] Skip for pagination
@@ -13648,15 +14498,103 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listGoalsV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/goals/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/playbooks/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13694,11 +14632,57 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listScenariosV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/trackers/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13918,6 +14902,56 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchGoalsV1.');
+            }
+            const localVarPath = `/v1/sparr/goals/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Search personas by name, title and company
          * @summary Search Personas
          * @param {string} query Search query string
@@ -13968,6 +15002,56 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchPlaybooksV1.');
+            }
+            const localVarPath = `/v1/sparr/playbooks/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Search scenarios by name and description
          * @summary Search Scenarios
          * @param {string} query Search query string
@@ -13982,6 +15066,56 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
                 throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchScenariosV1.');
             }
             const localVarPath = `/v1/sparr/scenarios/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchTrackerV1.');
+            }
+            const localVarPath = `/v1/sparr/trackers/search`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -14146,6 +15280,54 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorV1: (paramsId, evaluatorCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling updateEvaluatorV1.');
+            }
+            // verify required parameter 'evaluatorCore' is not null or undefined
+            if (evaluatorCore === null || evaluatorCore === undefined) {
+                throw new base_1.RequiredError('evaluatorCore', 'Required parameter evaluatorCore was null or undefined when calling updateEvaluatorV1.');
+            }
+            const localVarPath = `/v1/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof evaluatorCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(evaluatorCore !== undefined ? evaluatorCore : {}) : (evaluatorCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -14188,6 +15370,54 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof feedbackCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(feedbackCore !== undefined ? feedbackCore : {}) : (feedbackCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsV1: (goalsId, goalCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling updateGoalsV1.');
+            }
+            // verify required parameter 'goalCore' is not null or undefined
+            if (goalCore === null || goalCore === undefined) {
+                throw new base_1.RequiredError('goalCore', 'Required parameter goalCore was null or undefined when calling updateGoalsV1.');
+            }
+            const localVarPath = `/v1/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof goalCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(goalCore !== undefined ? goalCore : {}) : (goalCore || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -14242,6 +15472,54 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookV1: (playbookId, playbookCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling updatePlaybookV1.');
+            }
+            // verify required parameter 'playbookCore' is not null or undefined
+            if (playbookCore === null || playbookCore === undefined) {
+                throw new base_1.RequiredError('playbookCore', 'Required parameter playbookCore was null or undefined when calling updatePlaybookV1.');
+            }
+            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -14289,6 +15567,99 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerV1: (trackerId, trackerCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling updateTrackerV1.');
+            }
+            // verify required parameter 'trackerCore' is not null or undefined
+            if (trackerCore === null || trackerCore === undefined) {
+                throw new base_1.RequiredError('trackerCore', 'Required parameter trackerCore was null or undefined when calling updateTrackerV1.');
+            }
+            const localVarPath = `/v1/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof trackerCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(trackerCore !== undefined ? trackerCore : {}) : (trackerCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+         * @summary Upload Files
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFilesV1: (files, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'files' is not null or undefined
+            if (files === null || files === undefined) {
+                throw new base_1.RequiredError('files', 'Required parameter files was null or undefined when calling uploadFilesV1.');
+            }
+            const localVarPath = `/v1/sparr/files/upload`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            const localVarFormParams = new FormData();
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (files) {
+                localVarFormParams.append('files', files.join(base_1.COLLECTION_FORMATS.csv));
+            }
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = localVarFormParams;
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -14325,6 +15696,24 @@ exports.SparrApiFp = function (configuration) {
         assignCourseV1(courseId, userId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).assignCourseV1(courseId, userId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Attach a tag to an entity
+         * @summary Attach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {TagCreate} tagCreate
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14395,6 +15784,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsV1(goalCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createGoalsV1(goalCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -14404,6 +15809,38 @@ exports.SparrApiFp = function (configuration) {
         createPersonaV1(personaCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createPersonaV1(personaCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookV1(playbookCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createPlaybookV1(playbookCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPostCallEvaluationParamsV1(evaluatorCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createPostCallEvaluationParamsV1(evaluatorCore, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14427,6 +15864,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerV1(trackerCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).createTrackerV1(trackerCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -14436,6 +15889,22 @@ exports.SparrApiFp = function (configuration) {
         deleteCourseV1(courseId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteCourseV1(courseId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorV1(paramsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteEvaluatorV1(paramsId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14459,6 +15928,38 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Delete a file
+         * @summary Delete File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1(fileId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteFileV1(fileId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsV1(goalsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteGoalsV1(goalsId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a persona
          * @summary Delete Persona
          * @param {string} personaId
@@ -14475,6 +15976,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookV1(playbookId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deletePlaybookV1(playbookId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a scenario
          * @summary Delete Scenario
          * @param {string} scenarioId
@@ -14484,6 +16001,56 @@ exports.SparrApiFp = function (configuration) {
         deleteScenarioV1(scenarioId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteScenarioV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerV1(trackerId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).deleteTrackerV1(trackerId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Detach a tag from an entity
+         * @summary Detach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorV1(flexibleGenerationRequest, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).generateEvaluatorV1(flexibleGenerationRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14522,6 +16089,56 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Get all entities of a type that have a specific tag
+         * @summary Get Entities By Tag
+         * @param {string} entityType
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all tags for an entity
+         * @summary Get Entity Tags
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorV1(paramsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getEvaluatorV1(paramsId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -14531,6 +16148,38 @@ exports.SparrApiFp = function (configuration) {
         getFeedbackV1(feedbackId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getFeedbackV1(feedbackId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific file by ID
+         * @summary Get File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFileV1(fileId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getFileV1(fileId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsV1(goalsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getGoalsV1(goalsId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14570,6 +16219,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookV1(playbookId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getPlaybookV1(playbookId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -14594,6 +16259,22 @@ exports.SparrApiFp = function (configuration) {
         getScenarioV1(scenarioId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getScenarioV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerV1(trackerId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).getTrackerV1(trackerId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14651,6 +16332,23 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEvaluatorV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listEvaluatorV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] Skip for pagination
@@ -14672,16 +16370,51 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasV1(skip, limit, options) {
+        listGoalsV1(skip, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listPersonasV1(skip, limit, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listGoalsV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1(skip, limit, tags, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listPersonasV1(skip, limit, tags, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listPlaybooksV1(skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14693,12 +16426,30 @@ exports.SparrApiFp = function (configuration) {
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosV1(skip, limit, options) {
+        listScenariosV1(skip, limit, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, options);
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listScenariosV1(skip, limit, tags, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).listTrackerV1(skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14775,6 +16526,24 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchGoalsV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Search personas by name, title and company
          * @summary Search Personas
          * @param {string} query Search query string
@@ -14793,6 +16562,24 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchPlaybooksV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Search scenarios by name and description
          * @summary Search Scenarios
          * @param {string} query Search query string
@@ -14804,6 +16591,24 @@ exports.SparrApiFp = function (configuration) {
         searchScenariosV1(query, page, size, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchScenariosV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).searchTrackerV1(query, page, size, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14861,6 +16666,23 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorV1(paramsId, evaluatorCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateEvaluatorV1(paramsId, evaluatorCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -14871,6 +16693,23 @@ exports.SparrApiFp = function (configuration) {
         updateFeedbackV1(feedbackId, feedbackCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateFeedbackV1(feedbackId, feedbackCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsV1(goalsId, goalCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateGoalsV1(goalsId, goalCore, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14895,6 +16734,23 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookV1(playbookId, playbookCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updatePlaybookV1(playbookId, playbookCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -14905,6 +16761,39 @@ exports.SparrApiFp = function (configuration) {
         updateScenarioV1(scenarioId, scenarioCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateScenarioV1(scenarioId, scenarioCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerV1(trackerId, trackerCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).updateTrackerV1(trackerId, trackerCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+         * @summary Upload Files
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFilesV1(files, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrApiAxiosParamCreator(configuration).uploadFilesV1(files, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14940,6 +16829,18 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         assignCourseV1(courseId, userId, options) {
             return exports.SparrApiFp(configuration).assignCourseV1(courseId, userId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Attach a tag to an entity
+         * @summary Attach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {TagCreate} tagCreate
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options) {
+            return exports.SparrApiFp(configuration).attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a checkout session for a price
@@ -14981,6 +16882,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).createFeedbackV1(feedbackCore, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsV1(goalCore, options) {
+            return exports.SparrApiFp(configuration).createGoalsV1(goalCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -14989,6 +16900,26 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         createPersonaV1(personaCore, options) {
             return exports.SparrApiFp(configuration).createPersonaV1(personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookV1(playbookCore, options) {
+            return exports.SparrApiFp(configuration).createPlaybookV1(playbookCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPostCallEvaluationParamsV1(evaluatorCore, options) {
+            return exports.SparrApiFp(configuration).createPostCallEvaluationParamsV1(evaluatorCore, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new scenario
@@ -15001,6 +16932,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).createScenarioV1(scenarioCore, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerV1(trackerCore, options) {
+            return exports.SparrApiFp(configuration).createTrackerV1(trackerCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -15009,6 +16950,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         deleteCourseV1(courseId, options) {
             return exports.SparrApiFp(configuration).deleteCourseV1(courseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorV1(paramsId, options) {
+            return exports.SparrApiFp(configuration).deleteEvaluatorV1(paramsId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a feedback
@@ -15021,6 +16972,26 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a file
+         * @summary Delete File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFileV1(fileId, options) {
+            return exports.SparrApiFp(configuration).deleteFileV1(fileId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsV1(goalsId, options) {
+            return exports.SparrApiFp(configuration).deleteGoalsV1(goalsId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a persona
          * @summary Delete Persona
          * @param {string} personaId
@@ -15031,6 +17002,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).deletePersonaV1(personaId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookV1(playbookId, options) {
+            return exports.SparrApiFp(configuration).deletePlaybookV1(playbookId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a scenario
          * @summary Delete Scenario
          * @param {string} scenarioId
@@ -15039,6 +17020,38 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         deleteScenarioV1(scenarioId, options) {
             return exports.SparrApiFp(configuration).deleteScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerV1(trackerId, options) {
+            return exports.SparrApiFp(configuration).deleteTrackerV1(trackerId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Detach a tag from an entity
+         * @summary Detach Tag
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options) {
+            return exports.SparrApiFp(configuration).detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorV1(flexibleGenerationRequest, options) {
+            return exports.SparrApiFp(configuration).generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a specific course by ID
@@ -15060,6 +17073,38 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).getCreditsV1(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get all entities of a type that have a specific tag
+         * @summary Get Entities By Tag
+         * @param {string} entityType
+         * @param {string} tagName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options) {
+            return exports.SparrApiFp(configuration).getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all tags for an entity
+         * @summary Get Entity Tags
+         * @param {string} entityType
+         * @param {string} entityId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options) {
+            return exports.SparrApiFp(configuration).getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorV1(paramsId, options) {
+            return exports.SparrApiFp(configuration).getEvaluatorV1(paramsId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -15068,6 +17113,26 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         getFeedbackV1(feedbackId, options) {
             return exports.SparrApiFp(configuration).getFeedbackV1(feedbackId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific file by ID
+         * @summary Get File
+         * @param {string} fileId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFileV1(fileId, options) {
+            return exports.SparrApiFp(configuration).getFileV1(fileId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsV1(goalsId, options) {
+            return exports.SparrApiFp(configuration).getGoalsV1(goalsId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get metrics for a given batch of metrics requests
@@ -15090,6 +17155,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).getPersonaV1(personaId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookV1(playbookId, options) {
+            return exports.SparrApiFp(configuration).getPlaybookV1(playbookId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -15107,6 +17182,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         getScenarioV1(scenarioId, options) {
             return exports.SparrApiFp(configuration).getScenarioV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerV1(trackerId, options) {
+            return exports.SparrApiFp(configuration).getTrackerV1(trackerId, options).then((request) => request(axios, basePath));
         },
         /**
          * Search personas by name, title and company
@@ -15141,6 +17226,17 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).listCoursesV1(skip, limit, status, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listEvaluatorV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listEvaluatorV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get all feedbacks
          * @summary Get Feedbacks
          * @param {number} [skip] Skip for pagination
@@ -15156,26 +17252,61 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasV1(skip, limit, options) {
-            return exports.SparrApiFp(configuration).listPersonasV1(skip, limit, options).then((request) => request(axios, basePath));
+        listGoalsV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listGoalsV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasV1(skip, limit, tags, options) {
+            return exports.SparrApiFp(configuration).listPersonasV1(skip, limit, tags, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listPlaybooksV1(skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosV1(skip, limit, options) {
-            return exports.SparrApiFp(configuration).listScenariosV1(skip, limit, options).then((request) => request(axios, basePath));
+        listScenariosV1(skip, limit, tags, options) {
+            return exports.SparrApiFp(configuration).listScenariosV1(skip, limit, tags, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerV1(skip, limit, options) {
+            return exports.SparrApiFp(configuration).listTrackerV1(skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all course assignments for a user with analytics
@@ -15223,6 +17354,18 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).revokeCourseV1(courseId, userId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsV1(query, page, size, options) {
+            return exports.SparrApiFp(configuration).searchGoalsV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Search personas by name, title and company
          * @summary Search Personas
          * @param {string} query Search query string
@@ -15235,6 +17378,18 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).searchPersonasV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksV1(query, page, size, options) {
+            return exports.SparrApiFp(configuration).searchPlaybooksV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Search scenarios by name and description
          * @summary Search Scenarios
          * @param {string} query Search query string
@@ -15245,6 +17400,18 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         searchScenariosV1(query, page, size, options) {
             return exports.SparrApiFp(configuration).searchScenariosV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerV1(query, page, size, options) {
+            return exports.SparrApiFp(configuration).searchTrackerV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Heart Beat check to check the health of Sparr Service
@@ -15279,6 +17446,17 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).updateCourseV1(courseId, courseUpdateRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorV1(paramsId, evaluatorCore, options) {
+            return exports.SparrApiFp(configuration).updateEvaluatorV1(paramsId, evaluatorCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -15288,6 +17466,17 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         updateFeedbackV1(feedbackId, feedbackCore, options) {
             return exports.SparrApiFp(configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsV1(goalsId, goalCore, options) {
+            return exports.SparrApiFp(configuration).updateGoalsV1(goalsId, goalCore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a persona
@@ -15301,6 +17490,17 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return exports.SparrApiFp(configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookV1(playbookId, playbookCore, options) {
+            return exports.SparrApiFp(configuration).updatePlaybookV1(playbookId, playbookCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -15310,6 +17510,27 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         updateScenarioV1(scenarioId, scenarioCore, options) {
             return exports.SparrApiFp(configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerV1(trackerId, trackerCore, options) {
+            return exports.SparrApiFp(configuration).updateTrackerV1(trackerId, trackerCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+         * @summary Upload Files
+         * @param {Array<any>} files
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadFilesV1(files, options) {
+            return exports.SparrApiFp(configuration).uploadFilesV1(files, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15343,6 +17564,19 @@ class SparrApi extends base_1.BaseAPI {
      */
     assignCourseV1(courseId, userId, options) {
         return exports.SparrApiFp(this.configuration).assignCourseV1(courseId, userId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Attach a tag to an entity
+     * @summary Attach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {TagCreate} tagCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options) {
+        return exports.SparrApiFp(this.configuration).attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType, entityId, tagCreate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a checkout session for a price
@@ -15388,6 +17622,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).createFeedbackV1(feedbackCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createGoalsV1(goalCore, options) {
+        return exports.SparrApiFp(this.configuration).createGoalsV1(goalCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -15397,6 +17642,28 @@ class SparrApi extends base_1.BaseAPI {
      */
     createPersonaV1(personaCore, options) {
         return exports.SparrApiFp(this.configuration).createPersonaV1(personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPlaybookV1(playbookCore, options) {
+        return exports.SparrApiFp(this.configuration).createPlaybookV1(playbookCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createPostCallEvaluationParamsV1(evaluatorCore, options) {
+        return exports.SparrApiFp(this.configuration).createPostCallEvaluationParamsV1(evaluatorCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new scenario
@@ -15410,6 +17677,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).createScenarioV1(scenarioCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createTrackerV1(trackerCore, options) {
+        return exports.SparrApiFp(this.configuration).createTrackerV1(trackerCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -15419,6 +17697,17 @@ class SparrApi extends base_1.BaseAPI {
      */
     deleteCourseV1(courseId, options) {
         return exports.SparrApiFp(this.configuration).deleteCourseV1(courseId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteEvaluatorV1(paramsId, options) {
+        return exports.SparrApiFp(this.configuration).deleteEvaluatorV1(paramsId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a feedback
@@ -15432,6 +17721,28 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).deleteFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Delete a file
+     * @summary Delete File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFileV1(fileId, options) {
+        return exports.SparrApiFp(this.configuration).deleteFileV1(fileId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteGoalsV1(goalsId, options) {
+        return exports.SparrApiFp(this.configuration).deleteGoalsV1(goalsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a persona
      * @summary Delete Persona
      * @param {string} personaId
@@ -15443,6 +17754,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).deletePersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deletePlaybookV1(playbookId, options) {
+        return exports.SparrApiFp(this.configuration).deletePlaybookV1(playbookId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -15452,6 +17774,41 @@ class SparrApi extends base_1.BaseAPI {
      */
     deleteScenarioV1(scenarioId, options) {
         return exports.SparrApiFp(this.configuration).deleteScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteTrackerV1(trackerId, options) {
+        return exports.SparrApiFp(this.configuration).deleteTrackerV1(trackerId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Detach a tag from an entity
+     * @summary Detach Tag
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options) {
+        return exports.SparrApiFp(this.configuration).detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateEvaluatorV1(flexibleGenerationRequest, options) {
+        return exports.SparrApiFp(this.configuration).generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a specific course by ID
@@ -15475,6 +17832,41 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).getCreditsV1(options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get all entities of a type that have a specific tag
+     * @summary Get Entities By Tag
+     * @param {string} entityType
+     * @param {string} tagName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options) {
+        return exports.SparrApiFp(this.configuration).getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType, tagName, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all tags for an entity
+     * @summary Get Entity Tags
+     * @param {string} entityType
+     * @param {string} entityId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options) {
+        return exports.SparrApiFp(this.configuration).getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType, entityId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getEvaluatorV1(paramsId, options) {
+        return exports.SparrApiFp(this.configuration).getEvaluatorV1(paramsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -15484,6 +17876,28 @@ class SparrApi extends base_1.BaseAPI {
      */
     getFeedbackV1(feedbackId, options) {
         return exports.SparrApiFp(this.configuration).getFeedbackV1(feedbackId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific file by ID
+     * @summary Get File
+     * @param {string} fileId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFileV1(fileId, options) {
+        return exports.SparrApiFp(this.configuration).getFileV1(fileId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getGoalsV1(goalsId, options) {
+        return exports.SparrApiFp(this.configuration).getGoalsV1(goalsId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get metrics for a given batch of metrics requests
@@ -15508,6 +17922,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).getPersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getPlaybookV1(playbookId, options) {
+        return exports.SparrApiFp(this.configuration).getPlaybookV1(playbookId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -15527,6 +17952,17 @@ class SparrApi extends base_1.BaseAPI {
      */
     getScenarioV1(scenarioId, options) {
         return exports.SparrApiFp(this.configuration).getScenarioV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getTrackerV1(trackerId, options) {
+        return exports.SparrApiFp(this.configuration).getTrackerV1(trackerId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Search personas by name, title and company
@@ -15564,6 +18000,18 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).listCoursesV1(skip, limit, status, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listEvaluatorV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listEvaluatorV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
@@ -15580,28 +18028,66 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listPersonasV1(skip, limit, options) {
-        return exports.SparrApiFp(this.configuration).listPersonasV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listGoalsV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listGoalsV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPersonasV1(skip, limit, tags, options) {
+        return exports.SparrApiFp(this.configuration).listPersonasV1(skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listPlaybooksV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listPlaybooksV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listScenariosV1(skip, limit, options) {
-        return exports.SparrApiFp(this.configuration).listScenariosV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listScenariosV1(skip, limit, tags, options) {
+        return exports.SparrApiFp(this.configuration).listScenariosV1(skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listTrackerV1(skip, limit, options) {
+        return exports.SparrApiFp(this.configuration).listTrackerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all course assignments for a user with analytics
@@ -15653,6 +18139,19 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).revokeCourseV1(courseId, userId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchGoalsV1(query, page, size, options) {
+        return exports.SparrApiFp(this.configuration).searchGoalsV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Search personas by name, title and company
      * @summary Search Personas
      * @param {string} query Search query string
@@ -15666,6 +18165,19 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).searchPersonasV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchPlaybooksV1(query, page, size, options) {
+        return exports.SparrApiFp(this.configuration).searchPlaybooksV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -15677,6 +18189,19 @@ class SparrApi extends base_1.BaseAPI {
      */
     searchScenariosV1(query, page, size, options) {
         return exports.SparrApiFp(this.configuration).searchScenariosV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    searchTrackerV1(query, page, size, options) {
+        return exports.SparrApiFp(this.configuration).searchTrackerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Heart Beat check to check the health of Sparr Service
@@ -15714,6 +18239,18 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).updateCourseV1(courseId, courseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateEvaluatorV1(paramsId, evaluatorCore, options) {
+        return exports.SparrApiFp(this.configuration).updateEvaluatorV1(paramsId, evaluatorCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -15724,6 +18261,18 @@ class SparrApi extends base_1.BaseAPI {
      */
     updateFeedbackV1(feedbackId, feedbackCore, options) {
         return exports.SparrApiFp(this.configuration).updateFeedbackV1(feedbackId, feedbackCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateGoalsV1(goalsId, goalCore, options) {
+        return exports.SparrApiFp(this.configuration).updateGoalsV1(goalsId, goalCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a persona
@@ -15738,6 +18287,18 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updatePlaybookV1(playbookId, playbookCore, options) {
+        return exports.SparrApiFp(this.configuration).updatePlaybookV1(playbookId, playbookCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -15748,6 +18309,29 @@ class SparrApi extends base_1.BaseAPI {
      */
     updateScenarioV1(scenarioId, scenarioCore, options) {
         return exports.SparrApiFp(this.configuration).updateScenarioV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateTrackerV1(trackerId, trackerCore, options) {
+        return exports.SparrApiFp(this.configuration).updateTrackerV1(trackerId, trackerCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
+     * @summary Upload Files
+     * @param {Array<any>} files
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    uploadFilesV1(files, options) {
+        return exports.SparrApiFp(this.configuration).uploadFilesV1(files, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SparrApi = SparrApi;
@@ -15800,6 +18384,90 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createEvaluatorResellerV1: (evaluatorCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'evaluatorCore' is not null or undefined
+            if (evaluatorCore === null || evaluatorCore === undefined) {
+                throw new base_1.RequiredError('evaluatorCore', 'Required parameter evaluatorCore was null or undefined when calling createEvaluatorResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/evaluators/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof evaluatorCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(evaluatorCore !== undefined ? evaluatorCore : {}) : (evaluatorCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsResellerV1: (goalCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalCore' is not null or undefined
+            if (goalCore === null || goalCore === undefined) {
+                throw new base_1.RequiredError('goalCore', 'Required parameter goalCore was null or undefined when calling createGoalsResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/goals/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof goalCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(goalCore !== undefined ? goalCore : {}) : (goalCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -15836,6 +18504,48 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookResellerV1: (playbookCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookCore' is not null or undefined
+            if (playbookCore === null || playbookCore === undefined) {
+                throw new base_1.RequiredError('playbookCore', 'Required parameter playbookCore was null or undefined when calling createPlaybookResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/playbooks/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -15884,6 +18594,48 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerResellerV1: (trackerCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerCore' is not null or undefined
+            if (trackerCore === null || trackerCore === undefined) {
+                throw new base_1.RequiredError('trackerCore', 'Required parameter trackerCore was null or undefined when calling createTrackerResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/trackers/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof trackerCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(trackerCore !== undefined ? trackerCore : {}) : (trackerCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -15897,6 +18649,86 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/resellers/sparr/courses/{course_id}`
                 .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorResellerV1: (paramsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling deleteEvaluatorResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsResellerV1: (goalsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling deleteGoalsResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -15964,6 +18796,46 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookResellerV1: (playbookId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling deletePlaybookResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a scenario
          * @summary Delete Scenario
          * @param {string} scenarioId
@@ -16004,6 +18876,88 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerResellerV1: (trackerId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling deleteTrackerResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorResellerV1: (flexibleGenerationRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'flexibleGenerationRequest' is not null or undefined
+            if (flexibleGenerationRequest === null || flexibleGenerationRequest === undefined) {
+                throw new base_1.RequiredError('flexibleGenerationRequest', 'Required parameter flexibleGenerationRequest was null or undefined when calling generateEvaluatorResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/evaluators/generate`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof flexibleGenerationRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(flexibleGenerationRequest !== undefined ? flexibleGenerationRequest : {}) : (flexibleGenerationRequest || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific course by ID
          * @summary Get Course
          * @param {string} courseId
@@ -16017,6 +18971,86 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/resellers/sparr/courses/{course_id}`
                 .replace(`{${"course_id"}}`, encodeURIComponent(String(courseId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorResellerV1: (paramsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling getEvaluatorResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsResellerV1: (goalsId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling getGoalsResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16084,6 +19118,46 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookResellerV1: (playbookId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling getPlaybookResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
          * @summary Get Scenario
          * @param {string} scenarioId
@@ -16097,6 +19171,46 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/resellers/sparr/scenarios/{scenario_id}`
                 .replace(`{${"scenario_id"}}`, encodeURIComponent(String(scenarioId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerResellerV1: (trackerId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling getTrackerResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16212,15 +19326,145 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listEvaluatorResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/resellers/sparr/evaluators/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listGoalsResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/resellers/sparr/goals/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasResellerV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/resellers/sparr/personas/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/resellers/sparr/playbooks/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16258,11 +19502,57 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listScenariosResellerV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/resellers/sparr/scenarios/`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerResellerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/resellers/sparr/trackers/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16296,6 +19586,56 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsResellerV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchGoalsResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/goals/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Search personas by name, title and company
          * @summary Search Personas
          * @param {string} query Search query string
@@ -16310,6 +19650,56 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
                 throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchPersonasResellerV1.');
             }
             const localVarPath = `/v1/resellers/sparr/personas/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksResellerV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchPlaybooksResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/playbooks/search`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16396,6 +19786,56 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerResellerV1: (query, page, size, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            if (query === null || query === undefined) {
+                throw new base_1.RequiredError('query', 'Required parameter query was null or undefined when calling searchTrackerResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/trackers/search`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update a course
          * @summary Update Course
          * @param {string} courseId
@@ -16438,6 +19878,102 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof courseUpdateRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(courseUpdateRequest !== undefined ? courseUpdateRequest : {}) : (courseUpdateRequest || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorResellerV1: (paramsId, evaluatorCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'paramsId' is not null or undefined
+            if (paramsId === null || paramsId === undefined) {
+                throw new base_1.RequiredError('paramsId', 'Required parameter paramsId was null or undefined when calling updateEvaluatorResellerV1.');
+            }
+            // verify required parameter 'evaluatorCore' is not null or undefined
+            if (evaluatorCore === null || evaluatorCore === undefined) {
+                throw new base_1.RequiredError('evaluatorCore', 'Required parameter evaluatorCore was null or undefined when calling updateEvaluatorResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/evaluators/{params_id}`
+                .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof evaluatorCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(evaluatorCore !== undefined ? evaluatorCore : {}) : (evaluatorCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsResellerV1: (goalsId, goalCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'goalsId' is not null or undefined
+            if (goalsId === null || goalsId === undefined) {
+                throw new base_1.RequiredError('goalsId', 'Required parameter goalsId was null or undefined when calling updateGoalsResellerV1.');
+            }
+            // verify required parameter 'goalCore' is not null or undefined
+            if (goalCore === null || goalCore === undefined) {
+                throw new base_1.RequiredError('goalCore', 'Required parameter goalCore was null or undefined when calling updateGoalsResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/goals/{goals_id}`
+                .replace(`{${"goals_id"}}`, encodeURIComponent(String(goalsId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof goalCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(goalCore !== undefined ? goalCore : {}) : (goalCore || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -16492,6 +20028,54 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookResellerV1: (playbookId, playbookCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'playbookId' is not null or undefined
+            if (playbookId === null || playbookId === undefined) {
+                throw new base_1.RequiredError('playbookId', 'Required parameter playbookId was null or undefined when calling updatePlaybookResellerV1.');
+            }
+            // verify required parameter 'playbookCore' is not null or undefined
+            if (playbookCore === null || playbookCore === undefined) {
+                throw new base_1.RequiredError('playbookCore', 'Required parameter playbookCore was null or undefined when calling updatePlaybookResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
+                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -16539,6 +20123,54 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerResellerV1: (trackerId, trackerCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'trackerId' is not null or undefined
+            if (trackerId === null || trackerId === undefined) {
+                throw new base_1.RequiredError('trackerId', 'Required parameter trackerId was null or undefined when calling updateTrackerResellerV1.');
+            }
+            // verify required parameter 'trackerCore' is not null or undefined
+            if (trackerCore === null || trackerCore === undefined) {
+                throw new base_1.RequiredError('trackerCore', 'Required parameter trackerCore was null or undefined when calling updateTrackerResellerV1.');
+            }
+            const localVarPath = `/v1/resellers/sparr/trackers/{tracker_id}`
+                .replace(`{${"tracker_id"}}`, encodeURIComponent(String(trackerId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof trackerCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(trackerCore !== undefined ? trackerCore : {}) : (trackerCore || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -16564,6 +20196,38 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createEvaluatorResellerV1(evaluatorCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).createEvaluatorResellerV1(evaluatorCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsResellerV1(goalCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).createGoalsResellerV1(goalCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -16573,6 +20237,22 @@ exports.SparrResellerApiFp = function (configuration) {
         createPersonaResellerV1(personaCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).createPersonaResellerV1(personaCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookResellerV1(playbookCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).createPlaybookResellerV1(playbookCore, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16596,6 +20276,22 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerResellerV1(trackerCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).createTrackerResellerV1(trackerCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -16605,6 +20301,38 @@ exports.SparrResellerApiFp = function (configuration) {
         deleteCourseResellerV1(courseId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deleteCourseResellerV1(courseId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorResellerV1(paramsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deleteEvaluatorResellerV1(paramsId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsResellerV1(goalsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deleteGoalsResellerV1(goalsId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16628,6 +20356,22 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookResellerV1(playbookId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deletePlaybookResellerV1(playbookId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a scenario
          * @summary Delete Scenario
          * @param {string} scenarioId
@@ -16637,6 +20381,38 @@ exports.SparrResellerApiFp = function (configuration) {
         deleteScenarioResellerV1(scenarioId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deleteScenarioResellerV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerResellerV1(trackerId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).deleteTrackerResellerV1(trackerId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorResellerV1(flexibleGenerationRequest, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).generateEvaluatorResellerV1(flexibleGenerationRequest, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16660,6 +20436,38 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorResellerV1(paramsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).getEvaluatorResellerV1(paramsId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsResellerV1(goalsId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).getGoalsResellerV1(goalsId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
@@ -16676,6 +20484,22 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookResellerV1(playbookId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).getPlaybookResellerV1(playbookId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
          * @summary Get Scenario
          * @param {string} scenarioId
@@ -16685,6 +20509,22 @@ exports.SparrResellerApiFp = function (configuration) {
         getScenarioResellerV1(scenarioId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).getScenarioResellerV1(scenarioId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerResellerV1(trackerId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).getTrackerResellerV1(trackerId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16726,16 +20566,68 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasResellerV1(skip, limit, options) {
+        listEvaluatorResellerV1(skip, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listPersonasResellerV1(skip, limit, options);
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listEvaluatorResellerV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listGoalsResellerV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listGoalsResellerV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasResellerV1(skip, limit, tags, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listPersonasResellerV1(skip, limit, tags, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksResellerV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listPlaybooksResellerV1(skip, limit, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16747,12 +20639,48 @@ exports.SparrResellerApiFp = function (configuration) {
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosResellerV1(skip, limit, options) {
+        listScenariosResellerV1(skip, limit, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listScenariosResellerV1(skip, limit, options);
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listScenariosResellerV1(skip, limit, tags, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerResellerV1(skip, limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).listTrackerResellerV1(skip, limit, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsResellerV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).searchGoalsResellerV1(query, page, size, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16778,6 +20706,24 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksResellerV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).searchPlaybooksResellerV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Search scenarios by name and description
          * @summary Search Scenarios
          * @param {string} query Search query string
@@ -16789,6 +20735,24 @@ exports.SparrResellerApiFp = function (configuration) {
         searchScenariosResellerV1(query, page, size, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).searchScenariosResellerV1(query, page, size, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerResellerV1(query, page, size, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).searchTrackerResellerV1(query, page, size, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16813,6 +20777,40 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorResellerV1(paramsId, evaluatorCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).updateEvaluatorResellerV1(paramsId, evaluatorCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsResellerV1(goalsId, goalCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).updateGoalsResellerV1(goalsId, goalCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update a persona
          * @summary Update Persona
          * @param {string} personaId
@@ -16830,6 +20828,23 @@ exports.SparrResellerApiFp = function (configuration) {
             });
         },
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookResellerV1(playbookId, playbookCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).updatePlaybookResellerV1(playbookId, playbookCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -16840,6 +20855,23 @@ exports.SparrResellerApiFp = function (configuration) {
         updateScenarioResellerV1(scenarioId, scenarioCore, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerResellerV1(trackerId, trackerCore, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SparrResellerApiAxiosParamCreator(configuration).updateTrackerResellerV1(trackerId, trackerCore, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16865,6 +20897,26 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).createCourseResellerV1(courseRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new evaluator
+         * @summary Create Evaluator
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createEvaluatorResellerV1(evaluatorCore, options) {
+            return exports.SparrResellerApiFp(configuration).createEvaluatorResellerV1(evaluatorCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new goals collection
+         * @summary Create Goals
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createGoalsResellerV1(goalCore, options) {
+            return exports.SparrResellerApiFp(configuration).createGoalsResellerV1(goalCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new persona
          * @summary Create Persona
          * @param {PersonaCore} personaCore
@@ -16873,6 +20925,16 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         createPersonaResellerV1(personaCore, options) {
             return exports.SparrResellerApiFp(configuration).createPersonaResellerV1(personaCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new playbook
+         * @summary Create Playbook
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPlaybookResellerV1(playbookCore, options) {
+            return exports.SparrResellerApiFp(configuration).createPlaybookResellerV1(playbookCore, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new scenario
@@ -16885,6 +20947,16 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).createScenarioResellerV1(scenarioCore, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new tracker
+         * @summary Create Tracker
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTrackerResellerV1(trackerCore, options) {
+            return exports.SparrResellerApiFp(configuration).createTrackerResellerV1(trackerCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a course
          * @summary Delete Course
          * @param {string} courseId
@@ -16893,6 +20965,26 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         deleteCourseResellerV1(courseId, options) {
             return exports.SparrResellerApiFp(configuration).deleteCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete evaluator
+         * @summary Delete Evaluator
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteEvaluatorResellerV1(paramsId, options) {
+            return exports.SparrResellerApiFp(configuration).deleteEvaluatorResellerV1(paramsId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a goals collection
+         * @summary Delete Goals
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteGoalsResellerV1(goalsId, options) {
+            return exports.SparrResellerApiFp(configuration).deleteGoalsResellerV1(goalsId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a persona
@@ -16905,6 +20997,16 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).deletePersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a playbook
+         * @summary Delete Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePlaybookResellerV1(playbookId, options) {
+            return exports.SparrResellerApiFp(configuration).deletePlaybookResellerV1(playbookId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a scenario
          * @summary Delete Scenario
          * @param {string} scenarioId
@@ -16913,6 +21015,26 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         deleteScenarioResellerV1(scenarioId, options) {
             return exports.SparrResellerApiFp(configuration).deleteScenarioResellerV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a tracker
+         * @summary Delete Tracker
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTrackerResellerV1(trackerId, options) {
+            return exports.SparrResellerApiFp(configuration).deleteTrackerResellerV1(trackerId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generate evaluator data from files and/or existing core components
+         * @summary Generate Evaluator
+         * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateEvaluatorResellerV1(flexibleGenerationRequest, options) {
+            return exports.SparrResellerApiFp(configuration).generateEvaluatorResellerV1(flexibleGenerationRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a specific course by ID
@@ -16925,6 +21047,26 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).getCourseResellerV1(courseId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Evaluator By Id
+         * @param {string} paramsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluatorResellerV1(paramsId, options) {
+            return exports.SparrResellerApiFp(configuration).getEvaluatorResellerV1(paramsId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Goals By Id
+         * @param {string} goalsId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGoalsResellerV1(goalsId, options) {
+            return exports.SparrResellerApiFp(configuration).getGoalsResellerV1(goalsId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific persona by ID that is either directly owned or available through reseller course assignments
          * @summary Get Persona
          * @param {string} personaId
@@ -16935,6 +21077,16 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).getPersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+         * @summary Get Playbook
+         * @param {string} playbookId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPlaybookResellerV1(playbookId, options) {
+            return exports.SparrResellerApiFp(configuration).getPlaybookResellerV1(playbookId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
          * @summary Get Scenario
          * @param {string} scenarioId
@@ -16943,6 +21095,16 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         getScenarioResellerV1(scenarioId, options) {
             return exports.SparrResellerApiFp(configuration).getScenarioResellerV1(scenarioId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+         * @summary Get Tracker By Id
+         * @param {string} trackerId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTrackerResellerV1(trackerId, options) {
+            return exports.SparrResellerApiFp(configuration).getTrackerResellerV1(trackerId, options).then((request) => request(axios, basePath));
         },
         /**
          * Import a persona from LinkedIn URL
@@ -16967,26 +21129,84 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).listCoursesResellerV1(skip, limit, status, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all personas that are either directly owned or available through reseller course assignments
-         * @summary Get Personas
+         * Get all evaluator that are either directly owned or available through reseller course assignments
+         * @summary Get Evaluator
          * @param {number} [skip]
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonasResellerV1(skip, limit, options) {
-            return exports.SparrResellerApiFp(configuration).listPersonasResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        listEvaluatorResellerV1(skip, limit, options) {
+            return exports.SparrResellerApiFp(configuration).listEvaluatorResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all goals that are either directly owned or available through reseller course assignments
+         * @summary Get Goals
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listGoalsResellerV1(skip, limit, options) {
+            return exports.SparrResellerApiFp(configuration).listGoalsResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all personas that are either directly owned or available through reseller course assignments
+         * @summary Get Personas
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string} [tags] Filter personas by tag, comma separated names
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPersonasResellerV1(skip, limit, tags, options) {
+            return exports.SparrResellerApiFp(configuration).listPersonasResellerV1(skip, limit, tags, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all playbooks that are either directly owned or available through reseller playbook assignments
+         * @summary Get Playbooks
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPlaybooksResellerV1(skip, limit, options) {
+            return exports.SparrResellerApiFp(configuration).listPlaybooksResellerV1(skip, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip]
          * @param {number} [limit]
+         * @param {string} [tags] Filter scenarios by tag, comma separated names
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listScenariosResellerV1(skip, limit, options) {
-            return exports.SparrResellerApiFp(configuration).listScenariosResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        listScenariosResellerV1(skip, limit, tags, options) {
+            return exports.SparrResellerApiFp(configuration).listScenariosResellerV1(skip, limit, tags, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all trackers that are either directly owned or available through reseller course assignments
+         * @summary Get Trackers
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTrackerResellerV1(skip, limit, options) {
+            return exports.SparrResellerApiFp(configuration).listTrackerResellerV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search goals by name and description
+         * @summary Search Goals
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchGoalsResellerV1(query, page, size, options) {
+            return exports.SparrResellerApiFp(configuration).searchGoalsResellerV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Search personas by name, title and company
@@ -17001,6 +21221,18 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
+         * Search playbooks by name and description
+         * @summary Search Playbooks
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPlaybooksResellerV1(query, page, size, options) {
+            return exports.SparrResellerApiFp(configuration).searchPlaybooksResellerV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Search scenarios by name and description
          * @summary Search Scenarios
          * @param {string} query Search query string
@@ -17011,6 +21243,18 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         searchScenariosResellerV1(query, page, size, options) {
             return exports.SparrResellerApiFp(configuration).searchScenariosResellerV1(query, page, size, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search trackers by name and description
+         * @summary Search Tracker
+         * @param {string} query Search query string
+         * @param {number} [page] Page number
+         * @param {number} [size] Items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTrackerResellerV1(query, page, size, options) {
+            return exports.SparrResellerApiFp(configuration).searchTrackerResellerV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a course
@@ -17024,6 +21268,28 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).updateCourseResellerV1(courseId, courseUpdateRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update evaluator
+         * @summary Update Evaluator
+         * @param {string} paramsId
+         * @param {EvaluatorCore} evaluatorCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEvaluatorResellerV1(paramsId, evaluatorCore, options) {
+            return exports.SparrResellerApiFp(configuration).updateEvaluatorResellerV1(paramsId, evaluatorCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a goals collection
+         * @summary Update Goals
+         * @param {string} goalsId
+         * @param {GoalCore} goalCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateGoalsResellerV1(goalsId, goalCore, options) {
+            return exports.SparrResellerApiFp(configuration).updateGoalsResellerV1(goalsId, goalCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a persona
          * @summary Update Persona
          * @param {string} personaId
@@ -17035,6 +21301,17 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
             return exports.SparrResellerApiFp(configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update a playbook
+         * @summary Update Playbook
+         * @param {string} playbookId
+         * @param {PlaybookCore} playbookCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePlaybookResellerV1(playbookId, playbookCore, options) {
+            return exports.SparrResellerApiFp(configuration).updatePlaybookResellerV1(playbookId, playbookCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId
@@ -17044,6 +21321,17 @@ exports.SparrResellerApiFactory = function (configuration, basePath, axios) {
          */
         updateScenarioResellerV1(scenarioId, scenarioCore, options) {
             return exports.SparrResellerApiFp(configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a tracker
+         * @summary Update Tracker
+         * @param {string} trackerId
+         * @param {TrackerCore} trackerCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTrackerResellerV1(trackerId, trackerCore, options) {
+            return exports.SparrResellerApiFp(configuration).updateTrackerResellerV1(trackerId, trackerCore, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -17066,6 +21354,28 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).createCourseResellerV1(courseRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create a new evaluator
+     * @summary Create Evaluator
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createEvaluatorResellerV1(evaluatorCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).createEvaluatorResellerV1(evaluatorCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new goals collection
+     * @summary Create Goals
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createGoalsResellerV1(goalCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).createGoalsResellerV1(goalCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Create a new persona
      * @summary Create Persona
      * @param {PersonaCore} personaCore
@@ -17075,6 +21385,17 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     createPersonaResellerV1(personaCore, options) {
         return exports.SparrResellerApiFp(this.configuration).createPersonaResellerV1(personaCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new playbook
+     * @summary Create Playbook
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createPlaybookResellerV1(playbookCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).createPlaybookResellerV1(playbookCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new scenario
@@ -17088,6 +21409,17 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).createScenarioResellerV1(scenarioCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create a new tracker
+     * @summary Create Tracker
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    createTrackerResellerV1(trackerCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).createTrackerResellerV1(trackerCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a course
      * @summary Delete Course
      * @param {string} courseId
@@ -17097,6 +21429,28 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     deleteCourseResellerV1(courseId, options) {
         return exports.SparrResellerApiFp(this.configuration).deleteCourseResellerV1(courseId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete evaluator
+     * @summary Delete Evaluator
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteEvaluatorResellerV1(paramsId, options) {
+        return exports.SparrResellerApiFp(this.configuration).deleteEvaluatorResellerV1(paramsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a goals collection
+     * @summary Delete Goals
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteGoalsResellerV1(goalsId, options) {
+        return exports.SparrResellerApiFp(this.configuration).deleteGoalsResellerV1(goalsId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a persona
@@ -17110,6 +21464,17 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).deletePersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Delete a playbook
+     * @summary Delete Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deletePlaybookResellerV1(playbookId, options) {
+        return exports.SparrResellerApiFp(this.configuration).deletePlaybookResellerV1(playbookId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Delete a scenario
      * @summary Delete Scenario
      * @param {string} scenarioId
@@ -17119,6 +21484,28 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     deleteScenarioResellerV1(scenarioId, options) {
         return exports.SparrResellerApiFp(this.configuration).deleteScenarioResellerV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a tracker
+     * @summary Delete Tracker
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    deleteTrackerResellerV1(trackerId, options) {
+        return exports.SparrResellerApiFp(this.configuration).deleteTrackerResellerV1(trackerId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Generate evaluator data from files and/or existing core components
+     * @summary Generate Evaluator
+     * @param {FlexibleGenerationRequest} flexibleGenerationRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    generateEvaluatorResellerV1(flexibleGenerationRequest, options) {
+        return exports.SparrResellerApiFp(this.configuration).generateEvaluatorResellerV1(flexibleGenerationRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a specific course by ID
@@ -17132,6 +21519,28 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).getCourseResellerV1(courseId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Evaluator By Id
+     * @param {string} paramsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getEvaluatorResellerV1(paramsId, options) {
+        return exports.SparrResellerApiFp(this.configuration).getEvaluatorResellerV1(paramsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Goals By Id
+     * @param {string} goalsId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getGoalsResellerV1(goalsId, options) {
+        return exports.SparrResellerApiFp(this.configuration).getGoalsResellerV1(goalsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
      * @param {string} personaId
@@ -17143,6 +21552,17 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).getPersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
+     * @summary Get Playbook
+     * @param {string} playbookId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getPlaybookResellerV1(playbookId, options) {
+        return exports.SparrResellerApiFp(this.configuration).getPlaybookResellerV1(playbookId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
      * @param {string} scenarioId
@@ -17152,6 +21572,17 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     getScenarioResellerV1(scenarioId, options) {
         return exports.SparrResellerApiFp(this.configuration).getScenarioResellerV1(scenarioId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
+     * @summary Get Tracker By Id
+     * @param {string} trackerId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    getTrackerResellerV1(trackerId, options) {
+        return exports.SparrResellerApiFp(this.configuration).getTrackerResellerV1(trackerId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Import a persona from LinkedIn URL
@@ -17178,28 +21609,91 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).listCoursesResellerV1(skip, limit, status, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get all personas that are either directly owned or available through reseller course assignments
-     * @summary Get Personas
+     * Get all evaluator that are either directly owned or available through reseller course assignments
+     * @summary Get Evaluator
      * @param {number} [skip]
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listPersonasResellerV1(skip, limit, options) {
-        return exports.SparrResellerApiFp(this.configuration).listPersonasResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listEvaluatorResellerV1(skip, limit, options) {
+        return exports.SparrResellerApiFp(this.configuration).listEvaluatorResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all goals that are either directly owned or available through reseller course assignments
+     * @summary Get Goals
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listGoalsResellerV1(skip, limit, options) {
+        return exports.SparrResellerApiFp(this.configuration).listGoalsResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all personas that are either directly owned or available through reseller course assignments
+     * @summary Get Personas
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string} [tags] Filter personas by tag, comma separated names
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listPersonasResellerV1(skip, limit, tags, options) {
+        return exports.SparrResellerApiFp(this.configuration).listPersonasResellerV1(skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all playbooks that are either directly owned or available through reseller playbook assignments
+     * @summary Get Playbooks
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listPlaybooksResellerV1(skip, limit, options) {
+        return exports.SparrResellerApiFp(this.configuration).listPlaybooksResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
      * @param {number} [limit]
+     * @param {string} [tags] Filter scenarios by tag, comma separated names
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listScenariosResellerV1(skip, limit, options) {
-        return exports.SparrResellerApiFp(this.configuration).listScenariosResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    listScenariosResellerV1(skip, limit, tags, options) {
+        return exports.SparrResellerApiFp(this.configuration).listScenariosResellerV1(skip, limit, tags, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get all trackers that are either directly owned or available through reseller course assignments
+     * @summary Get Trackers
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    listTrackerResellerV1(skip, limit, options) {
+        return exports.SparrResellerApiFp(this.configuration).listTrackerResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Search goals by name and description
+     * @summary Search Goals
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchGoalsResellerV1(query, page, size, options) {
+        return exports.SparrResellerApiFp(this.configuration).searchGoalsResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Search personas by name, title and company
@@ -17215,6 +21709,19 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Search playbooks by name and description
+     * @summary Search Playbooks
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchPlaybooksResellerV1(query, page, size, options) {
+        return exports.SparrResellerApiFp(this.configuration).searchPlaybooksResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Search scenarios by name and description
      * @summary Search Scenarios
      * @param {string} query Search query string
@@ -17226,6 +21733,19 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     searchScenariosResellerV1(query, page, size, options) {
         return exports.SparrResellerApiFp(this.configuration).searchScenariosResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Search trackers by name and description
+     * @summary Search Tracker
+     * @param {string} query Search query string
+     * @param {number} [page] Page number
+     * @param {number} [size] Items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    searchTrackerResellerV1(query, page, size, options) {
+        return exports.SparrResellerApiFp(this.configuration).searchTrackerResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a course
@@ -17240,6 +21760,30 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).updateCourseResellerV1(courseId, courseUpdateRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Update evaluator
+     * @summary Update Evaluator
+     * @param {string} paramsId
+     * @param {EvaluatorCore} evaluatorCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateEvaluatorResellerV1(paramsId, evaluatorCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).updateEvaluatorResellerV1(paramsId, evaluatorCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a goals collection
+     * @summary Update Goals
+     * @param {string} goalsId
+     * @param {GoalCore} goalCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateGoalsResellerV1(goalsId, goalCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).updateGoalsResellerV1(goalsId, goalCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update a persona
      * @summary Update Persona
      * @param {string} personaId
@@ -17252,6 +21796,18 @@ class SparrResellerApi extends base_1.BaseAPI {
         return exports.SparrResellerApiFp(this.configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Update a playbook
+     * @summary Update Playbook
+     * @param {string} playbookId
+     * @param {PlaybookCore} playbookCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updatePlaybookResellerV1(playbookId, playbookCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).updatePlaybookResellerV1(playbookId, playbookCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -17262,6 +21818,18 @@ class SparrResellerApi extends base_1.BaseAPI {
      */
     updateScenarioResellerV1(scenarioId, scenarioCore, options) {
         return exports.SparrResellerApiFp(this.configuration).updateScenarioResellerV1(scenarioId, scenarioCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a tracker
+     * @summary Update Tracker
+     * @param {string} trackerId
+     * @param {TrackerCore} trackerCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrResellerApi
+     */
+    updateTrackerResellerV1(trackerId, trackerCore, options) {
+        return exports.SparrResellerApiFp(this.configuration).updateTrackerResellerV1(trackerId, trackerCore, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SparrResellerApi = SparrResellerApi;
