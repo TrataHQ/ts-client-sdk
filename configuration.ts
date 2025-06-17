@@ -87,4 +87,5 @@ export class Configuration {
         const jsonMime: RegExp = new RegExp('^(application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(;.*)?$', 'i');
         return mime !== null && mime !== undefined && jsonMime.test(mime);
     }
+
 }

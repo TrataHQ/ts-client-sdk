@@ -646,9 +646,22 @@ export interface AgenticWorkflowModelsBaseBaseResponse {
  * @export
  * @enum {string}
  */
-export declare enum AggregationFormula {
+export declare enum AggregationFormulaInput {
     COUNT = "COUNT",
     SUM = "SUM",
+    MEDIAN = "MEDIAN"
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum AggregationFormulaOutput {
+    COUNT = "COUNT",
+    SUM = "SUM",
+    AVG = "AVG",
+    MIN = "MIN",
+    MAX = "MAX",
     MEDIAN = "MEDIAN"
 }
 /**
@@ -746,6 +759,68 @@ export interface AnalyticsModelOutput {
      * @memberof AnalyticsModelOutput
      */
     tracker_analytics?: Array<TrackerAnalyticsModel> | null;
+}
+/**
+ * Simplified analytics request for single date range
+ * @export
+ * @interface AnalyticsRequest
+ */
+export interface AnalyticsRequest {
+    /**
+     * Start date for the analytics range
+     * @type {string}
+     * @memberof AnalyticsRequest
+     */
+    startDate: string;
+    /**
+     * End date for the analytics range
+     * @type {string}
+     * @memberof AnalyticsRequest
+     */
+    endDate: string;
+    /**
+     * List of metrics to retrieve
+     * @type {Array<MetricRequest>}
+     * @memberof AnalyticsRequest
+     */
+    metrics: Array<MetricRequest>;
+    /**
+     * Optional list of user IDs to filter by
+     * @type {Array<string>}
+     * @memberof AnalyticsRequest
+     */
+    userIds?: Array<string> | null;
+}
+/**
+ * Simplified analytics response
+ * @export
+ * @interface AnalyticsResponse
+ */
+export interface AnalyticsResponse {
+    /**
+     * Start date of the analytics range
+     * @type {string}
+     * @memberof AnalyticsResponse
+     */
+    startDate: string;
+    /**
+     * End date of the analytics range
+     * @type {string}
+     * @memberof AnalyticsResponse
+     */
+    endDate: string;
+    /**
+     * List of aggregated metric values
+     * @type {Array<MetricDataPoint>}
+     * @memberof AnalyticsResponse
+     */
+    metrics: Array<MetricDataPoint>;
+    /**
+     * List of user IDs included in the analytics
+     * @type {Array<string>}
+     * @memberof AnalyticsResponse
+     */
+    userIds?: Array<string> | null;
 }
 /**
  * API key authentication configuration
@@ -4031,6 +4106,31 @@ export interface LongestMonologue {
     duration: number;
 }
 /**
+ * Simple metric data point with alias and value
+ * @export
+ * @interface MetricDataPoint
+ */
+export interface MetricDataPoint {
+    /**
+     * Metric alias name
+     * @type {string}
+     * @memberof MetricDataPoint
+     */
+    alias: string;
+    /**
+     * Aggregated metric value
+     * @type {number}
+     * @memberof MetricDataPoint
+     */
+    value: number | null;
+    /**
+     * Aggregation function used
+     * @type {AggregationFormulaOutput}
+     * @memberof MetricDataPoint
+     */
+    aggregation: AggregationFormulaOutput;
+}
+/**
  *
  * @export
  * @enum {string}
@@ -4076,6 +4176,31 @@ export declare enum MetricNameInput {
     INTERESTED = "INTERESTED",
     NOTINTERESTED = "NOT_INTERESTED",
     NEWCUSTOMERS = "NEW_CUSTOMERS"
+}
+/**
+ * Simple metric request with column name, aggregation, and alias
+ * @export
+ * @interface MetricRequest
+ */
+export interface MetricRequest {
+    /**
+     * Metric name
+     * @type {SparrModelsAnalyticsMetricName}
+     * @memberof MetricRequest
+     */
+    name: SparrModelsAnalyticsMetricName;
+    /**
+     * How to aggregate the metric
+     * @type {SparrModelsAnalyticsAggregationFormula}
+     * @memberof MetricRequest
+     */
+    aggregation: SparrModelsAnalyticsAggregationFormula;
+    /**
+     * Response alias name for the metric
+     * @type {string}
+     * @memberof MetricRequest
+     */
+    alias: string;
 }
 /**
  *
@@ -4134,10 +4259,10 @@ export interface MetricsRequestInput {
     aggregationPeriod: AggregationPeriod;
     /**
      * Aggregation formula for the metric request
-     * @type {AggregationFormula}
+     * @type {AggregationFormulaInput}
      * @memberof MetricsRequestInput
      */
-    aggregationFormula: AggregationFormula;
+    aggregationFormula: AggregationFormulaInput;
 }
 /**
  *
@@ -6751,12 +6876,6 @@ export interface SparrDialogLineWithTimestamp {
      * @memberof SparrDialogLineWithTimestamp
      */
     words: Array<DialogWordWithTimestamp>;
-    /**
-     *
-     * @type {string}
-     * @memberof SparrDialogLineWithTimestamp
-     */
-    timestamp?: string | null;
 }
 /**
  *
@@ -6819,6 +6938,19 @@ export interface SparrLanguageAccentCombo {
      * @memberof SparrLanguageAccentCombo
      */
     accent: SparrVoiceAccent;
+}
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare enum SparrModelsAnalyticsAggregationFormula {
+    COUNT = "COUNT",
+    SUM = "SUM",
+    AVG = "AVG",
+    MIN = "MIN",
+    MAX = "MAX",
+    MEDIAN = "MEDIAN"
 }
 /**
  *
@@ -6890,13 +7022,23 @@ export interface SparrModelsAnalyticsConversationAnalyticsModel {
  */
 export declare enum SparrModelsAnalyticsMetricName {
     CALLS = "CALLS",
+    CallCount = "callCount",
     CALLDURATION = "CALL_DURATION",
     TALKRATIO = "TALK_RATIO",
     AVERAGEFILLERWORDSCOUNT = "AVERAGE_FILLER_WORDS_COUNT",
     AVERAGEOVERALLSCORE = "AVERAGE_OVERALL_SCORE",
     AVERAGELONGESTMONOLOGUE = "AVERAGE_LONGEST_MONOLOGUE",
     AVERAGEMODULESCOMPLETED = "AVERAGE_MODULES_COMPLETED",
-    AVERAGEACTIVEDAYS = "AVERAGE_ACTIVE_DAYS"
+    AVERAGEACTIVEDAYS = "AVERAGE_ACTIVE_DAYS",
+    ProcessAdherenceScore = "processAdherenceScore",
+    SkillsScore = "skillsScore",
+    CommunicationScore = "communicationScore",
+    UserTalkingRatio = "userTalkingRatio",
+    FillerWords = "fillerWords",
+    OverallScore = "overallScore",
+    ModulesCompleted = "modulesCompleted",
+    CallDuration = "callDuration",
+    LongestMonologue = "longestMonologue"
 }
 /**
  *
@@ -6961,10 +7103,10 @@ export interface SparrModelsAnalyticsMetricsRequest {
     aggregationPeriod: AggregationPeriod;
     /**
      * Aggregation formula for the metric request
-     * @type {AggregationFormula}
+     * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    aggregationFormula: AggregationFormula;
+    aggregationFormula: SparrModelsAnalyticsAggregationFormula;
 }
 /**
  *
@@ -8406,6 +8548,167 @@ export interface UserPayload {
     phoneNumber?: string | null;
 }
 /**
+ * Individual user performance summary
+ * @export
+ * @interface UserPerformanceSummary
+ */
+export interface UserPerformanceSummary {
+    /**
+     * User ID
+     * @type {string}
+     * @memberof UserPerformanceSummary
+     */
+    userId: string;
+    /**
+     * User name
+     * @type {string}
+     * @memberof UserPerformanceSummary
+     */
+    userName: string | null;
+    /**
+     * Average process adherence score
+     * @type {number}
+     * @memberof UserPerformanceSummary
+     */
+    avgProcessAdherenceScore: number | null;
+    /**
+     * Average skills score
+     * @type {number}
+     * @memberof UserPerformanceSummary
+     */
+    avgSkillsScore: number | null;
+    /**
+     * Average communication score
+     * @type {number}
+     * @memberof UserPerformanceSummary
+     */
+    avgCommunicationScore: number | null;
+    /**
+     * Average overall score
+     * @type {number}
+     * @memberof UserPerformanceSummary
+     */
+    avgOverallScore: number | null;
+    /**
+     * Total number of sessions/analytics records
+     * @type {number}
+     * @memberof UserPerformanceSummary
+     */
+    totalSessions: number;
+}
+/**
+ * Request model for user performance summary API
+ * @export
+ * @interface UserPerformanceSummaryRequest
+ */
+export interface UserPerformanceSummaryRequest {
+    /**
+     * Start date for the analytics range
+     * @type {string}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    startDate: string;
+    /**
+     * End date for the analytics range
+     * @type {string}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    endDate: string;
+    /**
+     * Optional list of user IDs to filter by
+     * @type {Array<string>}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    userIds?: Array<string> | null;
+    /**
+     * Column to sort by (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore)
+     * @type {string}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    sortBy?: string;
+    /**
+     * Sort order - ascending or descending
+     * @type {string}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    sortOrder?: UserPerformanceSummaryRequestSortOrderEnum;
+    /**
+     * Number of records to skip for pagination
+     * @type {number}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    skip?: number;
+    /**
+     * Maximum number of records to return
+     * @type {number}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    limit?: number;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum UserPerformanceSummaryRequestSortOrderEnum {
+    Asc = "asc",
+    Desc = "desc"
+}
+/**
+ * Response model for user performance summary API
+ * @export
+ * @interface UserPerformanceSummaryResponse
+ */
+export interface UserPerformanceSummaryResponse {
+    /**
+     * Start date of the analytics range
+     * @type {string}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    startDate: string;
+    /**
+     * End date of the analytics range
+     * @type {string}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    endDate: string;
+    /**
+     * List of user performance summaries
+     * @type {Array<UserPerformanceSummary>}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    users: Array<UserPerformanceSummary>;
+    /**
+     * Total number of users matching the criteria
+     * @type {number}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    totalCount: number;
+    /**
+     * Number of records skipped
+     * @type {number}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    skip: number;
+    /**
+     * Number of records requested
+     * @type {number}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    limit: number;
+    /**
+     * Column used for sorting
+     * @type {string}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    sortBy: string;
+    /**
+     * Sort order applied
+     * @type {string}
+     * @memberof UserPerformanceSummaryResponse
+     */
+    sortOrder: string;
+}
+/**
  *
  * @export
  * @interface UserRecentActivity
@@ -9808,6 +10111,22 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     getOverallStatsV1StatsGet: (app?: AppEnumInput, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+     * @summary Get User Analytics
+     * @param {AnalyticsRequest} analyticsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserAnalyticsV1: (analyticsRequest: AnalyticsRequest, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+     * @summary Get User Performance Summary
+     * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserPerformanceSummaryV1: (userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -9831,6 +10150,22 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
+    /**
+     * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+     * @summary Get User Analytics
+     * @param {AnalyticsRequest} analyticsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsResponse>>;
+    /**
+     * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+     * @summary Get User Performance Summary
+     * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPerformanceSummaryResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -9854,6 +10189,22 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): AxiosPromise<StatsResponse>;
+    /**
+     * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+     * @summary Get User Analytics
+     * @param {AnalyticsRequest} analyticsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): AxiosPromise<AnalyticsResponse>;
+    /**
+     * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+     * @summary Get User Performance Summary
+     * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): AxiosPromise<UserPerformanceSummaryResponse>;
 };
 /**
  * AnalyticsApi - object-oriented interface
@@ -9881,6 +10232,24 @@ export declare class AnalyticsApi extends BaseAPI {
      * @memberof AnalyticsApi
      */
     getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
+    /**
+     * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+     * @summary Get User Analytics
+     * @param {AnalyticsRequest} analyticsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): Promise<import("axios").AxiosResponse<AnalyticsResponse>>;
+    /**
+     * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+     * @summary Get User Performance Summary
+     * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): Promise<import("axios").AxiosResponse<UserPerformanceSummaryResponse>>;
 }
 /**
  * ApiKeyApi - axios parameter creator

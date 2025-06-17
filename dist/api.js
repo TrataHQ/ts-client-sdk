@@ -21,7 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.ChangeAssignmentOperation = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormula = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UserPerformanceSummaryRequestSortOrderEnum = exports.UiNodeType = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsAggregationFormula = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.PatienceLevel = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.NegotiationStyle = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.FrustrationTolerance = exports.EngagementLevel = exports.DialogLineSpeakerEnum = exports.DecisionMakingStyle = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.CommunicationStyle = exports.ChangeAssignmentOperation = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormulaOutput = exports.AggregationFormulaInput = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -78,12 +78,26 @@ var AgenticWorkflowAdkModelsWorkflowAppEnum;
  * @export
  * @enum {string}
  */
-var AggregationFormula;
-(function (AggregationFormula) {
-    AggregationFormula["COUNT"] = "COUNT";
-    AggregationFormula["SUM"] = "SUM";
-    AggregationFormula["MEDIAN"] = "MEDIAN";
-})(AggregationFormula = exports.AggregationFormula || (exports.AggregationFormula = {}));
+var AggregationFormulaInput;
+(function (AggregationFormulaInput) {
+    AggregationFormulaInput["COUNT"] = "COUNT";
+    AggregationFormulaInput["SUM"] = "SUM";
+    AggregationFormulaInput["MEDIAN"] = "MEDIAN";
+})(AggregationFormulaInput = exports.AggregationFormulaInput || (exports.AggregationFormulaInput = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+var AggregationFormulaOutput;
+(function (AggregationFormulaOutput) {
+    AggregationFormulaOutput["COUNT"] = "COUNT";
+    AggregationFormulaOutput["SUM"] = "SUM";
+    AggregationFormulaOutput["AVG"] = "AVG";
+    AggregationFormulaOutput["MIN"] = "MIN";
+    AggregationFormulaOutput["MAX"] = "MAX";
+    AggregationFormulaOutput["MEDIAN"] = "MEDIAN";
+})(AggregationFormulaOutput = exports.AggregationFormulaOutput || (exports.AggregationFormulaOutput = {}));
 /**
  *
  * @export
@@ -819,9 +833,24 @@ var SparrInteractionTone;
  * @export
  * @enum {string}
  */
+var SparrModelsAnalyticsAggregationFormula;
+(function (SparrModelsAnalyticsAggregationFormula) {
+    SparrModelsAnalyticsAggregationFormula["COUNT"] = "COUNT";
+    SparrModelsAnalyticsAggregationFormula["SUM"] = "SUM";
+    SparrModelsAnalyticsAggregationFormula["AVG"] = "AVG";
+    SparrModelsAnalyticsAggregationFormula["MIN"] = "MIN";
+    SparrModelsAnalyticsAggregationFormula["MAX"] = "MAX";
+    SparrModelsAnalyticsAggregationFormula["MEDIAN"] = "MEDIAN";
+})(SparrModelsAnalyticsAggregationFormula = exports.SparrModelsAnalyticsAggregationFormula || (exports.SparrModelsAnalyticsAggregationFormula = {}));
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 var SparrModelsAnalyticsMetricName;
 (function (SparrModelsAnalyticsMetricName) {
     SparrModelsAnalyticsMetricName["CALLS"] = "CALLS";
+    SparrModelsAnalyticsMetricName["CallCount"] = "callCount";
     SparrModelsAnalyticsMetricName["CALLDURATION"] = "CALL_DURATION";
     SparrModelsAnalyticsMetricName["TALKRATIO"] = "TALK_RATIO";
     SparrModelsAnalyticsMetricName["AVERAGEFILLERWORDSCOUNT"] = "AVERAGE_FILLER_WORDS_COUNT";
@@ -829,6 +858,15 @@ var SparrModelsAnalyticsMetricName;
     SparrModelsAnalyticsMetricName["AVERAGELONGESTMONOLOGUE"] = "AVERAGE_LONGEST_MONOLOGUE";
     SparrModelsAnalyticsMetricName["AVERAGEMODULESCOMPLETED"] = "AVERAGE_MODULES_COMPLETED";
     SparrModelsAnalyticsMetricName["AVERAGEACTIVEDAYS"] = "AVERAGE_ACTIVE_DAYS";
+    SparrModelsAnalyticsMetricName["ProcessAdherenceScore"] = "processAdherenceScore";
+    SparrModelsAnalyticsMetricName["SkillsScore"] = "skillsScore";
+    SparrModelsAnalyticsMetricName["CommunicationScore"] = "communicationScore";
+    SparrModelsAnalyticsMetricName["UserTalkingRatio"] = "userTalkingRatio";
+    SparrModelsAnalyticsMetricName["FillerWords"] = "fillerWords";
+    SparrModelsAnalyticsMetricName["OverallScore"] = "overallScore";
+    SparrModelsAnalyticsMetricName["ModulesCompleted"] = "modulesCompleted";
+    SparrModelsAnalyticsMetricName["CallDuration"] = "callDuration";
+    SparrModelsAnalyticsMetricName["LongestMonologue"] = "longestMonologue";
 })(SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsMetricName || (exports.SparrModelsAnalyticsMetricName = {}));
 /**
  *
@@ -914,6 +952,15 @@ var UiNodeType;
     UiNodeType["LOOP"] = "LOOP";
     UiNodeType["SUBFLOW"] = "SUBFLOW";
 })(UiNodeType = exports.UiNodeType || (exports.UiNodeType = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var UserPerformanceSummaryRequestSortOrderEnum;
+(function (UserPerformanceSummaryRequestSortOrderEnum) {
+    UserPerformanceSummaryRequestSortOrderEnum["Asc"] = "asc";
+    UserPerformanceSummaryRequestSortOrderEnum["Desc"] = "desc";
+})(UserPerformanceSummaryRequestSortOrderEnum = exports.UserPerformanceSummaryRequestSortOrderEnum || (exports.UserPerformanceSummaryRequestSortOrderEnum = {}));
 /**
  * Enum which stores the list of types of sparring calls
  * @export
@@ -2293,6 +2340,90 @@ exports.AnalyticsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+         * @summary Get User Analytics
+         * @param {AnalyticsRequest} analyticsRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserAnalyticsV1: (analyticsRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'analyticsRequest' is not null or undefined
+            if (analyticsRequest === null || analyticsRequest === undefined) {
+                throw new base_1.RequiredError('analyticsRequest', 'Required parameter analyticsRequest was null or undefined when calling getUserAnalyticsV1.');
+            }
+            const localVarPath = `/v1/sparr/analytics/users`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof analyticsRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(analyticsRequest !== undefined ? analyticsRequest : {}) : (analyticsRequest || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+         * @summary Get User Performance Summary
+         * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserPerformanceSummaryV1: (userPerformanceSummaryRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userPerformanceSummaryRequest' is not null or undefined
+            if (userPerformanceSummaryRequest === null || userPerformanceSummaryRequest === undefined) {
+                throw new base_1.RequiredError('userPerformanceSummaryRequest', 'Required parameter userPerformanceSummaryRequest was null or undefined when calling getUserPerformanceSummaryV1.');
+            }
+            const localVarPath = `/v1/sparr/analytics/users/performance-summary`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken()
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof userPerformanceSummaryRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(userPerformanceSummaryRequest !== undefined ? userPerformanceSummaryRequest : {}) : (userPerformanceSummaryRequest || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -2334,6 +2465,38 @@ exports.AnalyticsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+         * @summary Get User Analytics
+         * @param {AnalyticsRequest} analyticsRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserAnalyticsV1(analyticsRequest, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getUserAnalyticsV1(analyticsRequest, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+         * @summary Get User Performance Summary
+         * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AnalyticsApiAxiosParamCreator(configuration).getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -2362,6 +2525,26 @@ exports.AnalyticsApiFactory = function (configuration, basePath, axios) {
          */
         getOverallStatsV1StatsGet(app, options) {
             return exports.AnalyticsApiFp(configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+         * @summary Get User Analytics
+         * @param {AnalyticsRequest} analyticsRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserAnalyticsV1(analyticsRequest, options) {
+            return exports.AnalyticsApiFp(configuration).getUserAnalyticsV1(analyticsRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+         * @summary Get User Performance Summary
+         * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options) {
+            return exports.AnalyticsApiFp(configuration).getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2394,6 +2577,28 @@ class AnalyticsApi extends base_1.BaseAPI {
      */
     getOverallStatsV1StatsGet(app, options) {
         return exports.AnalyticsApiFp(this.configuration).getOverallStatsV1StatsGet(app, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
+     * @summary Get User Analytics
+     * @param {AnalyticsRequest} analyticsRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    getUserAnalyticsV1(analyticsRequest, options) {
+        return exports.AnalyticsApiFp(this.configuration).getUserAnalyticsV1(analyticsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
+     * @summary Get User Performance Summary
+     * @param {UserPerformanceSummaryRequest} userPerformanceSummaryRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AnalyticsApi
+     */
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options) {
+        return exports.AnalyticsApiFp(this.configuration).getUserPerformanceSummaryV1(userPerformanceSummaryRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AnalyticsApi = AnalyticsApi;
