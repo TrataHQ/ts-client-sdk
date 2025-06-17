@@ -688,10 +688,10 @@ export interface AnalyticsModelInput {
     conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      * 
-     * @type {GoalsAnalyticsModel}
+     * @type {GoalAnalyticsModelInput}
      * @memberof AnalyticsModelInput
      */
-    goals_analytics: GoalsAnalyticsModel;
+    goals_analytics: GoalAnalyticsModelInput;
     /**
      * 
      * @type {CoachAnalyticsModel}
@@ -703,25 +703,19 @@ export interface AnalyticsModelInput {
      * @type {SystemMetrics}
      * @memberof AnalyticsModelInput
      */
-    system_metrics: SystemMetrics | null;
+    system_metrics?: SystemMetrics | null;
     /**
      * 
      * @type {any}
      * @memberof AnalyticsModelInput
      */
-    weighted_scores: any | null;
-    /**
-     * 
-     * @type {Array<PlaybookAnalyticsModel>}
-     * @memberof AnalyticsModelInput
-     */
-    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    weighted_scores?: any | null;
     /**
      * 
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelInput
      */
-    tracker_analytics: Array<TrackerAnalyticsModel> | null;
+    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
 }
 /**
  * 
@@ -737,10 +731,10 @@ export interface AnalyticsModelOutput {
     conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      * 
-     * @type {GoalsAnalyticsModel}
+     * @type {GoalAnalyticsModelOutput}
      * @memberof AnalyticsModelOutput
      */
-    goals_analytics: GoalsAnalyticsModel;
+    goals_analytics: GoalAnalyticsModelOutput;
     /**
      * 
      * @type {CoachAnalyticsModel}
@@ -752,25 +746,19 @@ export interface AnalyticsModelOutput {
      * @type {SystemMetrics}
      * @memberof AnalyticsModelOutput
      */
-    system_metrics: SystemMetrics | null;
+    system_metrics?: SystemMetrics | null;
     /**
      * 
      * @type {any}
      * @memberof AnalyticsModelOutput
      */
-    weighted_scores: any | null;
-    /**
-     * 
-     * @type {Array<PlaybookAnalyticsModel>}
-     * @memberof AnalyticsModelOutput
-     */
-    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    weighted_scores?: any | null;
     /**
      * 
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelOutput
      */
-    tracker_analytics: Array<TrackerAnalyticsModel> | null;
+    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
 }
 /**
  * API key authentication configuration
@@ -1533,12 +1521,6 @@ export interface CombinedEvaluatorResponse {
      * @memberof CombinedEvaluatorResponse
      */
     evaluator: Evaluator;
-    /**
-     * Optional playbook object
-     * @type {Playbook}
-     * @memberof CombinedEvaluatorResponse
-     */
-    playbook?: Playbook | null;
     /**
      * Optional goals object
      * @type {SparrDbModelsGoal}
@@ -2781,6 +2763,31 @@ export enum DialogLineSpeakerEnum {
 /**
  * 
  * @export
+ * @interface DialogWordWithTimestamp
+ */
+export interface DialogWordWithTimestamp {
+    /**
+     * 
+     * @type {string}
+     * @memberof DialogWordWithTimestamp
+     */
+    word: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof DialogWordWithTimestamp
+     */
+    start_at_milliseconds: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof DialogWordWithTimestamp
+     */
+    end_at_milliseconds: number;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum EngagementLevel {
@@ -2851,6 +2858,25 @@ export interface EntityTag {
     tagName?: string;
 }
 /**
+ * Model which stores the result of the evaluation metric for a conversation
+ * @export
+ * @interface Evaluation
+ */
+export interface Evaluation {
+    /**
+     * Feedback on how the role player performed in the conversation for the specific goal and the feedback should be based on the goal description and the conversation details provided.
+     * @type {string}
+     * @memberof Evaluation
+     */
+    evaluation_result?: string | null;
+    /**
+     * Out of 10, what is the score that the role player got for the specific goal specific to this conversation.          The score should ONLY be provided when there is sufficient context and evidence in the conversation to make an accurate assessment.         If there is insufficient information or context to make a fair evaluation, the score should be -1.         When providing a score, it must be justified by specific examples and behaviors from the conversation that align with the goal criteria.
+     * @type {number}
+     * @memberof Evaluation
+     */
+    score?: number | null;
+}
+/**
  * 
  * @export
  * @interface Evaluator
@@ -2905,12 +2931,6 @@ export interface Evaluator {
      */
     goals_id?: string | null;
     /**
-     * The ID of the playbook
-     * @type {string}
-     * @memberof Evaluator
-     */
-    playbook_id?: string | null;
-    /**
      * The ID of the tracker
      * @type {string}
      * @memberof Evaluator
@@ -2959,12 +2979,6 @@ export interface EvaluatorCore {
      * @memberof EvaluatorCore
      */
     goals_id?: string | null;
-    /**
-     * The ID of the playbook
-     * @type {string}
-     * @memberof EvaluatorCore
-     */
-    playbook_id?: string | null;
     /**
      * The ID of the tracker
      * @type {string}
@@ -3186,6 +3200,12 @@ export interface Feedback {
      */
     completeTranscript?: Array<SparrDialogLine> | null;
     /**
+     * The transcript of the conversation with timestamp
+     * @type {Array<SparrDialogLineWithTimestamp>}
+     * @memberof Feedback
+     */
+    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    /**
      * The analytics of the conversation
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
@@ -3313,6 +3333,12 @@ export interface FeedbackCore {
      */
     completeTranscript?: Array<SparrDialogLine> | null;
     /**
+     * The transcript of the conversation with timestamp
+     * @type {Array<SparrDialogLineWithTimestamp>}
+     * @memberof FeedbackCore
+     */
+    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    /**
      * The analytics of the conversation
      * @type {AnalyticsModelInput}
      * @memberof FeedbackCore
@@ -3430,12 +3456,6 @@ export interface FlexibleGenerationRequest {
      */
     file_ids?: Array<string> | null;
     /**
-     * Optional playbook core data
-     * @type {PlaybookCore}
-     * @memberof FlexibleGenerationRequest
-     */
-    playbook_core?: PlaybookCore | null;
-    /**
      * Optional goals core data
      * @type {GoalCore}
      * @memberof FlexibleGenerationRequest
@@ -3462,6 +3482,56 @@ export enum FrustrationTolerance {
 /**
  * 
  * @export
+ * @interface GoalAnalyticsModelInput
+ */
+export interface GoalAnalyticsModelInput {
+    /**
+     * 
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    skills_goals?: Array<GoalEvaluationInput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    process_goals?: Array<GoalEvaluationInput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    communication_goals?: Array<GoalEvaluationInput> | null;
+}
+/**
+ * 
+ * @export
+ * @interface GoalAnalyticsModelOutput
+ */
+export interface GoalAnalyticsModelOutput {
+    /**
+     * 
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    skills_goals?: Array<GoalEvaluationOutput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    process_goals?: Array<GoalEvaluationOutput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    communication_goals?: Array<GoalEvaluationOutput> | null;
+}
+/**
+ * 
+ * @export
  * @interface GoalCore
  */
 export interface GoalCore {
@@ -3478,17 +3548,67 @@ export interface GoalCore {
      */
     description: string;
     /**
-     * The list of goals
+     * The list of process goals
      * @type {Array<GoalInput>}
      * @memberof GoalCore
      */
-    goals: Array<GoalInput>;
+    process_goals?: Array<GoalInput> | null;
+    /**
+     * The list of skills goals
+     * @type {Array<GoalInput>}
+     * @memberof GoalCore
+     */
+    skills_goals?: Array<GoalInput> | null;
+    /**
+     * The list of communication goals
+     * @type {Array<GoalInput>}
+     * @memberof GoalCore
+     */
+    communication_goals?: Array<GoalInput> | null;
     /**
      * The status of the goals collection
      * @type {string}
      * @memberof GoalCore
      */
     status?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GoalEvaluationInput
+ */
+export interface GoalEvaluationInput {
+    /**
+     * 
+     * @type {GoalInput}
+     * @memberof GoalEvaluationInput
+     */
+    goal: GoalInput;
+    /**
+     * 
+     * @type {Evaluation}
+     * @memberof GoalEvaluationInput
+     */
+    evaluation: Evaluation;
+}
+/**
+ * 
+ * @export
+ * @interface GoalEvaluationOutput
+ */
+export interface GoalEvaluationOutput {
+    /**
+     * 
+     * @type {SparrModelsScenarioGoal}
+     * @memberof GoalEvaluationOutput
+     */
+    goal: SparrModelsScenarioGoal;
+    /**
+     * 
+     * @type {Evaluation}
+     * @memberof GoalEvaluationOutput
+     */
+    evaluation: Evaluation;
 }
 /**
  * 
@@ -3514,19 +3634,6 @@ export interface GoalInput {
      * @memberof GoalInput
      */
     weightage: number;
-}
-/**
- * 
- * @export
- * @interface GoalsAnalyticsModel
- */
-export interface GoalsAnalyticsModel {
-    /**
-     * 
-     * @type {object}
-     * @memberof GoalsAnalyticsModel
-     */
-    goals: object | null;
 }
 /**
  * 
@@ -5366,184 +5473,6 @@ export interface PersonaSearchResponse {
     page_size: number;
 }
 /**
- * Playbook represents a sequence of steps that can be followed
- * @export
- * @interface Playbook
- */
-export interface Playbook {
-    /**
-     * The user who created.
-     * @type {string}
-     * @memberof Playbook
-     */
-    createdBy?: string;
-    /**
-     * The date and time it was created.
-     * @type {string}
-     * @memberof Playbook
-     */
-    createdAt?: string;
-    /**
-     * The user who last updated.
-     * @type {string}
-     * @memberof Playbook
-     */
-    updatedBy?: string;
-    /**
-     * The date and time when it was last updated.
-     * @type {string}
-     * @memberof Playbook
-     */
-    updatedAt?: string;
-    /**
-     * The workspace of the entity.
-     * @type {string}
-     * @memberof Playbook
-     */
-    orgId?: string;
-    /**
-     * The name of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    name: string;
-    /**
-     * The description of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    description: string;
-    /**
-     * The steps in the playbook
-     * @type {Array<Step>}
-     * @memberof Playbook
-     */
-    steps: Array<Step>;
-    /**
-     * The status of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    status?: string;
-    /**
-     * The unique identifier of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    id?: string;
-}
-/**
- * 
- * @export
- * @interface PlaybookAnalyticsModel
- */
-export interface PlaybookAnalyticsModel {
-    /**
-     * Name of the playbook step
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    name: string;
-    /**
-     * Description of the playbook step
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    description: string;
-    /**
-     * Whether the playbook step was covered in the conversation
-     * @type {boolean}
-     * @memberof PlaybookAnalyticsModel
-     */
-    covered: boolean;
-    /**
-     * Dialogue of the user in the conversation
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    user_dialogue: string;
-    /**
-     * specific observation on how it was handled
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    feedback?: string | null;
-    /**
-     * Suggestions for the user\'s dialogue
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    suggestions?: string | null;
-}
-/**
- * 
- * @export
- * @interface PlaybookCore
- */
-export interface PlaybookCore {
-    /**
-     * The name of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    name: string;
-    /**
-     * The description of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    description: string;
-    /**
-     * The steps in the playbook
-     * @type {Array<Step>}
-     * @memberof PlaybookCore
-     */
-    steps: Array<Step>;
-    /**
-     * The status of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    status?: string;
-}
-/**
- * 
- * @export
- * @interface PlaybookSearchResponse
- */
-export interface PlaybookSearchResponse {
-    /**
-     * 
-     * @type {Array<Playbook>}
-     * @memberof PlaybookSearchResponse
-     */
-    items: Array<Playbook>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    total: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    pages: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    current_page: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    page_size: number;
-}
-/**
  * Price tier details of the business
  * @export
  * @interface Price
@@ -6657,11 +6586,23 @@ export interface SparrDbModelsGoal {
      */
     description: string;
     /**
-     * The list of goals
+     * The list of process goals
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof SparrDbModelsGoal
      */
-    goals: Array<SparrModelsScenarioGoal>;
+    process_goals?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     * The list of skills goals
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof SparrDbModelsGoal
+     */
+    skills_goals?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     * The list of communication goals
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof SparrDbModelsGoal
+     */
+    communication_goals?: Array<SparrModelsScenarioGoal> | null;
     /**
      * The status of the goals collection
      * @type {string}
@@ -6840,6 +6781,55 @@ export enum SparrDialogLineWithSentimentSentimentEnum {
     NEUTRAL = 'NEUTRAL'
 }
 
+/**
+ * 
+ * @export
+ * @interface SparrDialogLineWithTimestamp
+ */
+export interface SparrDialogLineWithTimestamp {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    speaker: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    message: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    message_id: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    start_at_milliseconds: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    end_at_milliseconds: number;
+    /**
+     * 
+     * @type {Array<DialogWordWithTimestamp>}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    words: Array<DialogWordWithTimestamp>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    timestamp?: string | null;
+}
 /**
  * 
  * @export
@@ -22315,54 +22305,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPlaybookV1: async (playbookCore: PlaybookCore, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookCore' is not null or undefined
-            if (playbookCore === null || playbookCore === undefined) {
-                throw new RequiredError('playbookCore','Required parameter playbookCore was null or undefined when calling createPlaybookV1.');
-            }
-            const localVarPath = `/v1/sparr/playbooks/`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Create a new evaluator
          * @summary Create Evaluator
          * @param {EvaluatorCore} evaluatorCore 
@@ -22745,51 +22687,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             }
             const localVarPath = `/v1/sparr/personas/{persona_id}`
                 .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePlaybookV1: async (playbookId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling deletePlaybookV1.');
-            }
-            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -23476,51 +23373,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPlaybookV1: async (playbookId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling getPlaybookV1.');
-            }
-            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -24018,55 +23870,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listPlaybooksV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/playbooks/`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -24450,64 +24253,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
                 throw new RequiredError('query','Required parameter query was null or undefined when calling searchPersonasV1.');
             }
             const localVarPath = `/v1/sparr/personas/search`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (query !== undefined) {
-                localVarQueryParameter['query'] = query;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (size !== undefined) {
-                localVarQueryParameter['size'] = size;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchPlaybooksV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'query' is not null or undefined
-            if (query === null || query === undefined) {
-                throw new RequiredError('query','Required parameter query was null or undefined when calling searchPlaybooksV1.');
-            }
-            const localVarPath = `/v1/sparr/playbooks/search`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -25028,60 +24773,6 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePlaybookV1: async (playbookId: string, playbookCore: PlaybookCore, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling updatePlaybookV1.');
-            }
-            // verify required parameter 'playbookCore' is not null or undefined
-            if (playbookCore === null || playbookCore === undefined) {
-                throw new RequiredError('playbookCore','Required parameter playbookCore was null or undefined when calling updatePlaybookV1.');
-            }
-            const localVarPath = `/v1/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId 
@@ -25380,20 +25071,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPlaybookV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).createPlaybookV1(playbookCore, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Create a new evaluator
          * @summary Create Evaluator
          * @param {EvaluatorCore} evaluatorCore 
@@ -25514,20 +25191,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
          */
         async deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
             const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).deletePersonaV1(personaId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deletePlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).deletePlaybookV1(playbookId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -25733,20 +25396,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).getPlaybookV1(playbookId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -25897,21 +25546,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async listPlaybooksV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).listPlaybooksV1(skip, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -26030,22 +25664,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
          */
         async searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>> {
             const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).searchPersonasV1(query, page, size, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).searchPlaybooksV1(query, page, size, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -26182,21 +25800,6 @@ export const SparrApiFp = function(configuration?: Configuration) {
          */
         async updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
             const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).updatePersonaV1(personaId, personaCore, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrApiAxiosParamCreator(configuration).updatePlaybookV1(playbookId, playbookCore, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -26349,16 +25952,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).createPersonaV1(personaCore, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPlaybookV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook> {
-            return SparrApiFp(configuration).createPlaybookV1(playbookCore, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Create a new evaluator
          * @summary Create Evaluator
          * @param {EvaluatorCore} evaluatorCore 
@@ -26447,16 +26040,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
             return SparrApiFp(configuration).deletePersonaV1(personaId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePlaybookV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
-            return SparrApiFp(configuration).deletePlaybookV1(playbookId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a scenario
@@ -26602,16 +26185,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).getPersonaV1(personaId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPlaybookV1(playbookId: string, options?: any): AxiosPromise<Playbook> {
-            return SparrApiFp(configuration).getPlaybookV1(playbookId, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get pricing
          * @summary Get Pricing V1
          * @param {*} [options] Override http request option.
@@ -26722,17 +26295,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return SparrApiFp(configuration).listPersonasV1(skip, limit, tags, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listPlaybooksV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>> {
-            return SparrApiFp(configuration).listPlaybooksV1(skip, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -26823,18 +26385,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse> {
             return SparrApiFp(configuration).searchPersonasV1(query, page, size, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse> {
-            return SparrApiFp(configuration).searchPlaybooksV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Search scenarios by name and description
@@ -26935,17 +26485,6 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
             return SparrApiFp(configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook> {
-            return SparrApiFp(configuration).updatePlaybookV1(playbookId, playbookCore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a scenario
@@ -27101,18 +26640,6 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public createPlaybookV1(playbookCore: PlaybookCore, options?: any) {
-        return SparrApiFp(this.configuration).createPlaybookV1(playbookCore, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Create a new evaluator
      * @summary Create Evaluator
      * @param {EvaluatorCore} evaluatorCore 
@@ -27218,18 +26745,6 @@ export class SparrApi extends BaseAPI {
      */
     public deletePersonaV1(personaId: string, options?: any) {
         return SparrApiFp(this.configuration).deletePersonaV1(personaId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public deletePlaybookV1(playbookId: string, options?: any) {
-        return SparrApiFp(this.configuration).deletePlaybookV1(playbookId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27404,18 +26919,6 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public getPlaybookV1(playbookId: string, options?: any) {
-        return SparrApiFp(this.configuration).getPlaybookV1(playbookId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -27546,19 +27049,6 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public listPlaybooksV1(skip?: number, limit?: number, options?: any) {
-        return SparrApiFp(this.configuration).listPlaybooksV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip] 
@@ -27664,20 +27154,6 @@ export class SparrApi extends BaseAPI {
      */
     public searchPersonasV1(query: string, page?: number, size?: number, options?: any) {
         return SparrApiFp(this.configuration).searchPersonasV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public searchPlaybooksV1(query: string, page?: number, size?: number, options?: any) {
-        return SparrApiFp(this.configuration).searchPlaybooksV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27796,19 +27272,6 @@ export class SparrApi extends BaseAPI {
      */
     public updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any) {
         return SparrApiFp(this.configuration).updatePersonaV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId 
-     * @param {PlaybookCore} playbookCore 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    public updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any) {
-        return SparrApiFp(this.configuration).updatePlaybookV1(playbookId, playbookCore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28044,54 +27507,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof personaCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(personaCore !== undefined ? personaCore : {}) : (personaCore || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPlaybookResellerV1: async (playbookCore: PlaybookCore, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookCore' is not null or undefined
-            if (playbookCore === null || playbookCore === undefined) {
-                throw new RequiredError('playbookCore','Required parameter playbookCore was null or undefined when calling createPlaybookResellerV1.');
-            }
-            const localVarPath = `/v1/resellers/sparr/playbooks/`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -28343,51 +27758,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             }
             const localVarPath = `/v1/resellers/sparr/personas/{persona_id}`
                 .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePlaybookResellerV1: async (playbookId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling deletePlaybookResellerV1.');
-            }
-            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -28706,51 +28076,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             }
             const localVarPath = `/v1/resellers/sparr/personas/{persona_id}`
                 .replace(`{${"persona_id"}}`, encodeURIComponent(String(personaId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPlaybookResellerV1: async (playbookId: string, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling getPlaybookResellerV1.');
-            }
-            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -29127,55 +28452,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listPlaybooksResellerV1: async (skip?: number, limit?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/resellers/sparr/playbooks/`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (skip !== undefined) {
-                localVarQueryParameter['skip'] = skip;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -29351,64 +28627,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
                 throw new RequiredError('query','Required parameter query was null or undefined when calling searchPersonasResellerV1.');
             }
             const localVarPath = `/v1/resellers/sparr/personas/search`;
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-            if (query !== undefined) {
-                localVarQueryParameter['query'] = query;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (size !== undefined) {
-                localVarQueryParameter['size'] = size;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchPlaybooksResellerV1: async (query: string, page?: number, size?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'query' is not null or undefined
-            if (query === null || query === undefined) {
-                throw new RequiredError('query','Required parameter query was null or undefined when calling searchPlaybooksResellerV1.');
-            }
-            const localVarPath = `/v1/resellers/sparr/playbooks/search`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -29785,60 +29003,6 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePlaybookResellerV1: async (playbookId: string, playbookCore: PlaybookCore, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'playbookId' is not null or undefined
-            if (playbookId === null || playbookId === undefined) {
-                throw new RequiredError('playbookId','Required parameter playbookId was null or undefined when calling updatePlaybookResellerV1.');
-            }
-            // verify required parameter 'playbookCore' is not null or undefined
-            if (playbookCore === null || playbookCore === undefined) {
-                throw new RequiredError('playbookCore','Required parameter playbookCore was null or undefined when calling updatePlaybookResellerV1.');
-            }
-            const localVarPath = `/v1/resellers/sparr/playbooks/{playbook_id}`
-                .replace(`{${"playbook_id"}}`, encodeURIComponent(String(playbookId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication HTTPBearer required
-            // http bearer authentication required
-            if (configuration && configuration.accessToken) {
-                const accessToken = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken()
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof playbookCore !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(playbookCore !== undefined ? playbookCore : {}) : (playbookCore || "");
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId 
@@ -30012,20 +29176,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).createPlaybookResellerV1(playbookCore, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Create a new scenario
          * @summary Create Scenario
          * @param {ScenarioCore} scenarioCore 
@@ -30104,20 +29254,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
          */
         async deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
             const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).deletePersonaResellerV1(personaId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deletePlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).deletePlaybookResellerV1(playbookId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -30216,20 +29352,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
          */
         async getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>> {
             const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).getPersonaResellerV1(personaId, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).getPlaybookResellerV1(playbookId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -30340,21 +29462,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).listPlaybooksResellerV1(skip, limit, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -30412,22 +29519,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
          */
         async searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>> {
             const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).searchPersonasResellerV1(query, page, size, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).searchPlaybooksResellerV1(query, page, size, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -30526,21 +29617,6 @@ export const SparrResellerApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>> {
-            const localVarAxiosArgs = await SparrResellerApiAxiosParamCreator(configuration).updatePlaybookResellerV1(playbookId, playbookCore, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
          * Update a scenario
          * @summary Update Scenario
          * @param {string} scenarioId 
@@ -30620,16 +29696,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
             return SparrResellerApiFp(configuration).createPersonaResellerV1(personaCore, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create a new playbook
-         * @summary Create Playbook
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook> {
-            return SparrResellerApiFp(configuration).createPlaybookResellerV1(playbookCore, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Create a new scenario
          * @summary Create Scenario
          * @param {ScenarioCore} scenarioCore 
@@ -30688,16 +29754,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
          */
         deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
             return SparrResellerApiFp(configuration).deletePersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a playbook
-         * @summary Delete Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deletePlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse> {
-            return SparrResellerApiFp(configuration).deletePlaybookResellerV1(playbookId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a scenario
@@ -30768,16 +29824,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
          */
         getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona> {
             return SparrResellerApiFp(configuration).getPersonaResellerV1(personaId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-         * @summary Get Playbook
-         * @param {string} playbookId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<Playbook> {
-            return SparrResellerApiFp(configuration).getPlaybookResellerV1(playbookId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
@@ -30856,17 +29902,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
             return SparrResellerApiFp(configuration).listPersonasResellerV1(skip, limit, tags, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get all playbooks that are either directly owned or available through reseller playbook assignments
-         * @summary Get Playbooks
-         * @param {number} [skip] 
-         * @param {number} [limit] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>> {
-            return SparrResellerApiFp(configuration).listPlaybooksResellerV1(skip, limit, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get all scenarios that are either directly owned or available through reseller course assignments
          * @summary Get Scenarios
          * @param {number} [skip] 
@@ -30912,18 +29947,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
          */
         searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse> {
             return SparrResellerApiFp(configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Search playbooks by name and description
-         * @summary Search Playbooks
-         * @param {string} query Search query string
-         * @param {number} [page] Page number
-         * @param {number} [size] Items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse> {
-            return SparrResellerApiFp(configuration).searchPlaybooksResellerV1(query, page, size, options).then((request) => request(axios, basePath));
         },
         /**
          * Search scenarios by name and description
@@ -30992,17 +30015,6 @@ export const SparrResellerApiFactory = function (configuration?: Configuration, 
          */
         updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona> {
             return SparrResellerApiFp(configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a playbook
-         * @summary Update Playbook
-         * @param {string} playbookId 
-         * @param {PlaybookCore} playbookCore 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook> {
-            return SparrResellerApiFp(configuration).updatePlaybookResellerV1(playbookId, playbookCore, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a scenario
@@ -31085,18 +30097,6 @@ export class SparrResellerApi extends BaseAPI {
     }
 
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any) {
-        return SparrResellerApiFp(this.configuration).createPlaybookResellerV1(playbookCore, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Create a new scenario
      * @summary Create Scenario
      * @param {ScenarioCore} scenarioCore 
@@ -31166,18 +30166,6 @@ export class SparrResellerApi extends BaseAPI {
      */
     public deletePersonaResellerV1(personaId: string, options?: any) {
         return SparrResellerApiFp(this.configuration).deletePersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public deletePlaybookResellerV1(playbookId: string, options?: any) {
-        return SparrResellerApiFp(this.configuration).deletePlaybookResellerV1(playbookId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31262,18 +30250,6 @@ export class SparrResellerApi extends BaseAPI {
      */
     public getPersonaResellerV1(personaId: string, options?: any) {
         return SparrResellerApiFp(this.configuration).getPersonaResellerV1(personaId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public getPlaybookResellerV1(playbookId: string, options?: any) {
-        return SparrResellerApiFp(this.configuration).getPlaybookResellerV1(playbookId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31367,19 +30343,6 @@ export class SparrResellerApi extends BaseAPI {
     }
 
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip] 
-     * @param {number} [limit] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public listPlaybooksResellerV1(skip?: number, limit?: number, options?: any) {
-        return SparrResellerApiFp(this.configuration).listPlaybooksResellerV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip] 
@@ -31432,20 +30395,6 @@ export class SparrResellerApi extends BaseAPI {
      */
     public searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any) {
         return SparrResellerApiFp(this.configuration).searchPersonasResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any) {
-        return SparrResellerApiFp(this.configuration).searchPlaybooksResellerV1(query, page, size, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31526,19 +30475,6 @@ export class SparrResellerApi extends BaseAPI {
      */
     public updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any) {
         return SparrResellerApiFp(this.configuration).updatePersonaResellerV1(personaId, personaCore, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId 
-     * @param {PlaybookCore} playbookCore 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    public updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any) {
-        return SparrResellerApiFp(this.configuration).updatePlaybookResellerV1(playbookId, playbookCore, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -1,0 +1,10 @@
+# ChangeAssignmentOperation
+
+
+## Enum
+
+* `Assign` (value: `'assign'`)
+
+* `Remove` (value: `'remove'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

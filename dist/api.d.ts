@@ -675,10 +675,10 @@ export interface AnalyticsModelInput {
     conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      *
-     * @type {GoalsAnalyticsModel}
+     * @type {GoalAnalyticsModelInput}
      * @memberof AnalyticsModelInput
      */
-    goals_analytics: GoalsAnalyticsModel;
+    goals_analytics: GoalAnalyticsModelInput;
     /**
      *
      * @type {CoachAnalyticsModel}
@@ -690,25 +690,19 @@ export interface AnalyticsModelInput {
      * @type {SystemMetrics}
      * @memberof AnalyticsModelInput
      */
-    system_metrics: SystemMetrics | null;
+    system_metrics?: SystemMetrics | null;
     /**
      *
      * @type {any}
      * @memberof AnalyticsModelInput
      */
-    weighted_scores: any | null;
-    /**
-     *
-     * @type {Array<PlaybookAnalyticsModel>}
-     * @memberof AnalyticsModelInput
-     */
-    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    weighted_scores?: any | null;
     /**
      *
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelInput
      */
-    tracker_analytics: Array<TrackerAnalyticsModel> | null;
+    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
 }
 /**
  *
@@ -724,10 +718,10 @@ export interface AnalyticsModelOutput {
     conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      *
-     * @type {GoalsAnalyticsModel}
+     * @type {GoalAnalyticsModelOutput}
      * @memberof AnalyticsModelOutput
      */
-    goals_analytics: GoalsAnalyticsModel;
+    goals_analytics: GoalAnalyticsModelOutput;
     /**
      *
      * @type {CoachAnalyticsModel}
@@ -739,25 +733,19 @@ export interface AnalyticsModelOutput {
      * @type {SystemMetrics}
      * @memberof AnalyticsModelOutput
      */
-    system_metrics: SystemMetrics | null;
+    system_metrics?: SystemMetrics | null;
     /**
      *
      * @type {any}
      * @memberof AnalyticsModelOutput
      */
-    weighted_scores: any | null;
-    /**
-     *
-     * @type {Array<PlaybookAnalyticsModel>}
-     * @memberof AnalyticsModelOutput
-     */
-    playbook_analytics: Array<PlaybookAnalyticsModel> | null;
+    weighted_scores?: any | null;
     /**
      *
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelOutput
      */
-    tracker_analytics: Array<TrackerAnalyticsModel> | null;
+    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
 }
 /**
  * API key authentication configuration
@@ -1506,12 +1494,6 @@ export interface CombinedEvaluatorResponse {
      * @memberof CombinedEvaluatorResponse
      */
     evaluator: Evaluator;
-    /**
-     * Optional playbook object
-     * @type {Playbook}
-     * @memberof CombinedEvaluatorResponse
-     */
-    playbook?: Playbook | null;
     /**
      * Optional goals object
      * @type {SparrDbModelsGoal}
@@ -2742,6 +2724,31 @@ export declare enum DialogLineSpeakerEnum {
 /**
  *
  * @export
+ * @interface DialogWordWithTimestamp
+ */
+export interface DialogWordWithTimestamp {
+    /**
+     *
+     * @type {string}
+     * @memberof DialogWordWithTimestamp
+     */
+    word: string;
+    /**
+     *
+     * @type {number}
+     * @memberof DialogWordWithTimestamp
+     */
+    start_at_milliseconds: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DialogWordWithTimestamp
+     */
+    end_at_milliseconds: number;
+}
+/**
+ *
+ * @export
  * @enum {string}
  */
 export declare enum EngagementLevel {
@@ -2811,6 +2818,25 @@ export interface EntityTag {
     tagName?: string;
 }
 /**
+ * Model which stores the result of the evaluation metric for a conversation
+ * @export
+ * @interface Evaluation
+ */
+export interface Evaluation {
+    /**
+     * Feedback on how the role player performed in the conversation for the specific goal and the feedback should be based on the goal description and the conversation details provided.
+     * @type {string}
+     * @memberof Evaluation
+     */
+    evaluation_result?: string | null;
+    /**
+     * Out of 10, what is the score that the role player got for the specific goal specific to this conversation.          The score should ONLY be provided when there is sufficient context and evidence in the conversation to make an accurate assessment.         If there is insufficient information or context to make a fair evaluation, the score should be -1.         When providing a score, it must be justified by specific examples and behaviors from the conversation that align with the goal criteria.
+     * @type {number}
+     * @memberof Evaluation
+     */
+    score?: number | null;
+}
+/**
  *
  * @export
  * @interface Evaluator
@@ -2865,12 +2891,6 @@ export interface Evaluator {
      */
     goals_id?: string | null;
     /**
-     * The ID of the playbook
-     * @type {string}
-     * @memberof Evaluator
-     */
-    playbook_id?: string | null;
-    /**
      * The ID of the tracker
      * @type {string}
      * @memberof Evaluator
@@ -2919,12 +2939,6 @@ export interface EvaluatorCore {
      * @memberof EvaluatorCore
      */
     goals_id?: string | null;
-    /**
-     * The ID of the playbook
-     * @type {string}
-     * @memberof EvaluatorCore
-     */
-    playbook_id?: string | null;
     /**
      * The ID of the tracker
      * @type {string}
@@ -3146,6 +3160,12 @@ export interface Feedback {
      */
     completeTranscript?: Array<SparrDialogLine> | null;
     /**
+     * The transcript of the conversation with timestamp
+     * @type {Array<SparrDialogLineWithTimestamp>}
+     * @memberof Feedback
+     */
+    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    /**
      * The analytics of the conversation
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
@@ -3273,6 +3293,12 @@ export interface FeedbackCore {
      */
     completeTranscript?: Array<SparrDialogLine> | null;
     /**
+     * The transcript of the conversation with timestamp
+     * @type {Array<SparrDialogLineWithTimestamp>}
+     * @memberof FeedbackCore
+     */
+    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    /**
      * The analytics of the conversation
      * @type {AnalyticsModelInput}
      * @memberof FeedbackCore
@@ -3390,12 +3416,6 @@ export interface FlexibleGenerationRequest {
      */
     file_ids?: Array<string> | null;
     /**
-     * Optional playbook core data
-     * @type {PlaybookCore}
-     * @memberof FlexibleGenerationRequest
-     */
-    playbook_core?: PlaybookCore | null;
-    /**
      * Optional goals core data
      * @type {GoalCore}
      * @memberof FlexibleGenerationRequest
@@ -3421,6 +3441,56 @@ export declare enum FrustrationTolerance {
 /**
  *
  * @export
+ * @interface GoalAnalyticsModelInput
+ */
+export interface GoalAnalyticsModelInput {
+    /**
+     *
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    skills_goals?: Array<GoalEvaluationInput> | null;
+    /**
+     *
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    process_goals?: Array<GoalEvaluationInput> | null;
+    /**
+     *
+     * @type {Array<GoalEvaluationInput>}
+     * @memberof GoalAnalyticsModelInput
+     */
+    communication_goals?: Array<GoalEvaluationInput> | null;
+}
+/**
+ *
+ * @export
+ * @interface GoalAnalyticsModelOutput
+ */
+export interface GoalAnalyticsModelOutput {
+    /**
+     *
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    skills_goals?: Array<GoalEvaluationOutput> | null;
+    /**
+     *
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    process_goals?: Array<GoalEvaluationOutput> | null;
+    /**
+     *
+     * @type {Array<GoalEvaluationOutput>}
+     * @memberof GoalAnalyticsModelOutput
+     */
+    communication_goals?: Array<GoalEvaluationOutput> | null;
+}
+/**
+ *
+ * @export
  * @interface GoalCore
  */
 export interface GoalCore {
@@ -3437,17 +3507,67 @@ export interface GoalCore {
      */
     description: string;
     /**
-     * The list of goals
+     * The list of process goals
      * @type {Array<GoalInput>}
      * @memberof GoalCore
      */
-    goals: Array<GoalInput>;
+    process_goals?: Array<GoalInput> | null;
+    /**
+     * The list of skills goals
+     * @type {Array<GoalInput>}
+     * @memberof GoalCore
+     */
+    skills_goals?: Array<GoalInput> | null;
+    /**
+     * The list of communication goals
+     * @type {Array<GoalInput>}
+     * @memberof GoalCore
+     */
+    communication_goals?: Array<GoalInput> | null;
     /**
      * The status of the goals collection
      * @type {string}
      * @memberof GoalCore
      */
     status?: string;
+}
+/**
+ *
+ * @export
+ * @interface GoalEvaluationInput
+ */
+export interface GoalEvaluationInput {
+    /**
+     *
+     * @type {GoalInput}
+     * @memberof GoalEvaluationInput
+     */
+    goal: GoalInput;
+    /**
+     *
+     * @type {Evaluation}
+     * @memberof GoalEvaluationInput
+     */
+    evaluation: Evaluation;
+}
+/**
+ *
+ * @export
+ * @interface GoalEvaluationOutput
+ */
+export interface GoalEvaluationOutput {
+    /**
+     *
+     * @type {SparrModelsScenarioGoal}
+     * @memberof GoalEvaluationOutput
+     */
+    goal: SparrModelsScenarioGoal;
+    /**
+     *
+     * @type {Evaluation}
+     * @memberof GoalEvaluationOutput
+     */
+    evaluation: Evaluation;
 }
 /**
  *
@@ -3473,19 +3593,6 @@ export interface GoalInput {
      * @memberof GoalInput
      */
     weightage: number;
-}
-/**
- *
- * @export
- * @interface GoalsAnalyticsModel
- */
-export interface GoalsAnalyticsModel {
-    /**
-     *
-     * @type {object}
-     * @memberof GoalsAnalyticsModel
-     */
-    goals: object | null;
 }
 /**
  *
@@ -5307,184 +5414,6 @@ export interface PersonaSearchResponse {
     page_size: number;
 }
 /**
- * Playbook represents a sequence of steps that can be followed
- * @export
- * @interface Playbook
- */
-export interface Playbook {
-    /**
-     * The user who created.
-     * @type {string}
-     * @memberof Playbook
-     */
-    createdBy?: string;
-    /**
-     * The date and time it was created.
-     * @type {string}
-     * @memberof Playbook
-     */
-    createdAt?: string;
-    /**
-     * The user who last updated.
-     * @type {string}
-     * @memberof Playbook
-     */
-    updatedBy?: string;
-    /**
-     * The date and time when it was last updated.
-     * @type {string}
-     * @memberof Playbook
-     */
-    updatedAt?: string;
-    /**
-     * The workspace of the entity.
-     * @type {string}
-     * @memberof Playbook
-     */
-    orgId?: string;
-    /**
-     * The name of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    name: string;
-    /**
-     * The description of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    description: string;
-    /**
-     * The steps in the playbook
-     * @type {Array<Step>}
-     * @memberof Playbook
-     */
-    steps: Array<Step>;
-    /**
-     * The status of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    status?: string;
-    /**
-     * The unique identifier of the playbook
-     * @type {string}
-     * @memberof Playbook
-     */
-    id?: string;
-}
-/**
- *
- * @export
- * @interface PlaybookAnalyticsModel
- */
-export interface PlaybookAnalyticsModel {
-    /**
-     * Name of the playbook step
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    name: string;
-    /**
-     * Description of the playbook step
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    description: string;
-    /**
-     * Whether the playbook step was covered in the conversation
-     * @type {boolean}
-     * @memberof PlaybookAnalyticsModel
-     */
-    covered: boolean;
-    /**
-     * Dialogue of the user in the conversation
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    user_dialogue: string;
-    /**
-     * specific observation on how it was handled
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    feedback?: string | null;
-    /**
-     * Suggestions for the user\'s dialogue
-     * @type {string}
-     * @memberof PlaybookAnalyticsModel
-     */
-    suggestions?: string | null;
-}
-/**
- *
- * @export
- * @interface PlaybookCore
- */
-export interface PlaybookCore {
-    /**
-     * The name of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    name: string;
-    /**
-     * The description of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    description: string;
-    /**
-     * The steps in the playbook
-     * @type {Array<Step>}
-     * @memberof PlaybookCore
-     */
-    steps: Array<Step>;
-    /**
-     * The status of the playbook
-     * @type {string}
-     * @memberof PlaybookCore
-     */
-    status?: string;
-}
-/**
- *
- * @export
- * @interface PlaybookSearchResponse
- */
-export interface PlaybookSearchResponse {
-    /**
-     *
-     * @type {Array<Playbook>}
-     * @memberof PlaybookSearchResponse
-     */
-    items: Array<Playbook>;
-    /**
-     *
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    total: number;
-    /**
-     *
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    pages: number;
-    /**
-     *
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    current_page: number;
-    /**
-     *
-     * @type {number}
-     * @memberof PlaybookSearchResponse
-     */
-    page_size: number;
-}
-/**
  * Price tier details of the business
  * @export
  * @interface Price
@@ -6590,11 +6519,23 @@ export interface SparrDbModelsGoal {
      */
     description: string;
     /**
-     * The list of goals
+     * The list of process goals
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof SparrDbModelsGoal
      */
-    goals: Array<SparrModelsScenarioGoal>;
+    process_goals?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     * The list of skills goals
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof SparrDbModelsGoal
+     */
+    skills_goals?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     * The list of communication goals
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof SparrDbModelsGoal
+     */
+    communication_goals?: Array<SparrModelsScenarioGoal> | null;
     /**
      * The status of the goals collection
      * @type {string}
@@ -6767,6 +6708,55 @@ export declare enum SparrDialogLineWithSentimentSentimentEnum {
     POSITIVE = "POSITIVE",
     NEGATIVE = "NEGATIVE",
     NEUTRAL = "NEUTRAL"
+}
+/**
+ *
+ * @export
+ * @interface SparrDialogLineWithTimestamp
+ */
+export interface SparrDialogLineWithTimestamp {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    speaker: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    message_id: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    start_at_milliseconds: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    end_at_milliseconds: number;
+    /**
+     *
+     * @type {Array<DialogWordWithTimestamp>}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    words: Array<DialogWordWithTimestamp>;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    timestamp?: string | null;
 }
 /**
  *
@@ -14821,14 +14811,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createPersonaV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookV1: (playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
-    /**
      * Create a new evaluator
      * @summary Create Evaluator
      * @param {EvaluatorCore} evaluatorCore
@@ -14900,14 +14882,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deletePersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -15024,14 +14998,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getPersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -15122,15 +15088,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -15206,16 +15163,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     searchPersonasV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -15298,15 +15245,6 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookV1: (playbookId: string, playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -15415,14 +15353,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
-    /**
      * Create a new evaluator
      * @summary Create Evaluator
      * @param {EvaluatorCore} evaluatorCore
@@ -15494,14 +15424,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -15618,14 +15540,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
-    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -15716,15 +15630,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -15800,16 +15705,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -15892,15 +15787,6 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -16009,14 +15895,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
-    /**
      * Create a new evaluator
      * @summary Create Evaluator
      * @param {EvaluatorCore} evaluatorCore
@@ -16088,14 +15966,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -16212,14 +16082,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona>;
     /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookV1(playbookId: string, options?: any): AxiosPromise<Playbook>;
-    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -16310,15 +16172,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -16394,16 +16247,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -16486,15 +16329,6 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -16614,15 +16448,6 @@ export declare class SparrApi extends BaseAPI {
      */
     createPersonaV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    createPlaybookV1(playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
-    /**
      * Create a new evaluator
      * @summary Create Evaluator
      * @param {EvaluatorCore} evaluatorCore
@@ -16703,15 +16528,6 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     deletePersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    deletePlaybookV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -16842,15 +16658,6 @@ export declare class SparrApi extends BaseAPI {
      */
     getPersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    getPlaybookV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
-    /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
@@ -16951,16 +16758,6 @@ export declare class SparrApi extends BaseAPI {
      */
     listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    listPlaybooksV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Playbook[]>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -17044,17 +16841,6 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    searchPlaybooksV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PlaybookSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17147,16 +16933,6 @@ export declare class SparrApi extends BaseAPI {
      */
     updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrApi
-     */
-    updatePlaybookV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
-    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -17224,14 +17000,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     createPersonaResellerV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookResellerV1: (playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
-    /**
      * Create a new scenario
      * @summary Create Scenario
      * @param {ScenarioCore} scenarioCore
@@ -17279,14 +17047,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     deletePersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookResellerV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -17343,14 +17103,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     getPersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookResellerV1: (playbookId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17414,15 +17166,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -17461,16 +17204,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @throws {RequiredError}
      */
     searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17528,15 +17261,6 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      */
     updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
     /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookResellerV1: (playbookId: string, playbookCore: PlaybookCore, options?: any) => Promise<RequestArgs>;
-    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -17593,14 +17317,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
-    /**
      * Create a new scenario
      * @summary Create Scenario
      * @param {ScenarioCore} scenarioCore
@@ -17648,14 +17364,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -17712,14 +17420,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
-    /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookResellerV1(playbookId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17783,15 +17483,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Playbook>>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -17830,16 +17521,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlaybookSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17897,15 +17578,6 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Playbook>>;
-    /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
@@ -17962,14 +17634,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
-    /**
      * Create a new scenario
      * @summary Create Scenario
      * @param {ScenarioCore} scenarioCore
@@ -18017,14 +17681,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deletePlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18081,14 +17737,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona>;
-    /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getPlaybookResellerV1(playbookId: string, options?: any): AxiosPromise<Playbook>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18152,15 +17800,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      */
     listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Playbook>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -18199,16 +17838,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PlaybookSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -18265,15 +17894,6 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @throws {RequiredError}
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): AxiosPromise<Playbook>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -18337,15 +17957,6 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
     /**
-     * Create a new playbook
-     * @summary Create Playbook
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    createPlaybookResellerV1(playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
-    /**
      * Create a new scenario
      * @summary Create Scenario
      * @param {ScenarioCore} scenarioCore
@@ -18399,15 +18010,6 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     deletePersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
-    /**
-     * Delete a playbook
-     * @summary Delete Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    deletePlaybookResellerV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18471,15 +18073,6 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     getPersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
-    /**
-     * Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-     * @summary Get Playbook
-     * @param {string} playbookId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    getPlaybookResellerV1(playbookId: string, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18550,16 +18143,6 @@ export declare class SparrResellerApi extends BaseAPI {
      */
     listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
-     * Get all playbooks that are either directly owned or available through reseller playbook assignments
-     * @summary Get Playbooks
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    listPlaybooksResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Playbook[]>>;
-    /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
      * @param {number} [skip]
@@ -18602,17 +18185,6 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
-    /**
-     * Search playbooks by name and description
-     * @summary Search Playbooks
-     * @param {string} query Search query string
-     * @param {number} [page] Page number
-     * @param {number} [size] Items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    searchPlaybooksResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PlaybookSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -18675,16 +18247,6 @@ export declare class SparrResellerApi extends BaseAPI {
      * @memberof SparrResellerApi
      */
     updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
-    /**
-     * Update a playbook
-     * @summary Update Playbook
-     * @param {string} playbookId
-     * @param {PlaybookCore} playbookCore
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SparrResellerApi
-     */
-    updatePlaybookResellerV1(playbookId: string, playbookCore: PlaybookCore, options?: any): Promise<import("axios").AxiosResponse<Playbook>>;
     /**
      * Update a scenario
      * @summary Update Scenario
