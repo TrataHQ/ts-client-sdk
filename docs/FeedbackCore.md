@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userId** | **string** | The ID of the user who made the call | [default to undefined]
 **userName** | **string** |  | [default to undefined]
+**userProfilePictureUrl** | **string** |  | [optional] [default to undefined]
 **aiAgentId** | **string** |  | [default to undefined]
 **scenarioId** | **string** | The ID of the scenario | [default to undefined]
 **scenarioName** | **string** |  | [default to undefined]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **recordingUrl** | **string** | The URL of the recording of the conversation | [default to undefined]
 **transcript** | [**Array&lt;SparrDialogLine&gt;**](SparrDialogLine.md) | The transcript of the conversation | [default to undefined]
 **completeTranscript** | [**Array&lt;SparrDialogLine&gt;**](SparrDialogLine.md) |  | [optional] [default to undefined]
+**transcriptWithTimestamp** | [**Array&lt;SparrDialogLineWithTimestamp&gt;**](SparrDialogLineWithTimestamp.md) |  | [optional] [default to undefined]
 **analytics** | [**AnalyticsModelInput**](AnalyticsModelInput.md) | The analytics of the conversation | [default to undefined]
 **overallScore** | **number** | The overall score of the conversation out of 100 based on the weightage of each goal | [default to undefined]
 **status** | **string** | The status of the feedback | [optional] [default to 'active']
@@ -32,6 +34,7 @@ import { FeedbackCore } from '@trata/ts-client-sdk';
 const instance: FeedbackCore = {
     userId,
     userName,
+    userProfilePictureUrl,
     aiAgentId,
     scenarioId,
     scenarioName,
@@ -45,6 +48,7 @@ const instance: FeedbackCore = {
     recordingUrl,
     transcript,
     completeTranscript,
+    transcriptWithTimestamp,
     analytics,
     overallScore,
     status,

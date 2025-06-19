@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **fromDate** | **string** | Start date to get metric request | [default to undefined]
 **toDate** | **string** | End date until get metric request | [default to undefined]
 **aggregationPeriod** | [**AggregationPeriod**](AggregationPeriod.md) | Aggregation period for the metric request | [default to undefined]
-**aggregationFormula** | [**AggregationFormula**](AggregationFormula.md) | Aggregation formula for the metric request | [default to undefined]
+**aggregationFormula** | [**AggregationFormulaInput**](AggregationFormulaInput.md) | Aggregation formula for the metric request | [default to undefined]
 
 ## Example
 

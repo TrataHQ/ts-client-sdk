@@ -13,9 +13,11 @@ export interface ConfigurationParameters {
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
     username?: string;
     password?: string;
-    accessToken?: string | ((name?: string, scopes?: string[]) => string);
+    accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     basePath?: string;
+    serverIndex?: number;
     baseOptions?: any;
+    formDataCtor?: new () => any;
 }
 export declare class Configuration {
     /**
@@ -44,7 +46,7 @@ export declare class Configuration {
      * @param scopes oauth2 scope
      * @memberof Configuration
      */
-    accessToken?: string | ((name?: string, scopes?: string[]) => string);
+    accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     /**
      * override base path
      *
@@ -53,12 +55,27 @@ export declare class Configuration {
      */
     basePath?: string;
     /**
+     * override server index
+     *
+     * @type {number}
+     * @memberof Configuration
+     */
+    serverIndex?: number;
+    /**
      * base options for axios calls
      *
      * @type {any}
      * @memberof Configuration
      */
     baseOptions?: any;
+    /**
+     * The FormData constructor that will be used to create multipart form data
+     * requests. You can inject this here so that execution environments that
+     * do not support the FormData class can still run the generated client.
+     *
+     * @type {new () => FormData}
+     */
+    formDataCtor?: new () => any;
     constructor(param?: ConfigurationParameters);
     /**
      * Check if the given MIME is a JSON MIME.

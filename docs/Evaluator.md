@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **name** | **string** | The name of the evaluator | [default to undefined]
 **description** | **string** | The description of the evaluator | [default to undefined]
 **goals_id** | **string** |  | [optional] [default to undefined]
-**playbook_id** | **string** |  | [optional] [default to undefined]
 **tracker_id** | **string** |  | [optional] [default to undefined]
 **generator_source** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **status** | **string** | The status of the evaluator | [optional] [default to 'active']
@@ -33,7 +32,6 @@ const instance: Evaluator = {
     name,
     description,
     goals_id,
-    playbook_id,
     tracker_id,
     generator_source,
     status,

@@ -9,9 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Configuration } from './configuration';
-import { AxiosPromise, AxiosInstance } from 'axios';
-import { RequestArgs, BaseAPI } from './base';
+import type { Configuration } from './configuration';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { RequestArgs } from './base';
+import { BaseAPI } from './base';
 /**
  *
  * @export
@@ -23,67 +24,67 @@ export interface AIAgentInput {
      * @type {string}
      * @memberof AIAgentInput
      */
-    name: string;
+    'name': string;
     /**
      * Image URL for the AI agent
      * @type {string}
      * @memberof AIAgentInput
      */
-    imageUrl: string;
+    'imageUrl': string;
     /**
-     * Mission of the AI agent
+     *
      * @type {Mission}
      * @memberof AIAgentInput
      */
-    mission?: Mission | null;
+    'mission'?: Mission | null;
     /**
      * Status of the AI agent
      * @type {Status}
      * @memberof AIAgentInput
      */
-    status: Status;
+    'status': Status;
     /**
      * Role of the AI agent in the company
      * @type {string}
      * @memberof AIAgentInput
      */
-    role: string;
+    'role': string;
     /**
      * Description of the role of the AI agent
      * @type {string}
      * @memberof AIAgentInput
      */
-    roleDescription: string;
+    'roleDescription': string;
     /**
      * Timezone of the AI agent used for scheduling meetings
      * @type {string}
      * @memberof AIAgentInput
      */
-    timezone: string;
+    'timezone': string;
     /**
-     * Voice of the AI agent
+     *
      * @type {VoiceInput}
      * @memberof AIAgentInput
      */
-    voice?: VoiceInput | null;
+    'voice'?: VoiceInput | null;
     /**
-     * List of terms or phrases that the AI agent to prioritize for enhanced recognition
+     *
      * @type {Array<string>}
      * @memberof AIAgentInput
      */
-    boostedKeywords?: Array<string> | null;
+    'boostedKeywords'?: Array<string> | null;
     /**
-     * App in which the AI agent is running
+     *
      * @type {AppEnumInput}
      * @memberof AIAgentInput
      */
-    app?: AppEnumInput | null;
+    'app'?: AppEnumInput | null;
     /**
-     * Evaluation metrics for the conversation
+     *
      * @type {ConversationEvaluationMetrics}
      * @memberof AIAgentInput
      */
-    evaluationMetrics?: ConversationEvaluationMetrics | null;
+    'evaluationMetrics'?: ConversationEvaluationMetrics | null;
 }
 /**
  * AI agent configured by businesses
@@ -96,129 +97,130 @@ export interface AIAgentOutput {
      * @type {string}
      * @memberof AIAgentOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    name?: string;
+    'name'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    imageUrl?: string;
+    'imageUrl'?: string;
     /**
      *
      * @type {Mission}
      * @memberof AIAgentOutput
      */
-    mission?: Mission | null;
+    'mission'?: Mission | null;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    role?: string;
+    'role'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    roleDescription?: string;
+    'roleDescription'?: string;
     /**
      *
      * @type {Transcriber}
      * @memberof AIAgentOutput
      */
-    transcriber?: Transcriber | null;
+    'transcriber'?: Transcriber | null;
     /**
      *
      * @type {IntelligenceProvider}
      * @memberof AIAgentOutput
      */
-    intelligenceProvider?: IntelligenceProvider | null;
+    'intelligenceProvider'?: IntelligenceProvider | null;
     /**
      *
      * @type {VoiceOutput}
      * @memberof AIAgentOutput
      */
-    voice?: VoiceOutput | null;
+    'voice'?: VoiceOutput | null;
     /**
      *
      * @type {Array<string>}
      * @memberof AIAgentOutput
      */
-    boostedKeywords?: Array<string> | null;
+    'boostedKeywords'?: Array<string> | null;
     /**
-     * Application under which the AI agent is created
+     *
      * @type {AppEnumOutput}
      * @memberof AIAgentOutput
      */
-    app?: AppEnumOutput | null;
+    'app'?: AppEnumOutput | null;
     /**
-     * Evaluation metrics for the conversation
+     *
      * @type {ConversationEvaluationMetrics}
      * @memberof AIAgentOutput
      */
-    evaluationMetrics?: ConversationEvaluationMetrics | null;
+    'evaluationMetrics'?: ConversationEvaluationMetrics | null;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    status?: string;
+    'status'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    timezone?: string;
+    'timezone'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof AIAgentOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum Accent {
-    American = "American",
-    Indian = "Indian",
-    Australian = "Australian",
-    British = "British",
-    Hindi = "Hindi",
-    MiddleEastern = "Middle Eastern"
-}
+export declare const Accent: {
+    readonly American: "American";
+    readonly Indian: "Indian";
+    readonly Australian: "Australian";
+    readonly British: "British";
+    readonly Hindi: "Hindi";
+    readonly MiddleEastern: "Middle Eastern";
+};
+export declare type Accent = typeof Accent[keyof typeof Accent];
 /**
  *
  * @export
@@ -226,17 +228,17 @@ export declare enum Accent {
  */
 export interface AcceptInviteRequest {
     /**
-     * Name of the user
+     *
      * @type {string}
      * @memberof AcceptInviteRequest
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
-     * Password for the user
+     *
      * @type {string}
      * @memberof AcceptInviteRequest
      */
-    password?: string | null;
+    'password'?: string | null;
 }
 /**
  *
@@ -249,60 +251,61 @@ export interface ActionInput {
      * @type {string}
      * @memberof ActionInput
      */
-    name: string;
+    'name': string;
     /**
-     * Description about the action and it should also contain when the action should be triggered
+     *
      * @type {string}
      * @memberof ActionInput
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      * Parameters for the action. It should be a JSON schema object
      * @type {object}
      * @memberof ActionInput
      */
-    parameters: object;
+    'parameters': object;
     /**
-     * Endpoint for the action
-     * @type {HttpActionEndpoint | InternalActionEndpoint | AgenticWorkflowActionEndpoint}
+     *
+     * @type {Endpoint}
      * @memberof ActionInput
      */
-    endpoint: HttpActionEndpoint | InternalActionEndpoint | AgenticWorkflowActionEndpoint;
+    'endpoint': Endpoint;
     /**
-     * Text to be rendered to user when action is invoked
+     *
      * @type {string}
      * @memberof ActionInput
      */
-    userWaitingText?: string | null;
+    'userWaitingText'?: string | null;
     /**
-     * Text to be rendered to user when action is successful
+     *
      * @type {string}
      * @memberof ActionInput
      */
-    userSuccessText?: string | null;
+    'userSuccessText'?: string | null;
     /**
-     * Text to be rendered to user when action is not successful
+     *
      * @type {string}
      * @memberof ActionInput
      */
-    userErrorText?: string | null;
+    'userErrorText'?: string | null;
     /**
      * Trigger who invokes the action
      * @type {ActionInvocationTrigger}
      * @memberof ActionInput
      */
-    invocationTrigger: ActionInvocationTrigger;
+    'invocationTrigger': ActionInvocationTrigger;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum ActionInvocationTrigger {
-    UserQuery = "user_query",
-    WebhookConversationStart = "webhook.conversation_start",
-    WebhookConversationEnd = "webhook.conversation_end"
-}
+export declare const ActionInvocationTrigger: {
+    readonly UserQuery: "user_query";
+    readonly WebhookConversationStart: "webhook.conversation_start";
+    readonly WebhookConversationEnd: "webhook.conversation_end";
+};
+export declare type ActionInvocationTrigger = typeof ActionInvocationTrigger[keyof typeof ActionInvocationTrigger];
 /**
  * Action entity to store the actions which can be performed by ai agents
  * @export
@@ -314,95 +317,110 @@ export interface ActionOutput {
      * @type {string}
      * @memberof ActionOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    name?: string;
+    'name'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      *
      * @type {object}
      * @memberof ActionOutput
      */
-    parameters?: object | null;
+    'parameters'?: object | null;
     /**
      *
      * @type {object}
      * @memberof ActionOutput
      */
-    endpoint?: object | null;
+    'endpoint'?: object | null;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    invocationTrigger?: string | null;
+    'invocationTrigger'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    userWaitingText?: string | null;
+    'userWaitingText'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    userSuccessText?: string | null;
+    'userSuccessText'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    userErrorText?: string | null;
+    'userErrorText'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ActionOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum Adaptability {
-    OpenToChange = "open to change",
-    Resistant = "resistant",
-    Indifferent = "indifferent"
+export declare const Adaptability: {
+    readonly OpenToChange: "open to change";
+    readonly Resistant: "resistant";
+    readonly Indifferent: "indifferent";
+};
+export declare type Adaptability = typeof Adaptability[keyof typeof Adaptability];
+/**
+ *
+ * @export
+ * @interface Adaptability1
+ */
+export interface Adaptability1 {
+}
+/**
+ *
+ * @export
+ * @interface Adaptability2
+ */
+export interface Adaptability2 {
 }
 /**
  *
@@ -415,31 +433,31 @@ export interface AddressInput {
      * @type {string}
      * @memberof AddressInput
      */
-    line1: string;
+    'line1': string;
     /**
-     * Address line 2
+     *
      * @type {string}
      * @memberof AddressInput
      */
-    line2?: string | null;
+    'line2'?: string | null;
     /**
-     * City
+     *
      * @type {string}
      * @memberof AddressInput
      */
-    city?: string | null;
+    'city'?: string | null;
     /**
-     * State
+     *
      * @type {string}
      * @memberof AddressInput
      */
-    state?: string | null;
+    'state'?: string | null;
     /**
      * Country
      * @type {string}
      * @memberof AddressInput
      */
-    country: string;
+    'country': string;
 }
 /**
  *
@@ -452,31 +470,31 @@ export interface AddressOutput {
      * @type {string}
      * @memberof AddressOutput
      */
-    line1: string;
+    'line1': string;
     /**
      *
      * @type {string}
      * @memberof AddressOutput
      */
-    line2: string | null;
+    'line2': string | null;
     /**
      *
      * @type {string}
      * @memberof AddressOutput
      */
-    city: string | null;
+    'city': string | null;
     /**
      *
      * @type {string}
      * @memberof AddressOutput
      */
-    state: string | null;
+    'state': string | null;
     /**
      *
      * @type {string}
      * @memberof AddressOutput
      */
-    country: string | null;
+    'country': string | null;
 }
 /**
  *
@@ -485,41 +503,41 @@ export interface AddressOutput {
  */
 export interface AgentConfig {
     /**
-     * Enum class representing transcriber
-     * @type {string}
+     *
+     * @type {TranscriberConfig}
      * @memberof AgentConfig
      */
-    transcriber: string;
-    /**
-     * Enum class representing intelligence provider
-     * @type {string}
-     * @memberof AgentConfig
-     */
-    intelligenceProvider: string;
+    'transcriber': TranscriberConfig;
     /**
      *
-     * @type {string}
+     * @type {IntelligenceProviderConfig}
      * @memberof AgentConfig
      */
-    synthesizer: string;
+    'intelligenceProvider': IntelligenceProviderConfig;
     /**
      *
-     * @type {string}
+     * @type {SynthesizerConfig}
      * @memberof AgentConfig
      */
-    embeddingsModelConfig: string;
+    'synthesizer': SynthesizerConfig;
     /**
      *
-     * @type {string}
+     * @type {EmbeddingsModelConfig}
      * @memberof AgentConfig
      */
-    hiveStorageConfig: string;
+    'embeddingsModelConfig': EmbeddingsModelConfig;
     /**
      *
-     * @type {string}
+     * @type {HiveStorageConfig}
      * @memberof AgentConfig
      */
-    fillersConfig?: string | null;
+    'hiveStorageConfig': HiveStorageConfig;
+    /**
+     *
+     * @type {FillersConfig}
+     * @memberof AgentConfig
+     */
+    'fillersConfig'?: FillersConfig | null;
 }
 /**
  *
@@ -532,17 +550,18 @@ export interface AgenticWorkflowActionEndpoint {
      * @type {string}
      * @memberof AgenticWorkflowActionEndpoint
      */
-    workflowId: string;
+    'workflowId': string;
 }
 /**
  * Enum which stores the list of apps which are used to create the conversation
  * @export
  * @enum {string}
  */
-export declare enum AgenticWorkflowAdkModelsWorkflowAppEnum {
-    TRATA = "TRATA",
-    TRATASPARR = "TRATA_SPARR"
-}
+export declare const AgenticWorkflowAdkModelsWorkflowAppEnum: {
+    readonly Trata: "TRATA";
+    readonly TrataSparr: "TRATA_SPARR";
+};
+export declare type AgenticWorkflowAdkModelsWorkflowAppEnum = typeof AgenticWorkflowAdkModelsWorkflowAppEnum[keyof typeof AgenticWorkflowAdkModelsWorkflowAppEnum];
 /**
  * Connection represents an instance of an app with specific credentials and configuration
  * @export
@@ -554,73 +573,73 @@ export interface AgenticWorkflowDbModelsConnection {
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the connection
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    name?: string;
+    'name'?: string;
     /**
      * The unique identifier of the app
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    appId?: string;
+    'appId'?: string;
     /**
      * The version of the app
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    appVersion?: string;
+    'appVersion'?: string;
     /**
-     * The description of the connection
+     *
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
-     * OAuth or API key authentication configuration
-     * @type {OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials}
+     *
+     * @type {Credentials}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+    'credentials': Credentials;
     /**
-     * Metadata for the connection
+     *
      * @type {object}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    connectionMetaData?: object | null;
+    'connectionMetaData'?: object | null;
     /**
      * The unique identifier of the connection
      * @type {string}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -633,46 +652,184 @@ export interface AgenticWorkflowModelsBaseBaseResponse {
      * @type {string}
      * @memberof AgenticWorkflowModelsBaseBaseResponse
      */
-    message?: string;
+    'message'?: string;
     /**
      * The status of the response
      * @type {string}
      * @memberof AgenticWorkflowModelsBaseBaseResponse
      */
-    status?: string;
+    'status'?: string;
+}
+/**
+ *
+ * @export
+ * @interface AgentsInner
+ */
+export interface AgentsInner {
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'orgId'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'imageUrl'?: string;
+    /**
+     *
+     * @type {Mission}
+     * @memberof AgentsInner
+     */
+    'mission'?: Mission;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'role'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'roleDescription'?: string;
+    /**
+     *
+     * @type {Transcriber}
+     * @memberof AgentsInner
+     */
+    'transcriber'?: Transcriber;
+    /**
+     *
+     * @type {IntelligenceProvider}
+     * @memberof AgentsInner
+     */
+    'intelligenceProvider'?: IntelligenceProvider;
+    /**
+     *
+     * @type {VoiceOutput}
+     * @memberof AgentsInner
+     */
+    'voice'?: VoiceOutput;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AgentsInner
+     */
+    'boostedKeywords'?: Array<string> | null;
+    /**
+     *
+     * @type {AppEnumOutput}
+     * @memberof AgentsInner
+     */
+    'app'?: AppEnumOutput;
+    /**
+     *
+     * @type {ConversationEvaluationMetrics}
+     * @memberof AgentsInner
+     */
+    'evaluationMetrics'?: ConversationEvaluationMetrics;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'status'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'timezone'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'createdBy'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'createdAt'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'updatedBy'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AgentsInner
+     */
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum AggregationFormulaInput {
-    COUNT = "COUNT",
-    SUM = "SUM",
-    MEDIAN = "MEDIAN"
-}
+export declare const AggregationFormulaInput: {
+    readonly Count: "COUNT";
+    readonly Sum: "SUM";
+    readonly Median: "MEDIAN";
+};
+export declare type AggregationFormulaInput = typeof AggregationFormulaInput[keyof typeof AggregationFormulaInput];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum AggregationFormulaOutput {
-    COUNT = "COUNT",
-    SUM = "SUM",
-    AVG = "AVG",
-    MIN = "MIN",
-    MAX = "MAX",
-    MEDIAN = "MEDIAN"
-}
+export declare const AggregationFormulaOutput: {
+    readonly Count: "COUNT";
+    readonly Sum: "SUM";
+    readonly Avg: "AVG";
+    readonly Min: "MIN";
+    readonly Max: "MAX";
+    readonly Median: "MEDIAN";
+};
+export declare type AggregationFormulaOutput = typeof AggregationFormulaOutput[keyof typeof AggregationFormulaOutput];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum AggregationPeriod {
-    MONTHLY = "MONTHLY",
-    WEEKLY = "WEEKLY",
-    DAILY = "DAILY"
+export declare const AggregationPeriod: {
+    readonly Monthly: "MONTHLY";
+    readonly Weekly: "WEEKLY";
+    readonly Daily: "DAILY";
+};
+export declare type AggregationPeriod = typeof AggregationPeriod[keyof typeof AggregationPeriod];
+/**
+ *
+ * @export
+ * @interface Aiwhatcanbeimproved
+ */
+export interface Aiwhatcanbeimproved {
+}
+/**
+ *
+ * @export
+ * @interface Aiwhatwentwell
+ */
+export interface Aiwhatwentwell {
 }
 /**
  *
@@ -685,37 +842,46 @@ export interface AnalyticsModelInput {
      * @type {SparrModelsAnalyticsConversationAnalyticsModel}
      * @memberof AnalyticsModelInput
      */
-    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    'conversation_analytics': SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      *
      * @type {GoalAnalyticsModelInput}
      * @memberof AnalyticsModelInput
      */
-    goals_analytics: GoalAnalyticsModelInput;
+    'goals_analytics': GoalAnalyticsModelInput;
     /**
      *
      * @type {CoachAnalyticsModel}
      * @memberof AnalyticsModelInput
      */
-    coach_analytics: CoachAnalyticsModel;
+    'coach_analytics': CoachAnalyticsModel;
     /**
      *
      * @type {SystemMetrics}
      * @memberof AnalyticsModelInput
      */
-    system_metrics?: SystemMetrics | null;
+    'system_metrics'?: SystemMetrics | null;
     /**
      *
-     * @type {any}
+     * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
      * @memberof AnalyticsModelInput
      */
-    weighted_scores?: any | null;
+    'weighted_scores'?: {
+        [key: string]: AnalyticsModelInputWeightedScoresValue;
+    } | null;
     /**
      *
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelInput
      */
-    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
+    'tracker_analytics'?: Array<TrackerAnalyticsModel> | null;
+}
+/**
+ *
+ * @export
+ * @interface AnalyticsModelInputWeightedScoresValue
+ */
+export interface AnalyticsModelInputWeightedScoresValue {
 }
 /**
  *
@@ -728,37 +894,39 @@ export interface AnalyticsModelOutput {
      * @type {SparrModelsAnalyticsConversationAnalyticsModel}
      * @memberof AnalyticsModelOutput
      */
-    conversation_analytics: SparrModelsAnalyticsConversationAnalyticsModel;
+    'conversation_analytics': SparrModelsAnalyticsConversationAnalyticsModel;
     /**
      *
      * @type {GoalAnalyticsModelOutput}
      * @memberof AnalyticsModelOutput
      */
-    goals_analytics: GoalAnalyticsModelOutput;
+    'goals_analytics': GoalAnalyticsModelOutput;
     /**
      *
      * @type {CoachAnalyticsModel}
      * @memberof AnalyticsModelOutput
      */
-    coach_analytics: CoachAnalyticsModel;
+    'coach_analytics': CoachAnalyticsModel;
     /**
      *
      * @type {SystemMetrics}
      * @memberof AnalyticsModelOutput
      */
-    system_metrics?: SystemMetrics | null;
+    'system_metrics'?: SystemMetrics | null;
     /**
      *
-     * @type {any}
+     * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
      * @memberof AnalyticsModelOutput
      */
-    weighted_scores?: any | null;
+    'weighted_scores'?: {
+        [key: string]: AnalyticsModelInputWeightedScoresValue;
+    } | null;
     /**
      *
      * @type {Array<TrackerAnalyticsModel>}
      * @memberof AnalyticsModelOutput
      */
-    tracker_analytics?: Array<TrackerAnalyticsModel> | null;
+    'tracker_analytics'?: Array<TrackerAnalyticsModel> | null;
 }
 /**
  * Simplified analytics request for single date range
@@ -771,25 +939,25 @@ export interface AnalyticsRequest {
      * @type {string}
      * @memberof AnalyticsRequest
      */
-    startDate: string;
+    'startDate': string;
     /**
      * End date for the analytics range
      * @type {string}
      * @memberof AnalyticsRequest
      */
-    endDate: string;
+    'endDate': string;
     /**
      * List of metrics to retrieve
      * @type {Array<MetricRequest>}
      * @memberof AnalyticsRequest
      */
-    metrics: Array<MetricRequest>;
+    'metrics': Array<MetricRequest>;
     /**
-     * Optional list of user IDs to filter by
+     *
      * @type {Array<string>}
      * @memberof AnalyticsRequest
      */
-    userIds?: Array<string> | null;
+    'userIds'?: Array<string> | null;
 }
 /**
  * Simplified analytics response
@@ -802,25 +970,25 @@ export interface AnalyticsResponse {
      * @type {string}
      * @memberof AnalyticsResponse
      */
-    startDate: string;
+    'startDate': string;
     /**
      * End date of the analytics range
      * @type {string}
      * @memberof AnalyticsResponse
      */
-    endDate: string;
+    'endDate': string;
     /**
      * List of aggregated metric values
      * @type {Array<MetricDataPoint>}
      * @memberof AnalyticsResponse
      */
-    metrics: Array<MetricDataPoint>;
+    'metrics': Array<MetricDataPoint>;
     /**
-     * List of user IDs included in the analytics
+     *
      * @type {Array<string>}
      * @memberof AnalyticsResponse
      */
-    userIds?: Array<string> | null;
+    'userIds'?: Array<string> | null;
 }
 /**
  * API key authentication configuration
@@ -833,15 +1001,12 @@ export interface ApiKeyAuth {
      * @type {string}
      * @memberof ApiKeyAuth
      */
-    authType?: ApiKeyAuthAuthTypeEnum;
+    'authType'?: ApiKeyAuthAuthTypeEnum;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ApiKeyAuthAuthTypeEnum {
-    Apikey = "apikey"
-}
+export declare const ApiKeyAuthAuthTypeEnum: {
+    readonly Apikey: "apikey";
+};
+export declare type ApiKeyAuthAuthTypeEnum = typeof ApiKeyAuthAuthTypeEnum[keyof typeof ApiKeyAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -853,21 +1018,18 @@ export interface ApiKeyCredentials {
      * @type {string}
      * @memberof ApiKeyCredentials
      */
-    credentialsType?: ApiKeyCredentialsCredentialsTypeEnum;
+    'credentialsType'?: ApiKeyCredentialsCredentialsTypeEnum;
     /**
      * The API key for the app
      * @type {string}
      * @memberof ApiKeyCredentials
      */
-    apiKey: string;
+    'apiKey': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ApiKeyCredentialsCredentialsTypeEnum {
-    Apikey = "apikey"
-}
+export declare const ApiKeyCredentialsCredentialsTypeEnum: {
+    readonly Apikey: "apikey";
+};
+export declare type ApiKeyCredentialsCredentialsTypeEnum = typeof ApiKeyCredentialsCredentialsTypeEnum[keyof typeof ApiKeyCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -879,8 +1041,13 @@ export interface ApiKeyRequest {
      * @type {string}
      * @memberof ApiKeyRequest
      */
-    key_type?: string | null;
+    'key_type'?: ApiKeyRequestKeyTypeEnum | null;
 }
+export declare const ApiKeyRequestKeyTypeEnum: {
+    readonly ApiKey: "api_key";
+    readonly CallKey: "call_key";
+};
+export declare type ApiKeyRequestKeyTypeEnum = typeof ApiKeyRequestKeyTypeEnum[keyof typeof ApiKeyRequestKeyTypeEnum];
 /**
  * App represents an integration that can be connected to perform actions and triggers
  * @export
@@ -892,73 +1059,73 @@ export interface App {
      * @type {string}
      * @memberof App
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof App
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof App
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof App
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof App
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the app
      * @type {string}
      * @memberof App
      */
-    name?: string;
+    'name'?: string;
     /**
-     * The description of the app
+     *
      * @type {string}
      * @memberof App
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
-     * API Endpoint URL for the app
+     *
      * @type {string}
      * @memberof App
      */
-    endpointUrl?: string | null;
+    'endpointUrl'?: string | null;
     /**
-     * URL to the app\'s logo image
+     *
      * @type {string}
      * @memberof App
      */
-    logoUrl?: string | null;
+    'logoUrl'?: string | null;
     /**
      * Authentication configuration for the app
-     * @type {Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>}
+     * @type {Array<AuthInner>}
      * @memberof App
      */
-    auth: Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>;
+    'auth': Array<AuthInner>;
     /**
      * The version of the app
      * @type {string}
      * @memberof App
      */
-    version?: string;
+    'version'?: string;
     /**
      * The unique identifier of the app
      * @type {string}
      * @memberof App
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  * AppAction represents an action that can be performed by an app
@@ -971,85 +1138,85 @@ export interface AppAction {
      * @type {string}
      * @memberof AppAction
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof AppAction
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof AppAction
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof AppAction
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof AppAction
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The type of the step, can be either trigger or action
      * @type {AppActionType}
      * @memberof AppAction
      */
-    actionType: AppActionType;
+    'actionType': AppActionType;
     /**
      * The name of the step. This name should be unique within the app
      * @type {string}
      * @memberof AppAction
      */
-    name?: string;
+    'name'?: string;
     /**
      * The description of the step
      * @type {string}
      * @memberof AppAction
      */
-    description?: string;
+    'description'?: string;
     /**
      * JSON Schema for the step data
      * @type {object}
      * @memberof AppAction
      */
-    dataSchema: object;
+    'dataSchema': object;
     /**
      * JSON Schema for the UI representation
      * @type {object}
      * @memberof AppAction
      */
-    uiSchema: object;
+    'uiSchema': object;
     /**
      * This represents how this action should be displayed in the UI
      * @type {UiNodeType}
      * @memberof AppAction
      */
-    uiNodeType: UiNodeType;
+    'uiNodeType': UiNodeType;
     /**
      * The ID of the app that this action belongs to
      * @type {string}
      * @memberof AppAction
      */
-    appId: string;
+    'appId': string;
     /**
      * The version of the app that this action belongs to
      * @type {string}
      * @memberof AppAction
      */
-    appVersion: string;
+    'appVersion': string;
     /**
      * The unique identifier of the app action
      * @type {string}
      * @memberof AppAction
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  * App Action Model
@@ -1062,47 +1229,48 @@ export interface AppActionEntity {
      * @type {AppActionType}
      * @memberof AppActionEntity
      */
-    actionType: AppActionType;
+    'actionType': AppActionType;
     /**
      * The name of the step. This name should be unique within the app
      * @type {string}
      * @memberof AppActionEntity
      */
-    name?: string;
+    'name'?: string;
     /**
      * The description of the step
      * @type {string}
      * @memberof AppActionEntity
      */
-    description?: string;
+    'description'?: string;
     /**
      * JSON Schema for the step data
      * @type {object}
      * @memberof AppActionEntity
      */
-    dataSchema: object;
+    'dataSchema': object;
     /**
      * JSON Schema for the UI representation
      * @type {object}
      * @memberof AppActionEntity
      */
-    uiSchema: object;
+    'uiSchema': object;
     /**
      * This represents how this action should be displayed in the UI
      * @type {UiNodeType}
      * @memberof AppActionEntity
      */
-    uiNodeType: UiNodeType;
+    'uiNodeType': UiNodeType;
 }
 /**
  * Enum for step types
  * @export
  * @enum {string}
  */
-export declare enum AppActionType {
-    TRIGGER = "TRIGGER",
-    ACTION = "ACTION"
-}
+export declare const AppActionType: {
+    readonly Trigger: "TRIGGER";
+    readonly Action: "ACTION";
+};
+export declare type AppActionType = typeof AppActionType[keyof typeof AppActionType];
 /**
  * App DTO Model filled by user
  * @export
@@ -1114,64 +1282,66 @@ export interface AppEntity {
      * @type {string}
      * @memberof AppEntity
      */
-    name?: string;
+    'name'?: string;
     /**
-     * The description of the app
+     *
      * @type {string}
      * @memberof AppEntity
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
-     * API Endpoint URL for the app
+     *
      * @type {string}
      * @memberof AppEntity
      */
-    endpointUrl?: string | null;
+    'endpointUrl'?: string | null;
     /**
-     * URL to the app\'s logo image
+     *
      * @type {string}
      * @memberof AppEntity
      */
-    logoUrl?: string | null;
+    'logoUrl'?: string | null;
     /**
      * Authentication configuration for the app
-     * @type {Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>}
+     * @type {Array<AuthInner>}
      * @memberof AppEntity
      */
-    auth: Array<OAuth | ApiKeyAuth | BasicAuth | NoAuth>;
+    'auth': Array<AuthInner>;
     /**
      * The version of the app
      * @type {string}
      * @memberof AppEntity
      */
-    version?: string;
+    'version'?: string;
     /**
      * Array of available actions with their configurations
      * @type {Array<AppActionEntity>}
      * @memberof AppEntity
      */
-    actions: Array<AppActionEntity>;
+    'actions': Array<AppActionEntity>;
 }
 /**
  * Enum which stores the list of apps which are used to create the conversation
  * @export
  * @enum {string}
  */
-export declare enum AppEnumInput {
-    TRATA = "TRATA",
-    TRATASPARR = "TRATA_SPARR",
-    TRATASPARRV1 = "TRATA_SPARR_V1"
-}
+export declare const AppEnumInput: {
+    readonly Trata: "TRATA";
+    readonly TrataSparr: "TRATA_SPARR";
+    readonly TrataSparrV1: "TRATA_SPARR_V1";
+};
+export declare type AppEnumInput = typeof AppEnumInput[keyof typeof AppEnumInput];
 /**
  * Enum which stores the list of apps which are used to create the conversation
  * @export
  * @enum {string}
  */
-export declare enum AppEnumOutput {
-    TRATA = "TRATA",
-    TRATASPARR = "TRATA_SPARR",
-    TRATASPARRV1 = "TRATA_SPARR_V1"
-}
+export declare const AppEnumOutput: {
+    readonly Trata: "TRATA";
+    readonly TrataSparr: "TRATA_SPARR";
+    readonly TrataSparrV1: "TRATA_SPARR_V1";
+};
+export declare type AppEnumOutput = typeof AppEnumOutput[keyof typeof AppEnumOutput];
 /**
  *
  * @export
@@ -1183,13 +1353,13 @@ export interface AppResponse {
      * @type {App}
      * @memberof AppResponse
      */
-    app: App;
+    'app': App;
     /**
      *
      * @type {Array<AppAction>}
      * @memberof AppResponse
      */
-    actions: Array<AppAction>;
+    'actions': Array<AppAction>;
 }
 /**
  * Audit log details of the business
@@ -1202,48 +1372,102 @@ export interface AuditLog {
      * @type {string}
      * @memberof AuditLog
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof AuditLog
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof AuditLog
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof AuditLog
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof AuditLog
      */
-    action?: string;
+    'action'?: string;
     /**
      *
      * @type {string}
      * @memberof AuditLog
      */
-    description?: string;
+    'description'?: string;
 }
+/**
+ *
+ * @export
+ * @interface AuthInner
+ */
+export interface AuthInner {
+    /**
+     * The type of authentication
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'authType'?: AuthInnerAuthTypeEnum;
+    /**
+     * The client ID for the OAuth app
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'clientId': string;
+    /**
+     * The client secret for the OAuth app
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'clientSecret': string;
+    /**
+     * The redirect URI for the OAuth app
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'redirectUri': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AuthInner
+     */
+    'scopes'?: Array<string> | null;
+    /**
+     * The authorization URL for the OAuth app
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'authUrl': string;
+    /**
+     * The token URL for the OAuth app
+     * @type {string}
+     * @memberof AuthInner
+     */
+    'tokenUrl': string;
+}
+export declare const AuthInnerAuthTypeEnum: {
+    readonly Noauth: "noauth";
+};
+export declare type AuthInnerAuthTypeEnum = typeof AuthInnerAuthTypeEnum[keyof typeof AuthInnerAuthTypeEnum];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum AuthRole {
-    Owner = "Owner",
-    Admin = "Admin",
-    Member = "Member"
-}
+export declare const AuthRole: {
+    readonly Owner: "Owner";
+    readonly Admin: "Admin";
+    readonly Member: "Member";
+};
+export declare type AuthRole = typeof AuthRole[keyof typeof AuthRole];
 /**
  *
  * @export
@@ -1255,25 +1479,25 @@ export interface AvailablePhoneNumber {
      * @type {string}
      * @memberof AvailablePhoneNumber
      */
-    phoneNumber: string;
+    'phoneNumber': string;
     /**
      *
      * @type {string}
      * @memberof AvailablePhoneNumber
      */
-    countryCode: string;
+    'countryCode': string;
     /**
      *
      * @type {string}
      * @memberof AvailablePhoneNumber
      */
-    locality: string | null;
+    'locality': string | null;
     /**
      *
      * @type {string}
      * @memberof AvailablePhoneNumber
      */
-    region: string | null;
+    'region': string | null;
 }
 /**
  *
@@ -1286,7 +1510,7 @@ export interface BaseResponseInput {
      * @type {string}
      * @memberof BaseResponseInput
      */
-    message: string;
+    'message': string;
 }
 /**
  * Basic authentication configuration
@@ -1299,15 +1523,12 @@ export interface BasicAuth {
      * @type {string}
      * @memberof BasicAuth
      */
-    authType?: BasicAuthAuthTypeEnum;
+    'authType'?: BasicAuthAuthTypeEnum;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum BasicAuthAuthTypeEnum {
-    Basic = "basic"
-}
+export declare const BasicAuthAuthTypeEnum: {
+    readonly Basic: "basic";
+};
+export declare type BasicAuthAuthTypeEnum = typeof BasicAuthAuthTypeEnum[keyof typeof BasicAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -1319,27 +1540,24 @@ export interface BasicAuthCredentials {
      * @type {string}
      * @memberof BasicAuthCredentials
      */
-    credentialsType?: BasicAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: BasicAuthCredentialsCredentialsTypeEnum;
     /**
      * The username for the app
      * @type {string}
      * @memberof BasicAuthCredentials
      */
-    username: string;
+    'username': string;
     /**
      * The password for the app
      * @type {string}
      * @memberof BasicAuthCredentials
      */
-    password: string;
+    'password': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum BasicAuthCredentialsCredentialsTypeEnum {
-    Basic = "basic"
-}
+export declare const BasicAuthCredentialsCredentialsTypeEnum: {
+    readonly Basic: "basic";
+};
+export declare type BasicAuthCredentialsCredentialsTypeEnum = typeof BasicAuthCredentialsCredentialsTypeEnum[keyof typeof BasicAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -1351,13 +1569,13 @@ export interface BasicCredentials {
      * @type {string}
      * @memberof BasicCredentials
      */
-    email: string;
+    'email': string;
     /**
      * Password of the user
      * @type {string}
      * @memberof BasicCredentials
      */
-    password: string;
+    'password': string;
 }
 /**
  *
@@ -1370,13 +1588,13 @@ export interface BatchMetricsRequestsInput {
      * @type {Array<MetricsRequestInput>}
      * @memberof BatchMetricsRequestsInput
      */
-    requests: Array<MetricsRequestInput>;
+    'requests': Array<MetricsRequestInput>;
     /**
      *
      * @type {Array<string>}
      * @memberof BatchMetricsRequestsInput
      */
-    orgIds?: Array<string> | null;
+    'orgIds'?: Array<string> | null;
 }
 /**
  *
@@ -1389,7 +1607,7 @@ export interface BatchMetricsResponseInput {
      * @type {Array<MetricsResponseInput>}
      * @memberof BatchMetricsResponseInput
      */
-    responses: Array<MetricsResponseInput>;
+    'responses': Array<MetricsResponseInput>;
 }
 /**
  *
@@ -1402,13 +1620,13 @@ export interface BodyCreateCustomerOrganizationV1 {
      * @type {OrganizationInput}
      * @memberof BodyCreateCustomerOrganizationV1
      */
-    customer_org: OrganizationInput;
+    'customer_org': OrganizationInput;
     /**
      *
      * @type {string}
      * @memberof BodyCreateCustomerOrganizationV1
      */
-    adminUserName: string;
+    'adminUserName': string;
 }
 /**
  *
@@ -1421,13 +1639,13 @@ export interface BodyCreateOrganizationV1 {
      * @type {OrganizationInput}
      * @memberof BodyCreateOrganizationV1
      */
-    org: OrganizationInput;
+    'org': OrganizationInput;
     /**
      *
      * @type {string}
      * @memberof BodyCreateOrganizationV1
      */
-    adminUserName: string;
+    'adminUserName': string;
 }
 /**
  *
@@ -1440,85 +1658,35 @@ export interface BodyCreateResellerOrganizationV1 {
      * @type {OrganizationInput}
      * @memberof BodyCreateResellerOrganizationV1
      */
-    org: OrganizationInput;
+    'org': OrganizationInput;
     /**
      *
      * @type {string}
      * @memberof BodyCreateResellerOrganizationV1
      */
-    adminUserName: string;
-}
-/**
- *
- * @export
- * @interface BodyUploadFileV1
- */
-export interface BodyUploadFileV1 {
-    /**
-     *
-     * @type {Array<any>}
-     * @memberof BodyUploadFileV1
-     */
-    files: Array<any>;
-}
-/**
- *
- * @export
- * @interface BodyUploadFileV1WorkflowsWorkflowIdFilePost
- */
-export interface BodyUploadFileV1WorkflowsWorkflowIdFilePost {
-    /**
-     *
-     * @type {any}
-     * @memberof BodyUploadFileV1WorkflowsWorkflowIdFilePost
-     */
-    file: any;
-}
-/**
- *
- * @export
- * @interface BodyUploadFilesV1
- */
-export interface BodyUploadFilesV1 {
-    /**
-     *
-     * @type {Array<any>}
-     * @memberof BodyUploadFilesV1
-     */
-    files: Array<any>;
-}
-/**
- *
- * @export
- * @interface BodyUploadResellerFilesV1
- */
-export interface BodyUploadResellerFilesV1 {
-    /**
-     *
-     * @type {Array<any>}
-     * @memberof BodyUploadResellerFilesV1
-     */
-    files: Array<any>;
+    'adminUserName': string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum CallSentiment {
-    Positive = "positive",
-    Negative = "negative",
-    Neutral = "neutral"
-}
+export declare const CallSentiment: {
+    readonly Positive: "positive";
+    readonly Negative: "negative";
+    readonly Neutral: "neutral";
+};
+export declare type CallSentiment = typeof CallSentiment[keyof typeof CallSentiment];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum ChangeAssignmentOperation {
-    Assign = "assign",
-    Remove = "remove"
-}
+export declare const ChangeAssignmentOperation: {
+    readonly Assign: "assign";
+    readonly Remove: "remove";
+};
+export declare type ChangeAssignmentOperation = typeof ChangeAssignmentOperation[keyof typeof ChangeAssignmentOperation];
 /**
  *
  * @export
@@ -1530,19 +1698,19 @@ export interface ChangeAssignmentRequest {
      * @type {ChangeAssignmentOperation}
      * @memberof ChangeAssignmentRequest
      */
-    operation: ChangeAssignmentOperation;
+    'operation': ChangeAssignmentOperation;
     /**
-     * Either \'all\' or a list of course IDs
-     * @type {string | Array<string>}
+     *
+     * @type {Courses}
      * @memberof ChangeAssignmentRequest
      */
-    courses: string | Array<string>;
+    'courses': Courses;
     /**
-     * Either \'all\' or a list of customer IDs
-     * @type {string | Array<string>}
+     *
+     * @type {Customers}
      * @memberof ChangeAssignmentRequest
      */
-    customers: string | Array<string>;
+    'customers': Customers;
 }
 /**
  *
@@ -1551,11 +1719,11 @@ export interface ChangeAssignmentRequest {
  */
 export interface CoachAnalyticsModel {
     /**
-     * Provide 2 to 3 straightforward examples of how the role player could have improved their handling of the conversation. Quote the exact words used by the role player and suggest an alternative response that better aligns with the intended goals. Additionally, specify which goal could have been better achieved with the improved response.
+     *
      * @type {Array<string>}
      * @memberof CoachAnalyticsModel
      */
-    coaching_points?: Array<string> | null;
+    'coaching_points'?: Array<string> | null;
 }
 /**
  * Combined response model that includes evaluator and its optional components
@@ -1568,19 +1736,19 @@ export interface CombinedEvaluatorResponse {
      * @type {Evaluator}
      * @memberof CombinedEvaluatorResponse
      */
-    evaluator: Evaluator;
+    'evaluator': Evaluator;
     /**
-     * Optional goals object
+     *
      * @type {SparrDbModelsGoal}
      * @memberof CombinedEvaluatorResponse
      */
-    goals?: SparrDbModelsGoal | null;
+    'goals'?: SparrDbModelsGoal | null;
     /**
-     * Optional tracker object
+     *
      * @type {Tracker}
      * @memberof CombinedEvaluatorResponse
      */
-    tracker?: Tracker | null;
+    'tracker'?: Tracker | null;
 }
 /**
  *
@@ -1593,24 +1761,27 @@ export interface Comment {
      * @type {string}
      * @memberof Comment
      */
-    comment: string;
+    'comment': string;
     /**
      * Star rating to record
      * @type {number}
      * @memberof Comment
      */
-    rating: number;
+    'rating': number;
 }
 /**
  *
  * @export
- * @enum {string}
+ * @interface CommunicationStyle
  */
-export declare enum CommunicationStyle {
-    Direct = "direct",
-    Indirect = "indirect",
-    Verbose = "verbose",
-    Brief = "brief"
+export interface CommunicationStyle {
+}
+/**
+ *
+ * @export
+ * @interface CommunicationStyle1
+ */
+export interface CommunicationStyle1 {
 }
 /**
  * Condition Model for branching/looping logic
@@ -1623,13 +1794,13 @@ export interface Condition {
      * @type {string}
      * @memberof Condition
      */
-    when: string;
+    'when': string;
     /**
      * Next step ID if condition is true
      * @type {string}
      * @memberof Condition
      */
-    stepId: string;
+    'stepId': string;
 }
 /**
  * Core Connection Model
@@ -1642,37 +1813,37 @@ export interface ConnectionCore {
      * @type {string}
      * @memberof ConnectionCore
      */
-    name?: string;
+    'name'?: string;
     /**
      * The unique identifier of the app
      * @type {string}
      * @memberof ConnectionCore
      */
-    appId?: string;
+    'appId'?: string;
     /**
      * The version of the app
      * @type {string}
      * @memberof ConnectionCore
      */
-    appVersion?: string;
+    'appVersion'?: string;
     /**
-     * The description of the connection
+     *
      * @type {string}
      * @memberof ConnectionCore
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
-     * OAuth or API key authentication configuration
-     * @type {OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials}
+     *
+     * @type {Credentials}
      * @memberof ConnectionCore
      */
-    credentials: OAuthCredentials | ApiKeyCredentials | BasicAuthCredentials | NoAuthCredentials;
+    'credentials': Credentials;
     /**
-     * Metadata for the connection
+     *
      * @type {object}
      * @memberof ConnectionCore
      */
-    connectionMetaData?: object | null;
+    'connectionMetaData'?: object | null;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -1685,67 +1856,67 @@ export interface ConnectionOutput {
      * @type {string}
      * @memberof ConnectionOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    sourceName?: string;
+    'sourceName'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    sourceId?: string;
+    'sourceId'?: string;
     /**
      *
      * @type {object}
      * @memberof ConnectionOutput
      */
-    sourceProps?: object | null;
+    'sourceProps'?: object | null;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    agentId?: string;
+    'agentId'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    prospectId?: string | null;
+    'prospectId'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConnectionOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
@@ -1758,29 +1929,26 @@ export interface ConnectionSource {
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceName?: ConnectionSourceSourceNameEnum;
+    'sourceName'?: ConnectionSourceSourceNameEnum;
     /**
      * Unique identifier for the source
      * @type {string}
      * @memberof ConnectionSource
      */
-    sourceId: string;
+    'sourceId': string;
     /**
      * Extra properties of source
      * @type {object}
      * @memberof ConnectionSource
      */
-    sourceProps: object;
+    'sourceProps': object;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ConnectionSourceSourceNameEnum {
-    TWILIO = "TWILIO",
-    PLIVO = "PLIVO",
-    BROWSER = "BROWSER"
-}
+export declare const ConnectionSourceSourceNameEnum: {
+    readonly Twilio: "TWILIO";
+    readonly Plivo: "PLIVO";
+    readonly Browser: "BROWSER";
+};
+export declare type ConnectionSourceSourceNameEnum = typeof ConnectionSourceSourceNameEnum[keyof typeof ConnectionSourceSourceNameEnum];
 /**
  * Expected output of the post conversation task
  * @export
@@ -1788,59 +1956,59 @@ export declare enum ConnectionSourceSourceNameEnum {
  */
 export interface ConversationAnalyticsModelInput {
     /**
-     * Summary of the conversation happened with important details on the conversation. The summary should be concise and to the point. It should contain the important details of the conversation like name, phone number, email, address and any other details shared by the user.
+     *
      * @type {string}
      * @memberof ConversationAnalyticsModelInput
      */
-    summary: string | null;
+    'summary': string | null;
     /**
-     * List of action items and the next steps to be performed from the conversation details.
+     *
      * @type {Array<string>}
      * @memberof ConversationAnalyticsModelInput
      */
-    action_items: Array<string> | null;
+    'action_items': Array<string> | null;
     /**
      * If the user has given consent to store the audio of the conversation. Unless the user explicitly says yes, this should be false.
      * @type {boolean}
      * @memberof ConversationAnalyticsModelInput
      */
-    is_audio_consent_given: boolean;
+    'is_audio_consent_given': boolean;
     /**
-     * Extracted email address of the caller from the conversation details. Email should be a valid email address format
+     *
      * @type {string}
      * @memberof ConversationAnalyticsModelInput
      */
-    email_address_of_caller: string | null;
+    'email_address_of_caller': string | null;
     /**
-     * Extracted name of the caller from the conversation details.
+     *
      * @type {string}
      * @memberof ConversationAnalyticsModelInput
      */
-    name_of_caller: string | null;
+    'name_of_caller': string | null;
     /**
-     * Extracted phone number of the caller from the conversation details.
+     *
      * @type {string}
      * @memberof ConversationAnalyticsModelInput
      */
-    phone_number_of_caller: string | null;
+    'phone_number_of_caller': string | null;
     /**
-     * Extracted address of the caller from the conversation details.
+     *
      * @type {string}
      * @memberof ConversationAnalyticsModelInput
      */
-    address_of_caller: string | null;
+    'address_of_caller': string | null;
     /**
      * Sentiment of the caller based on the conversation details.
      * @type {CallSentiment}
      * @memberof ConversationAnalyticsModelInput
      */
-    sentiment_of_caller: CallSentiment;
+    'sentiment_of_caller': CallSentiment;
     /**
-     * Status of the prospect after this conversation.
+     *
      * @type {ProspectStatus}
      * @memberof ConversationAnalyticsModelInput
      */
-    prospectStatus: ProspectStatus | null;
+    'prospectStatus': ProspectStatus | null;
 }
 /**
  *
@@ -1853,25 +2021,25 @@ export interface ConversationEndEvent {
      * @type {string}
      * @memberof ConversationEndEvent
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      *
      * @type {string}
      * @memberof ConversationEndEvent
      */
-    version?: string;
+    'version'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationEndEvent
      */
-    event_name: string;
+    'event_name': string;
     /**
      *
      * @type {ConversationEndEventPayload}
      * @memberof ConversationEndEvent
      */
-    payload?: ConversationEndEventPayload;
+    'payload'?: ConversationEndEventPayload;
 }
 /**
  *
@@ -1884,7 +2052,7 @@ export interface ConversationEndEventPayload {
      * @type {ConversationOutput}
      * @memberof ConversationEndEventPayload
      */
-    conversation: ConversationOutput;
+    'conversation': ConversationOutput;
 }
 /**
  * Model which stores the evaluation metrics for the conversation
@@ -1897,49 +2065,49 @@ export interface ConversationEvaluation {
      * @type {string}
      * @memberof ConversationEvaluation
      */
-    aiEvaluationSummary: string | null;
+    'aiEvaluationSummary': string | null;
     /**
      *
      * @type {Array<ConversationEvaluationData>}
      * @memberof ConversationEvaluation
      */
-    aiEvaluations: Array<ConversationEvaluationData>;
+    'aiEvaluations': Array<ConversationEvaluationData>;
     /**
      *
-     * @type {string | Array<string>}
+     * @type {Aiwhatwentwell}
      * @memberof ConversationEvaluation
      */
-    aiWhatWentWell: string | Array<string> | null;
+    'aiWhatWentWell': Aiwhatwentwell | null;
     /**
      *
-     * @type {string | Array<string>}
+     * @type {Aiwhatcanbeimproved}
      * @memberof ConversationEvaluation
      */
-    aiWhatCanBeImproved: string | Array<string> | null;
+    'aiWhatCanBeImproved': Aiwhatcanbeimproved | null;
     /**
      *
      * @type {string}
      * @memberof ConversationEvaluation
      */
-    humanEvaluationSummary: string | null;
+    'humanEvaluationSummary': string | null;
     /**
      *
      * @type {Array<ConversationEvaluationData>}
      * @memberof ConversationEvaluation
      */
-    humanEvaluations: Array<ConversationEvaluationData> | null;
+    'humanEvaluations': Array<ConversationEvaluationData> | null;
     /**
      *
-     * @type {string | Array<string>}
+     * @type {Humanwhatwentwell}
      * @memberof ConversationEvaluation
      */
-    humanWhatWentWell: string | Array<string> | null;
+    'humanWhatWentWell': Humanwhatwentwell | null;
     /**
      *
-     * @type {string | Array<string>}
+     * @type {Humanwhatcanbeimproved}
      * @memberof ConversationEvaluation
      */
-    humanWhatCanBeImproved: string | Array<string> | null;
+    'humanWhatCanBeImproved': Humanwhatcanbeimproved | null;
 }
 /**
  * Model which stores the result of the evaluation metric for a conversation
@@ -1952,19 +2120,19 @@ export interface ConversationEvaluationData {
      * @type {string}
      * @memberof ConversationEvaluationData
      */
-    name?: string;
+    'name'?: string;
     /**
      * Description about the evaluation metric
      * @type {string}
      * @memberof ConversationEvaluationData
      */
-    description?: string;
+    'description'?: string;
     /**
      * Value of the evaluation metric
      * @type {string}
      * @memberof ConversationEvaluationData
      */
-    value?: string;
+    'value'?: string;
 }
 /**
  * Model which stores the details of each evaluation metric
@@ -1977,13 +2145,13 @@ export interface ConversationEvaluationMetric {
      * @type {string}
      * @memberof ConversationEvaluationMetric
      */
-    name?: string;
+    'name'?: string;
     /**
      * Description about the evaluation metric
      * @type {string}
      * @memberof ConversationEvaluationMetric
      */
-    description?: string;
+    'description'?: string;
 }
 /**
  * Model which stores all the evaluation metrics which is used to evaluate the conversation
@@ -1996,13 +2164,13 @@ export interface ConversationEvaluationMetrics {
      * @type {Array<ConversationEvaluationMetric>}
      * @memberof ConversationEvaluationMetrics
      */
-    qualitativeMetrics: Array<ConversationEvaluationMetric> | null;
+    'qualitativeMetrics': Array<ConversationEvaluationMetric> | null;
     /**
      *
      * @type {Array<ConversationEvaluationMetric>}
      * @memberof ConversationEvaluationMetrics
      */
-    quantitativeMetrics: Array<ConversationEvaluationMetric> | null;
+    'quantitativeMetrics': Array<ConversationEvaluationMetric> | null;
 }
 /**
  * Any feedback added to the conversation by business is managed here.
@@ -2015,55 +2183,55 @@ export interface ConversationFeedback {
      * @type {string}
      * @memberof ConversationFeedback
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    conversationId?: string;
+    'conversationId'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    feedback?: string;
+    'feedback'?: string;
     /**
      *
      * @type {number}
      * @memberof ConversationFeedback
      */
-    rating?: number;
+    'rating'?: number;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationFeedback
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
@@ -2076,79 +2244,79 @@ export interface ConversationInput {
      * @type {string}
      * @memberof ConversationInput
      */
-    source: string;
+    'source': string;
     /**
      * Type of the conversation source
      * @type {ConversationSourceType}
      * @memberof ConversationInput
      */
-    sourceType: ConversationSourceType;
+    'sourceType': ConversationSourceType;
     /**
      * AI agent which handled the conversation
      * @type {string}
      * @memberof ConversationInput
      */
-    agentId: string;
+    'agentId': string;
     /**
-     * App in which the conversation is created
+     *
      * @type {AppEnumInput}
      * @memberof ConversationInput
      */
-    app?: AppEnumInput | null;
+    'app'?: AppEnumInput | null;
     /**
-     * URL to the full transcript of the conversation
+     *
      * @type {Array<DialogLine>}
      * @memberof ConversationInput
      */
-    transcriptText?: Array<DialogLine> | null;
+    'transcriptText'?: Array<DialogLine> | null;
     /**
-     * Summary of the conversation
+     *
      * @type {string}
      * @memberof ConversationInput
      */
-    transcriptSummary?: string | null;
+    'transcriptSummary'?: string | null;
     /**
-     * URL to the recording of the conversation
+     *
      * @type {string}
      * @memberof ConversationInput
      */
-    transcriptRecordingUrl?: string | null;
+    'transcriptRecordingUrl'?: string | null;
     /**
      * Start time of the conversation
      * @type {string}
      * @memberof ConversationInput
      */
-    timestampStart: string;
+    'timestampStart': string;
     /**
-     * End time of the conversation
+     *
      * @type {string}
      * @memberof ConversationInput
      */
-    timestampEnd?: string | null;
+    'timestampEnd'?: string | null;
     /**
-     * Analytics of the conversation
+     *
      * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationInput
      */
-    conversationAnalytics?: ConversationAnalyticsModelInput | null;
+    'conversationAnalytics'?: ConversationAnalyticsModelInput | null;
     /**
-     * Comments from the admin on the conversation
+     *
      * @type {Array<Comment>}
      * @memberof ConversationInput
      */
-    adminComments?: Array<Comment> | null;
+    'adminComments'?: Array<Comment> | null;
     /**
-     * Stats of the conversation
+     *
      * @type {ConversationStatsModel}
      * @memberof ConversationInput
      */
-    conversationStats?: ConversationStatsModel | null;
+    'conversationStats'?: ConversationStatsModel | null;
     /**
-     * Evaluation of the conversation
+     *
      * @type {ConversationEvaluation}
      * @memberof ConversationInput
      */
-    evaluation?: ConversationEvaluation | null;
+    'evaluation'?: ConversationEvaluation | null;
 }
 /**
  * Any conversation happening between the end user and assistant is stored in this table
@@ -2161,132 +2329,133 @@ export interface ConversationOutput {
      * @type {string}
      * @memberof ConversationOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    prospectId?: string | null;
+    'prospectId'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    source?: string;
+    'source'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    sourceType?: string;
+    'sourceType'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    aiAgentId?: string;
+    'aiAgentId'?: string;
     /**
      *
      * @type {Array<DialogLine>}
      * @memberof ConversationOutput
      */
-    transcriptText?: Array<DialogLine> | null;
+    'transcriptText'?: Array<DialogLine> | null;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    transcriptSummary?: string | null;
+    'transcriptSummary'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    transcriptRecordingUrl?: string | null;
+    'transcriptRecordingUrl'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    timestampStart?: string;
+    'timestampStart'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    timestampEnd?: string | null;
+    'timestampEnd'?: string | null;
     /**
-     * Analytics of the conversation
+     *
      * @type {ConversationAnalyticsModelInput}
      * @memberof ConversationOutput
      */
-    conversationAnalytics?: ConversationAnalyticsModelInput | null;
+    'conversationAnalytics'?: ConversationAnalyticsModelInput | null;
     /**
-     * Stats of the conversation
+     *
      * @type {ConversationStatsModel}
      * @memberof ConversationOutput
      */
-    conversationStats?: ConversationStatsModel | null;
+    'conversationStats'?: ConversationStatsModel | null;
     /**
-     * Application under which the conversation is created
+     *
      * @type {AppEnumOutput}
      * @memberof ConversationOutput
      */
-    app?: AppEnumOutput | null;
+    'app'?: AppEnumOutput | null;
     /**
-     * Evaluation of the conversation
+     *
      * @type {ConversationEvaluation}
      * @memberof ConversationOutput
      */
-    evaluation?: ConversationEvaluation | null;
+    'evaluation'?: ConversationEvaluation | null;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    status: string;
+    'status': string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum ConversationSourceType {
-    BROWSER = "BROWSER",
-    TWILIO = "TWILIO",
-    PLIVO = "PLIVO"
-}
+export declare const ConversationSourceType: {
+    readonly Browser: "BROWSER";
+    readonly Twilio: "TWILIO";
+    readonly Plivo: "PLIVO";
+};
+export declare type ConversationSourceType = typeof ConversationSourceType[keyof typeof ConversationSourceType];
 /**
  *
  * @export
@@ -2298,25 +2467,25 @@ export interface ConversationStartEvent {
      * @type {string}
      * @memberof ConversationStartEvent
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEvent
      */
-    version?: string;
+    'version'?: string;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEvent
      */
-    event_name: string;
+    'event_name': string;
     /**
      *
      * @type {ConversationStartEventPayload}
      * @memberof ConversationStartEvent
      */
-    payload?: ConversationStartEventPayload;
+    'payload'?: ConversationStartEventPayload;
 }
 /**
  *
@@ -2329,45 +2498,42 @@ export interface ConversationStartEventPayload {
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    type: ConversationStartEventPayloadTypeEnum;
+    'type': ConversationStartEventPayloadTypeEnum;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    connection_id: string;
+    'connection_id': string;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    conversation_id: string;
+    'conversation_id': string;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    ai_agent_id: string;
+    'ai_agent_id': string;
     /**
      *
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    org_id: string;
+    'org_id': string;
     /**
      *
      * @type {object}
      * @memberof ConversationStartEventPayload
      */
-    caller_id: object | null;
+    'caller_id': object | null;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ConversationStartEventPayloadTypeEnum {
-    ConversationStart = "conversation_start"
-}
+export declare const ConversationStartEventPayloadTypeEnum: {
+    readonly ConversationStart: "conversation_start";
+};
+export declare type ConversationStartEventPayloadTypeEnum = typeof ConversationStartEventPayloadTypeEnum[keyof typeof ConversationStartEventPayloadTypeEnum];
 /**
  *
  * @export
@@ -2379,19 +2545,19 @@ export interface ConversationStatsModel {
      * @type {number}
      * @memberof ConversationStatsModel
      */
-    total_dialog: number;
+    'total_dialog': number;
     /**
      * Ratio of Agent dialogs to total dialogs
      * @type {number}
      * @memberof ConversationStatsModel
      */
-    agent_dialog_ratio: number;
+    'agent_dialog_ratio': number;
     /**
      * Ratio of User dialogs to total dialogs
      * @type {number}
      * @memberof ConversationStatsModel
      */
-    user_dialog_ratio: number;
+    'user_dialog_ratio': number;
 }
 /**
  *
@@ -2404,13 +2570,13 @@ export interface CountryInfo {
      * @type {string}
      * @memberof CountryInfo
      */
-    code: string;
+    'code': string;
     /**
      *
      * @type {string}
      * @memberof CountryInfo
      */
-    name: string;
+    'name': string;
 }
 /**
  * Course represents a course that can be used in a scenario
@@ -2423,87 +2589,89 @@ export interface Course {
      * @type {string}
      * @memberof Course
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Course
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Course
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Course
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Course
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the course
      * @type {string}
      * @memberof Course
      */
-    name: string;
+    'name': string;
     /**
-     * The photo URL of the course
+     *
      * @type {string}
      * @memberof Course
      */
-    photoUrl?: string | null;
+    'photoUrl'?: string | null;
     /**
      * The description of the course
      * @type {string}
      * @memberof Course
      */
-    description: string;
+    'description': string;
     /**
      * The status of the course
      * @type {string}
      * @memberof Course
      */
-    status: string;
+    'status': string;
     /**
-     * The tags of the course
+     *
      * @type {Array<string>}
      * @memberof Course
      */
-    tags?: Array<string> | null;
+    'tags'?: Array<string> | null;
     /**
      * The unique identifier of the course
      * @type {string}
      * @memberof Course
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum CourseAssignmentStatus {
-    Assigned = "assigned",
-    Unassigned = "unassigned"
-}
+export declare const CourseAssignmentStatus: {
+    readonly Assigned: "assigned";
+    readonly Unassigned: "unassigned";
+};
+export declare type CourseAssignmentStatus = typeof CourseAssignmentStatus[keyof typeof CourseAssignmentStatus];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum CourseCompletionStatus {
-    NOTSTARTED = "NOT_STARTED",
-    INPROGRESS = "IN_PROGRESS",
-    COMPLETED = "COMPLETED"
-}
+export declare const CourseCompletionStatus: {
+    readonly NotStarted: "NOT_STARTED";
+    readonly InProgress: "IN_PROGRESS";
+    readonly Completed: "COMPLETED";
+};
+export declare type CourseCompletionStatus = typeof CourseCompletionStatus[keyof typeof CourseCompletionStatus];
 /**
  *
  * @export
@@ -2515,31 +2683,31 @@ export interface CourseCore {
      * @type {string}
      * @memberof CourseCore
      */
-    name: string;
+    'name': string;
     /**
-     * The photo URL of the course
+     *
      * @type {string}
      * @memberof CourseCore
      */
-    photoUrl?: string | null;
+    'photoUrl'?: string | null;
     /**
      * The description of the course
      * @type {string}
      * @memberof CourseCore
      */
-    description: string;
+    'description': string;
     /**
      * The status of the course
      * @type {string}
      * @memberof CourseCore
      */
-    status: string;
+    'status': string;
     /**
-     * The tags of the course
+     *
      * @type {Array<string>}
      * @memberof CourseCore
      */
-    tags?: Array<string> | null;
+    'tags'?: Array<string> | null;
 }
 /**
  *
@@ -2552,13 +2720,13 @@ export interface CourseRequest {
      * @type {CourseCore}
      * @memberof CourseRequest
      */
-    course: CourseCore;
+    'course': CourseCore;
     /**
      *
      * @type {Array<ModuleCore>}
      * @memberof CourseRequest
      */
-    modules: Array<ModuleCore>;
+    'modules': Array<ModuleCore>;
 }
 /**
  *
@@ -2571,13 +2739,13 @@ export interface CourseResponse {
      * @type {Course}
      * @memberof CourseResponse
      */
-    course: Course;
+    'course': Course;
     /**
      *
      * @type {Array<Module>}
      * @memberof CourseResponse
      */
-    modules: Array<Module>;
+    'modules': Array<Module>;
 }
 /**
  *
@@ -2590,13 +2758,13 @@ export interface CourseUpdateRequest {
      * @type {CourseCore}
      * @memberof CourseUpdateRequest
      */
-    course: CourseCore;
+    'course': CourseCore;
     /**
      *
      * @type {Array<ModuleUpdateRequest>}
      * @memberof CourseUpdateRequest
      */
-    modules: Array<ModuleUpdateRequest>;
+    'modules': Array<ModuleUpdateRequest>;
 }
 /**
  *
@@ -2609,14 +2777,147 @@ export interface CourseWithAssignmentStatus {
      * @type {Course}
      * @memberof CourseWithAssignmentStatus
      */
-    course: Course;
+    'course': Course;
     /**
      * Course assignment status (assigned/unassigned)
      * @type {CourseAssignmentStatus}
      * @memberof CourseWithAssignmentStatus
      */
-    status?: CourseAssignmentStatus;
+    'status'?: CourseAssignmentStatus;
 }
+/**
+ * Either \'all\' or a list of course IDs
+ * @export
+ * @interface Courses
+ */
+export interface Courses {
+}
+/**
+ *
+ * @export
+ * @interface CreateScenarioRequest
+ */
+export interface CreateScenarioRequest {
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'name': string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'description': string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof CreateScenarioRequest
+     */
+    'objections'?: Array<Objection>;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'callType'?: string | null;
+    /**
+     * The goals to be achieved for the scenario
+     * @type {Array<GoalInput>}
+     * @memberof CreateScenarioRequest
+     */
+    'goals'?: Array<GoalInput>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof CreateScenarioRequest
+     */
+    'playbook'?: Array<Step>;
+    /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof CreateScenarioRequest
+     */
+    'isInherited'?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'evaluatorId'?: string | null;
+    /**
+     *
+     * @type {EvaluatorRequest}
+     * @memberof CreateScenarioRequest
+     */
+    'evaluator'?: EvaluatorRequest | null;
+    /**
+     * The status of the scenario
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'status'?: string;
+}
+/**
+ * OAuth or API key authentication configuration
+ * @export
+ * @interface Credentials
+ */
+export interface Credentials {
+    /**
+     * Credential type identifier
+     * @type {string}
+     * @memberof Credentials
+     */
+    'credentialsType'?: CredentialsCredentialsTypeEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof Credentials
+     */
+    'code'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Credentials
+     */
+    'accessToken'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Credentials
+     */
+    'refreshToken'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Credentials
+     */
+    'expiresAt'?: string | null;
+    /**
+     * The API key for the app
+     * @type {string}
+     * @memberof Credentials
+     */
+    'apiKey': string;
+    /**
+     * The username for the app
+     * @type {string}
+     * @memberof Credentials
+     */
+    'username': string;
+    /**
+     * The password for the app
+     * @type {string}
+     * @memberof Credentials
+     */
+    'password': string;
+}
+export declare const CredentialsCredentialsTypeEnum: {
+    readonly Noauth: "noauth";
+};
+export declare type CredentialsCredentialsTypeEnum = typeof CredentialsCredentialsTypeEnum[keyof typeof CredentialsCredentialsTypeEnum];
 /**
  * Credits details of the business
  * @export
@@ -2628,61 +2929,62 @@ export interface Credit {
      * @type {string}
      * @memberof Credit
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    creditTypeName?: string;
+    'creditTypeName'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    totalAvailable?: string;
+    'totalAvailable'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    consumed?: string;
+    'consumed'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    durationStart?: string;
+    'durationStart'?: string;
     /**
      *
      * @type {string}
      * @memberof Credit
      */
-    durationEnd?: string;
+    'durationEnd'?: string;
 }
 /**
  * Enum for the type of credit
  * @export
  * @enum {string}
  */
-export declare enum CreditTypeEnum {
-    PhoneNumbers = "phone_numbers",
-    CallSeconds = "call_seconds",
-    CallHours = "call_hours",
-    Emails = "emails",
-    LinkedInScraping = "linked_in_scraping",
-    Courses = "courses",
-    RecordingAndTranscription = "recording_and_transcription",
-    Users = "users",
-    AdvancedIntelligence = "advanced_intelligence",
-    RolePlayCustomization = "role_play_customization"
-}
+export declare const CreditTypeEnum: {
+    readonly PhoneNumbers: "phone_numbers";
+    readonly CallSeconds: "call_seconds";
+    readonly CallHours: "call_hours";
+    readonly Emails: "emails";
+    readonly LinkedInScraping: "linked_in_scraping";
+    readonly Courses: "courses";
+    readonly RecordingAndTranscription: "recording_and_transcription";
+    readonly Users: "users";
+    readonly AdvancedIntelligence: "advanced_intelligence";
+    readonly RolePlayCustomization: "role_play_customization";
+};
+export declare type CreditTypeEnum = typeof CreditTypeEnum[keyof typeof CreditTypeEnum];
 /**
  *
  * @export
@@ -2690,70 +2992,80 @@ export declare enum CreditTypeEnum {
  */
 export interface CustomerBranding {
     /**
-     * Name of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
-     * Brand color of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    brandColor?: string | null;
+    'brandColor'?: string | null;
     /**
-     * Button color of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    buttonColor?: string | null;
+    'buttonColor'?: string | null;
     /**
-     * Secondary color of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    secondaryColor?: string | null;
+    'secondaryColor'?: string | null;
     /**
-     * Text color of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    textColor?: string | null;
+    'textColor'?: string | null;
     /**
-     * Favicon of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    favicon?: string | null;
+    'favicon'?: string | null;
     /**
-     * Favicon URL of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    faviconUrl?: string | null;
+    'faviconUrl'?: string | null;
     /**
-     * Logo of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    logo?: string | null;
+    'logo'?: string | null;
     /**
-     * Logo URL of the organization
+     *
      * @type {string}
      * @memberof CustomerBranding
      */
-    logoUrl?: string | null;
+    'logoUrl'?: string | null;
+}
+/**
+ * Either \'all\' or a list of customer IDs
+ * @export
+ * @interface Customers
+ */
+export interface Customers {
 }
 /**
  *
  * @export
- * @enum {string}
+ * @interface DecisionMakingStyle
  */
-export declare enum DecisionMakingStyle {
-    Logical = "logical",
-    Emotional = "emotional",
-    Impulsive = "impulsive",
-    Hesitant = "hesitant"
+export interface DecisionMakingStyle {
+}
+/**
+ *
+ * @export
+ * @interface DecisionMakingStyle1
+ */
+export interface DecisionMakingStyle1 {
 }
 /**
  *
@@ -2766,36 +3078,33 @@ export interface DialogLine {
      * @type {string}
      * @memberof DialogLine
      */
-    speaker: DialogLineSpeakerEnum;
+    'speaker': DialogLineSpeakerEnum;
     /**
      *
      * @type {string}
      * @memberof DialogLine
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {string}
      * @memberof DialogLine
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      *
      * @type {string}
      * @memberof DialogLine
      */
-    message_id: string;
+    'message_id': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum DialogLineSpeakerEnum {
-    USER = "USER",
-    AI = "AI",
-    TOOL = "TOOL",
-    AITOOLREQUEST = "AI - TOOL REQUEST"
-}
+export declare const DialogLineSpeakerEnum: {
+    readonly User: "USER";
+    readonly Ai: "AI";
+    readonly Tool: "TOOL";
+    readonly AiToolRequest: "AI - TOOL REQUEST";
+};
+export declare type DialogLineSpeakerEnum = typeof DialogLineSpeakerEnum[keyof typeof DialogLineSpeakerEnum];
 /**
  *
  * @export
@@ -2807,29 +3116,100 @@ export interface DialogWordWithTimestamp {
      * @type {string}
      * @memberof DialogWordWithTimestamp
      */
-    word: string;
+    'word': string;
     /**
      *
      * @type {number}
      * @memberof DialogWordWithTimestamp
      */
-    start_at_milliseconds: number;
+    'start_at_milliseconds': number;
     /**
      *
      * @type {number}
      * @memberof DialogWordWithTimestamp
      */
-    end_at_milliseconds: number;
+    'end_at_milliseconds': number;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum EngagementLevel {
-    HighlyEngaged = "highly engaged",
-    Distracted = "distracted",
-    Uninterested = "uninterested"
+export declare const EmbeddingsModelConfig: {
+    readonly CustomPropsDimensionLength1536maxInputToken8192ModelNameTextEmbeddingsOpenaiModelProviderOpenai: "{\"CustomProps\":{\"dimension_length\":1536,\"max_input_token\":8192},\"ModelName\":\"text-embeddings-openai\",\"ModelProvider\":\"openai\"}";
+    readonly CustomPropsModelNameTextEmbeddingsGeminiModelProviderGoogle: "{\"CustomProps\":{},\"ModelName\":\"text-embeddings-gemini\",\"ModelProvider\":\"google\"}";
+    readonly CustomPropsDimensionLength768maxInputToken8192modelKwargsDeviceCputrustRemoteCodeTrueModelNameNomicAiNomicEmbedTextV1ModelProviderHuggingface: "{\"CustomProps\":{\"dimension_length\":768,\"max_input_token\":8192,\"model_kwargs\":{\"device\":\"cpu\",\"trust_remote_code\":true}},\"ModelName\":\"nomic-ai/nomic-embed-text-v1\",\"ModelProvider\":\"huggingface\"}";
+    readonly CustomPropsDimensionLength1024maxInputToken512ModelNameIntfloatE5LargeModelProviderHuggingface: "{\"CustomProps\":{\"dimension_length\":1024,\"max_input_token\":512},\"ModelName\":\"intfloat/e5-large\",\"ModelProvider\":\"huggingface\"}";
+    readonly CustomPropsDimensionLength384maxInputToken256ModelNameSentenceTransformersAllMiniLmL6V2ModelProviderHuggingface: "{\"CustomProps\":{\"dimension_length\":384,\"max_input_token\":256},\"ModelName\":\"sentence-transformers/all-MiniLM-L6-v2\",\"ModelProvider\":\"huggingface\"}";
+};
+export declare type EmbeddingsModelConfig = typeof EmbeddingsModelConfig[keyof typeof EmbeddingsModelConfig];
+/**
+ * Endpoint for the action
+ * @export
+ * @interface Endpoint
+ */
+export interface Endpoint {
+    /**
+     * Action endpoint URL
+     * @type {string}
+     * @memberof Endpoint
+     */
+    'url': string;
+    /**
+     * Method to be used for invoking the endpoint
+     * @type {string}
+     * @memberof Endpoint
+     */
+    'method'?: EndpointMethodEnum;
+    /**
+     *
+     * @type {object}
+     * @memberof Endpoint
+     */
+    'headers'?: object | null;
+    /**
+     *
+     * @type {object}
+     * @memberof Endpoint
+     */
+    'payload'?: object | null;
+    /**
+     * Module where the action is defined
+     * @type {string}
+     * @memberof Endpoint
+     */
+    'module': string;
+    /**
+     * Function to be called inside the module
+     * @type {string}
+     * @memberof Endpoint
+     */
+    'function': string;
+    /**
+     * Agentic workflow id
+     * @type {string}
+     * @memberof Endpoint
+     */
+    'workflowId': string;
+}
+export declare const EndpointMethodEnum: {
+    readonly Get: "GET";
+    readonly Post: "POST";
+};
+export declare type EndpointMethodEnum = typeof EndpointMethodEnum[keyof typeof EndpointMethodEnum];
+/**
+ *
+ * @export
+ * @interface EngagementLevel
+ */
+export interface EngagementLevel {
+}
+/**
+ *
+ * @export
+ * @interface EngagementLevel1
+ */
+export interface EngagementLevel1 {
 }
 /**
  * Mapping table between entities and their tags (simple string tags)
@@ -2842,55 +3222,55 @@ export interface EntityTag {
      * @type {string}
      * @memberof EntityTag
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof EntityTag
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof EntityTag
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof EntityTag
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof EntityTag
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The unique identifier of the entity tag
      * @type {string}
      * @memberof EntityTag
      */
-    id?: string;
+    'id'?: string;
     /**
      * Type of entity being tagged (e.g., scenario, persona, course, evaluator)
      * @type {string}
      * @memberof EntityTag
      */
-    entityType?: string;
+    'entityType'?: string;
     /**
      * ID of the entity being tagged
      * @type {string}
      * @memberof EntityTag
      */
-    entityId?: string;
+    'entityId'?: string;
     /**
      * Name of the tag
      * @type {string}
      * @memberof EntityTag
      */
-    tagName?: string;
+    'tagName'?: string;
 }
 /**
  * Model which stores the result of the evaluation metric for a conversation
@@ -2899,17 +3279,17 @@ export interface EntityTag {
  */
 export interface Evaluation {
     /**
-     * Feedback on how the role player performed in the conversation for the specific goal and the feedback should be based on the goal description and the conversation details provided.
+     *
      * @type {string}
      * @memberof Evaluation
      */
-    evaluation_result?: string | null;
+    'evaluation_result'?: string | null;
     /**
-     * Out of 10, what is the score that the role player got for the specific goal specific to this conversation.          The score should ONLY be provided when there is sufficient context and evidence in the conversation to make an accurate assessment.         If there is insufficient information or context to make a fair evaluation, the score should be -1.         When providing a score, it must be justified by specific examples and behaviors from the conversation that align with the goal criteria.
+     *
      * @type {number}
      * @memberof Evaluation
      */
-    score?: number | null;
+    'score'?: number | null;
 }
 /**
  *
@@ -2922,73 +3302,73 @@ export interface Evaluator {
      * @type {string}
      * @memberof Evaluator
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Evaluator
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Evaluator
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Evaluator
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Evaluator
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the evaluator
      * @type {string}
      * @memberof Evaluator
      */
-    name: string;
+    'name': string;
     /**
      * The description of the evaluator
      * @type {string}
      * @memberof Evaluator
      */
-    description: string;
+    'description': string;
     /**
-     * The ID of the goals
+     *
      * @type {string}
      * @memberof Evaluator
      */
-    goals_id?: string | null;
+    'goals_id'?: string | null;
     /**
-     * The ID of the tracker
+     *
      * @type {string}
      * @memberof Evaluator
      */
-    tracker_id?: string | null;
+    'tracker_id'?: string | null;
     /**
-     * The source of the playbook
+     *
      * @type {Array<string>}
      * @memberof Evaluator
      */
-    generator_source?: Array<string> | null;
+    'generator_source'?: Array<string> | null;
     /**
      * The status of the evaluator
      * @type {string}
      * @memberof Evaluator
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the evaluator
      * @type {string}
      * @memberof Evaluator
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -3001,37 +3381,148 @@ export interface EvaluatorCore {
      * @type {string}
      * @memberof EvaluatorCore
      */
-    name: string;
+    'name': string;
     /**
      * The description of the evaluator
      * @type {string}
      * @memberof EvaluatorCore
      */
-    description: string;
+    'description': string;
     /**
-     * The ID of the goals
+     *
      * @type {string}
      * @memberof EvaluatorCore
      */
-    goals_id?: string | null;
+    'goals_id'?: string | null;
     /**
-     * The ID of the tracker
+     *
      * @type {string}
      * @memberof EvaluatorCore
      */
-    tracker_id?: string | null;
+    'tracker_id'?: string | null;
     /**
-     * The source of the playbook
+     *
      * @type {Array<string>}
      * @memberof EvaluatorCore
      */
-    generator_source?: Array<string> | null;
+    'generator_source'?: Array<string> | null;
     /**
      * The status of the evaluator
      * @type {string}
      * @memberof EvaluatorCore
      */
-    status?: string;
+    'status'?: string;
+}
+/**
+ *
+ * @export
+ * @interface EvaluatorRequest
+ */
+export interface EvaluatorRequest {
+    /**
+     * The name of the evaluator
+     * @type {string}
+     * @memberof EvaluatorRequest
+     */
+    'name': string;
+    /**
+     * The description of the evaluator
+     * @type {string}
+     * @memberof EvaluatorRequest
+     */
+    'description': string;
+    /**
+     * The goals for the evaluator
+     * @type {GoalCoreInput}
+     * @memberof EvaluatorRequest
+     */
+    'goals': GoalCoreInput;
+}
+/**
+ * Response model for evaluator with goals
+ * @export
+ * @interface EvaluatorResponse
+ */
+export interface EvaluatorResponse {
+    /**
+     * The ID of the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'id': string;
+    /**
+     * The name of the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'name': string;
+    /**
+     * The description of the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'description': string;
+    /**
+     *
+     * @type {GoalCoreOutput}
+     * @memberof EvaluatorResponse
+     */
+    'goals'?: GoalCoreOutput | null;
+    /**
+     *
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'goals_id'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'tracker_id'?: string | null;
+    /**
+     * The status of the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'status': string;
+    /**
+     * The organization ID
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'orgId': string;
+    /**
+     * The user who created the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'createdBy': string;
+    /**
+     * The creation timestamp
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'createdAt': string;
+    /**
+     * The user who last updated the evaluator
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'updatedBy': string;
+    /**
+     * The last update timestamp
+     * @type {string}
+     * @memberof EvaluatorResponse
+     */
+    'updatedAt': string;
+}
+/**
+ *
+ * @export
+ * @interface Excitementlevel
+ */
+export interface Excitementlevel {
 }
 /**
  *
@@ -3044,19 +3535,19 @@ export interface ExternalReference {
      * @type {string}
      * @memberof ExternalReference
      */
-    providerName: string;
+    'providerName': string;
     /**
      * External service identifier
      * @type {string}
      * @memberof ExternalReference
      */
-    id: string;
+    'id': string;
     /**
-     * Props for the external reference
+     *
      * @type {object}
      * @memberof ExternalReference
      */
-    providerProps?: object | null;
+    'providerProps'?: object | null;
 }
 /**
  *
@@ -3069,19 +3560,19 @@ export interface ExternalServiceProviderInput {
      * @type {string}
      * @memberof ExternalServiceProviderInput
      */
-    providerName: string;
+    'providerName': string;
     /**
      * External service identifier
      * @type {string}
      * @memberof ExternalServiceProviderInput
      */
-    id: string;
+    'id': string;
     /**
-     * Props for the external service provider
+     *
      * @type {object}
      * @memberof ExternalServiceProviderInput
      */
-    providerProps: object | null;
+    'providerProps': object | null;
 }
 /**
  *
@@ -3094,19 +3585,19 @@ export interface ExternalServiceProviderOutput {
      * @type {string}
      * @memberof ExternalServiceProviderOutput
      */
-    providerName: string;
+    'providerName': string;
     /**
      *
      * @type {string}
      * @memberof ExternalServiceProviderOutput
      */
-    id: string;
+    'id': string;
     /**
      *
      * @type {object}
      * @memberof ExternalServiceProviderOutput
      */
-    providerProps: object | null;
+    'providerProps': object | null;
 }
 /**
  * Feedback represents a feedback that can be given to a persona
@@ -3119,157 +3610,163 @@ export interface Feedback {
      * @type {string}
      * @memberof Feedback
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Feedback
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Feedback
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Feedback
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Feedback
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The ID of the user who made the call
      * @type {string}
      * @memberof Feedback
      */
-    userId: string;
+    'userId': string;
     /**
-     * The name of the user who made the call
+     *
      * @type {string}
      * @memberof Feedback
      */
-    userName: string | null;
+    'userName': string | null;
     /**
-     * The ID of the AI agent
+     *
      * @type {string}
      * @memberof Feedback
      */
-    aiAgentId: string | null;
+    'userProfilePictureUrl'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Feedback
+     */
+    'aiAgentId': string | null;
     /**
      * The ID of the scenario
      * @type {string}
      * @memberof Feedback
      */
-    scenarioId: string;
+    'scenarioId': string;
     /**
-     * The name of the scenario
+     *
      * @type {string}
      * @memberof Feedback
      */
-    scenarioName: string | null;
+    'scenarioName': string | null;
     /**
      * The ID of the persona
      * @type {string}
      * @memberof Feedback
      */
-    personaId: string;
+    'personaId': string;
     /**
-     * The name of the persona
+     *
      * @type {string}
      * @memberof Feedback
      */
-    personaName: string | null;
+    'personaName': string | null;
     /**
      * The start timestamp of the conversation
      * @type {string}
      * @memberof Feedback
      */
-    startTimestamp: string;
+    'startTimestamp': string;
     /**
      * The end timestamp of the conversation
      * @type {string}
      * @memberof Feedback
      */
-    endTimestamp: string;
+    'endTimestamp': string;
     /**
      * The time in seconds when sparring started
      * @type {number}
      * @memberof Feedback
      */
-    startSparringAt?: number;
+    'startSparringAt'?: number;
     /**
      * The time in seconds when sparring ended
      * @type {number}
      * @memberof Feedback
      */
-    endSparringAt?: number;
+    'endSparringAt'?: number;
     /**
      * The top insights from the conversation
      * @type {Array<string>}
      * @memberof Feedback
      */
-    topInsights: Array<string>;
+    'topInsights': Array<string>;
     /**
      * The URL of the recording of the conversation
      * @type {string}
      * @memberof Feedback
      */
-    recordingUrl: string;
+    'recordingUrl': string;
     /**
      * The transcript of the conversation
      * @type {Array<SparrDialogLine>}
      * @memberof Feedback
      */
-    transcript: Array<SparrDialogLine>;
+    'transcript': Array<SparrDialogLine>;
     /**
-     * The complete transcript of the conversation
+     *
      * @type {Array<SparrDialogLine>}
      * @memberof Feedback
      */
-    completeTranscript?: Array<SparrDialogLine> | null;
+    'completeTranscript'?: Array<SparrDialogLine> | null;
     /**
-     * The transcript of the conversation with timestamp
+     *
      * @type {Array<SparrDialogLineWithTimestamp>}
      * @memberof Feedback
      */
-    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
      * The analytics of the conversation
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
      */
-    analytics: AnalyticsModelOutput;
+    'analytics': AnalyticsModelOutput;
     /**
      * The overall score of the conversation out of 100 based on the weightage of each goal
      * @type {number}
      * @memberof Feedback
      */
-    overallScore: number;
+    'overallScore': number;
     /**
      * The status of the feedback
      * @type {string}
      * @memberof Feedback
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the feedback
      * @type {string}
      * @memberof Feedback
      */
-    id?: string;
+    'id'?: string;
     /**
      * The version of the feedback
      * @type {number}
      * @memberof Feedback
      */
-    version?: number;
+    'version'?: number;
 }
 /**
  *
@@ -3282,115 +3779,121 @@ export interface FeedbackCore {
      * @type {string}
      * @memberof FeedbackCore
      */
-    userId: string;
+    'userId': string;
     /**
-     * The name of the user who made the call
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    userName: string | null;
+    'userName': string | null;
     /**
-     * The ID of the AI agent
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    aiAgentId: string | null;
+    'userProfilePictureUrl'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    'aiAgentId': string | null;
     /**
      * The ID of the scenario
      * @type {string}
      * @memberof FeedbackCore
      */
-    scenarioId: string;
+    'scenarioId': string;
     /**
-     * The name of the scenario
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    scenarioName: string | null;
+    'scenarioName': string | null;
     /**
      * The ID of the persona
      * @type {string}
      * @memberof FeedbackCore
      */
-    personaId: string;
+    'personaId': string;
     /**
-     * The name of the persona
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    personaName: string | null;
+    'personaName': string | null;
     /**
      * The start timestamp of the conversation
      * @type {string}
      * @memberof FeedbackCore
      */
-    startTimestamp: string;
+    'startTimestamp': string;
     /**
      * The end timestamp of the conversation
      * @type {string}
      * @memberof FeedbackCore
      */
-    endTimestamp: string;
+    'endTimestamp': string;
     /**
      * The time in seconds when sparring started
      * @type {number}
      * @memberof FeedbackCore
      */
-    startSparringAt?: number;
+    'startSparringAt'?: number;
     /**
      * The time in seconds when sparring ended
      * @type {number}
      * @memberof FeedbackCore
      */
-    endSparringAt?: number;
+    'endSparringAt'?: number;
     /**
      * The top insights from the conversation
      * @type {Array<string>}
      * @memberof FeedbackCore
      */
-    topInsights: Array<string>;
+    'topInsights': Array<string>;
     /**
      * The URL of the recording of the conversation
      * @type {string}
      * @memberof FeedbackCore
      */
-    recordingUrl: string;
+    'recordingUrl': string;
     /**
      * The transcript of the conversation
      * @type {Array<SparrDialogLine>}
      * @memberof FeedbackCore
      */
-    transcript: Array<SparrDialogLine>;
+    'transcript': Array<SparrDialogLine>;
     /**
-     * The complete transcript of the conversation
+     *
      * @type {Array<SparrDialogLine>}
      * @memberof FeedbackCore
      */
-    completeTranscript?: Array<SparrDialogLine> | null;
+    'completeTranscript'?: Array<SparrDialogLine> | null;
     /**
-     * The transcript of the conversation with timestamp
+     *
      * @type {Array<SparrDialogLineWithTimestamp>}
      * @memberof FeedbackCore
      */
-    transcriptWithTimestamp?: Array<SparrDialogLineWithTimestamp> | null;
+    'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
      * The analytics of the conversation
      * @type {AnalyticsModelInput}
      * @memberof FeedbackCore
      */
-    analytics: AnalyticsModelInput;
+    'analytics': AnalyticsModelInput;
     /**
      * The overall score of the conversation out of 100 based on the weightage of each goal
      * @type {number}
      * @memberof FeedbackCore
      */
-    overallScore: number;
+    'overallScore': number;
     /**
      * The status of the feedback
      * @type {string}
      * @memberof FeedbackCore
      */
-    status?: string;
+    'status'?: string;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -3403,49 +3906,49 @@ export interface Files {
      * @type {string}
      * @memberof Files
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    fileName?: string;
+    'fileName'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    fileUrl?: string;
+    'fileUrl'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Files
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
@@ -3455,17 +3958,30 @@ export interface Files {
 export interface FillerWords {
     /**
      *
-     * @type {any}
+     * @type {{ [key: string]: number; }}
      * @memberof FillerWords
      */
-    words: any | null;
+    'words': {
+        [key: string]: number;
+    } | null;
     /**
      *
      * @type {number}
      * @memberof FillerWords
      */
-    total: number | null;
+    'total': number | null;
 }
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare const FillersConfig: {
+    readonly ModelProviderDecisionTree: "{\"ModelProvider\":\"decision_tree\"}";
+    readonly ModelProviderNaiveBayes: "{\"ModelProvider\":\"naive_bayes\"}";
+    readonly ModelProviderRandom: "{\"ModelProvider\":\"random\"}";
+};
+export declare type FillersConfig = typeof FillersConfig[keyof typeof FillersConfig];
 /**
  *
  * @export
@@ -3477,41 +3993,45 @@ export interface FlexibleGenerationRequest {
      * @type {string}
      * @memberof FlexibleGenerationRequest
      */
-    name: string;
+    'name': string;
     /**
-     * Description for the generated evaluator
+     *
      * @type {string}
      * @memberof FlexibleGenerationRequest
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
-     * List of file IDs to generate content from
+     *
      * @type {Array<string>}
      * @memberof FlexibleGenerationRequest
      */
-    file_ids?: Array<string> | null;
+    'file_ids'?: Array<string> | null;
     /**
-     * Optional goals core data
-     * @type {GoalCore}
+     *
+     * @type {GoalCoreInput}
      * @memberof FlexibleGenerationRequest
      */
-    goals_core?: GoalCore | null;
+    'goals_core'?: GoalCoreInput | null;
     /**
-     * Optional tracker core data
+     *
      * @type {TrackerCore}
      * @memberof FlexibleGenerationRequest
      */
-    tracker_core?: TrackerCore | null;
+    'tracker_core'?: TrackerCore | null;
 }
 /**
  *
  * @export
- * @enum {string}
+ * @interface FrustrationTolerance
  */
-export declare enum FrustrationTolerance {
-    QuickToAnger = "quick to anger",
-    Understanding = "understanding",
-    Neutral = "neutral"
+export interface FrustrationTolerance {
+}
+/**
+ *
+ * @export
+ * @interface FrustrationTolerance1
+ */
+export interface FrustrationTolerance1 {
 }
 /**
  *
@@ -3524,19 +4044,19 @@ export interface GoalAnalyticsModelInput {
      * @type {Array<GoalEvaluationInput>}
      * @memberof GoalAnalyticsModelInput
      */
-    skills_goals?: Array<GoalEvaluationInput> | null;
+    'skills_goals'?: Array<GoalEvaluationInput> | null;
     /**
      *
      * @type {Array<GoalEvaluationInput>}
      * @memberof GoalAnalyticsModelInput
      */
-    process_goals?: Array<GoalEvaluationInput> | null;
+    'process_goals'?: Array<GoalEvaluationInput> | null;
     /**
      *
      * @type {Array<GoalEvaluationInput>}
      * @memberof GoalAnalyticsModelInput
      */
-    communication_goals?: Array<GoalEvaluationInput> | null;
+    'communication_goals'?: Array<GoalEvaluationInput> | null;
 }
 /**
  *
@@ -3549,62 +4069,105 @@ export interface GoalAnalyticsModelOutput {
      * @type {Array<GoalEvaluationOutput>}
      * @memberof GoalAnalyticsModelOutput
      */
-    skills_goals?: Array<GoalEvaluationOutput> | null;
+    'skills_goals'?: Array<GoalEvaluationOutput> | null;
     /**
      *
      * @type {Array<GoalEvaluationOutput>}
      * @memberof GoalAnalyticsModelOutput
      */
-    process_goals?: Array<GoalEvaluationOutput> | null;
+    'process_goals'?: Array<GoalEvaluationOutput> | null;
     /**
      *
      * @type {Array<GoalEvaluationOutput>}
      * @memberof GoalAnalyticsModelOutput
      */
-    communication_goals?: Array<GoalEvaluationOutput> | null;
+    'communication_goals'?: Array<GoalEvaluationOutput> | null;
 }
 /**
  *
  * @export
- * @interface GoalCore
+ * @interface GoalCoreInput
  */
-export interface GoalCore {
+export interface GoalCoreInput {
     /**
      * The name of the goals collection
      * @type {string}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    name: string;
+    'name': string;
     /**
      * The description of the goals collection
      * @type {string}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    description: string;
+    'description': string;
     /**
-     * The list of process goals
+     *
      * @type {Array<GoalInput>}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    process_goals?: Array<GoalInput> | null;
+    'process_goals'?: Array<GoalInput> | null;
     /**
-     * The list of skills goals
+     *
      * @type {Array<GoalInput>}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    skills_goals?: Array<GoalInput> | null;
+    'skills_goals'?: Array<GoalInput> | null;
     /**
-     * The list of communication goals
+     *
      * @type {Array<GoalInput>}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    communication_goals?: Array<GoalInput> | null;
+    'communication_goals'?: Array<GoalInput> | null;
     /**
      * The status of the goals collection
      * @type {string}
-     * @memberof GoalCore
+     * @memberof GoalCoreInput
      */
-    status?: string;
+    'status'?: string;
+}
+/**
+ *
+ * @export
+ * @interface GoalCoreOutput
+ */
+export interface GoalCoreOutput {
+    /**
+     * The name of the goals collection
+     * @type {string}
+     * @memberof GoalCoreOutput
+     */
+    'name': string;
+    /**
+     * The description of the goals collection
+     * @type {string}
+     * @memberof GoalCoreOutput
+     */
+    'description': string;
+    /**
+     *
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof GoalCoreOutput
+     */
+    'process_goals'?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     *
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof GoalCoreOutput
+     */
+    'skills_goals'?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     *
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof GoalCoreOutput
+     */
+    'communication_goals'?: Array<SparrModelsScenarioGoal> | null;
+    /**
+     * The status of the goals collection
+     * @type {string}
+     * @memberof GoalCoreOutput
+     */
+    'status'?: string;
 }
 /**
  *
@@ -3617,13 +4180,13 @@ export interface GoalEvaluationInput {
      * @type {GoalInput}
      * @memberof GoalEvaluationInput
      */
-    goal: GoalInput;
+    'goal': GoalInput;
     /**
      *
      * @type {Evaluation}
      * @memberof GoalEvaluationInput
      */
-    evaluation: Evaluation;
+    'evaluation': Evaluation;
 }
 /**
  *
@@ -3636,13 +4199,13 @@ export interface GoalEvaluationOutput {
      * @type {SparrModelsScenarioGoal}
      * @memberof GoalEvaluationOutput
      */
-    goal: SparrModelsScenarioGoal;
+    'goal': SparrModelsScenarioGoal;
     /**
      *
      * @type {Evaluation}
      * @memberof GoalEvaluationOutput
      */
-    evaluation: Evaluation;
+    'evaluation': Evaluation;
 }
 /**
  *
@@ -3655,19 +4218,19 @@ export interface GoalInput {
      * @type {string}
      * @memberof GoalInput
      */
-    name: string;
+    'name': string;
     /**
      * The description of the goal
      * @type {string}
      * @memberof GoalInput
      */
-    description: string;
+    'description': string;
     /**
      * The weightage of the goal in percentage
      * @type {number}
      * @memberof GoalInput
      */
-    weightage: number;
+    'weightage': number;
 }
 /**
  *
@@ -3680,31 +4243,31 @@ export interface GoalsSearchResponse {
      * @type {Array<SparrDbModelsGoal>}
      * @memberof GoalsSearchResponse
      */
-    items: Array<SparrDbModelsGoal>;
+    'items': Array<SparrDbModelsGoal>;
     /**
      *
      * @type {number}
      * @memberof GoalsSearchResponse
      */
-    total: number;
+    'total': number;
     /**
      *
      * @type {number}
      * @memberof GoalsSearchResponse
      */
-    pages: number;
+    'pages': number;
     /**
      *
      * @type {number}
      * @memberof GoalsSearchResponse
      */
-    current_page: number;
+    'current_page': number;
     /**
      *
      * @type {number}
      * @memberof GoalsSearchResponse
      */
-    page_size: number;
+    'page_size': number;
 }
 /**
  * Guest users who are not verified by Trata yet
@@ -3717,13 +4280,13 @@ export interface GuestInput {
      * @type {string}
      * @memberof GuestInput
      */
-    email: string;
+    'email': string;
     /**
      *
      * @type {Role}
      * @memberof GuestInput
      */
-    role: Role;
+    'role': Role;
 }
 /**
  * Guest users who are not verified by Trata yet. They will not be able to use Trata until they are verified.
@@ -3736,73 +4299,73 @@ export interface GuestOutput {
      * @type {string}
      * @memberof GuestOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    email?: string;
+    'email'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    role?: string;
+    'role'?: string;
     /**
      *
      * @type {boolean}
      * @memberof GuestOutput
      */
-    isEmailVerified?: boolean;
+    'isEmailVerified'?: boolean;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    last_sent_date?: string;
+    'last_sent_date'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    guestInviteCode?: string | null;
+    'guestInviteCode'?: string | null;
     /**
      *
      * @type {number}
      * @memberof GuestOutput
      */
-    sent_count?: number;
+    'sent_count'?: number;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof GuestOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
@@ -3815,7 +4378,7 @@ export interface HTTPValidationError {
      * @type {Array<ValidationError>}
      * @memberof HTTPValidationError
      */
-    detail?: Array<ValidationError>;
+    'detail'?: Array<ValidationError>;
 }
 /**
  * Reference to all business knowledge base will be stored in Hive
@@ -3828,49 +4391,49 @@ export interface Hive {
      * @type {string}
      * @memberof Hive
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {HiveContentOutput}
      * @memberof Hive
      */
-    content: HiveContentOutput;
+    'content': HiveContentOutput;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    status: string;
+    'status': string;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Hive
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
@@ -3883,25 +4446,25 @@ export interface HiveContentInput {
      * @type {HiveType}
      * @memberof HiveContentInput
      */
-    hiveType: HiveType;
+    'hiveType': HiveType;
     /**
-     * URL of the content
+     *
      * @type {string}
      * @memberof HiveContentInput
      */
-    url?: string | null;
+    'url'?: string | null;
     /**
-     * List of file ids to be referenced for the hive
+     *
      * @type {Array<string>}
      * @memberof HiveContentInput
      */
-    file_ids?: Array<string> | null;
+    'file_ids'?: Array<string> | null;
     /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     *
      * @type {object}
      * @memberof HiveContentInput
      */
-    hiveProps?: object | null;
+    'hiveProps'?: object | null;
 }
 /**
  *
@@ -3914,43 +4477,54 @@ export interface HiveContentOutput {
      * @type {HiveType}
      * @memberof HiveContentOutput
      */
-    hiveType: HiveType;
+    'hiveType': HiveType;
     /**
-     * URL of the content
+     *
      * @type {string}
      * @memberof HiveContentOutput
      */
-    url?: string | null;
+    'url'?: string | null;
     /**
-     * List of files to be referenced for the hive
+     *
      * @type {Array<Files>}
      * @memberof HiveContentOutput
      */
-    files?: Array<Files> | null;
+    'files'?: Array<Files> | null;
     /**
-     * To recursively crawl child pages, add this as props {\"crawl_child_pages\": true},  \"depth\": \"3\"
+     *
      * @type {object}
      * @memberof HiveContentOutput
      */
-    hiveProps?: object | null;
+    'hiveProps'?: object | null;
     /**
-     * To add any internal props, add this as props {\"last_crawl_time\": \"123123123123\"}
+     *
      * @type {object}
      * @memberof HiveContentOutput
      */
-    internalProps?: object | null;
+    'internalProps'?: object | null;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum HiveType {
-    WEBSITE = "WEBSITE",
-    GOOGLEDOCS = "GOOGLE_DOCS",
-    DOCS = "DOCS",
-    TRANSCRIPTS = "TRANSCRIPTS"
-}
+export declare const HiveStorageConfig: {
+    readonly CloudProviderGoogleCustomProps: "{\"CloudProvider\":\"google\",\"CustomProps\":{}}";
+    readonly CloudProviderAwsCustomProps: "{\"CloudProvider\":\"aws\",\"CustomProps\":{}}";
+};
+export declare type HiveStorageConfig = typeof HiveStorageConfig[keyof typeof HiveStorageConfig];
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare const HiveType: {
+    readonly Website: "WEBSITE";
+    readonly GoogleDocs: "GOOGLE_DOCS";
+    readonly Docs: "DOCS";
+    readonly Transcripts: "TRANSCRIPTS";
+};
+export declare type HiveType = typeof HiveType[keyof typeof HiveType];
 /**
  *
  * @export
@@ -3962,33 +4536,44 @@ export interface HttpActionEndpoint {
      * @type {string}
      * @memberof HttpActionEndpoint
      */
-    url: string;
+    'url': string;
     /**
      * Method to be used for invoking the endpoint
      * @type {string}
      * @memberof HttpActionEndpoint
      */
-    method?: HttpActionEndpointMethodEnum;
+    'method'?: HttpActionEndpointMethodEnum;
     /**
-     * Headers for the endpoint
+     *
      * @type {object}
      * @memberof HttpActionEndpoint
      */
-    headers?: object | null;
+    'headers'?: object | null;
     /**
-     * Payload for the endpoint
+     *
      * @type {object}
      * @memberof HttpActionEndpoint
      */
-    payload?: object | null;
+    'payload'?: object | null;
+}
+export declare const HttpActionEndpointMethodEnum: {
+    readonly Get: "GET";
+    readonly Post: "POST";
+};
+export declare type HttpActionEndpointMethodEnum = typeof HttpActionEndpointMethodEnum[keyof typeof HttpActionEndpointMethodEnum];
+/**
+ *
+ * @export
+ * @interface Humanwhatcanbeimproved
+ */
+export interface Humanwhatcanbeimproved {
 }
 /**
-    * @export
-    * @enum {string}
-    */
-export declare enum HttpActionEndpointMethodEnum {
-    GET = "GET",
-    POST = "POST"
+ *
+ * @export
+ * @interface Humanwhatwentwell
+ */
+export interface Humanwhatwentwell {
 }
 /**
  *
@@ -4001,31 +4586,51 @@ export interface IntelligenceProvider {
      * @type {string}
      * @memberof IntelligenceProvider
      */
-    providerName?: string | null;
+    'providerName'?: string | null;
     /**
      *
      * @type {string}
      * @memberof IntelligenceProvider
      */
-    model?: string | null;
+    'model'?: string | null;
     /**
      *
      * @type {object}
      * @memberof IntelligenceProvider
      */
-    providerProps?: object | null;
+    'providerProps'?: object | null;
 }
+/**
+ * Enum class representing intelligence provider
+ * @export
+ * @enum {string}
+ */
+export declare const IntelligenceProviderConfig: {
+    readonly CustomPropsModelNameGpt4o20240806ModelProviderOpenai: "{\"CustomProps\":{},\"ModelName\":\"gpt-4o-2024-08-06\",\"ModelProvider\":\"openai\"}";
+    readonly CustomPropsModelNameGpt4oRealtimePreviewModelProviderOpenaiRealtime: "{\"CustomProps\":{},\"ModelName\":\"gpt-4o-realtime-preview\",\"ModelProvider\":\"openai-realtime\"}";
+    readonly CustomPropsModelNameLlama3170bVersatileModelProviderGroq: "{\"CustomProps\":{},\"ModelName\":\"llama-3.1-70b-versatile\",\"ModelProvider\":\"groq\"}";
+    readonly CustomPropsModelNameClaude3Haiku20240307ModelProviderAnthropic: "{\"CustomProps\":{},\"ModelName\":\"claude-3-haiku-20240307\",\"ModelProvider\":\"anthropic\"}";
+    readonly CustomPropsModelNameGemini15Flash001ModelProviderGoogle: "{\"CustomProps\":{},\"ModelName\":\"gemini-1.5-flash-001\",\"ModelProvider\":\"google\"}";
+    readonly CustomPropsModelNameMistralaiMixtral8x7BInstructV01ModelProviderTogetherAi: "{\"CustomProps\":{},\"ModelName\":\"mistralai/Mixtral-8x7B-Instruct-v0.1\",\"ModelProvider\":\"together-ai\"}";
+    readonly CustomPropsModelNameMetaLlamaMetaLlama3170BInstructTurboModelProviderTogetherAi: "{\"CustomProps\":{},\"ModelName\":\"meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\",\"ModelProvider\":\"together-ai\"}";
+    readonly CustomPropsModelNameGoogleGemma7bModelProviderHuggingface: "{\"CustomProps\":{},\"ModelName\":\"google/gemma-7b\",\"ModelProvider\":\"huggingface\"}";
+    readonly CustomPropsModelNameMetaLlamaMetaLlama318BInstructModelProviderHuggingface: "{\"CustomProps\":{},\"ModelName\":\"meta-llama/Meta-Llama-3.1-8B-Instruct\",\"ModelProvider\":\"huggingface\"}";
+    readonly CustomPropsModelNameMistralaiMistral7BInstructV03ModelProviderHuggingface: "{\"CustomProps\":{},\"ModelName\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"ModelProvider\":\"huggingface\"}";
+    readonly CustomPropsModelNameMetaLlama38bInstructV10ModelProviderBedrock: "{\"CustomProps\":{},\"ModelName\":\"meta.llama3-8b-instruct-v1:0\",\"ModelProvider\":\"bedrock\"}";
+};
+export declare type IntelligenceProviderConfig = typeof IntelligenceProviderConfig[keyof typeof IntelligenceProviderConfig];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum InteractionTone {
-    Professional = "professional",
-    Casual = "casual",
-    Friendly = "friendly",
-    Authoritative = "authoritative"
-}
+export declare const InteractionTone: {
+    readonly Professional: "professional";
+    readonly Casual: "casual";
+    readonly Friendly: "friendly";
+    readonly Authoritative: "authoritative";
+};
+export declare type InteractionTone = typeof InteractionTone[keyof typeof InteractionTone];
 /**
  * Internal action endpoint to be used for calling the action inside the module. Not used by external users
  * @export
@@ -4037,24 +4642,25 @@ export interface InternalActionEndpoint {
      * @type {string}
      * @memberof InternalActionEndpoint
      */
-    module: string;
+    'module': string;
     /**
      * Function to be called inside the module
      * @type {string}
      * @memberof InternalActionEndpoint
      */
-    _function: string;
+    'function': string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum Language {
-    English = "English",
-    Spanish = "Spanish",
-    Hindi = "Hindi"
-}
+export declare const Language: {
+    readonly English: "English";
+    readonly Spanish: "Spanish";
+    readonly Hindi: "Hindi";
+};
+export declare type Language = typeof Language[keyof typeof Language];
 /**
  *
  * @export
@@ -4066,13 +4672,20 @@ export interface LanguageAccentCombo {
      * @type {Language}
      * @memberof LanguageAccentCombo
      */
-    language: Language;
+    'language': Language;
     /**
      *
      * @type {Accent}
      * @memberof LanguageAccentCombo
      */
-    accent: Accent;
+    'accent': Accent;
+}
+/**
+ *
+ * @export
+ * @interface LocationInner
+ */
+export interface LocationInner {
 }
 /**
  *
@@ -4085,25 +4698,25 @@ export interface LongestMonologue {
      * @type {string}
      * @memberof LongestMonologue
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {number}
      * @memberof LongestMonologue
      */
-    start_at_seconds: number;
+    'start_at_seconds': number;
     /**
      *
      * @type {number}
      * @memberof LongestMonologue
      */
-    end_at_seconds: number;
+    'end_at_seconds': number;
     /**
      *
      * @type {number}
      * @memberof LongestMonologue
      */
-    duration: number;
+    'duration': number;
 }
 /**
  * Simple metric data point with alias and value
@@ -4116,67 +4729,68 @@ export interface MetricDataPoint {
      * @type {string}
      * @memberof MetricDataPoint
      */
-    alias: string;
+    'alias': string;
     /**
-     * Aggregated metric value
+     *
      * @type {number}
      * @memberof MetricDataPoint
      */
-    value: number | null;
+    'value': number | null;
     /**
      * Aggregation function used
      * @type {AggregationFormulaOutput}
      * @memberof MetricDataPoint
      */
-    aggregation: AggregationFormulaOutput;
+    'aggregation': AggregationFormulaOutput;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum MetricNameInput {
-    CALLS = "CALLS",
-    CALLDURATION = "CALL_DURATION",
-    SPARRCALLS = "SPARR_CALLS",
-    SPARRCALLDURATION = "SPARR_CALL_DURATION",
-    APPOINTMENTSCHEDULED = "APPOINTMENT_SCHEDULED",
-    CREDITSCONSUMED = "CREDITS_CONSUMED",
-    CREDITSCONSUMEDPHONENUMBERS = "CREDITS_CONSUMED_PHONE_NUMBERS",
-    CREDITSCONSUMEDCALLSECONDS = "CREDITS_CONSUMED_CALL_SECONDS",
-    CREDITSCONSUMEDEMAILS = "CREDITS_CONSUMED_EMAILS",
-    CREDITSCONSUMEDLEADGENERATION = "CREDITS_CONSUMED_LEAD_GENERATION",
-    CREDITSCONSUMEDLINKEDINSCRAPING = "CREDITS_CONSUMED_LINKED_IN_SCRAPING",
-    CREDITSCONSUMEDCOURSES = "CREDITS_CONSUMED_COURSES",
-    CREDITSTOTAL = "CREDITS_TOTAL",
-    CREDITSTOTALPHONENUMBERS = "CREDITS_TOTAL_PHONE_NUMBERS",
-    CREDITSTOTALCALLSECONDS = "CREDITS_TOTAL_CALL_SECONDS",
-    CREDITSTOTALEMAILS = "CREDITS_TOTAL_EMAILS",
-    CREDITSTOTALLEADGENERATION = "CREDITS_TOTAL_LEAD_GENERATION",
-    CREDITSTOTALLINKEDINSCRAPING = "CREDITS_TOTAL_LINKED_IN_SCRAPING",
-    CREDITSTOTALCOURSES = "CREDITS_TOTAL_COURSES",
-    CREDITBURNRATE = "CREDIT_BURN_RATE",
-    CREDITBURNRATEPHONENUMBERS = "CREDIT_BURN_RATE_PHONE_NUMBERS",
-    CREDITBURNRATECALLSECONDS = "CREDIT_BURN_RATE_CALL_SECONDS",
-    CREDITBURNRATEEMAILS = "CREDIT_BURN_RATE_EMAILS",
-    CREDITBURNRATELEADGENERATION = "CREDIT_BURN_RATE_LEAD_GENERATION",
-    CREDITBURNRATELINKEDINSCRAPING = "CREDIT_BURN_RATE_LINKED_IN_SCRAPING",
-    CREDITBURNRATECOURSES = "CREDIT_BURN_RATE_COURSES",
-    TOTALREVENUE = "TOTAL_REVENUE",
-    PROFIT = "PROFIT",
-    REVENUEBYSUBSCRIPTION = "REVENUE_BY_SUBSCRIPTION",
-    REVENUEBYADDONS = "REVENUE_BY_ADD_ONS",
-    MONTHLYRECURRINGREVENUE = "MONTHLY_RECURRING_REVENUE",
-    ONETIMEREVENUE = "ONE_TIME_REVENUE",
-    ACTIVESUBSCRIPTIONS = "ACTIVE_SUBSCRIPTIONS",
-    NUMBEROFACTIVEPAYINGCUSTOMERS = "NUMBER_OF_ACTIVE_PAYING_CUSTOMERS",
-    AVERAGEREVENUEPERACTIVEPAYINGCUSTOMER = "AVERAGE_REVENUE_PER_ACTIVE_PAYING_CUSTOMER",
-    TOTALHOURSCONSUMED = "TOTAL_HOURS_CONSUMED",
-    PROSPECTS = "PROSPECTS",
-    INTERESTED = "INTERESTED",
-    NOTINTERESTED = "NOT_INTERESTED",
-    NEWCUSTOMERS = "NEW_CUSTOMERS"
-}
+export declare const MetricNameInput: {
+    readonly Calls: "CALLS";
+    readonly CallDuration: "CALL_DURATION";
+    readonly SparrCalls: "SPARR_CALLS";
+    readonly SparrCallDuration: "SPARR_CALL_DURATION";
+    readonly AppointmentScheduled: "APPOINTMENT_SCHEDULED";
+    readonly CreditsConsumed: "CREDITS_CONSUMED";
+    readonly CreditsConsumedPhoneNumbers: "CREDITS_CONSUMED_PHONE_NUMBERS";
+    readonly CreditsConsumedCallSeconds: "CREDITS_CONSUMED_CALL_SECONDS";
+    readonly CreditsConsumedEmails: "CREDITS_CONSUMED_EMAILS";
+    readonly CreditsConsumedLeadGeneration: "CREDITS_CONSUMED_LEAD_GENERATION";
+    readonly CreditsConsumedLinkedInScraping: "CREDITS_CONSUMED_LINKED_IN_SCRAPING";
+    readonly CreditsConsumedCourses: "CREDITS_CONSUMED_COURSES";
+    readonly CreditsTotal: "CREDITS_TOTAL";
+    readonly CreditsTotalPhoneNumbers: "CREDITS_TOTAL_PHONE_NUMBERS";
+    readonly CreditsTotalCallSeconds: "CREDITS_TOTAL_CALL_SECONDS";
+    readonly CreditsTotalEmails: "CREDITS_TOTAL_EMAILS";
+    readonly CreditsTotalLeadGeneration: "CREDITS_TOTAL_LEAD_GENERATION";
+    readonly CreditsTotalLinkedInScraping: "CREDITS_TOTAL_LINKED_IN_SCRAPING";
+    readonly CreditsTotalCourses: "CREDITS_TOTAL_COURSES";
+    readonly CreditBurnRate: "CREDIT_BURN_RATE";
+    readonly CreditBurnRatePhoneNumbers: "CREDIT_BURN_RATE_PHONE_NUMBERS";
+    readonly CreditBurnRateCallSeconds: "CREDIT_BURN_RATE_CALL_SECONDS";
+    readonly CreditBurnRateEmails: "CREDIT_BURN_RATE_EMAILS";
+    readonly CreditBurnRateLeadGeneration: "CREDIT_BURN_RATE_LEAD_GENERATION";
+    readonly CreditBurnRateLinkedInScraping: "CREDIT_BURN_RATE_LINKED_IN_SCRAPING";
+    readonly CreditBurnRateCourses: "CREDIT_BURN_RATE_COURSES";
+    readonly TotalRevenue: "TOTAL_REVENUE";
+    readonly Profit: "PROFIT";
+    readonly RevenueBySubscription: "REVENUE_BY_SUBSCRIPTION";
+    readonly RevenueByAddOns: "REVENUE_BY_ADD_ONS";
+    readonly MonthlyRecurringRevenue: "MONTHLY_RECURRING_REVENUE";
+    readonly OneTimeRevenue: "ONE_TIME_REVENUE";
+    readonly ActiveSubscriptions: "ACTIVE_SUBSCRIPTIONS";
+    readonly NumberOfActivePayingCustomers: "NUMBER_OF_ACTIVE_PAYING_CUSTOMERS";
+    readonly AverageRevenuePerActivePayingCustomer: "AVERAGE_REVENUE_PER_ACTIVE_PAYING_CUSTOMER";
+    readonly TotalHoursConsumed: "TOTAL_HOURS_CONSUMED";
+    readonly Prospects: "PROSPECTS";
+    readonly Interested: "INTERESTED";
+    readonly NotInterested: "NOT_INTERESTED";
+    readonly NewCustomers: "NEW_CUSTOMERS";
+};
+export declare type MetricNameInput = typeof MetricNameInput[keyof typeof MetricNameInput];
 /**
  * Simple metric request with column name, aggregation, and alias
  * @export
@@ -4188,19 +4802,19 @@ export interface MetricRequest {
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof MetricRequest
      */
-    name: SparrModelsAnalyticsMetricName;
+    'name': SparrModelsAnalyticsMetricName;
     /**
      * How to aggregate the metric
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof MetricRequest
      */
-    aggregation: SparrModelsAnalyticsAggregationFormula;
+    'aggregation': SparrModelsAnalyticsAggregationFormula;
     /**
      * Response alias name for the metric
      * @type {string}
      * @memberof MetricRequest
      */
-    alias: string;
+    'alias': string;
 }
 /**
  *
@@ -4213,13 +4827,13 @@ export interface MetricResponseDataPointInput {
      * @type {string}
      * @memberof MetricResponseDataPointInput
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      * Value which will be a string representation of integer or floating number
      * @type {string}
      * @memberof MetricResponseDataPointInput
      */
-    value: string;
+    'value': string;
 }
 /**
  *
@@ -4232,37 +4846,37 @@ export interface MetricsRequestInput {
      * @type {string}
      * @memberof MetricsRequestInput
      */
-    id: string;
+    'id': string;
     /**
      * Name of the metric
      * @type {MetricNameInput}
      * @memberof MetricsRequestInput
      */
-    name: MetricNameInput;
+    'name': MetricNameInput;
     /**
      * Start date to get metric request
      * @type {string}
      * @memberof MetricsRequestInput
      */
-    fromDate: string;
+    'fromDate': string;
     /**
      * End date until get metric request
      * @type {string}
      * @memberof MetricsRequestInput
      */
-    toDate: string;
+    'toDate': string;
     /**
      * Aggregation period for the metric request
      * @type {AggregationPeriod}
      * @memberof MetricsRequestInput
      */
-    aggregationPeriod: AggregationPeriod;
+    'aggregationPeriod': AggregationPeriod;
     /**
      * Aggregation formula for the metric request
      * @type {AggregationFormulaInput}
      * @memberof MetricsRequestInput
      */
-    aggregationFormula: AggregationFormulaInput;
+    'aggregationFormula': AggregationFormulaInput;
 }
 /**
  *
@@ -4275,19 +4889,19 @@ export interface MetricsResponseInput {
      * @type {string}
      * @memberof MetricsResponseInput
      */
-    id: string;
+    'id': string;
     /**
      * Name of the metric
      * @type {MetricNameInput}
      * @memberof MetricsResponseInput
      */
-    name: MetricNameInput;
+    'name': MetricNameInput;
     /**
      * List of data points for the metric response
      * @type {Array<MetricResponseDataPointInput>}
      * @memberof MetricsResponseInput
      */
-    datapoints: Array<MetricResponseDataPointInput>;
+    'datapoints': Array<MetricResponseDataPointInput>;
 }
 /**
  *
@@ -4296,35 +4910,35 @@ export interface MetricsResponseInput {
  */
 export interface Mission {
     /**
-     * Full prompt instructions for LLM model
+     *
      * @type {string}
      * @memberof Mission
      */
-    prompt?: string | null;
+    'prompt'?: string | null;
     /**
-     * Objective of the mission
+     *
      * @type {string}
      * @memberof Mission
      */
-    objective?: string | null;
+    'objective'?: string | null;
     /**
-     * Greeting message to be read by the AI agent
+     *
      * @type {string}
      * @memberof Mission
      */
-    greeting: string | null;
+    'greeting': string | null;
     /**
-     * Sequence of actions to be performed by the AI agent during the conversation.
+     *
      * @type {Array<Sequence>}
      * @memberof Mission
      */
-    sequence?: Array<Sequence> | null;
+    'sequence'?: Array<Sequence> | null;
     /**
-     * Conclusion message to be read by the AI agent
+     *
      * @type {string}
      * @memberof Mission
      */
-    farewell?: string | null;
+    'farewell'?: string | null;
 }
 /**
  * FileUpload represents information about uploaded files in the system
@@ -4337,49 +4951,49 @@ export interface ModelFile {
      * @type {string}
      * @memberof ModelFile
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof ModelFile
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof ModelFile
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof ModelFile
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof ModelFile
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The original name of the uploaded file
      * @type {string}
      * @memberof ModelFile
      */
-    filename: string;
+    'filename': string;
     /**
      * The signed storage URL where the file is stored.
      * @type {string}
      * @memberof ModelFile
      */
-    file_url: string;
+    'file_url': string;
     /**
      * The unique identifier of the file
      * @type {string}
      * @memberof ModelFile
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  * Module represents a module that can be used in a course
@@ -4392,109 +5006,109 @@ export interface Module {
      * @type {string}
      * @memberof Module
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Module
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Module
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Module
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Module
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the module
      * @type {string}
      * @memberof Module
      */
-    name: string;
+    'name': string;
     /**
      * The description of the module
      * @type {string}
      * @memberof Module
      */
-    description: string;
+    'description': string;
     /**
-     * The tags of the module
+     *
      * @type {Array<string>}
      * @memberof Module
      */
-    tags?: Array<string> | null;
+    'tags'?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
      * @memberof Module
      */
-    difficultyLevel: string;
+    'difficultyLevel': string;
     /**
      * The ID of the persona
      * @type {string}
      * @memberof Module
      */
-    personaId: string;
+    'personaId': string;
     /**
-     * The name of the persona
+     *
      * @type {string}
      * @memberof Module
      */
-    personaName: string | null;
+    'personaName': string | null;
     /**
      * The ID of the scenario
      * @type {string}
      * @memberof Module
      */
-    scenarioId: string;
+    'scenarioId': string;
     /**
-     * The name of the scenario
+     *
      * @type {string}
      * @memberof Module
      */
-    scenarioName: string | null;
+    'scenarioName': string | null;
     /**
      * The expected completion score of the module out of 100
      * @type {number}
      * @memberof Module
      */
-    passingScorePercentage: number;
+    'passingScorePercentage': number;
     /**
      * The unique identifier of the module
      * @type {string}
      * @memberof Module
      */
-    id?: string;
+    'id'?: string;
     /**
      * The ID of the course
      * @type {string}
      * @memberof Module
      */
-    courseId: string;
+    'courseId': string;
     /**
-     * The name of the course
+     *
      * @type {string}
      * @memberof Module
      */
-    courseName: string | null;
+    'courseName': string | null;
     /**
      * The order of the module in the course
      * @type {number}
      * @memberof Module
      */
-    moduleOrder: number;
+    'moduleOrder': number;
 }
 /**
  *
@@ -4507,36 +5121,37 @@ export interface ModuleAnalytics {
      * @type {Module}
      * @memberof ModuleAnalytics
      */
-    module: Module;
+    'module': Module;
     /**
      * The number of attempts
      * @type {number}
      * @memberof ModuleAnalytics
      */
-    numberOfAttempts: number;
+    'numberOfAttempts': number;
     /**
      * The status of the last attempt
      * @type {ModuleAttemptStatus}
      * @memberof ModuleAnalytics
      */
-    lastAttemptStatus: ModuleAttemptStatus;
+    'lastAttemptStatus': ModuleAttemptStatus;
     /**
      * Whether the module is completed
      * @type {boolean}
      * @memberof ModuleAnalytics
      */
-    isModuleCompleted: boolean;
+    'isModuleCompleted': boolean;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum ModuleAttemptStatus {
-    PASSED = "PASSED",
-    FAILED = "FAILED",
-    NOTATTEMPTED = "NOT_ATTEMPTED"
-}
+export declare const ModuleAttemptStatus: {
+    readonly Passed: "PASSED";
+    readonly Failed: "FAILED";
+    readonly NotAttempted: "NOT_ATTEMPTED";
+};
+export declare type ModuleAttemptStatus = typeof ModuleAttemptStatus[keyof typeof ModuleAttemptStatus];
 /**
  *
  * @export
@@ -4548,55 +5163,55 @@ export interface ModuleCore {
      * @type {string}
      * @memberof ModuleCore
      */
-    name: string;
+    'name': string;
     /**
      * The description of the module
      * @type {string}
      * @memberof ModuleCore
      */
-    description: string;
+    'description': string;
     /**
-     * The tags of the module
+     *
      * @type {Array<string>}
      * @memberof ModuleCore
      */
-    tags?: Array<string> | null;
+    'tags'?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
      * @memberof ModuleCore
      */
-    difficultyLevel: string;
+    'difficultyLevel': string;
     /**
      * The ID of the persona
      * @type {string}
      * @memberof ModuleCore
      */
-    personaId: string;
+    'personaId': string;
     /**
-     * The name of the persona
+     *
      * @type {string}
      * @memberof ModuleCore
      */
-    personaName: string | null;
+    'personaName': string | null;
     /**
      * The ID of the scenario
      * @type {string}
      * @memberof ModuleCore
      */
-    scenarioId: string;
+    'scenarioId': string;
     /**
-     * The name of the scenario
+     *
      * @type {string}
      * @memberof ModuleCore
      */
-    scenarioName: string | null;
+    'scenarioName': string | null;
     /**
      * The expected completion score of the module out of 100
      * @type {number}
      * @memberof ModuleCore
      */
-    passingScorePercentage: number;
+    'passingScorePercentage': number;
 }
 /**
  *
@@ -4609,71 +5224,75 @@ export interface ModuleUpdateRequest {
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    name: string;
+    'name': string;
     /**
      * The description of the module
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    description: string;
+    'description': string;
     /**
-     * The tags of the module
+     *
      * @type {Array<string>}
      * @memberof ModuleUpdateRequest
      */
-    tags?: Array<string> | null;
+    'tags'?: Array<string> | null;
     /**
      * The difficulty level of the module
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    difficultyLevel: string;
+    'difficultyLevel': string;
     /**
      * The ID of the persona
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    personaId: string;
-    /**
-     * The name of the persona
-     * @type {string}
-     * @memberof ModuleUpdateRequest
-     */
-    personaName: string | null;
-    /**
-     * The ID of the scenario
-     * @type {string}
-     * @memberof ModuleUpdateRequest
-     */
-    scenarioId: string;
-    /**
-     * The name of the scenario
-     * @type {string}
-     * @memberof ModuleUpdateRequest
-     */
-    scenarioName: string | null;
-    /**
-     * The expected completion score of the module out of 100
-     * @type {number}
-     * @memberof ModuleUpdateRequest
-     */
-    passingScorePercentage: number;
+    'personaId': string;
     /**
      *
      * @type {string}
      * @memberof ModuleUpdateRequest
      */
-    id?: string | null;
+    'personaName': string | null;
+    /**
+     * The ID of the scenario
+     * @type {string}
+     * @memberof ModuleUpdateRequest
+     */
+    'scenarioId': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModuleUpdateRequest
+     */
+    'scenarioName': string | null;
+    /**
+     * The expected completion score of the module out of 100
+     * @type {number}
+     * @memberof ModuleUpdateRequest
+     */
+    'passingScorePercentage': number;
+    /**
+     *
+     * @type {string}
+     * @memberof ModuleUpdateRequest
+     */
+    'id'?: string | null;
 }
 /**
  *
  * @export
- * @enum {string}
+ * @interface NegotiationStyle
  */
-export declare enum NegotiationStyle {
-    HardBargainer = "hard bargainer",
-    FriendlyNegotiator = "friendly negotiator",
-    NonNegotiator = "non-negotiator"
+export interface NegotiationStyle {
+}
+/**
+ *
+ * @export
+ * @interface NegotiationStyle1
+ */
+export interface NegotiationStyle1 {
 }
 /**
  * Defines how to determine the next step
@@ -4682,17 +5301,17 @@ export declare enum NegotiationStyle {
  */
 export interface NextStepResolver {
     /**
-     * Array of conditions to evaluate
+     *
      * @type {Array<Condition>}
      * @memberof NextStepResolver
      */
-    conditions?: Array<Condition> | null;
+    'conditions'?: Array<Condition> | null;
     /**
-     * Direct next step ID
+     *
      * @type {string}
      * @memberof NextStepResolver
      */
-    nextStepId?: string | null;
+    'nextStepId'?: string | null;
 }
 /**
  * No authentication configuration
@@ -4705,15 +5324,12 @@ export interface NoAuth {
      * @type {string}
      * @memberof NoAuth
      */
-    authType?: NoAuthAuthTypeEnum;
+    'authType'?: NoAuthAuthTypeEnum;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum NoAuthAuthTypeEnum {
-    Noauth = "noauth"
-}
+export declare const NoAuthAuthTypeEnum: {
+    readonly Noauth: "noauth";
+};
+export declare type NoAuthAuthTypeEnum = typeof NoAuthAuthTypeEnum[keyof typeof NoAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -4725,15 +5341,12 @@ export interface NoAuthCredentials {
      * @type {string}
      * @memberof NoAuthCredentials
      */
-    credentialsType?: NoAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: NoAuthCredentialsCredentialsTypeEnum;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum NoAuthCredentialsCredentialsTypeEnum {
-    Noauth = "noauth"
-}
+export declare const NoAuthCredentialsCredentialsTypeEnum: {
+    readonly Noauth: "noauth";
+};
+export declare type NoAuthCredentialsCredentialsTypeEnum = typeof NoAuthCredentialsCredentialsTypeEnum[keyof typeof NoAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -4745,13 +5358,13 @@ export interface NumberPurchaseRequest {
      * @type {string}
      * @memberof NumberPurchaseRequest
      */
-    countryCode: string;
+    'countryCode': string;
     /**
      *
      * @type {string}
      * @memberof NumberPurchaseRequest
      */
-    phoneNumber: string;
+    'phoneNumber': string;
 }
 /**
  * OAuth authentication configuration
@@ -4764,51 +5377,48 @@ export interface OAuth {
      * @type {string}
      * @memberof OAuth
      */
-    authType?: OAuthAuthTypeEnum;
+    'authType'?: OAuthAuthTypeEnum;
     /**
      * The client ID for the OAuth app
      * @type {string}
      * @memberof OAuth
      */
-    clientId: string;
+    'clientId': string;
     /**
      * The client secret for the OAuth app
      * @type {string}
      * @memberof OAuth
      */
-    clientSecret: string;
+    'clientSecret': string;
     /**
      * The redirect URI for the OAuth app
      * @type {string}
      * @memberof OAuth
      */
-    redirectUri: string;
+    'redirectUri': string;
     /**
-     * The scopes for the OAuth app
+     *
      * @type {Array<string>}
      * @memberof OAuth
      */
-    scopes?: Array<string> | null;
+    'scopes'?: Array<string> | null;
     /**
      * The authorization URL for the OAuth app
      * @type {string}
      * @memberof OAuth
      */
-    authUrl: string;
+    'authUrl': string;
     /**
      * The token URL for the OAuth app
      * @type {string}
      * @memberof OAuth
      */
-    tokenUrl: string;
+    'tokenUrl': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum OAuthAuthTypeEnum {
-    Oauth = "oauth"
-}
+export declare const OAuthAuthTypeEnum: {
+    readonly Oauth: "oauth";
+};
+export declare type OAuthAuthTypeEnum = typeof OAuthAuthTypeEnum[keyof typeof OAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -4820,39 +5430,36 @@ export interface OAuthCredentials {
      * @type {string}
      * @memberof OAuthCredentials
      */
-    credentialsType?: OAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: OAuthCredentialsCredentialsTypeEnum;
     /**
-     * The code for the OAuth app
+     *
      * @type {string}
      * @memberof OAuthCredentials
      */
-    code?: string | null;
+    'code'?: string | null;
     /**
-     * The access token for the OAuth app
+     *
      * @type {string}
      * @memberof OAuthCredentials
      */
-    accessToken?: string | null;
+    'accessToken'?: string | null;
     /**
-     * The refresh token for the OAuth app
+     *
      * @type {string}
      * @memberof OAuthCredentials
      */
-    refreshToken?: string | null;
+    'refreshToken'?: string | null;
     /**
-     * The expiration date of the access token
+     *
      * @type {string}
      * @memberof OAuthCredentials
      */
-    expiresAt?: string | null;
+    'expiresAt'?: string | null;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum OAuthCredentialsCredentialsTypeEnum {
-    Oauth = "oauth"
-}
+export declare const OAuthCredentialsCredentialsTypeEnum: {
+    readonly Oauth: "oauth";
+};
+export declare type OAuthCredentialsCredentialsTypeEnum = typeof OAuthCredentialsCredentialsTypeEnum[keyof typeof OAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -4864,13 +5471,13 @@ export interface Objection {
      * @type {string}
      * @memberof Objection
      */
-    objection: string;
+    'objection': string;
     /**
      * The rebuttal to the objection
      * @type {string}
      * @memberof Objection
      */
-    rebuttal: string;
+    'rebuttal': string;
 }
 /**
  *
@@ -4883,31 +5490,31 @@ export interface OrgUsersPriceCredits {
      * @type {OrganizationOutput}
      * @memberof OrgUsersPriceCredits
      */
-    organization: OrganizationOutput;
+    'organization': OrganizationOutput;
     /**
      *
      * @type {Array<User>}
      * @memberof OrgUsersPriceCredits
      */
-    users: Array<User>;
+    'users': Array<User>;
     /**
      *
      * @type {Array<Price>}
      * @memberof OrgUsersPriceCredits
      */
-    prices?: Array<Price> | null;
+    'prices'?: Array<Price> | null;
     /**
      *
      * @type {Array<Credit>}
      * @memberof OrgUsersPriceCredits
      */
-    credits?: Array<Credit> | null;
+    'credits'?: Array<Credit> | null;
     /**
      *
      * @type {string}
      * @memberof OrgUsersPriceCredits
      */
-    resellerAdminUserCredentials?: string | null;
+    'resellerAdminUserCredentials'?: string | null;
 }
 /**
  *
@@ -4920,13 +5527,13 @@ export interface OrgWithCourseAssignment {
      * @type {OrganizationOutput}
      * @memberof OrgWithCourseAssignment
      */
-    organization: OrganizationOutput;
+    'organization': OrganizationOutput;
     /**
      * Course assignment status (assigned/unassigned)
      * @type {CourseAssignmentStatus}
      * @memberof OrgWithCourseAssignment
      */
-    status?: CourseAssignmentStatus;
+    'status'?: CourseAssignmentStatus;
 }
 /**
  *
@@ -4939,24 +5546,25 @@ export interface OrgWithUsers {
      * @type {OrganizationOutput}
      * @memberof OrgWithUsers
      */
-    organization: OrganizationOutput;
+    'organization': OrganizationOutput;
     /**
      *
      * @type {Array<User>}
      * @memberof OrgWithUsers
      */
-    users: Array<User>;
+    'users': Array<User>;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum OrganizationInitializationStatus {
-    PENDING = "PENDING",
-    COMPLETED = "COMPLETED",
-    FAILED = "FAILED"
-}
+export declare const OrganizationInitializationStatus: {
+    readonly Pending: "PENDING";
+    readonly Completed: "COMPLETED";
+    readonly Failed: "FAILED";
+};
+export declare type OrganizationInitializationStatus = typeof OrganizationInitializationStatus[keyof typeof OrganizationInitializationStatus];
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
@@ -4968,61 +5576,61 @@ export interface OrganizationInput {
      * @type {string}
      * @memberof OrganizationInput
      */
-    name: string;
+    'name': string;
     /**
-     * Address of the organization
+     *
      * @type {AddressInput}
      * @memberof OrganizationInput
      */
-    address?: AddressInput | null;
+    'address'?: AddressInput | null;
     /**
-     * Tax details of the organization
+     *
      * @type {TaxDetailsInput}
      * @memberof OrganizationInput
      */
-    tax?: TaxDetailsInput | null;
+    'tax'?: TaxDetailsInput | null;
     /**
-     * External references for the organization
+     *
      * @type {Array<ExternalServiceProviderInput>}
      * @memberof OrganizationInput
      */
-    externalReferenceIds?: Array<ExternalServiceProviderInput> | null;
+    'externalReferenceIds'?: Array<ExternalServiceProviderInput> | null;
     /**
-     * Billing email address of the organization
+     *
      * @type {string}
      * @memberof OrganizationInput
      */
-    billingEmailAddress?: string | null;
+    'billingEmailAddress'?: string | null;
     /**
-     * Website URL of the organization
+     *
      * @type {string}
      * @memberof OrganizationInput
      */
-    websiteUrl?: string | null;
+    'websiteUrl'?: string | null;
     /**
-     * Configurations for all the agents going to be created in this org
+     *
      * @type {AgentConfig}
      * @memberof OrganizationInput
      */
-    agentConfig?: AgentConfig | null;
+    'agentConfig'?: AgentConfig | null;
     /**
-     * Application type for the organization
+     *
      * @type {AppEnumInput}
      * @memberof OrganizationInput
      */
-    app?: AppEnumInput | null;
+    'app'?: AppEnumInput | null;
     /**
-     * Type of the organization
+     *
      * @type {string}
      * @memberof OrganizationInput
      */
-    orgType?: string | null;
+    'orgType'?: string | null;
     /**
-     * Additional information about the organization
+     *
      * @type {string}
      * @memberof OrganizationInput
      */
-    additionalInfo?: string | null;
+    'additionalInfo'?: string | null;
 }
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
@@ -5035,127 +5643,127 @@ export interface OrganizationOutput {
      * @type {string}
      * @memberof OrganizationOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    name?: string;
+    'name'?: string;
     /**
      *
      * @type {AgentConfig}
      * @memberof OrganizationOutput
      */
-    config: AgentConfig;
+    'config': AgentConfig;
     /**
      *
      * @type {AddressOutput}
      * @memberof OrganizationOutput
      */
-    address: AddressOutput | null;
+    'address': AddressOutput | null;
     /**
      *
      * @type {TaxDetailsOutput}
      * @memberof OrganizationOutput
      */
-    tax: TaxDetailsOutput | null;
+    'tax': TaxDetailsOutput | null;
     /**
      *
      * @type {boolean}
      * @memberof OrganizationOutput
      */
-    isActiveSubscription?: boolean;
+    'isActiveSubscription'?: boolean;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    billingEmailAddress?: string | null;
+    'billingEmailAddress'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    websiteUrl?: string | null;
+    'websiteUrl'?: string | null;
     /**
      *
      * @type {Array<ExternalServiceProviderOutput>}
      * @memberof OrganizationOutput
      */
-    externalReferenceIds: Array<ExternalServiceProviderOutput> | null;
+    'externalReferenceIds': Array<ExternalServiceProviderOutput> | null;
     /**
      *
      * @type {OrganizationInitializationStatus}
      * @memberof OrganizationOutput
      */
-    isInitialized?: OrganizationInitializationStatus;
+    'isInitialized'?: OrganizationInitializationStatus;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      *
      * @type {object}
      * @memberof OrganizationOutput
      */
-    internalProps: object | null;
+    'internalProps': object | null;
     /**
      *
      * @type {object}
      * @memberof OrganizationOutput
      */
-    adminProps: object | null;
+    'adminProps': object | null;
     /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
      * @memberof OrganizationOutput
      */
-    parentOrgId?: string;
+    'parentOrgId'?: string;
     /**
-     * Type of the organization. Currently only CONSUMER & RESELLER are supported
+     *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    orgType?: string | null;
+    'orgType'?: string | null;
     /**
      *
      * @type {AppEnumOutput}
      * @memberof OrganizationOutput
      */
-    app?: AppEnumOutput;
+    'app'?: AppEnumOutput;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    status?: string;
+    'status'?: string;
     /**
      *
      * @type {string}
      * @memberof OrganizationOutput
      */
-    additionalInfo?: string | null;
+    'additionalInfo'?: string | null;
 }
 /**
  *
@@ -5168,71 +5776,75 @@ export interface OrganizationSettings {
      * @type {string}
      * @memberof OrganizationSettings
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    domain?: string | null;
+    'domain'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    brandColor?: string | null;
+    'brandColor'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    buttonColor?: string | null;
+    'buttonColor'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    secondaryColor?: string | null;
+    'secondaryColor'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    textColor?: string | null;
+    'textColor'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    favicon?: string | null;
+    'favicon'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    faviconUrl?: string | null;
+    'faviconUrl'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    logo?: string | null;
+    'logo'?: string | null;
     /**
      *
      * @type {string}
      * @memberof OrganizationSettings
      */
-    logoUrl?: string | null;
+    'logoUrl'?: string | null;
 }
 /**
  *
  * @export
- * @enum {string}
+ * @interface PatienceLevel
  */
-export declare enum PatienceLevel {
-    Impatient = "impatient",
-    Neutral = "neutral",
-    VeryPatient = "very patient"
+export interface PatienceLevel {
+}
+/**
+ *
+ * @export
+ * @interface PatienceLevel1
+ */
+export interface PatienceLevel1 {
 }
 /**
  * Persona represents a persona that can be used in a scenario
@@ -5245,121 +5857,121 @@ export interface Persona {
      * @type {string}
      * @memberof Persona
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Persona
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Persona
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Persona
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Persona
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the persona
      * @type {string}
      * @memberof Persona
      */
-    name: string;
+    'name': string;
     /**
      * The title of the persona
      * @type {string}
      * @memberof Persona
      */
-    title: string;
+    'title': string;
     /**
      * The context of the persona
      * @type {string}
      * @memberof Persona
      */
-    context: string;
+    'context': string;
     /**
      * The voice of the persona
      * @type {SparrVoiceOutput}
      * @memberof Persona
      */
-    voice: SparrVoiceOutput;
+    'voice': SparrVoiceOutput;
     /**
      * The demeanor of the persona
      * @type {SparrDemeanorOutput}
      * @memberof Persona
      */
-    demeanor: SparrDemeanorOutput;
+    'demeanor': SparrDemeanorOutput;
     /**
      * The additional background of the persona
      * @type {string}
      * @memberof Persona
      */
-    additionalBackground: string;
+    'additionalBackground': string;
     /**
      * The work history of the persona
      * @type {Array<SparrWorkDetails>}
      * @memberof Persona
      */
-    workHistory: Array<SparrWorkDetails>;
+    'workHistory': Array<SparrWorkDetails>;
     /**
      * The LinkedIn URL of the persona
      * @type {string}
      * @memberof Persona
      */
-    linkedInUrl: string;
+    'linkedInUrl': string;
     /**
-     * The Twitter URL of the persona
+     *
      * @type {string}
      * @memberof Persona
      */
-    twitterUrl: string | null;
+    'twitterUrl': string | null;
     /**
-     * The website URL of the persona
+     *
      * @type {string}
      * @memberof Persona
      */
-    blogUrl: string | null;
+    'blogUrl': string | null;
     /**
      * Whether the persona is inherited from the parent persona
      * @type {boolean}
      * @memberof Persona
      */
-    isInherited?: boolean;
+    'isInherited'?: boolean;
     /**
-     * The profile picture URL of the persona
+     *
      * @type {string}
      * @memberof Persona
      */
-    profilePictureUrl: string | null;
+    'profilePictureUrl': string | null;
     /**
      * The status of the persona
      * @type {string}
      * @memberof Persona
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the persona
      * @type {string}
      * @memberof Persona
      */
-    id?: string;
+    'id'?: string;
     /**
      * The version of the persona
      * @type {number}
      * @memberof Persona
      */
-    version?: number;
+    'version'?: number;
 }
 /**
  *
@@ -5369,52 +5981,52 @@ export interface Persona {
 export interface PersonaAttributesAndTraits {
     /**
      *
-     * @type {PatienceLevel | string}
+     * @type {PatienceLevel}
      * @memberof PersonaAttributesAndTraits
      */
-    patience_level?: PatienceLevel | string | null;
+    'patience_level'?: PatienceLevel | null;
     /**
      *
-     * @type {DecisionMakingStyle | string}
+     * @type {DecisionMakingStyle}
      * @memberof PersonaAttributesAndTraits
      */
-    decision_making_style?: DecisionMakingStyle | string | null;
+    'decision_making_style'?: DecisionMakingStyle | null;
     /**
      *
-     * @type {CommunicationStyle | string}
+     * @type {CommunicationStyle}
      * @memberof PersonaAttributesAndTraits
      */
-    communication_style?: CommunicationStyle | string | null;
+    'communication_style'?: CommunicationStyle | null;
     /**
      *
-     * @type {Adaptability | string}
+     * @type {Adaptability1}
      * @memberof PersonaAttributesAndTraits
      */
-    adaptability?: Adaptability | string | null;
+    'adaptability'?: Adaptability1 | null;
     /**
      *
-     * @type {FrustrationTolerance | string}
+     * @type {FrustrationTolerance}
      * @memberof PersonaAttributesAndTraits
      */
-    frustration_tolerance?: FrustrationTolerance | string | null;
+    'frustration_tolerance'?: FrustrationTolerance | null;
     /**
      *
-     * @type {EngagementLevel | string}
+     * @type {EngagementLevel}
      * @memberof PersonaAttributesAndTraits
      */
-    engagement_level?: EngagementLevel | string | null;
+    'engagement_level'?: EngagementLevel | null;
     /**
      *
-     * @type {InteractionTone | string}
+     * @type {PreferredTone}
      * @memberof PersonaAttributesAndTraits
      */
-    preferred_tone?: InteractionTone | string | null;
+    'preferred_tone'?: PreferredTone | null;
     /**
      *
-     * @type {NegotiationStyle | string}
+     * @type {NegotiationStyle}
      * @memberof PersonaAttributesAndTraits
      */
-    negotiation_style?: NegotiationStyle | string | null;
+    'negotiation_style'?: NegotiationStyle | null;
 }
 /**
  *
@@ -5427,79 +6039,79 @@ export interface PersonaCore {
      * @type {string}
      * @memberof PersonaCore
      */
-    name: string;
+    'name': string;
     /**
      * The title of the persona
      * @type {string}
      * @memberof PersonaCore
      */
-    title: string;
+    'title': string;
     /**
      * The context of the persona
      * @type {string}
      * @memberof PersonaCore
      */
-    context: string;
+    'context': string;
     /**
      * The voice of the persona
      * @type {SparrVoiceInput}
      * @memberof PersonaCore
      */
-    voice: SparrVoiceInput;
+    'voice': SparrVoiceInput;
     /**
      * The demeanor of the persona
      * @type {SparrDemeanorInput}
      * @memberof PersonaCore
      */
-    demeanor: SparrDemeanorInput;
+    'demeanor': SparrDemeanorInput;
     /**
      * The additional background of the persona
      * @type {string}
      * @memberof PersonaCore
      */
-    additionalBackground: string;
+    'additionalBackground': string;
     /**
      * The work history of the persona
      * @type {Array<SparrWorkDetails>}
      * @memberof PersonaCore
      */
-    workHistory: Array<SparrWorkDetails>;
+    'workHistory': Array<SparrWorkDetails>;
     /**
      * The LinkedIn URL of the persona
      * @type {string}
      * @memberof PersonaCore
      */
-    linkedInUrl: string;
+    'linkedInUrl': string;
     /**
-     * The Twitter URL of the persona
+     *
      * @type {string}
      * @memberof PersonaCore
      */
-    twitterUrl: string | null;
+    'twitterUrl': string | null;
     /**
-     * The website URL of the persona
+     *
      * @type {string}
      * @memberof PersonaCore
      */
-    blogUrl: string | null;
+    'blogUrl': string | null;
     /**
      * Whether the persona is inherited from the parent persona
      * @type {boolean}
      * @memberof PersonaCore
      */
-    isInherited?: boolean;
+    'isInherited'?: boolean;
     /**
-     * The profile picture URL of the persona
+     *
      * @type {string}
      * @memberof PersonaCore
      */
-    profilePictureUrl: string | null;
+    'profilePictureUrl': string | null;
     /**
      * The status of the persona
      * @type {string}
      * @memberof PersonaCore
      */
-    status?: string;
+    'status'?: string;
 }
 /**
  *
@@ -5512,31 +6124,45 @@ export interface PersonaSearchResponse {
      * @type {Array<Persona>}
      * @memberof PersonaSearchResponse
      */
-    items: Array<Persona>;
+    'items': Array<Persona>;
     /**
      *
      * @type {number}
      * @memberof PersonaSearchResponse
      */
-    total: number;
+    'total': number;
     /**
      *
      * @type {number}
      * @memberof PersonaSearchResponse
      */
-    pages: number;
+    'pages': number;
     /**
      *
      * @type {number}
      * @memberof PersonaSearchResponse
      */
-    current_page: number;
+    'current_page': number;
     /**
      *
      * @type {number}
      * @memberof PersonaSearchResponse
      */
-    page_size: number;
+    'page_size': number;
+}
+/**
+ *
+ * @export
+ * @interface PreferredTone
+ */
+export interface PreferredTone {
+}
+/**
+ *
+ * @export
+ * @interface PreferredTone1
+ */
+export interface PreferredTone1 {
 }
 /**
  * Price tier details of the business
@@ -5549,103 +6175,104 @@ export interface Price {
      * @type {string}
      * @memberof Price
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    parentOrgId?: string;
+    'parentOrgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    priceName?: string;
+    'priceName'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    description?: string;
+    'description'?: string;
     /**
-     * Determines customer/reseller using custom price or default price
+     *
      * @type {boolean}
      * @memberof Price
      */
-    isDefault?: boolean | null;
+    'isDefault'?: boolean | null;
     /**
      * Currency of the price, e.g. USD, INR, EUR, GBP, etc.
      * @type {string}
      * @memberof Price
      */
-    currency?: string;
+    'currency'?: string;
     /**
-     * Stripe price ID for this price tier
+     *
      * @type {string}
      * @memberof Price
      */
-    stripePriceId?: string | null;
+    'stripePriceId'?: string | null;
     /**
-     * Stripe product ID for this price tier
+     *
      * @type {string}
      * @memberof Price
      */
-    stripeProductId?: string | null;
+    'stripeProductId'?: string | null;
     /**
-     * Interval of the price, e.g. monthly, yearly, etc.
+     *
      * @type {PriceInterval}
      * @memberof Price
      */
-    priceInterval?: PriceInterval | null;
+    'priceInterval'?: PriceInterval | null;
     /**
-     * List of price items included in this price tier
+     *
      * @type {Array<PriceItem>}
      * @memberof Price
      */
-    priceItems?: Array<PriceItem> | null;
+    'priceItems'?: Array<PriceItem> | null;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Price
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum PriceInterval {
-    OneTime = "one_time",
-    Monthly = "monthly",
-    Quarterly = "quarterly",
-    Yearly = "yearly"
-}
+export declare const PriceInterval: {
+    readonly OneTime: "one_time";
+    readonly Monthly: "monthly";
+    readonly Quarterly: "quarterly";
+    readonly Yearly: "yearly";
+};
+export declare type PriceInterval = typeof PriceInterval[keyof typeof PriceInterval];
 /**
  * Price item details for a price tier
  * @export
@@ -5657,31 +6284,31 @@ export interface PriceItem {
      * @type {string}
      * @memberof PriceItem
      */
-    name?: string;
+    'name'?: string;
     /**
      * Description of the price item
      * @type {string}
      * @memberof PriceItem
      */
-    description?: string;
+    'description'?: string;
     /**
-     * Quantity of the price item
+     *
      * @type {number}
      * @memberof PriceItem
      */
-    quantity?: number | null;
+    'quantity'?: number | null;
     /**
-     * Price of the price item in the lowest currency unit (e.g. cents, paise)
+     *
      * @type {number}
      * @memberof PriceItem
      */
-    pricePerQuantity?: number | null;
+    'pricePerQuantity'?: number | null;
     /**
      * Type of the credit
      * @type {CreditTypeEnum}
      * @memberof PriceItem
      */
-    creditType?: CreditTypeEnum;
+    'creditType'?: CreditTypeEnum;
 }
 /**
  *
@@ -5694,31 +6321,31 @@ export interface PricingRequest {
      * @type {string}
      * @memberof PricingRequest
      */
-    priceName: string;
+    'priceName': string;
     /**
      * Description
      * @type {string}
      * @memberof PricingRequest
      */
-    description: string;
+    'description': string;
     /**
      * Currency
      * @type {string}
      * @memberof PricingRequest
      */
-    currency: string;
+    'currency': string;
     /**
      * Price interval
      * @type {PriceInterval}
      * @memberof PricingRequest
      */
-    priceInterval: PriceInterval;
+    'priceInterval': PriceInterval;
     /**
-     * List of price items included in this price tier
+     *
      * @type {Array<PriceItem>}
      * @memberof PricingRequest
      */
-    priceItems?: Array<PriceItem> | null;
+    'priceItems'?: Array<PriceItem> | null;
 }
 /**
  *
@@ -5731,250 +6358,247 @@ export interface ProductInput {
      * @type {boolean}
      * @memberof ProductInput
      */
-    active: boolean;
+    'active': boolean;
     /**
      * Default price of the product this is represented in the lowest currency denomination. Eg: 1000 for $10
      * @type {number}
      * @memberof ProductInput
      */
-    defaultPrice: number;
+    'defaultPrice': number;
     /**
      * Currency of the product
      * @type {string}
      * @memberof ProductInput
      */
-    currency: ProductInputCurrencyEnum;
+    'currency': ProductInputCurrencyEnum;
     /**
      * Description of the product
      * @type {string}
      * @memberof ProductInput
      */
-    description: string;
+    'description': string;
     /**
      * Name of the product
      * @type {string}
      * @memberof ProductInput
      */
-    name: string;
+    'name': string;
     /**
      * Product is shippable or not. Service is not shippable
      * @type {boolean}
      * @memberof ProductInput
      */
-    shippable?: boolean;
+    'shippable'?: boolean;
     /**
-     * List of features of the product
+     *
      * @type {Array<string>}
      * @memberof ProductInput
      */
-    features?: Array<string> | null;
+    'features'?: Array<string> | null;
     /**
      * Product requires appointment scheduling or not
      * @type {boolean}
      * @memberof ProductInput
      */
-    scheduleAppointment?: boolean;
+    'scheduleAppointment'?: boolean;
     /**
-     * Properties of the product
+     *
      * @type {object}
      * @memberof ProductInput
      */
-    props?: object | null;
+    'props'?: object | null;
     /**
-     * Tags for the product. This is used for grouping purpose. Eg: [\"gardening\", \"tools\"]
-     * @type {Array<string>}
+     *
+     * @type {Set<string>}
      * @memberof ProductInput
      */
-    tags?: Array<string> | null;
+    'tags'?: Set<string> | null;
     /**
      *
      * @type {Status}
      * @memberof ProductInput
      */
-    status: Status;
+    'status': Status;
     /**
-     * List of agent ids which are accessible for this product
+     *
      * @type {Array<string>}
      * @memberof ProductInput
      */
-    agentIds?: Array<string> | null;
+    'agentIds'?: Array<string> | null;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum ProductInputCurrencyEnum {
-    AED = "AED",
-    AFN = "AFN",
-    ALL = "ALL",
-    AMD = "AMD",
-    ANG = "ANG",
-    AOA = "AOA",
-    ARS = "ARS",
-    AUD = "AUD",
-    AWG = "AWG",
-    AZN = "AZN",
-    BAM = "BAM",
-    BBD = "BBD",
-    BDT = "BDT",
-    BGN = "BGN",
-    BHD = "BHD",
-    BIF = "BIF",
-    BMD = "BMD",
-    BND = "BND",
-    BOB = "BOB",
-    BOV = "BOV",
-    BRL = "BRL",
-    BSD = "BSD",
-    BTN = "BTN",
-    BWP = "BWP",
-    BYN = "BYN",
-    BZD = "BZD",
-    CAD = "CAD",
-    CDF = "CDF",
-    CHE = "CHE",
-    CHF = "CHF",
-    CHW = "CHW",
-    CLF = "CLF",
-    CLP = "CLP",
-    CNY = "CNY",
-    COP = "COP",
-    COU = "COU",
-    CRC = "CRC",
-    CUC = "CUC",
-    CUP = "CUP",
-    CVE = "CVE",
-    CZK = "CZK",
-    DJF = "DJF",
-    DKK = "DKK",
-    DOP = "DOP",
-    DZD = "DZD",
-    EGP = "EGP",
-    ERN = "ERN",
-    ETB = "ETB",
-    EUR = "EUR",
-    FJD = "FJD",
-    FKP = "FKP",
-    GBP = "GBP",
-    GEL = "GEL",
-    GHS = "GHS",
-    GIP = "GIP",
-    GMD = "GMD",
-    GNF = "GNF",
-    GTQ = "GTQ",
-    GYD = "GYD",
-    HKD = "HKD",
-    HNL = "HNL",
-    HRK = "HRK",
-    HTG = "HTG",
-    HUF = "HUF",
-    IDR = "IDR",
-    ILS = "ILS",
-    INR = "INR",
-    IQD = "IQD",
-    IRR = "IRR",
-    ISK = "ISK",
-    JMD = "JMD",
-    JOD = "JOD",
-    JPY = "JPY",
-    KES = "KES",
-    KGS = "KGS",
-    KHR = "KHR",
-    KMF = "KMF",
-    KPW = "KPW",
-    KRW = "KRW",
-    KWD = "KWD",
-    KYD = "KYD",
-    KZT = "KZT",
-    LAK = "LAK",
-    LBP = "LBP",
-    LKR = "LKR",
-    LRD = "LRD",
-    LSL = "LSL",
-    LYD = "LYD",
-    MAD = "MAD",
-    MDL = "MDL",
-    MGA = "MGA",
-    MKD = "MKD",
-    MMK = "MMK",
-    MNT = "MNT",
-    MOP = "MOP",
-    MRU = "MRU",
-    MUR = "MUR",
-    MVR = "MVR",
-    MWK = "MWK",
-    MXN = "MXN",
-    MXV = "MXV",
-    MYR = "MYR",
-    MZN = "MZN",
-    NAD = "NAD",
-    NGN = "NGN",
-    NIO = "NIO",
-    NOK = "NOK",
-    NPR = "NPR",
-    NZD = "NZD",
-    OMR = "OMR",
-    PAB = "PAB",
-    PEN = "PEN",
-    PGK = "PGK",
-    PHP = "PHP",
-    PKR = "PKR",
-    PLN = "PLN",
-    PYG = "PYG",
-    QAR = "QAR",
-    RON = "RON",
-    RSD = "RSD",
-    RUB = "RUB",
-    RWF = "RWF",
-    SAR = "SAR",
-    SBD = "SBD",
-    SCR = "SCR",
-    SDG = "SDG",
-    SEK = "SEK",
-    SGD = "SGD",
-    SHP = "SHP",
-    SLE = "SLE",
-    SLL = "SLL",
-    SOS = "SOS",
-    SRD = "SRD",
-    SSP = "SSP",
-    STN = "STN",
-    SVC = "SVC",
-    SYP = "SYP",
-    SZL = "SZL",
-    THB = "THB",
-    TJS = "TJS",
-    TMT = "TMT",
-    TND = "TND",
-    TOP = "TOP",
-    TRY = "TRY",
-    TTD = "TTD",
-    TWD = "TWD",
-    TZS = "TZS",
-    UAH = "UAH",
-    UGX = "UGX",
-    USD = "USD",
-    USN = "USN",
-    UYI = "UYI",
-    UYU = "UYU",
-    UYW = "UYW",
-    UZS = "UZS",
-    VED = "VED",
-    VES = "VES",
-    VND = "VND",
-    VUV = "VUV",
-    WST = "WST",
-    XAF = "XAF",
-    XCD = "XCD",
-    XOF = "XOF",
-    XPF = "XPF",
-    XSU = "XSU",
-    XUA = "XUA",
-    YER = "YER",
-    ZAR = "ZAR",
-    ZMW = "ZMW",
-    ZWL = "ZWL"
-}
+export declare const ProductInputCurrencyEnum: {
+    readonly Aed: "AED";
+    readonly Afn: "AFN";
+    readonly All: "ALL";
+    readonly Amd: "AMD";
+    readonly Ang: "ANG";
+    readonly Aoa: "AOA";
+    readonly Ars: "ARS";
+    readonly Aud: "AUD";
+    readonly Awg: "AWG";
+    readonly Azn: "AZN";
+    readonly Bam: "BAM";
+    readonly Bbd: "BBD";
+    readonly Bdt: "BDT";
+    readonly Bgn: "BGN";
+    readonly Bhd: "BHD";
+    readonly Bif: "BIF";
+    readonly Bmd: "BMD";
+    readonly Bnd: "BND";
+    readonly Bob: "BOB";
+    readonly Bov: "BOV";
+    readonly Brl: "BRL";
+    readonly Bsd: "BSD";
+    readonly Btn: "BTN";
+    readonly Bwp: "BWP";
+    readonly Byn: "BYN";
+    readonly Bzd: "BZD";
+    readonly Cad: "CAD";
+    readonly Cdf: "CDF";
+    readonly Che: "CHE";
+    readonly Chf: "CHF";
+    readonly Chw: "CHW";
+    readonly Clf: "CLF";
+    readonly Clp: "CLP";
+    readonly Cny: "CNY";
+    readonly Cop: "COP";
+    readonly Cou: "COU";
+    readonly Crc: "CRC";
+    readonly Cuc: "CUC";
+    readonly Cup: "CUP";
+    readonly Cve: "CVE";
+    readonly Czk: "CZK";
+    readonly Djf: "DJF";
+    readonly Dkk: "DKK";
+    readonly Dop: "DOP";
+    readonly Dzd: "DZD";
+    readonly Egp: "EGP";
+    readonly Ern: "ERN";
+    readonly Etb: "ETB";
+    readonly Eur: "EUR";
+    readonly Fjd: "FJD";
+    readonly Fkp: "FKP";
+    readonly Gbp: "GBP";
+    readonly Gel: "GEL";
+    readonly Ghs: "GHS";
+    readonly Gip: "GIP";
+    readonly Gmd: "GMD";
+    readonly Gnf: "GNF";
+    readonly Gtq: "GTQ";
+    readonly Gyd: "GYD";
+    readonly Hkd: "HKD";
+    readonly Hnl: "HNL";
+    readonly Hrk: "HRK";
+    readonly Htg: "HTG";
+    readonly Huf: "HUF";
+    readonly Idr: "IDR";
+    readonly Ils: "ILS";
+    readonly Inr: "INR";
+    readonly Iqd: "IQD";
+    readonly Irr: "IRR";
+    readonly Isk: "ISK";
+    readonly Jmd: "JMD";
+    readonly Jod: "JOD";
+    readonly Jpy: "JPY";
+    readonly Kes: "KES";
+    readonly Kgs: "KGS";
+    readonly Khr: "KHR";
+    readonly Kmf: "KMF";
+    readonly Kpw: "KPW";
+    readonly Krw: "KRW";
+    readonly Kwd: "KWD";
+    readonly Kyd: "KYD";
+    readonly Kzt: "KZT";
+    readonly Lak: "LAK";
+    readonly Lbp: "LBP";
+    readonly Lkr: "LKR";
+    readonly Lrd: "LRD";
+    readonly Lsl: "LSL";
+    readonly Lyd: "LYD";
+    readonly Mad: "MAD";
+    readonly Mdl: "MDL";
+    readonly Mga: "MGA";
+    readonly Mkd: "MKD";
+    readonly Mmk: "MMK";
+    readonly Mnt: "MNT";
+    readonly Mop: "MOP";
+    readonly Mru: "MRU";
+    readonly Mur: "MUR";
+    readonly Mvr: "MVR";
+    readonly Mwk: "MWK";
+    readonly Mxn: "MXN";
+    readonly Mxv: "MXV";
+    readonly Myr: "MYR";
+    readonly Mzn: "MZN";
+    readonly Nad: "NAD";
+    readonly Ngn: "NGN";
+    readonly Nio: "NIO";
+    readonly Nok: "NOK";
+    readonly Npr: "NPR";
+    readonly Nzd: "NZD";
+    readonly Omr: "OMR";
+    readonly Pab: "PAB";
+    readonly Pen: "PEN";
+    readonly Pgk: "PGK";
+    readonly Php: "PHP";
+    readonly Pkr: "PKR";
+    readonly Pln: "PLN";
+    readonly Pyg: "PYG";
+    readonly Qar: "QAR";
+    readonly Ron: "RON";
+    readonly Rsd: "RSD";
+    readonly Rub: "RUB";
+    readonly Rwf: "RWF";
+    readonly Sar: "SAR";
+    readonly Sbd: "SBD";
+    readonly Scr: "SCR";
+    readonly Sdg: "SDG";
+    readonly Sek: "SEK";
+    readonly Sgd: "SGD";
+    readonly Shp: "SHP";
+    readonly Sle: "SLE";
+    readonly Sll: "SLL";
+    readonly Sos: "SOS";
+    readonly Srd: "SRD";
+    readonly Ssp: "SSP";
+    readonly Stn: "STN";
+    readonly Svc: "SVC";
+    readonly Syp: "SYP";
+    readonly Szl: "SZL";
+    readonly Thb: "THB";
+    readonly Tjs: "TJS";
+    readonly Tmt: "TMT";
+    readonly Tnd: "TND";
+    readonly Top: "TOP";
+    readonly Try: "TRY";
+    readonly Ttd: "TTD";
+    readonly Twd: "TWD";
+    readonly Tzs: "TZS";
+    readonly Uah: "UAH";
+    readonly Ugx: "UGX";
+    readonly Usd: "USD";
+    readonly Usn: "USN";
+    readonly Uyi: "UYI";
+    readonly Uyu: "UYU";
+    readonly Uyw: "UYW";
+    readonly Uzs: "UZS";
+    readonly Ved: "VED";
+    readonly Ves: "VES";
+    readonly Vnd: "VND";
+    readonly Vuv: "VUV";
+    readonly Wst: "WST";
+    readonly Xaf: "XAF";
+    readonly Xcd: "XCD";
+    readonly Xof: "XOF";
+    readonly Xpf: "XPF";
+    readonly Xsu: "XSU";
+    readonly Xua: "XUA";
+    readonly Yer: "YER";
+    readonly Zar: "ZAR";
+    readonly Zmw: "ZMW";
+    readonly Zwl: "ZWL";
+};
+export declare type ProductInputCurrencyEnum = typeof ProductInputCurrencyEnum[keyof typeof ProductInputCurrencyEnum];
 /**
  * Product and services offered by the business
  * @export
@@ -5986,103 +6610,103 @@ export interface ProductOutput {
      * @type {string}
      * @memberof ProductOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * Product is active or not
      * @type {boolean}
      * @memberof ProductOutput
      */
-    active?: boolean;
+    'active'?: boolean;
     /**
-     * Default price of the product this is represented in the lowest currency denomination. Eg: 1000 for $10
+     *
      * @type {number}
      * @memberof ProductOutput
      */
-    defaultPrice?: number | null;
+    'defaultPrice'?: number | null;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    currency?: string | null;
+    'currency'?: string | null;
     /**
-     * Description of the product
+     *
      * @type {string}
      * @memberof ProductOutput
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      * Name of the product
      * @type {string}
      * @memberof ProductOutput
      */
-    name?: string;
+    'name'?: string;
     /**
      * Product is shippable or not. Service is not shippable
      * @type {boolean}
      * @memberof ProductOutput
      */
-    shippable?: boolean;
+    'shippable'?: boolean;
     /**
-     * List of features of the product
+     *
      * @type {Array<string>}
      * @memberof ProductOutput
      */
-    features?: Array<string> | null;
+    'features'?: Array<string> | null;
     /**
      * Product requires appointment scheduling or not
      * @type {boolean}
      * @memberof ProductOutput
      */
-    scheduleAppointment?: boolean;
+    'scheduleAppointment'?: boolean;
     /**
-     * Properties of the product
+     *
      * @type {object}
      * @memberof ProductOutput
      */
-    props?: object | null;
+    'props'?: object | null;
     /**
      *
-     * @type {Array<string>}
+     * @type {Set<string>}
      * @memberof ProductOutput
      */
-    tags?: Array<string> | null;
-    /**
-     *
-     * @type {string}
-     * @memberof ProductOutput
-     */
-    status: string;
+    'tags'?: Set<string> | null;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    createdBy?: string;
+    'status': string;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    createdAt?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    updatedBy?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ProductOutput
      */
-    updatedAt?: string;
+    'updatedBy'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ProductOutput
+     */
+    'updatedAt'?: string;
 }
 /**
  *
@@ -6095,13 +6719,13 @@ export interface ProductWithAgents {
      * @type {ProductOutput}
      * @memberof ProductWithAgents
      */
-    product: ProductOutput;
+    'product': ProductOutput;
     /**
      *
-     * @type {Array<AIAgentOutput>}
+     * @type {Array<AgentsInner>}
      * @memberof ProductWithAgents
      */
-    agents?: Array<AIAgentOutput>;
+    'agents'?: Array<AgentsInner>;
 }
 /**
  *
@@ -6114,31 +6738,31 @@ export interface PromptTemplate {
      * @type {string}
      * @memberof PromptTemplate
      */
-    prompt: string;
+    'prompt': string;
     /**
      *
      * @type {Array<Sequence>}
      * @memberof PromptTemplate
      */
-    sequences: Array<Sequence>;
+    'sequences': Array<Sequence>;
     /**
      *
      * @type {string}
      * @memberof PromptTemplate
      */
-    role: string;
+    'role': string;
     /**
      *
      * @type {string}
      * @memberof PromptTemplate
      */
-    roleDescription: string;
+    'roleDescription': string;
     /**
      *
      * @type {string}
      * @memberof PromptTemplate
      */
-    name: string;
+    'name': string;
 }
 /**
  *
@@ -6147,41 +6771,41 @@ export interface PromptTemplate {
  */
 export interface ProspectInput {
     /**
-     * Name of the prospect
+     *
      * @type {string}
      * @memberof ProspectInput
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
-     * Email of the prospect
+     *
      * @type {string}
      * @memberof ProspectInput
      */
-    email?: string | null;
+    'email'?: string | null;
     /**
-     * Phone number of the prospect
+     *
      * @type {string}
      * @memberof ProspectInput
      */
-    phoneNumber?: string | null;
+    'phoneNumber'?: string | null;
     /**
-     * External references for the prospect
+     *
      * @type {Array<ExternalReference>}
      * @memberof ProspectInput
      */
-    externalReference?: Array<ExternalReference> | null;
+    'externalReference'?: Array<ExternalReference> | null;
     /**
      *
      * @type {ProspectStatus}
      * @memberof ProspectInput
      */
-    status: ProspectStatus;
+    'status': ProspectStatus;
     /**
-     * Props for the prospect
+     *
      * @type {object}
      * @memberof ProspectInput
      */
-    prospectProps?: object | null;
+    'prospectProps'?: object | null;
 }
 /**
  * Prospects are the potential customers for business
@@ -6194,89 +6818,90 @@ export interface ProspectOutput {
      * @type {string}
      * @memberof ProspectOutput
      */
-    id: string;
+    'id': string;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    email?: string | null;
+    'email'?: string | null;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    phoneNumber?: string | null;
+    'phoneNumber'?: string | null;
     /**
      *
      * @type {Array<ExternalReference>}
      * @memberof ProspectOutput
      */
-    externalReference: Array<ExternalReference> | null;
+    'externalReference': Array<ExternalReference> | null;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    status: string;
+    'status': string;
     /**
      *
      * @type {object}
      * @memberof ProspectOutput
      */
-    prospectProps: object | null;
+    'prospectProps': object | null;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof ProspectOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum ProspectStatus {
-    NEW = "NEW",
-    GENERALENQUIRY = "GENERAL_ENQUIRY",
-    SCHEDULEDCALLBACKWITHBOT = "SCHEDULED_CALLBACK_WITH_BOT",
-    SCHEDULEDAPPOINTMENTWITHPERSON = "SCHEDULED_APPOINTMENT_WITH_PERSON",
-    SCHEDULEDAPPOINTMENTFORSERVICE = "SCHEDULED_APPOINTMENT_FOR_SERVICE",
-    NOTINTERESTED = "NOT_INTERESTED",
-    PRODUCTORDERPLACED = "PRODUCT_ORDER_PLACED",
-    SERVICEORDERPLACED = "SERVICE_ORDER_PLACED"
-}
+export declare const ProspectStatus: {
+    readonly New: "NEW";
+    readonly GeneralEnquiry: "GENERAL_ENQUIRY";
+    readonly ScheduledCallbackWithBot: "SCHEDULED_CALLBACK_WITH_BOT";
+    readonly ScheduledAppointmentWithPerson: "SCHEDULED_APPOINTMENT_WITH_PERSON";
+    readonly ScheduledAppointmentForService: "SCHEDULED_APPOINTMENT_FOR_SERVICE";
+    readonly NotInterested: "NOT_INTERESTED";
+    readonly ProductOrderPlaced: "PRODUCT_ORDER_PLACED";
+    readonly ServiceOrderPlaced: "SERVICE_ORDER_PLACED";
+};
+export declare type ProspectStatus = typeof ProspectStatus[keyof typeof ProspectStatus];
 /**
  *
  * @export
@@ -6288,13 +6913,13 @@ export interface ResellerBatchMetricsRequests {
      * @type {Array<string>}
      * @memberof ResellerBatchMetricsRequests
      */
-    organizations?: Array<string> | null;
+    'organizations'?: Array<string> | null;
     /**
      *
      * @type {Array<MetricsRequestInput>}
      * @memberof ResellerBatchMetricsRequests
      */
-    requests: Array<MetricsRequestInput>;
+    'requests': Array<MetricsRequestInput>;
 }
 /**
  *
@@ -6303,23 +6928,85 @@ export interface ResellerBatchMetricsRequests {
  */
 export interface ResellerPaymentAccountDetails {
     /**
-     * Business name of the reseller
+     *
      * @type {string}
      * @memberof ResellerPaymentAccountDetails
      */
-    businessName: string | null;
+    'businessName': string | null;
+}
+/**
+ *
+ * @export
+ * @interface ResponseGetorganizationbrandingv1
+ */
+export interface ResponseGetorganizationbrandingv1 {
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'name'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'brandColor'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'buttonColor'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'secondaryColor'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'textColor'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'favicon'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'faviconUrl'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'logo'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ResponseGetorganizationbrandingv1
+     */
+    'logoUrl'?: string | null;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum Role {
-    ADMIN = "ADMIN",
-    READONLY = "READ_ONLY",
-    OWNER = "OWNER",
-    RESELLERADMIN = "RESELLER_ADMIN"
-}
+export declare const Role: {
+    readonly Admin: "ADMIN";
+    readonly ReadOnly: "READ_ONLY";
+    readonly Owner: "OWNER";
+    readonly ResellerAdmin: "RESELLER_ADMIN";
+};
+export declare type Role = typeof Role[keyof typeof Role];
 /**
  *
  * @export
@@ -6331,13 +7018,20 @@ export interface RoleTemplate {
      * @type {string}
      * @memberof RoleTemplate
      */
-    roleName: string;
+    'roleName': string;
     /**
      *
      * @type {string}
      * @memberof RoleTemplate
      */
-    roleDescription: string;
+    'roleDescription': string;
+}
+/**
+ *
+ * @export
+ * @interface Rudenesslevel
+ */
+export interface Rudenesslevel {
 }
 /**
  * Scenario represents a sequence of steps that can be performed by an app
@@ -6350,158 +7044,206 @@ export interface Scenario {
      * @type {string}
      * @memberof Scenario
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Scenario
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Scenario
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Scenario
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Scenario
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the scenario
      * @type {string}
      * @memberof Scenario
      */
-    name: string;
+    'name': string;
     /**
      * The description of the scenario
      * @type {string}
      * @memberof Scenario
      */
-    description: string;
+    'description': string;
     /**
      * The objections to be handled for the scenario
      * @type {Array<Objection>}
      * @memberof Scenario
      */
-    objections: Array<Objection>;
+    'objections': Array<Objection>;
     /**
-     * The type of call to be used for this scenario
+     *
      * @type {string}
      * @memberof Scenario
      */
-    callType?: string | null;
+    'callType'?: string | null;
     /**
      * The goals to be achieved for the scenario
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof Scenario
      */
-    goals: Array<SparrModelsScenarioGoal>;
+    'goals': Array<SparrModelsScenarioGoal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
      * @memberof Scenario
      */
-    playbook: Array<Step>;
+    'playbook': Array<Step>;
     /**
      * Whether the scenario is inherited from the parent scenario
      * @type {boolean}
      * @memberof Scenario
      */
-    isInherited?: boolean;
+    'isInherited'?: boolean;
     /**
-     * The ID of the evaluator
+     *
      * @type {string}
      * @memberof Scenario
      */
-    evaluatorId?: string | null;
+    'evaluatorId'?: string | null;
     /**
      * The status of the scenario
      * @type {string}
      * @memberof Scenario
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the scenario
      * @type {string}
      * @memberof Scenario
      */
-    id?: string;
+    'id'?: string;
     /**
      * The version of the scenario
      * @type {number}
      * @memberof Scenario
      */
-    version?: number;
+    'version'?: number;
 }
 /**
- *
+ * Response model for scenario including evaluator with goals
  * @export
- * @interface ScenarioCore
+ * @interface ScenarioResponse
  */
-export interface ScenarioCore {
+export interface ScenarioResponse {
+    /**
+     * The unique identifier of the scenario
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'id': string;
+    /**
+     * The version of the scenario
+     * @type {number}
+     * @memberof ScenarioResponse
+     */
+    'version': number;
     /**
      * The name of the scenario
      * @type {string}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    name: string;
+    'name': string;
     /**
      * The description of the scenario
      * @type {string}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    description: string;
+    'description': string;
     /**
      * The objections to be handled for the scenario
      * @type {Array<Objection>}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    objections: Array<Objection>;
+    'objections': Array<Objection>;
     /**
-     * The type of call to be used for this scenario
+     *
      * @type {string}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    callType?: string | null;
+    'callType': string | null;
     /**
      * The goals to be achieved for the scenario
-     * @type {Array<GoalInput>}
-     * @memberof ScenarioCore
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof ScenarioResponse
      */
-    goals: Array<GoalInput>;
+    'goals': Array<SparrModelsScenarioGoal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    playbook: Array<Step>;
+    'playbook': Array<Step>;
     /**
      * Whether the scenario is inherited from the parent scenario
      * @type {boolean}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    isInherited?: boolean;
+    'isInherited': boolean;
     /**
-     * The ID of the evaluator
+     *
      * @type {string}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    evaluatorId?: string | null;
+    'evaluatorId': string | null;
+    /**
+     *
+     * @type {EvaluatorResponse}
+     * @memberof ScenarioResponse
+     */
+    'evaluator'?: EvaluatorResponse | null;
     /**
      * The status of the scenario
      * @type {string}
-     * @memberof ScenarioCore
+     * @memberof ScenarioResponse
      */
-    status?: string;
+    'status': string;
+    /**
+     * The organization ID
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'orgId': string;
+    /**
+     * The user who created the scenario
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'createdBy': string;
+    /**
+     * The creation timestamp
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'createdAt': string;
+    /**
+     * The user who last updated the scenario
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'updatedBy': string;
+    /**
+     * The last update timestamp
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'updatedAt': string;
 }
 /**
  *
@@ -6514,31 +7256,31 @@ export interface ScenarioSearchResponse {
      * @type {Array<Scenario>}
      * @memberof ScenarioSearchResponse
      */
-    items: Array<Scenario>;
+    'items': Array<Scenario>;
     /**
      *
      * @type {number}
      * @memberof ScenarioSearchResponse
      */
-    total: number;
+    'total': number;
     /**
      *
      * @type {number}
      * @memberof ScenarioSearchResponse
      */
-    pages: number;
+    'pages': number;
     /**
      *
      * @type {number}
      * @memberof ScenarioSearchResponse
      */
-    current_page: number;
+    'current_page': number;
     /**
      *
      * @type {number}
      * @memberof ScenarioSearchResponse
      */
-    page_size: number;
+    'page_size': number;
 }
 /**
  *
@@ -6551,50 +7293,53 @@ export interface Sequence {
      * @type {string}
      * @memberof Sequence
      */
-    stageName: string;
+    'stageName': string;
     /**
      * Description of the stage
      * @type {string}
      * @memberof Sequence
      */
-    description: string;
+    'description': string;
     /**
-     * Other notes that AI agent should know in this stage of conversation
+     *
      * @type {string}
      * @memberof Sequence
      */
-    otherNotes?: string | null;
+    'otherNotes'?: string | null;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SortOrder {
-    Asc = "asc",
-    Desc = "desc"
-}
+export declare const SortOrder: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export declare type SortOrder = typeof SortOrder[keyof typeof SortOrder];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrAdaptability {
-    OpenToChange = "open to change",
-    Resistant = "resistant",
-    Indifferent = "indifferent"
-}
+export declare const SparrAdaptability: {
+    readonly OpenToChange: "open to change";
+    readonly Resistant: "resistant";
+    readonly Indifferent: "indifferent";
+};
+export declare type SparrAdaptability = typeof SparrAdaptability[keyof typeof SparrAdaptability];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrCommunicationStyle {
-    Direct = "direct",
-    Indirect = "indirect",
-    Verbose = "verbose",
-    Brief = "brief"
-}
+export declare const SparrCommunicationStyle: {
+    readonly Direct: "direct";
+    readonly Indirect: "indirect";
+    readonly Verbose: "verbose";
+    readonly Brief: "brief";
+};
+export declare type SparrCommunicationStyle = typeof SparrCommunicationStyle[keyof typeof SparrCommunicationStyle];
 /**
  * Goal represents a collection of goals with weightages
  * @export
@@ -6606,85 +7351,86 @@ export interface SparrDbModelsGoal {
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the goals collection
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    name: string;
+    'name': string;
     /**
      * The description of the goals collection
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    description: string;
+    'description': string;
     /**
-     * The list of process goals
+     *
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof SparrDbModelsGoal
      */
-    process_goals?: Array<SparrModelsScenarioGoal> | null;
+    'process_goals'?: Array<SparrModelsScenarioGoal> | null;
     /**
-     * The list of skills goals
+     *
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof SparrDbModelsGoal
      */
-    skills_goals?: Array<SparrModelsScenarioGoal> | null;
+    'skills_goals'?: Array<SparrModelsScenarioGoal> | null;
     /**
-     * The list of communication goals
+     *
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof SparrDbModelsGoal
      */
-    communication_goals?: Array<SparrModelsScenarioGoal> | null;
+    'communication_goals'?: Array<SparrModelsScenarioGoal> | null;
     /**
      * The status of the goals collection
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the goals collection
      * @type {string}
      * @memberof SparrDbModelsGoal
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrDecisionMakingStyle {
-    Logical = "logical",
-    Emotional = "emotional",
-    Impulsive = "impulsive",
-    Hesitant = "hesitant"
-}
+export declare const SparrDecisionMakingStyle: {
+    readonly Logical: "logical";
+    readonly Emotional: "emotional";
+    readonly Impulsive: "impulsive";
+    readonly Hesitant: "hesitant";
+};
+export declare type SparrDecisionMakingStyle = typeof SparrDecisionMakingStyle[keyof typeof SparrDecisionMakingStyle];
 /**
  *
  * @export
@@ -6696,19 +7442,19 @@ export interface SparrDemeanorInput {
      * @type {SparrPersonaAttributesAndTraits}
      * @memberof SparrDemeanorInput
      */
-    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    'personaTraits'?: SparrPersonaAttributesAndTraits | null;
     /**
      *
-     * @type {SparrExcitementLevel | string}
+     * @type {Excitementlevel}
      * @memberof SparrDemeanorInput
      */
-    excitementLevel?: SparrExcitementLevel | string | null;
+    'excitementLevel'?: Excitementlevel | null;
     /**
      *
-     * @type {SparrRudenessLevel | string}
+     * @type {Rudenesslevel}
      * @memberof SparrDemeanorInput
      */
-    rudenessLevel?: SparrRudenessLevel | string | null;
+    'rudenessLevel'?: Rudenesslevel | null;
 }
 /**
  *
@@ -6721,19 +7467,19 @@ export interface SparrDemeanorOutput {
      * @type {SparrPersonaAttributesAndTraits}
      * @memberof SparrDemeanorOutput
      */
-    personaTraits?: SparrPersonaAttributesAndTraits | null;
+    'personaTraits'?: SparrPersonaAttributesAndTraits | null;
     /**
      *
-     * @type {SparrExcitementLevel | string}
+     * @type {Excitementlevel}
      * @memberof SparrDemeanorOutput
      */
-    excitementLevel?: SparrExcitementLevel | string | null;
+    'excitementLevel'?: Excitementlevel | null;
     /**
      *
-     * @type {SparrRudenessLevel | string}
+     * @type {Rudenesslevel}
      * @memberof SparrDemeanorOutput
      */
-    rudenessLevel?: SparrRudenessLevel | string | null;
+    'rudenessLevel'?: Rudenesslevel | null;
 }
 /**
  *
@@ -6746,36 +7492,33 @@ export interface SparrDialogLine {
      * @type {string}
      * @memberof SparrDialogLine
      */
-    speaker: SparrDialogLineSpeakerEnum;
+    'speaker': SparrDialogLineSpeakerEnum;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLine
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLine
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLine
      */
-    message_id: string;
+    'message_id': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum SparrDialogLineSpeakerEnum {
-    USER = "USER",
-    AI = "AI",
-    TOOL = "TOOL",
-    AITOOLREQUEST = "AI - TOOL REQUEST"
-}
+export declare const SparrDialogLineSpeakerEnum: {
+    readonly User: "USER";
+    readonly Ai: "AI";
+    readonly Tool: "TOOL";
+    readonly AiToolRequest: "AI - TOOL REQUEST";
+};
+export declare type SparrDialogLineSpeakerEnum = typeof SparrDialogLineSpeakerEnum[keyof typeof SparrDialogLineSpeakerEnum];
 /**
  *
  * @export
@@ -6787,53 +7530,50 @@ export interface SparrDialogLineWithSentiment {
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    speaker: string;
+    'speaker': string;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {number}
      * @memberof SparrDialogLineWithSentiment
      */
-    start_at_seconds: number;
+    'start_at_seconds': number;
     /**
      *
      * @type {number}
      * @memberof SparrDialogLineWithSentiment
      */
-    end_at_seconds: number;
+    'end_at_seconds': number;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    sentiment: SparrDialogLineWithSentimentSentimentEnum;
+    'sentiment': SparrDialogLineWithSentimentSentimentEnum;
     /**
      *
      * @type {number}
      * @memberof SparrDialogLineWithSentiment
      */
-    sentiment_score: number;
+    'sentiment_score': number;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLineWithSentiment
      */
-    id: string;
+    'id': string;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum SparrDialogLineWithSentimentSentimentEnum {
-    POSITIVE = "POSITIVE",
-    NEGATIVE = "NEGATIVE",
-    NEUTRAL = "NEUTRAL"
-}
+export declare const SparrDialogLineWithSentimentSentimentEnum: {
+    readonly Positive: "POSITIVE";
+    readonly Negative: "NEGATIVE";
+    readonly Neutral: "NEUTRAL";
+};
+export declare type SparrDialogLineWithSentimentSentimentEnum = typeof SparrDialogLineWithSentimentSentimentEnum[keyof typeof SparrDialogLineWithSentimentSentimentEnum];
 /**
  *
  * @export
@@ -6845,81 +7585,85 @@ export interface SparrDialogLineWithTimestamp {
      * @type {string}
      * @memberof SparrDialogLineWithTimestamp
      */
-    speaker: string;
+    'speaker': string;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLineWithTimestamp
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {string}
      * @memberof SparrDialogLineWithTimestamp
      */
-    message_id: string;
+    'message_id': string;
     /**
      *
      * @type {number}
      * @memberof SparrDialogLineWithTimestamp
      */
-    start_at_milliseconds: number;
+    'start_at_milliseconds': number;
     /**
      *
      * @type {number}
      * @memberof SparrDialogLineWithTimestamp
      */
-    end_at_milliseconds: number;
+    'end_at_milliseconds': number;
     /**
      *
      * @type {Array<DialogWordWithTimestamp>}
      * @memberof SparrDialogLineWithTimestamp
      */
-    words: Array<DialogWordWithTimestamp>;
+    'words': Array<DialogWordWithTimestamp>;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrEngagementLevel {
-    HighlyEngaged = "highly engaged",
-    Distracted = "distracted",
-    Uninterested = "uninterested"
-}
+export declare const SparrEngagementLevel: {
+    readonly HighlyEngaged: "highly engaged";
+    readonly Distracted: "distracted";
+    readonly Uninterested: "uninterested";
+};
+export declare type SparrEngagementLevel = typeof SparrEngagementLevel[keyof typeof SparrEngagementLevel];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrExcitementLevel {
-    Neutral = "neutral",
-    Interested = "interested",
-    Excited = "excited",
-    Overjoyed = "overjoyed",
-    Euphoric = "euphoric"
-}
+export declare const SparrExcitementLevel: {
+    readonly Neutral: "neutral";
+    readonly Interested: "interested";
+    readonly Excited: "excited";
+    readonly Overjoyed: "overjoyed";
+    readonly Euphoric: "euphoric";
+};
+export declare type SparrExcitementLevel = typeof SparrExcitementLevel[keyof typeof SparrExcitementLevel];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrFrustrationTolerance {
-    Neutral = "neutral",
-    QuickToAnger = "quick to anger",
-    Understanding = "understanding"
-}
+export declare const SparrFrustrationTolerance: {
+    readonly Neutral: "neutral";
+    readonly QuickToAnger: "quick to anger";
+    readonly Understanding: "understanding";
+};
+export declare type SparrFrustrationTolerance = typeof SparrFrustrationTolerance[keyof typeof SparrFrustrationTolerance];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrInteractionTone {
-    Casual = "casual",
-    Professional = "professional",
-    Friendly = "friendly",
-    Authoritative = "authoritative"
-}
+export declare const SparrInteractionTone: {
+    readonly Casual: "casual";
+    readonly Professional: "professional";
+    readonly Friendly: "friendly";
+    readonly Authoritative: "authoritative";
+};
+export declare type SparrInteractionTone = typeof SparrInteractionTone[keyof typeof SparrInteractionTone];
 /**
  *
  * @export
@@ -6931,27 +7675,28 @@ export interface SparrLanguageAccentCombo {
      * @type {SparrVoiceLanguage}
      * @memberof SparrLanguageAccentCombo
      */
-    language: SparrVoiceLanguage;
+    'language': SparrVoiceLanguage;
     /**
      * The accent of the voice
      * @type {SparrVoiceAccent}
      * @memberof SparrLanguageAccentCombo
      */
-    accent: SparrVoiceAccent;
+    'accent': SparrVoiceAccent;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrModelsAnalyticsAggregationFormula {
-    COUNT = "COUNT",
-    SUM = "SUM",
-    AVG = "AVG",
-    MIN = "MIN",
-    MAX = "MAX",
-    MEDIAN = "MEDIAN"
-}
+export declare const SparrModelsAnalyticsAggregationFormula: {
+    readonly Count: "COUNT";
+    readonly Sum: "SUM";
+    readonly Avg: "AVG";
+    readonly Min: "MIN";
+    readonly Max: "MAX";
+    readonly Median: "MEDIAN";
+};
+export declare type SparrModelsAnalyticsAggregationFormula = typeof SparrModelsAnalyticsAggregationFormula[keyof typeof SparrModelsAnalyticsAggregationFormula];
 /**
  *
  * @export
@@ -6963,13 +7708,13 @@ export interface SparrModelsAnalyticsBatchMetricsRequests {
      * @type {Array<SparrModelsAnalyticsMetricsRequest>}
      * @memberof SparrModelsAnalyticsBatchMetricsRequests
      */
-    requests: Array<SparrModelsAnalyticsMetricsRequest>;
+    'requests': Array<SparrModelsAnalyticsMetricsRequest>;
     /**
-     * Optional list of user IDs to filter metrics by
+     *
      * @type {Array<string>}
      * @memberof SparrModelsAnalyticsBatchMetricsRequests
      */
-    userIds?: Array<string> | null;
+    'userIds'?: Array<string> | null;
 }
 /**
  *
@@ -6982,7 +7727,7 @@ export interface SparrModelsAnalyticsBatchMetricsResponse {
      * @type {Array<SparrModelsAnalyticsMetricsResponse>}
      * @memberof SparrModelsAnalyticsBatchMetricsResponse
      */
-    responses: Array<SparrModelsAnalyticsMetricsResponse>;
+    'responses': Array<SparrModelsAnalyticsMetricsResponse>;
 }
 /**
  * Expected output of the post conversation task
@@ -6991,55 +7736,56 @@ export interface SparrModelsAnalyticsBatchMetricsResponse {
  */
 export interface SparrModelsAnalyticsConversationAnalyticsModel {
     /**
-     * This is a sparring conversation. So you have to evaluate the role player\'s conversation skill and provide feedback summary on the same to role player when the role player is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Keep the feedback summary fun, quirky and engaging. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     *
      * @type {string}
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
-    evaluation_summary: string | null;
+    'evaluation_summary': string | null;
     /**
-     * List of top insights from the role player\'s conversation details. This should be a list of 3-5 points based on the conversation details.
+     *
      * @type {Array<string>}
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
-    top_insights: Array<string> | null;
+    'top_insights': Array<string> | null;
     /**
-     * Provide a list of what went well in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 3-5 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     *
      * @type {Array<string>}
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
-    what_went_well: Array<string> | null;
+    'what_went_well': Array<string> | null;
     /**
-     * Provide a list of what can be improved in the conversation. Note that this is a sparring conversation. So you have to evaluate the sales representative\'s conversation skill and provide feedback on the same to sales representative when the sales representative is conversing in the sparring mode. You shouldn\'t evaluate the AI responses. Your evaluation should be based on the metrics provided in the model. This should be a list of 2-3 points based on the metrics name and description provided in the model. Give the list with 1-2 sentences for each point. Use American style of writing, use phrases where appropriate. Make it more subtle engaging and also more interesting. Dont be robotic or too formal.
+     *
      * @type {Array<string>}
      * @memberof SparrModelsAnalyticsConversationAnalyticsModel
      */
-    what_can_be_improved: Array<string> | null;
+    'what_can_be_improved': Array<string> | null;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrModelsAnalyticsMetricName {
-    CALLS = "CALLS",
-    CallCount = "callCount",
-    CALLDURATION = "CALL_DURATION",
-    TALKRATIO = "TALK_RATIO",
-    AVERAGEFILLERWORDSCOUNT = "AVERAGE_FILLER_WORDS_COUNT",
-    AVERAGEOVERALLSCORE = "AVERAGE_OVERALL_SCORE",
-    AVERAGELONGESTMONOLOGUE = "AVERAGE_LONGEST_MONOLOGUE",
-    AVERAGEMODULESCOMPLETED = "AVERAGE_MODULES_COMPLETED",
-    AVERAGEACTIVEDAYS = "AVERAGE_ACTIVE_DAYS",
-    ProcessAdherenceScore = "processAdherenceScore",
-    SkillsScore = "skillsScore",
-    CommunicationScore = "communicationScore",
-    UserTalkingRatio = "userTalkingRatio",
-    FillerWords = "fillerWords",
-    OverallScore = "overallScore",
-    ModulesCompleted = "modulesCompleted",
-    CallDuration = "callDuration",
-    LongestMonologue = "longestMonologue"
-}
+export declare const SparrModelsAnalyticsMetricName: {
+    readonly Calls: "CALLS";
+    readonly CallCount: "callCount";
+    readonly CallDuration: "CALL_DURATION";
+    readonly TalkRatio: "TALK_RATIO";
+    readonly AverageFillerWordsCount: "AVERAGE_FILLER_WORDS_COUNT";
+    readonly AverageOverallScore: "AVERAGE_OVERALL_SCORE";
+    readonly AverageLongestMonologue: "AVERAGE_LONGEST_MONOLOGUE";
+    readonly AverageModulesCompleted: "AVERAGE_MODULES_COMPLETED";
+    readonly AverageActiveDays: "AVERAGE_ACTIVE_DAYS";
+    readonly ProcessAdherenceScore: "processAdherenceScore";
+    readonly SkillsScore: "skillsScore";
+    readonly CommunicationScore: "communicationScore";
+    readonly UserTalkingRatio: "userTalkingRatio";
+    readonly FillerWords: "fillerWords";
+    readonly OverallScore: "overallScore";
+    readonly ModulesCompleted: "modulesCompleted";
+    readonly CallDuration2: "callDuration";
+    readonly LongestMonologue: "longestMonologue";
+};
+export declare type SparrModelsAnalyticsMetricName = typeof SparrModelsAnalyticsMetricName[keyof typeof SparrModelsAnalyticsMetricName];
 /**
  *
  * @export
@@ -7051,19 +7797,19 @@ export interface SparrModelsAnalyticsMetricResponseDataPoint {
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricResponseDataPoint
      */
-    timestamp: string;
+    'timestamp': string;
     /**
      * Value which will be a string representation of integer or floating number
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricResponseDataPoint
      */
-    value: string;
+    'value': string;
     /**
-     * Optional weight value for the data point
+     *
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricResponseDataPoint
      */
-    weight?: string | null;
+    'weight'?: string | null;
 }
 /**
  *
@@ -7076,37 +7822,37 @@ export interface SparrModelsAnalyticsMetricsRequest {
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    id: string;
+    'id': string;
     /**
      * Name of the metric
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    name: SparrModelsAnalyticsMetricName;
+    'name': SparrModelsAnalyticsMetricName;
     /**
      * Start date to get metric request
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    fromDate: string;
+    'fromDate': string;
     /**
      * End date until get metric request
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    toDate: string;
+    'toDate': string;
     /**
      * Aggregation period for the metric request
      * @type {AggregationPeriod}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    aggregationPeriod: AggregationPeriod;
+    'aggregationPeriod': AggregationPeriod;
     /**
      * Aggregation formula for the metric request
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
-    aggregationFormula: SparrModelsAnalyticsAggregationFormula;
+    'aggregationFormula': SparrModelsAnalyticsAggregationFormula;
 }
 /**
  *
@@ -7119,19 +7865,19 @@ export interface SparrModelsAnalyticsMetricsResponse {
      * @type {string}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
-    id: string;
+    'id': string;
     /**
      * Name of the metric
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
-    name: SparrModelsAnalyticsMetricName;
+    'name': SparrModelsAnalyticsMetricName;
     /**
      * List of data points for the metric response
      * @type {Array<SparrModelsAnalyticsMetricResponseDataPoint>}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
-    datapoints: Array<SparrModelsAnalyticsMetricResponseDataPoint>;
+    'datapoints': Array<SparrModelsAnalyticsMetricResponseDataPoint>;
 }
 /**
  *
@@ -7144,13 +7890,13 @@ export interface SparrModelsBaseBaseResponse {
      * @type {string}
      * @memberof SparrModelsBaseBaseResponse
      */
-    message?: string;
+    'message'?: string;
     /**
      * The status of the response
      * @type {string}
      * @memberof SparrModelsBaseBaseResponse
      */
-    status?: string;
+    'status'?: string;
 }
 /**
  *
@@ -7163,40 +7909,42 @@ export interface SparrModelsScenarioGoal {
      * @type {string}
      * @memberof SparrModelsScenarioGoal
      */
-    name: string;
+    'name': string;
     /**
      * The description of the goal
      * @type {string}
      * @memberof SparrModelsScenarioGoal
      */
-    description: string;
+    'description': string;
     /**
      * The weightage of the goal in percentage
      * @type {number}
      * @memberof SparrModelsScenarioGoal
      */
-    weightage: number;
+    'weightage': number;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrNegotiationStyle {
-    HardBargainer = "hard bargainer",
-    FriendlyNegotiator = "friendly negotiator",
-    NonNegotiator = "non-negotiator"
-}
+export declare const SparrNegotiationStyle: {
+    readonly HardBargainer: "hard bargainer";
+    readonly FriendlyNegotiator: "friendly negotiator";
+    readonly NonNegotiator: "non-negotiator";
+};
+export declare type SparrNegotiationStyle = typeof SparrNegotiationStyle[keyof typeof SparrNegotiationStyle];
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrPatienceLevel {
-    Neutral = "neutral",
-    VeryPatient = "very patient",
-    Impatient = "impatient"
-}
+export declare const SparrPatienceLevel: {
+    readonly Neutral: "neutral";
+    readonly VeryPatient: "very patient";
+    readonly Impatient: "impatient";
+};
+export declare type SparrPatienceLevel = typeof SparrPatienceLevel[keyof typeof SparrPatienceLevel];
 /**
  *
  * @export
@@ -7205,65 +7953,66 @@ export declare enum SparrPatienceLevel {
 export interface SparrPersonaAttributesAndTraits {
     /**
      *
-     * @type {SparrPatienceLevel | string}
+     * @type {PatienceLevel1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    patience_level?: SparrPatienceLevel | string | null;
+    'patience_level'?: PatienceLevel1 | null;
     /**
      *
-     * @type {SparrDecisionMakingStyle | string}
+     * @type {DecisionMakingStyle1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    decision_making_style?: SparrDecisionMakingStyle | string | null;
+    'decision_making_style'?: DecisionMakingStyle1 | null;
     /**
      *
-     * @type {SparrCommunicationStyle | string}
+     * @type {CommunicationStyle1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    communication_style?: SparrCommunicationStyle | string | null;
+    'communication_style'?: CommunicationStyle1 | null;
     /**
      *
-     * @type {SparrAdaptability | string}
+     * @type {Adaptability2}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    adaptability?: SparrAdaptability | string | null;
+    'adaptability'?: Adaptability2 | null;
     /**
      *
-     * @type {SparrFrustrationTolerance | string}
+     * @type {FrustrationTolerance1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    frustration_tolerance?: SparrFrustrationTolerance | string | null;
+    'frustration_tolerance'?: FrustrationTolerance1 | null;
     /**
      *
-     * @type {SparrEngagementLevel | string}
+     * @type {EngagementLevel1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    engagement_level?: SparrEngagementLevel | string | null;
+    'engagement_level'?: EngagementLevel1 | null;
     /**
      *
-     * @type {SparrInteractionTone | string}
+     * @type {PreferredTone1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    preferred_tone?: SparrInteractionTone | string | null;
+    'preferred_tone'?: PreferredTone1 | null;
     /**
      *
-     * @type {SparrNegotiationStyle | string}
+     * @type {NegotiationStyle1}
      * @memberof SparrPersonaAttributesAndTraits
      */
-    negotiation_style?: SparrNegotiationStyle | string | null;
+    'negotiation_style'?: NegotiationStyle1 | null;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrRudenessLevel {
-    Courteous = "courteous",
-    Direct = "direct",
-    Irritable = "irritable",
-    Aggressive = "aggressive",
-    Toxic = "toxic"
-}
+export declare const SparrRudenessLevel: {
+    readonly Courteous: "courteous";
+    readonly Direct: "direct";
+    readonly Irritable: "irritable";
+    readonly Aggressive: "aggressive";
+    readonly Toxic: "toxic";
+};
+export declare type SparrRudenessLevel = typeof SparrRudenessLevel[keyof typeof SparrRudenessLevel];
 /**
  *
  * @export
@@ -7275,31 +8024,31 @@ export interface SparrStatsData {
      * @type {number}
      * @memberof SparrStatsData
      */
-    no_of_calls: number;
+    'no_of_calls': number;
     /**
      *
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_call_duration: number;
+    'average_call_duration': number;
     /**
      *
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_dialogs: number;
+    'average_dialogs': number;
     /**
      *
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_agent_dialog_ratio: number;
+    'average_agent_dialog_ratio': number;
     /**
      *
      * @type {number}
      * @memberof SparrStatsData
      */
-    average_user_dialog_ratio: number;
+    'average_user_dialog_ratio': number;
 }
 /**
  *
@@ -7312,21 +8061,22 @@ export interface SparrStatsResponse {
      * @type {SparrStatsData}
      * @memberof SparrStatsResponse
      */
-    response: SparrStatsData;
+    'response': SparrStatsData;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrVoiceAccent {
-    American = "American",
-    Indian = "Indian",
-    Australian = "Australian",
-    British = "British",
-    Hindi = "Hindi",
-    MiddleEastern = "Middle Eastern"
-}
+export declare const SparrVoiceAccent: {
+    readonly American: "American";
+    readonly Indian: "Indian";
+    readonly Australian: "Australian";
+    readonly British: "British";
+    readonly Hindi: "Hindi";
+    readonly MiddleEastern: "Middle Eastern";
+};
+export declare type SparrVoiceAccent = typeof SparrVoiceAccent[keyof typeof SparrVoiceAccent];
 /**
  *
  * @export
@@ -7338,36 +8088,37 @@ export interface SparrVoiceInput {
      * @type {SparrLanguageAccentCombo}
      * @memberof SparrVoiceInput
      */
-    languageAccent: SparrLanguageAccentCombo;
+    'languageAccent': SparrLanguageAccentCombo;
     /**
      *
      * @type {string}
      * @memberof SparrVoiceInput
      */
-    modelId: string;
+    'modelId': string;
     /**
      *
      * @type {string}
      * @memberof SparrVoiceInput
      */
-    playbackSpeed?: string | null;
+    'playbackSpeed'?: string | null;
     /**
      *
      * @type {boolean}
      * @memberof SparrVoiceInput
      */
-    backgroundNoise?: boolean;
+    'backgroundNoise'?: boolean;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum SparrVoiceLanguage {
-    English = "English",
-    Spanish = "Spanish",
-    Hindi = "Hindi"
-}
+export declare const SparrVoiceLanguage: {
+    readonly English: "English";
+    readonly Spanish: "Spanish";
+    readonly Hindi: "Hindi";
+};
+export declare type SparrVoiceLanguage = typeof SparrVoiceLanguage[keyof typeof SparrVoiceLanguage];
 /**
  *
  * @export
@@ -7379,25 +8130,25 @@ export interface SparrVoiceOutput {
      * @type {SparrLanguageAccentCombo}
      * @memberof SparrVoiceOutput
      */
-    languageAccent: SparrLanguageAccentCombo;
+    'languageAccent': SparrLanguageAccentCombo;
     /**
      *
      * @type {string}
      * @memberof SparrVoiceOutput
      */
-    modelId: string;
+    'modelId': string;
     /**
      *
      * @type {string}
      * @memberof SparrVoiceOutput
      */
-    playbackSpeed?: string | null;
+    'playbackSpeed'?: string | null;
     /**
      *
      * @type {boolean}
      * @memberof SparrVoiceOutput
      */
-    backgroundNoise?: boolean;
+    'backgroundNoise'?: boolean;
 }
 /**
  *
@@ -7406,35 +8157,35 @@ export interface SparrVoiceOutput {
  */
 export interface SparrWorkDetails {
     /**
-     * The company of the persona
+     *
      * @type {string}
      * @memberof SparrWorkDetails
      */
-    companyName: string | null;
+    'companyName': string | null;
     /**
-     * The title of the persona
+     *
      * @type {string}
      * @memberof SparrWorkDetails
      */
-    jobTitle: string | null;
+    'jobTitle': string | null;
     /**
-     * The description of the persona
+     *
      * @type {string}
      * @memberof SparrWorkDetails
      */
-    description: string | null;
+    'description': string | null;
     /**
-     * The start date of the persona
+     *
      * @type {string}
      * @memberof SparrWorkDetails
      */
-    startDate: string | null;
+    'startDate': string | null;
     /**
-     * The end date of the persona
+     *
      * @type {string}
      * @memberof SparrWorkDetails
      */
-    endDate: string | null;
+    'endDate': string | null;
 }
 /**
  *
@@ -7447,25 +8198,25 @@ export interface StatsData {
      * @type {number}
      * @memberof StatsData
      */
-    no_of_prospects: number;
+    'no_of_prospects': number;
     /**
      *
      * @type {number}
      * @memberof StatsData
      */
-    appointment_scheduled: number;
+    'appointment_scheduled': number;
     /**
      *
      * @type {number}
      * @memberof StatsData
      */
-    unqualified: number;
+    'unqualified': number;
     /**
      *
      * @type {number}
      * @memberof StatsData
      */
-    average_call_duration: number;
+    'average_call_duration': number;
 }
 /**
  *
@@ -7478,19 +8229,20 @@ export interface StatsResponse {
      * @type {StatsData}
      * @memberof StatsResponse
      */
-    response: StatsData;
+    'response': StatsData;
 }
 /**
  *
  * @export
  * @enum {string}
  */
-export declare enum Status {
-    Active = "active",
-    Inactive = "inactive",
-    Pending = "pending",
-    Archived = "archived"
-}
+export declare const Status: {
+    readonly Active: "active";
+    readonly Inactive: "inactive";
+    readonly Pending: "pending";
+    readonly Archived: "archived";
+};
+export declare type Status = typeof Status[keyof typeof Status];
 /**
  *
  * @export
@@ -7502,13 +8254,13 @@ export interface Step {
      * @type {string}
      * @memberof Step
      */
-    name: string;
+    'name': string;
     /**
      * The description of the step
      * @type {string}
      * @memberof Step
      */
-    description: string;
+    'description': string;
 }
 /**
  * Subscription details of the business
@@ -7521,73 +8273,73 @@ export interface Subscription {
      * @type {string}
      * @memberof Subscription
      */
-    parentOrgId?: string;
+    'parentOrgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    subscriptionTypeName?: string;
+    'subscriptionTypeName'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    planName?: string;
+    'planName'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    priceId?: string;
+    'priceId'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    stripeSubscriptionId?: string;
+    'stripeSubscriptionId'?: string;
     /**
      *
      * @type {number}
      * @memberof Subscription
      */
-    billingCycleStartDate?: number;
+    'billingCycleStartDate'?: number;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      *
      * @type {string}
      * @memberof Subscription
      */
-    nextRenewalDate?: string;
+    'nextRenewalDate'?: string;
 }
 /**
  * Subscription details of the business
@@ -7600,14 +8352,28 @@ export interface SubscriptionInfo {
      * @type {Subscription}
      * @memberof SubscriptionInfo
      */
-    subscription?: Subscription | null;
+    'subscription'?: Subscription | null;
     /**
      *
      * @type {Array<Credit>}
      * @memberof SubscriptionInfo
      */
-    credits?: Array<Credit> | null;
+    'credits'?: Array<Credit> | null;
 }
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare const SynthesizerConfig: {
+    readonly CustomPropsModelNameAuraModelProviderDeepgram: "{\"CustomProps\":{},\"ModelName\":\"aura\",\"ModelProvider\":\"Deepgram\"}";
+    readonly CustomPropsModelNameTts1ModelProviderOpenAi: "{\"CustomProps\":{},\"ModelName\":\"tts-1\",\"ModelProvider\":\"OpenAI\"}";
+    readonly CustomPropsModelNameModelProviderOpenVoice: "{\"CustomProps\":{},\"ModelName\":\"\",\"ModelProvider\":\"OpenVoice\"}";
+    readonly CustomPropsCanStreamInputTrueModelNameModelProviderElevenlabs: "{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"\",\"ModelProvider\":\"Elevenlabs\"}";
+    readonly CustomPropsCanStreamInputTrueModelNameSonicEnglishModelProviderCartesia: "{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"sonic-english\",\"ModelProvider\":\"Cartesia\"}";
+    readonly CustomPropsCanStreamInputTrueModelNameMistModelProviderRime: "{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"mist\",\"ModelProvider\":\"Rime\"}";
+};
+export declare type SynthesizerConfig = typeof SynthesizerConfig[keyof typeof SynthesizerConfig];
 /**
  *
  * @export
@@ -7619,38 +8385,45 @@ export interface SystemMetrics {
      * @type {string}
      * @memberof SystemMetrics
      */
-    average_sentiment: string | null;
+    'average_sentiment': SystemMetricsAverageSentimentEnum | null;
     /**
      *
      * @type {FillerWords}
      * @memberof SystemMetrics
      */
-    filler_words: FillerWords | null;
+    'filler_words': FillerWords | null;
     /**
      *
      * @type {LongestMonologue}
      * @memberof SystemMetrics
      */
-    longest_monologue: LongestMonologue | null;
+    'longest_monologue': LongestMonologue | null;
     /**
      *
      * @type {number}
      * @memberof SystemMetrics
      */
-    speech_pace: number | null;
+    'speech_pace': number | null;
     /**
      *
      * @type {number}
      * @memberof SystemMetrics
      */
-    user_talk_ratio?: number | null;
+    'user_talk_ratio'?: number | null;
     /**
      *
      * @type {Array<SparrDialogLineWithSentiment>}
      * @memberof SystemMetrics
      */
-    dialog_lines_sentiment: Array<SparrDialogLineWithSentiment> | null;
+    'dialog_lines_sentiment': Array<SparrDialogLineWithSentiment> | null;
 }
+export declare const SystemMetricsAverageSentimentEnum: {
+    readonly Positive: "POSITIVE";
+    readonly Negative: "NEGATIVE";
+    readonly Neutral: "NEUTRAL";
+    readonly Empty: "";
+};
+export declare type SystemMetricsAverageSentimentEnum = typeof SystemMetricsAverageSentimentEnum[keyof typeof SystemMetricsAverageSentimentEnum];
 /**
  * Request model for creating a tag
  * @export
@@ -7662,7 +8435,7 @@ export interface TagCreate {
      * @type {string}
      * @memberof TagCreate
      */
-    tagName: string;
+    'tagName': string;
 }
 /**
  *
@@ -7675,13 +8448,13 @@ export interface TaxDetailsInput {
      * @type {string}
      * @memberof TaxDetailsInput
      */
-    id: string;
+    'id': string;
     /**
-     * Any extra info related to Tax
+     *
      * @type {object}
      * @memberof TaxDetailsInput
      */
-    taxProps: object | null;
+    'taxProps': object | null;
 }
 /**
  *
@@ -7694,13 +8467,13 @@ export interface TaxDetailsOutput {
      * @type {string}
      * @memberof TaxDetailsOutput
      */
-    id: string;
+    'id': string;
     /**
      *
      * @type {object}
      * @memberof TaxDetailsOutput
      */
-    taxProps: object | null;
+    'taxProps': object | null;
 }
 /**
  * Telephone number details of the business
@@ -7713,61 +8486,61 @@ export interface TelephoneNumber {
      * @type {string}
      * @memberof TelephoneNumber
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    phoneNumber?: string;
+    'phoneNumber'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    countryCode?: string;
+    'countryCode'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    agentId?: string | null;
+    'agentId'?: string | null;
     /**
      *
      * @type {object}
      * @memberof TelephoneNumber
      */
-    internalProps?: object | null;
+    'internalProps'?: object | null;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof TelephoneNumber
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  * Tracker represents a collection of keywords with name and description
@@ -7780,61 +8553,61 @@ export interface Tracker {
      * @type {string}
      * @memberof Tracker
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Tracker
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Tracker
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Tracker
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Tracker
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the tracker
      * @type {string}
      * @memberof Tracker
      */
-    name: string;
+    'name': string;
     /**
      * The description of the tracker
      * @type {string}
      * @memberof Tracker
      */
-    description: string;
+    'description': string;
     /**
      * The list of tracking categories with their keywords
      * @type {Array<TrackingCategory>}
      * @memberof Tracker
      */
-    tracking_categories: Array<TrackingCategory>;
+    'tracking_categories': Array<TrackingCategory>;
     /**
      * The status of the tracker
      * @type {string}
      * @memberof Tracker
      */
-    status?: string;
+    'status'?: string;
     /**
      * The unique identifier of the tracker
      * @type {string}
      * @memberof Tracker
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -7847,19 +8620,21 @@ export interface TrackerAnalyticsModel {
      * @type {string}
      * @memberof TrackerAnalyticsModel
      */
-    name: string;
+    'name': string;
     /**
      * Description of the tracker
      * @type {string}
      * @memberof TrackerAnalyticsModel
      */
-    description: string;
+    'description': string;
     /**
-     * Keywords used in the conversation
-     * @type {any}
+     *
+     * @type {{ [key: string]: number; }}
      * @memberof TrackerAnalyticsModel
      */
-    keywords_used?: any | null;
+    'keywords_used'?: {
+        [key: string]: number;
+    } | null;
 }
 /**
  *
@@ -7872,25 +8647,25 @@ export interface TrackerCore {
      * @type {string}
      * @memberof TrackerCore
      */
-    name: string;
+    'name': string;
     /**
      * The description of the tracker
      * @type {string}
      * @memberof TrackerCore
      */
-    description: string;
+    'description': string;
     /**
      * The list of tracking categories with their keywords
      * @type {Array<TrackingCategory>}
      * @memberof TrackerCore
      */
-    tracking_categories: Array<TrackingCategory>;
+    'tracking_categories': Array<TrackingCategory>;
     /**
      * The status of the tracker
      * @type {string}
      * @memberof TrackerCore
      */
-    status?: string;
+    'status'?: string;
 }
 /**
  *
@@ -7903,31 +8678,31 @@ export interface TrackerSearchResponse {
      * @type {Array<Tracker>}
      * @memberof TrackerSearchResponse
      */
-    items: Array<Tracker>;
+    'items': Array<Tracker>;
     /**
      *
      * @type {number}
      * @memberof TrackerSearchResponse
      */
-    total: number;
+    'total': number;
     /**
      *
      * @type {number}
      * @memberof TrackerSearchResponse
      */
-    pages: number;
+    'pages': number;
     /**
      *
      * @type {number}
      * @memberof TrackerSearchResponse
      */
-    current_page: number;
+    'current_page': number;
     /**
      *
      * @type {number}
      * @memberof TrackerSearchResponse
      */
-    page_size: number;
+    'page_size': number;
 }
 /**
  *
@@ -7940,19 +8715,19 @@ export interface TrackingCategory {
      * @type {string}
      * @memberof TrackingCategory
      */
-    name: string;
+    'name': string;
     /**
      * The description of what to track in this category
      * @type {string}
      * @memberof TrackingCategory
      */
-    description: string;
+    'description': string;
     /**
      * List of keywords provided by user or generated for this tracking category
      * @type {Array<string>}
      * @memberof TrackingCategory
      */
-    keywords: Array<string>;
+    'keywords': Array<string>;
 }
 /**
  *
@@ -7965,31 +8740,50 @@ export interface Transcriber {
      * @type {string}
      * @memberof Transcriber
      */
-    providerName?: string;
+    'providerName'?: string;
     /**
      *
      * @type {string}
      * @memberof Transcriber
      */
-    transcriberModel?: string | null;
+    'transcriberModel'?: string | null;
     /**
      *
      * @type {object}
      * @memberof Transcriber
      */
-    providerProps?: object | null;
+    'providerProps'?: object | null;
 }
+/**
+ * Enum class representing transcriber
+ * @export
+ * @enum {string}
+ */
+export declare const TranscriberConfig: {
+    readonly CustomPropsModelNameNova2ModelProviderDeepgram: "{\"CustomProps\":{},\"ModelName\":\"nova-2\",\"ModelProvider\":\"Deepgram\"}";
+    readonly CustomPropsModelNameNovaModelProviderDeepgram: "{\"CustomProps\":{},\"ModelName\":\"nova\",\"ModelProvider\":\"Deepgram\"}";
+    readonly CustomPropsModelNameBaseModelProviderDeepgram: "{\"CustomProps\":{},\"ModelName\":\"base\",\"ModelProvider\":\"Deepgram\"}";
+    readonly CustomPropsModelNameNova2PhonecallModelProviderDeepgram: "{\"CustomProps\":{},\"ModelName\":\"nova-2-phonecall\",\"ModelProvider\":\"Deepgram\"}";
+    readonly CustomPropsModelNameSttModelProviderGoogle: "{\"CustomProps\":{},\"ModelName\":\"stt\",\"ModelProvider\":\"google\"}";
+    readonly CustomPropsModelNameWhisperModelProviderOpenai: "{\"CustomProps\":{},\"ModelName\":\"whisper\",\"ModelProvider\":\"openai\"}";
+    readonly CustomPropsModelNameTinyModelProviderOpenWhisper: "{\"CustomProps\":{},\"ModelName\":\"tiny\",\"ModelProvider\":\"OpenWhisper\"}";
+    readonly CustomPropsModelNameMediumModelProviderFastWhisper: "{\"CustomProps\":{},\"ModelName\":\"medium\",\"ModelProvider\":\"FastWhisper\"}";
+    readonly CustomPropsModelNameMediumModelProviderFastWhisperStream: "{\"CustomProps\":{},\"ModelName\":\"medium\",\"ModelProvider\":\"FastWhisperStream\"}";
+    readonly CustomPropsModelNameMediumModelProviderFastWhisperOnline: "{\"CustomProps\":{},\"ModelName\":\"medium\",\"ModelProvider\":\"FastWhisperOnline\"}";
+};
+export declare type TranscriberConfig = typeof TranscriberConfig[keyof typeof TranscriberConfig];
 /**
  * Enum for UI node types
  * @export
  * @enum {string}
  */
-export declare enum UiNodeType {
-    ACTION = "ACTION",
-    CONDITION = "CONDITION",
-    LOOP = "LOOP",
-    SUBFLOW = "SUBFLOW"
-}
+export declare const UiNodeType: {
+    readonly Action: "ACTION";
+    readonly Condition: "CONDITION";
+    readonly Loop: "LOOP";
+    readonly Subflow: "SUBFLOW";
+};
+export declare type UiNodeType = typeof UiNodeType[keyof typeof UiNodeType];
 /**
  *
  * @export
@@ -8001,31 +8795,31 @@ export interface UpdateResellerOrganizationRequest {
      * @type {string}
      * @memberof UpdateResellerOrganizationRequest
      */
-    name?: string | null;
+    'name'?: string | null;
     /**
      *
      * @type {AddressInput}
      * @memberof UpdateResellerOrganizationRequest
      */
-    address?: AddressInput | null;
+    'address'?: AddressInput | null;
     /**
      *
      * @type {TaxDetailsInput}
      * @memberof UpdateResellerOrganizationRequest
      */
-    tax?: TaxDetailsInput | null;
+    'tax'?: TaxDetailsInput | null;
     /**
      *
      * @type {string}
      * @memberof UpdateResellerOrganizationRequest
      */
-    billingEmailAddress?: string | null;
+    'billingEmailAddress'?: string | null;
     /**
      *
      * @type {string}
      * @memberof UpdateResellerOrganizationRequest
      */
-    websiteUrl?: string | null;
+    'websiteUrl'?: string | null;
 }
 /**
  *
@@ -8038,13 +8832,13 @@ export interface UpdateUserRequest {
      * @type {string}
      * @memberof UpdateUserRequest
      */
-    name: string;
+    'name': string;
     /**
      * Role of the user
      * @type {AuthRole}
      * @memberof UpdateUserRequest
      */
-    role: AuthRole;
+    'role': AuthRole;
 }
 /**
  *
@@ -8057,13 +8851,13 @@ export interface UploadFileResponse {
      * @type {string}
      * @memberof UploadFileResponse
      */
-    message: string;
+    'message': string;
     /**
      *
      * @type {string}
      * @memberof UploadFileResponse
      */
-    fileUrl: string;
+    'fileUrl': string;
 }
 /**
  * Model representing the users under an organization
@@ -8076,67 +8870,67 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    email?: string;
+    'email'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    phoneNumber?: string | null;
+    'phoneNumber'?: string | null;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    role?: string;
+    'role'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    fullName?: string | null;
+    'fullName'?: string | null;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    status: string;
+    'status': string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof User
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  * User id to api key mapping table
@@ -8149,55 +8943,55 @@ export interface UserApiKeyLink {
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    userId?: string;
+    'userId'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    secretKey?: string;
+    'secretKey'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    keyType?: string;
+    'keyType'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof UserApiKeyLink
      */
-    expiresAt?: string;
+    'expiresAt'?: string;
     /**
      *
      * @type {boolean}
      * @memberof UserApiKeyLink
      */
-    isActive?: boolean;
+    'isActive'?: boolean;
 }
 /**
  * UserCourseAssignment represents a user\'s assignment to a course
@@ -8210,67 +9004,67 @@ export interface UserCourseAssignment {
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The ID of the user who is taking the course
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    userId: string;
+    'userId': string;
     /**
      * The ID of the course
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    courseId: string;
+    'courseId': string;
     /**
-     * The name of the course
+     *
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    courseName: string | null;
+    'courseName': string | null;
     /**
      * The completion status of the course
      * @type {CourseCompletionStatus}
      * @memberof UserCourseAssignment
      */
-    courseCompletionStatus: CourseCompletionStatus;
+    'courseCompletionStatus': CourseCompletionStatus;
     /**
      * The score of the course out of 100
      * @type {number}
      * @memberof UserCourseAssignment
      */
-    courseScore: number;
+    'courseScore': number;
     /**
      * The unique identifier of the user course assignment
      * @type {string}
      * @memberof UserCourseAssignment
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -8283,13 +9077,13 @@ export interface UserCourseAssignmentAnalyticsResponse {
      * @type {UserCourseAssignment}
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
-    userCourseAssignment: UserCourseAssignment;
+    'userCourseAssignment': UserCourseAssignment;
     /**
      * Analytics for the course for all modules
      * @type {Array<ModuleAnalytics>}
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
-    courseAnalytics: Array<ModuleAnalytics>;
+    'courseAnalytics': Array<ModuleAnalytics>;
 }
 /**
  * UserModuleAttempt represents a user\'s attempt at a module
@@ -8302,73 +9096,73 @@ export interface UserModuleAttempt {
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The ID of the user who is taking the module
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    userId: string;
+    'userId': string;
     /**
      * The ID of the course
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    courseId: string;
+    'courseId': string;
     /**
      * The ID of the module
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    moduleId: string;
+    'moduleId': string;
     /**
      * The completion status of the module
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttempt
      */
-    attemptStatus: ModuleAttemptStatus;
+    'attemptStatus': ModuleAttemptStatus;
     /**
      * The score of the module out of 100
      * @type {number}
      * @memberof UserModuleAttempt
      */
-    attemptScore: number;
+    'attemptScore': number;
     /**
      * The ID of the feedback
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    feedbackId: string;
+    'feedbackId': string;
     /**
      * The unique identifier of the user module attempt
      * @type {string}
      * @memberof UserModuleAttempt
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -8381,37 +9175,37 @@ export interface UserModuleAttemptCore {
      * @type {string}
      * @memberof UserModuleAttemptCore
      */
-    userId: string;
+    'userId': string;
     /**
      * The ID of the course
      * @type {string}
      * @memberof UserModuleAttemptCore
      */
-    courseId: string;
+    'courseId': string;
     /**
      * The ID of the module
      * @type {string}
      * @memberof UserModuleAttemptCore
      */
-    moduleId: string;
+    'moduleId': string;
     /**
      * The completion status of the module
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptCore
      */
-    attemptStatus: ModuleAttemptStatus;
+    'attemptStatus': ModuleAttemptStatus;
     /**
      * The score of the module out of 100
      * @type {number}
      * @memberof UserModuleAttemptCore
      */
-    attemptScore: number;
+    'attemptScore': number;
     /**
      * The ID of the feedback
      * @type {string}
      * @memberof UserModuleAttemptCore
      */
-    feedbackId: string;
+    'feedbackId': string;
 }
 /**
  *
@@ -8424,97 +9218,97 @@ export interface UserModuleAttemptResponse {
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    userId: string;
+    'userId': string;
     /**
      * The ID of the course
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    courseId: string;
+    'courseId': string;
     /**
      * The ID of the module
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    moduleId: string;
+    'moduleId': string;
     /**
      * The completion status of the module
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptResponse
      */
-    attemptStatus: ModuleAttemptStatus;
+    'attemptStatus': ModuleAttemptStatus;
     /**
      * The score of the module out of 100
      * @type {number}
      * @memberof UserModuleAttemptResponse
      */
-    attemptScore: number;
+    'attemptScore': number;
     /**
      * The ID of the user module attempt
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    id: string;
+    'id': string;
     /**
      * The ID of the feedback
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    feedbackId: string;
+    'feedbackId': string;
     /**
-     * The name of the module
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    moduleName: string | null;
+    'moduleName': string | null;
     /**
      * The passing score percentage of the module
      * @type {number}
      * @memberof UserModuleAttemptResponse
      */
-    passingScorePercentage: number;
+    'passingScorePercentage': number;
     /**
      * The difficulty level of the module
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    difficultyLevel: string;
+    'difficultyLevel': string;
     /**
-     * The name of the persona
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    personaName: string | null;
+    'personaName': string | null;
     /**
-     * The name of the scenario
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    scenarioName: string | null;
+    'scenarioName': string | null;
     /**
      * The date and time the module was created
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    createdAt: string;
+    'createdAt': string;
     /**
-     * The user who created the module
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    createdBy: string | null;
+    'createdBy': string | null;
     /**
-     * The date and time the module was updated
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    updatedAt: string | null;
+    'updatedAt': string | null;
     /**
-     * The user who updated the module
+     *
      * @type {string}
      * @memberof UserModuleAttemptResponse
      */
-    updatedBy: string | null;
+    'updatedBy': string | null;
 }
 /**
  * Payload for creating a new user
@@ -8527,25 +9321,25 @@ export interface UserPayload {
      * @type {string}
      * @memberof UserPayload
      */
-    email?: string | null;
+    'email'?: string | null;
     /**
      *
      * @type {Role}
      * @memberof UserPayload
      */
-    role?: Role | null;
+    'role'?: Role | null;
     /**
      *
      * @type {string}
      * @memberof UserPayload
      */
-    fullName?: string | null;
+    'fullName'?: string | null;
     /**
      *
      * @type {string}
      * @memberof UserPayload
      */
-    phoneNumber?: string | null;
+    'phoneNumber'?: string | null;
 }
 /**
  * Individual user performance summary
@@ -8558,43 +9352,43 @@ export interface UserPerformanceSummary {
      * @type {string}
      * @memberof UserPerformanceSummary
      */
-    userId: string;
+    'userId': string;
     /**
-     * User name
+     *
      * @type {string}
      * @memberof UserPerformanceSummary
      */
-    userName: string | null;
+    'userName': string | null;
     /**
-     * Average process adherence score
+     *
      * @type {number}
      * @memberof UserPerformanceSummary
      */
-    avgProcessAdherenceScore: number | null;
+    'avgProcessAdherenceScore': number | null;
     /**
-     * Average skills score
+     *
      * @type {number}
      * @memberof UserPerformanceSummary
      */
-    avgSkillsScore: number | null;
+    'avgSkillsScore': number | null;
     /**
-     * Average communication score
+     *
      * @type {number}
      * @memberof UserPerformanceSummary
      */
-    avgCommunicationScore: number | null;
+    'avgCommunicationScore': number | null;
     /**
-     * Average overall score
+     *
      * @type {number}
      * @memberof UserPerformanceSummary
      */
-    avgOverallScore: number | null;
+    'avgOverallScore': number | null;
     /**
      * Total number of sessions/analytics records
      * @type {number}
      * @memberof UserPerformanceSummary
      */
-    totalSessions: number;
+    'totalSessions': number;
 }
 /**
  * Request model for user performance summary API
@@ -8607,52 +9401,49 @@ export interface UserPerformanceSummaryRequest {
      * @type {string}
      * @memberof UserPerformanceSummaryRequest
      */
-    startDate: string;
+    'startDate': string;
     /**
      * End date for the analytics range
      * @type {string}
      * @memberof UserPerformanceSummaryRequest
      */
-    endDate: string;
+    'endDate': string;
     /**
-     * Optional list of user IDs to filter by
+     *
      * @type {Array<string>}
      * @memberof UserPerformanceSummaryRequest
      */
-    userIds?: Array<string> | null;
+    'userIds'?: Array<string> | null;
     /**
      * Column to sort by (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore)
      * @type {string}
      * @memberof UserPerformanceSummaryRequest
      */
-    sortBy?: string;
+    'sortBy'?: string;
     /**
      * Sort order - ascending or descending
      * @type {string}
      * @memberof UserPerformanceSummaryRequest
      */
-    sortOrder?: UserPerformanceSummaryRequestSortOrderEnum;
+    'sortOrder'?: UserPerformanceSummaryRequestSortOrderEnum;
     /**
      * Number of records to skip for pagination
      * @type {number}
      * @memberof UserPerformanceSummaryRequest
      */
-    skip?: number;
+    'skip'?: number;
     /**
      * Maximum number of records to return
      * @type {number}
      * @memberof UserPerformanceSummaryRequest
      */
-    limit?: number;
+    'limit'?: number;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum UserPerformanceSummaryRequestSortOrderEnum {
-    Asc = "asc",
-    Desc = "desc"
-}
+export declare const UserPerformanceSummaryRequestSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export declare type UserPerformanceSummaryRequestSortOrderEnum = typeof UserPerformanceSummaryRequestSortOrderEnum[keyof typeof UserPerformanceSummaryRequestSortOrderEnum];
 /**
  * Response model for user performance summary API
  * @export
@@ -8664,49 +9455,49 @@ export interface UserPerformanceSummaryResponse {
      * @type {string}
      * @memberof UserPerformanceSummaryResponse
      */
-    startDate: string;
+    'startDate': string;
     /**
      * End date of the analytics range
      * @type {string}
      * @memberof UserPerformanceSummaryResponse
      */
-    endDate: string;
+    'endDate': string;
     /**
      * List of user performance summaries
      * @type {Array<UserPerformanceSummary>}
      * @memberof UserPerformanceSummaryResponse
      */
-    users: Array<UserPerformanceSummary>;
+    'users': Array<UserPerformanceSummary>;
     /**
      * Total number of users matching the criteria
      * @type {number}
      * @memberof UserPerformanceSummaryResponse
      */
-    totalCount: number;
+    'totalCount': number;
     /**
      * Number of records skipped
      * @type {number}
      * @memberof UserPerformanceSummaryResponse
      */
-    skip: number;
+    'skip': number;
     /**
      * Number of records requested
      * @type {number}
      * @memberof UserPerformanceSummaryResponse
      */
-    limit: number;
+    'limit': number;
     /**
      * Column used for sorting
      * @type {string}
      * @memberof UserPerformanceSummaryResponse
      */
-    sortBy: string;
+    'sortBy': string;
     /**
      * Sort order applied
      * @type {string}
      * @memberof UserPerformanceSummaryResponse
      */
-    sortOrder: string;
+    'sortOrder': string;
 }
 /**
  *
@@ -8719,31 +9510,31 @@ export interface UserRecentActivity {
      * @type {string}
      * @memberof UserRecentActivity
      */
-    date: string;
+    'date': string;
     /**
      *
      * @type {string}
      * @memberof UserRecentActivity
      */
-    sparr_persona_name: string;
+    'sparr_persona_name': string;
     /**
      *
      * @type {string}
      * @memberof UserRecentActivity
      */
-    sparr_scenario_name: string;
+    'sparr_scenario_name': string;
     /**
      *
      * @type {string}
      * @memberof UserRecentActivity
      */
-    sentiment: string;
+    'sentiment': string;
     /**
      *
      * @type {number}
      * @memberof UserRecentActivity
      */
-    score: number;
+    'score': number;
 }
 /**
  *
@@ -8756,7 +9547,7 @@ export interface UserStats {
      * @type {{ [key: string]: UserStatsItem; }}
      * @memberof UserStats
      */
-    sparr_stats: {
+    'sparr_stats': {
         [key: string]: UserStatsItem;
     };
     /**
@@ -8764,7 +9555,7 @@ export interface UserStats {
      * @type {Array<UserRecentActivity>}
      * @memberof UserStats
      */
-    recent_activity: Array<UserRecentActivity>;
+    'recent_activity': Array<UserRecentActivity>;
 }
 /**
  *
@@ -8777,19 +9568,19 @@ export interface UserStatsItem {
      * @type {number}
      * @memberof UserStatsItem
      */
-    total_calls: number;
+    'total_calls': number;
     /**
      *
      * @type {number}
      * @memberof UserStatsItem
      */
-    average_score: number;
+    'average_score': number;
     /**
      *
      * @type {number}
      * @memberof UserStatsItem
      */
-    total_sparr_minutes: number;
+    'total_sparr_minutes': number;
 }
 /**
  *
@@ -8799,22 +9590,22 @@ export interface UserStatsItem {
 export interface ValidationError {
     /**
      *
-     * @type {Array<string | number>}
+     * @type {Array<LocationInner>}
      * @memberof ValidationError
      */
-    loc: Array<string | number>;
+    'loc': Array<LocationInner>;
     /**
      *
      * @type {string}
      * @memberof ValidationError
      */
-    msg: string;
+    'msg': string;
     /**
      *
      * @type {string}
      * @memberof ValidationError
      */
-    type: string;
+    'type': string;
 }
 /**
  * Link table to store the list of ai agents accessible for each virtual prospect
@@ -8827,13 +9618,13 @@ export interface VirtualProspectAIAgentLink {
      * @type {string}
      * @memberof VirtualProspectAIAgentLink
      */
-    virtualProspectId?: string;
+    'virtualProspectId'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectAIAgentLink
      */
-    aiAgentId?: string;
+    'aiAgentId'?: string;
 }
 /**
  *
@@ -8846,43 +9637,43 @@ export interface VirtualProspectInput {
      * @type {string}
      * @memberof VirtualProspectInput
      */
-    name: string;
+    'name': string;
     /**
-     * Description of the virtual prospect
+     *
      * @type {string}
      * @memberof VirtualProspectInput
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      * Attributes of the virtual prospect
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectInput
      */
-    personaAttributes: PersonaAttributesAndTraits;
+    'personaAttributes': PersonaAttributesAndTraits;
     /**
-     * Additional information about the virtual prospect
+     *
      * @type {string}
      * @memberof VirtualProspectInput
      */
-    additionalInfo?: string | null;
+    'additionalInfo'?: string | null;
     /**
-     * Voice of the virtual prospect
+     *
      * @type {VoiceInput}
      * @memberof VirtualProspectInput
      */
-    voice?: VoiceInput | null;
+    'voice'?: VoiceInput | null;
     /**
-     * Type of the virtual prospect
+     *
      * @type {VirtualProspectTypeEnum}
      * @memberof VirtualProspectInput
      */
-    virtualProspectType?: VirtualProspectTypeEnum | null;
+    'virtualProspectType'?: VirtualProspectTypeEnum | null;
     /**
-     * Context for the virtual prospect
+     *
      * @type {string}
      * @memberof VirtualProspectInput
      */
-    context?: string | null;
+    'context'?: string | null;
 }
 /**
  * Virtual prospect details for sparring
@@ -8895,89 +9686,90 @@ export interface VirtualProspectOutput {
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    id?: string;
+    'id'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    name?: string;
+    'name'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      *
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectOutput
      */
-    personaAttributes: PersonaAttributesAndTraits | null;
+    'personaAttributes': PersonaAttributesAndTraits | null;
     /**
-     * Additional information about the virtual prospect
+     *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    additionalInfo?: string | null;
+    'additionalInfo'?: string | null;
     /**
      *
      * @type {VoiceOutput}
      * @memberof VirtualProspectOutput
      */
-    voice?: VoiceOutput | null;
+    'voice'?: VoiceOutput | null;
     /**
-     * Context for the virtual prospect
+     *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    context?: string | null;
+    'context'?: string | null;
     /**
      * Type of the virtual prospect
      * @type {VirtualProspectTypeEnum}
      * @memberof VirtualProspectOutput
      */
-    virtualProspectType?: VirtualProspectTypeEnum;
+    'virtualProspectType'?: VirtualProspectTypeEnum;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      *
      * @type {string}
      * @memberof VirtualProspectOutput
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
 }
 /**
  * Enum which stores the list of types of sparring calls
  * @export
  * @enum {string}
  */
-export declare enum VirtualProspectTypeEnum {
-    INBOUND = "INBOUND",
-    OUTBOUND = "OUTBOUND"
-}
+export declare const VirtualProspectTypeEnum: {
+    readonly Inbound: "INBOUND";
+    readonly Outbound: "OUTBOUND";
+};
+export declare type VirtualProspectTypeEnum = typeof VirtualProspectTypeEnum[keyof typeof VirtualProspectTypeEnum];
 /**
  *
  * @export
@@ -8989,41 +9781,38 @@ export interface VoiceInput {
      * @type {string}
      * @memberof VoiceInput
      */
-    gender: VoiceInputGenderEnum;
+    'gender': VoiceInputGenderEnum;
     /**
      *
      * @type {LanguageAccentCombo}
      * @memberof VoiceInput
      */
-    languageAccent: LanguageAccentCombo;
+    'languageAccent': LanguageAccentCombo;
     /**
      *
      * @type {string}
      * @memberof VoiceInput
      */
-    modelId: string;
+    'modelId': string;
     /**
      *
      * @type {string}
      * @memberof VoiceInput
      */
-    playbackSpeed?: string | null;
+    'playbackSpeed'?: string | null;
     /**
      *
      * @type {boolean}
      * @memberof VoiceInput
      */
-    backgroundNoise?: boolean;
+    'backgroundNoise'?: boolean;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum VoiceInputGenderEnum {
-    Male = "Male",
-    Female = "Female",
-    Neutral = "Neutral"
-}
+export declare const VoiceInputGenderEnum: {
+    readonly Male: "Male";
+    readonly Female: "Female";
+    readonly Neutral: "Neutral";
+};
+export declare type VoiceInputGenderEnum = typeof VoiceInputGenderEnum[keyof typeof VoiceInputGenderEnum];
 /**
  *
  * @export
@@ -9035,25 +9824,25 @@ export interface VoiceModel {
      * @type {VoiceOutput}
      * @memberof VoiceModel
      */
-    voice: VoiceOutput;
+    'voice': VoiceOutput;
     /**
      *
      * @type {string}
      * @memberof VoiceModel
      */
-    previewUrl: string;
+    'previewUrl': string;
     /**
      *
      * @type {string}
      * @memberof VoiceModel
      */
-    name: string;
+    'name': string;
     /**
      *
      * @type {string}
      * @memberof VoiceModel
      */
-    voiceDescription: string;
+    'voiceDescription': string;
 }
 /**
  *
@@ -9066,41 +9855,38 @@ export interface VoiceOutput {
      * @type {string}
      * @memberof VoiceOutput
      */
-    gender: VoiceOutputGenderEnum;
+    'gender': VoiceOutputGenderEnum;
     /**
      *
      * @type {LanguageAccentCombo}
      * @memberof VoiceOutput
      */
-    languageAccent: LanguageAccentCombo;
+    'languageAccent': LanguageAccentCombo;
     /**
      *
      * @type {string}
      * @memberof VoiceOutput
      */
-    modelId: string;
+    'modelId': string;
     /**
      *
      * @type {string}
      * @memberof VoiceOutput
      */
-    playbackSpeed?: string | null;
+    'playbackSpeed'?: string | null;
     /**
      *
      * @type {boolean}
      * @memberof VoiceOutput
      */
-    backgroundNoise?: boolean;
+    'backgroundNoise'?: boolean;
 }
-/**
-    * @export
-    * @enum {string}
-    */
-export declare enum VoiceOutputGenderEnum {
-    Male = "Male",
-    Female = "Female",
-    Neutral = "Neutral"
-}
+export declare const VoiceOutputGenderEnum: {
+    readonly Male: "Male";
+    readonly Female: "Female";
+    readonly Neutral: "Neutral";
+};
+export declare type VoiceOutputGenderEnum = typeof VoiceOutputGenderEnum[keyof typeof VoiceOutputGenderEnum];
 /**
  * Workflow represents a sequence of steps that can be performed by an app
  * @export
@@ -9112,55 +9898,55 @@ export interface Workflow {
      * @type {string}
      * @memberof Workflow
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
      * @memberof Workflow
      */
-    createdAt?: string;
+    'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
      * @memberof Workflow
      */
-    updatedBy?: string;
+    'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
      * @memberof Workflow
      */
-    updatedAt?: string;
+    'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
      * @memberof Workflow
      */
-    orgId?: string;
+    'orgId'?: string;
     /**
      * The name of the workflow
      * @type {string}
      * @memberof Workflow
      */
-    name?: string;
+    'name'?: string;
     /**
-     * The description of the workflow
+     *
      * @type {string}
      * @memberof Workflow
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      * The version of the workflow
      * @type {string}
      * @memberof Workflow
      */
-    version?: string;
+    'version'?: string;
     /**
      * The steps of the workflow
      * @type {{ [key: string]: WorkflowStepOutput; }}
      * @memberof Workflow
      */
-    steps: {
+    'steps': {
         [key: string]: WorkflowStepOutput;
     };
     /**
@@ -9168,13 +9954,13 @@ export interface Workflow {
      * @type {string}
      * @memberof Workflow
      */
-    startStepId?: string;
+    'startStepId'?: string;
     /**
      * The unique identifier of the workflow
      * @type {string}
      * @memberof Workflow
      */
-    id?: string;
+    'id'?: string;
 }
 /**
  *
@@ -9187,37 +9973,37 @@ export interface WorkflowActivityInfo {
      * @type {string}
      * @memberof WorkflowActivityInfo
      */
-    step_name: string;
+    'step_name': string;
     /**
      *
      * @type {string}
      * @memberof WorkflowActivityInfo
      */
-    status: string;
+    'status': string;
     /**
      *
      * @type {object}
      * @memberof WorkflowActivityInfo
      */
-    input: object;
+    'input': object;
     /**
      *
      * @type {object}
      * @memberof WorkflowActivityInfo
      */
-    result: object;
+    'result': object;
     /**
      *
      * @type {string}
      * @memberof WorkflowActivityInfo
      */
-    start_time?: string | null;
+    'start_time'?: string | null;
     /**
      *
      * @type {string}
      * @memberof WorkflowActivityInfo
      */
-    end_time?: string | null;
+    'end_time'?: string | null;
 }
 /**
  * Workflow Context Model
@@ -9230,31 +10016,31 @@ export interface WorkflowContext {
      * @type {string}
      * @memberof WorkflowContext
      */
-    orgId: string;
+    'orgId': string;
     /**
      * The ID of the workflow
      * @type {string}
      * @memberof WorkflowContext
      */
-    workflowId: string;
+    'workflowId': string;
     /**
      * The ID of the run
      * @type {string}
      * @memberof WorkflowContext
      */
-    runId: string;
+    'runId': string;
     /**
      * The input of the step
      * @type {object}
      * @memberof WorkflowContext
      */
-    stepInput: object;
+    'stepInput': object;
     /**
      * The response of the step
      * @type {object}
      * @memberof WorkflowContext
      */
-    stepResponse: object;
+    'stepResponse': object;
 }
 /**
  * Core Workflow Model
@@ -9267,25 +10053,25 @@ export interface WorkflowCore {
      * @type {string}
      * @memberof WorkflowCore
      */
-    name?: string;
+    'name'?: string;
     /**
-     * The description of the workflow
+     *
      * @type {string}
      * @memberof WorkflowCore
      */
-    description?: string | null;
+    'description'?: string | null;
     /**
      * The version of the workflow
      * @type {string}
      * @memberof WorkflowCore
      */
-    version?: string;
+    'version'?: string;
     /**
      * The steps of the workflow
      * @type {{ [key: string]: WorkflowStepInput; }}
      * @memberof WorkflowCore
      */
-    steps: {
+    'steps': {
         [key: string]: WorkflowStepInput;
     };
     /**
@@ -9293,7 +10079,7 @@ export interface WorkflowCore {
      * @type {string}
      * @memberof WorkflowCore
      */
-    startStepId?: string;
+    'startStepId'?: string;
 }
 /**
  * Core Workflow Execution Model
@@ -9306,49 +10092,49 @@ export interface WorkflowExecution {
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowName: string;
+    'workflowName': string;
     /**
-     * The start timestamp of the workflow
+     *
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowStartTimestamp: string | null;
+    'workflowStartTimestamp': string | null;
     /**
-     * The end timestamp of the workflow
+     *
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowEndTimestamp: string | null;
+    'workflowEndTimestamp': string | null;
     /**
      * The id of the workflow
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowId: string;
+    'workflowId': string;
     /**
      * The run id of the workflow
      * @type {string}
      * @memberof WorkflowExecution
      */
-    workflowRunId: string;
+    'workflowRunId': string;
     /**
      * The status of the workflow execution
      * @type {string}
      * @memberof WorkflowExecution
      */
-    status: string;
+    'status': string;
     /**
      * The activity info of the workflow execution
      * @type {Array<WorkflowActivityInfo>}
      * @memberof WorkflowExecution
      */
-    activityInfo: Array<WorkflowActivityInfo>;
+    'activityInfo': Array<WorkflowActivityInfo>;
     /**
      * The final result of the workflow execution
      * @type {object}
      * @memberof WorkflowExecution
      */
-    result: object;
+    'result': object;
 }
 /**
  * Flow Step Model
@@ -9361,49 +10147,49 @@ export interface WorkflowStepInput {
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    stepId?: string;
+    'stepId'?: string;
     /**
-     * The connection id of the app
+     *
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appConnectionId?: string | null;
+    'appConnectionId'?: string | null;
     /**
      * The app action id of the app
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appActionId?: string;
+    'appActionId'?: string;
     /**
      * The id of the app
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appId?: string;
+    'appId'?: string;
     /**
      * The name of the app. It must match the app name in AppDefinition implementation
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appName?: string;
+    'appName'?: string;
     /**
      * The version of the app. It must match the app version in AppDefinition implementation
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    appVersion?: string;
+    'appVersion'?: string;
     /**
-     * The data resolver on how to resolve the data for the step
+     *
      * @type {string}
      * @memberof WorkflowStepInput
      */
-    dataResolver?: string | null;
+    'dataResolver'?: string | null;
     /**
      * Resolver for determining the next step
      * @type {NextStepResolver}
      * @memberof WorkflowStepInput
      */
-    nextStepResolver: NextStepResolver;
+    'nextStepResolver': NextStepResolver;
 }
 /**
  * Flow Step Model
@@ -9416,49 +10202,49 @@ export interface WorkflowStepOutput {
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    stepId?: string;
+    'stepId'?: string;
     /**
-     * The connection id of the app
+     *
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appConnectionId?: string | null;
+    'appConnectionId'?: string | null;
     /**
      * The app action id of the app
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appActionId?: string;
+    'appActionId'?: string;
     /**
      * The id of the app
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appId?: string;
+    'appId'?: string;
     /**
      * The name of the app. It must match the app name in AppDefinition implementation
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appName?: string;
+    'appName'?: string;
     /**
      * The version of the app. It must match the app version in AppDefinition implementation
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    appVersion?: string;
+    'appVersion'?: string;
     /**
-     * The data resolver on how to resolve the data for the step
+     *
      * @type {string}
      * @memberof WorkflowStepOutput
      */
-    dataResolver?: string | null;
+    'dataResolver'?: string | null;
     /**
      * Resolver for determining the next step
      * @type {NextStepResolver}
      * @memberof WorkflowStepOutput
      */
-    nextStepResolver: NextStepResolver;
+    'nextStepResolver': NextStepResolver;
 }
 /**
  *
@@ -9471,13 +10257,13 @@ export interface WorkflowStepTriggerRequest {
      * @type {WorkflowContext}
      * @memberof WorkflowStepTriggerRequest
      */
-    workflowContext: WorkflowContext;
+    'workflowContext': WorkflowContext;
     /**
      *
      * @type {WorkflowStepInput}
      * @memberof WorkflowStepTriggerRequest
      */
-    workflowStep: WorkflowStepInput;
+    'workflowStep': WorkflowStepInput;
 }
 /**
  *
@@ -9490,13 +10276,13 @@ export interface WorkflowStepTriggerResponse {
      * @type {object}
      * @memberof WorkflowStepTriggerResponse
      */
-    input: object;
+    'input': object;
     /**
      *
      * @type {object}
      * @memberof WorkflowStepTriggerResponse
      */
-    response: object;
+    'response': object;
 }
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -9511,7 +10297,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    createActionAgentLinkV1: (actionId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -9520,7 +10306,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -9528,7 +10314,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    listActionsOfAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ActionAgentLinkApi - functional programming interface
@@ -9543,7 +10329,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -9552,7 +10338,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -9560,7 +10346,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
 };
 /**
  * ActionAgentLinkApi - factory interface
@@ -9575,7 +10361,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -9584,7 +10370,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -9592,7 +10378,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<ActionOutput>>;
+    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
 };
 /**
  * ActionAgentLinkApi - object-oriented interface
@@ -9610,7 +10396,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -9620,7 +10406,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -9629,7 +10415,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    listActionsOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
 }
 /**
  * ActionsApi - axios parameter creator
@@ -9643,7 +10429,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1: (actionInput: ActionInput, options?: any) => Promise<RequestArgs>;
+    createActionV1: (actionInput: ActionInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -9651,7 +10437,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
+    deleteActionV1: (actionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -9659,23 +10445,23 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1: (actionId: string, options?: any) => Promise<RequestArgs>;
+    getActionV1: (actionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Actions
      * @summary List All Actions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listActionsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -9684,7 +10470,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1: (actionId: string, actionInput: ActionInput, options?: any) => Promise<RequestArgs>;
+    updateActionV1: (actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ActionsApi - functional programming interface
@@ -9698,7 +10484,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -9706,7 +10492,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteActionV1(actionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -9714,23 +10500,23 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    getActionV1(actionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
      * List All Actions
      * @summary List All Actions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -9739,7 +10525,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
 };
 /**
  * ActionsApi - factory interface
@@ -9753,7 +10539,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -9761,7 +10547,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1(actionId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteActionV1(actionId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -9769,23 +10555,23 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: any): AxiosPromise<ActionOutput>;
+    getActionV1(actionId: string, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
     /**
      * List All Actions
      * @summary List All Actions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ActionOutput>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -9794,7 +10580,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): AxiosPromise<ActionOutput>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
 };
 /**
  * ActionsApi - object-oriented interface
@@ -9811,7 +10597,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    createActionV1(actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -9820,7 +10606,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    deleteActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteActionV1(actionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -9829,24 +10615,24 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    getActionV1(actionId: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    getActionV1(actionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
     /**
      * List All Actions
      * @summary List All Actions
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    listActionsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -9856,7 +10642,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: any): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
 }
 /**
  * AgentsApi - axios parameter creator
@@ -9870,7 +10656,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1: (aIAgentInput: AIAgentInput, options?: any) => Promise<RequestArgs>;
+    createAIAgentV1: (aIAgentInput: AIAgentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -9878,7 +10664,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    deleteAIAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -9886,24 +10672,24 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    getAIAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1: (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listAIAgentsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -9912,7 +10698,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1: (agentId: string, aIAgentInput: AIAgentInput, options?: any) => Promise<RequestArgs>;
+    updateAIAgentV1: (agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AgentsApi - functional programming interface
@@ -9926,7 +10712,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -9934,7 +10720,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -9942,24 +10728,24 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -9968,7 +10754,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
 };
 /**
  * AgentsApi - factory interface
@@ -9982,7 +10768,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): AxiosPromise<AIAgentOutput>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -9990,7 +10776,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1(agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -9998,24 +10784,24 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1(agentId: string, options?: any): AxiosPromise<AIAgentOutput>;
+    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -10024,7 +10810,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: any): AxiosPromise<AIAgentOutput>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
 };
 /**
  * AgentsApi - object-oriented interface
@@ -10041,7 +10827,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -10050,7 +10836,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    deleteAIAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -10059,25 +10845,25 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    getAIAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -10087,7 +10873,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
 }
 /**
  * AnalyticsApi - axios parameter creator
@@ -10098,19 +10884,19 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
-     * @param {string} [app]
+     * @param {string | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost: (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any) => Promise<RequestArgs>;
+    getMetricsV1MetricsPost: (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnumInput} [app]
+     * @param {AppEnumInput | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet: (app?: AppEnumInput, options?: any) => Promise<RequestArgs>;
+    getOverallStatsV1StatsGet: (app?: AppEnumInput | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -10118,7 +10904,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1: (analyticsRequest: AnalyticsRequest, options?: any) => Promise<RequestArgs>;
+    getUserAnalyticsV1: (analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -10126,7 +10912,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1: (userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any) => Promise<RequestArgs>;
+    getUserPerformanceSummaryV1: (userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -10137,19 +10923,19 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
-     * @param {string} [app]
+     * @param {string | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnumInput} [app]
+     * @param {AppEnumInput | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -10157,7 +10943,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsResponse>>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsResponse>>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -10165,7 +10951,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPerformanceSummaryResponse>>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPerformanceSummaryResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -10176,19 +10962,19 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
-     * @param {string} [app]
+     * @param {string | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): AxiosPromise<BatchMetricsResponseInput>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnumInput} [app]
+     * @param {AppEnumInput | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): AxiosPromise<StatsResponse>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): AxiosPromise<StatsResponse>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -10196,7 +10982,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): AxiosPromise<AnalyticsResponse>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): AxiosPromise<AnalyticsResponse>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -10204,7 +10990,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): AxiosPromise<UserPerformanceSummaryResponse>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): AxiosPromise<UserPerformanceSummaryResponse>;
 };
 /**
  * AnalyticsApi - object-oriented interface
@@ -10217,21 +11003,21 @@ export declare class AnalyticsApi extends BaseAPI {
      * Get fine grained analytics data from Trata AI like call, duration stats, etc.
      * @summary Get Metrics
      * @param {BatchMetricsRequestsInput} batchMetricsRequestsInput
-     * @param {string} [app]
+     * @param {string | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
-     * @param {AppEnumInput} [app]
+     * @param {AppEnumInput | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput, options?: any): Promise<import("axios").AxiosResponse<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StatsResponse>>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -10240,7 +11026,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: any): Promise<import("axios").AxiosResponse<AnalyticsResponse>>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsResponse>>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -10249,7 +11035,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: any): Promise<import("axios").AxiosResponse<UserPerformanceSummaryResponse>>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPerformanceSummaryResponse>>;
 }
 /**
  * ApiKeyApi - axios parameter creator
@@ -10263,7 +11049,7 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1: (apiKeyRequest: ApiKeyRequest, options?: any) => Promise<RequestArgs>;
+    createApiKeyV1: (apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Api Key
@@ -10271,21 +11057,21 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1: (keyId: string, options?: any) => Promise<RequestArgs>;
+    deleteApiKeyV1: (keyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1: (options?: any) => Promise<RequestArgs>;
+    getCallKeyV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1: (options?: any) => Promise<RequestArgs>;
+    listApiKeysV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ApiKeyApi - functional programming interface
@@ -10299,7 +11085,7 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary Delete Api Key
@@ -10307,21 +11093,21 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1(keyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    getCallKeyV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserApiKeyLink>>>;
+    listApiKeysV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserApiKeyLink>>>;
 };
 /**
  * ApiKeyApi - factory interface
@@ -10335,7 +11121,7 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): AxiosPromise<UserApiKeyLink>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary Delete Api Key
@@ -10343,21 +11129,21 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1(keyId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1(options?: any): AxiosPromise<UserApiKeyLink>;
+    getCallKeyV1(options?: AxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1(options?: any): AxiosPromise<Array<UserApiKeyLink>>;
+    listApiKeysV1(options?: AxiosRequestConfig): AxiosPromise<Array<UserApiKeyLink>>;
 };
 /**
  * ApiKeyApi - object-oriented interface
@@ -10374,7 +11160,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
     /**
      *
      * @summary Delete Api Key
@@ -10383,7 +11169,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    deleteApiKeyV1(keyId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      *
      * @summary Get Call Key
@@ -10391,7 +11177,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    getCallKeyV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    getCallKeyV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
     /**
      *
      * @summary List Api Keys
@@ -10399,7 +11185,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    listApiKeysV1(options?: any): Promise<import("axios").AxiosResponse<UserApiKeyLink[]>>;
+    listApiKeysV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink[]>>;
 }
 /**
  * BillingApi - axios parameter creator
@@ -10413,35 +11199,35 @@ export declare const BillingApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: any) => Promise<RequestArgs>;
+    createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1: (options?: any) => Promise<RequestArgs>;
+    getCustomerSessionSecretV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1: (options?: any) => Promise<RequestArgs>;
+    getSubscriptionBillableProductsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1: (options?: any) => Promise<RequestArgs>;
+    getSubscriptionPortalV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1: (options?: any) => Promise<RequestArgs>;
+    getSubscriptionV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * BillingApi - functional programming interface
@@ -10455,35 +11241,35 @@ export declare const BillingApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getCustomerSessionSecretV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getSubscriptionPortalV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionInfo>>;
+    getSubscriptionV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionInfo>>;
 };
 /**
  * BillingApi - factory interface
@@ -10497,35 +11283,35 @@ export declare const BillingApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): AxiosPromise<string>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1(options?: any): AxiosPromise<string>;
+    getCustomerSessionSecretV1(options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1(options?: any): AxiosPromise<Array<Price>>;
+    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1(options?: any): AxiosPromise<string>;
+    getSubscriptionPortalV1(options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1(options?: any): AxiosPromise<SubscriptionInfo>;
+    getSubscriptionV1(options?: AxiosRequestConfig): AxiosPromise<SubscriptionInfo>;
 };
 /**
  * BillingApi - object-oriented interface
@@ -10542,7 +11328,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary Get Customer Session Secret
@@ -10550,7 +11336,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getCustomerSessionSecretV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    getCustomerSessionSecretV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -10558,7 +11344,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionBillableProductsV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      *
      * @summary Get Subscription Portal
@@ -10566,7 +11352,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionPortalV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    getSubscriptionPortalV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      *
      * @summary Get Subscription
@@ -10574,7 +11360,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionV1(options?: any): Promise<import("axios").AxiosResponse<SubscriptionInfo>>;
+    getSubscriptionV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionInfo>>;
 }
 /**
  * ConversationProspectLinkApi - axios parameter creator
@@ -10589,7 +11375,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: any) => Promise<RequestArgs>;
+    createConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -10598,7 +11384,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: any) => Promise<RequestArgs>;
+    deleteConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -10606,7 +11392,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    listConversationsOfProspectsV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConversationProspectLinkApi - functional programming interface
@@ -10621,7 +11407,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -10630,7 +11416,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -10638,7 +11424,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
 };
 /**
  * ConversationProspectLinkApi - factory interface
@@ -10653,7 +11439,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -10662,7 +11448,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -10670,7 +11456,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: any): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
 };
 /**
  * ConversationProspectLinkApi - object-oriented interface
@@ -10688,7 +11474,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -10698,7 +11484,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -10707,7 +11493,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
 }
 /**
  * ConversationsApi - axios parameter creator
@@ -10722,7 +11508,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1: (conversationId: string, comment: Comment, options?: any) => Promise<RequestArgs>;
+    addFeedbackV1: (conversationId: string, comment: Comment, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -10730,7 +11516,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1: (conversationInput: ConversationInput, options?: any) => Promise<RequestArgs>;
+    createConversationV1: (conversationInput: ConversationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -10738,7 +11524,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1: (conversationId: string, options?: any) => Promise<RequestArgs>;
+    deleteConversationV1: (conversationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -10746,24 +11532,24 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1: (conversationId: string, options?: any) => Promise<RequestArgs>;
+    getConversationV1: (conversationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1: (app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listConversationsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -10772,7 +11558,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1: (conversationId: string, conversationInput: ConversationInput, options?: any) => Promise<RequestArgs>;
+    updateConversationV1: (conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConversationsApi - functional programming interface
@@ -10787,7 +11573,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationFeedback>>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationFeedback>>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -10795,7 +11581,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1(conversationInput: ConversationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -10803,7 +11589,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -10811,24 +11597,24 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1(conversationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    getConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -10837,7 +11623,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
 };
 /**
  * ConversationsApi - factory interface
@@ -10852,7 +11638,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: any): AxiosPromise<ConversationFeedback>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): AxiosPromise<ConversationFeedback>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -10860,7 +11646,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1(conversationInput: ConversationInput, options?: any): AxiosPromise<ConversationOutput>;
+    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -10868,7 +11654,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1(conversationId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -10876,24 +11662,24 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1(conversationId: string, options?: any): AxiosPromise<ConversationOutput>;
+    getConversationV1(conversationId: string, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -10902,7 +11688,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: any): AxiosPromise<ConversationOutput>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
 };
 /**
  * ConversationsApi - object-oriented interface
@@ -10920,7 +11706,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: any): Promise<import("axios").AxiosResponse<ConversationFeedback>>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationFeedback>>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -10929,7 +11715,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    createConversationV1(conversationInput: ConversationInput, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -10938,7 +11724,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    deleteConversationV1(conversationId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -10947,25 +11733,25 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    getConversationV1(conversationId: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    getConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
     /**
      * List All Conversations
      * @summary List All Conversations
-     * @param {AppEnumInput} [app]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {AppEnumInput | null} [app]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(app?: AppEnumInput, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -10975,7 +11761,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: any): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
 }
 /**
  * DataPlaneApi - axios parameter creator
@@ -10987,11 +11773,11 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @summary Create Connection
      * @param {string} agentId
      * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
+     * @param {string | null} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any) => Promise<RequestArgs>;
+    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -10999,24 +11785,24 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml: (connectionId: string, options?: any) => Promise<RequestArgs>;
+    getPlivoAudioStreamXml: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List connections
      * @summary Listconnections
-     * @param {string} [sourceName]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [sourceName]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections: (sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listConnections: (sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -11028,11 +11814,11 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @summary Create Connection
      * @param {string} agentId
      * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
+     * @param {string | null} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectionOutput>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectionOutput>>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -11040,24 +11826,24 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List connections
      * @summary Listconnections
-     * @param {string} [sourceName]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [sourceName]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -11069,11 +11855,11 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @summary Create Connection
      * @param {string} agentId
      * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
+     * @param {string | null} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): AxiosPromise<ConnectionOutput>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): AxiosPromise<ConnectionOutput>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -11081,24 +11867,24 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List connections
      * @summary Listconnections
-     * @param {string} [sourceName]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [sourceName]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ConnectionOutput>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ConnectionOutput>>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -11112,12 +11898,12 @@ export declare class DataPlaneApi extends BaseAPI {
      * @summary Create Connection
      * @param {string} agentId
      * @param {ConnectionSource} connectionSource
-     * @param {string} [prospectId]
+     * @param {string | null} [prospectId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string, options?: any): Promise<import("axios").AxiosResponse<ConnectionOutput>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput>>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -11126,25 +11912,25 @@ export declare class DataPlaneApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * List connections
      * @summary Listconnections
-     * @param {string} [sourceName]
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [sourceName]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    listConnections(sourceName?: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ConnectionOutput[]>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput[]>>;
 }
 /**
  * FilesApi - axios parameter creator
@@ -11158,16 +11944,16 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1: (fileIds: string, options?: any) => Promise<RequestArgs>;
+    deleteFileV1: (fileIds: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
-     * @param {string} [validator] Validator type to use for file validation
+     * @param {Array<File>} files
+     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1: (files: Array<any>, validator?: string, options?: any) => Promise<RequestArgs>;
+    uploadFileV1: (files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FilesApi - functional programming interface
@@ -11181,16 +11967,16 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
-     * @param {string} [validator] Validator type to use for file validation
+     * @param {Array<File>} files
+     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<any>, validator?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * FilesApi - factory interface
@@ -11204,16 +11990,16 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileIds: string, options?: any): AxiosPromise<boolean>;
+    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): AxiosPromise<boolean>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
-     * @param {string} [validator] Validator type to use for file validation
+     * @param {Array<File>} files
+     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<any>, validator?: string, options?: any): AxiosPromise<Array<Files>>;
+    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
 };
 /**
  * FilesApi - object-oriented interface
@@ -11230,18 +12016,25 @@ export declare class FilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    deleteFileV1(fileIds: string, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
+    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
-     * @param {string} [validator] Validator type to use for file validation
+     * @param {Array<File>} files
+     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    uploadFileV1(files: Array<any>, validator?: string, options?: any): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
 }
+/**
+ * @export
+ */
+export declare const UploadFileV1ValidatorEnum: {
+    readonly CampaignProspectSchemaCsv: "campaign-prospect-schema-csv";
+};
+export declare type UploadFileV1ValidatorEnum = typeof UploadFileV1ValidatorEnum[keyof typeof UploadFileV1ValidatorEnum];
 /**
  * HealthApi - axios parameter creator
  * @export
@@ -11253,14 +12046,14 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet: (options?: any) => Promise<RequestArgs>;
+    statusStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet: (options?: any) => Promise<RequestArgs>;
+    statusWorkflowsStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HealthApi - functional programming interface
@@ -11273,14 +12066,14 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
 };
 /**
  * HealthApi - factory interface
@@ -11293,14 +12086,14 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: any): AxiosPromise<object>;
+    statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: any): AxiosPromise<object>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
 };
 /**
  * HealthApi - object-oriented interface
@@ -11316,7 +12109,7 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    statusStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
@@ -11324,7 +12117,7 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusWorkflowsStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
 }
 /**
  * HiveApi - axios parameter creator
@@ -11338,7 +12131,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (hiveContentInput: HiveContentInput, options?: any) => Promise<RequestArgs>;
+    createHiveV1: (hiveContentInput: HiveContentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -11346,7 +12139,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
+    deleteHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -11354,23 +12147,23 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
+    getHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Hives
      * @summary List All Hives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listHivesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -11379,7 +12172,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1: (hiveId: string, hiveContentOutput: HiveContentOutput, options?: any) => Promise<RequestArgs>;
+    updateHiveV1: (hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HiveApi - functional programming interface
@@ -11393,7 +12186,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -11401,7 +12194,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -11409,23 +12202,23 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    getHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      * List All Hives
      * @summary List All Hives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -11434,7 +12227,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * HiveApi - factory interface
@@ -11448,7 +12241,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: any): AxiosPromise<Hive>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): AxiosPromise<Hive>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -11456,7 +12249,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1(hiveId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -11464,23 +12257,23 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: any): AxiosPromise<Hive>;
+    getHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<Hive>;
     /**
      * List All Hives
      * @summary List All Hives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<Hive>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Hive>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -11489,7 +12282,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): AxiosPromise<Hive>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): AxiosPromise<Hive>;
 };
 /**
  * HiveApi - object-oriented interface
@@ -11506,7 +12299,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -11515,7 +12308,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    deleteHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -11524,24 +12317,24 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    getHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    getHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
     /**
      * List All Hives
      * @summary List All Hives
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    listHivesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[]>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -11551,7 +12344,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: any): Promise<import("axios").AxiosResponse<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
 }
 /**
  * HiveAgentLinkApi - axios parameter creator
@@ -11566,7 +12359,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1: (hiveId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    createHiveAgentLinkV1: (hiveId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -11575,7 +12368,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1: (hiveId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    deleteHiveAgentLinkV1: (hiveId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -11583,7 +12376,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1: (hiveId: string, options?: any) => Promise<RequestArgs>;
+    listAgentsOfHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -11591,7 +12384,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    listHivesOfAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HiveAgentLinkApi - functional programming interface
@@ -11606,7 +12399,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -11615,7 +12408,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -11623,7 +12416,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1(hiveId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -11631,7 +12424,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
 };
 /**
  * HiveAgentLinkApi - factory interface
@@ -11646,7 +12439,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -11655,7 +12448,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -11663,7 +12456,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1(hiveId: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -11671,7 +12464,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: any): AxiosPromise<Array<Hive>>;
+    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Hive>>;
 };
 /**
  * HiveAgentLinkApi - object-oriented interface
@@ -11689,7 +12482,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -11699,7 +12492,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -11708,7 +12501,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    listAgentsOfHiveV1(hiveId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -11717,7 +12510,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    listHivesOfAgentV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<Hive[]>>;
+    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[]>>;
 }
 /**
  * InternalApi - axios parameter creator
@@ -11731,7 +12524,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: any) => Promise<RequestArgs>;
+    acceptInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -11739,7 +12532,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any) => Promise<RequestArgs>;
+    createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new user
      * @summary Createuser
@@ -11747,14 +12540,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1: (userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
+    createUserV1: (userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    deleteOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -11762,35 +12555,35 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    deleteUserV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1: (options?: any) => Promise<RequestArgs>;
+    getCustomerCreditsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1: (options?: any) => Promise<RequestArgs>;
+    getCustomerPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1: (options?: any) => Promise<RequestArgs>;
+    getOrganizationBrandingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    getOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getuserbyid
@@ -11798,49 +12591,49 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    getUserByIdV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
      * @param {boolean} [showResellerOwner] Show owner users
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1: (showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listUsersV1: (showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
-     * @param {string} [app] The app to use for the invite
+     * @param {SendInviteV1AppEnum} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1: (guestInput: GuestInput, app?: string, options?: any) => Promise<RequestArgs>;
+    sendInviteV1: (guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Updateorganization
@@ -11849,7 +12642,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1: (orgId: string, organizationInput: OrganizationInput, options?: any) => Promise<RequestArgs>;
+    updateOrganizationV1: (orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update user details
      * @summary Updateuser
@@ -11858,7 +12651,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1: (userId: string, userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
+    updateUserV1: (userId: string, userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -11872,7 +12665,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -11880,7 +12673,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Create a new user
      * @summary Createuser
@@ -11888,14 +12681,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1(userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -11903,35 +12696,35 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteUserV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getCustomerCreditsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getCustomerPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomerBranding | object>>;
+    getOrganizationBrandingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetorganizationbrandingv1>>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    getOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
      *
      * @summary Getuserbyid
@@ -11939,49 +12732,49 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
      * @param {boolean} [showResellerOwner] Show owner users
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
-     * @param {string} [app] The app to use for the invite
+     * @param {SendInviteV1AppEnum} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
      *
      * @summary Updateorganization
@@ -11990,7 +12783,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
      * Update user details
      * @summary Updateuser
@@ -11999,7 +12792,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * InternalApi - factory interface
@@ -12013,7 +12806,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -12021,7 +12814,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): AxiosPromise<User>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * Create a new user
      * @summary Createuser
@@ -12029,14 +12822,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1(userPayload: UserPayload, options?: any): AxiosPromise<User>;
+    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1(options?: any): AxiosPromise<BaseResponseInput>;
+    deleteOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -12044,35 +12837,35 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: any): AxiosPromise<User>;
+    deleteUserV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    getCustomerCreditsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    getCustomerPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: any): AxiosPromise<CustomerBranding | object>;
+    getOrganizationBrandingV1(options?: AxiosRequestConfig): AxiosPromise<ResponseGetorganizationbrandingv1>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1(options?: any): AxiosPromise<OrganizationOutput>;
+    getOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
     /**
      *
      * @summary Getuserbyid
@@ -12080,49 +12873,49 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1(userId: string, options?: any): AxiosPromise<User>;
+    getUserByIdV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
      * @param {boolean} [showResellerOwner] Show owner users
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
-     * @param {string} [app] The app to use for the invite
+     * @param {SendInviteV1AppEnum} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): AxiosPromise<GuestOutput>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): AxiosPromise<GuestOutput>;
     /**
      *
      * @summary Updateorganization
@@ -12131,7 +12924,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): AxiosPromise<OrganizationOutput>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
     /**
      * Update user details
      * @summary Updateuser
@@ -12140,7 +12933,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -12157,7 +12950,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -12166,7 +12959,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Create a new user
      * @summary Createuser
@@ -12175,7 +12968,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    createUserV1(userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      *
      * @summary Deleteorganization
@@ -12183,7 +12976,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -12192,7 +12985,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    deleteUserV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
@@ -12200,7 +12993,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getCustomerCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getCustomerCreditsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
@@ -12208,7 +13001,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getCustomerPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getCustomerPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      *
      * @summary Getorganizationbranding
@@ -12216,7 +13009,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getOrganizationBrandingV1(options?: any): Promise<import("axios").AxiosResponse<object | CustomerBranding>>;
+    getOrganizationBrandingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ResponseGetorganizationbrandingv1>>;
     /**
      *
      * @summary Getorganization
@@ -12224,7 +13017,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    getOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
      *
      * @summary Getuserbyid
@@ -12233,52 +13026,52 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getUserByIdV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    getUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
      * @param {boolean} [showResellerOwner] Show owner users
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
      * @param {GuestInput} guestInput
-     * @param {string} [app] The app to use for the invite
+     * @param {SendInviteV1AppEnum} [app] The app to use for the invite
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    sendInviteV1(guestInput: GuestInput, app?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput>>;
     /**
      *
      * @summary Updateorganization
@@ -12288,7 +13081,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
     /**
      * Update user details
      * @summary Updateuser
@@ -12298,8 +13091,16 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
 }
+/**
+ * @export
+ */
+export declare const SendInviteV1AppEnum: {
+    readonly Trata: "trata";
+    readonly Sparr: "sparr";
+};
+export declare type SendInviteV1AppEnum = typeof SendInviteV1AppEnum[keyof typeof SendInviteV1AppEnum];
 /**
  * ProductsApi - axios parameter creator
  * @export
@@ -12312,7 +13113,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1: (productInput: ProductInput, options?: any) => Promise<RequestArgs>;
+    createProductV1: (productInput: ProductInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -12320,7 +13121,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
+    deleteProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -12328,7 +13129,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
+    getProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -12336,25 +13137,25 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1: (productId: string, options?: any) => Promise<RequestArgs>;
+    listAgentsOfProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Products
      * @summary List All Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any) => Promise<RequestArgs>;
+    listProductsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -12363,7 +13164,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1: (productId: string, productInput: ProductInput, options?: any) => Promise<RequestArgs>;
+    updateProductV1: (productId: string, productInput: ProductInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ProductsApi - functional programming interface
@@ -12377,7 +13178,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1(productInput: ProductInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -12385,7 +13186,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -12393,7 +13194,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    getProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -12401,25 +13202,25 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1(productId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * List All Products
      * @summary List All Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -12428,7 +13229,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
 };
 /**
  * ProductsApi - factory interface
@@ -12442,7 +13243,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1(productInput: ProductInput, options?: any): AxiosPromise<ProductOutput>;
+    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -12450,7 +13251,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1(productId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -12458,7 +13259,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1(productId: string, options?: any): AxiosPromise<ProductOutput>;
+    getProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -12466,25 +13267,25 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1(productId: string, options?: any): AxiosPromise<Array<AIAgentOutput>>;
+    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * List All Products
      * @summary List All Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): AxiosPromise<Array<ProductOutput>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProductOutput>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -12493,7 +13294,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: any): AxiosPromise<ProductOutput>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
 };
 /**
  * ProductsApi - object-oriented interface
@@ -12510,7 +13311,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    createProductV1(productInput: ProductInput, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -12519,7 +13320,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    deleteProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -12528,7 +13329,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    getProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    getProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -12537,26 +13338,26 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    listAgentsOfProductV1(productId: string, options?: any): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
     /**
      * List All Products
      * @summary List All Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    listProductsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -12566,7 +13367,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: any): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
 }
 /**
  * ProspectsApi - axios parameter creator
@@ -12580,7 +13381,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1: (prospectInput: ProspectInput, options?: any) => Promise<RequestArgs>;
+    createProspectV1: (prospectInput: ProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -12588,7 +13389,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    deleteProspectV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -12596,23 +13397,23 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    getProspectV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Prospects
      * @summary List All Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listProspectsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -12621,7 +13422,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1: (prospectId: string, prospectInput: ProspectInput, options?: any) => Promise<RequestArgs>;
+    updateProspectV1: (prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ProspectsApi - functional programming interface
@@ -12635,7 +13436,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1(prospectInput: ProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -12643,7 +13444,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -12651,23 +13452,23 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    getProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
      * List All Prospects
      * @summary List All Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -12676,7 +13477,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
 };
 /**
  * ProspectsApi - factory interface
@@ -12690,7 +13491,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1(prospectInput: ProspectInput, options?: any): AxiosPromise<ProspectOutput>;
+    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -12698,7 +13499,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1(prospectId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -12706,23 +13507,23 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1(prospectId: string, options?: any): AxiosPromise<ProspectOutput>;
+    getProspectV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
     /**
      * List All Prospects
      * @summary List All Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<ProspectOutput>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProspectOutput>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -12731,7 +13532,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): AxiosPromise<ProspectOutput>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
 };
 /**
  * ProspectsApi - object-oriented interface
@@ -12748,7 +13549,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    createProspectV1(prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -12757,7 +13558,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    deleteProspectV1(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -12766,24 +13567,24 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    getProspectV1(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    getProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
     /**
      * List All Prospects
      * @summary List All Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    listProspectsV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -12793,7 +13594,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: any): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
 }
 /**
  * ResellerCourseAssignmentsApi - axios parameter creator
@@ -12807,41 +13608,41 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1: (changeAssignmentRequest: ChangeAssignmentRequest, options?: any) => Promise<RequestArgs>;
+    changeResellerCourseAssignmentsV1: (changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1: (courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    getCustomersByAssignedCourseV1: (courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCourseAssignmentsApi - functional programming interface
@@ -12855,41 +13656,41 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseWithAssignmentStatus>>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseWithAssignmentStatus>>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgWithCourseAssignment>>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgWithCourseAssignment>>>;
 };
 /**
  * ResellerCourseAssignmentsApi - factory interface
@@ -12903,41 +13704,41 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any): AxiosPromise<BaseResponseInput>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<CourseWithAssignmentStatus>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseWithAssignmentStatus>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgWithCourseAssignment>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<OrgWithCourseAssignment>>;
 };
 /**
  * ResellerCourseAssignmentsApi - object-oriented interface
@@ -12954,43 +13755,43 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<CourseWithAssignmentStatus[]>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseWithAssignmentStatus[]>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
      * @param {string} courseId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgWithCourseAssignment[]>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithCourseAssignment[]>>;
 }
 /**
  * ResellerCustomerApi - axios parameter creator
@@ -13004,7 +13805,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any) => Promise<RequestArgs>;
+    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -13012,7 +13813,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    deleteResellerCustomerV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -13020,7 +13821,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    getCustomerBasicCredentialsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -13028,7 +13829,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    getCustomerCredentialsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -13036,27 +13837,27 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerByIdV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
-     * @param {string} [searchQuery] Search query
-     * @param {boolean} [expandPrices] Whether to expand the prices
-     * @param {boolean} [expandUsers] Whether to expand the users
-     * @param {boolean} [expandCredits] Whether to expand the credits
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchQuery] Search query
+     * @param {boolean | null} [expandPrices] Whether to expand the prices
+     * @param {boolean | null} [expandUsers] Whether to expand the users
+     * @param {boolean | null} [expandCredits] Whether to expand the credits
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1: (searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listResellerCustomersV1: (searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -13065,7 +13866,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1: (customerOrgId: string, organizationInput: OrganizationInput, options?: any) => Promise<RequestArgs>;
+    updateCustomerOrganizationV1: (customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerApi - functional programming interface
@@ -13079,7 +13880,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -13087,7 +13888,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -13095,7 +13896,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -13103,7 +13904,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -13111,27 +13912,27 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
-     * @param {string} [searchQuery] Search query
-     * @param {boolean} [expandPrices] Whether to expand the prices
-     * @param {boolean} [expandUsers] Whether to expand the users
-     * @param {boolean} [expandCredits] Whether to expand the credits
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchQuery] Search query
+     * @param {boolean | null} [expandPrices] Whether to expand the prices
+     * @param {boolean | null} [expandUsers] Whether to expand the users
+     * @param {boolean | null} [expandCredits] Whether to expand the credits
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -13140,7 +13941,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
 };
 /**
  * ResellerCustomerApi - factory interface
@@ -13154,7 +13955,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): AxiosPromise<BaseResponseInput>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -13162,7 +13963,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -13170,7 +13971,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<BasicCredentials>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<BasicCredentials>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -13178,7 +13979,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: any): AxiosPromise<string>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -13186,27 +13987,27 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: any): AxiosPromise<OrgUsersPriceCredits>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<OrgUsersPriceCredits>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
-     * @param {string} [searchQuery] Search query
-     * @param {boolean} [expandPrices] Whether to expand the prices
-     * @param {boolean} [expandUsers] Whether to expand the users
-     * @param {boolean} [expandCredits] Whether to expand the credits
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchQuery] Search query
+     * @param {boolean | null} [expandPrices] Whether to expand the prices
+     * @param {boolean | null} [expandUsers] Whether to expand the users
+     * @param {boolean | null} [expandCredits] Whether to expand the credits
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<OrgUsersPriceCredits>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<OrgUsersPriceCredits>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -13215,7 +14016,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): AxiosPromise<OrganizationOutput>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
 };
 /**
  * ResellerCustomerApi - object-oriented interface
@@ -13232,7 +14033,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -13241,7 +14042,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -13250,7 +14051,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<BasicCredentials>>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicCredentials>>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -13259,7 +14060,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -13268,28 +14069,28 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
-     * @param {string} [searchQuery] Search query
-     * @param {boolean} [expandPrices] Whether to expand the prices
-     * @param {boolean} [expandUsers] Whether to expand the users
-     * @param {boolean} [expandCredits] Whether to expand the credits
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchQuery] Search query
+     * @param {boolean | null} [expandPrices] Whether to expand the prices
+     * @param {boolean | null} [expandUsers] Whether to expand the users
+     * @param {boolean | null} [expandCredits] Whether to expand the credits
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    listResellerCustomersV1(searchQuery?: string, expandPrices?: boolean, expandUsers?: boolean, expandCredits?: boolean, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -13299,7 +14100,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
 }
 /**
  * ResellerCustomerAuditLogsApi - axios parameter creator
@@ -13310,19 +14111,19 @@ export declare const ResellerCustomerAuditLogsApiAxiosParamCreator: (configurati
      *
      * @summary Get Reseller Customer Audit Logs
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerAuditLogsApi - functional programming interface
@@ -13333,19 +14134,19 @@ export declare const ResellerCustomerAuditLogsApiFp: (configuration?: Configurat
      *
      * @summary Get Reseller Customer Audit Logs
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - factory interface
@@ -13356,19 +14157,19 @@ export declare const ResellerCustomerAuditLogsApiFactory: (configuration?: Confi
      *
      * @summary Get Reseller Customer Audit Logs
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<AuditLog>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<AuditLog>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - object-oriented interface
@@ -13381,20 +14182,20 @@ export declare class ResellerCustomerAuditLogsApi extends BaseAPI {
      *
      * @summary Get Reseller Customer Audit Logs
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCustomerAuditLogsApi
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<AuditLog[]>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuditLog[]>>;
 }
 /**
  * ResellerCustomerCheckoutApi - axios parameter creator
@@ -13409,7 +14210,7 @@ export declare const ResellerCustomerCheckoutApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1: (customerOrgId: string, priceId: string, options?: any) => Promise<RequestArgs>;
+    createCheckoutSessionForResellerCustomerV1: (customerOrgId: string, priceId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerCheckoutApi - functional programming interface
@@ -13424,7 +14225,7 @@ export declare const ResellerCustomerCheckoutApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * ResellerCustomerCheckoutApi - factory interface
@@ -13439,7 +14240,7 @@ export declare const ResellerCustomerCheckoutApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any): AxiosPromise<string>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
 };
 /**
  * ResellerCustomerCheckoutApi - object-oriented interface
@@ -13457,7 +14258,7 @@ export declare class ResellerCustomerCheckoutApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerCheckoutApi
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
  * ResellerCustomerDefaultPricingApi - axios parameter creator
@@ -13470,7 +14271,7 @@ export declare const ResellerCustomerDefaultPricingApiAxiosParamCreator: (config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1: (options?: any) => Promise<RequestArgs>;
+    getCustomerDefaultPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -13479,7 +14280,7 @@ export declare const ResellerCustomerDefaultPricingApiAxiosParamCreator: (config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - functional programming interface
@@ -13492,7 +14293,7 @@ export declare const ResellerCustomerDefaultPricingApiFp: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -13501,7 +14302,7 @@ export declare const ResellerCustomerDefaultPricingApiFp: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - factory interface
@@ -13514,7 +14315,7 @@ export declare const ResellerCustomerDefaultPricingApiFactory: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -13523,7 +14324,7 @@ export declare const ResellerCustomerDefaultPricingApiFactory: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - object-oriented interface
@@ -13539,7 +14340,7 @@ export declare class ResellerCustomerDefaultPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerDefaultPricingApi
      */
-    getCustomerDefaultPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -13549,7 +14350,7 @@ export declare class ResellerCustomerDefaultPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerDefaultPricingApi
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
 }
 /**
  * ResellerCustomerPortalApi - axios parameter creator
@@ -13563,7 +14364,7 @@ export declare const ResellerCustomerPortalApiAxiosParamCreator: (configuration?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    createCustomerPortalForResellerCustomerV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerPortalApi - functional programming interface
@@ -13577,7 +14378,7 @@ export declare const ResellerCustomerPortalApiFp: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * ResellerCustomerPortalApi - factory interface
@@ -13591,7 +14392,7 @@ export declare const ResellerCustomerPortalApiFactory: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): AxiosPromise<string>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
 };
 /**
  * ResellerCustomerPortalApi - object-oriented interface
@@ -13608,7 +14409,7 @@ export declare class ResellerCustomerPortalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPortalApi
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
 }
 /**
  * ResellerCustomerPricingApi - axios parameter creator
@@ -13623,7 +14424,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1: (customerOrgId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    createCustomerPricingV1: (customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -13631,7 +14432,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerCreditsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -13639,7 +14440,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1: (customerOrgId: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerPricingV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -13649,7 +14450,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1: (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any) => Promise<RequestArgs>;
+    updateCustomerPricingV1: (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerPricingApi - functional programming interface
@@ -13664,7 +14465,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -13672,7 +14473,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -13680,7 +14481,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -13690,7 +14491,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
 };
 /**
  * ResellerCustomerPricingApi - factory interface
@@ -13705,7 +14506,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -13713,7 +14514,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): AxiosPromise<Array<Credit>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -13721,7 +14522,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: any): AxiosPromise<Array<Price>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -13731,7 +14532,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): AxiosPromise<Price>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
 };
 /**
  * ResellerCustomerPricingApi - object-oriented interface
@@ -13749,7 +14550,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -13758,7 +14559,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -13767,7 +14568,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -13778,7 +14579,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: any): Promise<import("axios").AxiosResponse<Price>>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
 }
 /**
  * ResellerCustomerUserApi - axios parameter creator
@@ -13793,24 +14594,24 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1: (customerOrgId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    deleteResellerCustomerUserV1: (customerOrgId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerUserAndInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -13819,41 +14620,41 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1: (customerOrgId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    getResellerCustomerUserByIdV1: (customerOrgId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listCustomerInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1: (customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listResellerCustomerUsersV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -13862,7 +14663,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1: (customerOrgId: string, email: string, options?: any) => Promise<RequestArgs>;
+    revokeCustomerInviteV1: (customerOrgId: string, email: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -13871,7 +14672,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1: (customerOrgId: string, guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    sendCustomerUserInviteV1: (customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -13881,7 +14682,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1: (customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any) => Promise<RequestArgs>;
+    updateResellerCustomerUserV1: (customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerUserApi - functional programming interface
@@ -13896,24 +14697,24 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -13922,41 +14723,41 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -13965,7 +14766,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -13974,7 +14775,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -13984,7 +14785,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * ResellerCustomerUserApi - factory interface
@@ -13999,24 +14800,24 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -14025,41 +14826,41 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any): AxiosPromise<User>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -14068,7 +14869,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any): AxiosPromise<BaseResponseInput>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -14077,7 +14878,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): AxiosPromise<BaseResponseInput>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -14087,7 +14888,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any): AxiosPromise<User>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * ResellerCustomerUserApi - object-oriented interface
@@ -14105,25 +14906,25 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -14133,43 +14934,43 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
      * @param {string} customerOrgId
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -14179,7 +14980,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -14189,7 +14990,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -14200,7 +15001,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
  * ResellerFilesApi - axios parameter creator
@@ -14214,15 +15015,15 @@ export declare const ResellerFilesApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1: (fileIds: string, options?: any) => Promise<RequestArgs>;
+    deleteResellerFilesV1: (fileIds: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1: (files: Array<any>, options?: any) => Promise<RequestArgs>;
+    uploadResellerFilesV1: (files: Array<File>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerFilesApi - functional programming interface
@@ -14236,15 +15037,15 @@ export declare const ResellerFilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1(fileIds: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * ResellerFilesApi - factory interface
@@ -14258,15 +15059,15 @@ export declare const ResellerFilesApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1(fileIds: string, options?: any): AxiosPromise<boolean>;
+    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): AxiosPromise<boolean>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1(files: Array<any>, options?: any): AxiosPromise<Array<Files>>;
+    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
 };
 /**
  * ResellerFilesApi - object-oriented interface
@@ -14283,16 +15084,16 @@ export declare class ResellerFilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerFilesApi
      */
-    deleteResellerFilesV1(fileIds: string, options?: any): Promise<import("axios").AxiosResponse<boolean>>;
+    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerFilesApi
      */
-    uploadResellerFilesV1(files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
 }
 /**
  * ResellerMetricsApi - axios parameter creator
@@ -14306,7 +15107,7 @@ export declare const ResellerMetricsApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1: (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    getResellerMetricsV1: (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerMetricsApi - functional programming interface
@@ -14320,7 +15121,7 @@ export declare const ResellerMetricsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
 };
 /**
  * ResellerMetricsApi - factory interface
@@ -14334,7 +15135,7 @@ export declare const ResellerMetricsApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): AxiosPromise<BatchMetricsResponseInput>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
 };
 /**
  * ResellerMetricsApi - object-oriented interface
@@ -14351,7 +15152,7 @@ export declare class ResellerMetricsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerMetricsApi
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
 }
 /**
  * ResellerOrganizationApi - axios parameter creator
@@ -14365,21 +15166,21 @@ export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any) => Promise<RequestArgs>;
+    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    deleteResellerOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1: (options?: any) => Promise<RequestArgs>;
+    getResellerOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -14387,7 +15188,7 @@ export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1: (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any) => Promise<RequestArgs>;
+    updateResellerOrganizationV1: (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerOrganizationApi - functional programming interface
@@ -14401,21 +15202,21 @@ export declare const ResellerOrganizationApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>>;
+    getResellerOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -14423,7 +15224,7 @@ export declare const ResellerOrganizationApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
 };
 /**
  * ResellerOrganizationApi - factory interface
@@ -14437,21 +15238,21 @@ export declare const ResellerOrganizationApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): AxiosPromise<User>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1(options?: any): AxiosPromise<BaseResponseInput>;
+    deleteResellerOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1(options?: any): AxiosPromise<OrgWithUsers>;
+    getResellerOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<OrgWithUsers>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -14459,7 +15260,7 @@ export declare const ResellerOrganizationApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): AxiosPromise<OrganizationOutput>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
 };
 /**
  * ResellerOrganizationApi - object-oriented interface
@@ -14476,7 +15277,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
@@ -14484,7 +15285,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    deleteResellerOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
@@ -14492,7 +15293,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    getResellerOrganizationV1(options?: any): Promise<import("axios").AxiosResponse<OrgWithUsers>>;
+    getResellerOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithUsers>>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -14501,7 +15302,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: any): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
 }
 /**
  * ResellerPricingApi - axios parameter creator
@@ -14516,28 +15317,28 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1: (code: string, state: string, options?: any) => Promise<RequestArgs>;
+    addStripeAccountLinkToResellerOrgV1: (code: string, state: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1: (options?: any) => Promise<RequestArgs>;
+    createStripeAccountLinkV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1: (options?: any) => Promise<RequestArgs>;
+    getStripeAccountDetailsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1: (options?: any) => Promise<RequestArgs>;
+    stripeDisconnectV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerPricingApi - functional programming interface
@@ -14552,28 +15353,28 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createStripeAccountLinkV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>>;
+    getStripeAccountDetailsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    stripeDisconnectV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
 };
 /**
  * ResellerPricingApi - factory interface
@@ -14588,28 +15389,28 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): AxiosPromise<BaseResponseInput>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(options?: any): AxiosPromise<string>;
+    createStripeAccountLinkV1(options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1(options?: any): AxiosPromise<ResellerPaymentAccountDetails>;
+    getStripeAccountDetailsV1(options?: AxiosRequestConfig): AxiosPromise<ResellerPaymentAccountDetails>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1(options?: any): AxiosPromise<BaseResponseInput>;
+    stripeDisconnectV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
 };
 /**
  * ResellerPricingApi - object-oriented interface
@@ -14627,7 +15428,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -14635,7 +15436,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    createStripeAccountLinkV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createStripeAccountLinkV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
@@ -14643,7 +15444,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    getStripeAccountDetailsV1(options?: any): Promise<import("axios").AxiosResponse<ResellerPaymentAccountDetails>>;
+    getStripeAccountDetailsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ResellerPaymentAccountDetails>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -14651,7 +15452,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    stripeDisconnectV1(options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    stripeDisconnectV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
 }
 /**
  * ResellerSettingsApi - axios parameter creator
@@ -14665,14 +15466,14 @@ export declare const ResellerSettingsApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: any) => Promise<RequestArgs>;
+    addResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1: (options?: any) => Promise<RequestArgs>;
+    getOrganizationSettingsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -14680,7 +15481,7 @@ export declare const ResellerSettingsApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: any) => Promise<RequestArgs>;
+    updateResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerSettingsApi - functional programming interface
@@ -14694,14 +15495,14 @@ export declare const ResellerSettingsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    getOrganizationSettingsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -14709,7 +15510,7 @@ export declare const ResellerSettingsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
 };
 /**
  * ResellerSettingsApi - factory interface
@@ -14723,14 +15524,14 @@ export declare const ResellerSettingsApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1(options?: any): AxiosPromise<OrganizationSettings>;
+    getOrganizationSettingsV1(options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -14738,7 +15539,7 @@ export declare const ResellerSettingsApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): AxiosPromise<OrganizationSettings>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
 };
 /**
  * ResellerSettingsApi - object-oriented interface
@@ -14755,7 +15556,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
@@ -14763,7 +15564,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    getOrganizationSettingsV1(options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    getOrganizationSettingsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -14772,7 +15573,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: any): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
 }
 /**
  * ResellerUserApi - axios parameter creator
@@ -14786,7 +15587,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: any) => Promise<RequestArgs>;
+    acceptResellerUserInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -14794,7 +15595,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    deleteResellerUserV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -14802,39 +15603,39 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    getResellerUserByIdV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listResellerUserInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listResellerUsersV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -14842,7 +15643,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1: (guestInput: GuestInput, options?: any) => Promise<RequestArgs>;
+    sendResellerUserInviteV1: (guestInput: GuestInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -14851,7 +15652,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1: (userId: string, userPayload: UserPayload, options?: any) => Promise<RequestArgs>;
+    updateResellerUserV1: (userId: string, userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerUserApi - functional programming interface
@@ -14865,7 +15666,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -14873,7 +15674,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -14881,39 +15682,39 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -14921,7 +15722,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -14930,7 +15731,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * ResellerUserApi - factory interface
@@ -14944,7 +15745,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): AxiosPromise<User>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -14952,7 +15753,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1(userId: string, options?: any): AxiosPromise<User>;
+    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -14960,39 +15761,39 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1(userId: string, options?: any): AxiosPromise<User>;
+    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<GuestOutput>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<User>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -15000,7 +15801,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): AxiosPromise<GuestOutput>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): AxiosPromise<GuestOutput>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -15009,7 +15810,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): AxiosPromise<User>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * ResellerUserApi - object-oriented interface
@@ -15026,7 +15827,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -15035,7 +15836,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    deleteResellerUserV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -15044,41 +15845,41 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    getResellerUserByIdV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    listResellerUserInvitesV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    listResellerUsersV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<User[]>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -15087,7 +15888,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: any): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput>>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -15097,7 +15898,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: any): Promise<import("axios").AxiosResponse<User>>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
 }
 /**
  * SparrApi - axios parameter creator
@@ -15112,7 +15913,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1: (moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any) => Promise<RequestArgs>;
+    addModuleAttemptV1: (moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -15121,7 +15922,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    assignCourseV1: (courseId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -15131,7 +15932,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType: string, entityId: string, tagCreate: TagCreate, options?: any) => Promise<RequestArgs>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -15139,7 +15940,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1: (priceId: string, options?: any) => Promise<RequestArgs>;
+    createCheckoutSessionForPriceV1: (priceId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new course
      * @summary Create Course
@@ -15147,14 +15948,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1: (courseRequest: CourseRequest, options?: any) => Promise<RequestArgs>;
+    createCourseV1: (courseRequest: CourseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1: (options?: any) => Promise<RequestArgs>;
+    createCustomerPortalV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -15162,15 +15963,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1: (feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
+    createFeedbackV1: (feedbackCore: FeedbackCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1: (goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    createGoalsV1: (goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -15178,7 +15979,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    createPersonaV1: (personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -15186,15 +15987,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1: (evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    createPostCallEvaluationParamsV1: (evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    createScenarioV1: (createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -15202,7 +16003,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1: (trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    createTrackerV1: (trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -15210,7 +16011,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    deleteCourseV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -15218,7 +16019,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    deleteEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -15226,7 +16027,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
+    deleteFeedbackV1: (feedbackId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a file
      * @summary Delete File
@@ -15234,7 +16035,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1: (fileId: string, options?: any) => Promise<RequestArgs>;
+    deleteFileV1: (fileId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -15242,7 +16043,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    deleteGoalsV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15250,7 +16051,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    deletePersonaV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -15258,7 +16059,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    deleteScenarioV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -15266,7 +16067,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    deleteTrackerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -15276,7 +16077,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: any) => Promise<RequestArgs>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -15284,7 +16085,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: any) => Promise<RequestArgs>;
+    generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15292,14 +16093,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    getCourseV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1: (options?: any) => Promise<RequestArgs>;
+    getCreditsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -15308,7 +16109,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType: string, tagName: string, options?: any) => Promise<RequestArgs>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType: string, tagName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -15317,7 +16118,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType: string, entityId: string, options?: any) => Promise<RequestArgs>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType: string, entityId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -15325,7 +16126,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    getEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -15333,7 +16134,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1: (feedbackId: string, options?: any) => Promise<RequestArgs>;
+    getFeedbackV1: (feedbackId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -15341,7 +16142,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1: (fileId: string, options?: any) => Promise<RequestArgs>;
+    getFileV1: (fileId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -15349,7 +16150,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    getGoalsV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -15357,7 +16158,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any) => Promise<RequestArgs>;
+    getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -15365,14 +16166,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    getPersonaV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1: (options?: any) => Promise<RequestArgs>;
+    getPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -15380,7 +16181,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    getScenarioV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -15388,7 +16189,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    getTrackerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -15396,7 +16197,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    getUserStatsV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15404,17 +16205,17 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
+    importLinkedinPersonaV1: (linkedinUrl: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
+    listCoursesV1: (skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -15423,20 +16224,20 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listEvaluatorV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [fromDate] Start date for filtering feedbacks
-     * @param {string} [toDate] End date for filtering feedbacks
-     * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
-     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [fromDate] Start date for filtering feedbacks
+     * @param {string | null} [toDate] End date for filtering feedbacks
+     * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any) => Promise<RequestArgs>;
+    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -15445,7 +16246,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listGoalsV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -15455,7 +16256,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -15465,7 +16266,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    listScenariosV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -15474,7 +16275,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listTrackerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -15482,7 +16283,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1: (userId: string, options?: any) => Promise<RequestArgs>;
+    listUserAssignmentsV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -15493,7 +16294,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1: (courseId: string, userId: string, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listUserCourseAttemptsV1: (courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -15502,7 +16303,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1: (moduleId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    listUserModuleAttemptsV1: (moduleId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -15511,7 +16312,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1: (courseId: string, userId: string, options?: any) => Promise<RequestArgs>;
+    revokeCourseV1: (courseId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -15521,7 +16322,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchGoalsV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -15531,7 +16332,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchPersonasV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -15541,7 +16342,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchScenariosV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -15551,14 +16352,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchTrackerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet: (options?: any) => Promise<RequestArgs>;
+    statusSparrStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -15568,7 +16369,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1: (courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any) => Promise<RequestArgs>;
+    updateCourseCompletionStatusV1: (courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a course
      * @summary Update Course
@@ -15577,7 +16378,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) => Promise<RequestArgs>;
+    updateCourseV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -15586,7 +16387,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -15595,16 +16396,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: any) => Promise<RequestArgs>;
+    updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1: (goalsId: string, goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    updateGoalsV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -15613,16 +16414,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    updateScenarioV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -15631,15 +16432,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1: (trackerId: string, trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    updateTrackerV1: (trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1: (files: Array<any>, options?: any) => Promise<RequestArgs>;
+    uploadFilesV1: (files: Array<File>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparrApi - functional programming interface
@@ -15654,7 +16455,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModuleAttempt>>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModuleAttempt>>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -15663,7 +16464,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -15673,7 +16474,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntityTag>>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntityTag>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -15681,7 +16482,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Create a new course
      * @summary Create Course
@@ -15689,14 +16490,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCustomerPortalV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -15704,15 +16505,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1(goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -15720,7 +16521,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -15728,15 +16529,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -15744,7 +16545,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -15752,7 +16553,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -15760,7 +16561,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -15768,7 +16569,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a file
      * @summary Delete File
@@ -15776,7 +16577,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteFileV1(fileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -15784,7 +16585,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -15792,7 +16593,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -15800,7 +16601,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -15808,7 +16609,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -15818,7 +16619,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -15826,7 +16627,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -15834,14 +16635,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    getCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getCreditsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -15850,7 +16651,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -15859,7 +16660,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -15867,7 +16668,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -15875,7 +16676,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1(feedbackId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -15883,7 +16684,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1(fileId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getFileV1(fileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -15891,7 +16692,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -15899,7 +16700,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -15907,14 +16708,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -15922,7 +16723,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -15930,7 +16731,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -15938,7 +16739,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserStats>>;
+    getUserStatsV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserStats>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -15946,17 +16747,17 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -15965,20 +16766,20 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [fromDate] Start date for filtering feedbacks
-     * @param {string} [toDate] End date for filtering feedbacks
-     * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
-     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [fromDate] Start date for filtering feedbacks
+     * @param {string | null} [toDate] End date for filtering feedbacks
+     * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -15987,7 +16788,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -15997,7 +16798,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -16007,7 +16808,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -16016,7 +16817,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
+    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -16024,7 +16825,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>>;
+    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -16035,7 +16836,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -16044,7 +16845,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -16053,7 +16854,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1(courseId: string, userId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -16063,7 +16864,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -16073,7 +16874,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -16083,7 +16884,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -16093,14 +16894,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -16110,7 +16911,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
      * Update a course
      * @summary Update Course
@@ -16119,7 +16920,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -16128,7 +16929,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -16137,16 +16938,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -16155,16 +16956,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -16173,15 +16974,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1(files: Array<any>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
 };
 /**
  * SparrApi - factory interface
@@ -16196,7 +16997,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): AxiosPromise<UserModuleAttempt>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): AxiosPromise<UserModuleAttempt>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -16205,7 +17006,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<UserCourseAssignment>;
+    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -16215,7 +17016,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): AxiosPromise<EntityTag>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): AxiosPromise<EntityTag>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -16223,7 +17024,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: any): AxiosPromise<string>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      * Create a new course
      * @summary Create Course
@@ -16231,14 +17032,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse>;
+    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1(options?: any): AxiosPromise<string>;
+    createCustomerPortalV1(options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -16246,15 +17047,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1(goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -16262,7 +17063,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -16270,15 +17071,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -16286,7 +17087,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -16294,7 +17095,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -16302,7 +17103,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1(paramsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -16310,7 +17111,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1(feedbackId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a file
      * @summary Delete File
@@ -16318,7 +17119,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteFileV1(fileId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -16326,7 +17127,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1(goalsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -16334,7 +17135,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -16342,7 +17143,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -16350,7 +17151,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1(trackerId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -16360,7 +17161,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -16368,7 +17169,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): AxiosPromise<CombinedEvaluatorResponse>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -16376,14 +17177,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
+    getCourseV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1(options?: any): AxiosPromise<Array<Credit>>;
+    getCreditsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -16392,7 +17193,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): AxiosPromise<Array<EntityTag>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -16401,7 +17202,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): AxiosPromise<Array<EntityTag>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -16409,7 +17210,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1(paramsId: string, options?: any): AxiosPromise<Evaluator>;
+    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -16417,7 +17218,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1(feedbackId: string, options?: any): AxiosPromise<Feedback>;
+    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -16425,7 +17226,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1(fileId: string, options?: any): AxiosPromise<any>;
+    getFileV1(fileId: string, options?: AxiosRequestConfig): AxiosPromise<any>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -16433,7 +17234,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1(goalsId: string, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -16441,7 +17242,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -16449,14 +17250,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: any): AxiosPromise<Persona>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1(options?: any): AxiosPromise<Array<Price>>;
+    getPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -16464,7 +17265,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -16472,7 +17273,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1(trackerId: string, options?: any): AxiosPromise<Tracker>;
+    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -16480,7 +17281,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1(userId: string, options?: any): AxiosPromise<UserStats>;
+    getUserStatsV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<UserStats>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -16488,17 +17289,17 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -16507,20 +17308,20 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Evaluator>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [fromDate] Start date for filtering feedbacks
-     * @param {string} [toDate] End date for filtering feedbacks
-     * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
-     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [fromDate] Start date for filtering feedbacks
+     * @param {string | null} [toDate] End date for filtering feedbacks
+     * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): AxiosPromise<Array<Feedback>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -16529,7 +17330,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<SparrDbModelsGoal>>;
+    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -16539,7 +17340,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<Persona>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -16549,7 +17350,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Scenario>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -16558,7 +17359,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Tracker>>;
+    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Tracker>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -16566,7 +17367,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: any): AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>;
+    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -16577,7 +17378,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<UserModuleAttemptResponse>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -16586,7 +17387,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): AxiosPromise<Array<UserModuleAttemptResponse>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -16595,7 +17396,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1(courseId: string, userId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -16605,7 +17406,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<GoalsSearchResponse>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -16615,7 +17416,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -16625,7 +17426,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -16635,14 +17436,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<TrackerSearchResponse>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: any): AxiosPromise<object>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -16652,7 +17453,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): AxiosPromise<UserCourseAssignment>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
     /**
      * Update a course
      * @summary Update Course
@@ -16661,7 +17462,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -16670,7 +17471,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -16679,16 +17480,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): AxiosPromise<Feedback>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -16697,16 +17498,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -16715,15 +17516,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1(files: Array<any>, options?: any): AxiosPromise<Array<any>>;
+    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): AxiosPromise<Array<any>>;
 };
 /**
  * SparrApi - object-oriented interface
@@ -16741,7 +17542,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttempt>>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttempt>>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -16751,7 +17552,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    assignCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -16762,7 +17563,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: any): Promise<import("axios").AxiosResponse<EntityTag>>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -16771,7 +17572,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Create a new course
      * @summary Create Course
@@ -16780,7 +17581,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCourseV1(courseRequest: CourseRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
@@ -16788,7 +17589,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCustomerPortalV1(options?: any): Promise<import("axios").AxiosResponse<string>>;
+    createCustomerPortalV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -16797,16 +17598,16 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createGoalsV1(goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -16815,7 +17616,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createPersonaV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -16824,16 +17625,16 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createScenarioV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -16842,7 +17643,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -16851,7 +17652,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -16860,7 +17661,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteEvaluatorV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -16869,7 +17670,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a file
      * @summary Delete File
@@ -16878,7 +17679,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteFileV1(fileId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteFileV1(fileId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -16887,7 +17688,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteGoalsV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -16896,7 +17697,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deletePersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -16905,7 +17706,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -16914,7 +17715,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteTrackerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -16925,7 +17726,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -16934,7 +17735,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -16943,7 +17744,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getCourseV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    getCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Get credits
      * @summary Get Credits V1
@@ -16951,7 +17752,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getCreditsV1(options?: any): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getCreditsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -16961,7 +17762,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: any): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[]>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -16971,7 +17772,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: any): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[]>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -16980,7 +17781,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEvaluatorV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -16989,7 +17790,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getFeedbackV1(feedbackId: string, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -16998,7 +17799,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getFileV1(fileId: string, options?: any): Promise<import("axios").AxiosResponse<any>>;
+    getFileV1(fileId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -17007,7 +17808,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getGoalsV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -17016,7 +17817,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: any): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse>>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -17025,7 +17826,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getPersonaV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
@@ -17033,7 +17834,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getPricingV1(options?: any): Promise<import("axios").AxiosResponse<Price[]>>;
+    getPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17042,7 +17843,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getScenarioV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -17051,7 +17852,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getTrackerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -17060,7 +17861,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getUserStatsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserStats>>;
+    getUserStatsV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserStats>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -17069,18 +17870,18 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -17090,21 +17891,21 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[]>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [fromDate] Start date for filtering feedbacks
-     * @param {string} [toDate] End date for filtering feedbacks
-     * @param {string} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
-     * @param {string} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [fromDate] Start date for filtering feedbacks
+     * @param {string | null} [toDate] End date for filtering feedbacks
+     * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
+     * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string, toDate?: string, userFilter?: string, statusFilter?: string, options?: any): Promise<import("axios").AxiosResponse<Feedback[]>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback[]>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -17114,7 +17915,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listGoalsV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -17125,7 +17926,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -17136,7 +17937,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[]>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -17146,7 +17947,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listTrackerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Tracker[]>>;
+    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[]>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -17155,7 +17956,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserAssignmentsV1(userId: string, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignmentAnalyticsResponse[]>>;
+    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignmentAnalyticsResponse[]>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -17167,7 +17968,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -17177,7 +17978,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -17187,7 +17988,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    revokeCourseV1(courseId: string, userId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -17198,7 +17999,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -17209,7 +18010,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17220,7 +18021,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -17231,7 +18032,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -17239,7 +18040,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    statusSparrStatusGet(options?: any): Promise<import("axios").AxiosResponse<object>>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -17250,7 +18051,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: any): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
     /**
      * Update a course
      * @summary Update Course
@@ -17260,7 +18061,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -17270,7 +18071,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -17280,17 +18081,17 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: any): Promise<import("axios").AxiosResponse<Feedback>>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateGoalsV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -17300,17 +18101,17 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateScenarioV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -17320,16 +18121,16 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
-     * @param {Array<any>} files
+     * @param {Array<File>} files
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    uploadFilesV1(files: Array<any>, options?: any): Promise<import("axios").AxiosResponse<any[]>>;
+    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
 }
 /**
  * SparrResellerApi - axios parameter creator
@@ -17343,7 +18144,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1: (courseRequest: CourseRequest, options?: any) => Promise<RequestArgs>;
+    createCourseResellerV1: (courseRequest: CourseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17351,15 +18152,15 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1: (evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    createEvaluatorResellerV1: (evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1: (goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    createGoalsResellerV1: (goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -17367,15 +18168,15 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1: (personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    createPersonaResellerV1: (personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1: (scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    createScenarioResellerV1: (createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -17383,7 +18184,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1: (trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    createTrackerResellerV1: (trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -17391,7 +18192,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    deleteCourseResellerV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -17399,7 +18200,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    deleteEvaluatorResellerV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -17407,7 +18208,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    deleteGoalsResellerV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -17415,7 +18216,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    deletePersonaResellerV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -17423,7 +18224,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    deleteScenarioResellerV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -17431,7 +18232,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    deleteTrackerResellerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -17439,7 +18240,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: any) => Promise<RequestArgs>;
+    generateEvaluatorResellerV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -17447,7 +18248,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1: (courseId: string, options?: any) => Promise<RequestArgs>;
+    getCourseResellerV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -17455,7 +18256,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1: (paramsId: string, options?: any) => Promise<RequestArgs>;
+    getEvaluatorResellerV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -17463,7 +18264,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1: (goalsId: string, options?: any) => Promise<RequestArgs>;
+    getGoalsResellerV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -17471,7 +18272,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1: (personaId: string, options?: any) => Promise<RequestArgs>;
+    getPersonaResellerV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17479,7 +18280,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1: (scenarioId: string, options?: any) => Promise<RequestArgs>;
+    getScenarioResellerV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -17487,7 +18288,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1: (trackerId: string, options?: any) => Promise<RequestArgs>;
+    getTrackerResellerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -17495,17 +18296,17 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1: (linkedinUrl: string, options?: any) => Promise<RequestArgs>;
+    importLinkedinPersonaResellerV1: (linkedinUrl: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1: (skip?: number, limit?: number, status?: string, options?: any) => Promise<RequestArgs>;
+    listCoursesResellerV1: (skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -17514,7 +18315,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listEvaluatorResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -17523,7 +18324,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listGoalsResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -17533,7 +18334,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -17543,7 +18344,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1: (skip?: number, limit?: number, tags?: string, options?: any) => Promise<RequestArgs>;
+    listScenariosResellerV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -17552,7 +18353,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listTrackerResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -17562,7 +18363,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchGoalsResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -17572,7 +18373,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17582,7 +18383,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -17592,7 +18393,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1: (query: string, page?: number, size?: number, options?: any) => Promise<RequestArgs>;
+    searchTrackerResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a course
      * @summary Update Course
@@ -17601,7 +18402,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any) => Promise<RequestArgs>;
+    updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -17610,16 +18411,16 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: any) => Promise<RequestArgs>;
+    updateEvaluatorResellerV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1: (goalsId: string, goalCore: GoalCore, options?: any) => Promise<RequestArgs>;
+    updateGoalsResellerV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -17628,16 +18429,16 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: any) => Promise<RequestArgs>;
+    updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1: (scenarioId: string, scenarioCore: ScenarioCore, options?: any) => Promise<RequestArgs>;
+    updateScenarioResellerV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -17646,7 +18447,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1: (trackerId: string, trackerCore: TrackerCore, options?: any) => Promise<RequestArgs>;
+    updateTrackerResellerV1: (trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparrResellerApi - functional programming interface
@@ -17660,7 +18461,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17668,15 +18469,15 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1(goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -17684,15 +18485,15 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -17700,7 +18501,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -17708,7 +18509,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -17716,7 +18517,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -17724,7 +18525,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -17732,7 +18533,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -17740,7 +18541,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -17748,7 +18549,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -17756,7 +18557,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -17764,7 +18565,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1(courseId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -17772,7 +18573,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1(paramsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -17780,7 +18581,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1(goalsId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -17788,7 +18589,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17796,7 +18597,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1(scenarioId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -17804,7 +18605,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1(trackerId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -17812,17 +18613,17 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -17831,7 +18632,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -17840,7 +18641,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -17850,7 +18651,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -17860,7 +18661,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scenario>>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -17869,7 +18670,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -17879,7 +18680,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -17889,7 +18690,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17899,7 +18700,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -17909,7 +18710,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
     /**
      * Update a course
      * @summary Update Course
@@ -17918,7 +18719,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -17927,16 +18728,16 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -17945,16 +18746,16 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scenario>>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -17963,7 +18764,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
 };
 /**
  * SparrResellerApi - factory interface
@@ -17977,7 +18778,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: any): AxiosPromise<CourseResponse>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17985,15 +18786,15 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1(goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -18001,15 +18802,15 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -18017,7 +18818,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -18025,7 +18826,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1(courseId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -18033,7 +18834,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -18041,7 +18842,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1(goalsId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -18049,7 +18850,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1(personaId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18057,7 +18858,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -18065,7 +18866,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1(trackerId: string, options?: any): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -18073,7 +18874,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): AxiosPromise<CombinedEvaluatorResponse>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -18081,7 +18882,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1(courseId: string, options?: any): AxiosPromise<CourseResponse>;
+    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -18089,7 +18890,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1(paramsId: string, options?: any): AxiosPromise<Evaluator>;
+    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -18097,7 +18898,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1(goalsId: string, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -18105,7 +18906,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: any): AxiosPromise<Persona>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18113,7 +18914,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1(scenarioId: string, options?: any): AxiosPromise<Scenario>;
+    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -18121,7 +18922,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1(trackerId: string, options?: any): AxiosPromise<Tracker>;
+    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -18129,17 +18930,17 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): AxiosPromise<Persona>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): AxiosPromise<Array<CourseResponse>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -18148,7 +18949,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Evaluator>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -18157,7 +18958,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<SparrDbModelsGoal>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -18167,7 +18968,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Persona>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<Persona>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18177,7 +18978,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): AxiosPromise<Array<Scenario>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -18186,7 +18987,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: any): AxiosPromise<Array<Tracker>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Tracker>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -18196,7 +18997,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<GoalsSearchResponse>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -18206,7 +19007,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<PersonaSearchResponse>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -18216,7 +19017,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<ScenarioSearchResponse>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -18226,7 +19027,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): AxiosPromise<TrackerSearchResponse>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
     /**
      * Update a course
      * @summary Update Course
@@ -18235,7 +19036,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): AxiosPromise<CourseResponse>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -18244,16 +19045,16 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): AxiosPromise<Evaluator>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): AxiosPromise<SparrDbModelsGoal>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -18262,16 +19063,16 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): AxiosPromise<Persona>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): AxiosPromise<Scenario>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -18280,7 +19081,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): AxiosPromise<Tracker>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
 };
 /**
  * SparrResellerApi - object-oriented interface
@@ -18297,7 +19098,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -18306,16 +19107,16 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createGoalsResellerV1(goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -18324,16 +19125,16 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createScenarioResellerV1(scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -18342,7 +19143,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -18351,7 +19152,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -18360,7 +19161,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -18369,7 +19170,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteGoalsResellerV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -18378,7 +19179,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deletePersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18387,7 +19188,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -18396,7 +19197,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteTrackerResellerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -18405,7 +19206,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: any): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -18414,7 +19215,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getCourseResellerV1(courseId: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -18423,7 +19224,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getEvaluatorResellerV1(paramsId: string, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -18432,7 +19233,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getGoalsResellerV1(goalsId: string, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -18441,7 +19242,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getPersonaResellerV1(personaId: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18450,7 +19251,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getScenarioResellerV1(scenarioId: string, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -18459,7 +19260,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getTrackerResellerV1(trackerId: string, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -18468,18 +19269,18 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
      * @param {number} [limit] Limit for pagination
-     * @param {string} [status] Filter by status
+     * @param {string | null} [status] Filter by status
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string, options?: any): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -18489,7 +19290,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[]>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -18499,7 +19300,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -18510,7 +19311,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18521,7 +19322,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: any): Promise<import("axios").AxiosResponse<Scenario[]>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[]>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -18531,7 +19332,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<Tracker[]>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[]>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -18542,7 +19343,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -18553,7 +19354,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -18564,7 +19365,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -18575,7 +19376,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: any): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
     /**
      * Update a course
      * @summary Update Course
@@ -18585,7 +19386,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: any): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -18595,17 +19396,17 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: any): Promise<import("axios").AxiosResponse<Evaluator>>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
      * Update a goals collection
      * @summary Update Goals
      * @param {string} goalsId
-     * @param {GoalCore} goalCore
+     * @param {GoalCoreInput} goalCoreInput
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateGoalsResellerV1(goalsId: string, goalCore: GoalCore, options?: any): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -18615,17 +19416,17 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: any): Promise<import("axios").AxiosResponse<Persona>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
     /**
      * Update a scenario
      * @summary Update Scenario
      * @param {string} scenarioId
-     * @param {ScenarioCore} scenarioCore
+     * @param {CreateScenarioRequest} createScenarioRequest
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateScenarioResellerV1(scenarioId: string, scenarioCore: ScenarioCore, options?: any): Promise<import("axios").AxiosResponse<Scenario>>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -18635,7 +19436,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: any): Promise<import("axios").AxiosResponse<Tracker>>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
 }
 /**
  * SparringApi - axios parameter creator
@@ -18649,7 +19450,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput: VirtualProspectInput, options?: any) => Promise<RequestArgs>;
+    createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -18657,14 +19458,14 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet: (options?: any) => Promise<RequestArgs>;
+    getSparringStatsV1SparrSparringStatsGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -18672,7 +19473,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId: string, options?: any) => Promise<RequestArgs>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -18680,7 +19481,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet: (prospectId: string, options?: any) => Promise<RequestArgs>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -18689,23 +19490,23 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any) => Promise<RequestArgs>;
+    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -18714,7 +19515,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any) => Promise<RequestArgs>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparringApi - functional programming interface
@@ -18728,7 +19529,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -18736,14 +19537,14 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>>;
+    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -18751,7 +19552,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -18759,7 +19560,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -18768,23 +19569,23 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectAIAgentLink>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectAIAgentLink>>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -18793,7 +19594,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
 };
 /**
  * SparringApi - factory interface
@@ -18807,7 +19608,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): AxiosPromise<VirtualProspectOutput>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -18815,14 +19616,14 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: any): AxiosPromise<SparrStatsResponse>;
+    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): AxiosPromise<SparrStatsResponse>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -18830,7 +19631,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -18838,7 +19639,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): AxiosPromise<VirtualProspectOutput>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -18847,23 +19648,23 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): AxiosPromise<VirtualProspectAIAgentLink>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectAIAgentLink>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): AxiosPromise<Array<VirtualProspectOutput>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -18872,7 +19673,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): AxiosPromise<VirtualProspectOutput>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
 };
 /**
  * SparringApi - object-oriented interface
@@ -18889,7 +19690,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -18898,7 +19699,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
@@ -18906,7 +19707,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: any): Promise<import("axios").AxiosResponse<SparrStatsResponse>>;
+    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrStatsResponse>>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -18915,7 +19716,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -18924,7 +19725,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -18934,24 +19735,24 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectAIAgentLink>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectAIAgentLink>>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -18961,7 +19762,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: any): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
 }
 /**
  * TelephonyApi - axios parameter creator
@@ -18975,7 +19776,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1: (agentId: string, options?: any) => Promise<RequestArgs>;
+    getAgentPhonesV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Link Phone To Agent
@@ -18984,7 +19785,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1: (phoneId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    linkPhoneToAgentV1: (phoneId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Available Phones
@@ -18992,22 +19793,22 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1: (countryCode: string, options?: any) => Promise<RequestArgs>;
+    listAvailablePhonesV1: (countryCode: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} [countryCode]
+     * @param {string | null} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1: (countryCode?: string, options?: any) => Promise<RequestArgs>;
+    listPurchasedPhonesV1: (countryCode?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1: (options?: any) => Promise<RequestArgs>;
+    listSupportedCountriesV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Purchase Phone
@@ -19015,7 +19816,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1: (numberPurchaseRequest: NumberPurchaseRequest, options?: any) => Promise<RequestArgs>;
+    purchasePhoneV1: (numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Release Phone
@@ -19023,7 +19824,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1: (phoneId: string, options?: any) => Promise<RequestArgs>;
+    releasePhoneV1: (phoneId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -19032,7 +19833,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1: (phoneId: string, agentId: string, options?: any) => Promise<RequestArgs>;
+    unlinkPhoneFromAgentV1: (phoneId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * TelephonyApi - functional programming interface
@@ -19046,7 +19847,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1(agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -19055,7 +19856,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary List Available Phones
@@ -19063,22 +19864,22 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>>;
+    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>>;
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} [countryCode]
+     * @param {string | null} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>>;
+    listSupportedCountriesV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>>;
     /**
      *
      * @summary Purchase Phone
@@ -19086,7 +19887,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>>;
     /**
      *
      * @summary Release Phone
@@ -19094,7 +19895,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1(phoneId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -19103,7 +19904,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
 };
 /**
  * TelephonyApi - factory interface
@@ -19117,7 +19918,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1(agentId: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
+    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -19126,7 +19927,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary List Available Phones
@@ -19134,22 +19935,22 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): AxiosPromise<Array<AvailablePhoneNumber>>;
+    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): AxiosPromise<Array<AvailablePhoneNumber>>;
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} [countryCode]
+     * @param {string | null} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode?: string, options?: any): AxiosPromise<Array<TelephoneNumber>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1(options?: any): AxiosPromise<Array<CountryInfo>>;
+    listSupportedCountriesV1(options?: AxiosRequestConfig): AxiosPromise<Array<CountryInfo>>;
     /**
      *
      * @summary Purchase Phone
@@ -19157,7 +19958,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): AxiosPromise<TelephoneNumber>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): AxiosPromise<TelephoneNumber>;
     /**
      *
      * @summary Release Phone
@@ -19165,7 +19966,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1(phoneId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -19174,7 +19975,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): AxiosPromise<BaseResponseInput>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
 };
 /**
  * TelephonyApi - object-oriented interface
@@ -19191,7 +19992,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    getAgentPhonesV1(agentId: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -19201,7 +20002,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      *
      * @summary List Available Phones
@@ -19210,16 +20011,16 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listAvailablePhonesV1(countryCode: string, options?: any): Promise<import("axios").AxiosResponse<AvailablePhoneNumber[]>>;
+    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AvailablePhoneNumber[]>>;
     /**
      *
      * @summary List Purchased Phones
-     * @param {string} [countryCode]
+     * @param {string | null} [countryCode]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listPurchasedPhonesV1(countryCode?: string, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
     /**
      *
      * @summary List Supported Countries
@@ -19227,7 +20028,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listSupportedCountriesV1(options?: any): Promise<import("axios").AxiosResponse<CountryInfo[]>>;
+    listSupportedCountriesV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CountryInfo[]>>;
     /**
      *
      * @summary Purchase Phone
@@ -19236,7 +20037,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: any): Promise<import("axios").AxiosResponse<TelephoneNumber>>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber>>;
     /**
      *
      * @summary Release Phone
@@ -19245,7 +20046,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    releasePhoneV1(phoneId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -19255,7 +20056,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: any): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
 }
 /**
  * UIApi - axios parameter creator
@@ -19269,25 +20070,25 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    listActionTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1: (searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any) => Promise<RequestArgs>;
+    listProductsDetailedV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Prompt Templates
@@ -19295,7 +20096,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    listPromptTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Role Templates
@@ -19303,7 +20104,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1: (language?: string, options?: any) => Promise<RequestArgs>;
+    listRoleTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UIApi - functional programming interface
@@ -19317,25 +20118,25 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>>;
+    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>>;
     /**
      *
      * @summary List Prompt Templates
@@ -19343,7 +20144,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: PromptTemplate;
     }>>;
     /**
@@ -19353,7 +20154,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1(language?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleTemplate>>>;
+    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleTemplate>>>;
 };
 /**
  * UIApi - factory interface
@@ -19367,25 +20168,25 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: any): AxiosPromise<Array<ActionInput>>;
+    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ActionInput>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): AxiosPromise<Array<ProductWithAgents>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProductWithAgents>>;
     /**
      *
      * @summary List Prompt Templates
@@ -19393,7 +20194,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1(language?: string, options?: any): AxiosPromise<{
+    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<{
         [key: string]: PromptTemplate;
     }>;
     /**
@@ -19403,7 +20204,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1(language?: string, options?: any): AxiosPromise<Array<RoleTemplate>>;
+    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<Array<RoleTemplate>>;
 };
 /**
  * UIApi - object-oriented interface
@@ -19420,26 +20221,26 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listActionTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<ActionInput[]>>;
+    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionInput[]>>;
     /**
      *
      * @summary List Products
-     * @param {string} [searchBy]
-     * @param {string} [searchValue]
-     * @param {string} [status]
-     * @param {string} [sortBy]
-     * @param {SortOrder} [sortOrder]
-     * @param {number} [skip]
-     * @param {number} [limit]
-     * @param {string} [updatedAfter]
-     * @param {string} [updatedBefore]
-     * @param {string} [tags]
-     * @param {string} [productIds]
+     * @param {string | null} [searchBy]
+     * @param {string | null} [searchValue]
+     * @param {string | null} [status]
+     * @param {string | null} [sortBy]
+     * @param {SortOrder | null} [sortOrder]
+     * @param {number | null} [skip]
+     * @param {number | null} [limit]
+     * @param {string | null} [updatedAfter]
+     * @param {string | null} [updatedBefore]
+     * @param {string | null} [tags]
+     * @param {string | null} [productIds]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listProductsDetailedV1(searchBy?: string, searchValue?: string, status?: string, sortBy?: string, sortOrder?: SortOrder, skip?: number, limit?: number, updatedAfter?: string, updatedBefore?: string, tags?: string, productIds?: string, options?: any): Promise<import("axios").AxiosResponse<ProductWithAgents[]>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductWithAgents[]>>;
     /**
      *
      * @summary List Prompt Templates
@@ -19448,7 +20249,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listPromptTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<{
+    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: PromptTemplate;
     }>>;
     /**
@@ -19459,7 +20260,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listRoleTemplatesV1(language?: string, options?: any): Promise<import("axios").AxiosResponse<RoleTemplate[]>>;
+    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RoleTemplate[]>>;
 }
 /**
  * VoiceModelsApi - axios parameter creator
@@ -19472,14 +20273,14 @@ export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1: (options?: any) => Promise<RequestArgs>;
+    listSparrVoiceModelsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1: (options?: any) => Promise<RequestArgs>;
+    listVoiceModelsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * VoiceModelsApi - functional programming interface
@@ -19492,14 +20293,14 @@ export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
+    listSparrVoiceModelsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
+    listVoiceModelsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
 };
 /**
  * VoiceModelsApi - factory interface
@@ -19512,14 +20313,14 @@ export declare const VoiceModelsApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>>;
+    listSparrVoiceModelsV1(options?: AxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: any): AxiosPromise<Array<VoiceModel>>;
+    listVoiceModelsV1(options?: AxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
 };
 /**
  * VoiceModelsApi - object-oriented interface
@@ -19535,7 +20336,7 @@ export declare class VoiceModelsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
-    listSparrVoiceModelsV1(options?: any): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
+    listSparrVoiceModelsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
@@ -19543,7 +20344,7 @@ export declare class VoiceModelsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
-    listVoiceModelsV1(options?: any): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
+    listVoiceModelsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
 }
 /**
  * WorkflowsApi - axios parameter creator
@@ -19557,7 +20358,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost: (workflowCore: WorkflowCore, options?: any) => Promise<RequestArgs>;
+    createWorkflowV1WorkflowsPost: (workflowCore: WorkflowCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Workflow
@@ -19565,7 +20366,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, options?: any) => Promise<RequestArgs>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Workflow
@@ -19573,17 +20374,17 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet: (workflowId: string, options?: any) => Promise<RequestArgs>;
+    readWorkflowV1WorkflowsWorkflowIdGet: (workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any) => Promise<RequestArgs>;
+    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -19593,7 +20394,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost: (workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any) => Promise<RequestArgs>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost: (workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Workflow
@@ -19602,16 +20403,16 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut: (workflowId: string, workflowCore: WorkflowCore, options?: any) => Promise<RequestArgs>;
+    updateWorkflowV1WorkflowsWorkflowIdPut: (workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Upload File
      * @param {string} workflowId
-     * @param {any} file
+     * @param {File} file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId: string, file: any, options?: any) => Promise<RequestArgs>;
+    uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId: string, file: File, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsApi - functional programming interface
@@ -19625,7 +20426,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Delete Workflow
@@ -19633,7 +20434,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Workflow
@@ -19641,17 +20442,17 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -19661,7 +20462,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowStepTriggerResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowStepTriggerResponse>>;
     /**
      *
      * @summary Update Workflow
@@ -19670,16 +20471,16 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Upload File
      * @param {string} workflowId
-     * @param {any} file
+     * @param {File} file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadFileResponse>>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadFileResponse>>;
 };
 /**
  * WorkflowsApi - factory interface
@@ -19693,7 +20494,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any): AxiosPromise<Workflow>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Delete Workflow
@@ -19701,7 +20502,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Read Workflow
@@ -19709,17 +20510,17 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any): AxiosPromise<Workflow>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): AxiosPromise<Array<Workflow>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): AxiosPromise<Array<Workflow>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -19729,7 +20530,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): AxiosPromise<WorkflowStepTriggerResponse>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): AxiosPromise<WorkflowStepTriggerResponse>;
     /**
      *
      * @summary Update Workflow
@@ -19738,16 +20539,16 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): AxiosPromise<Workflow>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Upload File
      * @param {string} workflowId
-     * @param {any} file
+     * @param {File} file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): AxiosPromise<UploadFileResponse>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): AxiosPromise<UploadFileResponse>;
 };
 /**
  * WorkflowsApi - object-oriented interface
@@ -19764,7 +20565,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: any): Promise<import("axios").AxiosResponse<Workflow>>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
     /**
      *
      * @summary Delete Workflow
@@ -19773,7 +20574,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Workflow
@@ -19782,18 +20583,18 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: any): Promise<import("axios").AxiosResponse<Workflow>>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
     /**
      *
      * @summary Read Workflows
      * @param {number} [skip]
      * @param {number} [limit]
-     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum} [app]
+     * @param {AgenticWorkflowAdkModelsWorkflowAppEnum | null} [app]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[]>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -19804,7 +20605,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: any): Promise<import("axios").AxiosResponse<WorkflowStepTriggerResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowStepTriggerResponse>>;
     /**
      *
      * @summary Update Workflow
@@ -19814,17 +20615,17 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: any): Promise<import("axios").AxiosResponse<Workflow>>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
     /**
      *
      * @summary Upload File
      * @param {string} workflowId
-     * @param {any} file
+     * @param {File} file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: any, options?: any): Promise<import("axios").AxiosResponse<UploadFileResponse>>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UploadFileResponse>>;
 }
 /**
  * WorkflowsApiHubspotApi - axios parameter creator
@@ -19837,7 +20638,7 @@ export declare const WorkflowsApiHubspotApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options?: any) => Promise<RequestArgs>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsApiHubspotApi - functional programming interface
@@ -19850,7 +20651,7 @@ export declare const WorkflowsApiHubspotApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
 };
 /**
  * WorkflowsApiHubspotApi - factory interface
@@ -19863,7 +20664,7 @@ export declare const WorkflowsApiHubspotApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
 };
 /**
  * WorkflowsApiHubspotApi - object-oriented interface
@@ -19879,7 +20680,7 @@ export declare class WorkflowsApiHubspotApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApiHubspotApi
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
 }
 /**
  * WorkflowsAppsApi - axios parameter creator
@@ -19893,16 +20694,16 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost: (appEntity: AppEntity, options?: any) => Promise<RequestArgs>;
+    createAppV1WorkflowsAppsPost: (appEntity: AppEntity, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete: (appId: string, version?: string, options?: any) => Promise<RequestArgs>;
+    deleteAppV1WorkflowsAppsAppIdDelete: (appId: string, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Connections By App Id
@@ -19911,16 +20712,16 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet: (appId: string, version: string, options?: any) => Promise<RequestArgs>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet: (appId: string, version: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet: (appId: string, version?: string, options?: any) => Promise<RequestArgs>;
+    readAppV1WorkflowsAppsAppIdGet: (appId: string, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Apps
@@ -19929,17 +20730,17 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    readAppsV1WorkflowsAppsGet: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update App
      * @param {string} appId
      * @param {AppEntity} appEntity
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut: (appId: string, appEntity: AppEntity, version?: string, options?: any) => Promise<RequestArgs>;
+    updateAppV1WorkflowsAppsAppIdPut: (appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsAppsApi - functional programming interface
@@ -19953,16 +20754,16 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
     /**
      *
      * @summary Delete App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Get Connections By App Id
@@ -19971,16 +20772,16 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionCore>>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionCore>>>;
     /**
      *
      * @summary Read App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
     /**
      *
      * @summary Read Apps
@@ -19989,17 +20790,17 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppResponse>>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppResponse>>>;
     /**
      *
      * @summary Update App
      * @param {string} appId
      * @param {AppEntity} appEntity
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
 };
 /**
  * WorkflowsAppsApi - factory interface
@@ -20013,16 +20814,16 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any): AxiosPromise<AppResponse>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
     /**
      *
      * @summary Delete App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Get Connections By App Id
@@ -20031,16 +20832,16 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any): AxiosPromise<Array<ConnectionCore>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<ConnectionCore>>;
     /**
      *
      * @summary Read App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any): AxiosPromise<AppResponse>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
     /**
      *
      * @summary Read Apps
@@ -20049,17 +20850,17 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<AppResponse>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<AppResponse>>;
     /**
      *
      * @summary Update App
      * @param {string} appId
      * @param {AppEntity} appEntity
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any): AxiosPromise<AppResponse>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
 };
 /**
  * WorkflowsAppsApi - object-oriented interface
@@ -20076,17 +20877,17 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: any): Promise<import("axios").AxiosResponse<AppResponse>>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
     /**
      *
      * @summary Delete App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Get Connections By App Id
@@ -20096,17 +20897,17 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: any): Promise<import("axios").AxiosResponse<ConnectionCore[]>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionCore[]>>;
     /**
      *
      * @summary Read App
      * @param {string} appId
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string, options?: any): Promise<import("axios").AxiosResponse<AppResponse>>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
     /**
      *
      * @summary Read Apps
@@ -20116,18 +20917,18 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AppResponse[]>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse[]>>;
     /**
      *
      * @summary Update App
      * @param {string} appId
      * @param {AppEntity} appEntity
-     * @param {string} [version]
+     * @param {string | null} [version]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string, options?: any): Promise<import("axios").AxiosResponse<AppResponse>>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
 }
 /**
  * WorkflowsConnectionsApi - axios parameter creator
@@ -20141,7 +20942,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost: (connectionCore: ConnectionCore, options?: any) => Promise<RequestArgs>;
+    createConnectionV1WorkflowsConnectionsPost: (connectionCore: ConnectionCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Connection
@@ -20149,7 +20950,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete: (connectionId: string, options?: any) => Promise<RequestArgs>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Connection
@@ -20157,7 +20958,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet: (connectionId: string, options?: any) => Promise<RequestArgs>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Connections
@@ -20166,7 +20967,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet: (skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    readConnectionsV1WorkflowsConnectionsGet: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Connection
@@ -20175,7 +20976,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut: (connectionId: string, connectionCore: ConnectionCore, options?: any) => Promise<RequestArgs>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut: (connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsConnectionsApi - functional programming interface
@@ -20189,7 +20990,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Delete Connection
@@ -20197,7 +20998,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Connection
@@ -20205,7 +21006,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Read Connections
@@ -20214,7 +21015,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
     /**
      *
      * @summary Update Connection
@@ -20223,7 +21024,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
 };
 /**
  * WorkflowsConnectionsApi - factory interface
@@ -20237,7 +21038,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
     /**
      *
      * @summary Delete Connection
@@ -20245,7 +21046,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Read Connection
@@ -20253,7 +21054,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
     /**
      *
      * @summary Read Connections
@@ -20262,7 +21063,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Update Connection
@@ -20271,7 +21072,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
 };
 /**
  * WorkflowsConnectionsApi - object-oriented interface
@@ -20288,7 +21089,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Delete Connection
@@ -20297,7 +21098,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Connection
@@ -20306,7 +21107,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Read Connections
@@ -20316,7 +21117,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[]>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[]>>;
     /**
      *
      * @summary Update Connection
@@ -20326,7 +21127,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: any): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
 }
 /**
  * WorkflowsExecutionsApi - axios parameter creator
@@ -20341,7 +21142,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId: string, body: object, options?: any) => Promise<RequestArgs>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId: string, body: object, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -20350,7 +21151,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet: (runId: string, workflowId: string, options?: any) => Promise<RequestArgs>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet: (runId: string, workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Workflow Runs
@@ -20360,7 +21161,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet: (workflowId: string, skip?: number, limit?: number, options?: any) => Promise<RequestArgs>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet: (workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -20369,7 +21170,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, body: object, options?: any) => Promise<RequestArgs>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, body: object, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsExecutionsApi - functional programming interface
@@ -20384,7 +21185,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -20393,7 +21194,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
     /**
      *
      * @summary List Workflow Runs
@@ -20403,7 +21204,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -20412,7 +21213,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
 };
 /**
  * WorkflowsExecutionsApi - factory interface
@@ -20427,7 +21228,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -20436,7 +21237,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any): AxiosPromise<WorkflowExecution>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
     /**
      *
      * @summary List Workflow Runs
@@ -20446,7 +21247,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any): AxiosPromise<Array<WorkflowExecution>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -20455,7 +21256,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): AxiosPromise<WorkflowExecution>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
 };
 /**
  * WorkflowsExecutionsApi - object-oriented interface
@@ -20473,7 +21274,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -20483,7 +21284,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
     /**
      *
      * @summary List Workflow Runs
@@ -20494,7 +21295,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution[]>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution[]>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -20504,7 +21305,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: any): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
 }
 /**
  * WorkflowsSubWorkflowsApi - axios parameter creator
@@ -20518,7 +21319,7 @@ export declare const WorkflowsSubWorkflowsApiAxiosParamCreator: (configuration?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: (workflowStepInput: WorkflowStepInput, options?: any) => Promise<RequestArgs>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: (workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsSubWorkflowsApi - functional programming interface
@@ -20532,7 +21333,7 @@ export declare const WorkflowsSubWorkflowsApiFp: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
 };
 /**
  * WorkflowsSubWorkflowsApi - factory interface
@@ -20546,7 +21347,7 @@ export declare const WorkflowsSubWorkflowsApiFactory: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): AxiosPromise<Array<Workflow>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): AxiosPromise<Array<Workflow>>;
 };
 /**
  * WorkflowsSubWorkflowsApi - object-oriented interface
@@ -20563,5 +21364,5 @@ export declare class WorkflowsSubWorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsSubWorkflowsApi
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: any): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[]>>;
 }

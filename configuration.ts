@@ -1,4 +1,5 @@
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 /**
  * Trata AI API
  * Human like conversation to answer calls, drive engagement, automate follow-ups & schedule bookings 24/7  with end to end integrations ensuring you never miss a sales enquiry.
@@ -16,9 +17,11 @@ export interface ConfigurationParameters {
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
     username?: string;
     password?: string;
-    accessToken?: string | ((name?: string, scopes?: string[]) => string);
+    accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     basePath?: string;
+    serverIndex?: number;
     baseOptions?: any;
+    formDataCtor?: new () => any;
 }
 
 export class Configuration {
@@ -30,14 +33,14 @@ export class Configuration {
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
     /**
      * parameter for basic security
-     * 
+     *
      * @type {string}
      * @memberof Configuration
      */
     username?: string;
     /**
      * parameter for basic security
-     * 
+     *
      * @type {string}
      * @memberof Configuration
      */
@@ -48,14 +51,21 @@ export class Configuration {
      * @param scopes oauth2 scope
      * @memberof Configuration
      */
-    accessToken?: string | ((name?: string, scopes?: string[]) => string);
+    accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
     /**
      * override base path
-     * 
+     *
      * @type {string}
      * @memberof Configuration
      */
     basePath?: string;
+    /**
+     * override server index
+     *
+     * @type {number}
+     * @memberof Configuration
+     */
+    serverIndex?: number;
     /**
      * base options for axios calls
      *
@@ -63,6 +73,14 @@ export class Configuration {
      * @memberof Configuration
      */
     baseOptions?: any;
+    /**
+     * The FormData constructor that will be used to create multipart form data
+     * requests. You can inject this here so that execution environments that
+     * do not support the FormData class can still run the generated client.
+     *
+     * @type {new () => FormData}
+     */
+    formDataCtor?: new () => any;
 
     constructor(param: ConfigurationParameters = {}) {
         this.apiKey = param.apiKey;
@@ -70,7 +88,14 @@ export class Configuration {
         this.password = param.password;
         this.accessToken = param.accessToken;
         this.basePath = param.basePath;
-        this.baseOptions = param.baseOptions;
+        this.serverIndex = param.serverIndex;
+        this.baseOptions = {
+            ...param.baseOptions,
+            headers: {
+                ...param.baseOptions?.headers,
+            },
+        };
+        this.formDataCtor = param.formDataCtor;
     }
 
     /**
@@ -83,9 +108,8 @@ export class Configuration {
      * @param mime - MIME (Multipurpose Internet Mail Extensions)
      * @return True if the given MIME is JSON, false otherwise.
      */
-    isJsonMime(mime: string): boolean {
+    public isJsonMime(mime: string): boolean {
         const jsonMime: RegExp = new RegExp('^(application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(;.*)?$', 'i');
-        return mime !== null && mime !== undefined && jsonMime.test(mime);
+        return mime !== null && (jsonMime.test(mime) || mime.toLowerCase() === 'application/json-patch+json');
     }
-
 }

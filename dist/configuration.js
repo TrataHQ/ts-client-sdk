@@ -1,5 +1,6 @@
 "use strict";
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 /**
  * Trata AI API
  * Human like conversation to answer calls, drive engagement, automate follow-ups & schedule bookings 24/7  with end to end integrations ensuring you never miss a sales enquiry.
@@ -15,12 +16,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Configuration = void 0;
 class Configuration {
     constructor(param = {}) {
+        var _a;
         this.apiKey = param.apiKey;
         this.username = param.username;
         this.password = param.password;
         this.accessToken = param.accessToken;
         this.basePath = param.basePath;
-        this.baseOptions = param.baseOptions;
+        this.serverIndex = param.serverIndex;
+        this.baseOptions = Object.assign(Object.assign({}, param.baseOptions), { headers: Object.assign({}, (_a = param.baseOptions) === null || _a === void 0 ? void 0 : _a.headers) });
+        this.formDataCtor = param.formDataCtor;
     }
     /**
      * Check if the given MIME is a JSON MIME.
@@ -34,7 +38,7 @@ class Configuration {
      */
     isJsonMime(mime) {
         const jsonMime = new RegExp('^(application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(;.*)?$', 'i');
-        return mime !== null && mime !== undefined && jsonMime.test(mime);
+        return mime !== null && (jsonMime.test(mime) || mime.toLowerCase() === 'application/json-patch+json');
     }
 }
 exports.Configuration = Configuration;

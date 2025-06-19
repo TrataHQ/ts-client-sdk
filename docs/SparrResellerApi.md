@@ -8,14 +8,12 @@ All URIs are relative to *https://api.trata.ai*
 |[**createEvaluatorResellerV1**](#createevaluatorresellerv1) | **POST** /v1/resellers/sparr/evaluators/ | Create Evaluator|
 |[**createGoalsResellerV1**](#creategoalsresellerv1) | **POST** /v1/resellers/sparr/goals/ | Create Goals|
 |[**createPersonaResellerV1**](#createpersonaresellerv1) | **POST** /v1/resellers/sparr/personas/ | Create Persona|
-|[**createPlaybookResellerV1**](#createplaybookresellerv1) | **POST** /v1/resellers/sparr/playbooks/ | Create Playbook|
 |[**createScenarioResellerV1**](#createscenarioresellerv1) | **POST** /v1/resellers/sparr/scenarios/ | Create Scenario|
 |[**createTrackerResellerV1**](#createtrackerresellerv1) | **POST** /v1/resellers/sparr/trackers/ | Create Tracker|
 |[**deleteCourseResellerV1**](#deletecourseresellerv1) | **DELETE** /v1/resellers/sparr/courses/{course_id} | Delete Course|
 |[**deleteEvaluatorResellerV1**](#deleteevaluatorresellerv1) | **DELETE** /v1/resellers/sparr/evaluators/{params_id} | Delete Evaluator|
 |[**deleteGoalsResellerV1**](#deletegoalsresellerv1) | **DELETE** /v1/resellers/sparr/goals/{goals_id} | Delete Goals|
 |[**deletePersonaResellerV1**](#deletepersonaresellerv1) | **DELETE** /v1/resellers/sparr/personas/{persona_id} | Delete Persona|
-|[**deletePlaybookResellerV1**](#deleteplaybookresellerv1) | **DELETE** /v1/resellers/sparr/playbooks/{playbook_id} | Delete Playbook|
 |[**deleteScenarioResellerV1**](#deletescenarioresellerv1) | **DELETE** /v1/resellers/sparr/scenarios/{scenario_id} | Delete Scenario|
 |[**deleteTrackerResellerV1**](#deletetrackerresellerv1) | **DELETE** /v1/resellers/sparr/trackers/{tracker_id} | Delete Tracker|
 |[**generateEvaluatorResellerV1**](#generateevaluatorresellerv1) | **POST** /v1/resellers/sparr/evaluators/generate | Generate Evaluator|
@@ -23,7 +21,6 @@ All URIs are relative to *https://api.trata.ai*
 |[**getEvaluatorResellerV1**](#getevaluatorresellerv1) | **GET** /v1/resellers/sparr/evaluators/{params_id} | Get Evaluator By Id|
 |[**getGoalsResellerV1**](#getgoalsresellerv1) | **GET** /v1/resellers/sparr/goals/{goals_id} | Get Goals By Id|
 |[**getPersonaResellerV1**](#getpersonaresellerv1) | **GET** /v1/resellers/sparr/personas/{persona_id} | Get Persona|
-|[**getPlaybookResellerV1**](#getplaybookresellerv1) | **GET** /v1/resellers/sparr/playbooks/{playbook_id} | Get Playbook|
 |[**getScenarioResellerV1**](#getscenarioresellerv1) | **GET** /v1/resellers/sparr/scenarios/{scenario_id} | Get Scenario|
 |[**getTrackerResellerV1**](#gettrackerresellerv1) | **GET** /v1/resellers/sparr/trackers/{tracker_id} | Get Tracker By Id|
 |[**importLinkedinPersonaResellerV1**](#importlinkedinpersonaresellerv1) | **POST** /v1/resellers/sparr/personas/import-linkedin | Import Linkedin Persona|
@@ -31,19 +28,16 @@ All URIs are relative to *https://api.trata.ai*
 |[**listEvaluatorResellerV1**](#listevaluatorresellerv1) | **GET** /v1/resellers/sparr/evaluators/ | Get Evaluator|
 |[**listGoalsResellerV1**](#listgoalsresellerv1) | **GET** /v1/resellers/sparr/goals/ | Get Goals|
 |[**listPersonasResellerV1**](#listpersonasresellerv1) | **GET** /v1/resellers/sparr/personas/ | Get Personas|
-|[**listPlaybooksResellerV1**](#listplaybooksresellerv1) | **GET** /v1/resellers/sparr/playbooks/ | Get Playbooks|
 |[**listScenariosResellerV1**](#listscenariosresellerv1) | **GET** /v1/resellers/sparr/scenarios/ | Get Scenarios|
 |[**listTrackerResellerV1**](#listtrackerresellerv1) | **GET** /v1/resellers/sparr/trackers/ | Get Trackers|
 |[**searchGoalsResellerV1**](#searchgoalsresellerv1) | **GET** /v1/resellers/sparr/goals/search | Search Goals|
 |[**searchPersonasResellerV1**](#searchpersonasresellerv1) | **GET** /v1/resellers/sparr/personas/search | Search Personas|
-|[**searchPlaybooksResellerV1**](#searchplaybooksresellerv1) | **GET** /v1/resellers/sparr/playbooks/search | Search Playbooks|
 |[**searchScenariosResellerV1**](#searchscenariosresellerv1) | **GET** /v1/resellers/sparr/scenarios/search | Search Scenarios|
 |[**searchTrackerResellerV1**](#searchtrackerresellerv1) | **GET** /v1/resellers/sparr/trackers/search | Search Tracker|
 |[**updateCourseResellerV1**](#updatecourseresellerv1) | **PUT** /v1/resellers/sparr/courses/{course_id} | Update Course|
 |[**updateEvaluatorResellerV1**](#updateevaluatorresellerv1) | **PUT** /v1/resellers/sparr/evaluators/{params_id} | Update Evaluator|
 |[**updateGoalsResellerV1**](#updategoalsresellerv1) | **PUT** /v1/resellers/sparr/goals/{goals_id} | Update Goals|
 |[**updatePersonaResellerV1**](#updatepersonaresellerv1) | **PUT** /v1/resellers/sparr/personas/{persona_id} | Update Persona|
-|[**updatePlaybookResellerV1**](#updateplaybookresellerv1) | **PUT** /v1/resellers/sparr/playbooks/{playbook_id} | Update Playbook|
 |[**updateScenarioResellerV1**](#updatescenarioresellerv1) | **PUT** /v1/resellers/sparr/scenarios/{scenario_id} | Update Scenario|
 |[**updateTrackerResellerV1**](#updatetrackerresellerv1) | **PUT** /v1/resellers/sparr/trackers/{tracker_id} | Update Tracker|
 
@@ -156,7 +150,7 @@ const { status, data } = await apiInstance.createEvaluatorResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createGoalsResellerV1**
-> SparrDbModelsGoal createGoalsResellerV1(goalCore)
+> SparrDbModelsGoal createGoalsResellerV1(goalCoreInput)
 
 Create a new goals collection
 
@@ -166,16 +160,16 @@ Create a new goals collection
 import {
     SparrResellerApi,
     Configuration,
-    GoalCore
+    GoalCoreInput
 } from '@trata/ts-client-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SparrResellerApi(configuration);
 
-let goalCore: GoalCore; //
+let goalCoreInput: GoalCoreInput; //
 
 const { status, data } = await apiInstance.createGoalsResellerV1(
-    goalCore
+    goalCoreInput
 );
 ```
 
@@ -183,7 +177,7 @@ const { status, data } = await apiInstance.createGoalsResellerV1(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **goalCore** | **GoalCore**|  | |
+| **goalCoreInput** | **GoalCoreInput**|  | |
 
 
 ### Return type
@@ -263,62 +257,8 @@ const { status, data } = await apiInstance.createPersonaResellerV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **createPlaybookResellerV1**
-> Playbook createPlaybookResellerV1(playbookCore)
-
-Create a new playbook
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration,
-    PlaybookCore
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let playbookCore: PlaybookCore; //
-
-const { status, data } = await apiInstance.createPlaybookResellerV1(
-    playbookCore
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **playbookCore** | **PlaybookCore**|  | |
-
-
-### Return type
-
-**Playbook**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **createScenarioResellerV1**
-> Scenario createScenarioResellerV1(scenarioCore)
+> ScenarioResponse createScenarioResellerV1(createScenarioRequest)
 
 Create a new scenario
 
@@ -328,16 +268,16 @@ Create a new scenario
 import {
     SparrResellerApi,
     Configuration,
-    ScenarioCore
+    CreateScenarioRequest
 } from '@trata/ts-client-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SparrResellerApi(configuration);
 
-let scenarioCore: ScenarioCore; //
+let createScenarioRequest: CreateScenarioRequest; //
 
 const { status, data } = await apiInstance.createScenarioResellerV1(
-    scenarioCore
+    createScenarioRequest
 );
 ```
 
@@ -345,12 +285,12 @@ const { status, data } = await apiInstance.createScenarioResellerV1(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **scenarioCore** | **ScenarioCore**|  | |
+| **createScenarioRequest** | **CreateScenarioRequest**|  | |
 
 
 ### Return type
 
-**Scenario**
+**ScenarioResponse**
 
 ### Authorization
 
@@ -612,59 +552,6 @@ const { status, data } = await apiInstance.deletePersonaResellerV1(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **personaId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**SparrModelsBaseBaseResponse**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deletePlaybookResellerV1**
-> SparrModelsBaseBaseResponse deletePlaybookResellerV1()
-
-Delete a playbook
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let playbookId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.deletePlaybookResellerV1(
-    playbookId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **playbookId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
@@ -1062,61 +949,8 @@ const { status, data } = await apiInstance.getPersonaResellerV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getPlaybookResellerV1**
-> Playbook getPlaybookResellerV1()
-
-Get a specific playbook by ID that is either directly owned or available through reseller playbook assignments
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let playbookId: string; // (default to undefined)
-
-const { status, data } = await apiInstance.getPlaybookResellerV1(
-    playbookId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **playbookId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**Playbook**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getScenarioResellerV1**
-> Scenario getScenarioResellerV1()
+> ScenarioResponse getScenarioResellerV1()
 
 Get a specific scenario by ID that is either directly owned or available through reseller course assignments
 
@@ -1147,7 +981,7 @@ const { status, data } = await apiInstance.getScenarioResellerV1(
 
 ### Return type
 
-**Scenario**
+**ScenarioResponse**
 
 ### Authorization
 
@@ -1504,64 +1338,8 @@ const { status, data } = await apiInstance.listPersonasResellerV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **listPlaybooksResellerV1**
-> Array<Playbook> listPlaybooksResellerV1()
-
-Get all playbooks that are either directly owned or available through reseller playbook assignments
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let skip: number; // (optional) (default to 0)
-let limit: number; // (optional) (default to 100)
-
-const { status, data } = await apiInstance.listPlaybooksResellerV1(
-    skip,
-    limit
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **skip** | [**number**] |  | (optional) defaults to 0|
-| **limit** | [**number**] |  | (optional) defaults to 100|
-
-
-### Return type
-
-**Array<Playbook>**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **listScenariosResellerV1**
-> Array<Scenario> listScenariosResellerV1()
+> Array<ScenarioResponse> listScenariosResellerV1()
 
 Get all scenarios that are either directly owned or available through reseller course assignments
 
@@ -1598,7 +1376,7 @@ const { status, data } = await apiInstance.listScenariosResellerV1(
 
 ### Return type
 
-**Array<Scenario>**
+**Array<ScenarioResponse>**
 
 ### Authorization
 
@@ -1773,65 +1551,6 @@ const { status, data } = await apiInstance.searchPersonasResellerV1(
 ### Return type
 
 **PersonaSearchResponse**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **searchPlaybooksResellerV1**
-> PlaybookSearchResponse searchPlaybooksResellerV1()
-
-Search playbooks by name and description
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let query: string; //Search query string (default to undefined)
-let page: number; //Page number (optional) (default to 1)
-let size: number; //Items per page (optional) (default to 10)
-
-const { status, data } = await apiInstance.searchPlaybooksResellerV1(
-    query,
-    page,
-    size
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **query** | [**string**] | Search query string | defaults to undefined|
-| **page** | [**number**] | Page number | (optional) defaults to 1|
-| **size** | [**number**] | Items per page | (optional) defaults to 10|
-
-
-### Return type
-
-**PlaybookSearchResponse**
 
 ### Authorization
 
@@ -2085,7 +1804,7 @@ const { status, data } = await apiInstance.updateEvaluatorResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateGoalsResellerV1**
-> SparrDbModelsGoal updateGoalsResellerV1(goalCore)
+> SparrDbModelsGoal updateGoalsResellerV1(goalCoreInput)
 
 Update a goals collection
 
@@ -2095,18 +1814,18 @@ Update a goals collection
 import {
     SparrResellerApi,
     Configuration,
-    GoalCore
+    GoalCoreInput
 } from '@trata/ts-client-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SparrResellerApi(configuration);
 
 let goalsId: string; // (default to undefined)
-let goalCore: GoalCore; //
+let goalCoreInput: GoalCoreInput; //
 
 const { status, data } = await apiInstance.updateGoalsResellerV1(
     goalsId,
-    goalCore
+    goalCoreInput
 );
 ```
 
@@ -2114,7 +1833,7 @@ const { status, data } = await apiInstance.updateGoalsResellerV1(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **goalCore** | **GoalCore**|  | |
+| **goalCoreInput** | **GoalCoreInput**|  | |
 | **goalsId** | [**string**] |  | defaults to undefined|
 
 
@@ -2198,65 +1917,8 @@ const { status, data } = await apiInstance.updatePersonaResellerV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updatePlaybookResellerV1**
-> Playbook updatePlaybookResellerV1(playbookCore)
-
-Update a playbook
-
-### Example
-
-```typescript
-import {
-    SparrResellerApi,
-    Configuration,
-    PlaybookCore
-} from '@trata/ts-client-sdk';
-
-const configuration = new Configuration();
-const apiInstance = new SparrResellerApi(configuration);
-
-let playbookId: string; // (default to undefined)
-let playbookCore: PlaybookCore; //
-
-const { status, data } = await apiInstance.updatePlaybookResellerV1(
-    playbookId,
-    playbookCore
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **playbookCore** | **PlaybookCore**|  | |
-| **playbookId** | [**string**] |  | defaults to undefined|
-
-
-### Return type
-
-**Playbook**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Successful Response |  -  |
-|**404** | Not found |  -  |
-|**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **updateScenarioResellerV1**
-> Scenario updateScenarioResellerV1(scenarioCore)
+> ScenarioResponse updateScenarioResellerV1(createScenarioRequest)
 
 Update a scenario
 
@@ -2266,18 +1928,18 @@ Update a scenario
 import {
     SparrResellerApi,
     Configuration,
-    ScenarioCore
+    CreateScenarioRequest
 } from '@trata/ts-client-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SparrResellerApi(configuration);
 
 let scenarioId: string; // (default to undefined)
-let scenarioCore: ScenarioCore; //
+let createScenarioRequest: CreateScenarioRequest; //
 
 const { status, data } = await apiInstance.updateScenarioResellerV1(
     scenarioId,
-    scenarioCore
+    createScenarioRequest
 );
 ```
 
@@ -2285,13 +1947,13 @@ const { status, data } = await apiInstance.updateScenarioResellerV1(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **scenarioCore** | **ScenarioCore**|  | |
+| **createScenarioRequest** | **CreateScenarioRequest**|  | |
 | **scenarioId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**Scenario**
+**ScenarioResponse**
 
 ### Authorization
 

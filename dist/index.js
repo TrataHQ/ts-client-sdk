@@ -1,5 +1,6 @@
 "use strict";
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 /**
  * Trata AI API
  * Human like conversation to answer calls, drive engagement, automate follow-ups & schedule bookings 24/7  with end to end integrations ensuring you never miss a sales enquiry.
