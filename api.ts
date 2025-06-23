@@ -3410,21 +3410,40 @@ export interface EntityTag {
 /**
  * Model which stores the result of the evaluation metric for a conversation
  * @export
- * @interface Evaluation
+ * @interface EvaluationInput
  */
-export interface Evaluation {
+export interface EvaluationInput {
     /**
      * 
      * @type {string}
-     * @memberof Evaluation
+     * @memberof EvaluationInput
      */
     'evaluation_result'?: string | null;
     /**
      * 
-     * @type {number}
-     * @memberof Evaluation
+     * @type {RubricScore}
+     * @memberof EvaluationInput
      */
-    'score'?: number | null;
+    'rubric_score'?: RubricScore | null;
+}
+/**
+ * Model which stores the result of the evaluation metric for a conversation
+ * @export
+ * @interface EvaluationOutput
+ */
+export interface EvaluationOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof EvaluationOutput
+     */
+    'evaluation_result'?: string | null;
+    /**
+     * 
+     * @type {RubricScore}
+     * @memberof EvaluationOutput
+     */
+    'rubric_score'?: RubricScore | null;
 }
 /**
  * 
@@ -4178,22 +4197,22 @@ export interface FrustrationTolerance1 {
 export interface GoalAnalyticsModelInput {
     /**
      * 
-     * @type {Array<GoalEvaluationInput>}
+     * @type {Array<GoalCategoryResponseInput>}
      * @memberof GoalAnalyticsModelInput
      */
-    'skills_goals'?: Array<GoalEvaluationInput> | null;
+    'goals_v1'?: Array<GoalCategoryResponseInput> | null;
     /**
      * 
-     * @type {Array<GoalEvaluationInput>}
+     * @type {number}
      * @memberof GoalAnalyticsModelInput
      */
-    'process_goals'?: Array<GoalEvaluationInput> | null;
+    'overall_score'?: number | null;
     /**
      * 
-     * @type {Array<GoalEvaluationInput>}
+     * @type {object}
      * @memberof GoalAnalyticsModelInput
      */
-    'communication_goals'?: Array<GoalEvaluationInput> | null;
+    'goals'?: object | null;
 }
 /**
  * 
@@ -4203,22 +4222,72 @@ export interface GoalAnalyticsModelInput {
 export interface GoalAnalyticsModelOutput {
     /**
      * 
-     * @type {Array<GoalEvaluationOutput>}
+     * @type {Array<GoalCategoryResponseOutput>}
      * @memberof GoalAnalyticsModelOutput
      */
-    'skills_goals'?: Array<GoalEvaluationOutput> | null;
+    'goals_v1'?: Array<GoalCategoryResponseOutput> | null;
     /**
      * 
-     * @type {Array<GoalEvaluationOutput>}
+     * @type {number}
      * @memberof GoalAnalyticsModelOutput
      */
-    'process_goals'?: Array<GoalEvaluationOutput> | null;
+    'overall_score'?: number | null;
     /**
      * 
-     * @type {Array<GoalEvaluationOutput>}
+     * @type {object}
      * @memberof GoalAnalyticsModelOutput
      */
-    'communication_goals'?: Array<GoalEvaluationOutput> | null;
+    'goals'?: object | null;
+}
+/**
+ * 
+ * @export
+ * @interface GoalCategoryResponseInput
+ */
+export interface GoalCategoryResponseInput {
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultInput>}
+     * @memberof GoalCategoryResponseInput
+     */
+    'skills_goals'?: Array<GoalEvaluationResultInput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultInput>}
+     * @memberof GoalCategoryResponseInput
+     */
+    'process_goals'?: Array<GoalEvaluationResultInput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultInput>}
+     * @memberof GoalCategoryResponseInput
+     */
+    'communication_goals'?: Array<GoalEvaluationResultInput> | null;
+}
+/**
+ * 
+ * @export
+ * @interface GoalCategoryResponseOutput
+ */
+export interface GoalCategoryResponseOutput {
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultOutput>}
+     * @memberof GoalCategoryResponseOutput
+     */
+    'skills_goals'?: Array<GoalEvaluationResultOutput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultOutput>}
+     * @memberof GoalCategoryResponseOutput
+     */
+    'process_goals'?: Array<GoalEvaluationResultOutput> | null;
+    /**
+     * 
+     * @type {Array<GoalEvaluationResultOutput>}
+     * @memberof GoalCategoryResponseOutput
+     */
+    'communication_goals'?: Array<GoalEvaluationResultOutput> | null;
 }
 /**
  * 
@@ -4309,40 +4378,88 @@ export interface GoalCoreOutput {
 /**
  * 
  * @export
- * @interface GoalEvaluationInput
+ * @interface GoalEvaluationResultInput
  */
-export interface GoalEvaluationInput {
+export interface GoalEvaluationResultInput {
+    /**
+     * Name of the goal
+     * @type {string}
+     * @memberof GoalEvaluationResultInput
+     */
+    'name': string;
     /**
      * 
-     * @type {GoalInput}
-     * @memberof GoalEvaluationInput
+     * @type {EvaluationInput}
+     * @memberof GoalEvaluationResultInput
      */
-    'goal': GoalInput;
+    'evaluation_result'?: EvaluationInput | null;
     /**
      * 
-     * @type {Evaluation}
-     * @memberof GoalEvaluationInput
+     * @type {number}
+     * @memberof GoalEvaluationResultInput
      */
-    'evaluation': Evaluation;
+    'score'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GoalEvaluationResultInput
+     */
+    'weighted_score'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GoalEvaluationResultInput
+     */
+    'weights'?: number | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GoalEvaluationResultInput
+     */
+    'evidence'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface GoalEvaluationOutput
+ * @interface GoalEvaluationResultOutput
  */
-export interface GoalEvaluationOutput {
+export interface GoalEvaluationResultOutput {
+    /**
+     * Name of the goal
+     * @type {string}
+     * @memberof GoalEvaluationResultOutput
+     */
+    'name': string;
     /**
      * 
-     * @type {SparrModelsScenarioGoal}
-     * @memberof GoalEvaluationOutput
+     * @type {EvaluationOutput}
+     * @memberof GoalEvaluationResultOutput
      */
-    'goal': SparrModelsScenarioGoal;
+    'evaluation_result'?: EvaluationOutput | null;
     /**
      * 
-     * @type {Evaluation}
-     * @memberof GoalEvaluationOutput
+     * @type {number}
+     * @memberof GoalEvaluationResultOutput
      */
-    'evaluation': Evaluation;
+    'score'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GoalEvaluationResultOutput
+     */
+    'weighted_score'?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GoalEvaluationResultOutput
+     */
+    'weights'?: number | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GoalEvaluationResultOutput
+     */
+    'evidence'?: Array<string> | null;
 }
 /**
  * 
@@ -7258,6 +7375,58 @@ export interface RoleTemplate {
     'roleDescription': string;
 }
 /**
+ * Rubric levels for consistent scoring
+ * @export
+ * @enum {string}
+ */
+
+export const RubricLevel = {
+    NotDemonstrated: 'NOT_DEMONSTRATED',
+    Beginning: 'BEGINNING',
+    Developing: 'DEVELOPING',
+    Competent: 'COMPETENT',
+    Advanced: 'ADVANCED',
+    Mastery: 'MASTERY',
+    InsufficientData: 'INSUFFICIENT_DATA'
+} as const;
+
+export type RubricLevel = typeof RubricLevel[keyof typeof RubricLevel];
+
+
+/**
+ * Detailed rubric-based scoring for precision and consistency
+ * @export
+ * @interface RubricScore
+ */
+export interface RubricScore {
+    /**
+     * The rubric level that best describes the performance
+     * @type {RubricLevel}
+     * @memberof RubricScore
+     */
+    'level': RubricLevel;
+    /**
+     * Confidence in the rubric level assessment (0.0 = low confidence, 1.0 = high confidence)
+     * @type {number}
+     * @memberof RubricScore
+     */
+    'confidence'?: number;
+    /**
+     * Fine-tuning adjustment within the rubric level (-0.5 to +0.5)
+     * @type {number}
+     * @memberof RubricScore
+     */
+    'fine_tune'?: number;
+    /**
+     * Specific examples from the conversation that support this assessment
+     * @type {Array<string>}
+     * @memberof RubricScore
+     */
+    'evidence'?: Array<string>;
+}
+
+
+/**
  * 
  * @export
  * @interface Rudenesslevel
@@ -7869,6 +8038,12 @@ export interface SparrDialogLineWithTimestamp {
      * @memberof SparrDialogLineWithTimestamp
      */
     'words': Array<DialogWordWithTimestamp>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrDialogLineWithTimestamp
+     */
+    'timestamp': string;
 }
 /**
  * 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **start_at_milliseconds** | **number** |  | [default to undefined]
 **end_at_milliseconds** | **number** |  | [default to undefined]
 **words** | [**Array&lt;DialogWordWithTimestamp&gt;**](DialogWordWithTimestamp.md) |  | [default to undefined]
+**timestamp** | **string** |  | [default to undefined]
 
 ## Example
 
@@ -24,6 +25,7 @@ const instance: SparrDialogLineWithTimestamp = {
     start_at_milliseconds,
     end_at_milliseconds,
     words,
+    timestamp,
 };
 ```
 

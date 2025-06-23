@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**skills_goals** | [**Array&lt;GoalEvaluationInput&gt;**](GoalEvaluationInput.md) |  | [optional] [default to undefined]
-**process_goals** | [**Array&lt;GoalEvaluationInput&gt;**](GoalEvaluationInput.md) |  | [optional] [default to undefined]
-**communication_goals** | [**Array&lt;GoalEvaluationInput&gt;**](GoalEvaluationInput.md) |  | [optional] [default to undefined]
+**goals_v1** | [**Array&lt;GoalCategoryResponseInput&gt;**](GoalCategoryResponseInput.md) |  | [optional] [default to undefined]
+**overall_score** | **number** |  | [optional] [default to undefined]
+**goals** | **object** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 import { GoalAnalyticsModelInput } from '@trata/ts-client-sdk';
 
 const instance: GoalAnalyticsModelInput = {
-    skills_goals,
-    process_goals,
-    communication_goals,
+    goals_v1,
+    overall_score,
+    goals,
 };
 ```
 
