@@ -21,6 +21,8 @@
 
 * `AverageActiveDays` (value: `'AVERAGE_ACTIVE_DAYS'`)
 
+* `AverageScore` (value: `'AVERAGE_SCORE'`)
+
 * `ProcessAdherenceScore` (value: `'processAdherenceScore'`)
 
 * `SkillsScore` (value: `'skillsScore'`)
@@ -38,5 +40,9 @@
 * `CallDuration2` (value: `'callDuration'`)
 
 * `LongestMonologue` (value: `'longestMonologue'`)
+
+* `Winrate` (value: `'winrate'`)
+
+* `ActiveDays` (value: `'activeDays'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
