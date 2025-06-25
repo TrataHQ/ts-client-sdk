@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **endDate** | **string** | End date for the analytics range | [default to undefined]
 **metrics** | [**Array&lt;MetricRequest&gt;**](MetricRequest.md) | List of metrics to retrieve | [default to undefined]
 **userIds** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**scenarioIds** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -21,6 +22,7 @@ const instance: AnalyticsRequest = {
     endDate,
     metrics,
     userIds,
+    scenarioIds,
 };
 ```
 

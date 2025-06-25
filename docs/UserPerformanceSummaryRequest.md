@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **startDate** | **string** | Start date for the analytics range | [default to undefined]
 **endDate** | **string** | End date for the analytics range | [default to undefined]
 **userIds** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
+**scenarioIds** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **sortBy** | **string** | Column to sort by (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) | [optional] [default to 'avgOverallScore']
 **sortOrder** | **string** | Sort order - ascending or descending | [optional] [default to SortOrderEnum_Desc]
 **skip** | **number** | Number of records to skip for pagination | [optional] [default to 0]
@@ -23,6 +24,7 @@ const instance: UserPerformanceSummaryRequest = {
     startDate,
     endDate,
     userIds,
+    scenarioIds,
     sortBy,
     sortOrder,
     skip,

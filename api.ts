@@ -1002,6 +1002,12 @@ export interface AnalyticsRequest {
      * @memberof AnalyticsRequest
      */
     'userIds'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof AnalyticsRequest
+     */
+    'scenarioIds'?: Array<string> | null;
 }
 /**
  * Simplified analytics response
@@ -9924,6 +9930,12 @@ export interface UserPerformanceSummaryRequest {
      * @memberof UserPerformanceSummaryRequest
      */
     'userIds'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UserPerformanceSummaryRequest
+     */
+    'scenarioIds'?: Array<string> | null;
     /**
      * Column to sort by (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore)
      * @type {string}
