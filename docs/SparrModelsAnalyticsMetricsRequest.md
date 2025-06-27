@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **toDate** | **string** | End date until get metric request | [default to undefined]
 **aggregationPeriod** | [**AggregationPeriod**](AggregationPeriod.md) | Aggregation period for the metric request | [default to undefined]
 **aggregationFormula** | [**SparrModelsAnalyticsAggregationFormula**](SparrModelsAnalyticsAggregationFormula.md) | Aggregation formula for the metric request | [default to undefined]
+**filter** | [**Array&lt;MetricFilter&gt;**](MetricFilter.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -24,6 +25,7 @@ const instance: SparrModelsAnalyticsMetricsRequest = {
     toDate,
     aggregationPeriod,
     aggregationFormula,
+    filter,
 };
 ```
 

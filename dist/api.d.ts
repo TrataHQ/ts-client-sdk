@@ -4010,6 +4010,22 @@ export declare type FillersConfig = typeof FillersConfig[keyof typeof FillersCon
 /**
  *
  * @export
+ * @enum {string}
+ */
+export declare const FilterOperator: {
+    readonly Eq: "eq";
+    readonly Neq: "neq";
+    readonly In: "in";
+    readonly Nin: "nin";
+    readonly And: "and";
+    readonly Or: "or";
+    readonly Gte: "gte";
+    readonly Lte: "lte";
+};
+export declare type FilterOperator = typeof FilterOperator[keyof typeof FilterOperator];
+/**
+ *
+ * @export
  * @interface FlexibleGenerationRequest
  */
 export interface FlexibleGenerationRequest {
@@ -4865,6 +4881,31 @@ export interface MetricDataPoint {
      * @memberof MetricDataPoint
      */
     'aggregation': AggregationFormulaOutput;
+}
+/**
+ * Pydantic-compatible filter model for metrics requests
+ * @export
+ * @interface MetricFilter
+ */
+export interface MetricFilter {
+    /**
+     * Field name to filter on
+     * @type {string}
+     * @memberof MetricFilter
+     */
+    'field': string;
+    /**
+     * Filter operator
+     * @type {FilterOperator}
+     * @memberof MetricFilter
+     */
+    'operator': FilterOperator;
+    /**
+     *
+     * @type {Value}
+     * @memberof MetricFilter
+     */
+    'value': Value;
 }
 /**
  *
@@ -8031,6 +8072,12 @@ export interface SparrModelsAnalyticsMetricsRequest {
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
     'aggregationFormula': SparrModelsAnalyticsAggregationFormula;
+    /**
+     *
+     * @type {Array<MetricFilter>}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    'filter'?: Array<MetricFilter> | null;
 }
 /**
  *
@@ -9790,6 +9837,20 @@ export interface ValidationError {
      * @memberof ValidationError
      */
     'type': string;
+}
+/**
+ * Filter value(s)
+ * @export
+ * @interface Value
+ */
+export interface Value {
+}
+/**
+ *
+ * @export
+ * @interface ValueAnyOfInner
+ */
+export interface ValueAnyOfInner {
 }
 /**
  * Link table to store the list of ai agents accessible for each virtual prospect
@@ -16418,10 +16479,11 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string | null} [toDate] End date for filtering feedbacks
      * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -16960,10 +17022,11 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {string | null} [toDate] End date for filtering feedbacks
      * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -17502,10 +17565,11 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {string | null} [toDate] End date for filtering feedbacks
      * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -18085,11 +18149,12 @@ export declare class SparrApi extends BaseAPI {
      * @param {string | null} [toDate] End date for filtering feedbacks
      * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback[]>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback[]>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals

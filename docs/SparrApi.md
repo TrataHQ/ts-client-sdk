@@ -2172,6 +2172,7 @@ let fromDate: string; //Start date for filtering feedbacks (optional) (default t
 let toDate: string; //End date for filtering feedbacks (optional) (default to undefined)
 let userFilter: string; //User filter for filtering feedbacks. Comma separated list of user ids. (optional) (default to undefined)
 let statusFilter: string; //Status filter for filtering feedbacks. Comma separated list of statuses. (optional) (default to undefined)
+let scenarioFilter: string; //Scenario filter for filtering feedbacks. Comma separated list of scenario ids. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listFeedbacksV1(
     skip,
@@ -2179,7 +2180,8 @@ const { status, data } = await apiInstance.listFeedbacksV1(
     fromDate,
     toDate,
     userFilter,
-    statusFilter
+    statusFilter,
+    scenarioFilter
 );
 ```
 
@@ -2193,6 +2195,7 @@ const { status, data } = await apiInstance.listFeedbacksV1(
 | **toDate** | [**string**] | End date for filtering feedbacks | (optional) defaults to undefined|
 | **userFilter** | [**string**] | User filter for filtering feedbacks. Comma separated list of user ids. | (optional) defaults to undefined|
 | **statusFilter** | [**string**] | Status filter for filtering feedbacks. Comma separated list of statuses. | (optional) defaults to undefined|
+| **scenarioFilter** | [**string**] | Scenario filter for filtering feedbacks. Comma separated list of scenario ids. | (optional) defaults to undefined|
 
 
 ### Return type

@@ -4147,6 +4147,26 @@ export type FillersConfig = typeof FillersConfig[keyof typeof FillersConfig];
 /**
  * 
  * @export
+ * @enum {string}
+ */
+
+export const FilterOperator = {
+    Eq: 'eq',
+    Neq: 'neq',
+    In: 'in',
+    Nin: 'nin',
+    And: 'and',
+    Or: 'or',
+    Gte: 'gte',
+    Lte: 'lte'
+} as const;
+
+export type FilterOperator = typeof FilterOperator[keyof typeof FilterOperator];
+
+
+/**
+ * 
+ * @export
  * @interface FlexibleGenerationRequest
  */
 export interface FlexibleGenerationRequest {
@@ -5033,6 +5053,33 @@ export interface MetricDataPoint {
      * @memberof MetricDataPoint
      */
     'aggregation': AggregationFormulaOutput;
+}
+
+
+/**
+ * Pydantic-compatible filter model for metrics requests
+ * @export
+ * @interface MetricFilter
+ */
+export interface MetricFilter {
+    /**
+     * Field name to filter on
+     * @type {string}
+     * @memberof MetricFilter
+     */
+    'field': string;
+    /**
+     * Filter operator
+     * @type {FilterOperator}
+     * @memberof MetricFilter
+     */
+    'operator': FilterOperator;
+    /**
+     * 
+     * @type {Value}
+     * @memberof MetricFilter
+     */
+    'value': Value;
 }
 
 
@@ -8316,6 +8363,12 @@ export interface SparrModelsAnalyticsMetricsRequest {
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
     'aggregationFormula': SparrModelsAnalyticsAggregationFormula;
+    /**
+     * 
+     * @type {Array<MetricFilter>}
+     * @memberof SparrModelsAnalyticsMetricsRequest
+     */
+    'filter'?: Array<MetricFilter> | null;
 }
 
 
@@ -10129,6 +10182,20 @@ export interface ValidationError {
      * @memberof ValidationError
      */
     'type': string;
+}
+/**
+ * Filter value(s)
+ * @export
+ * @interface Value
+ */
+export interface Value {
+}
+/**
+ * 
+ * @export
+ * @interface ValueAnyOfInner
+ */
+export interface ValueAnyOfInner {
 }
 /**
  * Link table to store the list of ai agents accessible for each virtual prospect
@@ -24255,10 +24322,11 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string | null} [toDate] End date for filtering feedbacks
          * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+         * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1: async (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listFeedbacksV1: async (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/sparr/feedbacks/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -24301,6 +24369,10 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
 
             if (statusFilter !== undefined) {
                 localVarQueryParameter['status_filter'] = statusFilter;
+            }
+
+            if (scenarioFilter !== undefined) {
+                localVarQueryParameter['scenario_filter'] = scenarioFilter;
             }
 
 
@@ -25846,11 +25918,12 @@ export const SparrApiFp = function(configuration?: Configuration) {
          * @param {string | null} [toDate] End date for filtering feedbacks
          * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+         * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options);
+        async listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, scenarioFilter, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SparrApi.listFeedbacksV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -26585,11 +26658,12 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          * @param {string | null} [toDate] End date for filtering feedbacks
          * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
          * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+         * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>> {
-            return localVarFp.listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(axios, basePath));
+        listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>> {
+            return localVarFp.listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, scenarioFilter, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all goals that are either directly owned or available through reseller course assignments
@@ -27333,12 +27407,13 @@ export class SparrApi extends BaseAPI {
      * @param {string | null} [toDate] End date for filtering feedbacks
      * @param {string | null} [userFilter] User filter for filtering feedbacks. Comma separated list of user ids.
      * @param {string | null} [statusFilter] Status filter for filtering feedbacks. Comma separated list of statuses.
+     * @param {string | null} [scenarioFilter] Scenario filter for filtering feedbacks. Comma separated list of scenario ids.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    public listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, options?: AxiosRequestConfig) {
-        return SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, options).then((request) => request(this.axios, this.basePath));
+    public listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig) {
+        return SparrApiFp(this.configuration).listFeedbacksV1(skip, limit, fromDate, toDate, userFilter, statusFilter, scenarioFilter, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
