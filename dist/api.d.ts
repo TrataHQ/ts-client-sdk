@@ -2829,6 +2829,12 @@ export interface CreateScenarioRequest {
      */
     'callType'?: string | null;
     /**
+     * The familiarity level for this scenario
+     * @type {string}
+     * @memberof CreateScenarioRequest
+     */
+    'familiarityLevel'?: string;
+    /**
      * The goals to be achieved for the scenario
      * @type {Array<GoalInput>}
      * @memberof CreateScenarioRequest
@@ -6119,6 +6125,12 @@ export interface Persona {
      */
     'profilePictureUrl': string | null;
     /**
+     * The communication style of the persona
+     * @type {string}
+     * @memberof Persona
+     */
+    'communicationStyle'?: string;
+    /**
      * The status of the persona
      * @type {string}
      * @memberof Persona
@@ -6270,6 +6282,12 @@ export interface PersonaCore {
      * @memberof PersonaCore
      */
     'profilePictureUrl': string | null;
+    /**
+     * The communication style of the persona
+     * @type {string}
+     * @memberof PersonaCore
+     */
+    'communicationStyle'?: string;
     /**
      * The status of the persona
      * @type {string}
@@ -7304,6 +7322,12 @@ export interface Scenario {
      */
     'callType'?: string | null;
     /**
+     * The familiarity level for this scenario
+     * @type {string}
+     * @memberof Scenario
+     */
+    'familiarityLevel'?: string;
+    /**
      * The goals to be achieved for the scenario
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof Scenario
@@ -7388,6 +7412,12 @@ export interface ScenarioResponse {
      * @memberof ScenarioResponse
      */
     'callType': string | null;
+    /**
+     * The familiarity level for this scenario
+     * @type {string}
+     * @memberof ScenarioResponse
+     */
+    'familiarityLevel': string;
     /**
      * The goals to be achieved for the scenario
      * @type {Array<SparrModelsScenarioGoal>}

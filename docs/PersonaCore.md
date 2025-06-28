@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **blogUrl** | **string** |  | [default to undefined]
 **isInherited** | **boolean** | Whether the persona is inherited from the parent persona | [optional] [default to false]
 **profilePictureUrl** | **string** |  | [default to undefined]
+**communicationStyle** | **string** | The communication style of the persona | [optional] [default to 'balanced']
 **status** | **string** | The status of the persona | [optional] [default to 'active']
 
 ## Example
@@ -37,6 +38,7 @@ const instance: PersonaCore = {
     blogUrl,
     isInherited,
     profilePictureUrl,
+    communicationStyle,
     status,
 };
 ```

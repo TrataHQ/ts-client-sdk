@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **description** | **string** | The description of the scenario | [default to undefined]
 **objections** | [**Array&lt;Objection&gt;**](Objection.md) | The objections to be handled for the scenario | [default to undefined]
 **callType** | **string** |  | [default to undefined]
+**familiarityLevel** | **string** | The familiarity level for this scenario | [default to undefined]
 **goals** | [**Array&lt;SparrModelsScenarioGoal&gt;**](SparrModelsScenarioGoal.md) | The goals to be achieved for the scenario | [default to undefined]
 **playbook** | [**Array&lt;Step&gt;**](Step.md) | The playbook to be followed for the scenario | [default to undefined]
 **isInherited** | **boolean** | Whether the scenario is inherited from the parent scenario | [default to undefined]
@@ -36,6 +37,7 @@ const instance: ScenarioResponse = {
     description,
     objections,
     callType,
+    familiarityLevel,
     goals,
     playbook,
     isInherited,

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **blogUrl** | **string** |  | [default to undefined]
 **isInherited** | **boolean** | Whether the persona is inherited from the parent persona | [optional] [default to false]
 **profilePictureUrl** | **string** |  | [default to undefined]
+**communicationStyle** | **string** | The communication style of the persona | [optional] [default to 'balanced']
 **status** | **string** | The status of the persona | [optional] [default to 'active']
 **id** | **string** | The unique identifier of the persona | [optional] [default to undefined]
 **version** | **number** | The version of the persona | [optional] [default to 1]
@@ -50,6 +51,7 @@ const instance: Persona = {
     blogUrl,
     isInherited,
     profilePictureUrl,
+    communicationStyle,
     status,
     id,
     version,
