@@ -2846,10 +2846,10 @@ export interface CreateScenarioRequest {
     'callType'?: CallType | null;
     /**
      * The familiarity level for this scenario
-     * @type {string}
+     * @type {FamiliarityLevel}
      * @memberof CreateScenarioRequest
      */
-    'familiarityLevel'?: string;
+    'familiarityLevel'?: FamiliarityLevel;
     /**
      * The goals to be achieved for the scenario
      * @type {Array<GoalInput>}
@@ -3646,6 +3646,17 @@ export interface ExternalServiceProviderOutput {
      */
     'providerProps': object | null;
 }
+/**
+ *
+ * @export
+ * @enum {string}
+ */
+export declare const FamiliarityLevel: {
+    readonly Cold: "cold";
+    readonly Warm: "warm";
+    readonly Hot: "hot";
+};
+export declare type FamiliarityLevel = typeof FamiliarityLevel[keyof typeof FamiliarityLevel];
 /**
  * Feedback represents a feedback that can be given to a persona
  * @export
@@ -7424,16 +7435,16 @@ export interface ScenarioResponse {
     'objections': Array<Objection>;
     /**
      *
-     * @type {string}
+     * @type {CallType}
      * @memberof ScenarioResponse
      */
-    'callType': string | null;
+    'callType': CallType | null;
     /**
      * The familiarity level for this scenario
-     * @type {string}
+     * @type {FamiliarityLevel}
      * @memberof ScenarioResponse
      */
-    'familiarityLevel': string;
+    'familiarityLevel': FamiliarityLevel;
     /**
      * The goals to be achieved for the scenario
      * @type {Array<SparrModelsScenarioGoal>}

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **string** | The description of the scenario | [default to undefined]
 **objections** | [**Array&lt;Objection&gt;**](Objection.md) | The objections to be handled for the scenario | [optional] [default to undefined]
 **callType** | [**CallType**](CallType.md) |  | [optional] [default to undefined]
-**familiarityLevel** | **string** | The familiarity level for this scenario | [optional] [default to 'warm']
+**familiarityLevel** | [**FamiliarityLevel**](FamiliarityLevel.md) | The familiarity level for this scenario | [optional] [default to undefined]
 **goals** | [**Array&lt;GoalInput&gt;**](GoalInput.md) | The goals to be achieved for the scenario | [optional] [default to undefined]
 **playbook** | [**Array&lt;Step&gt;**](Step.md) | The playbook to be followed for the scenario | [optional] [default to undefined]
 **isInherited** | **boolean** | Whether the scenario is inherited from the parent scenario | [optional] [default to false]

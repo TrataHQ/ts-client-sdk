@@ -438,6 +438,7 @@ Class | Method | HTTP request | Description
  - [ExternalReference](docs/ExternalReference.md)
  - [ExternalServiceProviderInput](docs/ExternalServiceProviderInput.md)
  - [ExternalServiceProviderOutput](docs/ExternalServiceProviderOutput.md)
+ - [FamiliarityLevel](docs/FamiliarityLevel.md)
  - [Feedback](docs/Feedback.md)
  - [FeedbackCore](docs/FeedbackCore.md)
  - [Files](docs/Files.md)
