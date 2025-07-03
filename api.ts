@@ -1775,6 +1775,26 @@ export type CallSentiment = typeof CallSentiment[keyof typeof CallSentiment];
  * @enum {string}
  */
 
+export const CallType = {
+    Inbound: 'inbound',
+    Outbound: 'outbound',
+    SalesInbound: 'sales_inbound',
+    SalesOutbound: 'sales_outbound',
+    ServiceInbound: 'service_inbound',
+    ServiceOutbound: 'service_outbound',
+    InPersonInbound: 'in_person_inbound',
+    InPersonOutbound: 'in_person_outbound'
+} as const;
+
+export type CallType = typeof CallType[keyof typeof CallType];
+
+
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+
 export const ChangeAssignmentOperation = {
     Assign: 'assign',
     Remove: 'remove'
@@ -2942,10 +2962,10 @@ export interface CreateScenarioRequest {
     'objections'?: Array<Objection>;
     /**
      * 
-     * @type {string}
+     * @type {CallType}
      * @memberof CreateScenarioRequest
      */
-    'callType'?: string | null;
+    'callType'?: CallType | null;
     /**
      * The familiarity level for this scenario
      * @type {string}
@@ -2989,6 +3009,8 @@ export interface CreateScenarioRequest {
      */
     'status'?: string;
 }
+
+
 /**
  * OAuth or API key authentication configuration
  * @export
@@ -7489,7 +7511,7 @@ export interface RubricScore {
      */
     'fine_tune'?: number;
     /**
-     * Specific examples from the conversation that support this assessment
+     * Exact quotes from the USER\'s dialogue that justify this assessment. Exclude any AI-generated responses. Only include verbatim user statements that directly support your evaluation. If no such quotes exist, leave this field blank. Accompany each quote with a brief explanation of its relevance and how it substantiates the assessment. Keep the explanation concise and focused.
      * @type {Array<string>}
      * @memberof RubricScore
      */
@@ -7575,7 +7597,7 @@ export interface Scenario {
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof Scenario
      */
-    'goals': Array<SparrModelsScenarioGoal>;
+    'goals'?: Array<SparrModelsScenarioGoal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}

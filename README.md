@@ -377,6 +377,7 @@ Class | Method | HTTP request | Description
  - [BodyCreateOrganizationV1](docs/BodyCreateOrganizationV1.md)
  - [BodyCreateResellerOrganizationV1](docs/BodyCreateResellerOrganizationV1.md)
  - [CallSentiment](docs/CallSentiment.md)
+ - [CallType](docs/CallType.md)
  - [ChangeAssignmentOperation](docs/ChangeAssignmentOperation.md)
  - [ChangeAssignmentRequest](docs/ChangeAssignmentRequest.md)
  - [CoachAnalyticsModel](docs/CoachAnalyticsModel.md)

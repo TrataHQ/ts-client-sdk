@@ -1688,6 +1688,22 @@ export declare type CallSentiment = typeof CallSentiment[keyof typeof CallSentim
  * @export
  * @enum {string}
  */
+export declare const CallType: {
+    readonly Inbound: "inbound";
+    readonly Outbound: "outbound";
+    readonly SalesInbound: "sales_inbound";
+    readonly SalesOutbound: "sales_outbound";
+    readonly ServiceInbound: "service_inbound";
+    readonly ServiceOutbound: "service_outbound";
+    readonly InPersonInbound: "in_person_inbound";
+    readonly InPersonOutbound: "in_person_outbound";
+};
+export declare type CallType = typeof CallType[keyof typeof CallType];
+/**
+ *
+ * @export
+ * @enum {string}
+ */
 export declare const ChangeAssignmentOperation: {
     readonly Assign: "assign";
     readonly Remove: "remove";
@@ -2824,10 +2840,10 @@ export interface CreateScenarioRequest {
     'objections'?: Array<Objection>;
     /**
      *
-     * @type {string}
+     * @type {CallType}
      * @memberof CreateScenarioRequest
      */
-    'callType'?: string | null;
+    'callType'?: CallType | null;
     /**
      * The familiarity level for this scenario
      * @type {string}
@@ -7248,7 +7264,7 @@ export interface RubricScore {
      */
     'fine_tune'?: number;
     /**
-     * Specific examples from the conversation that support this assessment
+     * Exact quotes from the USER\'s dialogue that justify this assessment. Exclude any AI-generated responses. Only include verbatim user statements that directly support your evaluation. If no such quotes exist, leave this field blank. Accompany each quote with a brief explanation of its relevance and how it substantiates the assessment. Keep the explanation concise and focused.
      * @type {Array<string>}
      * @memberof RubricScore
      */
@@ -7332,7 +7348,7 @@ export interface Scenario {
      * @type {Array<SparrModelsScenarioGoal>}
      * @memberof Scenario
      */
-    'goals': Array<SparrModelsScenarioGoal>;
+    'goals'?: Array<SparrModelsScenarioGoal>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}

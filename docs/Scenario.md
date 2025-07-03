@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **objections** | [**Array&lt;Objection&gt;**](Objection.md) | The objections to be handled for the scenario | [default to undefined]
 **callType** | **string** |  | [optional] [default to undefined]
 **familiarityLevel** | **string** | The familiarity level for this scenario | [optional] [default to 'warm']
-**goals** | [**Array&lt;SparrModelsScenarioGoal&gt;**](SparrModelsScenarioGoal.md) | The goals to be achieved for the scenario | [default to undefined]
+**goals** | [**Array&lt;SparrModelsScenarioGoal&gt;**](SparrModelsScenarioGoal.md) | The goals to be achieved for the scenario | [optional] [default to undefined]
 **playbook** | [**Array&lt;Step&gt;**](Step.md) | The playbook to be followed for the scenario | [default to undefined]
 **isInherited** | **boolean** | Whether the scenario is inherited from the parent scenario | [optional] [default to false]
 **evaluatorId** | **string** |  | [optional] [default to undefined]
