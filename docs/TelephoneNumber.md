@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **string** |  | [optional] [default to undefined]
 **countryCode** | **string** |  | [optional] [default to undefined]
 **agentId** | **string** |  | [optional] [default to undefined]
-**internalProps** | **object** |  | [optional] [default to undefined]
+**internalProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 **createdBy** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [default to undefined]
 **updatedBy** | **string** |  | [optional] [default to undefined]

@@ -6,7 +6,7 @@ OAuth or API key authentication configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentialsType** | **string** | Credential type identifier | [optional] [default to CredentialsTypeEnum_Noauth]
+**credentialsType** | **string** | Credential type identifier | [optional] [default to 'noauth']
 **code** | **string** |  | [optional] [default to undefined]
 **accessToken** | **string** |  | [optional] [default to undefined]
 **refreshToken** | **string** |  | [optional] [default to undefined]

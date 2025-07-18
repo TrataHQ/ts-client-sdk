@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**getSubscriptionBillableProductsV1**](docs/BillingApi.md#getsubscriptionbillableproductsv1) | **GET** /v1/subscription/billable-products | Get Subscription Billable Products
 *BillingApi* | [**getSubscriptionPortalV1**](docs/BillingApi.md#getsubscriptionportalv1) | **GET** /v1/subscription/portal | Get Subscription Portal
 *BillingApi* | [**getSubscriptionV1**](docs/BillingApi.md#getsubscriptionv1) | **GET** /v1/subscription | Get Subscription
+*ConnectApi* | [**connectOauthV1**](docs/ConnectApi.md#connectoauthv1) | **POST** /v1/sparr/connect/telephony/oauth | Telephonyoauthconnect
 *ConversationProspectLinkApi* | [**createConversationProspectLinkV1**](docs/ConversationProspectLinkApi.md#createconversationprospectlinkv1) | **POST** /v1/conversations/{conversation_id}/prospects/{prospect_id}/links | Create a link between a conversation and a prospect
 *ConversationProspectLinkApi* | [**deleteConversationProspectLinkV1**](docs/ConversationProspectLinkApi.md#deleteconversationprospectlinkv1) | **DELETE** /v1/conversations/{conversation_id}/prospects/{prospect_id}/links | Delete a link between a conversation and a prospect
 *ConversationProspectLinkApi* | [**listConversationsOfProspectsV1**](docs/ConversationProspectLinkApi.md#listconversationsofprospectsv1) | **GET** /v1/prospects/{prospect_id}/conversations | List all conversations linked to a specific prospect
@@ -180,14 +181,14 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**assignCourseV1**](docs/SparrApi.md#assigncoursev1) | **POST** /v1/sparr/courses/{course_id}/assign/{user_id} | Assign Course
 *SparrApi* | [**attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost**](docs/SparrApi.md#attachtagv1sparrentitytagsentitytypeentityidtagspost) | **POST** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags | Attach Tag
 *SparrApi* | [**createCheckoutSessionForPriceV1**](docs/SparrApi.md#createcheckoutsessionforpricev1) | **POST** /v1/sparr/pricing/{price_id}/checkout | Create Checkout Session For Price
-*SparrApi* | [**createCourseV1**](docs/SparrApi.md#createcoursev1) | **POST** /v1/sparr/courses/ | Create Course
+*SparrApi* | [**createCourseV1**](docs/SparrApi.md#createcoursev1) | **POST** /v1/sparr/courses | Create Course
 *SparrApi* | [**createCustomerPortalV1**](docs/SparrApi.md#createcustomerportalv1) | **POST** /v1/sparr/customers/portal | Create Customer Portal
-*SparrApi* | [**createFeedbackV1**](docs/SparrApi.md#createfeedbackv1) | **POST** /v1/sparr/feedbacks/ | Create Feedback
-*SparrApi* | [**createGoalsV1**](docs/SparrApi.md#creategoalsv1) | **POST** /v1/sparr/goals/ | Create Goals
-*SparrApi* | [**createPersonaV1**](docs/SparrApi.md#createpersonav1) | **POST** /v1/sparr/personas/ | Create Persona
-*SparrApi* | [**createPostCallEvaluationParamsV1**](docs/SparrApi.md#createpostcallevaluationparamsv1) | **POST** /v1/sparr/evaluators/ | Create Evaluator
-*SparrApi* | [**createScenarioV1**](docs/SparrApi.md#createscenariov1) | **POST** /v1/sparr/scenarios/ | Create Scenario
-*SparrApi* | [**createTrackerV1**](docs/SparrApi.md#createtrackerv1) | **POST** /v1/sparr/trackers/ | Create Tracker
+*SparrApi* | [**createFeedbackV1**](docs/SparrApi.md#createfeedbackv1) | **POST** /v1/sparr/feedbacks | Create Feedback
+*SparrApi* | [**createGoalsV1**](docs/SparrApi.md#creategoalsv1) | **POST** /v1/sparr/goals | Create Goals
+*SparrApi* | [**createPersonaV1**](docs/SparrApi.md#createpersonav1) | **POST** /v1/sparr/personas | Create Persona
+*SparrApi* | [**createPostCallEvaluationParamsV1**](docs/SparrApi.md#createpostcallevaluationparamsv1) | **POST** /v1/sparr/evaluators | Create Evaluator
+*SparrApi* | [**createScenarioV1**](docs/SparrApi.md#createscenariov1) | **POST** /v1/sparr/scenarios | Create Scenario
+*SparrApi* | [**createTrackerV1**](docs/SparrApi.md#createtrackerv1) | **POST** /v1/sparr/trackers | Create Tracker
 *SparrApi* | [**deleteCourseV1**](docs/SparrApi.md#deletecoursev1) | **DELETE** /v1/sparr/courses/{course_id} | Delete Course
 *SparrApi* | [**deleteEvaluatorV1**](docs/SparrApi.md#deleteevaluatorv1) | **DELETE** /v1/sparr/evaluators/{params_id} | Delete Evaluator
 *SparrApi* | [**deleteFeedbackV1**](docs/SparrApi.md#deletefeedbackv1) | **DELETE** /v1/sparr/feedbacks/{feedback_id} | Delete Feedback
@@ -197,7 +198,9 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**deleteScenarioV1**](docs/SparrApi.md#deletescenariov1) | **DELETE** /v1/sparr/scenarios/{scenario_id} | Delete Scenario
 *SparrApi* | [**deleteTrackerV1**](docs/SparrApi.md#deletetrackerv1) | **DELETE** /v1/sparr/trackers/{tracker_id} | Delete Tracker
 *SparrApi* | [**detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete**](docs/SparrApi.md#detachtagv1sparrentitytagsentitytypeentityidtagstagnamedelete) | **DELETE** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags/{tag_name} | Detach Tag
+*SparrApi* | [**evaluateFeedbackV1**](docs/SparrApi.md#evaluatefeedbackv1) | **POST** /v1/sparr/evaluate-feedback | Evaluate Feedback V1
 *SparrApi* | [**generateEvaluatorV1**](docs/SparrApi.md#generateevaluatorv1) | **POST** /v1/sparr/evaluators/generate | Generate Evaluator
+*SparrApi* | [**generateFeedbackV1**](docs/SparrApi.md#generatefeedbackv1) | **POST** /v1/sparr/feedbacks/generate_feedback | Generate Feedback
 *SparrApi* | [**getCourseV1**](docs/SparrApi.md#getcoursev1) | **GET** /v1/sparr/courses/{course_id} | Get Course
 *SparrApi* | [**getCreditsV1**](docs/SparrApi.md#getcreditsv1) | **GET** /v1/sparr/credits | Get Credits V1
 *SparrApi* | [**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](docs/SparrApi.md#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag
@@ -214,12 +217,12 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**getUserStatsV1**](docs/SparrApi.md#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats
 *SparrApi* | [**importLinkedinPersonaV1**](docs/SparrApi.md#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona
 *SparrApi* | [**listCoursesV1**](docs/SparrApi.md#listcoursesv1) | **GET** /v1/sparr/courses/ | Get Courses
-*SparrApi* | [**listEvaluatorV1**](docs/SparrApi.md#listevaluatorv1) | **GET** /v1/sparr/evaluators/ | Get Evaluator
-*SparrApi* | [**listFeedbacksV1**](docs/SparrApi.md#listfeedbacksv1) | **GET** /v1/sparr/feedbacks/ | Get Feedbacks
-*SparrApi* | [**listGoalsV1**](docs/SparrApi.md#listgoalsv1) | **GET** /v1/sparr/goals/ | Get Goals
-*SparrApi* | [**listPersonasV1**](docs/SparrApi.md#listpersonasv1) | **GET** /v1/sparr/personas/ | Get Personas
-*SparrApi* | [**listScenariosV1**](docs/SparrApi.md#listscenariosv1) | **GET** /v1/sparr/scenarios/ | Get Scenarios
-*SparrApi* | [**listTrackerV1**](docs/SparrApi.md#listtrackerv1) | **GET** /v1/sparr/trackers/ | Get Trackers
+*SparrApi* | [**listEvaluatorV1**](docs/SparrApi.md#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator
+*SparrApi* | [**listFeedbacksV1**](docs/SparrApi.md#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks
+*SparrApi* | [**listGoalsV1**](docs/SparrApi.md#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals
+*SparrApi* | [**listPersonasV1**](docs/SparrApi.md#listpersonasv1) | **GET** /v1/sparr/personas | Get Personas
+*SparrApi* | [**listScenariosV1**](docs/SparrApi.md#listscenariosv1) | **GET** /v1/sparr/scenarios | Get Scenarios
+*SparrApi* | [**listTrackerV1**](docs/SparrApi.md#listtrackerv1) | **GET** /v1/sparr/trackers | Get Trackers
 *SparrApi* | [**listUserAssignmentsV1**](docs/SparrApi.md#listuserassignmentsv1) | **GET** /v1/sparr/courses/users/{user_id}/assignments | Get User Assignments
 *SparrApi* | [**listUserCourseAttemptsV1**](docs/SparrApi.md#listusercourseattemptsv1) | **GET** /v1/sparr/courses/{course_id}/attempts/users/{user_id} | Get User Course Attempts
 *SparrApi* | [**listUserModuleAttemptsV1**](docs/SparrApi.md#listusermoduleattemptsv1) | **GET** /v1/sparr/courses/modules/{module_id}/attempts/{user_id} | Get User Module Attempts
@@ -296,24 +299,24 @@ Class | Method | HTTP request | Description
 *UIApi* | [**listRoleTemplatesV1**](docs/UIApi.md#listroletemplatesv1) | **GET** /v1/ui/role-templates | List Role Templates
 *VoiceModelsApi* | [**listSparrVoiceModelsV1**](docs/VoiceModelsApi.md#listsparrvoicemodelsv1) | **GET** /v1/sparr-voice-models | Get List Of Voices Available For Sparr
 *VoiceModelsApi* | [**listVoiceModelsV1**](docs/VoiceModelsApi.md#listvoicemodelsv1) | **GET** /v1/voice-models | Get List Of Voices Available For Conversations
-*WorkflowsApi* | [**createWorkflowV1WorkflowsPost**](docs/WorkflowsApi.md#createworkflowv1workflowspost) | **POST** /v1/workflows/ | Create Workflow
+*WorkflowsApi* | [**createWorkflowV1WorkflowsPost**](docs/WorkflowsApi.md#createworkflowv1workflowspost) | **POST** /v1/workflows | Create Workflow
 *WorkflowsApi* | [**deleteWorkflowV1WorkflowsWorkflowIdDelete**](docs/WorkflowsApi.md#deleteworkflowv1workflowsworkflowiddelete) | **DELETE** /v1/workflows/{workflow_id} | Delete Workflow
 *WorkflowsApi* | [**readWorkflowV1WorkflowsWorkflowIdGet**](docs/WorkflowsApi.md#readworkflowv1workflowsworkflowidget) | **GET** /v1/workflows/{workflow_id} | Read Workflow
-*WorkflowsApi* | [**readWorkflowsV1WorkflowsGet**](docs/WorkflowsApi.md#readworkflowsv1workflowsget) | **GET** /v1/workflows/ | Read Workflows
+*WorkflowsApi* | [**readWorkflowsV1WorkflowsGet**](docs/WorkflowsApi.md#readworkflowsv1workflowsget) | **GET** /v1/workflows | Read Workflows
 *WorkflowsApi* | [**triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost**](docs/WorkflowsApi.md#triggerworkflowstepv1workflowsworkflowidstepstepidtriggerpost) | **POST** /v1/workflows/{workflow_id}/step/{step_id}/trigger | Trigger Workflow Step
 *WorkflowsApi* | [**updateWorkflowV1WorkflowsWorkflowIdPut**](docs/WorkflowsApi.md#updateworkflowv1workflowsworkflowidput) | **PUT** /v1/workflows/{workflow_id} | Update Workflow
 *WorkflowsApi* | [**uploadFileV1WorkflowsWorkflowIdFilePost**](docs/WorkflowsApi.md#uploadfilev1workflowsworkflowidfilepost) | **POST** /v1/workflows/{workflow_id}/file | Upload File
 *WorkflowsApiHubspotApi* | [**handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost**](docs/WorkflowsApiHubspotApi.md#handlehubspotwebhookv1workflowsapihubspotwebhookpost) | **POST** /v1/workflows/api/hubspot/webhook | Handle Hubspot Webhook
-*WorkflowsAppsApi* | [**createAppV1WorkflowsAppsPost**](docs/WorkflowsAppsApi.md#createappv1workflowsappspost) | **POST** /v1/workflows/apps/ | Create App
+*WorkflowsAppsApi* | [**createAppV1WorkflowsAppsPost**](docs/WorkflowsAppsApi.md#createappv1workflowsappspost) | **POST** /v1/workflows/apps | Create App
 *WorkflowsAppsApi* | [**deleteAppV1WorkflowsAppsAppIdDelete**](docs/WorkflowsAppsApi.md#deleteappv1workflowsappsappiddelete) | **DELETE** /v1/workflows/apps/{app_id} | Delete App
 *WorkflowsAppsApi* | [**getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet**](docs/WorkflowsAppsApi.md#getconnectionsbyappidv1workflowsappsappidversionsversionconnectionsget) | **GET** /v1/workflows/apps/{app_id}/versions/{version}/connections | Get Connections By App Id
 *WorkflowsAppsApi* | [**readAppV1WorkflowsAppsAppIdGet**](docs/WorkflowsAppsApi.md#readappv1workflowsappsappidget) | **GET** /v1/workflows/apps/{app_id} | Read App
-*WorkflowsAppsApi* | [**readAppsV1WorkflowsAppsGet**](docs/WorkflowsAppsApi.md#readappsv1workflowsappsget) | **GET** /v1/workflows/apps/ | Read Apps
+*WorkflowsAppsApi* | [**readAppsV1WorkflowsAppsGet**](docs/WorkflowsAppsApi.md#readappsv1workflowsappsget) | **GET** /v1/workflows/apps | Read Apps
 *WorkflowsAppsApi* | [**updateAppV1WorkflowsAppsAppIdPut**](docs/WorkflowsAppsApi.md#updateappv1workflowsappsappidput) | **PUT** /v1/workflows/apps/{app_id} | Update App
-*WorkflowsConnectionsApi* | [**createConnectionV1WorkflowsConnectionsPost**](docs/WorkflowsConnectionsApi.md#createconnectionv1workflowsconnectionspost) | **POST** /v1/workflows/connections/ | Create Connection
+*WorkflowsConnectionsApi* | [**createConnectionV1WorkflowsConnectionsPost**](docs/WorkflowsConnectionsApi.md#createconnectionv1workflowsconnectionspost) | **POST** /v1/workflows/connections | Create Connection
 *WorkflowsConnectionsApi* | [**deleteConnectionV1WorkflowsConnectionsConnectionIdDelete**](docs/WorkflowsConnectionsApi.md#deleteconnectionv1workflowsconnectionsconnectioniddelete) | **DELETE** /v1/workflows/connections/{connection_id} | Delete Connection
 *WorkflowsConnectionsApi* | [**readConnectionV1WorkflowsConnectionsConnectionIdGet**](docs/WorkflowsConnectionsApi.md#readconnectionv1workflowsconnectionsconnectionidget) | **GET** /v1/workflows/connections/{connection_id} | Read Connection
-*WorkflowsConnectionsApi* | [**readConnectionsV1WorkflowsConnectionsGet**](docs/WorkflowsConnectionsApi.md#readconnectionsv1workflowsconnectionsget) | **GET** /v1/workflows/connections/ | Read Connections
+*WorkflowsConnectionsApi* | [**readConnectionsV1WorkflowsConnectionsGet**](docs/WorkflowsConnectionsApi.md#readconnectionsv1workflowsconnectionsget) | **GET** /v1/workflows/connections | Read Connections
 *WorkflowsConnectionsApi* | [**updateConnectionV1WorkflowsConnectionsConnectionIdPut**](docs/WorkflowsConnectionsApi.md#updateconnectionv1workflowsconnectionsconnectionidput) | **PUT** /v1/workflows/connections/{connection_id} | Update Connection
 *WorkflowsExecutionsApi* | [**executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost**](docs/WorkflowsExecutionsApi.md#executeworkflowv1workflowsexecutionsworkflowidexecutepost) | **POST** /v1/workflows/executions/{workflow_id}/execute | Execute Workflow
 *WorkflowsExecutionsApi* | [**getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet**](docs/WorkflowsExecutionsApi.md#getworkflowstatusv1workflowsexecutionsworkflowidrunsrunidget) | **GET** /v1/workflows/executions/{workflow_id}/runs/{run_id} | Get Workflow Status
@@ -376,6 +379,7 @@ Class | Method | HTTP request | Description
  - [BodyCreateCustomerOrganizationV1](docs/BodyCreateCustomerOrganizationV1.md)
  - [BodyCreateOrganizationV1](docs/BodyCreateOrganizationV1.md)
  - [BodyCreateResellerOrganizationV1](docs/BodyCreateResellerOrganizationV1.md)
+ - [CallRecording](docs/CallRecording.md)
  - [CallSentiment](docs/CallSentiment.md)
  - [CallType](docs/CallType.md)
  - [ChangeAssignmentOperation](docs/ChangeAssignmentOperation.md)
@@ -441,6 +445,7 @@ Class | Method | HTTP request | Description
  - [FamiliarityLevel](docs/FamiliarityLevel.md)
  - [Feedback](docs/Feedback.md)
  - [FeedbackCore](docs/FeedbackCore.md)
+ - [FeedbackProps](docs/FeedbackProps.md)
  - [Files](docs/Files.md)
  - [FillerWords](docs/FillerWords.md)
  - [FillersConfig](docs/FillersConfig.md)
@@ -448,6 +453,7 @@ Class | Method | HTTP request | Description
  - [FlexibleGenerationRequest](docs/FlexibleGenerationRequest.md)
  - [FrustrationTolerance](docs/FrustrationTolerance.md)
  - [FrustrationTolerance1](docs/FrustrationTolerance1.md)
+ - [GenerateFeedbackRequest](docs/GenerateFeedbackRequest.md)
  - [GoalAnalyticsModelInput](docs/GoalAnalyticsModelInput.md)
  - [GoalAnalyticsModelOutput](docs/GoalAnalyticsModelOutput.md)
  - [GoalCategoryResponseInput](docs/GoalCategoryResponseInput.md)
@@ -475,6 +481,7 @@ Class | Method | HTTP request | Description
  - [InternalActionEndpoint](docs/InternalActionEndpoint.md)
  - [Language](docs/Language.md)
  - [LanguageAccentCombo](docs/LanguageAccentCombo.md)
+ - [LiveFeedbackProps](docs/LiveFeedbackProps.md)
  - [LocationInner](docs/LocationInner.md)
  - [LongestMonologue](docs/LongestMonologue.md)
  - [MetricDataPoint](docs/MetricDataPoint.md)
@@ -574,6 +581,7 @@ Class | Method | HTTP request | Description
  - [SparrVoiceLanguage](docs/SparrVoiceLanguage.md)
  - [SparrVoiceOutput](docs/SparrVoiceOutput.md)
  - [SparrWorkDetails](docs/SparrWorkDetails.md)
+ - [Sparrv1EvaluateFeedbackRequest](docs/Sparrv1EvaluateFeedbackRequest.md)
  - [StatsData](docs/StatsData.md)
  - [StatsResponse](docs/StatsResponse.md)
  - [Status](docs/Status.md)
@@ -581,11 +589,15 @@ Class | Method | HTTP request | Description
  - [Subscription](docs/Subscription.md)
  - [SubscriptionInfo](docs/SubscriptionInfo.md)
  - [SynthesizerConfig](docs/SynthesizerConfig.md)
- - [SystemMetrics](docs/SystemMetrics.md)
+ - [SystemMetricsInput](docs/SystemMetricsInput.md)
+ - [SystemMetricsOutput](docs/SystemMetricsOutput.md)
  - [TagCreate](docs/TagCreate.md)
  - [TaxDetailsInput](docs/TaxDetailsInput.md)
  - [TaxDetailsOutput](docs/TaxDetailsOutput.md)
  - [TelephoneNumber](docs/TelephoneNumber.md)
+ - [TelephonyApp](docs/TelephonyApp.md)
+ - [TelephonyConnectRequest](docs/TelephonyConnectRequest.md)
+ - [TelephonyConnectResponse](docs/TelephonyConnectResponse.md)
  - [Tracker](docs/Tracker.md)
  - [TrackerAnalyticsModel](docs/TrackerAnalyticsModel.md)
  - [TrackerCore](docs/TrackerCore.md)
@@ -601,6 +613,7 @@ Class | Method | HTTP request | Description
  - [UserApiKeyLink](docs/UserApiKeyLink.md)
  - [UserCourseAssignment](docs/UserCourseAssignment.md)
  - [UserCourseAssignmentAnalyticsResponse](docs/UserCourseAssignmentAnalyticsResponse.md)
+ - [UserData](docs/UserData.md)
  - [UserModuleAttempt](docs/UserModuleAttempt.md)
  - [UserModuleAttemptCore](docs/UserModuleAttemptCore.md)
  - [UserModuleAttemptResponse](docs/UserModuleAttemptResponse.md)

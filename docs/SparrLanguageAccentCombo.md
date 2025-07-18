@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**language** | [**SparrVoiceLanguage**](SparrVoiceLanguage.md) | The language of the voice | [default to undefined]
-**accent** | [**SparrVoiceAccent**](SparrVoiceAccent.md) | The accent of the voice | [default to undefined]
+**language** | [**SparrVoiceLanguage**](SparrVoiceLanguage.md) |  | [default to undefined]
+**accent** | [**SparrVoiceAccent**](SparrVoiceAccent.md) |  | [default to undefined]
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentialsType** | **string** | Credential type identifier | [optional] [default to CredentialsTypeEnum_Noauth]
+**credentialsType** | **string** | Credential type identifier | [optional] [default to 'noauth']
 
 ## Example
 

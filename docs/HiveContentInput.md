@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **hiveType** | [**HiveType**](HiveType.md) |  | [default to undefined]
 **url** | **string** |  | [optional] [default to undefined]
 **file_ids** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
-**hiveProps** | **object** |  | [optional] [default to undefined]
+**hiveProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

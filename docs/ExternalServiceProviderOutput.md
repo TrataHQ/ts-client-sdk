@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **providerName** | **string** |  | [default to undefined]
 **id** | **string** |  | [default to undefined]
-**providerProps** | **object** |  | [default to undefined]
+**providerProps** | **{ [key: string]: any; }** |  | [default to undefined]
 
 ## Example
 

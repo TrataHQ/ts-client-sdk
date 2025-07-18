@@ -6,7 +6,7 @@ No authentication configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **string** | The type of authentication | [optional] [default to AuthTypeEnum_Noauth]
+**authType** | **string** | The type of authentication | [optional] [default to 'noauth']
 
 ## Example
 

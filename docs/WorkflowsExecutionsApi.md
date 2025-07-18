@@ -10,7 +10,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost**](#triggerworkflowv1workflowsexecutionsworkflowidtriggerpost) | **POST** /v1/workflows/executions/{workflow_id}/trigger | Trigger Workflow|
 
 # **executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost**
-> WorkflowExecution executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(body)
+> WorkflowExecution executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(requestBody)
 
 Execute a workflow. This is an Sync call. This returns the status of the workflow
 
@@ -26,11 +26,11 @@ const configuration = new Configuration();
 const apiInstance = new WorkflowsExecutionsApi(configuration);
 
 let workflowId: string; // (default to undefined)
-let body: object; //
+let requestBody: { [key: string]: any; }; //
 
 const { status, data } = await apiInstance.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(
     workflowId,
-    body
+    requestBody
 );
 ```
 
@@ -38,7 +38,7 @@ const { status, data } = await apiInstance.executeWorkflowV1WorkflowsExecutionsW
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **body** | **object**|  | |
+| **requestBody** | **{ [key: string]: any; }**|  | |
 | **workflowId** | [**string**] |  | defaults to undefined|
 
 
@@ -180,7 +180,7 @@ const { status, data } = await apiInstance.listWorkflowRunsV1WorkflowsExecutions
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost**
-> WorkflowExecution triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(body)
+> WorkflowExecution triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost()
 
 Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
 
@@ -196,11 +196,11 @@ const configuration = new Configuration();
 const apiInstance = new WorkflowsExecutionsApi(configuration);
 
 let workflowId: string; // (default to undefined)
-let body: object; //
+let requestBody: { [key: string]: any; }; // (optional)
 
 const { status, data } = await apiInstance.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(
     workflowId,
-    body
+    requestBody
 );
 ```
 
@@ -208,7 +208,7 @@ const { status, data } = await apiInstance.triggerWorkflowV1WorkflowsExecutionsW
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **body** | **object**|  | |
+| **requestBody** | **{ [key: string]: any; }**|  | |
 | **workflowId** | [**string**] |  | defaults to undefined|
 
 

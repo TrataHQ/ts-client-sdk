@@ -4,10 +4,10 @@ All URIs are relative to *https://api.trata.ai*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**createConnectionV1WorkflowsConnectionsPost**](#createconnectionv1workflowsconnectionspost) | **POST** /v1/workflows/connections/ | Create Connection|
+|[**createConnectionV1WorkflowsConnectionsPost**](#createconnectionv1workflowsconnectionspost) | **POST** /v1/workflows/connections | Create Connection|
 |[**deleteConnectionV1WorkflowsConnectionsConnectionIdDelete**](#deleteconnectionv1workflowsconnectionsconnectioniddelete) | **DELETE** /v1/workflows/connections/{connection_id} | Delete Connection|
 |[**readConnectionV1WorkflowsConnectionsConnectionIdGet**](#readconnectionv1workflowsconnectionsconnectionidget) | **GET** /v1/workflows/connections/{connection_id} | Read Connection|
-|[**readConnectionsV1WorkflowsConnectionsGet**](#readconnectionsv1workflowsconnectionsget) | **GET** /v1/workflows/connections/ | Read Connections|
+|[**readConnectionsV1WorkflowsConnectionsGet**](#readconnectionsv1workflowsconnectionsget) | **GET** /v1/workflows/connections | Read Connections|
 |[**updateConnectionV1WorkflowsConnectionsConnectionIdPut**](#updateconnectionv1workflowsconnectionsconnectionidput) | **PUT** /v1/workflows/connections/{connection_id} | Update Connection|
 
 # **createConnectionV1WorkflowsConnectionsPost**

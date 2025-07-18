@@ -6,7 +6,7 @@ API key authentication configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **string** | The type of authentication | [optional] [default to AuthTypeEnum_Apikey]
+**authType** | **string** | The type of authentication | [optional] [default to 'apikey']
 
 ## Example
 

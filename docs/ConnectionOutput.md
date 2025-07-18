@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **orgId** | **string** |  | [optional] [default to undefined]
 **sourceName** | **string** |  | [optional] [default to undefined]
 **sourceId** | **string** |  | [optional] [default to undefined]
-**sourceProps** | **object** |  | [optional] [default to undefined]
+**sourceProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 **agentId** | **string** |  | [optional] [default to undefined]
 **prospectId** | **string** |  | [optional] [default to undefined]
 **createdBy** | **string** |  | [optional] [default to undefined]

@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **userName** | **string** |  | [default to undefined]
 **userProfilePictureUrl** | **string** |  | [optional] [default to undefined]
 **aiAgentId** | **string** |  | [default to undefined]
-**scenarioId** | **string** | The ID of the scenario | [default to undefined]
+**scenarioId** | **string** |  | [default to undefined]
 **scenarioName** | **string** |  | [default to undefined]
-**personaId** | **string** | The ID of the persona | [default to undefined]
+**personaId** | **string** |  | [default to undefined]
 **personaName** | **string** |  | [default to undefined]
 **startTimestamp** | **string** | The start timestamp of the conversation | [default to undefined]
 **endTimestamp** | **string** | The end timestamp of the conversation | [default to undefined]
@@ -22,9 +22,10 @@ Name | Type | Description | Notes
 **transcript** | [**Array&lt;SparrDialogLine&gt;**](SparrDialogLine.md) | The transcript of the conversation | [default to undefined]
 **completeTranscript** | [**Array&lt;SparrDialogLine&gt;**](SparrDialogLine.md) |  | [optional] [default to undefined]
 **transcriptWithTimestamp** | [**Array&lt;SparrDialogLineWithTimestamp&gt;**](SparrDialogLineWithTimestamp.md) |  | [optional] [default to undefined]
-**analytics** | [**AnalyticsModelInput**](AnalyticsModelInput.md) | The analytics of the conversation | [default to undefined]
+**analytics** | [**AnalyticsModelInput**](AnalyticsModelInput.md) |  | [default to undefined]
 **overallScore** | **number** | The overall score of the conversation out of 100 based on the weightage of each goal | [default to undefined]
 **status** | **string** | The status of the feedback | [optional] [default to 'active']
+**environment** | **string** | The environment where the feedback was given - Only two possible values (sparr or live) | [optional] [default to 'sparr']
 
 ## Example
 
@@ -52,6 +53,7 @@ const instance: FeedbackCore = {
     analytics,
     overallScore,
     status,
+    environment,
 };
 ```
 

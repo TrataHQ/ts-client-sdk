@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **step_name** | **string** |  | [default to undefined]
 **status** | **string** |  | [default to undefined]
-**input** | **object** |  | [default to undefined]
-**result** | **object** |  | [default to undefined]
+**input** | **{ [key: string]: any; }** |  | [default to undefined]
+**result** | **{ [key: string]: any; }** |  | [default to undefined]
 **start_time** | **string** |  | [optional] [default to undefined]
 **end_time** | **string** |  | [optional] [default to undefined]
 

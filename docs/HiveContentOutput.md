@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **hiveType** | [**HiveType**](HiveType.md) |  | [default to undefined]
 **url** | **string** |  | [optional] [default to undefined]
 **files** | [**Array&lt;Files&gt;**](Files.md) |  | [optional] [default to undefined]
-**hiveProps** | **object** |  | [optional] [default to undefined]
-**internalProps** | **object** |  | [optional] [default to undefined]
+**hiveProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
+**internalProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

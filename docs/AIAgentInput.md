@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Name of the AI agent | [default to undefined]
 **imageUrl** | **string** | Image URL for the AI agent | [default to undefined]
 **mission** | [**Mission**](Mission.md) |  | [optional] [default to undefined]
-**status** | [**Status**](Status.md) | Status of the AI agent | [default to undefined]
+**status** | [**Status**](Status.md) |  | [default to undefined]
 **role** | **string** | Role of the AI agent in the company | [default to undefined]
 **roleDescription** | **string** | Description of the role of the AI agent | [default to undefined]
 **timezone** | **string** | Timezone of the AI agent used for scheduling meetings | [default to undefined]

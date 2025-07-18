@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operation** | [**ChangeAssignmentOperation**](ChangeAssignmentOperation.md) | Whether to assign or remove courses | [default to undefined]
+**operation** | [**ChangeAssignmentOperation**](ChangeAssignmentOperation.md) |  | [default to undefined]
 **courses** | [**Courses**](Courses.md) |  | [default to undefined]
 **customers** | [**Customers**](Customers.md) |  | [default to undefined]
 

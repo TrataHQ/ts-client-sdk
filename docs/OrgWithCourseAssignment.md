@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **organization** | [**OrganizationOutput**](OrganizationOutput.md) |  | [default to undefined]
-**status** | [**CourseAssignmentStatus**](CourseAssignmentStatus.md) | Course assignment status (assigned/unassigned) | [optional] [default to undefined]
+**status** | [**CourseAssignmentStatus**](CourseAssignmentStatus.md) |  | [optional] [default to undefined]
 
 ## Example
 

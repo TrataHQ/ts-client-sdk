@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentialsType** | **string** | Credential type identifier | [optional] [default to CredentialsTypeEnum_Apikey]
+**credentialsType** | **string** | Credential type identifier | [optional] [default to 'apikey']
 **apiKey** | **string** | The API key for the app | [default to undefined]
 
 ## Example

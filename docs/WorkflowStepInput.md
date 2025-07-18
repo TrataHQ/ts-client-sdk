@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **appName** | **string** | The name of the app. It must match the app name in AppDefinition implementation | [optional] [default to undefined]
 **appVersion** | **string** | The version of the app. It must match the app version in AppDefinition implementation | [optional] [default to undefined]
 **dataResolver** | **string** |  | [optional] [default to undefined]
-**nextStepResolver** | [**NextStepResolver**](NextStepResolver.md) | Resolver for determining the next step | [default to undefined]
+**nextStepResolver** | [**NextStepResolver**](NextStepResolver.md) |  | [default to undefined]
 
 ## Example
 

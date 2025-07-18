@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier for the metric request. This can be helped to co-relate the request and response | [default to undefined]
-**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) | Name of the metric | [default to undefined]
+**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) |  | [default to undefined]
 **fromDate** | **string** | Start date to get metric request | [default to undefined]
 **toDate** | **string** | End date until get metric request | [default to undefined]
-**aggregationPeriod** | [**AggregationPeriod**](AggregationPeriod.md) | Aggregation period for the metric request | [default to undefined]
-**aggregationFormula** | [**SparrModelsAnalyticsAggregationFormula**](SparrModelsAnalyticsAggregationFormula.md) | Aggregation formula for the metric request | [default to undefined]
+**aggregationPeriod** | [**AggregationPeriod**](AggregationPeriod.md) |  | [default to undefined]
+**aggregationFormula** | [**SparrModelsAnalyticsAggregationFormula**](SparrModelsAnalyticsAggregationFormula.md) |  | [default to undefined]
 **filter** | [**Array&lt;MetricFilter&gt;**](MetricFilter.md) |  | [optional] [default to undefined]
 
 ## Example

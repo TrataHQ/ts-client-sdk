@@ -76,7 +76,7 @@ const configuration = new Configuration();
 const apiInstance = new FilesApi(configuration);
 
 let files: Array<File>; // (default to undefined)
-let validator: 'campaign-prospect-schema-csv'; //Validator type to use for file validation (optional) (default to undefined)
+let validator: string; //Validator type to use for file validation (optional) (default to undefined)
 
 const { status, data } = await apiInstance.uploadFileV1(
     files,
@@ -89,7 +89,7 @@ const { status, data } = await apiInstance.uploadFileV1(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **files** | **Array&lt;File&gt;** |  | defaults to undefined|
-| **validator** | [**&#39;campaign-prospect-schema-csv&#39;**]**Array<&#39;campaign-prospect-schema-csv&#39;>** | Validator type to use for file validation | (optional) defaults to undefined|
+| **validator** | [**string**] | Validator type to use for file validation | (optional) defaults to undefined|
 
 
 ### Return type

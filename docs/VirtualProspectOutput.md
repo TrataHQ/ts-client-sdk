@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **additionalInfo** | **string** |  | [optional] [default to undefined]
 **voice** | [**VoiceOutput**](VoiceOutput.md) |  | [optional] [default to undefined]
 **context** | **string** |  | [optional] [default to undefined]
-**virtualProspectType** | [**VirtualProspectTypeEnum**](VirtualProspectTypeEnum.md) | Type of the virtual prospect | [optional] [default to undefined]
+**virtualProspectType** | [**VirtualProspectTypeEnum**](VirtualProspectTypeEnum.md) |  | [optional] [default to undefined]
 **createdBy** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [default to undefined]
 **updatedBy** | **string** |  | [optional] [default to undefined]

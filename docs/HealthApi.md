@@ -8,7 +8,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**statusWorkflowsStatusGet**](#statusworkflowsstatusget) | **GET** /workflows/status | Heart Beat Status Of Workflow Service|
 
 # **statusStatusGet**
-> object statusStatusGet()
+> { [key: string]: any; } statusStatusGet()
 
 Heart Beat check to check the health of Trata Backend
 
@@ -32,7 +32,7 @@ This endpoint does not have any parameters.
 
 ### Return type
 
-**object**
+**{ [key: string]: any; }**
 
 ### Authorization
 
@@ -52,7 +52,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **statusWorkflowsStatusGet**
-> object statusWorkflowsStatusGet()
+> { [key: string]: any; } statusWorkflowsStatusGet()
 
 Heart Beat check to check the health of Workflow Service
 
@@ -76,7 +76,7 @@ This endpoint does not have any parameters.
 
 ### Return type
 
-**object**
+**{ [key: string]: any; }**
 
 ### Authorization
 

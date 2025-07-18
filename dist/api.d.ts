@@ -38,7 +38,7 @@ export interface AIAgentInput {
      */
     'mission'?: Mission | null;
     /**
-     * Status of the AI agent
+     *
      * @type {Status}
      * @memberof AIAgentInput
      */
@@ -260,10 +260,12 @@ export interface ActionInput {
     'description'?: string | null;
     /**
      * Parameters for the action. It should be a JSON schema object
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionInput
      */
-    'parameters': object;
+    'parameters': {
+        [key: string]: any;
+    };
     /**
      *
      * @type {Endpoint}
@@ -289,7 +291,7 @@ export interface ActionInput {
      */
     'userErrorText'?: string | null;
     /**
-     * Trigger who invokes the action
+     *
      * @type {ActionInvocationTrigger}
      * @memberof ActionInput
      */
@@ -338,16 +340,20 @@ export interface ActionOutput {
     'description'?: string | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionOutput
      */
-    'parameters'?: object | null;
+    'parameters'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionOutput
      */
-    'endpoint'?: object | null;
+    'endpoint'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {string}
@@ -630,10 +636,12 @@ export interface AgenticWorkflowDbModelsConnection {
     'credentials': Credentials;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    'connectionMetaData'?: object | null;
+    'connectionMetaData'?: {
+        [key: string]: any;
+    } | null;
     /**
      * The unique identifier of the connection
      * @type {string}
@@ -857,10 +865,10 @@ export interface AnalyticsModelInput {
     'coach_analytics': CoachAnalyticsModel;
     /**
      *
-     * @type {SystemMetrics}
+     * @type {SystemMetricsInput}
      * @memberof AnalyticsModelInput
      */
-    'system_metrics'?: SystemMetrics | null;
+    'system_metrics'?: SystemMetricsInput | null;
     /**
      *
      * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
@@ -909,10 +917,10 @@ export interface AnalyticsModelOutput {
     'coach_analytics': CoachAnalyticsModel;
     /**
      *
-     * @type {SystemMetrics}
+     * @type {SystemMetricsOutput}
      * @memberof AnalyticsModelOutput
      */
-    'system_metrics'?: SystemMetrics | null;
+    'system_metrics'?: SystemMetricsOutput | null;
     /**
      *
      * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
@@ -1007,12 +1015,8 @@ export interface ApiKeyAuth {
      * @type {string}
      * @memberof ApiKeyAuth
      */
-    'authType'?: ApiKeyAuthAuthTypeEnum;
+    'authType'?: string;
 }
-export declare const ApiKeyAuthAuthTypeEnum: {
-    readonly Apikey: "apikey";
-};
-export declare type ApiKeyAuthAuthTypeEnum = typeof ApiKeyAuthAuthTypeEnum[keyof typeof ApiKeyAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -1024,7 +1028,7 @@ export interface ApiKeyCredentials {
      * @type {string}
      * @memberof ApiKeyCredentials
      */
-    'credentialsType'?: ApiKeyCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * The API key for the app
      * @type {string}
@@ -1032,10 +1036,6 @@ export interface ApiKeyCredentials {
      */
     'apiKey': string;
 }
-export declare const ApiKeyCredentialsCredentialsTypeEnum: {
-    readonly Apikey: "apikey";
-};
-export declare type ApiKeyCredentialsCredentialsTypeEnum = typeof ApiKeyCredentialsCredentialsTypeEnum[keyof typeof ApiKeyCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -1170,7 +1170,7 @@ export interface AppAction {
      */
     'orgId'?: string;
     /**
-     * The type of the step, can be either trigger or action
+     *
      * @type {AppActionType}
      * @memberof AppAction
      */
@@ -1189,18 +1189,22 @@ export interface AppAction {
     'description'?: string;
     /**
      * JSON Schema for the step data
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppAction
      */
-    'dataSchema': object;
+    'dataSchema': {
+        [key: string]: any;
+    };
     /**
      * JSON Schema for the UI representation
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppAction
      */
-    'uiSchema': object;
+    'uiSchema': {
+        [key: string]: any;
+    };
     /**
-     * This represents how this action should be displayed in the UI
+     *
      * @type {UiNodeType}
      * @memberof AppAction
      */
@@ -1231,7 +1235,7 @@ export interface AppAction {
  */
 export interface AppActionEntity {
     /**
-     * The type of the step, can be either trigger or action
+     *
      * @type {AppActionType}
      * @memberof AppActionEntity
      */
@@ -1250,18 +1254,22 @@ export interface AppActionEntity {
     'description'?: string;
     /**
      * JSON Schema for the step data
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppActionEntity
      */
-    'dataSchema': object;
+    'dataSchema': {
+        [key: string]: any;
+    };
     /**
      * JSON Schema for the UI representation
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppActionEntity
      */
-    'uiSchema': object;
+    'uiSchema': {
+        [key: string]: any;
+    };
     /**
-     * This represents how this action should be displayed in the UI
+     *
      * @type {UiNodeType}
      * @memberof AppActionEntity
      */
@@ -1421,7 +1429,7 @@ export interface AuthInner {
      * @type {string}
      * @memberof AuthInner
      */
-    'authType'?: AuthInnerAuthTypeEnum;
+    'authType'?: string;
     /**
      * The client ID for the OAuth app
      * @type {string}
@@ -1459,10 +1467,6 @@ export interface AuthInner {
      */
     'tokenUrl': string;
 }
-export declare const AuthInnerAuthTypeEnum: {
-    readonly Noauth: "noauth";
-};
-export declare type AuthInnerAuthTypeEnum = typeof AuthInnerAuthTypeEnum[keyof typeof AuthInnerAuthTypeEnum];
 /**
  *
  * @export
@@ -1529,12 +1533,8 @@ export interface BasicAuth {
      * @type {string}
      * @memberof BasicAuth
      */
-    'authType'?: BasicAuthAuthTypeEnum;
+    'authType'?: string;
 }
-export declare const BasicAuthAuthTypeEnum: {
-    readonly Basic: "basic";
-};
-export declare type BasicAuthAuthTypeEnum = typeof BasicAuthAuthTypeEnum[keyof typeof BasicAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -1546,7 +1546,7 @@ export interface BasicAuthCredentials {
      * @type {string}
      * @memberof BasicAuthCredentials
      */
-    'credentialsType'?: BasicAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * The username for the app
      * @type {string}
@@ -1560,10 +1560,6 @@ export interface BasicAuthCredentials {
      */
     'password': string;
 }
-export declare const BasicAuthCredentialsCredentialsTypeEnum: {
-    readonly Basic: "basic";
-};
-export declare type BasicAuthCredentialsCredentialsTypeEnum = typeof BasicAuthCredentialsCredentialsTypeEnum[keyof typeof BasicAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -1673,6 +1669,19 @@ export interface BodyCreateResellerOrganizationV1 {
     'adminUserName': string;
 }
 /**
+ * Model for call recording data from telephony providers
+ * @export
+ * @interface CallRecording
+ */
+export interface CallRecording {
+    /**
+     * URI to access the recording content
+     * @type {string}
+     * @memberof CallRecording
+     */
+    'contentUri': string;
+}
+/**
  *
  * @export
  * @enum {string}
@@ -1716,7 +1725,7 @@ export declare type ChangeAssignmentOperation = typeof ChangeAssignmentOperation
  */
 export interface ChangeAssignmentRequest {
     /**
-     * Whether to assign or remove courses
+     *
      * @type {ChangeAssignmentOperation}
      * @memberof ChangeAssignmentRequest
      */
@@ -1754,7 +1763,7 @@ export interface CoachAnalyticsModel {
  */
 export interface CombinedEvaluatorResponse {
     /**
-     * The evaluator object
+     *
      * @type {Evaluator}
      * @memberof CombinedEvaluatorResponse
      */
@@ -1862,10 +1871,12 @@ export interface ConnectionCore {
     'credentials': Credentials;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionCore
      */
-    'connectionMetaData'?: object | null;
+    'connectionMetaData'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -1899,10 +1910,12 @@ export interface ConnectionOutput {
     'sourceId'?: string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionOutput
      */
-    'sourceProps'?: object | null;
+    'sourceProps'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {string}
@@ -1960,10 +1973,12 @@ export interface ConnectionSource {
     'sourceId': string;
     /**
      * Extra properties of source
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionSource
      */
-    'sourceProps': object;
+    'sourceProps': {
+        [key: string]: any;
+    };
 }
 export declare const ConnectionSourceSourceNameEnum: {
     readonly Twilio: "TWILIO";
@@ -2020,7 +2035,7 @@ export interface ConversationAnalyticsModelInput {
      */
     'address_of_caller': string | null;
     /**
-     * Sentiment of the caller based on the conversation details.
+     *
      * @type {CallSentiment}
      * @memberof ConversationAnalyticsModelInput
      */
@@ -2268,7 +2283,7 @@ export interface ConversationInput {
      */
     'source': string;
     /**
-     * Type of the conversation source
+     *
      * @type {ConversationSourceType}
      * @memberof ConversationInput
      */
@@ -2520,7 +2535,7 @@ export interface ConversationStartEventPayload {
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    'type': ConversationStartEventPayloadTypeEnum;
+    'type': string;
     /**
      *
      * @type {string}
@@ -2547,15 +2562,13 @@ export interface ConversationStartEventPayload {
     'org_id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConversationStartEventPayload
      */
-    'caller_id': object | null;
+    'caller_id': {
+        [key: string]: any;
+    } | null;
 }
-export declare const ConversationStartEventPayloadTypeEnum: {
-    readonly ConversationStart: "conversation_start";
-};
-export declare type ConversationStartEventPayloadTypeEnum = typeof ConversationStartEventPayloadTypeEnum[keyof typeof ConversationStartEventPayloadTypeEnum];
 /**
  *
  * @export
@@ -2801,7 +2814,7 @@ export interface CourseWithAssignmentStatus {
      */
     'course': Course;
     /**
-     * Course assignment status (assigned/unassigned)
+     *
      * @type {CourseAssignmentStatus}
      * @memberof CourseWithAssignmentStatus
      */
@@ -2845,7 +2858,7 @@ export interface CreateScenarioRequest {
      */
     'callType'?: CallType | null;
     /**
-     * The familiarity level for this scenario
+     *
      * @type {FamiliarityLevel}
      * @memberof CreateScenarioRequest
      */
@@ -2898,7 +2911,7 @@ export interface Credentials {
      * @type {string}
      * @memberof Credentials
      */
-    'credentialsType'?: CredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      *
      * @type {string}
@@ -2942,10 +2955,6 @@ export interface Credentials {
      */
     'password': string;
 }
-export declare const CredentialsCredentialsTypeEnum: {
-    readonly Noauth: "noauth";
-};
-export declare type CredentialsCredentialsTypeEnum = typeof CredentialsCredentialsTypeEnum[keyof typeof CredentialsCredentialsTypeEnum];
 /**
  * Credits details of the business
  * @export
@@ -3191,16 +3200,20 @@ export interface Endpoint {
     'method'?: EndpointMethodEnum;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Endpoint
      */
-    'headers'?: object | null;
+    'headers'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Endpoint
      */
-    'payload'?: object | null;
+    'payload'?: {
+        [key: string]: any;
+    } | null;
     /**
      * Module where the action is defined
      * @type {string}
@@ -3479,7 +3492,7 @@ export interface EvaluatorRequest {
      */
     'description': string;
     /**
-     * The goals for the evaluator
+     *
      * @type {GoalCoreInput}
      * @memberof EvaluatorRequest
      */
@@ -3591,10 +3604,12 @@ export interface ExternalReference {
     'id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalReference
      */
-    'providerProps'?: object | null;
+    'providerProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -3616,10 +3631,12 @@ export interface ExternalServiceProviderInput {
     'id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalServiceProviderInput
      */
-    'providerProps': object | null;
+    'providerProps': {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -3641,10 +3658,12 @@ export interface ExternalServiceProviderOutput {
     'id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalServiceProviderOutput
      */
-    'providerProps': object | null;
+    'providerProps': {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -3718,11 +3737,11 @@ export interface Feedback {
      */
     'aiAgentId': string | null;
     /**
-     * The ID of the scenario
+     *
      * @type {string}
      * @memberof Feedback
      */
-    'scenarioId': string;
+    'scenarioId': string | null;
     /**
      *
      * @type {string}
@@ -3730,11 +3749,11 @@ export interface Feedback {
      */
     'scenarioName': string | null;
     /**
-     * The ID of the persona
+     *
      * @type {string}
      * @memberof Feedback
      */
-    'personaId': string;
+    'personaId': string | null;
     /**
      *
      * @type {string}
@@ -3796,7 +3815,7 @@ export interface Feedback {
      */
     'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
-     * The analytics of the conversation
+     *
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
      */
@@ -3814,6 +3833,12 @@ export interface Feedback {
      */
     'status'?: string;
     /**
+     * The environment where the feedback was given - Only two possible values (sparr or live)
+     * @type {string}
+     * @memberof Feedback
+     */
+    'environment'?: string;
+    /**
      * The unique identifier of the feedback
      * @type {string}
      * @memberof Feedback
@@ -3825,6 +3850,12 @@ export interface Feedback {
      * @memberof Feedback
      */
     'version'?: number;
+    /**
+     *
+     * @type {FeedbackProps}
+     * @memberof Feedback
+     */
+    'feedbackProps': FeedbackProps | null;
 }
 /**
  *
@@ -3857,11 +3888,11 @@ export interface FeedbackCore {
      */
     'aiAgentId': string | null;
     /**
-     * The ID of the scenario
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    'scenarioId': string;
+    'scenarioId': string | null;
     /**
      *
      * @type {string}
@@ -3869,11 +3900,11 @@ export interface FeedbackCore {
      */
     'scenarioName': string | null;
     /**
-     * The ID of the persona
+     *
      * @type {string}
      * @memberof FeedbackCore
      */
-    'personaId': string;
+    'personaId': string | null;
     /**
      *
      * @type {string}
@@ -3935,7 +3966,7 @@ export interface FeedbackCore {
      */
     'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
-     * The analytics of the conversation
+     *
      * @type {AnalyticsModelInput}
      * @memberof FeedbackCore
      */
@@ -3952,6 +3983,31 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     'status'?: string;
+    /**
+     * The environment where the feedback was given - Only two possible values (sparr or live)
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    'environment'?: string;
+}
+/**
+ * The properties of the feedback
+ * @export
+ * @interface FeedbackProps
+ */
+export interface FeedbackProps {
+    /**
+     *
+     * @type {LiveFeedbackProps}
+     * @memberof FeedbackProps
+     */
+    'live_feedback_props': LiveFeedbackProps | null;
+    /**
+     * The properties of the sparring feedback
+     * @type {object}
+     * @memberof FeedbackProps
+     */
+    'sparr_feedback_props': object;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -4108,6 +4164,31 @@ export interface FrustrationTolerance {
 export interface FrustrationTolerance1 {
 }
 /**
+ * Request model for generating feedback from call recording and user
+ * @export
+ * @interface GenerateFeedbackRequest
+ */
+export interface GenerateFeedbackRequest {
+    /**
+     *
+     * @type {CallRecording}
+     * @memberof GenerateFeedbackRequest
+     */
+    'call_recording': CallRecording;
+    /**
+     *
+     * @type {UserData}
+     * @memberof GenerateFeedbackRequest
+     */
+    'user': UserData;
+    /**
+     *
+     * @type {string}
+     * @memberof GenerateFeedbackRequest
+     */
+    'idempotency_key'?: string | null;
+}
+/**
  *
  * @export
  * @interface GoalAnalyticsModelInput
@@ -4127,10 +4208,12 @@ export interface GoalAnalyticsModelInput {
     'overall_score'?: number | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof GoalAnalyticsModelInput
      */
-    'goals'?: object | null;
+    'goals'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -4152,10 +4235,12 @@ export interface GoalAnalyticsModelOutput {
     'overall_score'?: number | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof GoalAnalyticsModelOutput
      */
-    'goals'?: object | null;
+    'goals'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -4633,10 +4718,12 @@ export interface HiveContentInput {
     'file_ids'?: Array<string> | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentInput
      */
-    'hiveProps'?: object | null;
+    'hiveProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -4664,16 +4751,20 @@ export interface HiveContentOutput {
     'files'?: Array<Files> | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentOutput
      */
-    'hiveProps'?: object | null;
+    'hiveProps'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentOutput
      */
-    'internalProps'?: object | null;
+    'internalProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -4717,16 +4808,20 @@ export interface HttpActionEndpoint {
     'method'?: HttpActionEndpointMethodEnum;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HttpActionEndpoint
      */
-    'headers'?: object | null;
+    'headers'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HttpActionEndpoint
      */
-    'payload'?: object | null;
+    'payload'?: {
+        [key: string]: any;
+    } | null;
 }
 export declare const HttpActionEndpointMethodEnum: {
     readonly Get: "GET";
@@ -4767,10 +4862,12 @@ export interface IntelligenceProvider {
     'model'?: string | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof IntelligenceProvider
      */
-    'providerProps'?: object | null;
+    'providerProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * Enum class representing intelligence provider
@@ -4853,6 +4950,37 @@ export interface LanguageAccentCombo {
     'accent': Accent;
 }
 /**
+ * The properties of the live feedback
+ * @export
+ * @interface LiveFeedbackProps
+ */
+export interface LiveFeedbackProps {
+    /**
+     *
+     * @type {string}
+     * @memberof LiveFeedbackProps
+     */
+    'speaker_label': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof LiveFeedbackProps
+     */
+    'contact_name': string | null;
+    /**
+     * Whether the conversation was guessed by the scenario
+     * @type {boolean}
+     * @memberof LiveFeedbackProps
+     */
+    'is_scenario_ai_guessed'?: boolean;
+    /**
+     * Whether the conversation was guessed by the speaker label
+     * @type {boolean}
+     * @memberof LiveFeedbackProps
+     */
+    'is_speaker_label_ai_guessed'?: boolean;
+}
+/**
  *
  * @export
  * @interface LocationInner
@@ -4909,7 +5037,7 @@ export interface MetricDataPoint {
      */
     'value': number | null;
     /**
-     * Aggregation function used
+     *
      * @type {AggregationFormulaOutput}
      * @memberof MetricDataPoint
      */
@@ -4928,7 +5056,7 @@ export interface MetricFilter {
      */
     'field': string;
     /**
-     * Filter operator
+     *
      * @type {FilterOperator}
      * @memberof MetricFilter
      */
@@ -4995,13 +5123,13 @@ export declare type MetricNameInput = typeof MetricNameInput[keyof typeof Metric
  */
 export interface MetricRequest {
     /**
-     * Metric name
+     *
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof MetricRequest
      */
     'name': SparrModelsAnalyticsMetricName;
     /**
-     * How to aggregate the metric
+     *
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof MetricRequest
      */
@@ -5045,7 +5173,7 @@ export interface MetricsRequestInput {
      */
     'id': string;
     /**
-     * Name of the metric
+     *
      * @type {MetricNameInput}
      * @memberof MetricsRequestInput
      */
@@ -5063,13 +5191,13 @@ export interface MetricsRequestInput {
      */
     'toDate': string;
     /**
-     * Aggregation period for the metric request
+     *
      * @type {AggregationPeriod}
      * @memberof MetricsRequestInput
      */
     'aggregationPeriod': AggregationPeriod;
     /**
-     * Aggregation formula for the metric request
+     *
      * @type {AggregationFormulaInput}
      * @memberof MetricsRequestInput
      */
@@ -5088,7 +5216,7 @@ export interface MetricsResponseInput {
      */
     'id': string;
     /**
-     * Name of the metric
+     *
      * @type {MetricNameInput}
      * @memberof MetricsResponseInput
      */
@@ -5314,7 +5442,7 @@ export interface Module {
  */
 export interface ModuleAnalytics {
     /**
-     * The module information
+     *
      * @type {Module}
      * @memberof ModuleAnalytics
      */
@@ -5326,7 +5454,7 @@ export interface ModuleAnalytics {
      */
     'numberOfAttempts': number;
     /**
-     * The status of the last attempt
+     *
      * @type {ModuleAttemptStatus}
      * @memberof ModuleAnalytics
      */
@@ -5521,12 +5649,8 @@ export interface NoAuth {
      * @type {string}
      * @memberof NoAuth
      */
-    'authType'?: NoAuthAuthTypeEnum;
+    'authType'?: string;
 }
-export declare const NoAuthAuthTypeEnum: {
-    readonly Noauth: "noauth";
-};
-export declare type NoAuthAuthTypeEnum = typeof NoAuthAuthTypeEnum[keyof typeof NoAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -5538,12 +5662,8 @@ export interface NoAuthCredentials {
      * @type {string}
      * @memberof NoAuthCredentials
      */
-    'credentialsType'?: NoAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
 }
-export declare const NoAuthCredentialsCredentialsTypeEnum: {
-    readonly Noauth: "noauth";
-};
-export declare type NoAuthCredentialsCredentialsTypeEnum = typeof NoAuthCredentialsCredentialsTypeEnum[keyof typeof NoAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -5574,7 +5694,7 @@ export interface OAuth {
      * @type {string}
      * @memberof OAuth
      */
-    'authType'?: OAuthAuthTypeEnum;
+    'authType'?: string;
     /**
      * The client ID for the OAuth app
      * @type {string}
@@ -5612,10 +5732,6 @@ export interface OAuth {
      */
     'tokenUrl': string;
 }
-export declare const OAuthAuthTypeEnum: {
-    readonly Oauth: "oauth";
-};
-export declare type OAuthAuthTypeEnum = typeof OAuthAuthTypeEnum[keyof typeof OAuthAuthTypeEnum];
 /**
  *
  * @export
@@ -5627,7 +5743,7 @@ export interface OAuthCredentials {
      * @type {string}
      * @memberof OAuthCredentials
      */
-    'credentialsType'?: OAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      *
      * @type {string}
@@ -5653,10 +5769,6 @@ export interface OAuthCredentials {
      */
     'expiresAt'?: string | null;
 }
-export declare const OAuthCredentialsCredentialsTypeEnum: {
-    readonly Oauth: "oauth";
-};
-export declare type OAuthCredentialsCredentialsTypeEnum = typeof OAuthCredentialsCredentialsTypeEnum[keyof typeof OAuthCredentialsCredentialsTypeEnum];
 /**
  *
  * @export
@@ -5726,7 +5838,7 @@ export interface OrgWithCourseAssignment {
      */
     'organization': OrganizationOutput;
     /**
-     * Course assignment status (assigned/unassigned)
+     *
      * @type {CourseAssignmentStatus}
      * @memberof OrgWithCourseAssignment
      */
@@ -5921,16 +6033,20 @@ export interface OrganizationOutput {
     'updatedAt'?: string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof OrganizationOutput
      */
-    'internalProps': object | null;
+    'internalProps': {
+        [key: string]: any;
+    } | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof OrganizationOutput
      */
-    'adminProps': object | null;
+    'adminProps': {
+        [key: string]: any;
+    } | null;
     /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
@@ -6098,13 +6214,13 @@ export interface Persona {
      */
     'context': string;
     /**
-     * The voice of the persona
+     *
      * @type {SparrVoiceOutput}
      * @memberof Persona
      */
     'voice': SparrVoiceOutput;
     /**
-     * The demeanor of the persona
+     *
      * @type {SparrDemeanorOutput}
      * @memberof Persona
      */
@@ -6256,13 +6372,13 @@ export interface PersonaCore {
      */
     'context': string;
     /**
-     * The voice of the persona
+     *
      * @type {SparrVoiceInput}
      * @memberof PersonaCore
      */
     'voice': SparrVoiceInput;
     /**
-     * The demeanor of the persona
+     *
      * @type {SparrDemeanorInput}
      * @memberof PersonaCore
      */
@@ -6513,7 +6629,7 @@ export interface PriceItem {
      */
     'pricePerQuantity'?: number | null;
     /**
-     * Type of the credit
+     *
      * @type {CreditTypeEnum}
      * @memberof PriceItem
      */
@@ -6544,7 +6660,7 @@ export interface PricingRequest {
      */
     'currency': string;
     /**
-     * Price interval
+     *
      * @type {PriceInterval}
      * @memberof PricingRequest
      */
@@ -6612,10 +6728,12 @@ export interface ProductInput {
     'scheduleAppointment'?: boolean;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProductInput
      */
-    'props'?: object | null;
+    'props'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {Set<string>}
@@ -6876,10 +6994,12 @@ export interface ProductOutput {
     'scheduleAppointment'?: boolean;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProductOutput
      */
-    'props'?: object | null;
+    'props'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {Set<string>}
@@ -7011,10 +7131,12 @@ export interface ProspectInput {
     'status': ProspectStatus;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProspectInput
      */
-    'prospectProps'?: object | null;
+    'prospectProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * Prospects are the potential customers for business
@@ -7066,10 +7188,12 @@ export interface ProspectOutput {
     'status': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProspectOutput
      */
-    'prospectProps': object | null;
+    'prospectProps': {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {string}
@@ -7257,7 +7381,7 @@ export declare type RubricLevel = typeof RubricLevel[keyof typeof RubricLevel];
  */
 export interface RubricScore {
     /**
-     * The rubric level that best describes the performance
+     *
      * @type {RubricLevel}
      * @memberof RubricScore
      */
@@ -7275,7 +7399,7 @@ export interface RubricScore {
      */
     'fine_tune'?: number;
     /**
-     * Exact quotes from the USER\'s dialogue that justify this assessment. Exclude any AI-generated responses. Only include verbatim user statements that directly support your evaluation. If no such quotes exist, leave this field blank. Accompany each quote with a brief explanation of its relevance and how it substantiates the assessment. Keep the explanation concise and focused.
+     * Cite the exact user dialogue(s) that support your assessment. Explain briefly how these align with the evaluation criteria. If there are improvement opportunities that can help meet the goals more effectively, include a concise coaching tip. Keep the explanation focused and to the point.
      * @type {Array<string>}
      * @memberof RubricScore
      */
@@ -7440,7 +7564,7 @@ export interface ScenarioResponse {
      */
     'callType': CallType | null;
     /**
-     * The familiarity level for this scenario
+     *
      * @type {FamiliarityLevel}
      * @memberof ScenarioResponse
      */
@@ -7759,7 +7883,7 @@ export interface SparrDialogLine {
      * @type {string}
      * @memberof SparrDialogLine
      */
-    'speaker': SparrDialogLineSpeakerEnum;
+    'speaker': string;
     /**
      *
      * @type {string}
@@ -7779,13 +7903,6 @@ export interface SparrDialogLine {
      */
     'message_id': string;
 }
-export declare const SparrDialogLineSpeakerEnum: {
-    readonly User: "USER";
-    readonly Ai: "AI";
-    readonly Tool: "TOOL";
-    readonly AiToolRequest: "AI - TOOL REQUEST";
-};
-export declare type SparrDialogLineSpeakerEnum = typeof SparrDialogLineSpeakerEnum[keyof typeof SparrDialogLineSpeakerEnum];
 /**
  *
  * @export
@@ -7944,13 +8061,13 @@ export declare type SparrInteractionTone = typeof SparrInteractionTone[keyof typ
  */
 export interface SparrLanguageAccentCombo {
     /**
-     * The language of the voice
+     *
      * @type {SparrVoiceLanguage}
      * @memberof SparrLanguageAccentCombo
      */
     'language': SparrVoiceLanguage;
     /**
-     * The accent of the voice
+     *
      * @type {SparrVoiceAccent}
      * @memberof SparrLanguageAccentCombo
      */
@@ -8100,7 +8217,7 @@ export interface SparrModelsAnalyticsMetricsRequest {
      */
     'id': string;
     /**
-     * Name of the metric
+     *
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
@@ -8118,13 +8235,13 @@ export interface SparrModelsAnalyticsMetricsRequest {
      */
     'toDate': string;
     /**
-     * Aggregation period for the metric request
+     *
      * @type {AggregationPeriod}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
     'aggregationPeriod': AggregationPeriod;
     /**
-     * Aggregation formula for the metric request
+     *
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
@@ -8149,7 +8266,7 @@ export interface SparrModelsAnalyticsMetricsResponse {
      */
     'id': string;
     /**
-     * Name of the metric
+     *
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
@@ -8339,7 +8456,7 @@ export interface SparrStatsData {
  */
 export interface SparrStatsResponse {
     /**
-     * Sparring stats of the organization
+     *
      * @type {SparrStatsData}
      * @memberof SparrStatsResponse
      */
@@ -8472,6 +8589,73 @@ export interface SparrWorkDetails {
 /**
  *
  * @export
+ * @interface Sparrv1EvaluateFeedbackRequest
+ */
+export interface Sparrv1EvaluateFeedbackRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'thread_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'email': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'recording_url': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'contact_name'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'start_timestamp'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'end_timestamp'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'feedback_id'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'scenario_id'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'persona_id'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'transcript'?: string | null;
+}
+/**
+ *
+ * @export
  * @interface StatsData
  */
 export interface StatsData {
@@ -8507,7 +8691,7 @@ export interface StatsData {
  */
 export interface StatsResponse {
     /**
-     * Overall stats of prospects
+     *
      * @type {StatsData}
      * @memberof StatsResponse
      */
@@ -8659,53 +8843,119 @@ export declare type SynthesizerConfig = typeof SynthesizerConfig[keyof typeof Sy
 /**
  *
  * @export
- * @interface SystemMetrics
+ * @interface SystemMetricsInput
  */
-export interface SystemMetrics {
+export interface SystemMetricsInput {
     /**
      *
      * @type {string}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
-    'average_sentiment': SystemMetricsAverageSentimentEnum | null;
+    'average_sentiment': SystemMetricsInputAverageSentimentEnum | null;
     /**
      *
      * @type {FillerWords}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'filler_words': FillerWords | null;
     /**
      *
      * @type {LongestMonologue}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'longest_monologue': LongestMonologue | null;
     /**
      *
      * @type {number}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'speech_pace': number | null;
     /**
      *
      * @type {number}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'user_talk_ratio'?: number | null;
     /**
      *
      * @type {Array<SparrDialogLineWithSentiment>}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'dialog_lines_sentiment': Array<SparrDialogLineWithSentiment> | null;
+    /**
+     *
+     * @type {{ [key: string]: SystemMetricsInput; }}
+     * @memberof SystemMetricsInput
+     */
+    'all_speakers_metrics'?: {
+        [key: string]: SystemMetricsInput;
+    } | null;
 }
-export declare const SystemMetricsAverageSentimentEnum: {
+export declare const SystemMetricsInputAverageSentimentEnum: {
     readonly Positive: "POSITIVE";
     readonly Negative: "NEGATIVE";
     readonly Neutral: "NEUTRAL";
     readonly Empty: "";
 };
-export declare type SystemMetricsAverageSentimentEnum = typeof SystemMetricsAverageSentimentEnum[keyof typeof SystemMetricsAverageSentimentEnum];
+export declare type SystemMetricsInputAverageSentimentEnum = typeof SystemMetricsInputAverageSentimentEnum[keyof typeof SystemMetricsInputAverageSentimentEnum];
+/**
+ *
+ * @export
+ * @interface SystemMetricsOutput
+ */
+export interface SystemMetricsOutput {
+    /**
+     *
+     * @type {string}
+     * @memberof SystemMetricsOutput
+     */
+    'average_sentiment': SystemMetricsOutputAverageSentimentEnum | null;
+    /**
+     *
+     * @type {FillerWords}
+     * @memberof SystemMetricsOutput
+     */
+    'filler_words': FillerWords | null;
+    /**
+     *
+     * @type {LongestMonologue}
+     * @memberof SystemMetricsOutput
+     */
+    'longest_monologue': LongestMonologue | null;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemMetricsOutput
+     */
+    'speech_pace': number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemMetricsOutput
+     */
+    'user_talk_ratio'?: number | null;
+    /**
+     *
+     * @type {Array<SparrDialogLineWithSentiment>}
+     * @memberof SystemMetricsOutput
+     */
+    'dialog_lines_sentiment': Array<SparrDialogLineWithSentiment> | null;
+    /**
+     *
+     * @type {{ [key: string]: SystemMetricsOutput; }}
+     * @memberof SystemMetricsOutput
+     */
+    'all_speakers_metrics'?: {
+        [key: string]: SystemMetricsOutput;
+    } | null;
+}
+export declare const SystemMetricsOutputAverageSentimentEnum: {
+    readonly Positive: "POSITIVE";
+    readonly Negative: "NEGATIVE";
+    readonly Neutral: "NEUTRAL";
+    readonly Empty: "";
+};
+export declare type SystemMetricsOutputAverageSentimentEnum = typeof SystemMetricsOutputAverageSentimentEnum[keyof typeof SystemMetricsOutputAverageSentimentEnum];
 /**
  * Request model for creating a tag
  * @export
@@ -8733,10 +8983,12 @@ export interface TaxDetailsInput {
     'id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TaxDetailsInput
      */
-    'taxProps': object | null;
+    'taxProps': {
+        [key: string]: any;
+    } | null;
 }
 /**
  *
@@ -8752,10 +9004,12 @@ export interface TaxDetailsOutput {
     'id': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TaxDetailsOutput
      */
-    'taxProps': object | null;
+    'taxProps': {
+        [key: string]: any;
+    } | null;
 }
 /**
  * Telephone number details of the business
@@ -8795,10 +9049,12 @@ export interface TelephoneNumber {
     'agentId'?: string | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TelephoneNumber
      */
-    'internalProps'?: object | null;
+    'internalProps'?: {
+        [key: string]: any;
+    } | null;
     /**
      *
      * @type {string}
@@ -8823,6 +9079,65 @@ export interface TelephoneNumber {
      * @memberof TelephoneNumber
      */
     'updatedAt'?: string;
+}
+/**
+ * Telephony app names
+ * @export
+ * @enum {string}
+ */
+export declare const TelephonyApp: {
+    readonly Ringcentral: "ringcentral";
+    readonly Vonage: "vonage";
+    readonly MsTeams: "ms_teams";
+    readonly Avaya: "avaya";
+    readonly Gong: "gong";
+    readonly Zoom: "zoom";
+    readonly Trata: "trata";
+};
+export declare type TelephonyApp = typeof TelephonyApp[keyof typeof TelephonyApp];
+/**
+ * Request model for OAuth connection
+ * @export
+ * @interface TelephonyConnectRequest
+ */
+export interface TelephonyConnectRequest {
+    /**
+     * OAuth authorization code from the provider
+     * @type {string}
+     * @memberof TelephonyConnectRequest
+     */
+    'code': string;
+    /**
+     *
+     * @type {TelephonyApp}
+     * @memberof TelephonyConnectRequest
+     */
+    'appName': TelephonyApp;
+}
+/**
+ * Response model for OAuth connection
+ * @export
+ * @interface TelephonyConnectResponse
+ */
+export interface TelephonyConnectResponse {
+    /**
+     * Whether the connection was successful
+     * @type {boolean}
+     * @memberof TelephonyConnectResponse
+     */
+    'success': boolean;
+    /**
+     * Response message
+     * @type {string}
+     * @memberof TelephonyConnectResponse
+     */
+    'message': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TelephonyConnectResponse
+     */
+    'connection_id'?: string | null;
 }
 /**
  * Tracker represents a collection of keywords with name and description
@@ -9031,10 +9346,12 @@ export interface Transcriber {
     'transcriberModel'?: string | null;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Transcriber
      */
-    'providerProps'?: object | null;
+    'providerProps'?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * Enum class representing transcriber
@@ -9116,7 +9433,7 @@ export interface UpdateUserRequest {
      */
     'name': string;
     /**
-     * Role of the user
+     *
      * @type {AuthRole}
      * @memberof UpdateUserRequest
      */
@@ -9330,7 +9647,7 @@ export interface UserCourseAssignment {
      */
     'courseName': string | null;
     /**
-     * The completion status of the course
+     *
      * @type {CourseCompletionStatus}
      * @memberof UserCourseAssignment
      */
@@ -9355,7 +9672,7 @@ export interface UserCourseAssignment {
  */
 export interface UserCourseAssignmentAnalyticsResponse {
     /**
-     * The course assignment
+     *
      * @type {UserCourseAssignment}
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
@@ -9366,6 +9683,19 @@ export interface UserCourseAssignmentAnalyticsResponse {
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
     'courseAnalytics': Array<ModuleAnalytics>;
+}
+/**
+ * Model for user data
+ * @export
+ * @interface UserData
+ */
+export interface UserData {
+    /**
+     * Email of the user
+     * @type {string}
+     * @memberof UserData
+     */
+    'email': string;
 }
 /**
  * UserModuleAttempt represents a user\'s attempt at a module
@@ -9422,7 +9752,7 @@ export interface UserModuleAttempt {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     *
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttempt
      */
@@ -9471,7 +9801,7 @@ export interface UserModuleAttemptCore {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     *
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptCore
      */
@@ -9514,7 +9844,7 @@ export interface UserModuleAttemptResponse {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     *
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptResponse
      */
@@ -9947,7 +10277,7 @@ export interface VirtualProspectInput {
      */
     'description'?: string | null;
     /**
-     * Attributes of the virtual prospect
+     *
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectInput
      */
@@ -10032,7 +10362,7 @@ export interface VirtualProspectOutput {
      */
     'context'?: string | null;
     /**
-     * Type of the virtual prospect
+     *
      * @type {VirtualProspectTypeEnum}
      * @memberof VirtualProspectOutput
      */
@@ -10284,16 +10614,20 @@ export interface WorkflowActivityInfo {
     'status': string;
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowActivityInfo
      */
-    'input': object;
+    'input': {
+        [key: string]: any;
+    };
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowActivityInfo
      */
-    'result': object;
+    'result': {
+        [key: string]: any;
+    };
     /**
      *
      * @type {string}
@@ -10333,16 +10667,20 @@ export interface WorkflowContext {
     'runId': string;
     /**
      * The input of the step
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowContext
      */
-    'stepInput': object;
+    'stepInput': {
+        [key: string]: any;
+    };
     /**
      * The response of the step
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowContext
      */
-    'stepResponse': object;
+    'stepResponse': {
+        [key: string]: any;
+    };
 }
 /**
  * Core Workflow Model
@@ -10433,10 +10771,12 @@ export interface WorkflowExecution {
     'activityInfo': Array<WorkflowActivityInfo>;
     /**
      * The final result of the workflow execution
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowExecution
      */
-    'result': object;
+    'result': {
+        [key: string]: any;
+    };
 }
 /**
  * Flow Step Model
@@ -10487,7 +10827,7 @@ export interface WorkflowStepInput {
      */
     'dataResolver'?: string | null;
     /**
-     * Resolver for determining the next step
+     *
      * @type {NextStepResolver}
      * @memberof WorkflowStepInput
      */
@@ -10542,7 +10882,7 @@ export interface WorkflowStepOutput {
      */
     'dataResolver'?: string | null;
     /**
-     * Resolver for determining the next step
+     *
      * @type {NextStepResolver}
      * @memberof WorkflowStepOutput
      */
@@ -10575,16 +10915,20 @@ export interface WorkflowStepTriggerRequest {
 export interface WorkflowStepTriggerResponse {
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowStepTriggerResponse
      */
-    'input': object;
+    'input': {
+        [key: string]: any;
+    };
     /**
      *
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowStepTriggerResponse
      */
-    'response': object;
+    'response': {
+        [key: string]: any;
+    };
 }
 /**
  * ActionAgentLinkApi - axios parameter creator
@@ -11665,6 +12009,65 @@ export declare class BillingApi extends BaseAPI {
     getSubscriptionV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionInfo>>;
 }
 /**
+ * ConnectApi - axios parameter creator
+ * @export
+ */
+export declare const ConnectApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    connectOauthV1: (telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * ConnectApi - functional programming interface
+ * @export
+ */
+export declare const ConnectApiFp: (configuration?: Configuration) => {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephonyConnectResponse>>;
+};
+/**
+ * ConnectApi - factory interface
+ * @export
+ */
+export declare const ConnectApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): AxiosPromise<TelephonyConnectResponse>;
+};
+/**
+ * ConnectApi - object-oriented interface
+ * @export
+ * @class ConnectApi
+ * @extends {BaseAPI}
+ */
+export declare class ConnectApi extends BaseAPI {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectApi
+     */
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephonyConnectResponse>>;
+}
+/**
  * ConversationProspectLinkApi - axios parameter creator
  * @export
  */
@@ -12251,11 +12654,11 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1: (files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadFileV1: (files: Array<File>, validator?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FilesApi - functional programming interface
@@ -12274,11 +12677,11 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * FilesApi - factory interface
@@ -12297,11 +12700,11 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
 };
 /**
  * FilesApi - object-oriented interface
@@ -12323,20 +12726,13 @@ export declare class FilesApi extends BaseAPI {
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
 }
-/**
- * @export
- */
-export declare const UploadFileV1ValidatorEnum: {
-    readonly CampaignProspectSchemaCsv: "campaign-prospect-schema-csv";
-};
-export declare type UploadFileV1ValidatorEnum = typeof UploadFileV1ValidatorEnum[keyof typeof UploadFileV1ValidatorEnum];
 /**
  * HealthApi - axios parameter creator
  * @export
@@ -12368,14 +12764,18 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: any;
+    }>>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: any;
+    }>>;
 };
 /**
  * HealthApi - factory interface
@@ -12388,14 +12788,18 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
+    statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+        [key: string]: any;
+    }>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+        [key: string]: any;
+    }>;
 };
 /**
  * HealthApi - object-oriented interface
@@ -12411,7 +12815,9 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
+    statusStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+        [key: string]: any;
+    }>>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
@@ -12419,7 +12825,9 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
+    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+        [key: string]: any;
+    }>>;
 }
 /**
  * HiveApi - axios parameter creator
@@ -16381,6 +16789,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    evaluateFeedbackV1: (sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -16388,6 +16804,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateFeedbackV1: (generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -16924,6 +17348,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -16931,6 +17363,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -17205,7 +17645,9 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: any;
+    }>>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -17467,6 +17909,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -17474,6 +17924,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -17748,7 +18206,9 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<object>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+        [key: string]: any;
+    }>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -18033,6 +18493,15 @@ export declare class SparrApi extends BaseAPI {
      */
     detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -18041,6 +18510,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -18346,7 +18824,9 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<object>>;
+    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+        [key: string]: any;
+    }>>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -21078,7 +21558,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionCore>>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
     /**
      *
      * @summary Read App
@@ -21138,7 +21618,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<ConnectionCore>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Read App
@@ -21203,7 +21683,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionCore[]>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[]>>;
     /**
      *
      * @summary Read App
@@ -21444,11 +21924,13 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} requestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId: string, body: object, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId: string, requestBody: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -21472,11 +21954,13 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} [requestBody]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, body: object, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, requestBody?: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsExecutionsApi - functional programming interface
@@ -21487,11 +21971,13 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} requestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -21515,11 +22001,13 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} [requestBody]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
 };
 /**
  * WorkflowsExecutionsApi - factory interface
@@ -21530,11 +22018,13 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} requestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -21558,11 +22048,13 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} [requestBody]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
 };
 /**
  * WorkflowsExecutionsApi - object-oriented interface
@@ -21575,12 +22067,14 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} requestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -21606,12 +22100,14 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} [requestBody]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
+        [key: string]: any;
+    }, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
 }
 /**
  * WorkflowsSubWorkflowsApi - axios parameter creator

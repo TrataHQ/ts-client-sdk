@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.SendInviteV1AppEnum = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.UploadFileV1ValidatorEnum = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UserPerformanceSummaryRequestSortOrderEnum = exports.UiNodeType = exports.TranscriberConfig = exports.SystemMetricsAverageSentimentEnum = exports.SynthesizerConfig = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsAggregationFormula = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDialogLineSpeakerEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.RubricLevel = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.OrganizationInitializationStatus = exports.OAuthCredentialsCredentialsTypeEnum = exports.OAuthAuthTypeEnum = exports.NoAuthCredentialsCredentialsTypeEnum = exports.NoAuthAuthTypeEnum = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.IntelligenceProviderConfig = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.HiveStorageConfig = exports.FilterOperator = exports.FillersConfig = exports.FamiliarityLevel = exports.EndpointMethodEnum = exports.EmbeddingsModelConfig = exports.DialogLineSpeakerEnum = exports.CreditTypeEnum = exports.CredentialsCredentialsTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.ConversationStartEventPayloadTypeEnum = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.ChangeAssignmentOperation = exports.CallType = exports.CallSentiment = exports.BasicAuthCredentialsCredentialsTypeEnum = exports.BasicAuthAuthTypeEnum = exports.AuthRole = exports.AuthInnerAuthTypeEnum = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyRequestKeyTypeEnum = exports.ApiKeyCredentialsCredentialsTypeEnum = exports.ApiKeyAuthAuthTypeEnum = exports.AggregationPeriod = exports.AggregationFormulaOutput = exports.AggregationFormulaInput = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
+exports.WorkflowsSubWorkflowsApi = exports.WorkflowsSubWorkflowsApiFactory = exports.WorkflowsSubWorkflowsApiFp = exports.WorkflowsSubWorkflowsApiAxiosParamCreator = exports.WorkflowsExecutionsApi = exports.WorkflowsExecutionsApiFactory = exports.WorkflowsExecutionsApiFp = exports.WorkflowsExecutionsApiAxiosParamCreator = exports.WorkflowsConnectionsApi = exports.WorkflowsConnectionsApiFactory = exports.WorkflowsConnectionsApiFp = exports.WorkflowsConnectionsApiAxiosParamCreator = exports.WorkflowsAppsApi = exports.WorkflowsAppsApiFactory = exports.WorkflowsAppsApiFp = exports.WorkflowsAppsApiAxiosParamCreator = exports.WorkflowsApiHubspotApi = exports.WorkflowsApiHubspotApiFactory = exports.WorkflowsApiHubspotApiFp = exports.WorkflowsApiHubspotApiAxiosParamCreator = exports.WorkflowsApi = exports.WorkflowsApiFactory = exports.WorkflowsApiFp = exports.WorkflowsApiAxiosParamCreator = exports.VoiceModelsApi = exports.VoiceModelsApiFactory = exports.VoiceModelsApiFp = exports.VoiceModelsApiAxiosParamCreator = exports.UIApi = exports.UIApiFactory = exports.UIApiFp = exports.UIApiAxiosParamCreator = exports.TelephonyApi = exports.TelephonyApiFactory = exports.TelephonyApiFp = exports.TelephonyApiAxiosParamCreator = exports.SparringApi = exports.SparringApiFactory = exports.SparringApiFp = exports.SparringApiAxiosParamCreator = exports.SparrResellerApi = exports.SparrResellerApiFactory = exports.SparrResellerApiFp = exports.SparrResellerApiAxiosParamCreator = exports.SparrApi = exports.SparrApiFactory = exports.SparrApiFp = exports.SparrApiAxiosParamCreator = exports.ResellerUserApi = exports.ResellerUserApiFactory = exports.ResellerUserApiFp = exports.ResellerUserApiAxiosParamCreator = exports.ResellerSettingsApi = exports.ResellerSettingsApiFactory = exports.ResellerSettingsApiFp = exports.ResellerSettingsApiAxiosParamCreator = exports.ResellerPricingApi = exports.ResellerPricingApiFactory = exports.ResellerPricingApiFp = exports.ResellerPricingApiAxiosParamCreator = exports.ResellerOrganizationApi = exports.ResellerOrganizationApiFactory = exports.ResellerOrganizationApiFp = exports.ResellerOrganizationApiAxiosParamCreator = exports.ResellerMetricsApi = exports.ResellerMetricsApiFactory = exports.ResellerMetricsApiFp = exports.ResellerMetricsApiAxiosParamCreator = exports.ResellerFilesApi = exports.ResellerFilesApiFactory = exports.ResellerFilesApiFp = exports.ResellerFilesApiAxiosParamCreator = exports.ResellerCustomerUserApi = exports.ResellerCustomerUserApiFactory = exports.ResellerCustomerUserApiFp = exports.ResellerCustomerUserApiAxiosParamCreator = exports.ResellerCustomerPricingApi = exports.ResellerCustomerPricingApiFactory = exports.ResellerCustomerPricingApiFp = exports.ResellerCustomerPricingApiAxiosParamCreator = exports.ResellerCustomerPortalApi = exports.ResellerCustomerPortalApiFactory = exports.ResellerCustomerPortalApiFp = exports.ResellerCustomerPortalApiAxiosParamCreator = exports.ResellerCustomerDefaultPricingApi = exports.ResellerCustomerDefaultPricingApiFactory = exports.ResellerCustomerDefaultPricingApiFp = exports.ResellerCustomerDefaultPricingApiAxiosParamCreator = exports.ResellerCustomerCheckoutApi = exports.ResellerCustomerCheckoutApiFactory = exports.ResellerCustomerCheckoutApiFp = exports.ResellerCustomerCheckoutApiAxiosParamCreator = exports.ResellerCustomerAuditLogsApi = exports.ResellerCustomerAuditLogsApiFactory = exports.ResellerCustomerAuditLogsApiFp = exports.ResellerCustomerAuditLogsApiAxiosParamCreator = exports.ResellerCustomerApi = exports.ResellerCustomerApiFactory = exports.ResellerCustomerApiFp = exports.ResellerCustomerApiAxiosParamCreator = exports.ResellerCourseAssignmentsApi = exports.ResellerCourseAssignmentsApiFactory = exports.ResellerCourseAssignmentsApiFp = exports.ResellerCourseAssignmentsApiAxiosParamCreator = exports.ProspectsApi = exports.ProspectsApiFactory = exports.ProspectsApiFp = exports.ProspectsApiAxiosParamCreator = exports.ProductsApi = exports.ProductsApiFactory = exports.ProductsApiFp = exports.ProductsApiAxiosParamCreator = exports.SendInviteV1AppEnum = exports.InternalApi = exports.InternalApiFactory = exports.InternalApiFp = exports.InternalApiAxiosParamCreator = exports.HiveAgentLinkApi = exports.HiveAgentLinkApiFactory = exports.HiveAgentLinkApiFp = exports.HiveAgentLinkApiAxiosParamCreator = exports.HiveApi = exports.HiveApiFactory = exports.HiveApiFp = exports.HiveApiAxiosParamCreator = exports.HealthApi = exports.HealthApiFactory = exports.HealthApiFp = exports.HealthApiAxiosParamCreator = exports.FilesApi = exports.FilesApiFactory = exports.FilesApiFp = exports.FilesApiAxiosParamCreator = exports.DataPlaneApi = exports.DataPlaneApiFactory = exports.DataPlaneApiFp = exports.DataPlaneApiAxiosParamCreator = exports.ConversationsApi = exports.ConversationsApiFactory = exports.ConversationsApiFp = exports.ConversationsApiAxiosParamCreator = exports.ConversationProspectLinkApi = exports.ConversationProspectLinkApiFactory = exports.ConversationProspectLinkApiFp = exports.ConversationProspectLinkApiAxiosParamCreator = exports.ConnectApi = exports.ConnectApiFactory = exports.ConnectApiFp = exports.ConnectApiAxiosParamCreator = exports.BillingApi = exports.BillingApiFactory = exports.BillingApiFp = exports.BillingApiAxiosParamCreator = exports.ApiKeyApi = exports.ApiKeyApiFactory = exports.ApiKeyApiFp = exports.ApiKeyApiAxiosParamCreator = exports.AnalyticsApi = exports.AnalyticsApiFactory = exports.AnalyticsApiFp = exports.AnalyticsApiAxiosParamCreator = exports.AgentsApi = exports.AgentsApiFactory = exports.AgentsApiFp = exports.AgentsApiAxiosParamCreator = exports.ActionsApi = exports.ActionsApiFactory = exports.ActionsApiFp = exports.ActionsApiAxiosParamCreator = exports.ActionAgentLinkApi = exports.ActionAgentLinkApiFactory = exports.ActionAgentLinkApiFp = exports.ActionAgentLinkApiAxiosParamCreator = exports.VoiceOutputGenderEnum = exports.VoiceInputGenderEnum = exports.VirtualProspectTypeEnum = exports.UserPerformanceSummaryRequestSortOrderEnum = exports.UiNodeType = exports.TranscriberConfig = exports.TelephonyApp = exports.SystemMetricsOutputAverageSentimentEnum = exports.SystemMetricsInputAverageSentimentEnum = exports.SynthesizerConfig = exports.Status = exports.SparrVoiceLanguage = exports.SparrVoiceAccent = exports.SparrRudenessLevel = exports.SparrPatienceLevel = exports.SparrNegotiationStyle = exports.SparrModelsAnalyticsMetricName = exports.SparrModelsAnalyticsAggregationFormula = exports.SparrInteractionTone = exports.SparrFrustrationTolerance = exports.SparrExcitementLevel = exports.SparrEngagementLevel = exports.SparrDialogLineWithSentimentSentimentEnum = exports.SparrDecisionMakingStyle = exports.SparrCommunicationStyle = exports.SparrAdaptability = exports.SortOrder = exports.RubricLevel = exports.Role = exports.ProspectStatus = exports.ProductInputCurrencyEnum = exports.PriceInterval = exports.OrganizationInitializationStatus = exports.ModuleAttemptStatus = exports.MetricNameInput = exports.Language = exports.InteractionTone = exports.IntelligenceProviderConfig = exports.HttpActionEndpointMethodEnum = exports.HiveType = exports.HiveStorageConfig = exports.FilterOperator = exports.FillersConfig = exports.FamiliarityLevel = exports.EndpointMethodEnum = exports.EmbeddingsModelConfig = exports.DialogLineSpeakerEnum = exports.CreditTypeEnum = exports.CourseCompletionStatus = exports.CourseAssignmentStatus = exports.ConversationSourceType = exports.ConnectionSourceSourceNameEnum = exports.ChangeAssignmentOperation = exports.CallType = exports.CallSentiment = exports.AuthRole = exports.AppEnumOutput = exports.AppEnumInput = exports.AppActionType = exports.ApiKeyRequestKeyTypeEnum = exports.AggregationPeriod = exports.AggregationFormulaOutput = exports.AggregationFormulaInput = exports.AgenticWorkflowAdkModelsWorkflowAppEnum = exports.Adaptability = exports.ActionInvocationTrigger = exports.Accent = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -104,12 +104,6 @@ exports.AggregationPeriod = {
     Weekly: 'WEEKLY',
     Daily: 'DAILY'
 };
-exports.ApiKeyAuthAuthTypeEnum = {
-    Apikey: 'apikey'
-};
-exports.ApiKeyCredentialsCredentialsTypeEnum = {
-    Apikey: 'apikey'
-};
 exports.ApiKeyRequestKeyTypeEnum = {
     ApiKey: 'api_key',
     CallKey: 'call_key'
@@ -143,9 +137,6 @@ exports.AppEnumOutput = {
     TrataSparr: 'TRATA_SPARR',
     TrataSparrV1: 'TRATA_SPARR_V1'
 };
-exports.AuthInnerAuthTypeEnum = {
-    Noauth: 'noauth'
-};
 /**
  *
  * @export
@@ -155,12 +146,6 @@ exports.AuthRole = {
     Owner: 'Owner',
     Admin: 'Admin',
     Member: 'Member'
-};
-exports.BasicAuthAuthTypeEnum = {
-    Basic: 'basic'
-};
-exports.BasicAuthCredentialsCredentialsTypeEnum = {
-    Basic: 'basic'
 };
 /**
  *
@@ -211,9 +196,6 @@ exports.ConversationSourceType = {
     Twilio: 'TWILIO',
     Plivo: 'PLIVO'
 };
-exports.ConversationStartEventPayloadTypeEnum = {
-    ConversationStart: 'conversation_start'
-};
 /**
  *
  * @export
@@ -232,9 +214,6 @@ exports.CourseCompletionStatus = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Completed: 'COMPLETED'
-};
-exports.CredentialsCredentialsTypeEnum = {
-    Noauth: 'noauth'
 };
 /**
  * Enum for the type of credit
@@ -429,18 +408,6 @@ exports.ModuleAttemptStatus = {
     Passed: 'PASSED',
     Failed: 'FAILED',
     NotAttempted: 'NOT_ATTEMPTED'
-};
-exports.NoAuthAuthTypeEnum = {
-    Noauth: 'noauth'
-};
-exports.NoAuthCredentialsCredentialsTypeEnum = {
-    Noauth: 'noauth'
-};
-exports.OAuthAuthTypeEnum = {
-    Oauth: 'oauth'
-};
-exports.OAuthCredentialsCredentialsTypeEnum = {
-    Oauth: 'oauth'
 };
 /**
  *
@@ -716,12 +683,6 @@ exports.SparrDecisionMakingStyle = {
     Impulsive: 'impulsive',
     Hesitant: 'hesitant'
 };
-exports.SparrDialogLineSpeakerEnum = {
-    User: 'USER',
-    Ai: 'AI',
-    Tool: 'TOOL',
-    AiToolRequest: 'AI - TOOL REQUEST'
-};
 exports.SparrDialogLineWithSentimentSentimentEnum = {
     Positive: 'POSITIVE',
     Negative: 'NEGATIVE',
@@ -890,11 +851,31 @@ exports.SynthesizerConfig = {
     CustomPropsCanStreamInputTrueModelNameSonicEnglishModelProviderCartesia: '{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"sonic-english\",\"ModelProvider\":\"Cartesia\"}',
     CustomPropsCanStreamInputTrueModelNameMistModelProviderRime: '{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"mist\",\"ModelProvider\":\"Rime\"}'
 };
-exports.SystemMetricsAverageSentimentEnum = {
+exports.SystemMetricsInputAverageSentimentEnum = {
     Positive: 'POSITIVE',
     Negative: 'NEGATIVE',
     Neutral: 'NEUTRAL',
     Empty: ''
+};
+exports.SystemMetricsOutputAverageSentimentEnum = {
+    Positive: 'POSITIVE',
+    Negative: 'NEGATIVE',
+    Neutral: 'NEUTRAL',
+    Empty: ''
+};
+/**
+ * Telephony app names
+ * @export
+ * @enum {string}
+ */
+exports.TelephonyApp = {
+    Ringcentral: 'ringcentral',
+    Vonage: 'vonage',
+    MsTeams: 'ms_teams',
+    Avaya: 'avaya',
+    Gong: 'gong',
+    Zoom: 'zoom',
+    Trata: 'trata'
 };
 /**
  * Enum class representing transcriber
@@ -3080,6 +3061,111 @@ class BillingApi extends base_1.BaseAPI {
 }
 exports.BillingApi = BillingApi;
 /**
+ * ConnectApi - axios parameter creator
+ * @export
+ */
+exports.ConnectApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        connectOauthV1: (telephonyConnectRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'telephonyConnectRequest' is not null or undefined
+            common_1.assertParamExists('connectOauthV1', 'telephonyConnectRequest', telephonyConnectRequest);
+            const localVarPath = `/v1/sparr/connect/telephony/oauth`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(telephonyConnectRequest, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * ConnectApi - functional programming interface
+ * @export
+ */
+exports.ConnectApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.ConnectApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        connectOauthV1(telephonyConnectRequest, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.connectOauthV1(telephonyConnectRequest, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['ConnectApi.connectOauthV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+    };
+};
+/**
+ * ConnectApi - factory interface
+ * @export
+ */
+exports.ConnectApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.ConnectApiFp(configuration);
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        connectOauthV1(telephonyConnectRequest, options) {
+            return localVarFp.connectOauthV1(telephonyConnectRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * ConnectApi - object-oriented interface
+ * @export
+ * @class ConnectApi
+ * @extends {BaseAPI}
+ */
+class ConnectApi extends base_1.BaseAPI {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectApi
+     */
+    connectOauthV1(telephonyConnectRequest, options) {
+        return exports.ConnectApiFp(this.configuration).connectOauthV1(telephonyConnectRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.ConnectApi = ConnectApi;
+/**
  * ConversationProspectLinkApi - axios parameter creator
  * @export
  */
@@ -4235,7 +4321,7 @@ exports.FilesApiAxiosParamCreator = function (configuration) {
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4303,7 +4389,7 @@ exports.FilesApiFp = function (configuration) {
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4339,7 +4425,7 @@ exports.FilesApiFactory = function (configuration, basePath, axios) {
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -4370,7 +4456,7 @@ class FilesApi extends base_1.BaseAPI {
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApi
@@ -4380,12 +4466,6 @@ class FilesApi extends base_1.BaseAPI {
     }
 }
 exports.FilesApi = FilesApi;
-/**
- * @export
- */
-exports.UploadFileV1ValidatorEnum = {
-    CampaignProspectSchemaCsv: 'campaign-prospect-schema-csv'
-};
 /**
  * HealthApi - axios parameter creator
  * @export
@@ -12142,7 +12222,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createCourseV1: (courseRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'courseRequest' is not null or undefined
             common_1.assertParamExists('createCourseV1', 'courseRequest', courseRequest);
-            const localVarPath = `/v1/sparr/courses/`;
+            const localVarPath = `/v1/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12203,7 +12283,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createFeedbackV1: (feedbackCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'feedbackCore' is not null or undefined
             common_1.assertParamExists('createFeedbackV1', 'feedbackCore', feedbackCore);
-            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarPath = `/v1/sparr/feedbacks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12236,7 +12316,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createGoalsV1: (goalCoreInput, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'goalCoreInput' is not null or undefined
             common_1.assertParamExists('createGoalsV1', 'goalCoreInput', goalCoreInput);
-            const localVarPath = `/v1/sparr/goals/`;
+            const localVarPath = `/v1/sparr/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12269,7 +12349,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createPersonaV1: (personaCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'personaCore' is not null or undefined
             common_1.assertParamExists('createPersonaV1', 'personaCore', personaCore);
-            const localVarPath = `/v1/sparr/personas/`;
+            const localVarPath = `/v1/sparr/personas`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12302,7 +12382,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createPostCallEvaluationParamsV1: (evaluatorCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'evaluatorCore' is not null or undefined
             common_1.assertParamExists('createPostCallEvaluationParamsV1', 'evaluatorCore', evaluatorCore);
-            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarPath = `/v1/sparr/evaluators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12335,7 +12415,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createScenarioV1: (createScenarioRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'createScenarioRequest' is not null or undefined
             common_1.assertParamExists('createScenarioV1', 'createScenarioRequest', createScenarioRequest);
-            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarPath = `/v1/sparr/scenarios`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12368,7 +12448,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         createTrackerV1: (trackerCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'trackerCore' is not null or undefined
             common_1.assertParamExists('createTrackerV1', 'trackerCore', trackerCore);
-            const localVarPath = `/v1/sparr/trackers/`;
+            const localVarPath = `/v1/sparr/trackers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -12688,6 +12768,39 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        evaluateFeedbackV1: (sparrv1EvaluateFeedbackRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'sparrv1EvaluateFeedbackRequest' is not null or undefined
+            common_1.assertParamExists('evaluateFeedbackV1', 'sparrv1EvaluateFeedbackRequest', sparrv1EvaluateFeedbackRequest);
+            const localVarPath = `/v1/sparr/evaluate-feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sparrv1EvaluateFeedbackRequest, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -12715,6 +12828,39 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             localVarRequestOptions.data = common_1.serializeDataIfNeeded(flexibleGenerationRequest, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateFeedbackV1: (generateFeedbackRequest, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'generateFeedbackRequest' is not null or undefined
+            common_1.assertParamExists('generateFeedbackV1', 'generateFeedbackRequest', generateFeedbackRequest);
+            const localVarPath = `/v1/sparr/feedbacks/generate_feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(generateFeedbackRequest, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -13252,7 +13398,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listEvaluatorV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarPath = `/v1/sparr/evaluators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13293,7 +13439,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listFeedbacksV1: (skip, limit, fromDate, toDate, userFilter, statusFilter, scenarioFilter, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarPath = `/v1/sparr/feedbacks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13348,7 +13494,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listGoalsV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/goals/`;
+            const localVarPath = `/v1/sparr/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13385,7 +13531,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listPersonasV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/personas/`;
+            const localVarPath = `/v1/sparr/personas`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13425,7 +13571,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listScenariosV1: (skip, limit, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarPath = `/v1/sparr/scenarios`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13464,7 +13610,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listTrackerV1: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/trackers/`;
+            const localVarPath = `/v1/sparr/trackers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -14523,6 +14669,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.evaluateFeedbackV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -14535,6 +14697,22 @@ exports.SparrApiFp = function (configuration) {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.generateEvaluatorV1(flexibleGenerationRequest, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.generateEvaluatorV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateFeedbackV1(generateFeedbackRequest, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.generateFeedbackV1(generateFeedbackRequest, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.generateFeedbackV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
@@ -15439,6 +15617,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return localVarFp.detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options).then((request) => request(axios, basePath));
         },
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options) {
+            return localVarFp.evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -15447,6 +15635,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         generateEvaluatorV1(flexibleGenerationRequest, options) {
             return localVarFp.generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateFeedbackV1(generateFeedbackRequest, options) {
+            return localVarFp.generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a specific course by ID
@@ -16130,6 +16328,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options) {
+        return exports.SparrApiFp(this.configuration).evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest
@@ -16139,6 +16348,17 @@ class SparrApi extends base_1.BaseAPI {
      */
     generateEvaluatorV1(flexibleGenerationRequest, options) {
         return exports.SparrApiFp(this.configuration).generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateFeedbackV1(generateFeedbackRequest, options) {
+        return exports.SparrApiFp(this.configuration).generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a specific course by ID
@@ -21132,7 +21352,7 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
         createWorkflowV1WorkflowsPost: (workflowCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'workflowCore' is not null or undefined
             common_1.assertParamExists('createWorkflowV1WorkflowsPost', 'workflowCore', workflowCore);
-            const localVarPath = `/v1/workflows/`;
+            const localVarPath = `/v1/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -21229,7 +21449,7 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         readWorkflowsV1WorkflowsGet: (skip, limit, app, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/workflows/`;
+            const localVarPath = `/v1/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -21794,7 +22014,7 @@ exports.WorkflowsAppsApiAxiosParamCreator = function (configuration) {
         createAppV1WorkflowsAppsPost: (appEntity, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'appEntity' is not null or undefined
             common_1.assertParamExists('createAppV1WorkflowsAppsPost', 'appEntity', appEntity);
-            const localVarPath = `/v1/workflows/apps/`;
+            const localVarPath = `/v1/workflows/apps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -21934,7 +22154,7 @@ exports.WorkflowsAppsApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         readAppsV1WorkflowsAppsGet: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/workflows/apps/`;
+            const localVarPath = `/v1/workflows/apps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -22287,7 +22507,7 @@ exports.WorkflowsConnectionsApiAxiosParamCreator = function (configuration) {
         createConnectionV1WorkflowsConnectionsPost: (connectionCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'connectionCore' is not null or undefined
             common_1.assertParamExists('createConnectionV1WorkflowsConnectionsPost', 'connectionCore', connectionCore);
-            const localVarPath = `/v1/workflows/connections/`;
+            const localVarPath = `/v1/workflows/connections`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -22383,7 +22603,7 @@ exports.WorkflowsConnectionsApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         readConnectionsV1WorkflowsConnectionsGet: (skip, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/workflows/connections/`;
+            const localVarPath = `/v1/workflows/connections`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -22677,15 +22897,15 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} requestBody
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId, body, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId, requestBody, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'workflowId' is not null or undefined
             common_1.assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'workflowId', workflowId);
-            // verify required parameter 'body' is not null or undefined
-            common_1.assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'body', body);
+            // verify required parameter 'requestBody' is not null or undefined
+            common_1.assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'requestBody', requestBody);
             const localVarPath = `/v1/workflows/executions/{workflow_id}/execute`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -22701,7 +22921,7 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(body, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -22787,15 +23007,13 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} [requestBody]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId, body, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId, requestBody, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'workflowId' is not null or undefined
             common_1.assertParamExists('triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost', 'workflowId', workflowId);
-            // verify required parameter 'body' is not null or undefined
-            common_1.assertParamExists('triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost', 'body', body);
             const localVarPath = `/v1/workflows/executions/{workflow_id}/trigger`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -22811,7 +23029,7 @@ exports.WorkflowsExecutionsApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(body, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -22830,14 +23048,14 @@ exports.WorkflowsExecutionsApiFp = function (configuration) {
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} requestBody
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options) {
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options) {
             var _a, _b, _c;
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['WorkflowsExecutionsApi.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -22882,14 +23100,14 @@ exports.WorkflowsExecutionsApiFp = function (configuration) {
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} [requestBody]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options) {
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options) {
             var _a, _b, _c;
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['WorkflowsExecutionsApi.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -22908,12 +23126,12 @@ exports.WorkflowsExecutionsApiFactory = function (configuration, basePath, axios
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} requestBody
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options) {
-            return localVarFp.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(axios, basePath));
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options) {
+            return localVarFp.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the status of a workflow given the run id
@@ -22942,12 +23160,12 @@ exports.WorkflowsExecutionsApiFactory = function (configuration, basePath, axios
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId
-         * @param {object} body
+         * @param {{ [key: string]: any; }} [requestBody]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options) {
-            return localVarFp.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(axios, basePath));
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options) {
+            return localVarFp.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -22962,13 +23180,13 @@ class WorkflowsExecutionsApi extends base_1.BaseAPI {
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} requestBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options) {
-        return exports.WorkflowsExecutionsApiFp(this.configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options) {
+        return exports.WorkflowsExecutionsApiFp(this.configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the status of a workflow given the run id
@@ -22999,13 +23217,13 @@ class WorkflowsExecutionsApi extends base_1.BaseAPI {
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId
-     * @param {object} body
+     * @param {{ [key: string]: any; }} [requestBody]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options) {
-        return exports.WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options) {
+        return exports.WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.WorkflowsExecutionsApi = WorkflowsExecutionsApi;

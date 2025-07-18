@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**module** | [**Module**](Module.md) | The module information | [default to undefined]
+**module** | [**Module**](Module.md) |  | [default to undefined]
 **numberOfAttempts** | **number** | The number of attempts | [default to undefined]
-**lastAttemptStatus** | [**ModuleAttemptStatus**](ModuleAttemptStatus.md) | The status of the last attempt | [default to undefined]
+**lastAttemptStatus** | [**ModuleAttemptStatus**](ModuleAttemptStatus.md) |  | [default to undefined]
 **isModuleCompleted** | **boolean** | Whether the module is completed | [default to undefined]
 
 ## Example

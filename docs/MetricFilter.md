@@ -7,7 +7,7 @@ Pydantic-compatible filter model for metrics requests
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **field** | **string** | Field name to filter on | [default to undefined]
-**operator** | [**FilterOperator**](FilterOperator.md) | Filter operator | [default to undefined]
+**operator** | [**FilterOperator**](FilterOperator.md) |  | [default to undefined]
 **value** | [**Value**](Value.md) |  | [default to undefined]
 
 ## Example

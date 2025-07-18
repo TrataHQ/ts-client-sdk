@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentialsType** | **string** | Credential type identifier | [optional] [default to CredentialsTypeEnum_Oauth]
+**credentialsType** | **string** | Credential type identifier | [optional] [default to 'oauth']
 **code** | **string** |  | [optional] [default to undefined]
 **accessToken** | **string** |  | [optional] [default to undefined]
 **refreshToken** | **string** |  | [optional] [default to undefined]

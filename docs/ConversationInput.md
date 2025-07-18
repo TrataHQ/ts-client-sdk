@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | **string** | Source from where the conversation originated. This can be device id, phone number, etc. | [default to undefined]
-**sourceType** | [**ConversationSourceType**](ConversationSourceType.md) | Type of the conversation source | [default to undefined]
+**sourceType** | [**ConversationSourceType**](ConversationSourceType.md) |  | [default to undefined]
 **agentId** | **string** | AI agent which handled the conversation | [default to undefined]
 **app** | [**AppEnumInput**](AppEnumInput.md) |  | [optional] [default to undefined]
 **transcriptText** | [**Array&lt;DialogLine&gt;**](DialogLine.md) |  | [optional] [default to undefined]

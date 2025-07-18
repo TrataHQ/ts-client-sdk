@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **string** | Metric alias name | [default to undefined]
 **value** | **number** |  | [default to undefined]
-**aggregation** | [**AggregationFormulaOutput**](AggregationFormulaOutput.md) | Aggregation function used | [default to undefined]
+**aggregation** | [**AggregationFormulaOutput**](AggregationFormulaOutput.md) |  | [default to undefined]
 
 ## Example
 

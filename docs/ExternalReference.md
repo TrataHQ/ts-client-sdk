@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **providerName** | **string** | External service provider name | [default to undefined]
 **id** | **string** | External service identifier | [default to undefined]
-**providerProps** | **object** |  | [optional] [default to undefined]
+**providerProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

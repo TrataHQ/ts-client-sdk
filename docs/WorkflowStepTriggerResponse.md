@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input** | **object** |  | [default to undefined]
-**response** | **object** |  | [default to undefined]
+**input** | **{ [key: string]: any; }** |  | [default to undefined]
+**response** | **{ [key: string]: any; }** |  | [default to undefined]
 
 ## Example
 

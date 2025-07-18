@@ -6,7 +6,7 @@ Combined response model that includes evaluator and its optional components
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**evaluator** | [**Evaluator**](Evaluator.md) | The evaluator object | [default to undefined]
+**evaluator** | [**Evaluator**](Evaluator.md) |  | [default to undefined]
 **goals** | [**SparrDbModelsGoal**](SparrDbModelsGoal.md) |  | [optional] [default to undefined]
 **tracker** | [**Tracker**](Tracker.md) |  | [optional] [default to undefined]
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | The name of the evaluator | [default to undefined]
 **description** | **string** | The description of the evaluator | [default to undefined]
-**goals** | [**GoalCoreInput**](GoalCoreInput.md) | The goals for the evaluator | [default to undefined]
+**goals** | [**GoalCoreInput**](GoalCoreInput.md) |  | [default to undefined]
 
 ## Example
 

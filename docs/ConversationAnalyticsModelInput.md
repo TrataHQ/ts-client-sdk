@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **name_of_caller** | **string** |  | [default to undefined]
 **phone_number_of_caller** | **string** |  | [default to undefined]
 **address_of_caller** | **string** |  | [default to undefined]
-**sentiment_of_caller** | [**CallSentiment**](CallSentiment.md) | Sentiment of the caller based on the conversation details. | [default to undefined]
+**sentiment_of_caller** | [**CallSentiment**](CallSentiment.md) |  | [default to undefined]
 **prospectStatus** | [**ProspectStatus**](ProspectStatus.md) |  | [default to undefined]
 
 ## Example

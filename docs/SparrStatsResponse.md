@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**SparrStatsData**](SparrStatsData.md) | Sparring stats of the organization | [default to undefined]
+**response** | [**SparrStatsData**](SparrStatsData.md) |  | [default to undefined]
 
 ## Example
 

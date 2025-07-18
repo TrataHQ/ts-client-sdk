@@ -4,11 +4,11 @@ All URIs are relative to *https://api.trata.ai*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**createAppV1WorkflowsAppsPost**](#createappv1workflowsappspost) | **POST** /v1/workflows/apps/ | Create App|
+|[**createAppV1WorkflowsAppsPost**](#createappv1workflowsappspost) | **POST** /v1/workflows/apps | Create App|
 |[**deleteAppV1WorkflowsAppsAppIdDelete**](#deleteappv1workflowsappsappiddelete) | **DELETE** /v1/workflows/apps/{app_id} | Delete App|
 |[**getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet**](#getconnectionsbyappidv1workflowsappsappidversionsversionconnectionsget) | **GET** /v1/workflows/apps/{app_id}/versions/{version}/connections | Get Connections By App Id|
 |[**readAppV1WorkflowsAppsAppIdGet**](#readappv1workflowsappsappidget) | **GET** /v1/workflows/apps/{app_id} | Read App|
-|[**readAppsV1WorkflowsAppsGet**](#readappsv1workflowsappsget) | **GET** /v1/workflows/apps/ | Read Apps|
+|[**readAppsV1WorkflowsAppsGet**](#readappsv1workflowsappsget) | **GET** /v1/workflows/apps | Read Apps|
 |[**updateAppV1WorkflowsAppsAppIdPut**](#updateappv1workflowsappsappidput) | **PUT** /v1/workflows/apps/{app_id} | Update App|
 
 # **createAppV1WorkflowsAppsPost**
@@ -120,7 +120,7 @@ const { status, data } = await apiInstance.deleteAppV1WorkflowsAppsAppIdDelete(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet**
-> Array<ConnectionCore> getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet()
+> Array<AgenticWorkflowDbModelsConnection> getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet()
 
 
 ### Example
@@ -153,7 +153,7 @@ const { status, data } = await apiInstance.getConnectionsByAppIdV1WorkflowsAppsA
 
 ### Return type
 
-**Array<ConnectionCore>**
+**Array<AgenticWorkflowDbModelsConnection>**
 
 ### Authorization
 

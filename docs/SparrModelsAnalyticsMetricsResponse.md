@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | Unique identifier for the metric response. This will help co-relate the request and response | [default to undefined]
-**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) | Name of the metric | [default to undefined]
+**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) |  | [default to undefined]
 **datapoints** | [**Array&lt;SparrModelsAnalyticsMetricResponseDataPoint&gt;**](SparrModelsAnalyticsMetricResponseDataPoint.md) | List of data points for the metric response | [default to undefined]
 
 ## Example

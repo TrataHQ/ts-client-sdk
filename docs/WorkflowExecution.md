@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **workflowRunId** | **string** | The run id of the workflow | [default to undefined]
 **status** | **string** | The status of the workflow execution | [default to undefined]
 **activityInfo** | [**Array&lt;WorkflowActivityInfo&gt;**](WorkflowActivityInfo.md) | The activity info of the workflow execution | [default to undefined]
-**result** | **object** | The final result of the workflow execution | [default to undefined]
+**result** | **{ [key: string]: any; }** | The final result of the workflow execution | [default to undefined]
 
 ## Example
 

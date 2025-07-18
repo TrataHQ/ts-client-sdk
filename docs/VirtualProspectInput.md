@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the virtual prospect | [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
-**personaAttributes** | [**PersonaAttributesAndTraits**](PersonaAttributesAndTraits.md) | Attributes of the virtual prospect | [default to undefined]
+**personaAttributes** | [**PersonaAttributesAndTraits**](PersonaAttributesAndTraits.md) |  | [default to undefined]
 **additionalInfo** | **string** |  | [optional] [default to undefined]
 **voice** | [**VoiceInput**](VoiceInput.md) |  | [optional] [default to undefined]
 **virtualProspectType** | [**VirtualProspectTypeEnum**](VirtualProspectTypeEnum.md) |  | [optional] [default to undefined]

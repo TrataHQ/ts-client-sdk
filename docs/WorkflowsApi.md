@@ -4,10 +4,10 @@ All URIs are relative to *https://api.trata.ai*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**createWorkflowV1WorkflowsPost**](#createworkflowv1workflowspost) | **POST** /v1/workflows/ | Create Workflow|
+|[**createWorkflowV1WorkflowsPost**](#createworkflowv1workflowspost) | **POST** /v1/workflows | Create Workflow|
 |[**deleteWorkflowV1WorkflowsWorkflowIdDelete**](#deleteworkflowv1workflowsworkflowiddelete) | **DELETE** /v1/workflows/{workflow_id} | Delete Workflow|
 |[**readWorkflowV1WorkflowsWorkflowIdGet**](#readworkflowv1workflowsworkflowidget) | **GET** /v1/workflows/{workflow_id} | Read Workflow|
-|[**readWorkflowsV1WorkflowsGet**](#readworkflowsv1workflowsget) | **GET** /v1/workflows/ | Read Workflows|
+|[**readWorkflowsV1WorkflowsGet**](#readworkflowsv1workflowsget) | **GET** /v1/workflows | Read Workflows|
 |[**triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost**](#triggerworkflowstepv1workflowsworkflowidstepstepidtriggerpost) | **POST** /v1/workflows/{workflow_id}/step/{step_id}/trigger | Trigger Workflow Step|
 |[**updateWorkflowV1WorkflowsWorkflowIdPut**](#updateworkflowv1workflowsworkflowidput) | **PUT** /v1/workflows/{workflow_id} | Update Workflow|
 |[**uploadFileV1WorkflowsWorkflowIdFilePost**](#uploadfilev1workflowsworkflowidfilepost) | **POST** /v1/workflows/{workflow_id}/file | Upload File|

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userCourseAssignment** | [**UserCourseAssignment**](UserCourseAssignment.md) | The course assignment | [default to undefined]
+**userCourseAssignment** | [**UserCourseAssignment**](UserCourseAssignment.md) |  | [default to undefined]
 **courseAnalytics** | [**Array&lt;ModuleAnalytics&gt;**](ModuleAnalytics.md) | Analytics for the course for all modules | [default to undefined]
 
 ## Example

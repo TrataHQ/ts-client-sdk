@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **shippable** | **boolean** | Product is shippable or not. Service is not shippable | [optional] [default to false]
 **features** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **scheduleAppointment** | **boolean** | Product requires appointment scheduling or not | [optional] [default to false]
-**props** | **object** |  | [optional] [default to undefined]
+**props** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 **tags** | **Set&lt;string&gt;** |  | [optional] [default to undefined]
 **status** | [**Status**](Status.md) |  | [default to undefined]
 **agentIds** | **Array&lt;string&gt;** |  | [optional] [default to undefined]

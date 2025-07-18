@@ -48,7 +48,7 @@ export interface AIAgentInput {
      */
     'mission'?: Mission | null;
     /**
-     * Status of the AI agent
+     * 
      * @type {Status}
      * @memberof AIAgentInput
      */
@@ -278,10 +278,10 @@ export interface ActionInput {
     'description'?: string | null;
     /**
      * Parameters for the action. It should be a JSON schema object
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionInput
      */
-    'parameters': object;
+    'parameters': { [key: string]: any; };
     /**
      * 
      * @type {Endpoint}
@@ -307,7 +307,7 @@ export interface ActionInput {
      */
     'userErrorText'?: string | null;
     /**
-     * Trigger who invokes the action
+     * 
      * @type {ActionInvocationTrigger}
      * @memberof ActionInput
      */
@@ -362,16 +362,16 @@ export interface ActionOutput {
     'description'?: string | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionOutput
      */
-    'parameters'?: object | null;
+    'parameters'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ActionOutput
      */
-    'endpoint'?: object | null;
+    'endpoint'?: { [key: string]: any; } | null;
     /**
      * 
      * @type {string}
@@ -664,10 +664,10 @@ export interface AgenticWorkflowDbModelsConnection {
     'credentials': Credentials;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AgenticWorkflowDbModelsConnection
      */
-    'connectionMetaData'?: object | null;
+    'connectionMetaData'?: { [key: string]: any; } | null;
     /**
      * The unique identifier of the connection
      * @type {string}
@@ -905,10 +905,10 @@ export interface AnalyticsModelInput {
     'coach_analytics': CoachAnalyticsModel;
     /**
      * 
-     * @type {SystemMetrics}
+     * @type {SystemMetricsInput}
      * @memberof AnalyticsModelInput
      */
-    'system_metrics'?: SystemMetrics | null;
+    'system_metrics'?: SystemMetricsInput | null;
     /**
      * 
      * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
@@ -955,10 +955,10 @@ export interface AnalyticsModelOutput {
     'coach_analytics': CoachAnalyticsModel;
     /**
      * 
-     * @type {SystemMetrics}
+     * @type {SystemMetricsOutput}
      * @memberof AnalyticsModelOutput
      */
-    'system_metrics'?: SystemMetrics | null;
+    'system_metrics'?: SystemMetricsOutput | null;
     /**
      * 
      * @type {{ [key: string]: AnalyticsModelInputWeightedScoresValue; }}
@@ -1051,15 +1051,8 @@ export interface ApiKeyAuth {
      * @type {string}
      * @memberof ApiKeyAuth
      */
-    'authType'?: ApiKeyAuthAuthTypeEnum;
+    'authType'?: string;
 }
-
-export const ApiKeyAuthAuthTypeEnum = {
-    Apikey: 'apikey'
-} as const;
-
-export type ApiKeyAuthAuthTypeEnum = typeof ApiKeyAuthAuthTypeEnum[keyof typeof ApiKeyAuthAuthTypeEnum];
-
 /**
  * 
  * @export
@@ -1071,7 +1064,7 @@ export interface ApiKeyCredentials {
      * @type {string}
      * @memberof ApiKeyCredentials
      */
-    'credentialsType'?: ApiKeyCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * The API key for the app
      * @type {string}
@@ -1079,13 +1072,6 @@ export interface ApiKeyCredentials {
      */
     'apiKey': string;
 }
-
-export const ApiKeyCredentialsCredentialsTypeEnum = {
-    Apikey: 'apikey'
-} as const;
-
-export type ApiKeyCredentialsCredentialsTypeEnum = typeof ApiKeyCredentialsCredentialsTypeEnum[keyof typeof ApiKeyCredentialsCredentialsTypeEnum];
-
 /**
  * 
  * @export
@@ -1223,7 +1209,7 @@ export interface AppAction {
      */
     'orgId'?: string;
     /**
-     * The type of the step, can be either trigger or action
+     * 
      * @type {AppActionType}
      * @memberof AppAction
      */
@@ -1242,18 +1228,18 @@ export interface AppAction {
     'description'?: string;
     /**
      * JSON Schema for the step data
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppAction
      */
-    'dataSchema': object;
+    'dataSchema': { [key: string]: any; };
     /**
      * JSON Schema for the UI representation
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppAction
      */
-    'uiSchema': object;
+    'uiSchema': { [key: string]: any; };
     /**
-     * This represents how this action should be displayed in the UI
+     * 
      * @type {UiNodeType}
      * @memberof AppAction
      */
@@ -1286,7 +1272,7 @@ export interface AppAction {
  */
 export interface AppActionEntity {
     /**
-     * The type of the step, can be either trigger or action
+     * 
      * @type {AppActionType}
      * @memberof AppActionEntity
      */
@@ -1305,18 +1291,18 @@ export interface AppActionEntity {
     'description'?: string;
     /**
      * JSON Schema for the step data
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppActionEntity
      */
-    'dataSchema': object;
+    'dataSchema': { [key: string]: any; };
     /**
      * JSON Schema for the UI representation
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof AppActionEntity
      */
-    'uiSchema': object;
+    'uiSchema': { [key: string]: any; };
     /**
-     * This represents how this action should be displayed in the UI
+     * 
      * @type {UiNodeType}
      * @memberof AppActionEntity
      */
@@ -1490,7 +1476,7 @@ export interface AuthInner {
      * @type {string}
      * @memberof AuthInner
      */
-    'authType'?: AuthInnerAuthTypeEnum;
+    'authType'?: string;
     /**
      * The client ID for the OAuth app
      * @type {string}
@@ -1528,13 +1514,6 @@ export interface AuthInner {
      */
     'tokenUrl': string;
 }
-
-export const AuthInnerAuthTypeEnum = {
-    Noauth: 'noauth'
-} as const;
-
-export type AuthInnerAuthTypeEnum = typeof AuthInnerAuthTypeEnum[keyof typeof AuthInnerAuthTypeEnum];
-
 /**
  * 
  * @export
@@ -1605,15 +1584,8 @@ export interface BasicAuth {
      * @type {string}
      * @memberof BasicAuth
      */
-    'authType'?: BasicAuthAuthTypeEnum;
+    'authType'?: string;
 }
-
-export const BasicAuthAuthTypeEnum = {
-    Basic: 'basic'
-} as const;
-
-export type BasicAuthAuthTypeEnum = typeof BasicAuthAuthTypeEnum[keyof typeof BasicAuthAuthTypeEnum];
-
 /**
  * 
  * @export
@@ -1625,7 +1597,7 @@ export interface BasicAuthCredentials {
      * @type {string}
      * @memberof BasicAuthCredentials
      */
-    'credentialsType'?: BasicAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * The username for the app
      * @type {string}
@@ -1639,13 +1611,6 @@ export interface BasicAuthCredentials {
      */
     'password': string;
 }
-
-export const BasicAuthCredentialsCredentialsTypeEnum = {
-    Basic: 'basic'
-} as const;
-
-export type BasicAuthCredentialsCredentialsTypeEnum = typeof BasicAuthCredentialsCredentialsTypeEnum[keyof typeof BasicAuthCredentialsCredentialsTypeEnum];
-
 /**
  * 
  * @export
@@ -1755,6 +1720,19 @@ export interface BodyCreateResellerOrganizationV1 {
     'adminUserName': string;
 }
 /**
+ * Model for call recording data from telephony providers
+ * @export
+ * @interface CallRecording
+ */
+export interface CallRecording {
+    /**
+     * URI to access the recording content
+     * @type {string}
+     * @memberof CallRecording
+     */
+    'contentUri': string;
+}
+/**
  * 
  * @export
  * @enum {string}
@@ -1810,7 +1788,7 @@ export type ChangeAssignmentOperation = typeof ChangeAssignmentOperation[keyof t
  */
 export interface ChangeAssignmentRequest {
     /**
-     * Whether to assign or remove courses
+     * 
      * @type {ChangeAssignmentOperation}
      * @memberof ChangeAssignmentRequest
      */
@@ -1850,7 +1828,7 @@ export interface CoachAnalyticsModel {
  */
 export interface CombinedEvaluatorResponse {
     /**
-     * The evaluator object
+     * 
      * @type {Evaluator}
      * @memberof CombinedEvaluatorResponse
      */
@@ -1958,10 +1936,10 @@ export interface ConnectionCore {
     'credentials': Credentials;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionCore
      */
-    'connectionMetaData'?: object | null;
+    'connectionMetaData'?: { [key: string]: any; } | null;
 }
 /**
  * This represents the connection between the user and the assistant
@@ -1995,10 +1973,10 @@ export interface ConnectionOutput {
     'sourceId'?: string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionOutput
      */
-    'sourceProps'?: object | null;
+    'sourceProps'?: { [key: string]: any; } | null;
     /**
      * 
      * @type {string}
@@ -2056,10 +2034,10 @@ export interface ConnectionSource {
     'sourceId': string;
     /**
      * Extra properties of source
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConnectionSource
      */
-    'sourceProps': object;
+    'sourceProps': { [key: string]: any; };
 }
 
 export const ConnectionSourceSourceNameEnum = {
@@ -2119,7 +2097,7 @@ export interface ConversationAnalyticsModelInput {
      */
     'address_of_caller': string | null;
     /**
-     * Sentiment of the caller based on the conversation details.
+     * 
      * @type {CallSentiment}
      * @memberof ConversationAnalyticsModelInput
      */
@@ -2369,7 +2347,7 @@ export interface ConversationInput {
      */
     'source': string;
     /**
-     * Type of the conversation source
+     * 
      * @type {ConversationSourceType}
      * @memberof ConversationInput
      */
@@ -2629,7 +2607,7 @@ export interface ConversationStartEventPayload {
      * @type {string}
      * @memberof ConversationStartEventPayload
      */
-    'type': ConversationStartEventPayloadTypeEnum;
+    'type': string;
     /**
      * 
      * @type {string}
@@ -2656,18 +2634,11 @@ export interface ConversationStartEventPayload {
     'org_id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ConversationStartEventPayload
      */
-    'caller_id': object | null;
+    'caller_id': { [key: string]: any; } | null;
 }
-
-export const ConversationStartEventPayloadTypeEnum = {
-    ConversationStart: 'conversation_start'
-} as const;
-
-export type ConversationStartEventPayloadTypeEnum = typeof ConversationStartEventPayloadTypeEnum[keyof typeof ConversationStartEventPayloadTypeEnum];
-
 /**
  * 
  * @export
@@ -2921,7 +2892,7 @@ export interface CourseWithAssignmentStatus {
      */
     'course': Course;
     /**
-     * Course assignment status (assigned/unassigned)
+     * 
      * @type {CourseAssignmentStatus}
      * @memberof CourseWithAssignmentStatus
      */
@@ -2967,7 +2938,7 @@ export interface CreateScenarioRequest {
      */
     'callType'?: CallType | null;
     /**
-     * The familiarity level for this scenario
+     * 
      * @type {FamiliarityLevel}
      * @memberof CreateScenarioRequest
      */
@@ -3022,7 +2993,7 @@ export interface Credentials {
      * @type {string}
      * @memberof Credentials
      */
-    'credentialsType'?: CredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * 
      * @type {string}
@@ -3066,13 +3037,6 @@ export interface Credentials {
      */
     'password': string;
 }
-
-export const CredentialsCredentialsTypeEnum = {
-    Noauth: 'noauth'
-} as const;
-
-export type CredentialsCredentialsTypeEnum = typeof CredentialsCredentialsTypeEnum[keyof typeof CredentialsCredentialsTypeEnum];
-
 /**
  * Credits details of the business
  * @export
@@ -3329,16 +3293,16 @@ export interface Endpoint {
     'method'?: EndpointMethodEnum;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Endpoint
      */
-    'headers'?: object | null;
+    'headers'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Endpoint
      */
-    'payload'?: object | null;
+    'payload'?: { [key: string]: any; } | null;
     /**
      * Module where the action is defined
      * @type {string}
@@ -3620,7 +3584,7 @@ export interface EvaluatorRequest {
      */
     'description': string;
     /**
-     * The goals for the evaluator
+     * 
      * @type {GoalCoreInput}
      * @memberof EvaluatorRequest
      */
@@ -3732,10 +3696,10 @@ export interface ExternalReference {
     'id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalReference
      */
-    'providerProps'?: object | null;
+    'providerProps'?: { [key: string]: any; } | null;
 }
 /**
  * 
@@ -3757,10 +3721,10 @@ export interface ExternalServiceProviderInput {
     'id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalServiceProviderInput
      */
-    'providerProps': object | null;
+    'providerProps': { [key: string]: any; } | null;
 }
 /**
  * 
@@ -3782,10 +3746,10 @@ export interface ExternalServiceProviderOutput {
     'id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ExternalServiceProviderOutput
      */
-    'providerProps': object | null;
+    'providerProps': { [key: string]: any; } | null;
 }
 /**
  * 
@@ -3863,11 +3827,11 @@ export interface Feedback {
      */
     'aiAgentId': string | null;
     /**
-     * The ID of the scenario
+     * 
      * @type {string}
      * @memberof Feedback
      */
-    'scenarioId': string;
+    'scenarioId': string | null;
     /**
      * 
      * @type {string}
@@ -3875,11 +3839,11 @@ export interface Feedback {
      */
     'scenarioName': string | null;
     /**
-     * The ID of the persona
+     * 
      * @type {string}
      * @memberof Feedback
      */
-    'personaId': string;
+    'personaId': string | null;
     /**
      * 
      * @type {string}
@@ -3941,7 +3905,7 @@ export interface Feedback {
      */
     'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
-     * The analytics of the conversation
+     * 
      * @type {AnalyticsModelOutput}
      * @memberof Feedback
      */
@@ -3959,6 +3923,12 @@ export interface Feedback {
      */
     'status'?: string;
     /**
+     * The environment where the feedback was given - Only two possible values (sparr or live)
+     * @type {string}
+     * @memberof Feedback
+     */
+    'environment'?: string;
+    /**
      * The unique identifier of the feedback
      * @type {string}
      * @memberof Feedback
@@ -3970,6 +3940,12 @@ export interface Feedback {
      * @memberof Feedback
      */
     'version'?: number;
+    /**
+     * 
+     * @type {FeedbackProps}
+     * @memberof Feedback
+     */
+    'feedbackProps': FeedbackProps | null;
 }
 /**
  * 
@@ -4002,11 +3978,11 @@ export interface FeedbackCore {
      */
     'aiAgentId': string | null;
     /**
-     * The ID of the scenario
+     * 
      * @type {string}
      * @memberof FeedbackCore
      */
-    'scenarioId': string;
+    'scenarioId': string | null;
     /**
      * 
      * @type {string}
@@ -4014,11 +3990,11 @@ export interface FeedbackCore {
      */
     'scenarioName': string | null;
     /**
-     * The ID of the persona
+     * 
      * @type {string}
      * @memberof FeedbackCore
      */
-    'personaId': string;
+    'personaId': string | null;
     /**
      * 
      * @type {string}
@@ -4080,7 +4056,7 @@ export interface FeedbackCore {
      */
     'transcriptWithTimestamp'?: Array<SparrDialogLineWithTimestamp> | null;
     /**
-     * The analytics of the conversation
+     * 
      * @type {AnalyticsModelInput}
      * @memberof FeedbackCore
      */
@@ -4097,6 +4073,31 @@ export interface FeedbackCore {
      * @memberof FeedbackCore
      */
     'status'?: string;
+    /**
+     * The environment where the feedback was given - Only two possible values (sparr or live)
+     * @type {string}
+     * @memberof FeedbackCore
+     */
+    'environment'?: string;
+}
+/**
+ * The properties of the feedback
+ * @export
+ * @interface FeedbackProps
+ */
+export interface FeedbackProps {
+    /**
+     * 
+     * @type {LiveFeedbackProps}
+     * @memberof FeedbackProps
+     */
+    'live_feedback_props': LiveFeedbackProps | null;
+    /**
+     * The properties of the sparring feedback
+     * @type {object}
+     * @memberof FeedbackProps
+     */
+    'sparr_feedback_props': object;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -4259,6 +4260,31 @@ export interface FrustrationTolerance {
 export interface FrustrationTolerance1 {
 }
 /**
+ * Request model for generating feedback from call recording and user
+ * @export
+ * @interface GenerateFeedbackRequest
+ */
+export interface GenerateFeedbackRequest {
+    /**
+     * 
+     * @type {CallRecording}
+     * @memberof GenerateFeedbackRequest
+     */
+    'call_recording': CallRecording;
+    /**
+     * 
+     * @type {UserData}
+     * @memberof GenerateFeedbackRequest
+     */
+    'user': UserData;
+    /**
+     * 
+     * @type {string}
+     * @memberof GenerateFeedbackRequest
+     */
+    'idempotency_key'?: string | null;
+}
+/**
  * 
  * @export
  * @interface GoalAnalyticsModelInput
@@ -4278,10 +4304,10 @@ export interface GoalAnalyticsModelInput {
     'overall_score'?: number | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof GoalAnalyticsModelInput
      */
-    'goals'?: object | null;
+    'goals'?: { [key: string]: any; } | null;
 }
 /**
  * 
@@ -4303,10 +4329,10 @@ export interface GoalAnalyticsModelOutput {
     'overall_score'?: number | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof GoalAnalyticsModelOutput
      */
-    'goals'?: object | null;
+    'goals'?: { [key: string]: any; } | null;
 }
 /**
  * 
@@ -4786,10 +4812,10 @@ export interface HiveContentInput {
     'file_ids'?: Array<string> | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentInput
      */
-    'hiveProps'?: object | null;
+    'hiveProps'?: { [key: string]: any; } | null;
 }
 
 
@@ -4819,16 +4845,16 @@ export interface HiveContentOutput {
     'files'?: Array<Files> | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentOutput
      */
-    'hiveProps'?: object | null;
+    'hiveProps'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HiveContentOutput
      */
-    'internalProps'?: object | null;
+    'internalProps'?: { [key: string]: any; } | null;
 }
 
 
@@ -4882,16 +4908,16 @@ export interface HttpActionEndpoint {
     'method'?: HttpActionEndpointMethodEnum;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HttpActionEndpoint
      */
-    'headers'?: object | null;
+    'headers'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof HttpActionEndpoint
      */
-    'payload'?: object | null;
+    'payload'?: { [key: string]: any; } | null;
 }
 
 export const HttpActionEndpointMethodEnum = {
@@ -4935,10 +4961,10 @@ export interface IntelligenceProvider {
     'model'?: string | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof IntelligenceProvider
      */
-    'providerProps'?: object | null;
+    'providerProps'?: { [key: string]: any; } | null;
 }
 /**
  * Enum class representing intelligence provider
@@ -5035,6 +5061,37 @@ export interface LanguageAccentCombo {
 
 
 /**
+ * The properties of the live feedback
+ * @export
+ * @interface LiveFeedbackProps
+ */
+export interface LiveFeedbackProps {
+    /**
+     * 
+     * @type {string}
+     * @memberof LiveFeedbackProps
+     */
+    'speaker_label': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof LiveFeedbackProps
+     */
+    'contact_name': string | null;
+    /**
+     * Whether the conversation was guessed by the scenario
+     * @type {boolean}
+     * @memberof LiveFeedbackProps
+     */
+    'is_scenario_ai_guessed'?: boolean;
+    /**
+     * Whether the conversation was guessed by the speaker label
+     * @type {boolean}
+     * @memberof LiveFeedbackProps
+     */
+    'is_speaker_label_ai_guessed'?: boolean;
+}
+/**
  * 
  * @export
  * @interface LocationInner
@@ -5091,7 +5148,7 @@ export interface MetricDataPoint {
      */
     'value': number | null;
     /**
-     * Aggregation function used
+     * 
      * @type {AggregationFormulaOutput}
      * @memberof MetricDataPoint
      */
@@ -5112,7 +5169,7 @@ export interface MetricFilter {
      */
     'field': string;
     /**
-     * Filter operator
+     * 
      * @type {FilterOperator}
      * @memberof MetricFilter
      */
@@ -5185,13 +5242,13 @@ export type MetricNameInput = typeof MetricNameInput[keyof typeof MetricNameInpu
  */
 export interface MetricRequest {
     /**
-     * Metric name
+     * 
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof MetricRequest
      */
     'name': SparrModelsAnalyticsMetricName;
     /**
-     * How to aggregate the metric
+     * 
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof MetricRequest
      */
@@ -5237,7 +5294,7 @@ export interface MetricsRequestInput {
      */
     'id': string;
     /**
-     * Name of the metric
+     * 
      * @type {MetricNameInput}
      * @memberof MetricsRequestInput
      */
@@ -5255,13 +5312,13 @@ export interface MetricsRequestInput {
      */
     'toDate': string;
     /**
-     * Aggregation period for the metric request
+     * 
      * @type {AggregationPeriod}
      * @memberof MetricsRequestInput
      */
     'aggregationPeriod': AggregationPeriod;
     /**
-     * Aggregation formula for the metric request
+     * 
      * @type {AggregationFormulaInput}
      * @memberof MetricsRequestInput
      */
@@ -5282,7 +5339,7 @@ export interface MetricsResponseInput {
      */
     'id': string;
     /**
-     * Name of the metric
+     * 
      * @type {MetricNameInput}
      * @memberof MetricsResponseInput
      */
@@ -5510,7 +5567,7 @@ export interface Module {
  */
 export interface ModuleAnalytics {
     /**
-     * The module information
+     * 
      * @type {Module}
      * @memberof ModuleAnalytics
      */
@@ -5522,7 +5579,7 @@ export interface ModuleAnalytics {
      */
     'numberOfAttempts': number;
     /**
-     * The status of the last attempt
+     * 
      * @type {ModuleAttemptStatus}
      * @memberof ModuleAnalytics
      */
@@ -5723,15 +5780,8 @@ export interface NoAuth {
      * @type {string}
      * @memberof NoAuth
      */
-    'authType'?: NoAuthAuthTypeEnum;
+    'authType'?: string;
 }
-
-export const NoAuthAuthTypeEnum = {
-    Noauth: 'noauth'
-} as const;
-
-export type NoAuthAuthTypeEnum = typeof NoAuthAuthTypeEnum[keyof typeof NoAuthAuthTypeEnum];
-
 /**
  * 
  * @export
@@ -5743,15 +5793,8 @@ export interface NoAuthCredentials {
      * @type {string}
      * @memberof NoAuthCredentials
      */
-    'credentialsType'?: NoAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
 }
-
-export const NoAuthCredentialsCredentialsTypeEnum = {
-    Noauth: 'noauth'
-} as const;
-
-export type NoAuthCredentialsCredentialsTypeEnum = typeof NoAuthCredentialsCredentialsTypeEnum[keyof typeof NoAuthCredentialsCredentialsTypeEnum];
-
 /**
  * 
  * @export
@@ -5782,7 +5825,7 @@ export interface OAuth {
      * @type {string}
      * @memberof OAuth
      */
-    'authType'?: OAuthAuthTypeEnum;
+    'authType'?: string;
     /**
      * The client ID for the OAuth app
      * @type {string}
@@ -5820,13 +5863,6 @@ export interface OAuth {
      */
     'tokenUrl': string;
 }
-
-export const OAuthAuthTypeEnum = {
-    Oauth: 'oauth'
-} as const;
-
-export type OAuthAuthTypeEnum = typeof OAuthAuthTypeEnum[keyof typeof OAuthAuthTypeEnum];
-
 /**
  * 
  * @export
@@ -5838,7 +5874,7 @@ export interface OAuthCredentials {
      * @type {string}
      * @memberof OAuthCredentials
      */
-    'credentialsType'?: OAuthCredentialsCredentialsTypeEnum;
+    'credentialsType'?: string;
     /**
      * 
      * @type {string}
@@ -5864,13 +5900,6 @@ export interface OAuthCredentials {
      */
     'expiresAt'?: string | null;
 }
-
-export const OAuthCredentialsCredentialsTypeEnum = {
-    Oauth: 'oauth'
-} as const;
-
-export type OAuthCredentialsCredentialsTypeEnum = typeof OAuthCredentialsCredentialsTypeEnum[keyof typeof OAuthCredentialsCredentialsTypeEnum];
-
 /**
  * 
  * @export
@@ -5940,7 +5969,7 @@ export interface OrgWithCourseAssignment {
      */
     'organization': OrganizationOutput;
     /**
-     * Course assignment status (assigned/unassigned)
+     * 
      * @type {CourseAssignmentStatus}
      * @memberof OrgWithCourseAssignment
      */
@@ -6143,16 +6172,16 @@ export interface OrganizationOutput {
     'updatedAt'?: string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof OrganizationOutput
      */
-    'internalProps': object | null;
+    'internalProps': { [key: string]: any; } | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof OrganizationOutput
      */
-    'adminProps': object | null;
+    'adminProps': { [key: string]: any; } | null;
     /**
      * If the Organization is created by reseller, this field will have the reseller org id as the parent organization id
      * @type {string}
@@ -6322,13 +6351,13 @@ export interface Persona {
      */
     'context': string;
     /**
-     * The voice of the persona
+     * 
      * @type {SparrVoiceOutput}
      * @memberof Persona
      */
     'voice': SparrVoiceOutput;
     /**
-     * The demeanor of the persona
+     * 
      * @type {SparrDemeanorOutput}
      * @memberof Persona
      */
@@ -6480,13 +6509,13 @@ export interface PersonaCore {
      */
     'context': string;
     /**
-     * The voice of the persona
+     * 
      * @type {SparrVoiceInput}
      * @memberof PersonaCore
      */
     'voice': SparrVoiceInput;
     /**
-     * The demeanor of the persona
+     * 
      * @type {SparrDemeanorInput}
      * @memberof PersonaCore
      */
@@ -6743,7 +6772,7 @@ export interface PriceItem {
      */
     'pricePerQuantity'?: number | null;
     /**
-     * Type of the credit
+     * 
      * @type {CreditTypeEnum}
      * @memberof PriceItem
      */
@@ -6776,7 +6805,7 @@ export interface PricingRequest {
      */
     'currency': string;
     /**
-     * Price interval
+     * 
      * @type {PriceInterval}
      * @memberof PricingRequest
      */
@@ -6846,10 +6875,10 @@ export interface ProductInput {
     'scheduleAppointment'?: boolean;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProductInput
      */
-    'props'?: object | null;
+    'props'?: { [key: string]: any; } | null;
     /**
      * 
      * @type {Set<string>}
@@ -7113,10 +7142,10 @@ export interface ProductOutput {
     'scheduleAppointment'?: boolean;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProductOutput
      */
-    'props'?: object | null;
+    'props'?: { [key: string]: any; } | null;
     /**
      * 
      * @type {Set<string>}
@@ -7248,10 +7277,10 @@ export interface ProspectInput {
     'status': ProspectStatus;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProspectInput
      */
-    'prospectProps'?: object | null;
+    'prospectProps'?: { [key: string]: any; } | null;
 }
 
 
@@ -7305,10 +7334,10 @@ export interface ProspectOutput {
     'status': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof ProspectOutput
      */
-    'prospectProps': object | null;
+    'prospectProps': { [key: string]: any; } | null;
     /**
      * 
      * @type {string}
@@ -7508,7 +7537,7 @@ export type RubricLevel = typeof RubricLevel[keyof typeof RubricLevel];
  */
 export interface RubricScore {
     /**
-     * The rubric level that best describes the performance
+     * 
      * @type {RubricLevel}
      * @memberof RubricScore
      */
@@ -7526,7 +7555,7 @@ export interface RubricScore {
      */
     'fine_tune'?: number;
     /**
-     * Exact quotes from the USER\'s dialogue that justify this assessment. Exclude any AI-generated responses. Only include verbatim user statements that directly support your evaluation. If no such quotes exist, leave this field blank. Accompany each quote with a brief explanation of its relevance and how it substantiates the assessment. Keep the explanation concise and focused.
+     * Cite the exact user dialogue(s) that support your assessment. Explain briefly how these align with the evaluation criteria. If there are improvement opportunities that can help meet the goals more effectively, include a concise coaching tip. Keep the explanation focused and to the point.
      * @type {Array<string>}
      * @memberof RubricScore
      */
@@ -7693,7 +7722,7 @@ export interface ScenarioResponse {
      */
     'callType': CallType | null;
     /**
-     * The familiarity level for this scenario
+     * 
      * @type {FamiliarityLevel}
      * @memberof ScenarioResponse
      */
@@ -8030,7 +8059,7 @@ export interface SparrDialogLine {
      * @type {string}
      * @memberof SparrDialogLine
      */
-    'speaker': SparrDialogLineSpeakerEnum;
+    'speaker': string;
     /**
      * 
      * @type {string}
@@ -8050,16 +8079,6 @@ export interface SparrDialogLine {
      */
     'message_id': string;
 }
-
-export const SparrDialogLineSpeakerEnum = {
-    User: 'USER',
-    Ai: 'AI',
-    Tool: 'TOOL',
-    AiToolRequest: 'AI - TOOL REQUEST'
-} as const;
-
-export type SparrDialogLineSpeakerEnum = typeof SparrDialogLineSpeakerEnum[keyof typeof SparrDialogLineSpeakerEnum];
-
 /**
  * 
  * @export
@@ -8237,13 +8256,13 @@ export type SparrInteractionTone = typeof SparrInteractionTone[keyof typeof Spar
  */
 export interface SparrLanguageAccentCombo {
     /**
-     * The language of the voice
+     * 
      * @type {SparrVoiceLanguage}
      * @memberof SparrLanguageAccentCombo
      */
     'language': SparrVoiceLanguage;
     /**
-     * The accent of the voice
+     * 
      * @type {SparrVoiceAccent}
      * @memberof SparrLanguageAccentCombo
      */
@@ -8403,7 +8422,7 @@ export interface SparrModelsAnalyticsMetricsRequest {
      */
     'id': string;
     /**
-     * Name of the metric
+     * 
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
@@ -8421,13 +8440,13 @@ export interface SparrModelsAnalyticsMetricsRequest {
      */
     'toDate': string;
     /**
-     * Aggregation period for the metric request
+     * 
      * @type {AggregationPeriod}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
     'aggregationPeriod': AggregationPeriod;
     /**
-     * Aggregation formula for the metric request
+     * 
      * @type {SparrModelsAnalyticsAggregationFormula}
      * @memberof SparrModelsAnalyticsMetricsRequest
      */
@@ -8454,7 +8473,7 @@ export interface SparrModelsAnalyticsMetricsResponse {
      */
     'id': string;
     /**
-     * Name of the metric
+     * 
      * @type {SparrModelsAnalyticsMetricName}
      * @memberof SparrModelsAnalyticsMetricsResponse
      */
@@ -8658,7 +8677,7 @@ export interface SparrStatsData {
  */
 export interface SparrStatsResponse {
     /**
-     * Sparring stats of the organization
+     * 
      * @type {SparrStatsData}
      * @memberof SparrStatsResponse
      */
@@ -8799,6 +8818,73 @@ export interface SparrWorkDetails {
 /**
  * 
  * @export
+ * @interface Sparrv1EvaluateFeedbackRequest
+ */
+export interface Sparrv1EvaluateFeedbackRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'thread_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'recording_url': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'contact_name'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'start_timestamp'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'end_timestamp'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'feedback_id'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'scenario_id'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'persona_id'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'transcript'?: string | null;
+}
+/**
+ * 
+ * @export
  * @interface StatsData
  */
 export interface StatsData {
@@ -8834,7 +8920,7 @@ export interface StatsData {
  */
 export interface StatsResponse {
     /**
-     * Overall stats of prospects
+     * 
      * @type {StatsData}
      * @memberof StatsResponse
      */
@@ -8994,55 +9080,120 @@ export type SynthesizerConfig = typeof SynthesizerConfig[keyof typeof Synthesize
 /**
  * 
  * @export
- * @interface SystemMetrics
+ * @interface SystemMetricsInput
  */
-export interface SystemMetrics {
+export interface SystemMetricsInput {
     /**
      * 
      * @type {string}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
-    'average_sentiment': SystemMetricsAverageSentimentEnum | null;
+    'average_sentiment': SystemMetricsInputAverageSentimentEnum | null;
     /**
      * 
      * @type {FillerWords}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'filler_words': FillerWords | null;
     /**
      * 
      * @type {LongestMonologue}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'longest_monologue': LongestMonologue | null;
     /**
      * 
      * @type {number}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'speech_pace': number | null;
     /**
      * 
      * @type {number}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'user_talk_ratio'?: number | null;
     /**
      * 
      * @type {Array<SparrDialogLineWithSentiment>}
-     * @memberof SystemMetrics
+     * @memberof SystemMetricsInput
      */
     'dialog_lines_sentiment': Array<SparrDialogLineWithSentiment> | null;
+    /**
+     * 
+     * @type {{ [key: string]: SystemMetricsInput; }}
+     * @memberof SystemMetricsInput
+     */
+    'all_speakers_metrics'?: { [key: string]: SystemMetricsInput; } | null;
 }
 
-export const SystemMetricsAverageSentimentEnum = {
+export const SystemMetricsInputAverageSentimentEnum = {
     Positive: 'POSITIVE',
     Negative: 'NEGATIVE',
     Neutral: 'NEUTRAL',
     Empty: ''
 } as const;
 
-export type SystemMetricsAverageSentimentEnum = typeof SystemMetricsAverageSentimentEnum[keyof typeof SystemMetricsAverageSentimentEnum];
+export type SystemMetricsInputAverageSentimentEnum = typeof SystemMetricsInputAverageSentimentEnum[keyof typeof SystemMetricsInputAverageSentimentEnum];
+
+/**
+ * 
+ * @export
+ * @interface SystemMetricsOutput
+ */
+export interface SystemMetricsOutput {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemMetricsOutput
+     */
+    'average_sentiment': SystemMetricsOutputAverageSentimentEnum | null;
+    /**
+     * 
+     * @type {FillerWords}
+     * @memberof SystemMetricsOutput
+     */
+    'filler_words': FillerWords | null;
+    /**
+     * 
+     * @type {LongestMonologue}
+     * @memberof SystemMetricsOutput
+     */
+    'longest_monologue': LongestMonologue | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemMetricsOutput
+     */
+    'speech_pace': number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemMetricsOutput
+     */
+    'user_talk_ratio'?: number | null;
+    /**
+     * 
+     * @type {Array<SparrDialogLineWithSentiment>}
+     * @memberof SystemMetricsOutput
+     */
+    'dialog_lines_sentiment': Array<SparrDialogLineWithSentiment> | null;
+    /**
+     * 
+     * @type {{ [key: string]: SystemMetricsOutput; }}
+     * @memberof SystemMetricsOutput
+     */
+    'all_speakers_metrics'?: { [key: string]: SystemMetricsOutput; } | null;
+}
+
+export const SystemMetricsOutputAverageSentimentEnum = {
+    Positive: 'POSITIVE',
+    Negative: 'NEGATIVE',
+    Neutral: 'NEUTRAL',
+    Empty: ''
+} as const;
+
+export type SystemMetricsOutputAverageSentimentEnum = typeof SystemMetricsOutputAverageSentimentEnum[keyof typeof SystemMetricsOutputAverageSentimentEnum];
 
 /**
  * Request model for creating a tag
@@ -9071,10 +9222,10 @@ export interface TaxDetailsInput {
     'id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TaxDetailsInput
      */
-    'taxProps': object | null;
+    'taxProps': { [key: string]: any; } | null;
 }
 /**
  * 
@@ -9090,10 +9241,10 @@ export interface TaxDetailsOutput {
     'id': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TaxDetailsOutput
      */
-    'taxProps': object | null;
+    'taxProps': { [key: string]: any; } | null;
 }
 /**
  * Telephone number details of the business
@@ -9133,10 +9284,10 @@ export interface TelephoneNumber {
     'agentId'?: string | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof TelephoneNumber
      */
-    'internalProps'?: object | null;
+    'internalProps'?: { [key: string]: any; } | null;
     /**
      * 
      * @type {string}
@@ -9161,6 +9312,71 @@ export interface TelephoneNumber {
      * @memberof TelephoneNumber
      */
     'updatedAt'?: string;
+}
+/**
+ * Telephony app names
+ * @export
+ * @enum {string}
+ */
+
+export const TelephonyApp = {
+    Ringcentral: 'ringcentral',
+    Vonage: 'vonage',
+    MsTeams: 'ms_teams',
+    Avaya: 'avaya',
+    Gong: 'gong',
+    Zoom: 'zoom',
+    Trata: 'trata'
+} as const;
+
+export type TelephonyApp = typeof TelephonyApp[keyof typeof TelephonyApp];
+
+
+/**
+ * Request model for OAuth connection
+ * @export
+ * @interface TelephonyConnectRequest
+ */
+export interface TelephonyConnectRequest {
+    /**
+     * OAuth authorization code from the provider
+     * @type {string}
+     * @memberof TelephonyConnectRequest
+     */
+    'code': string;
+    /**
+     * 
+     * @type {TelephonyApp}
+     * @memberof TelephonyConnectRequest
+     */
+    'appName': TelephonyApp;
+}
+
+
+/**
+ * Response model for OAuth connection
+ * @export
+ * @interface TelephonyConnectResponse
+ */
+export interface TelephonyConnectResponse {
+    /**
+     * Whether the connection was successful
+     * @type {boolean}
+     * @memberof TelephonyConnectResponse
+     */
+    'success': boolean;
+    /**
+     * Response message
+     * @type {string}
+     * @memberof TelephonyConnectResponse
+     */
+    'message': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TelephonyConnectResponse
+     */
+    'connection_id'?: string | null;
 }
 /**
  * Tracker represents a collection of keywords with name and description
@@ -9367,10 +9583,10 @@ export interface Transcriber {
     'transcriberModel'?: string | null;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof Transcriber
      */
-    'providerProps'?: object | null;
+    'providerProps'?: { [key: string]: any; } | null;
 }
 /**
  * Enum class representing transcriber
@@ -9460,7 +9676,7 @@ export interface UpdateUserRequest {
      */
     'name': string;
     /**
-     * Role of the user
+     * 
      * @type {AuthRole}
      * @memberof UpdateUserRequest
      */
@@ -9676,7 +9892,7 @@ export interface UserCourseAssignment {
      */
     'courseName': string | null;
     /**
-     * The completion status of the course
+     * 
      * @type {CourseCompletionStatus}
      * @memberof UserCourseAssignment
      */
@@ -9703,7 +9919,7 @@ export interface UserCourseAssignment {
  */
 export interface UserCourseAssignmentAnalyticsResponse {
     /**
-     * The course assignment
+     * 
      * @type {UserCourseAssignment}
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
@@ -9714,6 +9930,19 @@ export interface UserCourseAssignmentAnalyticsResponse {
      * @memberof UserCourseAssignmentAnalyticsResponse
      */
     'courseAnalytics': Array<ModuleAnalytics>;
+}
+/**
+ * Model for user data
+ * @export
+ * @interface UserData
+ */
+export interface UserData {
+    /**
+     * Email of the user
+     * @type {string}
+     * @memberof UserData
+     */
+    'email': string;
 }
 /**
  * UserModuleAttempt represents a user\'s attempt at a module
@@ -9770,7 +9999,7 @@ export interface UserModuleAttempt {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     * 
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttempt
      */
@@ -9821,7 +10050,7 @@ export interface UserModuleAttemptCore {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     * 
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptCore
      */
@@ -9866,7 +10095,7 @@ export interface UserModuleAttemptResponse {
      */
     'moduleId': string;
     /**
-     * The completion status of the module
+     * 
      * @type {ModuleAttemptStatus}
      * @memberof UserModuleAttemptResponse
      */
@@ -10304,7 +10533,7 @@ export interface VirtualProspectInput {
      */
     'description'?: string | null;
     /**
-     * Attributes of the virtual prospect
+     * 
      * @type {PersonaAttributesAndTraits}
      * @memberof VirtualProspectInput
      */
@@ -10391,7 +10620,7 @@ export interface VirtualProspectOutput {
      */
     'context'?: string | null;
     /**
-     * Type of the virtual prospect
+     * 
      * @type {VirtualProspectTypeEnum}
      * @memberof VirtualProspectOutput
      */
@@ -10653,16 +10882,16 @@ export interface WorkflowActivityInfo {
     'status': string;
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowActivityInfo
      */
-    'input': object;
+    'input': { [key: string]: any; };
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowActivityInfo
      */
-    'result': object;
+    'result': { [key: string]: any; };
     /**
      * 
      * @type {string}
@@ -10702,16 +10931,16 @@ export interface WorkflowContext {
     'runId': string;
     /**
      * The input of the step
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowContext
      */
-    'stepInput': object;
+    'stepInput': { [key: string]: any; };
     /**
      * The response of the step
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowContext
      */
-    'stepResponse': object;
+    'stepResponse': { [key: string]: any; };
 }
 /**
  * Core Workflow Model
@@ -10800,10 +11029,10 @@ export interface WorkflowExecution {
     'activityInfo': Array<WorkflowActivityInfo>;
     /**
      * The final result of the workflow execution
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowExecution
      */
-    'result': object;
+    'result': { [key: string]: any; };
 }
 /**
  * Flow Step Model
@@ -10854,7 +11083,7 @@ export interface WorkflowStepInput {
      */
     'dataResolver'?: string | null;
     /**
-     * Resolver for determining the next step
+     * 
      * @type {NextStepResolver}
      * @memberof WorkflowStepInput
      */
@@ -10909,7 +11138,7 @@ export interface WorkflowStepOutput {
      */
     'dataResolver'?: string | null;
     /**
-     * Resolver for determining the next step
+     * 
      * @type {NextStepResolver}
      * @memberof WorkflowStepOutput
      */
@@ -10942,16 +11171,16 @@ export interface WorkflowStepTriggerRequest {
 export interface WorkflowStepTriggerResponse {
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowStepTriggerResponse
      */
-    'input': object;
+    'input': { [key: string]: any; };
     /**
      * 
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof WorkflowStepTriggerResponse
      */
-    'response': object;
+    'response': { [key: string]: any; };
 }
 
 /**
@@ -13244,6 +13473,120 @@ export class BillingApi extends BaseAPI {
 
 
 /**
+ * ConnectApi - axios parameter creator
+ * @export
+ */
+export const ConnectApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        connectOauthV1: async (telephonyConnectRequest: TelephonyConnectRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'telephonyConnectRequest' is not null or undefined
+            assertParamExists('connectOauthV1', 'telephonyConnectRequest', telephonyConnectRequest)
+            const localVarPath = `/v1/sparr/connect/telephony/oauth`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(telephonyConnectRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ConnectApi - functional programming interface
+ * @export
+ */
+export const ConnectApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConnectApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephonyConnectResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.connectOauthV1(telephonyConnectRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConnectApi.connectOauthV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * ConnectApi - factory interface
+ * @export
+ */
+export const ConnectApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConnectApiFp(configuration)
+    return {
+        /**
+         * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+         * @summary Telephonyoauthconnect
+         * @param {TelephonyConnectRequest} telephonyConnectRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): AxiosPromise<TelephonyConnectResponse> {
+            return localVarFp.connectOauthV1(telephonyConnectRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ConnectApi - object-oriented interface
+ * @export
+ * @class ConnectApi
+ * @extends {BaseAPI}
+ */
+export class ConnectApi extends BaseAPI {
+    /**
+     * Connect a telephony app via OAuth and set up user sync and workflow automation.  This endpoint: 1. Creates a connection to the telephony app 2. Syncs users from the telephony app to Propel Auth 3. Creates a workflow to automatically generate feedback from call recordings
+     * @summary Telephonyoauthconnect
+     * @param {TelephonyConnectRequest} telephonyConnectRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectApi
+     */
+    public connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig) {
+        return ConnectApiFp(this.configuration).connectOauthV1(telephonyConnectRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
  * ConversationProspectLinkApi - axios parameter creator
  * @export
  */
@@ -14491,11 +14834,11 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files 
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadFileV1: async (files: Array<File>, validator?: UploadFileV1ValidatorEnum, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        uploadFileV1: async (files: Array<File>, validator?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'files' is not null or undefined
             assertParamExists('uploadFileV1', 'files', files)
             const localVarPath = `/v1/files`;
@@ -14566,11 +14909,11 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files 
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
+        async uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadFileV1(files, validator, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['FilesApi.uploadFileV1']?.[localVarOperationServerIndex]?.url;
@@ -14600,11 +14943,11 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files 
-         * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+         * @param {string | null} [validator] Validator type to use for file validation
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig): AxiosPromise<Array<Files>> {
+        uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Files>> {
             return localVarFp.uploadFileV1(files, validator, options).then((request) => request(axios, basePath));
         },
     };
@@ -14633,23 +14976,16 @@ export class FilesApi extends BaseAPI {
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files 
-     * @param {UploadFileV1ValidatorEnum} [validator] Validator type to use for file validation
+     * @param {string | null} [validator] Validator type to use for file validation
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public uploadFileV1(files: Array<File>, validator?: UploadFileV1ValidatorEnum, options?: AxiosRequestConfig) {
+    public uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).uploadFileV1(files, validator, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
-export const UploadFileV1ValidatorEnum = {
-    CampaignProspectSchemaCsv: 'campaign-prospect-schema-csv'
-} as const;
-export type UploadFileV1ValidatorEnum = typeof UploadFileV1ValidatorEnum[keyof typeof UploadFileV1ValidatorEnum];
 
 
 /**
@@ -14734,7 +15070,7 @@ export const HealthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statusStatusGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HealthApi.statusStatusGet']?.[localVarOperationServerIndex]?.url;
@@ -14746,7 +15082,7 @@ export const HealthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statusWorkflowsStatusGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HealthApi.statusWorkflowsStatusGet']?.[localVarOperationServerIndex]?.url;
@@ -14768,7 +15104,7 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<object> {
+        statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.statusStatusGet(options).then((request) => request(axios, basePath));
         },
         /**
@@ -14777,7 +15113,7 @@ export const HealthApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<object> {
+        statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.statusWorkflowsStatusGet(options).then((request) => request(axios, basePath));
         },
     };
@@ -23020,7 +23356,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createCourseV1: async (courseRequest: CourseRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'courseRequest' is not null or undefined
             assertParamExists('createCourseV1', 'courseRequest', courseRequest)
-            const localVarPath = `/v1/sparr/courses/`;
+            const localVarPath = `/v1/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23094,7 +23430,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createFeedbackV1: async (feedbackCore: FeedbackCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'feedbackCore' is not null or undefined
             assertParamExists('createFeedbackV1', 'feedbackCore', feedbackCore)
-            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarPath = `/v1/sparr/feedbacks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23134,7 +23470,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createGoalsV1: async (goalCoreInput: GoalCoreInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'goalCoreInput' is not null or undefined
             assertParamExists('createGoalsV1', 'goalCoreInput', goalCoreInput)
-            const localVarPath = `/v1/sparr/goals/`;
+            const localVarPath = `/v1/sparr/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23174,7 +23510,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createPersonaV1: async (personaCore: PersonaCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'personaCore' is not null or undefined
             assertParamExists('createPersonaV1', 'personaCore', personaCore)
-            const localVarPath = `/v1/sparr/personas/`;
+            const localVarPath = `/v1/sparr/personas`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23214,7 +23550,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createPostCallEvaluationParamsV1: async (evaluatorCore: EvaluatorCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'evaluatorCore' is not null or undefined
             assertParamExists('createPostCallEvaluationParamsV1', 'evaluatorCore', evaluatorCore)
-            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarPath = `/v1/sparr/evaluators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23254,7 +23590,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createScenarioV1: async (createScenarioRequest: CreateScenarioRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'createScenarioRequest' is not null or undefined
             assertParamExists('createScenarioV1', 'createScenarioRequest', createScenarioRequest)
-            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarPath = `/v1/sparr/scenarios`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23294,7 +23630,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
         createTrackerV1: async (trackerCore: TrackerCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'trackerCore' is not null or undefined
             assertParamExists('createTrackerV1', 'trackerCore', trackerCore)
-            const localVarPath = `/v1/sparr/trackers/`;
+            const localVarPath = `/v1/sparr/trackers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23675,6 +24011,46 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        evaluateFeedbackV1: async (sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sparrv1EvaluateFeedbackRequest' is not null or undefined
+            assertParamExists('evaluateFeedbackV1', 'sparrv1EvaluateFeedbackRequest', sparrv1EvaluateFeedbackRequest)
+            const localVarPath = `/v1/sparr/evaluate-feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sparrv1EvaluateFeedbackRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest 
@@ -23708,6 +24084,46 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(flexibleGenerationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateFeedbackV1: async (generateFeedbackRequest: GenerateFeedbackRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'generateFeedbackRequest' is not null or undefined
+            assertParamExists('generateFeedbackV1', 'generateFeedbackRequest', generateFeedbackRequest)
+            const localVarPath = `/v1/sparr/feedbacks/generate_feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(generateFeedbackRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -24347,7 +24763,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listEvaluatorV1: async (skip?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/evaluators/`;
+            const localVarPath = `/v1/sparr/evaluators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -24396,7 +24812,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listFeedbacksV1: async (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/feedbacks/`;
+            const localVarPath = `/v1/sparr/feedbacks`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -24464,7 +24880,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listGoalsV1: async (skip?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/goals/`;
+            const localVarPath = `/v1/sparr/goals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -24509,7 +24925,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listPersonasV1: async (skip?: number, limit?: number, tags?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/personas/`;
+            const localVarPath = `/v1/sparr/personas`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -24558,7 +24974,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listScenariosV1: async (skip?: number, limit?: number, tags?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/scenarios/`;
+            const localVarPath = `/v1/sparr/scenarios`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -24606,7 +25022,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listTrackerV1: async (skip?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/trackers/`;
+            const localVarPath = `/v1/sparr/trackers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -25742,6 +26158,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SparrApi.evaluateFeedbackV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest 
@@ -25752,6 +26181,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateEvaluatorV1(flexibleGenerationRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SparrApi.generateEvaluatorV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateFeedbackV1(generateFeedbackRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SparrApi.generateFeedbackV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -26178,7 +26620,7 @@ export const SparrApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statusSparrStatusGet(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SparrApi.statusSparrStatusGet']?.[localVarOperationServerIndex]?.url;
@@ -26536,6 +26978,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType, entityId, tagName, options).then((request) => request(axios, basePath));
         },
         /**
+         * Evaluate a feedback
+         * @summary Evaluate Feedback V1
+         * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput> {
+            return localVarFp.evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Generate evaluator data from files and/or existing core components
          * @summary Generate Evaluator
          * @param {FlexibleGenerationRequest} flexibleGenerationRequest 
@@ -26544,6 +26996,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse> {
             return localVarFp.generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generate feedback from call recording and user data
+         * @summary Generate Feedback
+         * @param {GenerateFeedbackRequest} generateFeedbackRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<Feedback> {
+            return localVarFp.generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a specific course by ID
@@ -26879,7 +27341,7 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<object> {
+        statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.statusSparrStatusGet(options).then((request) => request(axios, basePath));
         },
         /**
@@ -27249,6 +27711,18 @@ export class SparrApi extends BaseAPI {
     }
 
     /**
+     * Evaluate a feedback
+     * @summary Evaluate Feedback V1
+     * @param {Sparrv1EvaluateFeedbackRequest} sparrv1EvaluateFeedbackRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig) {
+        return SparrApiFp(this.configuration).evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
      * @param {FlexibleGenerationRequest} flexibleGenerationRequest 
@@ -27258,6 +27732,18 @@ export class SparrApi extends BaseAPI {
      */
     public generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) {
         return SparrApiFp(this.configuration).generateEvaluatorV1(flexibleGenerationRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Generate feedback from call recording and user data
+     * @summary Generate Feedback
+     * @param {GenerateFeedbackRequest} generateFeedbackRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig) {
+        return SparrApiFp(this.configuration).generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32613,7 +33099,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
         createWorkflowV1WorkflowsPost: async (workflowCore: WorkflowCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowCore' is not null or undefined
             assertParamExists('createWorkflowV1WorkflowsPost', 'workflowCore', workflowCore)
-            const localVarPath = `/v1/workflows/`;
+            const localVarPath = `/v1/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -32729,7 +33215,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @throws {RequiredError}
          */
         readWorkflowsV1WorkflowsGet: async (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/workflows/`;
+            const localVarPath = `/v1/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33322,7 +33808,7 @@ export const WorkflowsAppsApiAxiosParamCreator = function (configuration?: Confi
         createAppV1WorkflowsAppsPost: async (appEntity: AppEntity, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'appEntity' is not null or undefined
             assertParamExists('createAppV1WorkflowsAppsPost', 'appEntity', appEntity)
-            const localVarPath = `/v1/workflows/apps/`;
+            const localVarPath = `/v1/workflows/apps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33489,7 +33975,7 @@ export const WorkflowsAppsApiAxiosParamCreator = function (configuration?: Confi
          * @throws {RequiredError}
          */
         readAppsV1WorkflowsAppsGet: async (skip?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/workflows/apps/`;
+            const localVarPath = `/v1/workflows/apps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33618,7 +34104,7 @@ export const WorkflowsAppsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionCore>>> {
+        async getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId, version, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsAppsApi.getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet']?.[localVarOperationServerIndex]?.url;
@@ -33706,7 +34192,7 @@ export const WorkflowsAppsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<ConnectionCore>> {
+        getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>> {
             return localVarFp.getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId, version, options).then((request) => request(axios, basePath));
         },
         /**
@@ -33850,7 +34336,7 @@ export const WorkflowsConnectionsApiAxiosParamCreator = function (configuration?
         createConnectionV1WorkflowsConnectionsPost: async (connectionCore: ConnectionCore, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'connectionCore' is not null or undefined
             assertParamExists('createConnectionV1WorkflowsConnectionsPost', 'connectionCore', connectionCore)
-            const localVarPath = `/v1/workflows/connections/`;
+            const localVarPath = `/v1/workflows/connections`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33965,7 +34451,7 @@ export const WorkflowsConnectionsApiAxiosParamCreator = function (configuration?
          * @throws {RequiredError}
          */
         readConnectionsV1WorkflowsConnectionsGet: async (skip?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/workflows/connections/`;
+            const localVarPath = `/v1/workflows/connections`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -34268,15 +34754,15 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} requestBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: async (workflowId: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: async (workflowId: string, requestBody: { [key: string]: any; }, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowId' is not null or undefined
             assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'workflowId', workflowId)
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'body', body)
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost', 'requestBody', requestBody)
             const localVarPath = `/v1/workflows/executions/{workflow_id}/execute`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -34297,7 +34783,7 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -34398,15 +34884,13 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: async (workflowId: string, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: async (workflowId: string, requestBody?: { [key: string]: any; }, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowId' is not null or undefined
             assertParamExists('triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost', 'workflowId', workflowId)
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost', 'body', body)
             const localVarPath = `/v1/workflows/executions/{workflow_id}/trigger`
                 .replace(`{${"workflow_id"}}`, encodeURIComponent(String(workflowId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -34427,7 +34911,7 @@ export const WorkflowsExecutionsApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -34448,12 +34932,12 @@ export const WorkflowsExecutionsApiFp = function(configuration?: Configuration) 
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} requestBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options);
+        async executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: { [key: string]: any; }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsExecutionsApi.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -34491,12 +34975,12 @@ export const WorkflowsExecutionsApiFp = function(configuration?: Configuration) 
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options);
+        async triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: { [key: string]: any; }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsExecutionsApi.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -34515,12 +34999,12 @@ export const WorkflowsExecutionsApiFactory = function (configuration?: Configura
          * Execute a workflow. This is an Sync call. This returns the status of the workflow
          * @summary Execute Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} requestBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution> {
-            return localVarFp.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(axios, basePath));
+        executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: { [key: string]: any; }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution> {
+            return localVarFp.executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the status of a workflow given the run id
@@ -34549,12 +35033,12 @@ export const WorkflowsExecutionsApiFactory = function (configuration?: Configura
          * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
          * @summary Trigger Workflow
          * @param {string} workflowId 
-         * @param {object} body 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution> {
-            return localVarFp.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(axios, basePath));
+        triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: { [key: string]: any; }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution> {
+            return localVarFp.triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -34570,13 +35054,13 @@ export class WorkflowsExecutionsApi extends BaseAPI {
      * Execute a workflow. This is an Sync call. This returns the status of the workflow
      * @summary Execute Workflow
      * @param {string} workflowId 
-     * @param {object} body 
+     * @param {{ [key: string]: any; }} requestBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    public executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, body: object, options?: AxiosRequestConfig) {
-        return WorkflowsExecutionsApiFp(this.configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    public executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: { [key: string]: any; }, options?: AxiosRequestConfig) {
+        return WorkflowsExecutionsApiFp(this.configuration).executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId, requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34610,13 +35094,13 @@ export class WorkflowsExecutionsApi extends BaseAPI {
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
      * @param {string} workflowId 
-     * @param {object} body 
+     * @param {{ [key: string]: any; }} [requestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    public triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, body: object, options?: AxiosRequestConfig) {
-        return WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, body, options).then((request) => request(this.axios, this.basePath));
+    public triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: { [key: string]: any; }, options?: AxiosRequestConfig) {
+        return WorkflowsExecutionsApiFp(this.configuration).triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId, requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **conversation_id** | **string** |  | [default to undefined]
 **ai_agent_id** | **string** |  | [default to undefined]
 **org_id** | **string** |  | [default to undefined]
-**caller_id** | **object** |  | [default to undefined]
+**caller_id** | **{ [key: string]: any; }** |  | [default to undefined]
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**StatsData**](StatsData.md) | Overall stats of prospects | [default to undefined]
+**response** | [**StatsData**](StatsData.md) |  | [default to undefined]
 
 ## Example
 

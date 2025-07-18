@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credentialsType** | **string** | Credential type identifier | [optional] [default to CredentialsTypeEnum_Basic]
+**credentialsType** | **string** | Credential type identifier | [optional] [default to 'basic']
 **username** | **string** | The username for the app | [default to undefined]
 **password** | **string** | The password for the app | [default to undefined]
 

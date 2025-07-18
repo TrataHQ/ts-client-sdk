@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **goals_v1** | [**Array&lt;GoalCategoryResponseOutput&gt;**](GoalCategoryResponseOutput.md) |  | [optional] [default to undefined]
 **overall_score** | **number** |  | [optional] [default to undefined]
-**goals** | **object** |  | [optional] [default to undefined]
+**goals** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

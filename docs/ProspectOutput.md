@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **string** |  | [optional] [default to undefined]
 **externalReference** | [**Array&lt;ExternalReference&gt;**](ExternalReference.md) |  | [default to undefined]
 **status** | **string** |  | [default to undefined]
-**prospectProps** | **object** |  | [default to undefined]
+**prospectProps** | **{ [key: string]: any; }** |  | [default to undefined]
 **createdBy** | **string** |  | [optional] [default to undefined]
 **createdAt** | **string** |  | [optional] [default to undefined]
 **updatedBy** | **string** |  | [optional] [default to undefined]

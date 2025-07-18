@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the action | [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
-**parameters** | **object** | Parameters for the action. It should be a JSON schema object | [default to undefined]
+**parameters** | **{ [key: string]: any; }** | Parameters for the action. It should be a JSON schema object | [default to undefined]
 **endpoint** | [**Endpoint**](Endpoint.md) |  | [default to undefined]
 **userWaitingText** | **string** |  | [optional] [default to undefined]
 **userSuccessText** | **string** |  | [optional] [default to undefined]
 **userErrorText** | **string** |  | [optional] [default to undefined]
-**invocationTrigger** | [**ActionInvocationTrigger**](ActionInvocationTrigger.md) | Trigger who invokes the action | [default to undefined]
+**invocationTrigger** | [**ActionInvocationTrigger**](ActionInvocationTrigger.md) |  | [default to undefined]
 
 ## Example
 

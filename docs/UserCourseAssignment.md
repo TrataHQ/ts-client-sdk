@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **userId** | **string** | The ID of the user who is taking the course | [default to undefined]
 **courseId** | **string** | The ID of the course | [default to undefined]
 **courseName** | **string** |  | [default to undefined]
-**courseCompletionStatus** | [**CourseCompletionStatus**](CourseCompletionStatus.md) | The completion status of the course | [default to undefined]
+**courseCompletionStatus** | [**CourseCompletionStatus**](CourseCompletionStatus.md) |  | [default to undefined]
 **courseScore** | **number** | The score of the course out of 100 | [default to undefined]
 **id** | **string** | The unique identifier of the user course assignment | [optional] [default to undefined]
 

@@ -6,8 +6,8 @@ Simple metric request with column name, aggregation, and alias
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) | Metric name | [default to undefined]
-**aggregation** | [**SparrModelsAnalyticsAggregationFormula**](SparrModelsAnalyticsAggregationFormula.md) | How to aggregate the metric | [default to undefined]
+**name** | [**SparrModelsAnalyticsMetricName**](SparrModelsAnalyticsMetricName.md) |  | [default to undefined]
+**aggregation** | [**SparrModelsAnalyticsAggregationFormula**](SparrModelsAnalyticsAggregationFormula.md) |  | [default to undefined]
 **alias** | **string** | Response alias name for the metric | [default to undefined]
 
 ## Example

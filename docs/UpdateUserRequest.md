@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of the user | [default to undefined]
-**role** | [**AuthRole**](AuthRole.md) | Role of the user | [default to undefined]
+**role** | [**AuthRole**](AuthRole.md) |  | [default to undefined]
 
 ## Example
 

@@ -6,7 +6,7 @@ Basic authentication configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **string** | The type of authentication | [optional] [default to AuthTypeEnum_Basic]
+**authType** | **string** | The type of authentication | [optional] [default to 'basic']
 
 ## Example
 

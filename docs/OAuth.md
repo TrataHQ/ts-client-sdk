@@ -6,7 +6,7 @@ OAuth authentication configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**authType** | **string** | The type of authentication | [optional] [default to AuthTypeEnum_Oauth]
+**authType** | **string** | The type of authentication | [optional] [default to 'oauth']
 **clientId** | **string** | The client ID for the OAuth app | [default to undefined]
 **clientSecret** | **string** | The client secret for the OAuth app | [default to undefined]
 **redirectUri** | **string** | The redirect URI for the OAuth app | [default to undefined]

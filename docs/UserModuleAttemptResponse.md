@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **userId** | **string** | The ID of the user who is taking the module | [default to undefined]
 **courseId** | **string** | The ID of the course | [default to undefined]
 **moduleId** | **string** | The ID of the module | [default to undefined]
-**attemptStatus** | [**ModuleAttemptStatus**](ModuleAttemptStatus.md) | The completion status of the module | [default to undefined]
+**attemptStatus** | [**ModuleAttemptStatus**](ModuleAttemptStatus.md) |  | [default to undefined]
 **attemptScore** | **number** | The score of the module out of 100 | [default to undefined]
 **id** | **string** | The ID of the user module attempt | [default to undefined]
 **feedbackId** | **string** | The ID of the feedback | [default to undefined]

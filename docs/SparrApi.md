@@ -8,14 +8,14 @@ All URIs are relative to *https://api.trata.ai*
 |[**assignCourseV1**](#assigncoursev1) | **POST** /v1/sparr/courses/{course_id}/assign/{user_id} | Assign Course|
 |[**attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost**](#attachtagv1sparrentitytagsentitytypeentityidtagspost) | **POST** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags | Attach Tag|
 |[**createCheckoutSessionForPriceV1**](#createcheckoutsessionforpricev1) | **POST** /v1/sparr/pricing/{price_id}/checkout | Create Checkout Session For Price|
-|[**createCourseV1**](#createcoursev1) | **POST** /v1/sparr/courses/ | Create Course|
+|[**createCourseV1**](#createcoursev1) | **POST** /v1/sparr/courses | Create Course|
 |[**createCustomerPortalV1**](#createcustomerportalv1) | **POST** /v1/sparr/customers/portal | Create Customer Portal|
-|[**createFeedbackV1**](#createfeedbackv1) | **POST** /v1/sparr/feedbacks/ | Create Feedback|
-|[**createGoalsV1**](#creategoalsv1) | **POST** /v1/sparr/goals/ | Create Goals|
-|[**createPersonaV1**](#createpersonav1) | **POST** /v1/sparr/personas/ | Create Persona|
-|[**createPostCallEvaluationParamsV1**](#createpostcallevaluationparamsv1) | **POST** /v1/sparr/evaluators/ | Create Evaluator|
-|[**createScenarioV1**](#createscenariov1) | **POST** /v1/sparr/scenarios/ | Create Scenario|
-|[**createTrackerV1**](#createtrackerv1) | **POST** /v1/sparr/trackers/ | Create Tracker|
+|[**createFeedbackV1**](#createfeedbackv1) | **POST** /v1/sparr/feedbacks | Create Feedback|
+|[**createGoalsV1**](#creategoalsv1) | **POST** /v1/sparr/goals | Create Goals|
+|[**createPersonaV1**](#createpersonav1) | **POST** /v1/sparr/personas | Create Persona|
+|[**createPostCallEvaluationParamsV1**](#createpostcallevaluationparamsv1) | **POST** /v1/sparr/evaluators | Create Evaluator|
+|[**createScenarioV1**](#createscenariov1) | **POST** /v1/sparr/scenarios | Create Scenario|
+|[**createTrackerV1**](#createtrackerv1) | **POST** /v1/sparr/trackers | Create Tracker|
 |[**deleteCourseV1**](#deletecoursev1) | **DELETE** /v1/sparr/courses/{course_id} | Delete Course|
 |[**deleteEvaluatorV1**](#deleteevaluatorv1) | **DELETE** /v1/sparr/evaluators/{params_id} | Delete Evaluator|
 |[**deleteFeedbackV1**](#deletefeedbackv1) | **DELETE** /v1/sparr/feedbacks/{feedback_id} | Delete Feedback|
@@ -25,7 +25,9 @@ All URIs are relative to *https://api.trata.ai*
 |[**deleteScenarioV1**](#deletescenariov1) | **DELETE** /v1/sparr/scenarios/{scenario_id} | Delete Scenario|
 |[**deleteTrackerV1**](#deletetrackerv1) | **DELETE** /v1/sparr/trackers/{tracker_id} | Delete Tracker|
 |[**detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete**](#detachtagv1sparrentitytagsentitytypeentityidtagstagnamedelete) | **DELETE** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags/{tag_name} | Detach Tag|
+|[**evaluateFeedbackV1**](#evaluatefeedbackv1) | **POST** /v1/sparr/evaluate-feedback | Evaluate Feedback V1|
 |[**generateEvaluatorV1**](#generateevaluatorv1) | **POST** /v1/sparr/evaluators/generate | Generate Evaluator|
+|[**generateFeedbackV1**](#generatefeedbackv1) | **POST** /v1/sparr/feedbacks/generate_feedback | Generate Feedback|
 |[**getCourseV1**](#getcoursev1) | **GET** /v1/sparr/courses/{course_id} | Get Course|
 |[**getCreditsV1**](#getcreditsv1) | **GET** /v1/sparr/credits | Get Credits V1|
 |[**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag|
@@ -42,12 +44,12 @@ All URIs are relative to *https://api.trata.ai*
 |[**getUserStatsV1**](#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats|
 |[**importLinkedinPersonaV1**](#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona|
 |[**listCoursesV1**](#listcoursesv1) | **GET** /v1/sparr/courses/ | Get Courses|
-|[**listEvaluatorV1**](#listevaluatorv1) | **GET** /v1/sparr/evaluators/ | Get Evaluator|
-|[**listFeedbacksV1**](#listfeedbacksv1) | **GET** /v1/sparr/feedbacks/ | Get Feedbacks|
-|[**listGoalsV1**](#listgoalsv1) | **GET** /v1/sparr/goals/ | Get Goals|
-|[**listPersonasV1**](#listpersonasv1) | **GET** /v1/sparr/personas/ | Get Personas|
-|[**listScenariosV1**](#listscenariosv1) | **GET** /v1/sparr/scenarios/ | Get Scenarios|
-|[**listTrackerV1**](#listtrackerv1) | **GET** /v1/sparr/trackers/ | Get Trackers|
+|[**listEvaluatorV1**](#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator|
+|[**listFeedbacksV1**](#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks|
+|[**listGoalsV1**](#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals|
+|[**listPersonasV1**](#listpersonasv1) | **GET** /v1/sparr/personas | Get Personas|
+|[**listScenariosV1**](#listscenariosv1) | **GET** /v1/sparr/scenarios | Get Scenarios|
+|[**listTrackerV1**](#listtrackerv1) | **GET** /v1/sparr/trackers | Get Trackers|
 |[**listUserAssignmentsV1**](#listuserassignmentsv1) | **GET** /v1/sparr/courses/users/{user_id}/assignments | Get User Assignments|
 |[**listUserCourseAttemptsV1**](#listusercourseattemptsv1) | **GET** /v1/sparr/courses/{course_id}/attempts/users/{user_id} | Get User Course Attempts|
 |[**listUserModuleAttemptsV1**](#listusermoduleattemptsv1) | **GET** /v1/sparr/courses/modules/{module_id}/attempts/{user_id} | Get User Module Attempts|
@@ -1197,6 +1199,59 @@ const { status, data } = await apiInstance.detachTagV1SparrEntityTagsEntityTypeE
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **evaluateFeedbackV1**
+> BaseResponseInput evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest)
+
+Evaluate a feedback
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    Sparrv1EvaluateFeedbackRequest
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest; //
+
+const { status, data } = await apiInstance.evaluateFeedbackV1(
+    sparrv1EvaluateFeedbackRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **sparrv1EvaluateFeedbackRequest** | **Sparrv1EvaluateFeedbackRequest**|  | |
+
+
+### Return type
+
+**BaseResponseInput**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **generateEvaluatorV1**
 > CombinedEvaluatorResponse generateEvaluatorV1(flexibleGenerationRequest)
 
@@ -1231,6 +1286,60 @@ const { status, data } = await apiInstance.generateEvaluatorV1(
 ### Return type
 
 **CombinedEvaluatorResponse**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateFeedbackV1**
+> Feedback generateFeedbackV1(generateFeedbackRequest)
+
+Generate feedback from call recording and user data
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    GenerateFeedbackRequest
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let generateFeedbackRequest: GenerateFeedbackRequest; //
+
+const { status, data } = await apiInstance.generateFeedbackV1(
+    generateFeedbackRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **generateFeedbackRequest** | **GenerateFeedbackRequest**|  | |
+
+
+### Return type
+
+**Feedback**
 
 ### Authorization
 
@@ -2915,7 +3024,7 @@ const { status, data } = await apiInstance.searchTrackerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **statusSparrStatusGet**
-> object statusSparrStatusGet()
+> { [key: string]: any; } statusSparrStatusGet()
 
 Heart Beat check to check the health of Sparr Service
 
@@ -2939,7 +3048,7 @@ This endpoint does not have any parameters.
 
 ### Return type
 
-**object**
+**{ [key: string]: any; }**
 
 ### Authorization
 

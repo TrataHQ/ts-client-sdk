@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **phoneNumber** | **string** |  | [optional] [default to undefined]
 **externalReference** | [**Array&lt;ExternalReference&gt;**](ExternalReference.md) |  | [optional] [default to undefined]
 **status** | [**ProspectStatus**](ProspectStatus.md) |  | [default to undefined]
-**prospectProps** | **object** |  | [optional] [default to undefined]
+**prospectProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **providerName** | **string** |  | [optional] [default to undefined]
 **transcriberModel** | **string** |  | [optional] [default to undefined]
-**providerProps** | **object** |  | [optional] [default to undefined]
+**providerProps** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

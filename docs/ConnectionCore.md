@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **appVersion** | **string** | The version of the app | [optional] [default to undefined]
 **description** | **string** |  | [optional] [default to undefined]
 **credentials** | [**Credentials**](Credentials.md) |  | [default to undefined]
-**connectionMetaData** | **object** |  | [optional] [default to undefined]
+**connectionMetaData** | **{ [key: string]: any; }** |  | [optional] [default to undefined]
 
 ## Example
 

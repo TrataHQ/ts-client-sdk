@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [default to undefined]
-**taxProps** | **object** |  | [default to undefined]
+**taxProps** | **{ [key: string]: any; }** |  | [default to undefined]
 
 ## Example
 
