@@ -8833,13 +8833,19 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
-    'email': string;
+    'email'?: string | null;
     /**
      * 
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
-    'name': string;
+    'user_id'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'name': string | null;
     /**
      * 
      * @type {string}
