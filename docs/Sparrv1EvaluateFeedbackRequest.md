@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to undefined]
 **recording_url** | **string** |  | [default to undefined]
 **contact_name** | **string** |  | [optional] [default to undefined]
+**speaker_label** | **string** |  | [optional] [default to undefined]
 **start_timestamp** | **string** |  | [optional] [default to undefined]
 **end_timestamp** | **string** |  | [optional] [default to undefined]
 **feedback_id** | **string** |  | [optional] [default to undefined]
@@ -28,6 +29,7 @@ const instance: Sparrv1EvaluateFeedbackRequest = {
     name,
     recording_url,
     contact_name,
+    speaker_label,
     start_timestamp,
     end_timestamp,
     feedback_id,

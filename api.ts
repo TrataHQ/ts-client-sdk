@@ -8857,6 +8857,12 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
+    'speaker_label'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
     'start_timestamp'?: string | null;
     /**
      * 
