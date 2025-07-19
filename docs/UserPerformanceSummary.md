@@ -7,6 +7,7 @@ Individual user performance summary
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userId** | **string** | User ID | [default to undefined]
+**userProfilePictureUrl** | **string** |  | [optional] [default to undefined]
 **userName** | **string** |  | [default to undefined]
 **avgProcessAdherenceScore** | **number** |  | [default to undefined]
 **avgSkillsScore** | **number** |  | [default to undefined]
@@ -21,6 +22,7 @@ import { UserPerformanceSummary } from '@trata/ts-client-sdk';
 
 const instance: UserPerformanceSummary = {
     userId,
+    userProfilePictureUrl,
     userName,
     avgProcessAdherenceScore,
     avgSkillsScore,

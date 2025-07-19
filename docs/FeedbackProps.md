@@ -6,8 +6,8 @@ The properties of the feedback
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**live_feedback_props** | [**LiveFeedbackProps**](LiveFeedbackProps.md) |  | [default to undefined]
-**sparr_feedback_props** | **object** | The properties of the sparring feedback | [default to undefined]
+**live_feedback_props** | [**LiveFeedbackProps**](LiveFeedbackProps.md) |  | [optional] [default to undefined]
+**sparr_feedback_props** | **object** | The properties of the sparring feedback | [optional] [default to undefined]
 
 ## Example
 

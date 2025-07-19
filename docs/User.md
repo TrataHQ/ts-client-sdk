@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] [default to undefined]
 **email** | **string** |  | [optional] [default to undefined]
 **phoneNumber** | **string** |  | [optional] [default to undefined]
+**profilePictureUrl** | **string** |  | [optional] [default to undefined]
 **orgId** | **string** |  | [optional] [default to undefined]
 **role** | **string** |  | [optional] [default to undefined]
 **fullName** | **string** |  | [optional] [default to undefined]
@@ -27,6 +28,7 @@ const instance: User = {
     id,
     email,
     phoneNumber,
+    profilePictureUrl,
     orgId,
     role,
     fullName,

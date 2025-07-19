@@ -4001,13 +4001,13 @@ export interface FeedbackProps {
      * @type {LiveFeedbackProps}
      * @memberof FeedbackProps
      */
-    'live_feedback_props': LiveFeedbackProps | null;
+    'live_feedback_props'?: LiveFeedbackProps | null;
     /**
      * The properties of the sparring feedback
      * @type {object}
      * @memberof FeedbackProps
      */
-    'sparr_feedback_props': object;
+    'sparr_feedback_props'?: object;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -4110,6 +4110,7 @@ export declare const FilterOperator: {
     readonly Or: "or";
     readonly Gte: "gte";
     readonly Lte: "lte";
+    readonly Lt: "lt";
 };
 export declare type FilterOperator = typeof FilterOperator[keyof typeof FilterOperator];
 /**
@@ -8609,6 +8610,12 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
     'recording_url': string;
     /**
      *
@@ -9487,6 +9494,12 @@ export interface User {
      * @type {string}
      * @memberof User
      */
+    'profilePictureUrl'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof User
+     */
     'orgId'?: string;
     /**
      *
@@ -9965,6 +9978,12 @@ export interface UserPerformanceSummary {
      * @memberof UserPerformanceSummary
      */
     'userId': string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserPerformanceSummary
+     */
+    'userProfilePictureUrl'?: string | null;
     /**
      *
      * @type {string}

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **thread_id** | **string** |  | [default to undefined]
 **email** | **string** |  | [default to undefined]
+**name** | **string** |  | [default to undefined]
 **recording_url** | **string** |  | [default to undefined]
 **contact_name** | **string** |  | [optional] [default to undefined]
 **start_timestamp** | **string** |  | [optional] [default to undefined]
@@ -24,6 +25,7 @@ import { Sparrv1EvaluateFeedbackRequest } from '@trata/ts-client-sdk';
 const instance: Sparrv1EvaluateFeedbackRequest = {
     thread_id,
     email,
+    name,
     recording_url,
     contact_name,
     start_timestamp,

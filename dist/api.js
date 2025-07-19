@@ -287,7 +287,8 @@ exports.FilterOperator = {
     And: 'and',
     Or: 'or',
     Gte: 'gte',
-    Lte: 'lte'
+    Lte: 'lte',
+    Lt: 'lt'
 };
 /**
  *
