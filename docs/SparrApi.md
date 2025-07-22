@@ -43,7 +43,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**getTrackerV1**](#gettrackerv1) | **GET** /v1/sparr/trackers/{tracker_id} | Get Tracker By Id|
 |[**getUserStatsV1**](#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats|
 |[**importLinkedinPersonaV1**](#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona|
-|[**listCoursesV1**](#listcoursesv1) | **GET** /v1/sparr/courses/ | Get Courses|
+|[**listCoursesV1**](#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses|
 |[**listEvaluatorV1**](#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator|
 |[**listFeedbacksV1**](#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks|
 |[**listGoalsV1**](#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals|

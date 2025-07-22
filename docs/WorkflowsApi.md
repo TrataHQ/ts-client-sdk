@@ -81,9 +81,11 @@ const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
 
 let workflowId: string; // (default to undefined)
+let cascade: boolean; // (optional) (default to false)
 
 const { status, data } = await apiInstance.deleteWorkflowV1WorkflowsWorkflowIdDelete(
-    workflowId
+    workflowId,
+    cascade
 );
 ```
 
@@ -92,6 +94,7 @@ const { status, data } = await apiInstance.deleteWorkflowV1WorkflowsWorkflowIdDe
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **workflowId** | [**string**] |  | defaults to undefined|
+| **cascade** | [**boolean**] |  | (optional) defaults to false|
 
 
 ### Return type

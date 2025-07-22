@@ -24746,7 +24746,7 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
          * @throws {RequiredError}
          */
         listCoursesV1: async (skip?: number, limit?: number, status?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/sparr/courses/`;
+            const localVarPath = `/v1/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -29089,7 +29089,7 @@ export const SparrResellerApiAxiosParamCreator = function (configuration?: Confi
          * @throws {RequiredError}
          */
         listCoursesResellerV1: async (skip?: number, limit?: number, status?: string | null, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/resellers/sparr/courses/`;
+            const localVarPath = `/v1/resellers/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33164,10 +33164,11 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * 
          * @summary Delete Workflow
          * @param {string} workflowId 
+         * @param {boolean} [cascade] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkflowV1WorkflowsWorkflowIdDelete: async (workflowId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteWorkflowV1WorkflowsWorkflowIdDelete: async (workflowId: string, cascade?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workflowId' is not null or undefined
             assertParamExists('deleteWorkflowV1WorkflowsWorkflowIdDelete', 'workflowId', workflowId)
             const localVarPath = `/v1/workflows/{workflow_id}`
@@ -33186,6 +33187,10 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             // authentication HTTPBearer required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (cascade !== undefined) {
+                localVarQueryParameter['cascade'] = cascade;
+            }
 
 
     
@@ -33453,11 +33458,12 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Delete Workflow
          * @param {string} workflowId 
+         * @param {boolean} [cascade] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options);
+        async deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.deleteWorkflowV1WorkflowsWorkflowIdDelete']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -33557,11 +33563,12 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * 
          * @summary Delete Workflow
          * @param {string} workflowId 
+         * @param {boolean} [cascade] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
-            return localVarFp.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(axios, basePath));
+        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse> {
+            return localVarFp.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -33645,12 +33652,13 @@ export class WorkflowsApi extends BaseAPI {
      * 
      * @summary Delete Workflow
      * @param {string} workflowId 
+     * @param {boolean} [cascade] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    public deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

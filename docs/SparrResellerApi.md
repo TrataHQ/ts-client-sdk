@@ -24,7 +24,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**getScenarioResellerV1**](#getscenarioresellerv1) | **GET** /v1/resellers/sparr/scenarios/{scenario_id} | Get Scenario|
 |[**getTrackerResellerV1**](#gettrackerresellerv1) | **GET** /v1/resellers/sparr/trackers/{tracker_id} | Get Tracker By Id|
 |[**importLinkedinPersonaResellerV1**](#importlinkedinpersonaresellerv1) | **POST** /v1/resellers/sparr/personas/import-linkedin | Import Linkedin Persona|
-|[**listCoursesResellerV1**](#listcoursesresellerv1) | **GET** /v1/resellers/sparr/courses/ | Get Courses|
+|[**listCoursesResellerV1**](#listcoursesresellerv1) | **GET** /v1/resellers/sparr/courses | Get Courses|
 |[**listEvaluatorResellerV1**](#listevaluatorresellerv1) | **GET** /v1/resellers/sparr/evaluators/ | Get Evaluator|
 |[**listGoalsResellerV1**](#listgoalsresellerv1) | **GET** /v1/resellers/sparr/goals/ | Get Goals|
 |[**listPersonasResellerV1**](#listpersonasresellerv1) | **GET** /v1/resellers/sparr/personas/ | Get Personas|

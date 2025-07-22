@@ -13360,7 +13360,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listCoursesV1: (skip, limit, status, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/sparr/courses/`;
+            const localVarPath = `/v1/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -17504,7 +17504,7 @@ exports.SparrResellerApiAxiosParamCreator = function (configuration) {
          * @throws {RequiredError}
          */
         listCoursesResellerV1: (skip, limit, status, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/resellers/sparr/courses/`;
+            const localVarPath = `/v1/resellers/sparr/courses`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -21380,10 +21380,11 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
          *
          * @summary Delete Workflow
          * @param {string} workflowId
+         * @param {boolean} [cascade]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId, cascade, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'workflowId' is not null or undefined
             common_1.assertParamExists('deleteWorkflowV1WorkflowsWorkflowIdDelete', 'workflowId', workflowId);
             const localVarPath = `/v1/workflows/{workflow_id}`
@@ -21400,6 +21401,9 @@ exports.WorkflowsApiAxiosParamCreator = function (configuration) {
             // authentication HTTPBearer required
             // http bearer authentication required
             yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            if (cascade !== undefined) {
+                localVarQueryParameter['cascade'] = cascade;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -21628,13 +21632,14 @@ exports.WorkflowsApiFp = function (configuration) {
          *
          * @summary Delete Workflow
          * @param {string} workflowId
+         * @param {boolean} [cascade]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options) {
+        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options) {
             var _a, _b, _c;
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['WorkflowsApi.deleteWorkflowV1WorkflowsWorkflowIdDelete']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -21749,11 +21754,12 @@ exports.WorkflowsApiFactory = function (configuration, basePath, axios) {
          *
          * @summary Delete Workflow
          * @param {string} workflowId
+         * @param {boolean} [cascade]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options) {
-            return localVarFp.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(axios, basePath));
+        deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options) {
+            return localVarFp.deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options).then((request) => request(axios, basePath));
         },
         /**
          *
@@ -21835,12 +21841,13 @@ class WorkflowsApi extends base_1.BaseAPI {
      *
      * @summary Delete Workflow
      * @param {string} workflowId
+     * @param {boolean} [cascade]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options) {
-        return exports.WorkflowsApiFp(this.configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, options).then((request) => request(this.axios, this.basePath));
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options) {
+        return exports.WorkflowsApiFp(this.configuration).deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId, cascade, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *

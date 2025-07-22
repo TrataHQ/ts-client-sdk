@@ -216,7 +216,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**getTrackerV1**](docs/SparrApi.md#gettrackerv1) | **GET** /v1/sparr/trackers/{tracker_id} | Get Tracker By Id
 *SparrApi* | [**getUserStatsV1**](docs/SparrApi.md#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats
 *SparrApi* | [**importLinkedinPersonaV1**](docs/SparrApi.md#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona
-*SparrApi* | [**listCoursesV1**](docs/SparrApi.md#listcoursesv1) | **GET** /v1/sparr/courses/ | Get Courses
+*SparrApi* | [**listCoursesV1**](docs/SparrApi.md#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses
 *SparrApi* | [**listEvaluatorV1**](docs/SparrApi.md#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator
 *SparrApi* | [**listFeedbacksV1**](docs/SparrApi.md#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks
 *SparrApi* | [**listGoalsV1**](docs/SparrApi.md#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals
@@ -261,7 +261,7 @@ Class | Method | HTTP request | Description
 *SparrResellerApi* | [**getScenarioResellerV1**](docs/SparrResellerApi.md#getscenarioresellerv1) | **GET** /v1/resellers/sparr/scenarios/{scenario_id} | Get Scenario
 *SparrResellerApi* | [**getTrackerResellerV1**](docs/SparrResellerApi.md#gettrackerresellerv1) | **GET** /v1/resellers/sparr/trackers/{tracker_id} | Get Tracker By Id
 *SparrResellerApi* | [**importLinkedinPersonaResellerV1**](docs/SparrResellerApi.md#importlinkedinpersonaresellerv1) | **POST** /v1/resellers/sparr/personas/import-linkedin | Import Linkedin Persona
-*SparrResellerApi* | [**listCoursesResellerV1**](docs/SparrResellerApi.md#listcoursesresellerv1) | **GET** /v1/resellers/sparr/courses/ | Get Courses
+*SparrResellerApi* | [**listCoursesResellerV1**](docs/SparrResellerApi.md#listcoursesresellerv1) | **GET** /v1/resellers/sparr/courses | Get Courses
 *SparrResellerApi* | [**listEvaluatorResellerV1**](docs/SparrResellerApi.md#listevaluatorresellerv1) | **GET** /v1/resellers/sparr/evaluators/ | Get Evaluator
 *SparrResellerApi* | [**listGoalsResellerV1**](docs/SparrResellerApi.md#listgoalsresellerv1) | **GET** /v1/resellers/sparr/goals/ | Get Goals
 *SparrResellerApi* | [**listPersonasResellerV1**](docs/SparrResellerApi.md#listpersonasresellerv1) | **GET** /v1/resellers/sparr/personas/ | Get Personas

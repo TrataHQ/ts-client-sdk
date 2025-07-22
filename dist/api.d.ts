@@ -21180,10 +21180,11 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      *
      * @summary Delete Workflow
      * @param {string} workflowId
+     * @param {boolean} [cascade]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, cascade?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Workflow
@@ -21248,10 +21249,11 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      *
      * @summary Delete Workflow
      * @param {string} workflowId
+     * @param {boolean} [cascade]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Workflow
@@ -21316,10 +21318,11 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      *
      * @summary Delete Workflow
      * @param {string} workflowId
+     * @param {boolean} [cascade]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Read Workflow
@@ -21387,11 +21390,12 @@ export declare class WorkflowsApi extends BaseAPI {
      *
      * @summary Delete Workflow
      * @param {string} workflowId
+     * @param {boolean} [cascade]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Workflow
