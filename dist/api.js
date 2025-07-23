@@ -12275,6 +12275,39 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Create Feedback Comment
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackCommentV1: (feedbackCommentCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackCommentCore' is not null or undefined
+            common_1.assertParamExists('createFeedbackCommentV1', 'feedbackCommentCore', feedbackCommentCore);
+            const localVarPath = `/v1/sparr/feedback-comments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(feedbackCommentCore, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore
@@ -12516,6 +12549,38 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             common_1.assertParamExists('deleteEvaluatorV1', 'paramsId', paramsId);
             const localVarPath = `/v1/sparr/evaluators/{params_id}`
                 .replace(`{${"params_id"}}`, encodeURIComponent(String(paramsId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary Delete Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackCommentV1: (feedbackCommentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackCommentId' is not null or undefined
+            common_1.assertParamExists('deleteFeedbackCommentV1', 'feedbackCommentId', feedbackCommentId);
+            const localVarPath = `/v1/sparr/feedback-comments/{feedback_comment_id}`
+                .replace(`{${"feedback_comment_id"}}`, encodeURIComponent(String(feedbackCommentId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -13032,6 +13097,38 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Get Feedback Comment By Id
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackCommentV1: (feedbackCommentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackCommentId' is not null or undefined
+            common_1.assertParamExists('getFeedbackCommentV1', 'feedbackCommentId', feedbackCommentId);
+            const localVarPath = `/v1/sparr/feedback-comments/{feedback_comment_id}`
+                .replace(`{${"feedback_comment_id"}}`, encodeURIComponent(String(feedbackCommentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -13417,6 +13514,46 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             }
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         *
+         * @summary List Feedback Comments
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string | null} [feedbackId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbackCommentsV1: (skip, limit, feedbackId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/sparr/feedback-comments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (feedbackId !== undefined) {
+                localVarQueryParameter['feedback_id'] = feedbackId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14096,6 +14233,43 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         *
+         * @summary Update Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackCommentV1: (feedbackCommentId, feedbackCommentCore, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'feedbackCommentId' is not null or undefined
+            common_1.assertParamExists('updateFeedbackCommentV1', 'feedbackCommentId', feedbackCommentId);
+            // verify required parameter 'feedbackCommentCore' is not null or undefined
+            common_1.assertParamExists('updateFeedbackCommentV1', 'feedbackCommentCore', feedbackCommentCore);
+            const localVarPath = `/v1/sparr/feedback-comments/{feedback_comment_id}`
+                .replace(`{${"feedback_comment_id"}}`, encodeURIComponent(String(feedbackCommentId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(feedbackCommentCore, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -14428,6 +14602,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Create Feedback Comment
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackCommentV1(feedbackCommentCore, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createFeedbackCommentV1(feedbackCommentCore, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.createFeedbackCommentV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore
@@ -14552,6 +14742,22 @@ exports.SparrApiFp = function (configuration) {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteEvaluatorV1(paramsId, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.deleteEvaluatorV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
+         *
+         * @summary Delete Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackCommentV1(feedbackCommentId, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteFeedbackCommentV1(feedbackCommentId, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.deleteFeedbackCommentV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
@@ -14799,6 +15005,22 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Get Feedback Comment By Id
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackCommentV1(feedbackCommentId, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getFeedbackCommentV1(feedbackCommentId, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.getFeedbackCommentV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -14989,6 +15211,24 @@ exports.SparrApiFp = function (configuration) {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.listEvaluatorV1(skip, limit, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.listEvaluatorV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
+         *
+         * @summary List Feedback Comments
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string | null} [feedbackId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbackCommentsV1(skip, limit, feedbackId, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listFeedbackCommentsV1(skip, limit, feedbackId, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.listFeedbackCommentsV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
@@ -15293,6 +15533,23 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         *
+         * @summary Update Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.updateFeedbackCommentV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -15466,6 +15723,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return localVarFp.createCustomerPortalV1(options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Create Feedback Comment
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFeedbackCommentV1(feedbackCommentCore, options) {
+            return localVarFp.createFeedbackCommentV1(feedbackCommentCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new feedback
          * @summary Create Feedback
          * @param {FeedbackCore} feedbackCore
@@ -15544,6 +15811,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         deleteEvaluatorV1(paramsId, options) {
             return localVarFp.deleteEvaluatorV1(paramsId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary Delete Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFeedbackCommentV1(feedbackCommentId, options) {
+            return localVarFp.deleteFeedbackCommentV1(feedbackCommentId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a feedback
@@ -15699,6 +15976,16 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getEvaluatorV1(paramsId, options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Get Feedback Comment By Id
+         * @param {string} feedbackCommentId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFeedbackCommentV1(feedbackCommentId, options) {
+            return localVarFp.getFeedbackCommentV1(feedbackCommentId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific feedback by ID
          * @summary Get Feedback
          * @param {string} feedbackId
@@ -15819,6 +16106,18 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
          */
         listEvaluatorV1(skip, limit, options) {
             return localVarFp.listEvaluatorV1(skip, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *
+         * @summary List Feedback Comments
+         * @param {number} [skip]
+         * @param {number} [limit]
+         * @param {string | null} [feedbackId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFeedbackCommentsV1(skip, limit, feedbackId, options) {
+            return localVarFp.listFeedbackCommentsV1(skip, limit, feedbackId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all feedbacks
@@ -16019,6 +16318,17 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return localVarFp.updateEvaluatorV1(paramsId, evaluatorCore, options).then((request) => request(axios, basePath));
         },
         /**
+         *
+         * @summary Update Feedback Comment
+         * @param {string} feedbackCommentId
+         * @param {FeedbackCommentCore} feedbackCommentCore
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options) {
+            return localVarFp.updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update a feedback
          * @summary Update Feedback
          * @param {string} feedbackId
@@ -16162,6 +16472,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).createCustomerPortalV1(options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     *
+     * @summary Create Feedback Comment
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createFeedbackCommentV1(feedbackCommentCore, options) {
+        return exports.SparrApiFp(this.configuration).createFeedbackCommentV1(feedbackCommentCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -16248,6 +16569,17 @@ class SparrApi extends base_1.BaseAPI {
      */
     deleteEvaluatorV1(paramsId, options) {
         return exports.SparrApiFp(this.configuration).deleteEvaluatorV1(paramsId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Delete Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFeedbackCommentV1(feedbackCommentId, options) {
+        return exports.SparrApiFp(this.configuration).deleteFeedbackCommentV1(feedbackCommentId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a feedback
@@ -16418,6 +16750,17 @@ class SparrApi extends base_1.BaseAPI {
         return exports.SparrApiFp(this.configuration).getEvaluatorV1(paramsId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     *
+     * @summary Get Feedback Comment By Id
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFeedbackCommentV1(feedbackCommentId, options) {
+        return exports.SparrApiFp(this.configuration).getFeedbackCommentV1(feedbackCommentId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -16550,6 +16893,19 @@ class SparrApi extends base_1.BaseAPI {
      */
     listEvaluatorV1(skip, limit, options) {
         return exports.SparrApiFp(this.configuration).listEvaluatorV1(skip, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary List Feedback Comments
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string | null} [feedbackId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listFeedbackCommentsV1(skip, limit, feedbackId, options) {
+        return exports.SparrApiFp(this.configuration).listFeedbackCommentsV1(skip, limit, feedbackId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all feedbacks
@@ -16765,6 +17121,18 @@ class SparrApi extends base_1.BaseAPI {
      */
     updateEvaluatorV1(paramsId, evaluatorCore, options) {
         return exports.SparrApiFp(this.configuration).updateEvaluatorV1(paramsId, evaluatorCore, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *
+     * @summary Update Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options) {
+        return exports.SparrApiFp(this.configuration).updateFeedbackCommentV1(feedbackCommentId, feedbackCommentCore, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a feedback

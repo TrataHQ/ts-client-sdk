@@ -10,6 +10,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**createCheckoutSessionForPriceV1**](#createcheckoutsessionforpricev1) | **POST** /v1/sparr/pricing/{price_id}/checkout | Create Checkout Session For Price|
 |[**createCourseV1**](#createcoursev1) | **POST** /v1/sparr/courses | Create Course|
 |[**createCustomerPortalV1**](#createcustomerportalv1) | **POST** /v1/sparr/customers/portal | Create Customer Portal|
+|[**createFeedbackCommentV1**](#createfeedbackcommentv1) | **POST** /v1/sparr/feedback-comments | Create Feedback Comment|
 |[**createFeedbackV1**](#createfeedbackv1) | **POST** /v1/sparr/feedbacks | Create Feedback|
 |[**createGoalsV1**](#creategoalsv1) | **POST** /v1/sparr/goals | Create Goals|
 |[**createPersonaV1**](#createpersonav1) | **POST** /v1/sparr/personas | Create Persona|
@@ -18,6 +19,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**createTrackerV1**](#createtrackerv1) | **POST** /v1/sparr/trackers | Create Tracker|
 |[**deleteCourseV1**](#deletecoursev1) | **DELETE** /v1/sparr/courses/{course_id} | Delete Course|
 |[**deleteEvaluatorV1**](#deleteevaluatorv1) | **DELETE** /v1/sparr/evaluators/{params_id} | Delete Evaluator|
+|[**deleteFeedbackCommentV1**](#deletefeedbackcommentv1) | **DELETE** /v1/sparr/feedback-comments/{feedback_comment_id} | Delete Feedback Comment|
 |[**deleteFeedbackV1**](#deletefeedbackv1) | **DELETE** /v1/sparr/feedbacks/{feedback_id} | Delete Feedback|
 |[**deleteFileV1**](#deletefilev1) | **DELETE** /v1/sparr/files/{file_id} | Delete File|
 |[**deleteGoalsV1**](#deletegoalsv1) | **DELETE** /v1/sparr/goals/{goals_id} | Delete Goals|
@@ -33,6 +35,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag|
 |[**getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet**](#getentitytagsv1sparrentitytagsentitytypeentityidtagsget) | **GET** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags | Get Entity Tags|
 |[**getEvaluatorV1**](#getevaluatorv1) | **GET** /v1/sparr/evaluators/{params_id} | Get Evaluator By Id|
+|[**getFeedbackCommentV1**](#getfeedbackcommentv1) | **GET** /v1/sparr/feedback-comments/{feedback_comment_id} | Get Feedback Comment By Id|
 |[**getFeedbackV1**](#getfeedbackv1) | **GET** /v1/sparr/feedbacks/{feedback_id} | Get Feedback|
 |[**getFileV1**](#getfilev1) | **GET** /v1/sparr/files/{file_id} | Get File|
 |[**getGoalsV1**](#getgoalsv1) | **GET** /v1/sparr/goals/{goals_id} | Get Goals By Id|
@@ -45,6 +48,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**importLinkedinPersonaV1**](#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona|
 |[**listCoursesV1**](#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses|
 |[**listEvaluatorV1**](#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator|
+|[**listFeedbackCommentsV1**](#listfeedbackcommentsv1) | **GET** /v1/sparr/feedback-comments | List Feedback Comments|
 |[**listFeedbacksV1**](#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks|
 |[**listGoalsV1**](#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals|
 |[**listPersonasV1**](#listpersonasv1) | **GET** /v1/sparr/personas | Get Personas|
@@ -62,6 +66,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**updateCourseCompletionStatusV1**](#updatecoursecompletionstatusv1) | **PUT** /v1/sparr/courses/{course_id}/assign/{user_id}/status | Update Course Completion Status|
 |[**updateCourseV1**](#updatecoursev1) | **PUT** /v1/sparr/courses/{course_id} | Update Course|
 |[**updateEvaluatorV1**](#updateevaluatorv1) | **PUT** /v1/sparr/evaluators/{params_id} | Update Evaluator|
+|[**updateFeedbackCommentV1**](#updatefeedbackcommentv1) | **PUT** /v1/sparr/feedback-comments/{feedback_comment_id} | Update Feedback Comment|
 |[**updateFeedbackV1**](#updatefeedbackv1) | **PUT** /v1/sparr/feedbacks/{feedback_id} | Update Feedback|
 |[**updateGoalsV1**](#updategoalsv1) | **PUT** /v1/sparr/goals/{goals_id} | Update Goals|
 |[**updatePersonaV1**](#updatepersonav1) | **PUT** /v1/sparr/personas/{persona_id} | Update Persona|
@@ -389,6 +394,59 @@ This endpoint does not have any parameters.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **createFeedbackCommentV1**
+> SparrDbModelsFeedbackComment createFeedbackCommentV1(feedbackCommentCore)
+
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    FeedbackCommentCore
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let feedbackCommentCore: FeedbackCommentCore; //
+
+const { status, data } = await apiInstance.createFeedbackCommentV1(
+    feedbackCommentCore
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **feedbackCommentCore** | **FeedbackCommentCore**|  | |
+
+
+### Return type
+
+**SparrDbModelsFeedbackComment**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -797,6 +855,58 @@ const { status, data } = await apiInstance.deleteEvaluatorV1(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **paramsId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**SparrModelsBaseBaseResponse**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteFeedbackCommentV1**
+> SparrModelsBaseBaseResponse deleteFeedbackCommentV1()
+
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let feedbackCommentId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.deleteFeedbackCommentV1(
+    feedbackCommentId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **feedbackCommentId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
@@ -1622,6 +1732,58 @@ const { status, data } = await apiInstance.getEvaluatorV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getFeedbackCommentV1**
+> SparrDbModelsFeedbackComment getFeedbackCommentV1()
+
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let feedbackCommentId: string; // (default to undefined)
+
+const { status, data } = await apiInstance.getFeedbackCommentV1(
+    feedbackCommentId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **feedbackCommentId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**SparrDbModelsFeedbackComment**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getFeedbackV1**
 > Feedback getFeedbackV1()
 
@@ -2239,6 +2401,64 @@ const { status, data } = await apiInstance.listEvaluatorV1(
 ### Return type
 
 **Array<Evaluator>**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listFeedbackCommentsV1**
+> Array<SparrDbModelsFeedbackComment> listFeedbackCommentsV1()
+
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let skip: number; // (optional) (default to 0)
+let limit: number; // (optional) (default to 100)
+let feedbackId: string; // (optional) (default to undefined)
+
+const { status, data } = await apiInstance.listFeedbackCommentsV1(
+    skip,
+    limit,
+    feedbackId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **skip** | [**number**] |  | (optional) defaults to 0|
+| **limit** | [**number**] |  | (optional) defaults to 100|
+| **feedbackId** | [**string**] |  | (optional) defaults to undefined|
+
+
+### Return type
+
+**Array<SparrDbModelsFeedbackComment>**
 
 ### Authorization
 
@@ -3220,6 +3440,62 @@ const { status, data } = await apiInstance.updateEvaluatorV1(
 ### Return type
 
 **Evaluator**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateFeedbackCommentV1**
+> SparrDbModelsFeedbackComment updateFeedbackCommentV1(feedbackCommentCore)
+
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    FeedbackCommentCore
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let feedbackCommentId: string; // (default to undefined)
+let feedbackCommentCore: FeedbackCommentCore; //
+
+const { status, data } = await apiInstance.updateFeedbackCommentV1(
+    feedbackCommentId,
+    feedbackCommentCore
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **feedbackCommentCore** | **FeedbackCommentCore**|  | |
+| **feedbackCommentId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**SparrDbModelsFeedbackComment**
 
 ### Authorization
 

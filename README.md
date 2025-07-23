@@ -183,6 +183,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**createCheckoutSessionForPriceV1**](docs/SparrApi.md#createcheckoutsessionforpricev1) | **POST** /v1/sparr/pricing/{price_id}/checkout | Create Checkout Session For Price
 *SparrApi* | [**createCourseV1**](docs/SparrApi.md#createcoursev1) | **POST** /v1/sparr/courses | Create Course
 *SparrApi* | [**createCustomerPortalV1**](docs/SparrApi.md#createcustomerportalv1) | **POST** /v1/sparr/customers/portal | Create Customer Portal
+*SparrApi* | [**createFeedbackCommentV1**](docs/SparrApi.md#createfeedbackcommentv1) | **POST** /v1/sparr/feedback-comments | Create Feedback Comment
 *SparrApi* | [**createFeedbackV1**](docs/SparrApi.md#createfeedbackv1) | **POST** /v1/sparr/feedbacks | Create Feedback
 *SparrApi* | [**createGoalsV1**](docs/SparrApi.md#creategoalsv1) | **POST** /v1/sparr/goals | Create Goals
 *SparrApi* | [**createPersonaV1**](docs/SparrApi.md#createpersonav1) | **POST** /v1/sparr/personas | Create Persona
@@ -191,6 +192,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**createTrackerV1**](docs/SparrApi.md#createtrackerv1) | **POST** /v1/sparr/trackers | Create Tracker
 *SparrApi* | [**deleteCourseV1**](docs/SparrApi.md#deletecoursev1) | **DELETE** /v1/sparr/courses/{course_id} | Delete Course
 *SparrApi* | [**deleteEvaluatorV1**](docs/SparrApi.md#deleteevaluatorv1) | **DELETE** /v1/sparr/evaluators/{params_id} | Delete Evaluator
+*SparrApi* | [**deleteFeedbackCommentV1**](docs/SparrApi.md#deletefeedbackcommentv1) | **DELETE** /v1/sparr/feedback-comments/{feedback_comment_id} | Delete Feedback Comment
 *SparrApi* | [**deleteFeedbackV1**](docs/SparrApi.md#deletefeedbackv1) | **DELETE** /v1/sparr/feedbacks/{feedback_id} | Delete Feedback
 *SparrApi* | [**deleteFileV1**](docs/SparrApi.md#deletefilev1) | **DELETE** /v1/sparr/files/{file_id} | Delete File
 *SparrApi* | [**deleteGoalsV1**](docs/SparrApi.md#deletegoalsv1) | **DELETE** /v1/sparr/goals/{goals_id} | Delete Goals
@@ -206,6 +208,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](docs/SparrApi.md#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag
 *SparrApi* | [**getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet**](docs/SparrApi.md#getentitytagsv1sparrentitytagsentitytypeentityidtagsget) | **GET** /v1/sparr/entity-tags/{entity_type}/{entity_id}/tags | Get Entity Tags
 *SparrApi* | [**getEvaluatorV1**](docs/SparrApi.md#getevaluatorv1) | **GET** /v1/sparr/evaluators/{params_id} | Get Evaluator By Id
+*SparrApi* | [**getFeedbackCommentV1**](docs/SparrApi.md#getfeedbackcommentv1) | **GET** /v1/sparr/feedback-comments/{feedback_comment_id} | Get Feedback Comment By Id
 *SparrApi* | [**getFeedbackV1**](docs/SparrApi.md#getfeedbackv1) | **GET** /v1/sparr/feedbacks/{feedback_id} | Get Feedback
 *SparrApi* | [**getFileV1**](docs/SparrApi.md#getfilev1) | **GET** /v1/sparr/files/{file_id} | Get File
 *SparrApi* | [**getGoalsV1**](docs/SparrApi.md#getgoalsv1) | **GET** /v1/sparr/goals/{goals_id} | Get Goals By Id
@@ -218,6 +221,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**importLinkedinPersonaV1**](docs/SparrApi.md#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona
 *SparrApi* | [**listCoursesV1**](docs/SparrApi.md#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses
 *SparrApi* | [**listEvaluatorV1**](docs/SparrApi.md#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator
+*SparrApi* | [**listFeedbackCommentsV1**](docs/SparrApi.md#listfeedbackcommentsv1) | **GET** /v1/sparr/feedback-comments | List Feedback Comments
 *SparrApi* | [**listFeedbacksV1**](docs/SparrApi.md#listfeedbacksv1) | **GET** /v1/sparr/feedbacks | Get Feedbacks
 *SparrApi* | [**listGoalsV1**](docs/SparrApi.md#listgoalsv1) | **GET** /v1/sparr/goals | Get Goals
 *SparrApi* | [**listPersonasV1**](docs/SparrApi.md#listpersonasv1) | **GET** /v1/sparr/personas | Get Personas
@@ -235,6 +239,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**updateCourseCompletionStatusV1**](docs/SparrApi.md#updatecoursecompletionstatusv1) | **PUT** /v1/sparr/courses/{course_id}/assign/{user_id}/status | Update Course Completion Status
 *SparrApi* | [**updateCourseV1**](docs/SparrApi.md#updatecoursev1) | **PUT** /v1/sparr/courses/{course_id} | Update Course
 *SparrApi* | [**updateEvaluatorV1**](docs/SparrApi.md#updateevaluatorv1) | **PUT** /v1/sparr/evaluators/{params_id} | Update Evaluator
+*SparrApi* | [**updateFeedbackCommentV1**](docs/SparrApi.md#updatefeedbackcommentv1) | **PUT** /v1/sparr/feedback-comments/{feedback_comment_id} | Update Feedback Comment
 *SparrApi* | [**updateFeedbackV1**](docs/SparrApi.md#updatefeedbackv1) | **PUT** /v1/sparr/feedbacks/{feedback_id} | Update Feedback
 *SparrApi* | [**updateGoalsV1**](docs/SparrApi.md#updategoalsv1) | **PUT** /v1/sparr/goals/{goals_id} | Update Goals
 *SparrApi* | [**updatePersonaV1**](docs/SparrApi.md#updatepersonav1) | **PUT** /v1/sparr/personas/{persona_id} | Update Persona
@@ -444,6 +449,10 @@ Class | Method | HTTP request | Description
  - [ExternalServiceProviderOutput](docs/ExternalServiceProviderOutput.md)
  - [FamiliarityLevel](docs/FamiliarityLevel.md)
  - [Feedback](docs/Feedback.md)
+ - [FeedbackCommentCore](docs/FeedbackCommentCore.md)
+ - [FeedbackCommentInput](docs/FeedbackCommentInput.md)
+ - [FeedbackCommentThreadInput](docs/FeedbackCommentThreadInput.md)
+ - [FeedbackCommentThreadOutput](docs/FeedbackCommentThreadOutput.md)
  - [FeedbackCore](docs/FeedbackCore.md)
  - [FeedbackProps](docs/FeedbackProps.md)
  - [Files](docs/Files.md)
@@ -548,6 +557,7 @@ Class | Method | HTTP request | Description
  - [SortOrder](docs/SortOrder.md)
  - [SparrAdaptability](docs/SparrAdaptability.md)
  - [SparrCommunicationStyle](docs/SparrCommunicationStyle.md)
+ - [SparrDbModelsFeedbackComment](docs/SparrDbModelsFeedbackComment.md)
  - [SparrDbModelsGoal](docs/SparrDbModelsGoal.md)
  - [SparrDecisionMakingStyle](docs/SparrDecisionMakingStyle.md)
  - [SparrDemeanorInput](docs/SparrDemeanorInput.md)
@@ -569,6 +579,7 @@ Class | Method | HTTP request | Description
  - [SparrModelsAnalyticsMetricsRequest](docs/SparrModelsAnalyticsMetricsRequest.md)
  - [SparrModelsAnalyticsMetricsResponse](docs/SparrModelsAnalyticsMetricsResponse.md)
  - [SparrModelsBaseBaseResponse](docs/SparrModelsBaseBaseResponse.md)
+ - [SparrModelsFeedbackFeedbackComment](docs/SparrModelsFeedbackFeedbackComment.md)
  - [SparrModelsScenarioGoal](docs/SparrModelsScenarioGoal.md)
  - [SparrNegotiationStyle](docs/SparrNegotiationStyle.md)
  - [SparrPatienceLevel](docs/SparrPatienceLevel.md)
@@ -598,6 +609,7 @@ Class | Method | HTTP request | Description
  - [TelephonyApp](docs/TelephonyApp.md)
  - [TelephonyConnectRequest](docs/TelephonyConnectRequest.md)
  - [TelephonyConnectResponse](docs/TelephonyConnectResponse.md)
+ - [TimestampRange](docs/TimestampRange.md)
  - [Tracker](docs/Tracker.md)
  - [TrackerAnalyticsModel](docs/TrackerAnalyticsModel.md)
  - [TrackerCore](docs/TrackerCore.md)

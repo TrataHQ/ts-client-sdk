@@ -3860,6 +3860,100 @@ export interface Feedback {
 /**
  *
  * @export
+ * @interface FeedbackCommentCore
+ */
+export interface FeedbackCommentCore {
+    /**
+     * The ID of the feedback
+     * @type {string}
+     * @memberof FeedbackCommentCore
+     */
+    'feedbackId': string;
+    /**
+     *
+     * @type {Array<FeedbackCommentThreadInput>}
+     * @memberof FeedbackCommentCore
+     */
+    'comments': Array<FeedbackCommentThreadInput>;
+}
+/**
+ * The comment on the feedback
+ * @export
+ * @interface FeedbackCommentInput
+ */
+export interface FeedbackCommentInput {
+    /**
+     * The ID of the user who made the comment
+     * @type {string}
+     * @memberof FeedbackCommentInput
+     */
+    'userId': string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeedbackCommentInput
+     */
+    'userName': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof FeedbackCommentInput
+     */
+    'userProfilePictureUrl'?: string | null;
+    /**
+     * The comment from the user
+     * @type {string}
+     * @memberof FeedbackCommentInput
+     */
+    'comment': string;
+    /**
+     * The order of the comment in the thread
+     * @type {number}
+     * @memberof FeedbackCommentInput
+     */
+    'order'?: number;
+}
+/**
+ * The comment thread on the feedback
+ * @export
+ * @interface FeedbackCommentThreadInput
+ */
+export interface FeedbackCommentThreadInput {
+    /**
+     *
+     * @type {TimestampRange}
+     * @memberof FeedbackCommentThreadInput
+     */
+    'timestampRange': TimestampRange;
+    /**
+     * The comments on the feedback
+     * @type {Array<FeedbackCommentInput>}
+     * @memberof FeedbackCommentThreadInput
+     */
+    'comments': Array<FeedbackCommentInput>;
+}
+/**
+ * The comment thread on the feedback
+ * @export
+ * @interface FeedbackCommentThreadOutput
+ */
+export interface FeedbackCommentThreadOutput {
+    /**
+     *
+     * @type {TimestampRange}
+     * @memberof FeedbackCommentThreadOutput
+     */
+    'timestampRange': TimestampRange;
+    /**
+     * The comments on the feedback
+     * @type {Array<SparrModelsFeedbackFeedbackComment>}
+     * @memberof FeedbackCommentThreadOutput
+     */
+    'comments': Array<SparrModelsFeedbackFeedbackComment>;
+}
+/**
+ *
+ * @export
  * @interface FeedbackCore
  */
 export interface FeedbackCore {
@@ -7733,6 +7827,61 @@ export declare const SparrCommunicationStyle: {
 };
 export declare type SparrCommunicationStyle = typeof SparrCommunicationStyle[keyof typeof SparrCommunicationStyle];
 /**
+ * FeedbackComment represents a comment on a feedback
+ * @export
+ * @interface SparrDbModelsFeedbackComment
+ */
+export interface SparrDbModelsFeedbackComment {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'createdBy'?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'createdAt'?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'updatedBy'?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'updatedAt'?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'orgId'?: string;
+    /**
+     * The ID of the feedback
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'feedbackId': string;
+    /**
+     *
+     * @type {Array<FeedbackCommentThreadOutput>}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'comments': Array<FeedbackCommentThreadOutput>;
+    /**
+     * The unique identifier of the feedback comment
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'id'?: string;
+}
+/**
  * Goal represents a collection of goals with weightages
  * @export
  * @interface SparrDbModelsGoal
@@ -8297,6 +8446,43 @@ export interface SparrModelsBaseBaseResponse {
      * @memberof SparrModelsBaseBaseResponse
      */
     'status'?: string;
+}
+/**
+ * The comment on the feedback
+ * @export
+ * @interface SparrModelsFeedbackFeedbackComment
+ */
+export interface SparrModelsFeedbackFeedbackComment {
+    /**
+     * The ID of the user who made the comment
+     * @type {string}
+     * @memberof SparrModelsFeedbackFeedbackComment
+     */
+    'userId': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrModelsFeedbackFeedbackComment
+     */
+    'userName': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrModelsFeedbackFeedbackComment
+     */
+    'userProfilePictureUrl'?: string | null;
+    /**
+     * The comment from the user
+     * @type {string}
+     * @memberof SparrModelsFeedbackFeedbackComment
+     */
+    'comment': string;
+    /**
+     * The order of the comment in the thread
+     * @type {number}
+     * @memberof SparrModelsFeedbackFeedbackComment
+     */
+    'order'?: number;
 }
 /**
  *
@@ -9157,6 +9343,25 @@ export interface TelephonyConnectResponse {
      * @memberof TelephonyConnectResponse
      */
     'connection_id'?: string | null;
+}
+/**
+ * The timestamp range of the comment
+ * @export
+ * @interface TimestampRange
+ */
+export interface TimestampRange {
+    /**
+     * The start timestamp of the comment. In the format minutes:seconds
+     * @type {string}
+     * @memberof TimestampRange
+     */
+    'startTimestamp': string;
+    /**
+     * The end timestamp of the comment. In the format minutes:seconds
+     * @type {string}
+     * @memberof TimestampRange
+     */
+    'endTimestamp': string;
 }
 /**
  * Tracker represents a collection of keywords with name and description
@@ -16698,6 +16903,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createCustomerPortalV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Create Feedback Comment
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackCommentV1: (feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -16761,6 +16974,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary Delete Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackCommentV1: (feedbackCommentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -16885,6 +17106,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Get Feedback Comment By Id
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackCommentV1: (feedbackCommentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -16982,6 +17211,16 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listEvaluatorV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *
+     * @summary List Feedback Comments
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string | null} [feedbackId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbackCommentsV1: (skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -17147,6 +17386,15 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     *
+     * @summary Update Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackCommentV1: (feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -17257,6 +17505,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     createCustomerPortalV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
+     *
+     * @summary Create Feedback Comment
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -17320,6 +17576,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    /**
+     *
+     * @summary Delete Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -17444,6 +17708,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
+     *
+     * @summary Get Feedback Comment By Id
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -17541,6 +17813,16 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    /**
+     *
+     * @summary List Feedback Comments
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string | null} [feedbackId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsFeedbackComment>>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -17708,6 +17990,15 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
+     *
+     * @summary Update Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -17818,6 +18109,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     createCustomerPortalV1(options?: AxiosRequestConfig): AxiosPromise<string>;
     /**
+     *
+     * @summary Create Feedback Comment
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -17881,6 +18180,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    /**
+     *
+     * @summary Delete Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -18005,6 +18312,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
+     *
+     * @summary Get Feedback Comment By Id
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -18102,6 +18417,16 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
+    /**
+     *
+     * @summary List Feedback Comments
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string | null} [feedbackId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsFeedbackComment>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -18269,6 +18594,15 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
+     *
+     * @summary Update Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    /**
      * Update a feedback
      * @summary Update Feedback
      * @param {string} feedbackId
@@ -18387,6 +18721,15 @@ export declare class SparrApi extends BaseAPI {
      */
     createCustomerPortalV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
+     *
+     * @summary Create Feedback Comment
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
+    /**
      * Create a new feedback
      * @summary Create Feedback
      * @param {FeedbackCore} feedbackCore
@@ -18458,6 +18801,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    /**
+     *
+     * @summary Delete Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -18597,6 +18949,15 @@ export declare class SparrApi extends BaseAPI {
      */
     getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
     /**
+     *
+     * @summary Get Feedback Comment By Id
+     * @param {string} feedbackCommentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
+    /**
      * Get a specific feedback by ID
      * @summary Get Feedback
      * @param {string} feedbackId
@@ -18706,6 +19067,17 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    /**
+     *
+     * @summary List Feedback Comments
+     * @param {number} [skip]
+     * @param {number} [limit]
+     * @param {string | null} [feedbackId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment[]>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -18889,6 +19261,16 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    /**
+     *
+     * @summary Update Feedback Comment
+     * @param {string} feedbackCommentId
+     * @param {FeedbackCommentCore} feedbackCommentCore
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
     /**
      * Update a feedback
      * @summary Update Feedback
