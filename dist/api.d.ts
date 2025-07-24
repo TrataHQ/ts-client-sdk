@@ -3875,6 +3875,12 @@ export interface FeedbackCommentCore {
      * @memberof FeedbackCommentCore
      */
     'comments': Array<FeedbackCommentThreadInput>;
+    /**
+     * The status of the feedback comment
+     * @type {string}
+     * @memberof FeedbackCommentCore
+     */
+    'status'?: string;
 }
 /**
  * The comment on the feedback
@@ -7874,6 +7880,12 @@ export interface SparrDbModelsFeedbackComment {
      * @memberof SparrDbModelsFeedbackComment
      */
     'comments': Array<FeedbackCommentThreadOutput>;
+    /**
+     * The status of the feedback comment
+     * @type {string}
+     * @memberof SparrDbModelsFeedbackComment
+     */
+    'status'?: string;
     /**
      * The unique identifier of the feedback comment
      * @type {string}
@@ -12887,6 +12899,15 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      */
     deleteFileV1: (fileIds: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Upload audio file to Trata account to use in AI Agents
+     * @summary Upload Audio Files
+     * @param {Array<File>} files
+     * @param {string | null} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadAudioFileV1: (files: Array<File>, validator?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
@@ -12910,6 +12931,15 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      */
     deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
+     * Upload audio file to Trata account to use in AI Agents
+     * @summary Upload Audio Files
+     * @param {Array<File>} files
+     * @param {string | null} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
      * @param {Array<File>} files
@@ -12932,6 +12962,15 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteFileV1(fileIds: string, options?: AxiosRequestConfig): AxiosPromise<boolean>;
+    /**
+     * Upload audio file to Trata account to use in AI Agents
+     * @summary Upload Audio Files
+     * @param {Array<File>} files
+     * @param {string | null} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -12958,6 +12997,16 @@ export declare class FilesApi extends BaseAPI {
      * @memberof FilesApi
      */
     deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
+    /**
+     * Upload audio file to Trata account to use in AI Agents
+     * @summary Upload Audio Files
+     * @param {Array<File>} files
+     * @param {string | null} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files

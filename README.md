@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 *DataPlaneApi* | [**getPlivoAudioStreamXml**](docs/DataPlaneApi.md#getplivoaudiostreamxml) | **GET** /v1/connections/{connection_id}/plivo-audio-stream-xml | Get Audio Stream XML For Plivo
 *DataPlaneApi* | [**listConnections**](docs/DataPlaneApi.md#listconnections) | **GET** /v1/connections | Listconnections
 *FilesApi* | [**deleteFileV1**](docs/FilesApi.md#deletefilev1) | **DELETE** /v1/files | Delete Files
+*FilesApi* | [**uploadAudioFileV1**](docs/FilesApi.md#uploadaudiofilev1) | **POST** /v1/audio-files | Upload Audio Files
 *FilesApi* | [**uploadFileV1**](docs/FilesApi.md#uploadfilev1) | **POST** /v1/files | Upload Files
 *HealthApi* | [**statusStatusGet**](docs/HealthApi.md#statusstatusget) | **GET** /status | Heart Beat Status Of Trata Backend
 *HealthApi* | [**statusWorkflowsStatusGet**](docs/HealthApi.md#statusworkflowsstatusget) | **GET** /workflows/status | Heart Beat Status Of Workflow Service

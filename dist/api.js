@@ -4319,6 +4319,49 @@ exports.FilesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Upload audio file to Trata account to use in AI Agents
+         * @summary Upload Audio Files
+         * @param {Array<File>} files
+         * @param {string | null} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadAudioFileV1: (files, validator, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'files' is not null or undefined
+            common_1.assertParamExists('uploadAudioFileV1', 'files', files);
+            const localVarPath = `/v1/audio-files`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            if (validator !== undefined) {
+                localVarQueryParameter['validator'] = validator;
+            }
+            if (files) {
+                files.forEach((element) => {
+                    localVarFormParams.append('files', element);
+                });
+            }
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = localVarFormParams;
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
@@ -4387,6 +4430,23 @@ exports.FilesApiFp = function (configuration) {
             });
         },
         /**
+         * Upload audio file to Trata account to use in AI Agents
+         * @summary Upload Audio Files
+         * @param {Array<File>} files
+         * @param {string | null} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadAudioFileV1(files, validator, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.uploadAudioFileV1(files, validator, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['FilesApi.uploadAudioFileV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
@@ -4423,6 +4483,17 @@ exports.FilesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.deleteFileV1(fileIds, options).then((request) => request(axios, basePath));
         },
         /**
+         * Upload audio file to Trata account to use in AI Agents
+         * @summary Upload Audio Files
+         * @param {Array<File>} files
+         * @param {string | null} [validator] Validator type to use for file validation
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadAudioFileV1(files, validator, options) {
+            return localVarFp.uploadAudioFileV1(files, validator, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Upload file to Trata account to use in AI Agents
          * @summary Upload Files
          * @param {Array<File>} files
@@ -4452,6 +4523,18 @@ class FilesApi extends base_1.BaseAPI {
      */
     deleteFileV1(fileIds, options) {
         return exports.FilesApiFp(this.configuration).deleteFileV1(fileIds, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Upload audio file to Trata account to use in AI Agents
+     * @summary Upload Audio Files
+     * @param {Array<File>} files
+     * @param {string | null} [validator] Validator type to use for file validation
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApi
+     */
+    uploadAudioFileV1(files, validator, options) {
+        return exports.FilesApiFp(this.configuration).uploadAudioFileV1(files, validator, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Upload file to Trata account to use in AI Agents

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **orgId** | **string** | The workspace of the entity. | [optional] [default to undefined]
 **feedbackId** | **string** | The ID of the feedback | [default to undefined]
 **comments** | [**Array&lt;FeedbackCommentThreadOutput&gt;**](FeedbackCommentThreadOutput.md) |  | [default to undefined]
+**status** | **string** | The status of the feedback comment | [optional] [default to 'active']
 **id** | **string** | The unique identifier of the feedback comment | [optional] [default to undefined]
 
 ## Example
@@ -28,6 +29,7 @@ const instance: SparrDbModelsFeedbackComment = {
     orgId,
     feedbackId,
     comments,
+    status,
     id,
 };
 ```
