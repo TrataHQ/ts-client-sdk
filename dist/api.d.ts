@@ -6177,6 +6177,12 @@ export interface OrganizationOutput {
      * @type {string}
      * @memberof OrganizationOutput
      */
+    'onboardingStatus'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
     'additionalInfo'?: string | null;
 }
 /**
@@ -8204,6 +8210,43 @@ export declare const SparrFrustrationTolerance: {
     readonly Understanding: "understanding";
 };
 export declare type SparrFrustrationTolerance = typeof SparrFrustrationTolerance[keyof typeof SparrFrustrationTolerance];
+/**
+ *
+ * @export
+ * @interface SparrInitializeWorkspace
+ */
+export interface SparrInitializeWorkspace {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'industry': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'sub_industry': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SparrInitializeWorkspace
+     */
+    'files': Array<string> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'url': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'personaDescription': string | null;
+}
 /**
  *
  * @export
@@ -17242,6 +17285,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     importLinkedinPersonaV1: (linkedinUrl: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Initialize workspace
+     * @summary Initialize Workspace V1
+     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    initializeWorkspaceV1: (sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get all courses including reseller assignments
      * @summary Get Courses
      * @param {number} [skip] Skip for pagination
@@ -17843,6 +17894,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    /**
+     * Initialize workspace
+     * @summary Initialize Workspace V1
+     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -18447,6 +18506,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    /**
+     * Initialize workspace
+     * @summary Initialize Workspace V1
+     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -19095,6 +19162,15 @@ export declare class SparrApi extends BaseAPI {
      * @memberof SparrApi
      */
     importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    /**
+     * Initialize workspace
+     * @summary Initialize Workspace V1
+     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses

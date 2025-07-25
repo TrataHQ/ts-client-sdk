@@ -6312,6 +6312,12 @@ export interface OrganizationOutput {
      * @type {string}
      * @memberof OrganizationOutput
      */
+    'onboardingStatus'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrganizationOutput
+     */
     'additionalInfo'?: string | null;
 }
 
@@ -8395,6 +8401,43 @@ export const SparrFrustrationTolerance = {
 export type SparrFrustrationTolerance = typeof SparrFrustrationTolerance[keyof typeof SparrFrustrationTolerance];
 
 
+/**
+ * 
+ * @export
+ * @interface SparrInitializeWorkspace
+ */
+export interface SparrInitializeWorkspace {
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'industry': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'sub_industry': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SparrInitializeWorkspace
+     */
+    'files': Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'url': string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SparrInitializeWorkspace
+     */
+    'personaDescription': string | null;
+}
 /**
  * 
  * @export
@@ -25160,6 +25203,46 @@ export const SparrApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Initialize workspace
+         * @summary Initialize Workspace V1
+         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        initializeWorkspaceV1: async (sparrInitializeWorkspace: SparrInitializeWorkspace, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sparrInitializeWorkspace' is not null or undefined
+            assertParamExists('initializeWorkspaceV1', 'sparrInitializeWorkspace', sparrInitializeWorkspace)
+            const localVarPath = `/v1/sparr/initialize-workspace`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sparrInitializeWorkspace, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all courses including reseller assignments
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
@@ -26978,6 +27061,19 @@ export const SparrApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Initialize workspace
+         * @summary Initialize Workspace V1
+         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.initializeWorkspaceV1(sparrInitializeWorkspace, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SparrApi.initializeWorkspaceV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Get all courses including reseller assignments
          * @summary Get Courses
          * @param {number} [skip] Skip for pagination
@@ -27801,6 +27897,16 @@ export const SparrApiFactory = function (configuration?: Configuration, basePath
          */
         importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona> {
             return localVarFp.importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Initialize workspace
+         * @summary Initialize Workspace V1
+         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput> {
+            return localVarFp.initializeWorkspaceV1(sparrInitializeWorkspace, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all courses including reseller assignments
@@ -28628,6 +28734,18 @@ export class SparrApi extends BaseAPI {
      */
     public importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig) {
         return SparrApiFp(this.configuration).importLinkedinPersonaV1(linkedinUrl, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Initialize workspace
+     * @summary Initialize Workspace V1
+     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    public initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig) {
+        return SparrApiFp(this.configuration).initializeWorkspaceV1(sparrInitializeWorkspace, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **orgType** | **string** |  | [optional] [default to undefined]
 **app** | [**AppEnumOutput**](AppEnumOutput.md) |  | [optional] [default to undefined]
 **status** | **string** |  | [optional] [default to 'active']
+**onboardingStatus** | **string** |  | [optional] [default to 'not_started']
 **additionalInfo** | **string** |  | [optional] [default to undefined]
 
 ## Example
@@ -54,6 +55,7 @@ const instance: OrganizationOutput = {
     orgType,
     app,
     status,
+    onboardingStatus,
     additionalInfo,
 };
 ```

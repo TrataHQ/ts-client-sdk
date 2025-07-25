@@ -46,6 +46,7 @@ All URIs are relative to *https://api.trata.ai*
 |[**getTrackerV1**](#gettrackerv1) | **GET** /v1/sparr/trackers/{tracker_id} | Get Tracker By Id|
 |[**getUserStatsV1**](#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats|
 |[**importLinkedinPersonaV1**](#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona|
+|[**initializeWorkspaceV1**](#initializeworkspacev1) | **POST** /v1/sparr/initialize-workspace | Initialize Workspace V1|
 |[**listCoursesV1**](#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses|
 |[**listEvaluatorV1**](#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator|
 |[**listFeedbackCommentsV1**](#listfeedbackcommentsv1) | **GET** /v1/sparr/feedback-comments | List Feedback Comments|
@@ -2302,6 +2303,59 @@ const { status, data } = await apiInstance.importLinkedinPersonaV1(
 |-------------|-------------|------------------|
 |**200** | Successful Response |  -  |
 |**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **initializeWorkspaceV1**
+> BaseResponseInput initializeWorkspaceV1(sparrInitializeWorkspace)
+
+Initialize workspace
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    SparrInitializeWorkspace
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let sparrInitializeWorkspace: SparrInitializeWorkspace; //
+
+const { status, data } = await apiInstance.initializeWorkspaceV1(
+    sparrInitializeWorkspace
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **sparrInitializeWorkspace** | **SparrInitializeWorkspace**|  | |
+
+
+### Return type
+
+**BaseResponseInput**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
 |**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

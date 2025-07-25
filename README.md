@@ -220,6 +220,7 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**getTrackerV1**](docs/SparrApi.md#gettrackerv1) | **GET** /v1/sparr/trackers/{tracker_id} | Get Tracker By Id
 *SparrApi* | [**getUserStatsV1**](docs/SparrApi.md#getuserstatsv1) | **GET** /v1/sparr/user_stats/{user_id} | Get User Stats
 *SparrApi* | [**importLinkedinPersonaV1**](docs/SparrApi.md#importlinkedinpersonav1) | **POST** /v1/sparr/personas/import-linkedin | Import Linkedin Persona
+*SparrApi* | [**initializeWorkspaceV1**](docs/SparrApi.md#initializeworkspacev1) | **POST** /v1/sparr/initialize-workspace | Initialize Workspace V1
 *SparrApi* | [**listCoursesV1**](docs/SparrApi.md#listcoursesv1) | **GET** /v1/sparr/courses | Get Courses
 *SparrApi* | [**listEvaluatorV1**](docs/SparrApi.md#listevaluatorv1) | **GET** /v1/sparr/evaluators | Get Evaluator
 *SparrApi* | [**listFeedbackCommentsV1**](docs/SparrApi.md#listfeedbackcommentsv1) | **GET** /v1/sparr/feedback-comments | List Feedback Comments
@@ -569,6 +570,7 @@ Class | Method | HTTP request | Description
  - [SparrEngagementLevel](docs/SparrEngagementLevel.md)
  - [SparrExcitementLevel](docs/SparrExcitementLevel.md)
  - [SparrFrustrationTolerance](docs/SparrFrustrationTolerance.md)
+ - [SparrInitializeWorkspace](docs/SparrInitializeWorkspace.md)
  - [SparrInteractionTone](docs/SparrInteractionTone.md)
  - [SparrLanguageAccentCombo](docs/SparrLanguageAccentCombo.md)
  - [SparrModelsAnalyticsAggregationFormula](docs/SparrModelsAnalyticsAggregationFormula.md)
