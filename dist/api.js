@@ -13533,13 +13533,13 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
         /**
          * Initialize workspace
          * @summary Initialize Workspace V1
-         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+         * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initializeWorkspaceV1: (sparrInitializeWorkspace, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'sparrInitializeWorkspace' is not null or undefined
-            common_1.assertParamExists('initializeWorkspaceV1', 'sparrInitializeWorkspace', sparrInitializeWorkspace);
+        initializeWorkspaceV1: (sparrInitializeWorkspacePayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'sparrInitializeWorkspacePayload' is not null or undefined
+            common_1.assertParamExists('initializeWorkspaceV1', 'sparrInitializeWorkspacePayload', sparrInitializeWorkspacePayload);
             const localVarPath = `/v1/sparr/initialize-workspace`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -13557,7 +13557,7 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sparrInitializeWorkspace, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sparrInitializeWorkspacePayload, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -15298,14 +15298,14 @@ exports.SparrApiFp = function (configuration) {
         /**
          * Initialize workspace
          * @summary Initialize Workspace V1
-         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+         * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initializeWorkspaceV1(sparrInitializeWorkspace, options) {
+        initializeWorkspaceV1(sparrInitializeWorkspacePayload, options) {
             var _a, _b, _c;
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.initializeWorkspaceV1(sparrInitializeWorkspace, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.initializeWorkspaceV1(sparrInitializeWorkspacePayload, options);
                 const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
                 const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.initializeWorkspaceV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
                 return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -16219,12 +16219,12 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
         /**
          * Initialize workspace
          * @summary Initialize Workspace V1
-         * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+         * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        initializeWorkspaceV1(sparrInitializeWorkspace, options) {
-            return localVarFp.initializeWorkspaceV1(sparrInitializeWorkspace, options).then((request) => request(axios, basePath));
+        initializeWorkspaceV1(sparrInitializeWorkspacePayload, options) {
+            return localVarFp.initializeWorkspaceV1(sparrInitializeWorkspacePayload, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all courses including reseller assignments
@@ -17014,13 +17014,13 @@ class SparrApi extends base_1.BaseAPI {
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
-     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    initializeWorkspaceV1(sparrInitializeWorkspace, options) {
-        return exports.SparrApiFp(this.configuration).initializeWorkspaceV1(sparrInitializeWorkspace, options).then((request) => request(this.axios, this.basePath));
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload, options) {
+        return exports.SparrApiFp(this.configuration).initializeWorkspaceV1(sparrInitializeWorkspacePayload, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all courses including reseller assignments

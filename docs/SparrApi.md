@@ -2308,7 +2308,7 @@ const { status, data } = await apiInstance.importLinkedinPersonaV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **initializeWorkspaceV1**
-> BaseResponseInput initializeWorkspaceV1(sparrInitializeWorkspace)
+> BaseResponseInput initializeWorkspaceV1(sparrInitializeWorkspacePayload)
 
 Initialize workspace
 
@@ -2318,16 +2318,16 @@ Initialize workspace
 import {
     SparrApi,
     Configuration,
-    SparrInitializeWorkspace
+    SparrInitializeWorkspacePayload
 } from '@trata/ts-client-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new SparrApi(configuration);
 
-let sparrInitializeWorkspace: SparrInitializeWorkspace; //
+let sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload; //
 
 const { status, data } = await apiInstance.initializeWorkspaceV1(
-    sparrInitializeWorkspace
+    sparrInitializeWorkspacePayload
 );
 ```
 
@@ -2335,7 +2335,7 @@ const { status, data } = await apiInstance.initializeWorkspaceV1(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **sparrInitializeWorkspace** | **SparrInitializeWorkspace**|  | |
+| **sparrInitializeWorkspacePayload** | **SparrInitializeWorkspacePayload**|  | |
 
 
 ### Return type

@@ -5,19 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**thread_id** | **string** |  | [default to undefined]
+**thread_id** | **string** |  | [optional] [default to undefined]
+**recording_url** | **string** |  | [optional] [default to undefined]
+**start_timestamp** | **string** |  | [optional] [default to undefined]
 **email** | **string** |  | [optional] [default to undefined]
 **user_id** | **string** |  | [optional] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**recording_url** | **string** |  | [default to undefined]
+**name** | **string** |  | [optional] [default to undefined]
 **contact_name** | **string** |  | [optional] [default to undefined]
 **speaker_label** | **string** |  | [optional] [default to undefined]
-**start_timestamp** | **string** |  | [optional] [default to undefined]
-**end_timestamp** | **string** |  | [optional] [default to undefined]
 **feedback_id** | **string** |  | [optional] [default to undefined]
 **scenario_id** | **string** |  | [optional] [default to undefined]
-**persona_id** | **string** |  | [optional] [default to undefined]
-**transcript** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -26,18 +23,15 @@ import { Sparrv1EvaluateFeedbackRequest } from '@trata/ts-client-sdk';
 
 const instance: Sparrv1EvaluateFeedbackRequest = {
     thread_id,
+    recording_url,
+    start_timestamp,
     email,
     user_id,
     name,
-    recording_url,
     contact_name,
     speaker_label,
-    start_timestamp,
-    end_timestamp,
     feedback_id,
     scenario_id,
-    persona_id,
-    transcript,
 };
 ```
 

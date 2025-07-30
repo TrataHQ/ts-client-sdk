@@ -4103,11 +4103,11 @@ export interface FeedbackProps {
      */
     'live_feedback_props'?: LiveFeedbackProps | null;
     /**
-     * The properties of the sparring feedback
-     * @type {object}
+     *
+     * @type {SparrFeedbackProps}
      * @memberof FeedbackProps
      */
-    'sparr_feedback_props'?: object;
+    'sparr_feedback_props'?: SparrFeedbackProps | null;
 }
 /**
  * Stores the map of file id with respective file URL in storage manager
@@ -8200,6 +8200,31 @@ export declare const SparrExcitementLevel: {
 };
 export declare type SparrExcitementLevel = typeof SparrExcitementLevel[keyof typeof SparrExcitementLevel];
 /**
+ * The properties of the sparring feedback
+ * @export
+ * @interface SparrFeedbackProps
+ */
+export interface SparrFeedbackProps {
+    /**
+     *
+     * @type {string}
+     * @memberof SparrFeedbackProps
+     */
+    'speaker_label': string | null;
+    /**
+     * Whether the conversation was guessed by the scenario
+     * @type {boolean}
+     * @memberof SparrFeedbackProps
+     */
+    'is_scenario_ai_guessed'?: boolean;
+    /**
+     * Whether the conversation was guessed by the speaker label
+     * @type {boolean}
+     * @memberof SparrFeedbackProps
+     */
+    'is_speaker_label_ai_guessed'?: boolean;
+}
+/**
  *
  * @export
  * @enum {string}
@@ -8213,37 +8238,37 @@ export declare type SparrFrustrationTolerance = typeof SparrFrustrationTolerance
 /**
  *
  * @export
- * @interface SparrInitializeWorkspace
+ * @interface SparrInitializeWorkspacePayload
  */
-export interface SparrInitializeWorkspace {
+export interface SparrInitializeWorkspacePayload {
     /**
      *
      * @type {string}
-     * @memberof SparrInitializeWorkspace
+     * @memberof SparrInitializeWorkspacePayload
      */
     'industry': string;
     /**
      *
      * @type {string}
-     * @memberof SparrInitializeWorkspace
+     * @memberof SparrInitializeWorkspacePayload
      */
     'sub_industry': string;
     /**
      *
      * @type {Array<string>}
-     * @memberof SparrInitializeWorkspace
+     * @memberof SparrInitializeWorkspacePayload
      */
     'files': Array<string> | null;
     /**
      *
      * @type {string}
-     * @memberof SparrInitializeWorkspace
+     * @memberof SparrInitializeWorkspacePayload
      */
     'url': string | null;
     /**
      *
      * @type {string}
-     * @memberof SparrInitializeWorkspace
+     * @memberof SparrInitializeWorkspacePayload
      */
     'personaDescription': string | null;
 }
@@ -8839,7 +8864,19 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
-    'thread_id': string;
+    'thread_id'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'recording_url'?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Sparrv1EvaluateFeedbackRequest
+     */
+    'start_timestamp'?: string | null;
     /**
      *
      * @type {string}
@@ -8857,13 +8894,7 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
-    'name': string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Sparrv1EvaluateFeedbackRequest
-     */
-    'recording_url': string;
+    'name'?: string | null;
     /**
      *
      * @type {string}
@@ -8881,18 +8912,6 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @type {string}
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
-    'start_timestamp'?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Sparrv1EvaluateFeedbackRequest
-     */
-    'end_timestamp'?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Sparrv1EvaluateFeedbackRequest
-     */
     'feedback_id'?: string | null;
     /**
      *
@@ -8900,18 +8919,6 @@ export interface Sparrv1EvaluateFeedbackRequest {
      * @memberof Sparrv1EvaluateFeedbackRequest
      */
     'scenario_id'?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Sparrv1EvaluateFeedbackRequest
-     */
-    'persona_id'?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Sparrv1EvaluateFeedbackRequest
-     */
-    'transcript'?: string | null;
 }
 /**
  *
@@ -17287,11 +17294,11 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
-     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1: (sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    initializeWorkspaceV1: (sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -17897,11 +17904,11 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
-     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -18509,11 +18516,11 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
-     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -19165,12 +19172,12 @@ export declare class SparrApi extends BaseAPI {
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
-     * @param {SparrInitializeWorkspace} sparrInitializeWorkspace
+     * @param {SparrInitializeWorkspacePayload} sparrInitializeWorkspacePayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    initializeWorkspaceV1(sparrInitializeWorkspace: SparrInitializeWorkspace, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
