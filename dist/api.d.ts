@@ -4290,6 +4290,68 @@ export interface GenerateFeedbackRequest {
     'idempotency_key'?: string | null;
 }
 /**
+ * Request model for generating a persona
+ * @export
+ * @interface GeneratePersona
+ */
+export interface GeneratePersona {
+    /**
+     *
+     * @type {PersonaInput}
+     * @memberof GeneratePersona
+     */
+    'persona'?: PersonaInput | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GeneratePersona
+     */
+    'prompt'?: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GeneratePersona
+     */
+    'prompt_files'?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GeneratePersona
+     */
+    'prompt_audio_files'?: Array<string> | null;
+}
+/**
+ * Request model for generating a scenario
+ * @export
+ * @interface GenerateScenario
+ */
+export interface GenerateScenario {
+    /**
+     *
+     * @type {ScenarioInput}
+     * @memberof GenerateScenario
+     */
+    'scenario'?: ScenarioInput | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GenerateScenario
+     */
+    'prompt'?: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GenerateScenario
+     */
+    'prompt_files'?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GenerateScenario
+     */
+    'prompt_audio_files'?: Array<string> | null;
+}
+/**
  *
  * @export
  * @interface GoalAnalyticsModelInput
@@ -6267,139 +6329,6 @@ export interface PatienceLevel {
 export interface PatienceLevel1 {
 }
 /**
- * Persona represents a persona that can be used in a scenario
- * @export
- * @interface Persona
- */
-export interface Persona {
-    /**
-     * The user who created.
-     * @type {string}
-     * @memberof Persona
-     */
-    'createdBy'?: string;
-    /**
-     * The date and time it was created.
-     * @type {string}
-     * @memberof Persona
-     */
-    'createdAt'?: string;
-    /**
-     * The user who last updated.
-     * @type {string}
-     * @memberof Persona
-     */
-    'updatedBy'?: string;
-    /**
-     * The date and time when it was last updated.
-     * @type {string}
-     * @memberof Persona
-     */
-    'updatedAt'?: string;
-    /**
-     * The workspace of the entity.
-     * @type {string}
-     * @memberof Persona
-     */
-    'orgId'?: string;
-    /**
-     * The name of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'name': string;
-    /**
-     * The title of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'title': string;
-    /**
-     * The context of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'context': string;
-    /**
-     *
-     * @type {SparrVoiceOutput}
-     * @memberof Persona
-     */
-    'voice': SparrVoiceOutput;
-    /**
-     *
-     * @type {SparrDemeanorOutput}
-     * @memberof Persona
-     */
-    'demeanor': SparrDemeanorOutput;
-    /**
-     * The additional background of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'additionalBackground': string;
-    /**
-     * The work history of the persona
-     * @type {Array<SparrWorkDetails>}
-     * @memberof Persona
-     */
-    'workHistory': Array<SparrWorkDetails>;
-    /**
-     * The LinkedIn URL of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'linkedInUrl': string;
-    /**
-     *
-     * @type {string}
-     * @memberof Persona
-     */
-    'twitterUrl': string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof Persona
-     */
-    'blogUrl': string | null;
-    /**
-     * Whether the persona is inherited from the parent persona
-     * @type {boolean}
-     * @memberof Persona
-     */
-    'isInherited'?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof Persona
-     */
-    'profilePictureUrl': string | null;
-    /**
-     * The communication style of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'communicationStyle'?: string;
-    /**
-     * The status of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'status'?: string;
-    /**
-     * The unique identifier of the persona
-     * @type {string}
-     * @memberof Persona
-     */
-    'id'?: string;
-    /**
-     * The version of the persona
-     * @type {number}
-     * @memberof Persona
-     */
-    'version'?: number;
-}
-/**
  *
  * @export
  * @interface PersonaAttributesAndTraits
@@ -6546,6 +6475,272 @@ export interface PersonaCore {
     'status'?: string;
 }
 /**
+ * Persona represents a persona that can be used in a scenario
+ * @export
+ * @interface PersonaInput
+ */
+export interface PersonaInput {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'createdBy'?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'createdAt'?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'updatedBy'?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'updatedAt'?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'orgId'?: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'name': string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'title': string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'context': string;
+    /**
+     *
+     * @type {SparrVoiceInput}
+     * @memberof PersonaInput
+     */
+    'voice': SparrVoiceInput;
+    /**
+     *
+     * @type {SparrDemeanorInput}
+     * @memberof PersonaInput
+     */
+    'demeanor': SparrDemeanorInput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'additionalBackground': string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof PersonaInput
+     */
+    'workHistory': Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'linkedInUrl': string;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'twitterUrl': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'blogUrl': string | null;
+    /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof PersonaInput
+     */
+    'isInherited'?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'profilePictureUrl': string | null;
+    /**
+     * The communication style of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'communicationStyle'?: string;
+    /**
+     * The status of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'status'?: string;
+    /**
+     * The unique identifier of the persona
+     * @type {string}
+     * @memberof PersonaInput
+     */
+    'id'?: string;
+    /**
+     * The version of the persona
+     * @type {number}
+     * @memberof PersonaInput
+     */
+    'version'?: number;
+}
+/**
+ * Persona represents a persona that can be used in a scenario
+ * @export
+ * @interface PersonaOutput
+ */
+export interface PersonaOutput {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'createdBy'?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'createdAt'?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'updatedBy'?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'updatedAt'?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'orgId'?: string;
+    /**
+     * The name of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'name': string;
+    /**
+     * The title of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'title': string;
+    /**
+     * The context of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'context': string;
+    /**
+     *
+     * @type {SparrVoiceOutput}
+     * @memberof PersonaOutput
+     */
+    'voice': SparrVoiceOutput;
+    /**
+     *
+     * @type {SparrDemeanorOutput}
+     * @memberof PersonaOutput
+     */
+    'demeanor': SparrDemeanorOutput;
+    /**
+     * The additional background of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'additionalBackground': string;
+    /**
+     * The work history of the persona
+     * @type {Array<SparrWorkDetails>}
+     * @memberof PersonaOutput
+     */
+    'workHistory': Array<SparrWorkDetails>;
+    /**
+     * The LinkedIn URL of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'linkedInUrl': string;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'twitterUrl': string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'blogUrl': string | null;
+    /**
+     * Whether the persona is inherited from the parent persona
+     * @type {boolean}
+     * @memberof PersonaOutput
+     */
+    'isInherited'?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'profilePictureUrl': string | null;
+    /**
+     * The communication style of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'communicationStyle'?: string;
+    /**
+     * The status of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'status'?: string;
+    /**
+     * The unique identifier of the persona
+     * @type {string}
+     * @memberof PersonaOutput
+     */
+    'id'?: string;
+    /**
+     * The version of the persona
+     * @type {number}
+     * @memberof PersonaOutput
+     */
+    'version'?: number;
+}
+/**
  *
  * @export
  * @interface PersonaSearchResponse
@@ -6553,10 +6748,10 @@ export interface PersonaCore {
 export interface PersonaSearchResponse {
     /**
      *
-     * @type {Array<Persona>}
+     * @type {Array<PersonaOutput>}
      * @memberof PersonaSearchResponse
      */
-    'items': Array<Persona>;
+    'items': Array<PersonaOutput>;
     /**
      *
      * @type {number}
@@ -7522,109 +7717,218 @@ export interface Rudenesslevel {
 /**
  * Scenario represents a sequence of steps that can be performed by an app
  * @export
- * @interface Scenario
+ * @interface ScenarioInput
  */
-export interface Scenario {
+export interface ScenarioInput {
     /**
      * The user who created.
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'createdBy'?: string;
     /**
      * The date and time it was created.
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'createdAt'?: string;
     /**
      * The user who last updated.
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'updatedBy'?: string;
     /**
      * The date and time when it was last updated.
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'updatedAt'?: string;
     /**
      * The workspace of the entity.
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'orgId'?: string;
     /**
      * The name of the scenario
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'name': string;
     /**
      * The description of the scenario
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'description': string;
     /**
      * The objections to be handled for the scenario
      * @type {Array<Objection>}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'objections': Array<Objection>;
     /**
      *
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'callType'?: string | null;
     /**
      * The familiarity level for this scenario
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'familiarityLevel'?: string;
     /**
      * The goals to be achieved for the scenario
-     * @type {Array<SparrModelsScenarioGoal>}
-     * @memberof Scenario
+     * @type {Array<GoalInput>}
+     * @memberof ScenarioInput
      */
-    'goals'?: Array<SparrModelsScenarioGoal>;
+    'goals'?: Array<GoalInput>;
     /**
      * The playbook to be followed for the scenario
      * @type {Array<Step>}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'playbook': Array<Step>;
     /**
      * Whether the scenario is inherited from the parent scenario
      * @type {boolean}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'isInherited'?: boolean;
     /**
      *
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'evaluatorId'?: string | null;
     /**
      * The status of the scenario
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'status'?: string;
     /**
      * The unique identifier of the scenario
      * @type {string}
-     * @memberof Scenario
+     * @memberof ScenarioInput
      */
     'id'?: string;
     /**
      * The version of the scenario
      * @type {number}
-     * @memberof Scenario
+     * @memberof ScenarioInput
+     */
+    'version'?: number;
+}
+/**
+ * Scenario represents a sequence of steps that can be performed by an app
+ * @export
+ * @interface ScenarioOutput
+ */
+export interface ScenarioOutput {
+    /**
+     * The user who created.
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'createdBy'?: string;
+    /**
+     * The date and time it was created.
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'createdAt'?: string;
+    /**
+     * The user who last updated.
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'updatedBy'?: string;
+    /**
+     * The date and time when it was last updated.
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'updatedAt'?: string;
+    /**
+     * The workspace of the entity.
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'orgId'?: string;
+    /**
+     * The name of the scenario
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'name': string;
+    /**
+     * The description of the scenario
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'description': string;
+    /**
+     * The objections to be handled for the scenario
+     * @type {Array<Objection>}
+     * @memberof ScenarioOutput
+     */
+    'objections': Array<Objection>;
+    /**
+     *
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'callType'?: string | null;
+    /**
+     * The familiarity level for this scenario
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'familiarityLevel'?: string;
+    /**
+     * The goals to be achieved for the scenario
+     * @type {Array<SparrModelsScenarioGoal>}
+     * @memberof ScenarioOutput
+     */
+    'goals'?: Array<SparrModelsScenarioGoal>;
+    /**
+     * The playbook to be followed for the scenario
+     * @type {Array<Step>}
+     * @memberof ScenarioOutput
+     */
+    'playbook': Array<Step>;
+    /**
+     * Whether the scenario is inherited from the parent scenario
+     * @type {boolean}
+     * @memberof ScenarioOutput
+     */
+    'isInherited'?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'evaluatorId'?: string | null;
+    /**
+     * The status of the scenario
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'status'?: string;
+    /**
+     * The unique identifier of the scenario
+     * @type {string}
+     * @memberof ScenarioOutput
+     */
+    'id'?: string;
+    /**
+     * The version of the scenario
+     * @type {number}
+     * @memberof ScenarioOutput
      */
     'version'?: number;
 }
@@ -7751,10 +8055,10 @@ export interface ScenarioResponse {
 export interface ScenarioSearchResponse {
     /**
      *
-     * @type {Array<Scenario>}
+     * @type {Array<ScenarioOutput>}
      * @memberof ScenarioSearchResponse
      */
-    'items': Array<Scenario>;
+    'items': Array<ScenarioOutput>;
     /**
      *
      * @type {number}
@@ -8242,13 +8546,13 @@ export declare type SparrFrustrationTolerance = typeof SparrFrustrationTolerance
  */
 export interface SparrInitializeWorkspacePayload {
     /**
-     *
+     * Industry where the workspace belongs to
      * @type {string}
      * @memberof SparrInitializeWorkspacePayload
      */
     'industry': string;
     /**
-     *
+     * Sub Industry where the workspace belongs to
      * @type {string}
      * @memberof SparrInitializeWorkspacePayload
      */
@@ -8259,6 +8563,12 @@ export interface SparrInitializeWorkspacePayload {
      * @memberof SparrInitializeWorkspacePayload
      */
     'files': Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SparrInitializeWorkspacePayload
+     */
+    'audio_files': Array<string> | null;
     /**
      *
      * @type {string}
@@ -17164,6 +17474,22 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      */
     generateFeedbackV1: (generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Generate a persona
+     * @summary Generate Persona
+     * @param {GeneratePersona} generatePersona
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generatePersonaV1: (generatePersona: GeneratePersona, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Generate a scenario
+     * @summary Generate Scenario
+     * @param {GenerateScenario} generateScenario
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateScenarioV1: (generateScenario: GenerateScenario, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get a specific course by ID
      * @summary Get Course
      * @param {string} courseId
@@ -17642,7 +17968,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17774,6 +18100,22 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      */
     generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
+     * Generate a persona
+     * @summary Generate Persona
+     * @param {GeneratePersona} generatePersona
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    /**
+     * Generate a scenario
+     * @summary Generate Scenario
+     * @param {GenerateScenario} generateScenario
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioOutput>>;
+    /**
      * Get a specific course by ID
      * @summary Get Course
      * @param {string} courseId
@@ -17861,7 +18203,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
@@ -17900,7 +18242,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -17970,7 +18312,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18139,7 +18481,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -18254,7 +18596,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -18386,6 +18728,22 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      */
     generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
     /**
+     * Generate a persona
+     * @summary Generate Persona
+     * @param {GeneratePersona} generatePersona
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    /**
+     * Generate a scenario
+     * @summary Generate Scenario
+     * @param {GenerateScenario} generateScenario
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): AxiosPromise<ScenarioOutput>;
+    /**
      * Get a specific course by ID
      * @summary Get Course
      * @param {string} courseId
@@ -18473,7 +18831,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get pricing
      * @summary Get Pricing V1
@@ -18512,7 +18870,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -18582,7 +18940,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<Persona>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18751,7 +19109,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -18878,7 +19236,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -19026,6 +19384,24 @@ export declare class SparrApi extends BaseAPI {
      */
     generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
     /**
+     * Generate a persona
+     * @summary Generate Persona
+     * @param {GeneratePersona} generatePersona
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    /**
+     * Generate a scenario
+     * @summary Generate Scenario
+     * @param {GenerateScenario} generateScenario
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioOutput>>;
+    /**
      * Get a specific course by ID
      * @summary Get Course
      * @param {string} courseId
@@ -19124,7 +19500,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
@@ -19168,7 +19544,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -19245,7 +19621,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -19432,7 +19808,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -19816,7 +20192,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -19920,7 +20296,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -19944,7 +20320,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -19982,7 +20358,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Persona>>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20077,7 +20453,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Persona>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -20133,7 +20509,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -20237,7 +20613,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -20261,7 +20637,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20299,7 +20675,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<Persona>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20394,7 +20770,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<Persona>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -20456,7 +20832,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -20573,7 +20949,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -20600,7 +20976,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20642,7 +21018,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona[]>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[]>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20747,7 +21123,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Persona>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario

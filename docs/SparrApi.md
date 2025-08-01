@@ -30,6 +30,8 @@ All URIs are relative to *https://api.trata.ai*
 |[**evaluateFeedbackV1**](#evaluatefeedbackv1) | **POST** /v1/sparr/evaluate-feedback | Evaluate Feedback V1|
 |[**generateEvaluatorV1**](#generateevaluatorv1) | **POST** /v1/sparr/evaluators/generate | Generate Evaluator|
 |[**generateFeedbackV1**](#generatefeedbackv1) | **POST** /v1/sparr/feedbacks/generate_feedback | Generate Feedback|
+|[**generatePersonaV1**](#generatepersonav1) | **POST** /v1/sparr/generate/persona | Generate Persona|
+|[**generateScenarioV1**](#generatescenariov1) | **POST** /v1/sparr/generate/scenario | Generate Scenario|
 |[**getCourseV1**](#getcoursev1) | **GET** /v1/sparr/courses/{course_id} | Get Course|
 |[**getCreditsV1**](#getcreditsv1) | **GET** /v1/sparr/credits | Get Credits V1|
 |[**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag|
@@ -560,7 +562,7 @@ const { status, data } = await apiInstance.createGoalsV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createPersonaV1**
-> Persona createPersonaV1(personaCore)
+> PersonaOutput createPersonaV1(personaCore)
 
 Create a new persona
 
@@ -592,7 +594,7 @@ const { status, data } = await apiInstance.createPersonaV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -1471,6 +1473,114 @@ const { status, data } = await apiInstance.generateFeedbackV1(
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **generatePersonaV1**
+> PersonaOutput generatePersonaV1(generatePersona)
+
+Generate a persona
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    GeneratePersona
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let generatePersona: GeneratePersona; //
+
+const { status, data } = await apiInstance.generatePersonaV1(
+    generatePersona
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **generatePersona** | **GeneratePersona**|  | |
+
+
+### Return type
+
+**PersonaOutput**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateScenarioV1**
+> ScenarioOutput generateScenarioV1(generateScenario)
+
+Generate a scenario
+
+### Example
+
+```typescript
+import {
+    SparrApi,
+    Configuration,
+    GenerateScenario
+} from '@trata/ts-client-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new SparrApi(configuration);
+
+let generateScenario: GenerateScenario; //
+
+const { status, data } = await apiInstance.generateScenarioV1(
+    generateScenario
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **generateScenario** | **GenerateScenario**|  | |
+
+
+### Return type
+
+**ScenarioOutput**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful Response |  -  |
+|**404** | Not found |  -  |
+|**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getCourseV1**
 > CourseResponse getCourseV1()
 
@@ -1999,7 +2109,7 @@ const { status, data } = await apiInstance.getMetricsV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonaV1**
-> Persona getPersonaV1()
+> PersonaOutput getPersonaV1()
 
 Get a specific persona by ID that is either directly owned or available through reseller course assignments
 
@@ -2030,7 +2140,7 @@ const { status, data } = await apiInstance.getPersonaV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -2255,7 +2365,7 @@ const { status, data } = await apiInstance.getUserStatsV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **importLinkedinPersonaV1**
-> Persona importLinkedinPersonaV1()
+> PersonaOutput importLinkedinPersonaV1()
 
 Import a persona from LinkedIn URL
 
@@ -2286,7 +2396,7 @@ const { status, data } = await apiInstance.importLinkedinPersonaV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -2661,7 +2771,7 @@ const { status, data } = await apiInstance.listGoalsV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listPersonasV1**
-> Array<Persona> listPersonasV1()
+> Array<PersonaOutput> listPersonasV1()
 
 Get all personas that are either directly owned or available through reseller course assignments
 
@@ -2698,7 +2808,7 @@ const { status, data } = await apiInstance.listPersonasV1(
 
 ### Return type
 
-**Array<Persona>**
+**Array<PersonaOutput>**
 
 ### Authorization
 
@@ -3685,7 +3795,7 @@ const { status, data } = await apiInstance.updateGoalsV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePersonaV1**
-> Persona updatePersonaV1(personaCore)
+> PersonaOutput updatePersonaV1(personaCore)
 
 Update a persona
 
@@ -3720,7 +3830,7 @@ const { status, data } = await apiInstance.updatePersonaV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 

@@ -204,6 +204,8 @@ Class | Method | HTTP request | Description
 *SparrApi* | [**evaluateFeedbackV1**](docs/SparrApi.md#evaluatefeedbackv1) | **POST** /v1/sparr/evaluate-feedback | Evaluate Feedback V1
 *SparrApi* | [**generateEvaluatorV1**](docs/SparrApi.md#generateevaluatorv1) | **POST** /v1/sparr/evaluators/generate | Generate Evaluator
 *SparrApi* | [**generateFeedbackV1**](docs/SparrApi.md#generatefeedbackv1) | **POST** /v1/sparr/feedbacks/generate_feedback | Generate Feedback
+*SparrApi* | [**generatePersonaV1**](docs/SparrApi.md#generatepersonav1) | **POST** /v1/sparr/generate/persona | Generate Persona
+*SparrApi* | [**generateScenarioV1**](docs/SparrApi.md#generatescenariov1) | **POST** /v1/sparr/generate/scenario | Generate Scenario
 *SparrApi* | [**getCourseV1**](docs/SparrApi.md#getcoursev1) | **GET** /v1/sparr/courses/{course_id} | Get Course
 *SparrApi* | [**getCreditsV1**](docs/SparrApi.md#getcreditsv1) | **GET** /v1/sparr/credits | Get Credits V1
 *SparrApi* | [**getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet**](docs/SparrApi.md#getentitiesbytagv1sparrentitytagsentitytypebytagtagnameget) | **GET** /v1/sparr/entity-tags/{entity_type}/by-tag/{tag_name} | Get Entities By Tag
@@ -465,6 +467,8 @@ Class | Method | HTTP request | Description
  - [FrustrationTolerance](docs/FrustrationTolerance.md)
  - [FrustrationTolerance1](docs/FrustrationTolerance1.md)
  - [GenerateFeedbackRequest](docs/GenerateFeedbackRequest.md)
+ - [GeneratePersona](docs/GeneratePersona.md)
+ - [GenerateScenario](docs/GenerateScenario.md)
  - [GoalAnalyticsModelInput](docs/GoalAnalyticsModelInput.md)
  - [GoalAnalyticsModelOutput](docs/GoalAnalyticsModelOutput.md)
  - [GoalCategoryResponseInput](docs/GoalCategoryResponseInput.md)
@@ -527,9 +531,10 @@ Class | Method | HTTP request | Description
  - [OrganizationSettings](docs/OrganizationSettings.md)
  - [PatienceLevel](docs/PatienceLevel.md)
  - [PatienceLevel1](docs/PatienceLevel1.md)
- - [Persona](docs/Persona.md)
  - [PersonaAttributesAndTraits](docs/PersonaAttributesAndTraits.md)
  - [PersonaCore](docs/PersonaCore.md)
+ - [PersonaInput](docs/PersonaInput.md)
+ - [PersonaOutput](docs/PersonaOutput.md)
  - [PersonaSearchResponse](docs/PersonaSearchResponse.md)
  - [PreferredTone](docs/PreferredTone.md)
  - [PreferredTone1](docs/PreferredTone1.md)
@@ -552,7 +557,8 @@ Class | Method | HTTP request | Description
  - [RubricLevel](docs/RubricLevel.md)
  - [RubricScore](docs/RubricScore.md)
  - [Rudenesslevel](docs/Rudenesslevel.md)
- - [Scenario](docs/Scenario.md)
+ - [ScenarioInput](docs/ScenarioInput.md)
+ - [ScenarioOutput](docs/ScenarioOutput.md)
  - [ScenarioResponse](docs/ScenarioResponse.md)
  - [ScenarioSearchResponse](docs/ScenarioSearchResponse.md)
  - [Sequence](docs/Sequence.md)

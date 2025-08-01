@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Array&lt;Persona&gt;**](Persona.md) |  | [default to undefined]
+**items** | [**Array&lt;PersonaOutput&gt;**](PersonaOutput.md) |  | [default to undefined]
 **total** | **number** |  | [default to undefined]
 **pages** | **number** |  | [default to undefined]
 **current_page** | **number** |  | [default to undefined]

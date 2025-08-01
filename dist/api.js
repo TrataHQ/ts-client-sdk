@@ -13016,6 +13016,72 @@ exports.SparrApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Generate a persona
+         * @summary Generate Persona
+         * @param {GeneratePersona} generatePersona
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generatePersonaV1: (generatePersona, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'generatePersona' is not null or undefined
+            common_1.assertParamExists('generatePersonaV1', 'generatePersona', generatePersona);
+            const localVarPath = `/v1/sparr/generate/persona`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(generatePersona, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Generate a scenario
+         * @summary Generate Scenario
+         * @param {GenerateScenario} generateScenario
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateScenarioV1: (generateScenario, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'generateScenario' is not null or undefined
+            common_1.assertParamExists('generateScenarioV1', 'generateScenario', generateScenario);
+            const localVarPath = `/v1/sparr/generate/scenario`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication HTTPBearer required
+            // http bearer authentication required
+            yield common_1.setBearerAuthToObject(localVarHeaderParameter, configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(generateScenario, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a specific course by ID
          * @summary Get Course
          * @param {string} courseId
@@ -15040,6 +15106,38 @@ exports.SparrApiFp = function (configuration) {
             });
         },
         /**
+         * Generate a persona
+         * @summary Generate Persona
+         * @param {GeneratePersona} generatePersona
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generatePersonaV1(generatePersona, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.generatePersonaV1(generatePersona, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.generatePersonaV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
+         * Generate a scenario
+         * @summary Generate Scenario
+         * @param {GenerateScenario} generateScenario
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateScenarioV1(generateScenario, options) {
+            var _a, _b, _c;
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.generateScenarioV1(generateScenario, options);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SparrApi.generateScenarioV1']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            });
+        },
+        /**
          * Get a specific course by ID
          * @summary Get Course
          * @param {string} courseId
@@ -16057,6 +16155,26 @@ exports.SparrApiFactory = function (configuration, basePath, axios) {
             return localVarFp.generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Generate a persona
+         * @summary Generate Persona
+         * @param {GeneratePersona} generatePersona
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generatePersonaV1(generatePersona, options) {
+            return localVarFp.generatePersonaV1(generatePersona, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generate a scenario
+         * @summary Generate Scenario
+         * @param {GenerateScenario} generateScenario
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateScenarioV1(generateScenario, options) {
+            return localVarFp.generateScenarioV1(generateScenario, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a specific course by ID
          * @summary Get Course
          * @param {string} courseId
@@ -16834,6 +16952,28 @@ class SparrApi extends base_1.BaseAPI {
      */
     generateFeedbackV1(generateFeedbackRequest, options) {
         return exports.SparrApiFp(this.configuration).generateFeedbackV1(generateFeedbackRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Generate a persona
+     * @summary Generate Persona
+     * @param {GeneratePersona} generatePersona
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generatePersonaV1(generatePersona, options) {
+        return exports.SparrApiFp(this.configuration).generatePersonaV1(generatePersona, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Generate a scenario
+     * @summary Generate Scenario
+     * @param {GenerateScenario} generateScenario
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SparrApi
+     */
+    generateScenarioV1(generateScenario, options) {
+        return exports.SparrApiFp(this.configuration).generateScenarioV1(generateScenario, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a specific course by ID

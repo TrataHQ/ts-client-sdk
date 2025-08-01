@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Array&lt;Scenario&gt;**](Scenario.md) |  | [default to undefined]
+**items** | [**Array&lt;ScenarioOutput&gt;**](ScenarioOutput.md) |  | [default to undefined]
 **total** | **number** |  | [default to undefined]
 **pages** | **number** |  | [default to undefined]
 **current_page** | **number** |  | [default to undefined]

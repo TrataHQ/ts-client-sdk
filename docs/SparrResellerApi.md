@@ -204,7 +204,7 @@ const { status, data } = await apiInstance.createGoalsResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createPersonaResellerV1**
-> Persona createPersonaResellerV1(personaCore)
+> PersonaOutput createPersonaResellerV1(personaCore)
 
 Create a new persona
 
@@ -236,7 +236,7 @@ const { status, data } = await apiInstance.createPersonaResellerV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -897,7 +897,7 @@ const { status, data } = await apiInstance.getGoalsResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonaResellerV1**
-> Persona getPersonaResellerV1()
+> PersonaOutput getPersonaResellerV1()
 
 Get a specific persona by ID that is either directly owned or available through reseller course assignments
 
@@ -928,7 +928,7 @@ const { status, data } = await apiInstance.getPersonaResellerV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -1056,7 +1056,7 @@ const { status, data } = await apiInstance.getTrackerResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **importLinkedinPersonaResellerV1**
-> Persona importLinkedinPersonaResellerV1()
+> PersonaOutput importLinkedinPersonaResellerV1()
 
 Import a persona from LinkedIn URL
 
@@ -1087,7 +1087,7 @@ const { status, data } = await apiInstance.importLinkedinPersonaResellerV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 
@@ -1280,7 +1280,7 @@ const { status, data } = await apiInstance.listGoalsResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listPersonasResellerV1**
-> Array<Persona> listPersonasResellerV1()
+> Array<PersonaOutput> listPersonasResellerV1()
 
 Get all personas that are either directly owned or available through reseller course assignments
 
@@ -1317,7 +1317,7 @@ const { status, data } = await apiInstance.listPersonasResellerV1(
 
 ### Return type
 
-**Array<Persona>**
+**Array<PersonaOutput>**
 
 ### Authorization
 
@@ -1861,7 +1861,7 @@ const { status, data } = await apiInstance.updateGoalsResellerV1(
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePersonaResellerV1**
-> Persona updatePersonaResellerV1(personaCore)
+> PersonaOutput updatePersonaResellerV1(personaCore)
 
 Update a persona
 
@@ -1896,7 +1896,7 @@ const { status, data } = await apiInstance.updatePersonaResellerV1(
 
 ### Return type
 
-**Persona**
+**PersonaOutput**
 
 ### Authorization
 

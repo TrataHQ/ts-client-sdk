@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**industry** | **string** |  | [default to undefined]
-**sub_industry** | **string** |  | [default to undefined]
+**industry** | **string** | Industry where the workspace belongs to | [default to undefined]
+**sub_industry** | **string** | Sub Industry where the workspace belongs to | [default to undefined]
 **files** | **Array&lt;string&gt;** |  | [default to undefined]
+**audio_files** | **Array&lt;string&gt;** |  | [default to undefined]
 **url** | **string** |  | [default to undefined]
 **personaDescription** | **string** |  | [default to undefined]
 
@@ -20,6 +21,7 @@ const instance: SparrInitializeWorkspacePayload = {
     industry,
     sub_industry,
     files,
+    audio_files,
     url,
     personaDescription,
 };
