@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { Configuration } from './configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import type { RequestArgs } from './base';
 import { BaseAPI } from './base';
 /**
@@ -220,7 +220,7 @@ export declare const Accent: {
     readonly Hindi: "Hindi";
     readonly MiddleEastern: "Middle Eastern";
 };
-export declare type Accent = typeof Accent[keyof typeof Accent];
+export type Accent = typeof Accent[keyof typeof Accent];
 /**
  *
  * @export
@@ -307,7 +307,7 @@ export declare const ActionInvocationTrigger: {
     readonly WebhookConversationStart: "webhook.conversation_start";
     readonly WebhookConversationEnd: "webhook.conversation_end";
 };
-export declare type ActionInvocationTrigger = typeof ActionInvocationTrigger[keyof typeof ActionInvocationTrigger];
+export type ActionInvocationTrigger = typeof ActionInvocationTrigger[keyof typeof ActionInvocationTrigger];
 /**
  * Action entity to store the actions which can be performed by ai agents
  * @export
@@ -413,7 +413,7 @@ export declare const Adaptability: {
     readonly Resistant: "resistant";
     readonly Indifferent: "indifferent";
 };
-export declare type Adaptability = typeof Adaptability[keyof typeof Adaptability];
+export type Adaptability = typeof Adaptability[keyof typeof Adaptability];
 /**
  *
  * @export
@@ -567,7 +567,7 @@ export declare const AgenticWorkflowAdkModelsWorkflowAppEnum: {
     readonly Trata: "TRATA";
     readonly TrataSparr: "TRATA_SPARR";
 };
-export declare type AgenticWorkflowAdkModelsWorkflowAppEnum = typeof AgenticWorkflowAdkModelsWorkflowAppEnum[keyof typeof AgenticWorkflowAdkModelsWorkflowAppEnum];
+export type AgenticWorkflowAdkModelsWorkflowAppEnum = typeof AgenticWorkflowAdkModelsWorkflowAppEnum[keyof typeof AgenticWorkflowAdkModelsWorkflowAppEnum];
 /**
  * Connection represents an instance of an app with specific credentials and configuration
  * @export
@@ -799,7 +799,7 @@ export declare const AggregationFormulaInput: {
     readonly Sum: "SUM";
     readonly Median: "MEDIAN";
 };
-export declare type AggregationFormulaInput = typeof AggregationFormulaInput[keyof typeof AggregationFormulaInput];
+export type AggregationFormulaInput = typeof AggregationFormulaInput[keyof typeof AggregationFormulaInput];
 /**
  *
  * @export
@@ -813,7 +813,7 @@ export declare const AggregationFormulaOutput: {
     readonly Max: "MAX";
     readonly Median: "MEDIAN";
 };
-export declare type AggregationFormulaOutput = typeof AggregationFormulaOutput[keyof typeof AggregationFormulaOutput];
+export type AggregationFormulaOutput = typeof AggregationFormulaOutput[keyof typeof AggregationFormulaOutput];
 /**
  *
  * @export
@@ -824,7 +824,7 @@ export declare const AggregationPeriod: {
     readonly Weekly: "WEEKLY";
     readonly Daily: "DAILY";
 };
-export declare type AggregationPeriod = typeof AggregationPeriod[keyof typeof AggregationPeriod];
+export type AggregationPeriod = typeof AggregationPeriod[keyof typeof AggregationPeriod];
 /**
  *
  * @export
@@ -1053,7 +1053,7 @@ export declare const ApiKeyRequestKeyTypeEnum: {
     readonly ApiKey: "api_key";
     readonly CallKey: "call_key";
 };
-export declare type ApiKeyRequestKeyTypeEnum = typeof ApiKeyRequestKeyTypeEnum[keyof typeof ApiKeyRequestKeyTypeEnum];
+export type ApiKeyRequestKeyTypeEnum = typeof ApiKeyRequestKeyTypeEnum[keyof typeof ApiKeyRequestKeyTypeEnum];
 /**
  * App represents an integration that can be connected to perform actions and triggers
  * @export
@@ -1284,7 +1284,7 @@ export declare const AppActionType: {
     readonly Trigger: "TRIGGER";
     readonly Action: "ACTION";
 };
-export declare type AppActionType = typeof AppActionType[keyof typeof AppActionType];
+export type AppActionType = typeof AppActionType[keyof typeof AppActionType];
 /**
  * App DTO Model filled by user
  * @export
@@ -1344,7 +1344,7 @@ export declare const AppEnumInput: {
     readonly TrataSparr: "TRATA_SPARR";
     readonly TrataSparrV1: "TRATA_SPARR_V1";
 };
-export declare type AppEnumInput = typeof AppEnumInput[keyof typeof AppEnumInput];
+export type AppEnumInput = typeof AppEnumInput[keyof typeof AppEnumInput];
 /**
  * Enum which stores the list of apps which are used to create the conversation
  * @export
@@ -1355,7 +1355,7 @@ export declare const AppEnumOutput: {
     readonly TrataSparr: "TRATA_SPARR";
     readonly TrataSparrV1: "TRATA_SPARR_V1";
 };
-export declare type AppEnumOutput = typeof AppEnumOutput[keyof typeof AppEnumOutput];
+export type AppEnumOutput = typeof AppEnumOutput[keyof typeof AppEnumOutput];
 /**
  *
  * @export
@@ -1477,7 +1477,7 @@ export declare const AuthRole: {
     readonly Admin: "Admin";
     readonly Member: "Member";
 };
-export declare type AuthRole = typeof AuthRole[keyof typeof AuthRole];
+export type AuthRole = typeof AuthRole[keyof typeof AuthRole];
 /**
  *
  * @export
@@ -1691,7 +1691,7 @@ export declare const CallSentiment: {
     readonly Negative: "negative";
     readonly Neutral: "neutral";
 };
-export declare type CallSentiment = typeof CallSentiment[keyof typeof CallSentiment];
+export type CallSentiment = typeof CallSentiment[keyof typeof CallSentiment];
 /**
  *
  * @export
@@ -1707,7 +1707,7 @@ export declare const CallType: {
     readonly InPersonInbound: "in_person_inbound";
     readonly InPersonOutbound: "in_person_outbound";
 };
-export declare type CallType = typeof CallType[keyof typeof CallType];
+export type CallType = typeof CallType[keyof typeof CallType];
 /**
  *
  * @export
@@ -1717,7 +1717,7 @@ export declare const ChangeAssignmentOperation: {
     readonly Assign: "assign";
     readonly Remove: "remove";
 };
-export declare type ChangeAssignmentOperation = typeof ChangeAssignmentOperation[keyof typeof ChangeAssignmentOperation];
+export type ChangeAssignmentOperation = typeof ChangeAssignmentOperation[keyof typeof ChangeAssignmentOperation];
 /**
  *
  * @export
@@ -1985,7 +1985,7 @@ export declare const ConnectionSourceSourceNameEnum: {
     readonly Plivo: "PLIVO";
     readonly Browser: "BROWSER";
 };
-export declare type ConnectionSourceSourceNameEnum = typeof ConnectionSourceSourceNameEnum[keyof typeof ConnectionSourceSourceNameEnum];
+export type ConnectionSourceSourceNameEnum = typeof ConnectionSourceSourceNameEnum[keyof typeof ConnectionSourceSourceNameEnum];
 /**
  * Expected output of the post conversation task
  * @export
@@ -2492,7 +2492,7 @@ export declare const ConversationSourceType: {
     readonly Twilio: "TWILIO";
     readonly Plivo: "PLIVO";
 };
-export declare type ConversationSourceType = typeof ConversationSourceType[keyof typeof ConversationSourceType];
+export type ConversationSourceType = typeof ConversationSourceType[keyof typeof ConversationSourceType];
 /**
  *
  * @export
@@ -2695,7 +2695,7 @@ export declare const CourseAssignmentStatus: {
     readonly Assigned: "assigned";
     readonly Unassigned: "unassigned";
 };
-export declare type CourseAssignmentStatus = typeof CourseAssignmentStatus[keyof typeof CourseAssignmentStatus];
+export type CourseAssignmentStatus = typeof CourseAssignmentStatus[keyof typeof CourseAssignmentStatus];
 /**
  *
  * @export
@@ -2706,7 +2706,7 @@ export declare const CourseCompletionStatus: {
     readonly InProgress: "IN_PROGRESS";
     readonly Completed: "COMPLETED";
 };
-export declare type CourseCompletionStatus = typeof CourseCompletionStatus[keyof typeof CourseCompletionStatus];
+export type CourseCompletionStatus = typeof CourseCompletionStatus[keyof typeof CourseCompletionStatus];
 /**
  *
  * @export
@@ -3021,7 +3021,7 @@ export declare const CreditTypeEnum: {
     readonly AdvancedIntelligence: "advanced_intelligence";
     readonly RolePlayCustomization: "role_play_customization";
 };
-export declare type CreditTypeEnum = typeof CreditTypeEnum[keyof typeof CreditTypeEnum];
+export type CreditTypeEnum = typeof CreditTypeEnum[keyof typeof CreditTypeEnum];
 /**
  *
  * @export
@@ -3141,7 +3141,7 @@ export declare const DialogLineSpeakerEnum: {
     readonly Tool: "TOOL";
     readonly AiToolRequest: "AI - TOOL REQUEST";
 };
-export declare type DialogLineSpeakerEnum = typeof DialogLineSpeakerEnum[keyof typeof DialogLineSpeakerEnum];
+export type DialogLineSpeakerEnum = typeof DialogLineSpeakerEnum[keyof typeof DialogLineSpeakerEnum];
 /**
  *
  * @export
@@ -3179,7 +3179,7 @@ export declare const EmbeddingsModelConfig: {
     readonly CustomPropsDimensionLength1024maxInputToken512ModelNameIntfloatE5LargeModelProviderHuggingface: "{\"CustomProps\":{\"dimension_length\":1024,\"max_input_token\":512},\"ModelName\":\"intfloat/e5-large\",\"ModelProvider\":\"huggingface\"}";
     readonly CustomPropsDimensionLength384maxInputToken256ModelNameSentenceTransformersAllMiniLmL6V2ModelProviderHuggingface: "{\"CustomProps\":{\"dimension_length\":384,\"max_input_token\":256},\"ModelName\":\"sentence-transformers/all-MiniLM-L6-v2\",\"ModelProvider\":\"huggingface\"}";
 };
-export declare type EmbeddingsModelConfig = typeof EmbeddingsModelConfig[keyof typeof EmbeddingsModelConfig];
+export type EmbeddingsModelConfig = typeof EmbeddingsModelConfig[keyof typeof EmbeddingsModelConfig];
 /**
  * Endpoint for the action
  * @export
@@ -3237,7 +3237,7 @@ export declare const EndpointMethodEnum: {
     readonly Get: "GET";
     readonly Post: "POST";
 };
-export declare type EndpointMethodEnum = typeof EndpointMethodEnum[keyof typeof EndpointMethodEnum];
+export type EndpointMethodEnum = typeof EndpointMethodEnum[keyof typeof EndpointMethodEnum];
 /**
  *
  * @export
@@ -3675,7 +3675,7 @@ export declare const FamiliarityLevel: {
     readonly Warm: "warm";
     readonly Hot: "hot";
 };
-export declare type FamiliarityLevel = typeof FamiliarityLevel[keyof typeof FamiliarityLevel];
+export type FamiliarityLevel = typeof FamiliarityLevel[keyof typeof FamiliarityLevel];
 /**
  * Feedback represents a feedback that can be given to a persona
  * @export
@@ -4195,7 +4195,7 @@ export declare const FillersConfig: {
     readonly ModelProviderNaiveBayes: "{\"ModelProvider\":\"naive_bayes\"}";
     readonly ModelProviderRandom: "{\"ModelProvider\":\"random\"}";
 };
-export declare type FillersConfig = typeof FillersConfig[keyof typeof FillersConfig];
+export type FillersConfig = typeof FillersConfig[keyof typeof FillersConfig];
 /**
  *
  * @export
@@ -4212,7 +4212,7 @@ export declare const FilterOperator: {
     readonly Lte: "lte";
     readonly Lt: "lt";
 };
-export declare type FilterOperator = typeof FilterOperator[keyof typeof FilterOperator];
+export type FilterOperator = typeof FilterOperator[keyof typeof FilterOperator];
 /**
  *
  * @export
@@ -4938,7 +4938,7 @@ export declare const HiveStorageConfig: {
     readonly CloudProviderGoogleCustomProps: "{\"CloudProvider\":\"google\",\"CustomProps\":{}}";
     readonly CloudProviderAwsCustomProps: "{\"CloudProvider\":\"aws\",\"CustomProps\":{}}";
 };
-export declare type HiveStorageConfig = typeof HiveStorageConfig[keyof typeof HiveStorageConfig];
+export type HiveStorageConfig = typeof HiveStorageConfig[keyof typeof HiveStorageConfig];
 /**
  *
  * @export
@@ -4950,7 +4950,7 @@ export declare const HiveType: {
     readonly Docs: "DOCS";
     readonly Transcripts: "TRANSCRIPTS";
 };
-export declare type HiveType = typeof HiveType[keyof typeof HiveType];
+export type HiveType = typeof HiveType[keyof typeof HiveType];
 /**
  *
  * @export
@@ -4990,7 +4990,7 @@ export declare const HttpActionEndpointMethodEnum: {
     readonly Get: "GET";
     readonly Post: "POST";
 };
-export declare type HttpActionEndpointMethodEnum = typeof HttpActionEndpointMethodEnum[keyof typeof HttpActionEndpointMethodEnum];
+export type HttpActionEndpointMethodEnum = typeof HttpActionEndpointMethodEnum[keyof typeof HttpActionEndpointMethodEnum];
 /**
  *
  * @export
@@ -5050,7 +5050,7 @@ export declare const IntelligenceProviderConfig: {
     readonly CustomPropsModelNameMistralaiMistral7BInstructV03ModelProviderHuggingface: "{\"CustomProps\":{},\"ModelName\":\"mistralai/Mistral-7B-Instruct-v0.3\",\"ModelProvider\":\"huggingface\"}";
     readonly CustomPropsModelNameMetaLlama38bInstructV10ModelProviderBedrock: "{\"CustomProps\":{},\"ModelName\":\"meta.llama3-8b-instruct-v1:0\",\"ModelProvider\":\"bedrock\"}";
 };
-export declare type IntelligenceProviderConfig = typeof IntelligenceProviderConfig[keyof typeof IntelligenceProviderConfig];
+export type IntelligenceProviderConfig = typeof IntelligenceProviderConfig[keyof typeof IntelligenceProviderConfig];
 /**
  *
  * @export
@@ -5062,7 +5062,7 @@ export declare const InteractionTone: {
     readonly Friendly: "friendly";
     readonly Authoritative: "authoritative";
 };
-export declare type InteractionTone = typeof InteractionTone[keyof typeof InteractionTone];
+export type InteractionTone = typeof InteractionTone[keyof typeof InteractionTone];
 /**
  * Internal action endpoint to be used for calling the action inside the module. Not used by external users
  * @export
@@ -5092,7 +5092,7 @@ export declare const Language: {
     readonly Spanish: "Spanish";
     readonly Hindi: "Hindi";
 };
-export declare type Language = typeof Language[keyof typeof Language];
+export type Language = typeof Language[keyof typeof Language];
 /**
  *
  * @export
@@ -5278,7 +5278,7 @@ export declare const MetricNameInput: {
     readonly NotInterested: "NOT_INTERESTED";
     readonly NewCustomers: "NEW_CUSTOMERS";
 };
-export declare type MetricNameInput = typeof MetricNameInput[keyof typeof MetricNameInput];
+export type MetricNameInput = typeof MetricNameInput[keyof typeof MetricNameInput];
 /**
  * Simple metric request with column name, aggregation, and alias
  * @export
@@ -5638,8 +5638,9 @@ export declare const ModuleAttemptStatus: {
     readonly Passed: "PASSED";
     readonly Failed: "FAILED";
     readonly NotAttempted: "NOT_ATTEMPTED";
+    readonly Evaluating: "EVALUATING";
 };
-export declare type ModuleAttemptStatus = typeof ModuleAttemptStatus[keyof typeof ModuleAttemptStatus];
+export type ModuleAttemptStatus = typeof ModuleAttemptStatus[keyof typeof ModuleAttemptStatus];
 /**
  *
  * @export
@@ -6036,7 +6037,7 @@ export declare const OrganizationInitializationStatus: {
     readonly Completed: "COMPLETED";
     readonly Failed: "FAILED";
 };
-export declare type OrganizationInitializationStatus = typeof OrganizationInitializationStatus[keyof typeof OrganizationInitializationStatus];
+export type OrganizationInitializationStatus = typeof OrganizationInitializationStatus[keyof typeof OrganizationInitializationStatus];
 /**
  * Organization represents the business using Trata and all users are associated to this business entity
  * @export
@@ -6899,7 +6900,7 @@ export declare const PriceInterval: {
     readonly Quarterly: "quarterly";
     readonly Yearly: "yearly";
 };
-export declare type PriceInterval = typeof PriceInterval[keyof typeof PriceInterval];
+export type PriceInterval = typeof PriceInterval[keyof typeof PriceInterval];
 /**
  * Price item details for a price tier
  * @export
@@ -7227,7 +7228,7 @@ export declare const ProductInputCurrencyEnum: {
     readonly Zmw: "ZMW";
     readonly Zwl: "ZWL";
 };
-export declare type ProductInputCurrencyEnum = typeof ProductInputCurrencyEnum[keyof typeof ProductInputCurrencyEnum];
+export type ProductInputCurrencyEnum = typeof ProductInputCurrencyEnum[keyof typeof ProductInputCurrencyEnum];
 /**
  * Product and services offered by the business
  * @export
@@ -7536,7 +7537,7 @@ export declare const ProspectStatus: {
     readonly ProductOrderPlaced: "PRODUCT_ORDER_PLACED";
     readonly ServiceOrderPlaced: "SERVICE_ORDER_PLACED";
 };
-export declare type ProspectStatus = typeof ProspectStatus[keyof typeof ProspectStatus];
+export type ProspectStatus = typeof ProspectStatus[keyof typeof ProspectStatus];
 /**
  *
  * @export
@@ -7641,7 +7642,7 @@ export declare const Role: {
     readonly Owner: "OWNER";
     readonly ResellerAdmin: "RESELLER_ADMIN";
 };
-export declare type Role = typeof Role[keyof typeof Role];
+export type Role = typeof Role[keyof typeof Role];
 /**
  *
  * @export
@@ -7675,7 +7676,7 @@ export declare const RubricLevel: {
     readonly Mastery: "MASTERY";
     readonly InsufficientData: "INSUFFICIENT_DATA";
 };
-export declare type RubricLevel = typeof RubricLevel[keyof typeof RubricLevel];
+export type RubricLevel = typeof RubricLevel[keyof typeof RubricLevel];
 /**
  * Detailed rubric-based scoring for precision and consistency
  * @export
@@ -8118,7 +8119,7 @@ export declare const SortOrder: {
     readonly Asc: "asc";
     readonly Desc: "desc";
 };
-export declare type SortOrder = typeof SortOrder[keyof typeof SortOrder];
+export type SortOrder = typeof SortOrder[keyof typeof SortOrder];
 /**
  *
  * @export
@@ -8129,7 +8130,7 @@ export declare const SparrAdaptability: {
     readonly Resistant: "resistant";
     readonly Indifferent: "indifferent";
 };
-export declare type SparrAdaptability = typeof SparrAdaptability[keyof typeof SparrAdaptability];
+export type SparrAdaptability = typeof SparrAdaptability[keyof typeof SparrAdaptability];
 /**
  *
  * @export
@@ -8141,7 +8142,7 @@ export declare const SparrCommunicationStyle: {
     readonly Verbose: "verbose";
     readonly Brief: "brief";
 };
-export declare type SparrCommunicationStyle = typeof SparrCommunicationStyle[keyof typeof SparrCommunicationStyle];
+export type SparrCommunicationStyle = typeof SparrCommunicationStyle[keyof typeof SparrCommunicationStyle];
 /**
  * FeedbackComment represents a comment on a feedback
  * @export
@@ -8293,7 +8294,7 @@ export declare const SparrDecisionMakingStyle: {
     readonly Impulsive: "impulsive";
     readonly Hesitant: "hesitant";
 };
-export declare type SparrDecisionMakingStyle = typeof SparrDecisionMakingStyle[keyof typeof SparrDecisionMakingStyle];
+export type SparrDecisionMakingStyle = typeof SparrDecisionMakingStyle[keyof typeof SparrDecisionMakingStyle];
 /**
  *
  * @export
@@ -8429,7 +8430,7 @@ export declare const SparrDialogLineWithSentimentSentimentEnum: {
     readonly Negative: "NEGATIVE";
     readonly Neutral: "NEUTRAL";
 };
-export declare type SparrDialogLineWithSentimentSentimentEnum = typeof SparrDialogLineWithSentimentSentimentEnum[keyof typeof SparrDialogLineWithSentimentSentimentEnum];
+export type SparrDialogLineWithSentimentSentimentEnum = typeof SparrDialogLineWithSentimentSentimentEnum[keyof typeof SparrDialogLineWithSentimentSentimentEnum];
 /**
  *
  * @export
@@ -8489,7 +8490,7 @@ export declare const SparrEngagementLevel: {
     readonly Distracted: "distracted";
     readonly Uninterested: "uninterested";
 };
-export declare type SparrEngagementLevel = typeof SparrEngagementLevel[keyof typeof SparrEngagementLevel];
+export type SparrEngagementLevel = typeof SparrEngagementLevel[keyof typeof SparrEngagementLevel];
 /**
  *
  * @export
@@ -8502,7 +8503,7 @@ export declare const SparrExcitementLevel: {
     readonly Overjoyed: "overjoyed";
     readonly Euphoric: "euphoric";
 };
-export declare type SparrExcitementLevel = typeof SparrExcitementLevel[keyof typeof SparrExcitementLevel];
+export type SparrExcitementLevel = typeof SparrExcitementLevel[keyof typeof SparrExcitementLevel];
 /**
  * The properties of the sparring feedback
  * @export
@@ -8538,7 +8539,7 @@ export declare const SparrFrustrationTolerance: {
     readonly QuickToAnger: "quick to anger";
     readonly Understanding: "understanding";
 };
-export declare type SparrFrustrationTolerance = typeof SparrFrustrationTolerance[keyof typeof SparrFrustrationTolerance];
+export type SparrFrustrationTolerance = typeof SparrFrustrationTolerance[keyof typeof SparrFrustrationTolerance];
 /**
  *
  * @export
@@ -8593,7 +8594,7 @@ export declare const SparrInteractionTone: {
     readonly Friendly: "friendly";
     readonly Authoritative: "authoritative";
 };
-export declare type SparrInteractionTone = typeof SparrInteractionTone[keyof typeof SparrInteractionTone];
+export type SparrInteractionTone = typeof SparrInteractionTone[keyof typeof SparrInteractionTone];
 /**
  *
  * @export
@@ -8626,7 +8627,7 @@ export declare const SparrModelsAnalyticsAggregationFormula: {
     readonly Max: "MAX";
     readonly Median: "MEDIAN";
 };
-export declare type SparrModelsAnalyticsAggregationFormula = typeof SparrModelsAnalyticsAggregationFormula[keyof typeof SparrModelsAnalyticsAggregationFormula];
+export type SparrModelsAnalyticsAggregationFormula = typeof SparrModelsAnalyticsAggregationFormula[keyof typeof SparrModelsAnalyticsAggregationFormula];
 /**
  *
  * @export
@@ -8718,7 +8719,7 @@ export declare const SparrModelsAnalyticsMetricName: {
     readonly Winrate: "winrate";
     readonly ActiveDays: "activeDays";
 };
-export declare type SparrModelsAnalyticsMetricName = typeof SparrModelsAnalyticsMetricName[keyof typeof SparrModelsAnalyticsMetricName];
+export type SparrModelsAnalyticsMetricName = typeof SparrModelsAnalyticsMetricName[keyof typeof SparrModelsAnalyticsMetricName];
 /**
  *
  * @export
@@ -8909,7 +8910,7 @@ export declare const SparrNegotiationStyle: {
     readonly FriendlyNegotiator: "friendly negotiator";
     readonly NonNegotiator: "non-negotiator";
 };
-export declare type SparrNegotiationStyle = typeof SparrNegotiationStyle[keyof typeof SparrNegotiationStyle];
+export type SparrNegotiationStyle = typeof SparrNegotiationStyle[keyof typeof SparrNegotiationStyle];
 /**
  *
  * @export
@@ -8920,7 +8921,7 @@ export declare const SparrPatienceLevel: {
     readonly VeryPatient: "very patient";
     readonly Impatient: "impatient";
 };
-export declare type SparrPatienceLevel = typeof SparrPatienceLevel[keyof typeof SparrPatienceLevel];
+export type SparrPatienceLevel = typeof SparrPatienceLevel[keyof typeof SparrPatienceLevel];
 /**
  *
  * @export
@@ -8988,7 +8989,7 @@ export declare const SparrRudenessLevel: {
     readonly Aggressive: "aggressive";
     readonly Toxic: "toxic";
 };
-export declare type SparrRudenessLevel = typeof SparrRudenessLevel[keyof typeof SparrRudenessLevel];
+export type SparrRudenessLevel = typeof SparrRudenessLevel[keyof typeof SparrRudenessLevel];
 /**
  *
  * @export
@@ -9052,7 +9053,7 @@ export declare const SparrVoiceAccent: {
     readonly Hindi: "Hindi";
     readonly MiddleEastern: "Middle Eastern";
 };
-export declare type SparrVoiceAccent = typeof SparrVoiceAccent[keyof typeof SparrVoiceAccent];
+export type SparrVoiceAccent = typeof SparrVoiceAccent[keyof typeof SparrVoiceAccent];
 /**
  *
  * @export
@@ -9094,7 +9095,7 @@ export declare const SparrVoiceLanguage: {
     readonly Spanish: "Spanish";
     readonly Hindi: "Hindi";
 };
-export declare type SparrVoiceLanguage = typeof SparrVoiceLanguage[keyof typeof SparrVoiceLanguage];
+export type SparrVoiceLanguage = typeof SparrVoiceLanguage[keyof typeof SparrVoiceLanguage];
 /**
  *
  * @export
@@ -9285,7 +9286,7 @@ export declare const Status: {
     readonly Pending: "pending";
     readonly Archived: "archived";
 };
-export declare type Status = typeof Status[keyof typeof Status];
+export type Status = typeof Status[keyof typeof Status];
 /**
  *
  * @export
@@ -9416,7 +9417,7 @@ export declare const SynthesizerConfig: {
     readonly CustomPropsCanStreamInputTrueModelNameSonicEnglishModelProviderCartesia: "{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"sonic-english\",\"ModelProvider\":\"Cartesia\"}";
     readonly CustomPropsCanStreamInputTrueModelNameMistModelProviderRime: "{\"CustomProps\":{\"can_stream_input\":true},\"ModelName\":\"mist\",\"ModelProvider\":\"Rime\"}";
 };
-export declare type SynthesizerConfig = typeof SynthesizerConfig[keyof typeof SynthesizerConfig];
+export type SynthesizerConfig = typeof SynthesizerConfig[keyof typeof SynthesizerConfig];
 /**
  *
  * @export
@@ -9474,7 +9475,7 @@ export declare const SystemMetricsInputAverageSentimentEnum: {
     readonly Neutral: "NEUTRAL";
     readonly Empty: "";
 };
-export declare type SystemMetricsInputAverageSentimentEnum = typeof SystemMetricsInputAverageSentimentEnum[keyof typeof SystemMetricsInputAverageSentimentEnum];
+export type SystemMetricsInputAverageSentimentEnum = typeof SystemMetricsInputAverageSentimentEnum[keyof typeof SystemMetricsInputAverageSentimentEnum];
 /**
  *
  * @export
@@ -9532,7 +9533,7 @@ export declare const SystemMetricsOutputAverageSentimentEnum: {
     readonly Neutral: "NEUTRAL";
     readonly Empty: "";
 };
-export declare type SystemMetricsOutputAverageSentimentEnum = typeof SystemMetricsOutputAverageSentimentEnum[keyof typeof SystemMetricsOutputAverageSentimentEnum];
+export type SystemMetricsOutputAverageSentimentEnum = typeof SystemMetricsOutputAverageSentimentEnum[keyof typeof SystemMetricsOutputAverageSentimentEnum];
 /**
  * Request model for creating a tag
  * @export
@@ -9671,7 +9672,7 @@ export declare const TelephonyApp: {
     readonly Zoom: "zoom";
     readonly Trata: "trata";
 };
-export declare type TelephonyApp = typeof TelephonyApp[keyof typeof TelephonyApp];
+export type TelephonyApp = typeof TelephonyApp[keyof typeof TelephonyApp];
 /**
  * Request model for OAuth connection
  * @export
@@ -9966,7 +9967,7 @@ export declare const TranscriberConfig: {
     readonly CustomPropsModelNameMediumModelProviderFastWhisperStream: "{\"CustomProps\":{},\"ModelName\":\"medium\",\"ModelProvider\":\"FastWhisperStream\"}";
     readonly CustomPropsModelNameMediumModelProviderFastWhisperOnline: "{\"CustomProps\":{},\"ModelName\":\"medium\",\"ModelProvider\":\"FastWhisperOnline\"}";
 };
-export declare type TranscriberConfig = typeof TranscriberConfig[keyof typeof TranscriberConfig];
+export type TranscriberConfig = typeof TranscriberConfig[keyof typeof TranscriberConfig];
 /**
  * Enum for UI node types
  * @export
@@ -9978,7 +9979,7 @@ export declare const UiNodeType: {
     readonly Loop: "LOOP";
     readonly Subflow: "SUBFLOW";
 };
-export declare type UiNodeType = typeof UiNodeType[keyof typeof UiNodeType];
+export type UiNodeType = typeof UiNodeType[keyof typeof UiNodeType];
 /**
  *
  * @export
@@ -10669,7 +10670,7 @@ export declare const UserPerformanceSummaryRequestSortOrderEnum: {
     readonly Asc: "asc";
     readonly Desc: "desc";
 };
-export declare type UserPerformanceSummaryRequestSortOrderEnum = typeof UserPerformanceSummaryRequestSortOrderEnum[keyof typeof UserPerformanceSummaryRequestSortOrderEnum];
+export type UserPerformanceSummaryRequestSortOrderEnum = typeof UserPerformanceSummaryRequestSortOrderEnum[keyof typeof UserPerformanceSummaryRequestSortOrderEnum];
 /**
  * Response model for user performance summary API
  * @export
@@ -11009,7 +11010,7 @@ export declare const VirtualProspectTypeEnum: {
     readonly Inbound: "INBOUND";
     readonly Outbound: "OUTBOUND";
 };
-export declare type VirtualProspectTypeEnum = typeof VirtualProspectTypeEnum[keyof typeof VirtualProspectTypeEnum];
+export type VirtualProspectTypeEnum = typeof VirtualProspectTypeEnum[keyof typeof VirtualProspectTypeEnum];
 /**
  *
  * @export
@@ -11052,7 +11053,7 @@ export declare const VoiceInputGenderEnum: {
     readonly Female: "Female";
     readonly Neutral: "Neutral";
 };
-export declare type VoiceInputGenderEnum = typeof VoiceInputGenderEnum[keyof typeof VoiceInputGenderEnum];
+export type VoiceInputGenderEnum = typeof VoiceInputGenderEnum[keyof typeof VoiceInputGenderEnum];
 /**
  *
  * @export
@@ -11126,7 +11127,7 @@ export declare const VoiceOutputGenderEnum: {
     readonly Female: "Female";
     readonly Neutral: "Neutral";
 };
-export declare type VoiceOutputGenderEnum = typeof VoiceOutputGenderEnum[keyof typeof VoiceOutputGenderEnum];
+export type VoiceOutputGenderEnum = typeof VoiceOutputGenderEnum[keyof typeof VoiceOutputGenderEnum];
 /**
  * Workflow represents a sequence of steps that can be performed by an app
  * @export
@@ -11551,7 +11552,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1: (actionId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createActionAgentLinkV1: (actionId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -11560,7 +11561,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteActionAgentLinkV1: (actionId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -11568,7 +11569,7 @@ export declare const ActionAgentLinkApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listActionsOfAgentV1: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ActionAgentLinkApi - functional programming interface
@@ -11583,7 +11584,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -11592,7 +11593,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -11600,7 +11601,7 @@ export declare const ActionAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
 };
 /**
  * ActionAgentLinkApi - factory interface
@@ -11615,7 +11616,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -11624,7 +11625,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -11632,7 +11633,7 @@ export declare const ActionAgentLinkApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
+    listActionsOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
 };
 /**
  * ActionAgentLinkApi - object-oriented interface
@@ -11650,7 +11651,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    createActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Delete a Link Between an Action and an Agent
      * @summary Delete a Link Between an Action and an Agent
@@ -11660,7 +11661,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteActionAgentLinkV1(actionId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * List All Actions Linked to a Specific Agent
      * @summary List All Actions Linked to a Specific Agent
@@ -11669,7 +11670,7 @@ export declare class ActionAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionAgentLinkApi
      */
-    listActionsOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[], any>>;
 }
 /**
  * ActionsApi - axios parameter creator
@@ -11683,7 +11684,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1: (actionInput: ActionInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createActionV1: (actionInput: ActionInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -11691,7 +11692,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1: (actionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteActionV1: (actionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -11699,7 +11700,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1: (actionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getActionV1: (actionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Actions
      * @summary List All Actions
@@ -11715,7 +11716,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listActionsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -11724,7 +11725,7 @@ export declare const ActionsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1: (actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateActionV1: (actionId: string, actionInput: ActionInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ActionsApi - functional programming interface
@@ -11738,7 +11739,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -11746,7 +11747,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1(actionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteActionV1(actionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -11754,7 +11755,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    getActionV1(actionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
     /**
      * List All Actions
      * @summary List All Actions
@@ -11770,7 +11771,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionOutput>>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -11779,7 +11780,7 @@ export declare const ActionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ActionOutput>>;
 };
 /**
  * ActionsApi - factory interface
@@ -11793,7 +11794,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
+    createActionV1(actionInput: ActionInput, options?: RawAxiosRequestConfig): AxiosPromise<ActionOutput>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -11801,7 +11802,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteActionV1(actionId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteActionV1(actionId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -11809,7 +11810,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getActionV1(actionId: string, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
+    getActionV1(actionId: string, options?: RawAxiosRequestConfig): AxiosPromise<ActionOutput>;
     /**
      * List All Actions
      * @summary List All Actions
@@ -11825,7 +11826,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ActionOutput>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -11834,7 +11835,7 @@ export declare const ActionsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): AxiosPromise<ActionOutput>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: RawAxiosRequestConfig): AxiosPromise<ActionOutput>;
 };
 /**
  * ActionsApi - object-oriented interface
@@ -11851,7 +11852,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    createActionV1(actionInput: ActionInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    createActionV1(actionInput: ActionInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput, any>>;
     /**
      * Delete a Specific Action by ID
      * @summary Delete a Specific Action by ID
@@ -11860,7 +11861,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    deleteActionV1(actionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteActionV1(actionId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific Action by ID
      * @summary Get a Specific Action by ID
@@ -11869,7 +11870,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    getActionV1(actionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    getActionV1(actionId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput, any>>;
     /**
      * List All Actions
      * @summary List All Actions
@@ -11886,7 +11887,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[]>>;
+    listActionsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput[], any>>;
     /**
      * Update a Specific Action by ID
      * @summary Update a Specific Action by ID
@@ -11896,7 +11897,7 @@ export declare class ActionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ActionsApi
      */
-    updateActionV1(actionId: string, actionInput: ActionInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput>>;
+    updateActionV1(actionId: string, actionInput: ActionInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionOutput, any>>;
 }
 /**
  * AgentsApi - axios parameter creator
@@ -11910,7 +11911,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1: (aIAgentInput: AIAgentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createAIAgentV1: (aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -11918,7 +11919,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAIAgentV1: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -11926,7 +11927,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAIAgentV1: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
@@ -11943,7 +11944,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAIAgentsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -11952,7 +11953,7 @@ export declare const AgentsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1: (agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateAIAgentV1: (agentId: string, aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AgentsApi - functional programming interface
@@ -11966,7 +11967,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -11974,7 +11975,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -11982,7 +11983,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    getAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
@@ -11999,7 +12000,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -12008,7 +12009,7 @@ export declare const AgentsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AIAgentOutput>>;
 };
 /**
  * AgentsApi - factory interface
@@ -12022,7 +12023,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): AxiosPromise<AIAgentOutput>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -12030,7 +12031,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -12038,7 +12039,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
+    getAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<AIAgentOutput>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
@@ -12055,7 +12056,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -12064,7 +12065,7 @@ export declare const AgentsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): AxiosPromise<AIAgentOutput>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): AxiosPromise<AIAgentOutput>;
 };
 /**
  * AgentsApi - object-oriented interface
@@ -12081,7 +12082,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    createAIAgentV1(aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    createAIAgentV1(aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput, any>>;
     /**
      * Delete a Specific AI Agent by ID
      * @summary Delete a Specific AI Agent by ID
@@ -12090,7 +12091,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    deleteAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific AI Agent by ID
      * @summary Get a Specific AI Agent by ID
@@ -12099,7 +12100,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    getAIAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    getAIAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput, any>>;
     /**
      * List All AI Agents
      * @summary List All AI Agents
@@ -12117,7 +12118,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAIAgentsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[], any>>;
     /**
      * Update a Specific AI Agent by ID
      * @summary Update a Specific AI Agent by ID
@@ -12127,7 +12128,7 @@ export declare class AgentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AgentsApi
      */
-    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput>>;
+    updateAIAgentV1(agentId: string, aIAgentInput: AIAgentInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput, any>>;
 }
 /**
  * AnalyticsApi - axios parameter creator
@@ -12142,7 +12143,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost: (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getMetricsV1MetricsPost: (batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -12150,7 +12151,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet: (app?: AppEnumInput | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getOverallStatsV1StatsGet: (app?: AppEnumInput | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - winrate: Percentage of calls with overallScore > threshold (use with AVG aggregation) - callCount: Count of calls (each analytics record represents one call) - activeDays: Count of unique days with user activity (use with COUNT aggregation) - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -12158,7 +12159,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1: (analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUserAnalyticsV1: (analyticsRequest: AnalyticsRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -12166,7 +12167,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1: (userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUserPerformanceSummaryV1: (userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -12181,7 +12182,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -12189,7 +12190,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatsResponse>>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - winrate: Percentage of calls with overallScore > threshold (use with AVG aggregation) - callCount: Count of calls (each analytics record represents one call) - activeDays: Count of unique days with user activity (use with COUNT aggregation) - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -12197,7 +12198,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsResponse>>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AnalyticsResponse>>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -12205,7 +12206,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPerformanceSummaryResponse>>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPerformanceSummaryResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -12220,7 +12221,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -12228,7 +12229,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): AxiosPromise<StatsResponse>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: RawAxiosRequestConfig): AxiosPromise<StatsResponse>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - winrate: Percentage of calls with overallScore > threshold (use with AVG aggregation) - callCount: Count of calls (each analytics record represents one call) - activeDays: Count of unique days with user activity (use with COUNT aggregation) - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -12236,7 +12237,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): AxiosPromise<AnalyticsResponse>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: RawAxiosRequestConfig): AxiosPromise<AnalyticsResponse>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -12244,7 +12245,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): AxiosPromise<UserPerformanceSummaryResponse>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPerformanceSummaryResponse>;
 };
 /**
  * AnalyticsApi - object-oriented interface
@@ -12262,7 +12263,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
+    getMetricsV1MetricsPost(batchMetricsRequestsInput: BatchMetricsRequestsInput, app?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput, any>>;
     /**
      * Get aggregated stats from Trata AI like call count, prospect count, etc.
      * @summary Get Aggregated Stats
@@ -12271,7 +12272,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StatsResponse>>;
+    getOverallStatsV1StatsGet(app?: AppEnumInput | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StatsResponse, any>>;
     /**
      * Get simplified user analytics with custom metrics and single date range aggregation.  This endpoint aggregates metrics over the entire date range without time-based grouping. Perfect for getting summary statistics or single aggregated values.  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"metrics\": [         {             \"name\": \"overallScore\",             \"aggregation\": \"AVG\",             \"alias\": \"average_performance\"         },         {             \"name\": \"callDuration\",             \"aggregation\": \"SUM\",             \"alias\": \"total_call_time\"         },         {             \"name\": \"modulesCompleted\",             \"aggregation\": \"COUNT\",             \"alias\": \"completion_count\"         }     ],     \"userIds\": [\"user_id_1\", \"user_id_2\"] } ```  Available metric names: - processAdherenceScore: Process adherence score metric - skillsScore: Skills assessment score metric - communicationScore: Communication effectiveness score metric - userTalkingRatio: Ratio of user talking time vs total conversation time - fillerWords: Count of filler words used - overallScore: Overall performance score metric - modulesCompleted: Number of modules completed - callDuration: Duration of the call in seconds - longestMonologue: Duration of the longest monologue in seconds - winrate: Percentage of calls with overallScore > threshold (use with AVG aggregation) - callCount: Count of calls (each analytics record represents one call) - activeDays: Count of unique days with user activity (use with COUNT aggregation) - userId: User ID for counting unique users - feedbackId: Feedback ID for counting records  Note: Both camelCase and snake_case formats are supported for column names (e.g., \"processAdherenceScore\" or \"process_adherence_score\")  Available aggregations: - SUM: Total values - AVG: Average values - COUNT: Count of non-null values - MIN: Minimum value - MAX: Maximum value
      * @summary Get User Analytics
@@ -12280,7 +12281,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsResponse>>;
+    getUserAnalyticsV1(analyticsRequest: AnalyticsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsResponse, any>>;
     /**
      * Get user performance summary with aggregated metrics grouped by user.  This endpoint returns a list of users with their average performance scores: - Average Process Adherence Score - Average Skills Score - Average Communication Score - Average Overall Score - Total number of sessions  Features: - Date range filtering (startDate, endDate) - Optional user ID filtering - Sorting by any column (userName, avgProcessAdherenceScore, avgSkillsScore, avgCommunicationScore, avgOverallScore) - Sort order (asc/desc, default desc) - Pagination support (skip/limit)  Example request: ```json {     \"startDate\": \"2024-01-01\",     \"endDate\": \"2024-03-31\",     \"userIds\": [\"user_id_1\", \"user_id_2\"],     \"sortBy\": \"avgOverallScore\",     \"sortOrder\": \"desc\",     \"skip\": 0,     \"limit\": 50 } ```  Available sort columns: - userName: User name - avgProcessAdherenceScore: Average process adherence score - avgSkillsScore: Average skills assessment score - avgCommunicationScore: Average communication effectiveness score - avgOverallScore: Average overall performance score (default)  Returns: - List of user performance summaries - Total count of matching users - Pagination metadata
      * @summary Get User Performance Summary
@@ -12289,7 +12290,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AnalyticsApi
      */
-    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPerformanceSummaryResponse>>;
+    getUserPerformanceSummaryV1(userPerformanceSummaryRequest: UserPerformanceSummaryRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPerformanceSummaryResponse, any>>;
 }
 /**
  * ApiKeyApi - axios parameter creator
@@ -12303,7 +12304,7 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1: (apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createApiKeyV1: (apiKeyRequest: ApiKeyRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Api Key
@@ -12311,21 +12312,21 @@ export declare const ApiKeyApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1: (keyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteApiKeyV1: (keyId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCallKeyV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listApiKeysV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ApiKeyApi - functional programming interface
@@ -12339,7 +12340,7 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary Delete Api Key
@@ -12347,21 +12348,21 @@ export declare const ApiKeyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteApiKeyV1(keyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
+    getCallKeyV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserApiKeyLink>>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserApiKeyLink>>>;
+    listApiKeysV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserApiKeyLink>>>;
 };
 /**
  * ApiKeyApi - factory interface
@@ -12375,7 +12376,7 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary Delete Api Key
@@ -12383,21 +12384,21 @@ export declare const ApiKeyApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteApiKeyV1(keyId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary Get Call Key
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCallKeyV1(options?: AxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
+    getCallKeyV1(options?: RawAxiosRequestConfig): AxiosPromise<UserApiKeyLink>;
     /**
      *
      * @summary List Api Keys
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listApiKeysV1(options?: AxiosRequestConfig): AxiosPromise<Array<UserApiKeyLink>>;
+    listApiKeysV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<UserApiKeyLink>>;
 };
 /**
  * ApiKeyApi - object-oriented interface
@@ -12414,7 +12415,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    createApiKeyV1(apiKeyRequest: ApiKeyRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink, any>>;
     /**
      *
      * @summary Delete Api Key
@@ -12423,7 +12424,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    deleteApiKeyV1(keyId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteApiKeyV1(keyId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      *
      * @summary Get Call Key
@@ -12431,7 +12432,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    getCallKeyV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink>>;
+    getCallKeyV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink, any>>;
     /**
      *
      * @summary List Api Keys
@@ -12439,7 +12440,7 @@ export declare class ApiKeyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApiKeyApi
      */
-    listApiKeysV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink[]>>;
+    listApiKeysV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserApiKeyLink[], any>>;
 }
 /**
  * BillingApi - axios parameter creator
@@ -12453,35 +12454,35 @@ export declare const BillingApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCheckoutSessionForBillableProductV1: (billableProductId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerSessionSecretV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSubscriptionBillableProductsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSubscriptionPortalV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSubscriptionV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * BillingApi - functional programming interface
@@ -12495,35 +12496,35 @@ export declare const BillingApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getCustomerSessionSecretV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getSubscriptionBillableProductsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getSubscriptionPortalV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionInfo>>;
+    getSubscriptionV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionInfo>>;
 };
 /**
  * BillingApi - factory interface
@@ -12537,35 +12538,35 @@ export declare const BillingApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Customer Session Secret
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerSessionSecretV1(options?: AxiosRequestConfig): AxiosPromise<string>;
+    getCustomerSessionSecretV1(options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Subscription Billable Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
+    getSubscriptionBillableProductsV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      *
      * @summary Get Subscription Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionPortalV1(options?: AxiosRequestConfig): AxiosPromise<string>;
+    getSubscriptionPortalV1(options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Get Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionV1(options?: AxiosRequestConfig): AxiosPromise<SubscriptionInfo>;
+    getSubscriptionV1(options?: RawAxiosRequestConfig): AxiosPromise<SubscriptionInfo>;
 };
 /**
  * BillingApi - object-oriented interface
@@ -12582,7 +12583,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForBillableProductV1(billableProductId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      *
      * @summary Get Customer Session Secret
@@ -12590,7 +12591,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getCustomerSessionSecretV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    getCustomerSessionSecretV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      *
      * @summary Get Subscription Billable Products
@@ -12598,7 +12599,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionBillableProductsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
+    getSubscriptionBillableProductsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[], any>>;
     /**
      *
      * @summary Get Subscription Portal
@@ -12606,7 +12607,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionPortalV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    getSubscriptionPortalV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      *
      * @summary Get Subscription
@@ -12614,7 +12615,7 @@ export declare class BillingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BillingApi
      */
-    getSubscriptionV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionInfo>>;
+    getSubscriptionV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionInfo, any>>;
 }
 /**
  * ConnectApi - axios parameter creator
@@ -12628,7 +12629,7 @@ export declare const ConnectApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectOauthV1: (telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    connectOauthV1: (telephonyConnectRequest: TelephonyConnectRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConnectApi - functional programming interface
@@ -12642,7 +12643,7 @@ export declare const ConnectApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephonyConnectResponse>>;
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephonyConnectResponse>>;
 };
 /**
  * ConnectApi - factory interface
@@ -12656,7 +12657,7 @@ export declare const ConnectApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): AxiosPromise<TelephonyConnectResponse>;
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: RawAxiosRequestConfig): AxiosPromise<TelephonyConnectResponse>;
 };
 /**
  * ConnectApi - object-oriented interface
@@ -12673,7 +12674,7 @@ export declare class ConnectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectApi
      */
-    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephonyConnectResponse>>;
+    connectOauthV1(telephonyConnectRequest: TelephonyConnectRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephonyConnectResponse, any>>;
 }
 /**
  * ConversationProspectLinkApi - axios parameter creator
@@ -12688,7 +12689,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -12697,7 +12698,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteConversationProspectLinkV1: (conversationId: string, prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -12705,7 +12706,7 @@ export declare const ConversationProspectLinkApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConversationsOfProspectsV1: (prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConversationProspectLinkApi - functional programming interface
@@ -12720,7 +12721,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -12729,7 +12730,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -12737,7 +12738,7 @@ export declare const ConversationProspectLinkApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
 };
 /**
  * ConversationProspectLinkApi - factory interface
@@ -12752,7 +12753,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -12761,7 +12762,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -12769,7 +12770,7 @@ export declare const ConversationProspectLinkApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
 };
 /**
  * ConversationProspectLinkApi - object-oriented interface
@@ -12787,7 +12788,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Delete a link between a conversation and a prospect
      * @summary Delete a link between a conversation and a prospect
@@ -12797,7 +12798,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteConversationProspectLinkV1(conversationId: string, prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * List all conversations linked to a specific prospect
      * @summary List all conversations linked to a specific prospect
@@ -12806,7 +12807,7 @@ export declare class ConversationProspectLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationProspectLinkApi
      */
-    listConversationsOfProspectsV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsOfProspectsV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[], any>>;
 }
 /**
  * ConversationsApi - axios parameter creator
@@ -12821,7 +12822,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1: (conversationId: string, comment: Comment, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addFeedbackV1: (conversationId: string, comment: Comment, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -12829,7 +12830,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1: (conversationInput: ConversationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConversationV1: (conversationInput: ConversationInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -12837,7 +12838,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1: (conversationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteConversationV1: (conversationId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -12845,7 +12846,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1: (conversationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getConversationV1: (conversationId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Conversations
      * @summary List All Conversations
@@ -12862,7 +12863,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConversationsV1: (app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -12871,7 +12872,7 @@ export declare const ConversationsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1: (conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateConversationV1: (conversationId: string, conversationInput: ConversationInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConversationsApi - functional programming interface
@@ -12886,7 +12887,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationFeedback>>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationFeedback>>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -12894,7 +12895,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    createConversationV1(conversationInput: ConversationInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -12902,7 +12903,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteConversationV1(conversationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -12910,7 +12911,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    getConversationV1(conversationId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
     /**
      * List All Conversations
      * @summary List All Conversations
@@ -12927,7 +12928,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConversationOutput>>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -12936,7 +12937,7 @@ export declare const ConversationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConversationOutput>>;
 };
 /**
  * ConversationsApi - factory interface
@@ -12951,7 +12952,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): AxiosPromise<ConversationFeedback>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: RawAxiosRequestConfig): AxiosPromise<ConversationFeedback>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -12959,7 +12960,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
+    createConversationV1(conversationInput: ConversationInput, options?: RawAxiosRequestConfig): AxiosPromise<ConversationOutput>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -12967,7 +12968,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteConversationV1(conversationId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -12975,7 +12976,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConversationV1(conversationId: string, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
+    getConversationV1(conversationId: string, options?: RawAxiosRequestConfig): AxiosPromise<ConversationOutput>;
     /**
      * List All Conversations
      * @summary List All Conversations
@@ -12992,7 +12993,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ConversationOutput>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -13001,7 +13002,7 @@ export declare const ConversationsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): AxiosPromise<ConversationOutput>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: RawAxiosRequestConfig): AxiosPromise<ConversationOutput>;
 };
 /**
  * ConversationsApi - object-oriented interface
@@ -13019,7 +13020,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    addFeedbackV1(conversationId: string, comment: Comment, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationFeedback>>;
+    addFeedbackV1(conversationId: string, comment: Comment, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationFeedback, any>>;
     /**
      * Create a New Conversation
      * @summary Create a New Conversation
@@ -13028,7 +13029,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    createConversationV1(conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    createConversationV1(conversationInput: ConversationInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput, any>>;
     /**
      * Delete a Specific Conversation by ID
      * @summary Delete a Specific Conversation by ID
@@ -13037,7 +13038,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    deleteConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteConversationV1(conversationId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific Conversation by ID
      * @summary Get a Specific Conversation by ID
@@ -13046,7 +13047,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    getConversationV1(conversationId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    getConversationV1(conversationId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput, any>>;
     /**
      * List All Conversations
      * @summary List All Conversations
@@ -13064,7 +13065,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[]>>;
+    listConversationsV1(app?: AppEnumInput | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput[], any>>;
     /**
      * Update a Specific Conversation by ID
      * @summary Update a Specific Conversation by ID
@@ -13074,7 +13075,7 @@ export declare class ConversationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConversationsApi
      */
-    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput>>;
+    updateConversationV1(conversationId: string, conversationInput: ConversationInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConversationOutput, any>>;
 }
 /**
  * DataPlaneApi - axios parameter creator
@@ -13090,7 +13091,7 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConnection: (agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -13098,7 +13099,7 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPlivoAudioStreamXml: (connectionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List connections
      * @summary Listconnections
@@ -13115,7 +13116,7 @@ export declare const DataPlaneApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections: (sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConnections: (sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * DataPlaneApi - functional programming interface
@@ -13131,7 +13132,7 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectionOutput>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectionOutput>>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -13139,7 +13140,7 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    getPlivoAudioStreamXml(connectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List connections
      * @summary Listconnections
@@ -13156,7 +13157,7 @@ export declare const DataPlaneApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectionOutput>>>;
 };
 /**
  * DataPlaneApi - factory interface
@@ -13172,7 +13173,7 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): AxiosPromise<ConnectionOutput>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<ConnectionOutput>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -13180,7 +13181,7 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    getPlivoAudioStreamXml(connectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List connections
      * @summary Listconnections
@@ -13197,7 +13198,7 @@ export declare const DataPlaneApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ConnectionOutput>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ConnectionOutput>>;
 };
 /**
  * DataPlaneApi - object-oriented interface
@@ -13216,7 +13217,7 @@ export declare class DataPlaneApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput>>;
+    createConnection(agentId: string, connectionSource: ConnectionSource, prospectId?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput, any>>;
     /**
      * Get the audio stream xml for Plivo to start a voice conversation
      * @summary Get Audio Stream XML For Plivo
@@ -13225,7 +13226,7 @@ export declare class DataPlaneApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    getPlivoAudioStreamXml(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    getPlivoAudioStreamXml(connectionId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * List connections
      * @summary Listconnections
@@ -13243,7 +13244,7 @@ export declare class DataPlaneApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DataPlaneApi
      */
-    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput[]>>;
+    listConnections(sourceName?: string | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConnectionOutput[], any>>;
 }
 /**
  * FilesApi - axios parameter creator
@@ -13257,7 +13258,7 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1: (fileIds: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteFileV1: (fileIds: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload audio file to Trata account to use in AI Agents
      * @summary Upload Audio Files
@@ -13266,7 +13267,7 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadAudioFileV1: (files: Array<File>, validator?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadAudioFileV1: (files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -13275,7 +13276,7 @@ export declare const FilesApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1: (files: Array<File>, validator?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadFileV1: (files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FilesApi - functional programming interface
@@ -13289,7 +13290,7 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    deleteFileV1(fileIds: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Upload audio file to Trata account to use in AI Agents
      * @summary Upload Audio Files
@@ -13298,7 +13299,7 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -13307,7 +13308,7 @@ export declare const FilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * FilesApi - factory interface
@@ -13321,7 +13322,7 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): AxiosPromise<boolean>;
+    deleteFileV1(fileIds: string, options?: RawAxiosRequestConfig): AxiosPromise<boolean>;
     /**
      * Upload audio file to Trata account to use in AI Agents
      * @summary Upload Audio Files
@@ -13330,7 +13331,7 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<Files>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -13339,7 +13340,7 @@ export declare const FilesApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<Files>>;
 };
 /**
  * FilesApi - object-oriented interface
@@ -13356,7 +13357,7 @@ export declare class FilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    deleteFileV1(fileIds: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
+    deleteFileV1(fileIds: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean, any>>;
     /**
      * Upload audio file to Trata account to use in AI Agents
      * @summary Upload Audio Files
@@ -13366,7 +13367,7 @@ export declare class FilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadAudioFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[], any>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -13376,7 +13377,7 @@ export declare class FilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    uploadFileV1(files: Array<File>, validator?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadFileV1(files: Array<File>, validator?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[], any>>;
 }
 /**
  * HealthApi - axios parameter creator
@@ -13389,14 +13390,14 @@ export declare const HealthApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    statusStatusGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    statusWorkflowsStatusGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HealthApi - functional programming interface
@@ -13409,7 +13410,7 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    statusStatusGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: any;
     }>>;
     /**
@@ -13418,7 +13419,7 @@ export declare const HealthApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    statusWorkflowsStatusGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: any;
     }>>;
 };
@@ -13433,7 +13434,7 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+    statusStatusGet(options?: RawAxiosRequestConfig): AxiosPromise<{
         [key: string]: any;
     }>;
     /**
@@ -13442,7 +13443,7 @@ export declare const HealthApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+    statusWorkflowsStatusGet(options?: RawAxiosRequestConfig): AxiosPromise<{
         [key: string]: any;
     }>;
 };
@@ -13460,9 +13461,9 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+    statusStatusGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: any;
-    }>>;
+    }, any>>;
     /**
      * Heart Beat check to check the health of Workflow Service
      * @summary Heart Beat Status Of Workflow Service
@@ -13470,9 +13471,9 @@ export declare class HealthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HealthApi
      */
-    statusWorkflowsStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+    statusWorkflowsStatusGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: any;
-    }>>;
+    }, any>>;
 }
 /**
  * HiveApi - axios parameter creator
@@ -13486,7 +13487,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1: (hiveContentInput: HiveContentInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createHiveV1: (hiveContentInput: HiveContentInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -13494,7 +13495,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteHiveV1: (hiveId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -13502,7 +13503,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getHiveV1: (hiveId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Hives
      * @summary List All Hives
@@ -13518,7 +13519,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listHivesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -13527,7 +13528,7 @@ export declare const HiveApiAxiosParamCreator: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1: (hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateHiveV1: (hiveId: string, hiveContentOutput: HiveContentOutput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HiveApi - functional programming interface
@@ -13541,7 +13542,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -13549,7 +13550,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -13557,7 +13558,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    getHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
     /**
      * List All Hives
      * @summary List All Hives
@@ -13573,7 +13574,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -13582,7 +13583,7 @@ export declare const HiveApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hive>>;
 };
 /**
  * HiveApi - factory interface
@@ -13596,7 +13597,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): AxiosPromise<Hive>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: RawAxiosRequestConfig): AxiosPromise<Hive>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -13604,7 +13605,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteHiveV1(hiveId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -13612,7 +13613,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<Hive>;
+    getHiveV1(hiveId: string, options?: RawAxiosRequestConfig): AxiosPromise<Hive>;
     /**
      * List All Hives
      * @summary List All Hives
@@ -13628,7 +13629,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Hive>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<Hive>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -13637,7 +13638,7 @@ export declare const HiveApiFactory: (configuration?: Configuration, basePath?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): AxiosPromise<Hive>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: RawAxiosRequestConfig): AxiosPromise<Hive>;
 };
 /**
  * HiveApi - object-oriented interface
@@ -13654,7 +13655,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    createHiveV1(hiveContentInput: HiveContentInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
+    createHiveV1(hiveContentInput: HiveContentInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive, any>>;
     /**
      * Delete a Specific Hive by ID
      * @summary Delete a Specific Hive by ID
@@ -13663,7 +13664,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    deleteHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific Hive by ID
      * @summary Get a Specific Hive by ID
@@ -13672,7 +13673,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    getHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
+    getHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive, any>>;
     /**
      * List All Hives
      * @summary List All Hives
@@ -13689,7 +13690,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[]>>;
+    listHivesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[], any>>;
     /**
      * Update a Specific Hive by ID
      * @summary Update a Specific Hive by ID
@@ -13699,7 +13700,7 @@ export declare class HiveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveApi
      */
-    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive>>;
+    updateHiveV1(hiveId: string, hiveContentOutput: HiveContentOutput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive, any>>;
 }
 /**
  * HiveAgentLinkApi - axios parameter creator
@@ -13714,7 +13715,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1: (hiveId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createHiveAgentLinkV1: (hiveId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -13723,7 +13724,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1: (hiveId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteHiveAgentLinkV1: (hiveId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -13731,7 +13732,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1: (hiveId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAgentsOfHiveV1: (hiveId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -13739,7 +13740,7 @@ export declare const HiveAgentLinkApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listHivesOfAgentV1: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * HiveAgentLinkApi - functional programming interface
@@ -13754,7 +13755,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -13763,7 +13764,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -13771,7 +13772,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAgentsOfHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -13779,7 +13780,7 @@ export declare const HiveAgentLinkApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
+    listHivesOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Hive>>>;
 };
 /**
  * HiveAgentLinkApi - factory interface
@@ -13794,7 +13795,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -13803,7 +13804,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -13811,7 +13812,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
+    listAgentsOfHiveV1(hiveId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -13819,7 +13820,7 @@ export declare const HiveAgentLinkApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Hive>>;
+    listHivesOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Hive>>;
 };
 /**
  * HiveAgentLinkApi - object-oriented interface
@@ -13837,7 +13838,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Delete a Link Between a Hive and an Agent
      * @summary Delete a Link Between a Hive and an Agent
@@ -13847,7 +13848,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteHiveAgentLinkV1(hiveId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * List All Agents Linked to a Specific Hive
      * @summary List All Agents Linked to a Specific Hive
@@ -13856,7 +13857,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    listAgentsOfHiveV1(hiveId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAgentsOfHiveV1(hiveId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[], any>>;
     /**
      * List All Hives Linked to a Specific Agent
      * @summary List All Hives Linked to a Specific Agent
@@ -13865,7 +13866,7 @@ export declare class HiveAgentLinkApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HiveAgentLinkApi
      */
-    listHivesOfAgentV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[]>>;
+    listHivesOfAgentV1(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Hive[], any>>;
 }
 /**
  * InternalApi - axios parameter creator
@@ -13879,7 +13880,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    acceptInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -13887,7 +13888,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createOrganizationV1: (bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new user
      * @summary Createuser
@@ -13895,14 +13896,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1: (userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createUserV1: (userPayload: UserPayload, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteOrganizationV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -13910,35 +13911,35 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteUserV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerCreditsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerPricingV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getOrganizationBrandingV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getOrganizationV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Getuserbyid
@@ -13946,7 +13947,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUserByIdV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -13962,7 +13963,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -13979,7 +13980,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1: (showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listUsersV1: (showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -13988,7 +13989,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1: (guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendInviteV1: (guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Updateorganization
@@ -13997,7 +13998,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1: (orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateOrganizationV1: (orgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update user details
      * @summary Updateuser
@@ -14006,7 +14007,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1: (userId: string, userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateUserV1: (userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * InternalApi - functional programming interface
@@ -14020,7 +14021,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -14028,7 +14029,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Create a new user
      * @summary Createuser
@@ -14036,14 +14037,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createUserV1(userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteOrganizationV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -14051,35 +14052,35 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteUserV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getCustomerCreditsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getCustomerPricingV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetorganizationbrandingv1>>;
+    getOrganizationBrandingV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetorganizationbrandingv1>>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    getOrganizationV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
      *
      * @summary Getuserbyid
@@ -14087,7 +14088,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getUserByIdV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -14103,7 +14104,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -14120,7 +14121,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -14129,7 +14130,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
      *
      * @summary Updateorganization
@@ -14138,7 +14139,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
     /**
      * Update user details
      * @summary Updateuser
@@ -14147,7 +14148,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * InternalApi - factory interface
@@ -14161,7 +14162,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -14169,7 +14170,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<User>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * Create a new user
      * @summary Createuser
@@ -14177,14 +14178,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
+    createUserV1(userPayload: UserPayload, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      *
      * @summary Deleteorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteOrganizationV1(options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -14192,35 +14193,35 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteUserV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
+    deleteUserV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCreditsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
+    getCustomerCreditsV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
+    getCustomerPricingV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      *
      * @summary Getorganizationbranding
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationBrandingV1(options?: AxiosRequestConfig): AxiosPromise<ResponseGetorganizationbrandingv1>;
+    getOrganizationBrandingV1(options?: RawAxiosRequestConfig): AxiosPromise<ResponseGetorganizationbrandingv1>;
     /**
      *
      * @summary Getorganization
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
+    getOrganizationV1(options?: RawAxiosRequestConfig): AxiosPromise<OrganizationOutput>;
     /**
      *
      * @summary Getuserbyid
@@ -14228,7 +14229,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserByIdV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
+    getUserByIdV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -14244,7 +14245,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -14261,7 +14262,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -14270,7 +14271,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): AxiosPromise<GuestOutput>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: RawAxiosRequestConfig): AxiosPromise<GuestOutput>;
     /**
      *
      * @summary Updateorganization
@@ -14279,7 +14280,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationOutput>;
     /**
      * Update user details
      * @summary Updateuser
@@ -14288,7 +14289,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * InternalApi - object-oriented interface
@@ -14305,7 +14306,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    acceptInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * Creates a new organization and adds the user as the \"ADMIN\" user for the org
      * @summary Createorganization
@@ -14314,7 +14315,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    createOrganizationV1(bodyCreateOrganizationV1: BodyCreateOrganizationV1, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * Create a new user
      * @summary Createuser
@@ -14323,7 +14324,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    createUserV1(userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    createUserV1(userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      *
      * @summary Deleteorganization
@@ -14331,7 +14332,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteOrganizationV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Delete a user
      * @summary Deleteuser
@@ -14340,7 +14341,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    deleteUserV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    deleteUserV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * Get customer credits
      * @summary Get Customer Credits
@@ -14348,7 +14349,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getCustomerCreditsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getCustomerCreditsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[], any>>;
     /**
      * Get customer pricing
      * @summary Get Customer Pricing
@@ -14356,7 +14357,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getCustomerPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
+    getCustomerPricingV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[], any>>;
     /**
      *
      * @summary Getorganizationbranding
@@ -14364,7 +14365,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getOrganizationBrandingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ResponseGetorganizationbrandingv1>>;
+    getOrganizationBrandingV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ResponseGetorganizationbrandingv1, any>>;
     /**
      *
      * @summary Getorganization
@@ -14372,7 +14373,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    getOrganizationV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput, any>>;
     /**
      *
      * @summary Getuserbyid
@@ -14381,7 +14382,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    getUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    getUserByIdV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * List of all open invites from the organization
      * @summary Listinvites
@@ -14398,7 +14399,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[], any>>;
     /**
      * Lists all users under the user\'s organization
      * @summary Listusers
@@ -14416,7 +14417,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
+    listUsersV1(showResellerOwner?: boolean, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User[], any>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Inviteusers
@@ -14426,7 +14427,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    sendInviteV1(guestInput: GuestInput, app?: SendInviteV1AppEnum, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput, any>>;
     /**
      *
      * @summary Updateorganization
@@ -14436,7 +14437,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateOrganizationV1(orgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput, any>>;
     /**
      * Update user details
      * @summary Updateuser
@@ -14446,7 +14447,7 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InternalApi
      */
-    updateUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    updateUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
 }
 /**
  * @export
@@ -14455,7 +14456,7 @@ export declare const SendInviteV1AppEnum: {
     readonly Trata: "trata";
     readonly Sparr: "sparr";
 };
-export declare type SendInviteV1AppEnum = typeof SendInviteV1AppEnum[keyof typeof SendInviteV1AppEnum];
+export type SendInviteV1AppEnum = typeof SendInviteV1AppEnum[keyof typeof SendInviteV1AppEnum];
 /**
  * ProductsApi - axios parameter creator
  * @export
@@ -14468,7 +14469,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1: (productInput: ProductInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createProductV1: (productInput: ProductInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -14476,7 +14477,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteProductV1: (productId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -14484,7 +14485,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getProductV1: (productId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -14492,7 +14493,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1: (productId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAgentsOfProductV1: (productId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Products
      * @summary List All Products
@@ -14510,7 +14511,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listProductsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -14519,7 +14520,7 @@ export declare const ProductsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1: (productId: string, productInput: ProductInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateProductV1: (productId: string, productInput: ProductInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ProductsApi - functional programming interface
@@ -14533,7 +14534,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    createProductV1(productInput: ProductInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -14541,7 +14542,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -14549,7 +14550,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    getProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -14557,7 +14558,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
+    listAgentsOfProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AIAgentOutput>>>;
     /**
      * List All Products
      * @summary List All Products
@@ -14575,7 +14576,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductOutput>>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -14584,7 +14585,7 @@ export declare const ProductsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductOutput>>;
 };
 /**
  * ProductsApi - factory interface
@@ -14598,7 +14599,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
+    createProductV1(productInput: ProductInput, options?: RawAxiosRequestConfig): AxiosPromise<ProductOutput>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -14606,7 +14607,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteProductV1(productId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -14614,7 +14615,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
+    getProductV1(productId: string, options?: RawAxiosRequestConfig): AxiosPromise<ProductOutput>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -14622,7 +14623,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
+    listAgentsOfProductV1(productId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<AIAgentOutput>>;
     /**
      * List All Products
      * @summary List All Products
@@ -14640,7 +14641,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProductOutput>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ProductOutput>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -14649,7 +14650,7 @@ export declare const ProductsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): AxiosPromise<ProductOutput>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: RawAxiosRequestConfig): AxiosPromise<ProductOutput>;
 };
 /**
  * ProductsApi - object-oriented interface
@@ -14666,7 +14667,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    createProductV1(productInput: ProductInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    createProductV1(productInput: ProductInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput, any>>;
     /**
      * Delete a Specific Product by ID
      * @summary Delete a Specific Product by ID
@@ -14675,7 +14676,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    deleteProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific Product by ID
      * @summary Get a Specific Product by ID
@@ -14684,7 +14685,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    getProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    getProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput, any>>;
     /**
      * List All Agents Linked to a Specific Product
      * @summary List All Agents Linked to a Specific Product
@@ -14693,7 +14694,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    listAgentsOfProductV1(productId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[]>>;
+    listAgentsOfProductV1(productId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AIAgentOutput[], any>>;
     /**
      * List All Products
      * @summary List All Products
@@ -14712,7 +14713,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput[]>>;
+    listProductsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput[], any>>;
     /**
      * Update a Specific Product by ID
      * @summary Update a Specific Product by ID
@@ -14722,7 +14723,7 @@ export declare class ProductsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProductsApi
      */
-    updateProductV1(productId: string, productInput: ProductInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput>>;
+    updateProductV1(productId: string, productInput: ProductInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductOutput, any>>;
 }
 /**
  * ProspectsApi - axios parameter creator
@@ -14736,7 +14737,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1: (prospectInput: ProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createProspectV1: (prospectInput: ProspectInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -14744,7 +14745,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteProspectV1: (prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -14752,7 +14753,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getProspectV1: (prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List All Prospects
      * @summary List All Prospects
@@ -14768,7 +14769,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listProspectsV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -14777,7 +14778,7 @@ export declare const ProspectsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1: (prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateProspectV1: (prospectId: string, prospectInput: ProspectInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ProspectsApi - functional programming interface
@@ -14791,7 +14792,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    createProspectV1(prospectInput: ProspectInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -14799,7 +14800,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteProspectV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -14807,7 +14808,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    getProspectV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
     /**
      * List All Prospects
      * @summary List All Prospects
@@ -14823,7 +14824,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProspectOutput>>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -14832,7 +14833,7 @@ export declare const ProspectsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProspectOutput>>;
 };
 /**
  * ProspectsApi - factory interface
@@ -14846,7 +14847,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
+    createProspectV1(prospectInput: ProspectInput, options?: RawAxiosRequestConfig): AxiosPromise<ProspectOutput>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -14854,7 +14855,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteProspectV1(prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -14862,7 +14863,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getProspectV1(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
+    getProspectV1(prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<ProspectOutput>;
     /**
      * List All Prospects
      * @summary List All Prospects
@@ -14878,7 +14879,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProspectOutput>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ProspectOutput>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -14887,7 +14888,7 @@ export declare const ProspectsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): AxiosPromise<ProspectOutput>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: RawAxiosRequestConfig): AxiosPromise<ProspectOutput>;
 };
 /**
  * ProspectsApi - object-oriented interface
@@ -14904,7 +14905,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    createProspectV1(prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    createProspectV1(prospectInput: ProspectInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput, any>>;
     /**
      * Delete a Specific Prospect by ID
      * @summary Delete a Specific Prospect by ID
@@ -14913,7 +14914,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    deleteProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteProspectV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a Specific Prospect by ID
      * @summary Get a Specific Prospect by ID
@@ -14922,7 +14923,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    getProspectV1(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    getProspectV1(prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput, any>>;
     /**
      * List All Prospects
      * @summary List All Prospects
@@ -14939,7 +14940,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput[]>>;
+    listProspectsV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput[], any>>;
     /**
      * Update a Specific Prospect by ID
      * @summary Update a Specific Prospect by ID
@@ -14949,7 +14950,7 @@ export declare class ProspectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ProspectsApi
      */
-    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput>>;
+    updateProspectV1(prospectId: string, prospectInput: ProspectInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProspectOutput, any>>;
 }
 /**
  * ResellerCourseAssignmentsApi - axios parameter creator
@@ -14963,7 +14964,7 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1: (changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    changeResellerCourseAssignmentsV1: (changeAssignmentRequest: ChangeAssignmentRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -14980,7 +14981,7 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAssignedCoursesByCustomerV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
@@ -14997,7 +14998,7 @@ export declare const ResellerCourseAssignmentsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1: (courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomersByAssignedCourseV1: (courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCourseAssignmentsApi - functional programming interface
@@ -15011,7 +15012,7 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -15028,7 +15029,7 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseWithAssignmentStatus>>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseWithAssignmentStatus>>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
@@ -15045,7 +15046,7 @@ export declare const ResellerCourseAssignmentsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgWithCourseAssignment>>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgWithCourseAssignment>>>;
 };
 /**
  * ResellerCourseAssignmentsApi - factory interface
@@ -15059,7 +15060,7 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -15076,7 +15077,7 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseWithAssignmentStatus>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<CourseWithAssignmentStatus>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
@@ -15093,7 +15094,7 @@ export declare const ResellerCourseAssignmentsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<OrgWithCourseAssignment>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<OrgWithCourseAssignment>>;
 };
 /**
  * ResellerCourseAssignmentsApi - object-oriented interface
@@ -15110,7 +15111,7 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    changeResellerCourseAssignmentsV1(changeAssignmentRequest: ChangeAssignmentRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get all courses that have been assigned to a specific customer
      * @summary Get Assigned Courses By Customer V1
@@ -15128,7 +15129,7 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseWithAssignmentStatus[]>>;
+    getAssignedCoursesByCustomerV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseWithAssignmentStatus[], any>>;
     /**
      * Get all customers with their course assignment status
      * @summary Get Customers By Assigned Course V1
@@ -15146,7 +15147,7 @@ export declare class ResellerCourseAssignmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCourseAssignmentsApi
      */
-    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithCourseAssignment[]>>;
+    getCustomersByAssignedCourseV1(courseId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithCourseAssignment[], any>>;
 }
 /**
  * ResellerCustomerApi - axios parameter creator
@@ -15160,7 +15161,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCustomerOrganizationV1: (bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -15168,7 +15169,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteResellerCustomerV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -15176,7 +15177,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerBasicCredentialsV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -15184,7 +15185,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerCredentialsV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -15192,7 +15193,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerByIdV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
@@ -15212,7 +15213,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1: (searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listResellerCustomersV1: (searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -15221,7 +15222,7 @@ export declare const ResellerCustomerApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1: (customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCustomerOrganizationV1: (customerOrgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerApi - functional programming interface
@@ -15235,7 +15236,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -15243,7 +15244,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -15251,7 +15252,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicCredentials>>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -15259,7 +15260,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -15267,7 +15268,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgUsersPriceCredits>>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
@@ -15287,7 +15288,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OrgUsersPriceCredits>>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -15296,7 +15297,7 @@ export declare const ResellerCustomerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
 };
 /**
  * ResellerCustomerApi - factory interface
@@ -15310,7 +15311,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -15318,7 +15319,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -15326,7 +15327,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<BasicCredentials>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<BasicCredentials>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -15334,7 +15335,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -15342,7 +15343,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<OrgUsersPriceCredits>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<OrgUsersPriceCredits>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
@@ -15362,7 +15363,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<OrgUsersPriceCredits>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<OrgUsersPriceCredits>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -15371,7 +15372,7 @@ export declare const ResellerCustomerApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationOutput>;
 };
 /**
  * ResellerCustomerApi - object-oriented interface
@@ -15388,7 +15389,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    createCustomerOrganizationV1(bodyCreateCustomerOrganizationV1: BodyCreateCustomerOrganizationV1, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Delete a reseller\'s customer and all associated data
      * @summary Delete Customer V1
@@ -15397,7 +15398,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    deleteResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get the basic credentials of a customer organization under a reseller organization.
      * @summary Get Customer Basic Credentials V1
@@ -15406,7 +15407,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getCustomerBasicCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicCredentials>>;
+    getCustomerBasicCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicCredentials, any>>;
     /**
      * Get the customer org credentials for a customer organization under a reseller organization. NOTE: This will only return the custom token of the reseller admin user present in the customer org. Exchange this token with the id token to use it as a firebase credential in the client side.
      * @summary Get Customer Credentials V1
@@ -15415,7 +15416,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getCustomerCredentialsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    getCustomerCredentialsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      * Get reseller customer by id
      * @summary Get Reseller Customer By Id V1
@@ -15424,7 +15425,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    getResellerCustomerByIdV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits>>;
+    getResellerCustomerByIdV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits, any>>;
     /**
      * List reseller customers with prices, users and credits
      * @summary List Reseller Customers V1
@@ -15445,7 +15446,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[]>>;
+    listResellerCustomersV1(searchQuery?: string | null, expandPrices?: boolean | null, expandUsers?: boolean | null, expandCredits?: boolean | null, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgUsersPriceCredits[], any>>;
     /**
      * Update a customer organization under a reseller organization
      * @summary Update Customer V1
@@ -15455,7 +15456,7 @@ export declare class ResellerCustomerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerApi
      */
-    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateCustomerOrganizationV1(customerOrgId: string, organizationInput: OrganizationInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput, any>>;
 }
 /**
  * ResellerCustomerAuditLogsApi - axios parameter creator
@@ -15478,7 +15479,7 @@ export declare const ResellerCustomerAuditLogsApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerAuditLogsApi - functional programming interface
@@ -15501,7 +15502,7 @@ export declare const ResellerCustomerAuditLogsApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuditLog>>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - factory interface
@@ -15524,7 +15525,7 @@ export declare const ResellerCustomerAuditLogsApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<AuditLog>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<AuditLog>>;
 };
 /**
  * ResellerCustomerAuditLogsApi - object-oriented interface
@@ -15550,7 +15551,7 @@ export declare class ResellerCustomerAuditLogsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerAuditLogsApi
      */
-    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuditLog[]>>;
+    getResellerCustomerAuditLogsV1ResellersCustomersCustomerOrgIdAuditLogsGet(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AuditLog[], any>>;
 }
 /**
  * ResellerCustomerCheckoutApi - axios parameter creator
@@ -15565,7 +15566,7 @@ export declare const ResellerCustomerCheckoutApiAxiosParamCreator: (configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1: (customerOrgId: string, priceId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCheckoutSessionForResellerCustomerV1: (customerOrgId: string, priceId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerCheckoutApi - functional programming interface
@@ -15580,7 +15581,7 @@ export declare const ResellerCustomerCheckoutApiFp: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * ResellerCustomerCheckoutApi - factory interface
@@ -15595,7 +15596,7 @@ export declare const ResellerCustomerCheckoutApiFactory: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
 };
 /**
  * ResellerCustomerCheckoutApi - object-oriented interface
@@ -15613,7 +15614,7 @@ export declare class ResellerCustomerCheckoutApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerCheckoutApi
      */
-    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForResellerCustomerV1(customerOrgId: string, priceId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
 }
 /**
  * ResellerCustomerDefaultPricingApi - axios parameter creator
@@ -15626,7 +15627,7 @@ export declare const ResellerCustomerDefaultPricingApiAxiosParamCreator: (config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCustomerDefaultPricingV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -15635,7 +15636,7 @@ export declare const ResellerCustomerDefaultPricingApiAxiosParamCreator: (config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCustomerDefaultPricingV1: (priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - functional programming interface
@@ -15648,7 +15649,7 @@ export declare const ResellerCustomerDefaultPricingApiFp: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getCustomerDefaultPricingV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -15657,7 +15658,7 @@ export declare const ResellerCustomerDefaultPricingApiFp: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - factory interface
@@ -15670,7 +15671,7 @@ export declare const ResellerCustomerDefaultPricingApiFactory: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
+    getCustomerDefaultPricingV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -15679,7 +15680,7 @@ export declare const ResellerCustomerDefaultPricingApiFactory: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): AxiosPromise<Price>;
 };
 /**
  * ResellerCustomerDefaultPricingApi - object-oriented interface
@@ -15695,7 +15696,7 @@ export declare class ResellerCustomerDefaultPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerDefaultPricingApi
      */
-    getCustomerDefaultPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
+    getCustomerDefaultPricingV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[], any>>;
     /**
      * Update customer default pricing
      * @summary Update Customer Default Pricing V1
@@ -15705,7 +15706,7 @@ export declare class ResellerCustomerDefaultPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerDefaultPricingApi
      */
-    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
+    updateCustomerDefaultPricingV1(priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price, any>>;
 }
 /**
  * ResellerCustomerPortalApi - axios parameter creator
@@ -15719,7 +15720,7 @@ export declare const ResellerCustomerPortalApiAxiosParamCreator: (configuration?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCustomerPortalForResellerCustomerV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerPortalApi - functional programming interface
@@ -15733,7 +15734,7 @@ export declare const ResellerCustomerPortalApiFp: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
 };
 /**
  * ResellerCustomerPortalApi - factory interface
@@ -15747,7 +15748,7 @@ export declare const ResellerCustomerPortalApiFactory: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
 };
 /**
  * ResellerCustomerPortalApi - object-oriented interface
@@ -15764,7 +15765,7 @@ export declare class ResellerCustomerPortalApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPortalApi
      */
-    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createCustomerPortalForResellerCustomerV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
 }
 /**
  * ResellerCustomerPricingApi - axios parameter creator
@@ -15779,7 +15780,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1: (customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCustomerPricingV1: (customerOrgId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -15787,7 +15788,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerCreditsV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -15795,7 +15796,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1: (customerOrgId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerPricingV1: (customerOrgId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -15805,7 +15806,7 @@ export declare const ResellerCustomerPricingApiAxiosParamCreator: (configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1: (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCustomerPricingV1: (customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerPricingApi - functional programming interface
@@ -15820,7 +15821,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -15828,7 +15829,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -15836,7 +15837,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -15846,7 +15847,7 @@ export declare const ResellerCustomerPricingApiFp: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Price>>;
 };
 /**
  * ResellerCustomerPricingApi - factory interface
@@ -15861,7 +15862,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): AxiosPromise<Price>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -15869,7 +15870,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -15877,7 +15878,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -15887,7 +15888,7 @@ export declare const ResellerCustomerPricingApiFactory: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): AxiosPromise<Price>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): AxiosPromise<Price>;
 };
 /**
  * ResellerCustomerPricingApi - object-oriented interface
@@ -15905,7 +15906,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
+    createCustomerPricingV1(customerOrgId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price, any>>;
     /**
      * Get resellers customer credits
      * @summary Get Reseller Customer Credits V1
@@ -15914,7 +15915,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    getResellerCustomerCreditsV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getResellerCustomerCreditsV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[], any>>;
     /**
      * Get resellers customer pricing
      * @summary Get Reseller Customer Pricing V1
@@ -15923,7 +15924,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    getResellerCustomerPricingV1(customerOrgId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
+    getResellerCustomerPricingV1(customerOrgId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[], any>>;
     /**
      * Update customer pricing
      * @summary Update Customer Pricing V1
@@ -15934,7 +15935,7 @@ export declare class ResellerCustomerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerPricingApi
      */
-    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price>>;
+    updateCustomerPricingV1(customerOrgId: string, priceId: string, pricingRequest: PricingRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price, any>>;
 }
 /**
  * ResellerCustomerUserApi - axios parameter creator
@@ -15949,7 +15950,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1: (customerOrgId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteResellerCustomerUserV1: (customerOrgId: string, userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
@@ -15966,7 +15967,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerUserAndInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -15975,7 +15976,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1: (customerOrgId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerCustomerUserByIdV1: (customerOrgId: string, userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
@@ -15992,7 +15993,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listCustomerInvitesV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
@@ -16009,7 +16010,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listResellerCustomerUsersV1: (customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -16018,7 +16019,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1: (customerOrgId: string, email: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    revokeCustomerInviteV1: (customerOrgId: string, email: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -16027,7 +16028,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1: (customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendCustomerUserInviteV1: (customerOrgId: string, guestInput: GuestInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -16037,7 +16038,7 @@ export declare const ResellerCustomerUserApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1: (customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateResellerCustomerUserV1: (customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerCustomerUserApi - functional programming interface
@@ -16052,7 +16053,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
@@ -16069,7 +16070,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -16078,7 +16079,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
@@ -16095,7 +16096,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
@@ -16112,7 +16113,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -16121,7 +16122,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -16130,7 +16131,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -16140,7 +16141,7 @@ export declare const ResellerCustomerUserApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * ResellerCustomerUserApi - factory interface
@@ -16155,7 +16156,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
@@ -16172,7 +16173,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -16181,7 +16182,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
@@ -16198,7 +16199,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
@@ -16215,7 +16216,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -16224,7 +16225,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -16233,7 +16234,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -16243,7 +16244,7 @@ export declare const ResellerCustomerUserApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: RawAxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * ResellerCustomerUserApi - object-oriented interface
@@ -16261,7 +16262,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerCustomerUserV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get resellers customer users and invites by id
      * @summary Get Reseller Customer User And Invites V1
@@ -16279,7 +16280,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
+    getResellerCustomerUserAndInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User[], any>>;
     /**
      * Get resellers customer user by id
      * @summary Get Reseller Customer User By Id V1
@@ -16289,7 +16290,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    getResellerCustomerUserByIdV1(customerOrgId: string, userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * List all invites for a customer organization
      * @summary List Customer Invites V1
@@ -16307,7 +16308,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listCustomerInvitesV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[], any>>;
     /**
      * List resellers customer users
      * @summary List Reseller Customer Users V1
@@ -16325,7 +16326,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
+    listResellerCustomerUsersV1(customerOrgId: string, searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User[], any>>;
     /**
      * Revoke an invite for a customer organization
      * @summary Revoke Customer Invite V1
@@ -16335,7 +16336,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    revokeCustomerInviteV1(customerOrgId: string, email: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Send invite to a user on behalf of a customer organization
      * @summary Invite Customer Users V1
@@ -16345,7 +16346,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    sendCustomerUserInviteV1(customerOrgId: string, guestInput: GuestInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Update reseller customer user
      * @summary Update Reseller Customer User V1
@@ -16356,7 +16357,7 @@ export declare class ResellerCustomerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerCustomerUserApi
      */
-    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    updateResellerCustomerUserV1(customerOrgId: string, userId: string, updateUserRequest: UpdateUserRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
 }
 /**
  * ResellerFilesApi - axios parameter creator
@@ -16370,7 +16371,7 @@ export declare const ResellerFilesApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1: (fileIds: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteResellerFilesV1: (fileIds: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -16378,7 +16379,7 @@ export declare const ResellerFilesApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1: (files: Array<File>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadResellerFilesV1: (files: Array<File>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerFilesApi - functional programming interface
@@ -16392,7 +16393,7 @@ export declare const ResellerFilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    deleteResellerFilesV1(fileIds: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -16400,7 +16401,7 @@ export declare const ResellerFilesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
+    uploadResellerFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Files>>>;
 };
 /**
  * ResellerFilesApi - factory interface
@@ -16414,7 +16415,7 @@ export declare const ResellerFilesApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): AxiosPromise<boolean>;
+    deleteResellerFilesV1(fileIds: string, options?: RawAxiosRequestConfig): AxiosPromise<boolean>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -16422,7 +16423,7 @@ export declare const ResellerFilesApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): AxiosPromise<Array<Files>>;
+    uploadResellerFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Files>>;
 };
 /**
  * ResellerFilesApi - object-oriented interface
@@ -16439,7 +16440,7 @@ export declare class ResellerFilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerFilesApi
      */
-    deleteResellerFilesV1(fileIds: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
+    deleteResellerFilesV1(fileIds: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean, any>>;
     /**
      * Upload file to Trata account to use in AI Agents
      * @summary Upload Files
@@ -16448,7 +16449,7 @@ export declare class ResellerFilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerFilesApi
      */
-    uploadResellerFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[]>>;
+    uploadResellerFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Files[], any>>;
 }
 /**
  * ResellerMetricsApi - axios parameter creator
@@ -16462,7 +16463,7 @@ export declare const ResellerMetricsApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1: (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerMetricsV1: (resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerMetricsApi - functional programming interface
@@ -16476,7 +16477,7 @@ export declare const ResellerMetricsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BatchMetricsResponseInput>>;
 };
 /**
  * ResellerMetricsApi - factory interface
@@ -16490,7 +16491,7 @@ export declare const ResellerMetricsApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: RawAxiosRequestConfig): AxiosPromise<BatchMetricsResponseInput>;
 };
 /**
  * ResellerMetricsApi - object-oriented interface
@@ -16507,7 +16508,7 @@ export declare class ResellerMetricsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerMetricsApi
      */
-    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput>>;
+    getResellerMetricsV1(resellerBatchMetricsRequests: ResellerBatchMetricsRequests, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BatchMetricsResponseInput, any>>;
 }
 /**
  * ResellerOrganizationApi - axios parameter creator
@@ -16521,21 +16522,21 @@ export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createResellerOrganizationV1: (bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteResellerOrganizationV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerOrganizationV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -16543,7 +16544,7 @@ export declare const ResellerOrganizationApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1: (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateResellerOrganizationV1: (updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerOrganizationApi - functional programming interface
@@ -16557,21 +16558,21 @@ export declare const ResellerOrganizationApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteResellerOrganizationV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>>;
+    getResellerOrganizationV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgWithUsers>>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -16579,7 +16580,7 @@ export declare const ResellerOrganizationApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationOutput>>;
 };
 /**
  * ResellerOrganizationApi - factory interface
@@ -16593,21 +16594,21 @@ export declare const ResellerOrganizationApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): AxiosPromise<User>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteResellerOrganizationV1(options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerOrganizationV1(options?: AxiosRequestConfig): AxiosPromise<OrgWithUsers>;
+    getResellerOrganizationV1(options?: RawAxiosRequestConfig): AxiosPromise<OrgWithUsers>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -16615,7 +16616,7 @@ export declare const ResellerOrganizationApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): AxiosPromise<OrganizationOutput>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationOutput>;
 };
 /**
  * ResellerOrganizationApi - object-oriented interface
@@ -16632,7 +16633,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    createResellerOrganizationV1(bodyCreateResellerOrganizationV1: BodyCreateResellerOrganizationV1, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * Delete a reseller organization
      * @summary Delete Reseller Organization V1
@@ -16640,7 +16641,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    deleteResellerOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteResellerOrganizationV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get a reseller organization by id
      * @summary Get Reseller Organization V1
@@ -16648,7 +16649,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    getResellerOrganizationV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithUsers>>;
+    getResellerOrganizationV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrgWithUsers, any>>;
     /**
      * Update a reseller organization
      * @summary Update Reseller Organization V1
@@ -16657,7 +16658,7 @@ export declare class ResellerOrganizationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerOrganizationApi
      */
-    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput>>;
+    updateResellerOrganizationV1(updateResellerOrganizationRequest: UpdateResellerOrganizationRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationOutput, any>>;
 }
 /**
  * ResellerPricingApi - axios parameter creator
@@ -16672,28 +16673,28 @@ export declare const ResellerPricingApiAxiosParamCreator: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1: (code: string, state: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addStripeAccountLinkToResellerOrgV1: (code: string, state: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createStripeAccountLinkV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getStripeAccountDetailsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    stripeDisconnectV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerPricingApi - functional programming interface
@@ -16708,28 +16709,28 @@ export declare const ResellerPricingApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createStripeAccountLinkV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>>;
+    getStripeAccountDetailsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResellerPaymentAccountDetails>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    stripeDisconnectV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
 };
 /**
  * ResellerPricingApi - factory interface
@@ -16744,28 +16745,28 @@ export declare const ResellerPricingApiFactory: (configuration?: Configuration, 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createStripeAccountLinkV1(options?: AxiosRequestConfig): AxiosPromise<string>;
+    createStripeAccountLinkV1(options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStripeAccountDetailsV1(options?: AxiosRequestConfig): AxiosPromise<ResellerPaymentAccountDetails>;
+    getStripeAccountDetailsV1(options?: RawAxiosRequestConfig): AxiosPromise<ResellerPaymentAccountDetails>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeDisconnectV1(options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    stripeDisconnectV1(options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
 };
 /**
  * ResellerPricingApi - object-oriented interface
@@ -16783,7 +16784,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    addStripeAccountLinkToResellerOrgV1(code: string, state: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Creates a new account link URL for the reseller
      * @summary Create Stripe Account Link
@@ -16791,7 +16792,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    createStripeAccountLinkV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createStripeAccountLinkV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      * Get stripe account details
      * @summary Get Stripe Account Details
@@ -16799,7 +16800,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    getStripeAccountDetailsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ResellerPaymentAccountDetails>>;
+    getStripeAccountDetailsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ResellerPaymentAccountDetails, any>>;
     /**
      * Disconnect reseller stripe account connection
      * @summary Revoke Stripe Connection
@@ -16807,7 +16808,7 @@ export declare class ResellerPricingApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerPricingApi
      */
-    stripeDisconnectV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    stripeDisconnectV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
 }
 /**
  * ResellerSettingsApi - axios parameter creator
@@ -16821,14 +16822,14 @@ export declare const ResellerSettingsApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getOrganizationSettingsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -16836,7 +16837,7 @@ export declare const ResellerSettingsApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateResellerSettingsV1: (organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerSettingsApi - functional programming interface
@@ -16850,14 +16851,14 @@ export declare const ResellerSettingsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    getOrganizationSettingsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -16865,7 +16866,7 @@ export declare const ResellerSettingsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrganizationSettings>>;
 };
 /**
  * ResellerSettingsApi - factory interface
@@ -16879,14 +16880,14 @@ export declare const ResellerSettingsApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSettings>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrganizationSettingsV1(options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
+    getOrganizationSettingsV1(options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSettings>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -16894,7 +16895,7 @@ export declare const ResellerSettingsApiFactory: (configuration?: Configuration,
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): AxiosPromise<OrganizationSettings>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): AxiosPromise<OrganizationSettings>;
 };
 /**
  * ResellerSettingsApi - object-oriented interface
@@ -16911,7 +16912,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    addResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings, any>>;
     /**
      * Get organization settings
      * @summary Get Organization Settings V1
@@ -16919,7 +16920,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    getOrganizationSettingsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    getOrganizationSettingsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings, any>>;
     /**
      * Update organization settings
      * @summary Organization Settings Update V1
@@ -16928,7 +16929,7 @@ export declare class ResellerSettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerSettingsApi
      */
-    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings>>;
+    updateResellerSettingsV1(organizationSettings: OrganizationSettings, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<OrganizationSettings, any>>;
 }
 /**
  * ResellerUserApi - axios parameter creator
@@ -16942,7 +16943,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    acceptResellerUserInviteV1: (acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -16950,7 +16951,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteResellerUserV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -16958,7 +16959,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getResellerUserByIdV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
@@ -16974,7 +16975,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listResellerUserInvitesV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
@@ -16990,7 +16991,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listResellerUsersV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -16998,7 +16999,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1: (guestInput: GuestInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendResellerUserInviteV1: (guestInput: GuestInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -17007,7 +17008,7 @@ export declare const ResellerUserApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1: (userId: string, userPayload: UserPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateResellerUserV1: (userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ResellerUserApi - functional programming interface
@@ -17021,7 +17022,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -17029,7 +17030,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    deleteResellerUserV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -17037,7 +17038,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    getResellerUserByIdV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
@@ -17053,7 +17054,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GuestOutput>>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
@@ -17069,7 +17070,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<User>>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -17077,7 +17078,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GuestOutput>>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -17086,7 +17087,7 @@ export declare const ResellerUserApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>>;
 };
 /**
  * ResellerUserApi - factory interface
@@ -17100,7 +17101,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): AxiosPromise<User>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -17108,7 +17109,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
+    deleteResellerUserV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -17116,7 +17117,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<User>;
+    getResellerUserByIdV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<User>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
@@ -17132,7 +17133,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<GuestOutput>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
@@ -17148,7 +17149,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<User>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<User>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -17156,7 +17157,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): AxiosPromise<GuestOutput>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: RawAxiosRequestConfig): AxiosPromise<GuestOutput>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -17165,7 +17166,7 @@ export declare const ResellerUserApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): AxiosPromise<User>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): AxiosPromise<User>;
 };
 /**
  * ResellerUserApi - object-oriented interface
@@ -17182,7 +17183,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    acceptResellerUserInviteV1(acceptInviteRequest: AcceptInviteRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * Delete a user
      * @summary Delete Reseller User V1
@@ -17191,7 +17192,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    deleteResellerUserV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    deleteResellerUserV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      *
      * @summary Get Reseller User By Id V1
@@ -17200,7 +17201,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    getResellerUserByIdV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    getResellerUserByIdV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
     /**
      * List of all open invites from the organization
      * @summary List Reseller User Invites V1
@@ -17217,7 +17218,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[]>>;
+    listResellerUserInvitesV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput[], any>>;
     /**
      * Lists all users under the user\'s organization
      * @summary List Reseller Users V1
@@ -17234,7 +17235,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User[]>>;
+    listResellerUsersV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User[], any>>;
     /**
      * Invite a new user to an organization or resend invite to the user if the user is already invited
      * @summary Invite Users V1
@@ -17243,7 +17244,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    sendResellerUserInviteV1(guestInput: GuestInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput>>;
+    sendResellerUserInviteV1(guestInput: GuestInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GuestOutput, any>>;
     /**
      * Update user details
      * @summary Update Reseller User V1
@@ -17253,7 +17254,7 @@ export declare class ResellerUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ResellerUserApi
      */
-    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<User>>;
+    updateResellerUserV1(userId: string, userPayload: UserPayload, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<User, any>>;
 }
 /**
  * SparrApi - axios parameter creator
@@ -17268,7 +17269,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1: (moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addModuleAttemptV1: (moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -17277,7 +17278,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1: (courseId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    assignCourseV1: (courseId: string, userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -17287,7 +17288,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost: (entityType: string, entityId: string, tagCreate: TagCreate, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -17295,7 +17296,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1: (priceId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCheckoutSessionForPriceV1: (priceId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new course
      * @summary Create Course
@@ -17303,14 +17304,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1: (courseRequest: CourseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCourseV1: (courseRequest: CourseRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCustomerPortalV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Create Feedback Comment
@@ -17318,7 +17319,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackCommentV1: (feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createFeedbackCommentV1: (feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -17326,7 +17327,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1: (feedbackCore: FeedbackCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createFeedbackV1: (feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -17334,7 +17335,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1: (goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createGoalsV1: (goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -17342,7 +17343,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1: (personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createPersonaV1: (personaCore: PersonaCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17350,7 +17351,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1: (evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createPostCallEvaluationParamsV1: (evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -17358,7 +17359,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1: (createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createScenarioV1: (createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -17366,7 +17367,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1: (trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createTrackerV1: (trackerCore: TrackerCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -17374,7 +17375,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteCourseV1: (courseId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -17382,7 +17383,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteEvaluatorV1: (paramsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Feedback Comment
@@ -17390,7 +17391,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackCommentV1: (feedbackCommentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteFeedbackCommentV1: (feedbackCommentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -17398,7 +17399,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1: (feedbackId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteFeedbackV1: (feedbackId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a file
      * @summary Delete File
@@ -17406,7 +17407,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1: (fileId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteFileV1: (fileId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -17414,7 +17415,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteGoalsV1: (goalsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -17422,7 +17423,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deletePersonaV1: (personaId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -17430,7 +17431,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteScenarioV1: (scenarioId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -17438,7 +17439,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteTrackerV1: (trackerId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -17448,7 +17449,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete: (entityType: string, entityId: string, tagName: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Evaluate a feedback
      * @summary Evaluate Feedback V1
@@ -17456,7 +17457,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    evaluateFeedbackV1: (sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    evaluateFeedbackV1: (sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -17464,7 +17465,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateEvaluatorV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate feedback from call recording and user data
      * @summary Generate Feedback
@@ -17472,7 +17473,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateFeedbackV1: (generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateFeedbackV1: (generateFeedbackRequest: GenerateFeedbackRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate a persona
      * @summary Generate Persona
@@ -17480,7 +17481,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generatePersonaV1: (generatePersona: GeneratePersona, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generatePersonaV1: (generatePersona: GeneratePersona, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate a scenario
      * @summary Generate Scenario
@@ -17488,7 +17489,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateScenarioV1: (generateScenario: GenerateScenario, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateScenarioV1: (generateScenario: GenerateScenario, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -17496,14 +17497,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCourseV1: (courseId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCreditsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -17512,7 +17513,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType: string, tagName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet: (entityType: string, tagName: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -17521,7 +17522,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType: string, entityId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet: (entityType: string, entityId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -17529,7 +17530,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getEvaluatorV1: (paramsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Feedback Comment By Id
@@ -17537,7 +17538,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackCommentV1: (feedbackCommentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getFeedbackCommentV1: (feedbackCommentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -17545,7 +17546,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1: (feedbackId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getFeedbackV1: (feedbackId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -17553,7 +17554,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1: (fileId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getFileV1: (fileId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -17561,7 +17562,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getGoalsV1: (goalsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -17569,7 +17570,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getMetricsV1: (sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -17577,14 +17578,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPersonaV1: (personaId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPricingV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -17592,7 +17593,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getScenarioV1: (scenarioId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -17600,7 +17601,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getTrackerV1: (trackerId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -17608,7 +17609,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUserStatsV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -17616,7 +17617,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1: (linkedinUrl: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    importLinkedinPersonaV1: (linkedinUrl: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -17624,7 +17625,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1: (sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    initializeWorkspaceV1: (sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -17634,7 +17635,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1: (skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listCoursesV1: (skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -17643,7 +17644,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listEvaluatorV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Feedback Comments
@@ -17653,7 +17654,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbackCommentsV1: (skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listFeedbackCommentsV1: (skip?: number, limit?: number, feedbackId?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -17667,7 +17668,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listFeedbacksV1: (skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -17676,7 +17677,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listGoalsV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -17686,7 +17687,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listPersonasV1: (skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -17696,7 +17697,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listScenariosV1: (skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -17705,7 +17706,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listTrackerV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -17713,7 +17714,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1: (userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listUserAssignmentsV1: (userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -17724,7 +17725,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1: (courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listUserCourseAttemptsV1: (courseId: string, userId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -17733,7 +17734,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1: (moduleId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listUserModuleAttemptsV1: (moduleId: string, userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -17742,7 +17743,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1: (courseId: string, userId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    revokeCourseV1: (courseId: string, userId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -17752,7 +17753,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchGoalsV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -17762,7 +17763,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchPersonasV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -17772,7 +17773,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchScenariosV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -17782,14 +17783,14 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchTrackerV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    statusSparrStatusGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -17799,7 +17800,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1: (courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCourseCompletionStatusV1: (courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a course
      * @summary Update Course
@@ -17808,7 +17809,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCourseV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -17817,7 +17818,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateEvaluatorV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Feedback Comment
@@ -17826,7 +17827,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackCommentV1: (feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateFeedbackCommentV1: (feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -17835,7 +17836,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateFeedbackV1: (feedbackId: string, feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -17844,7 +17845,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateGoalsV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -17853,7 +17854,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updatePersonaV1: (personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -17862,7 +17863,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateScenarioV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -17871,7 +17872,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1: (trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateTrackerV1: (trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
@@ -17879,7 +17880,7 @@ export declare const SparrApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1: (files: Array<File>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadFilesV1: (files: Array<File>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparrApi - functional programming interface
@@ -17894,7 +17895,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModuleAttempt>>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserModuleAttempt>>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -17903,7 +17904,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    assignCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -17913,7 +17914,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntityTag>>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntityTag>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -17921,7 +17922,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Create a new course
      * @summary Create Course
@@ -17929,14 +17930,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    createCourseV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    createCustomerPortalV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      *
      * @summary Create Feedback Comment
@@ -17944,7 +17945,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -17952,7 +17953,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -17960,7 +17961,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -17968,7 +17969,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    createPersonaV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -17976,7 +17977,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -17984,7 +17985,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -17992,7 +17993,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    createTrackerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -18000,7 +18001,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteCourseV1(courseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -18008,7 +18009,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      *
      * @summary Delete Feedback Comment
@@ -18016,7 +18017,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -18024,7 +18025,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a file
      * @summary Delete File
@@ -18032,7 +18033,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteFileV1(fileId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -18040,7 +18041,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -18048,7 +18049,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deletePersonaV1(personaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18056,7 +18057,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -18064,7 +18065,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -18074,7 +18075,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Evaluate a feedback
      * @summary Evaluate Feedback V1
@@ -18082,7 +18083,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -18090,7 +18091,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Generate feedback from call recording and user data
      * @summary Generate Feedback
@@ -18098,7 +18099,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Generate a persona
      * @summary Generate Persona
@@ -18106,7 +18107,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    generatePersonaV1(generatePersona: GeneratePersona, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Generate a scenario
      * @summary Generate Scenario
@@ -18114,7 +18115,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioOutput>>;
+    generateScenarioV1(generateScenario: GenerateScenario, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioOutput>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -18122,14 +18123,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    getCourseV1(courseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
+    getCreditsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Credit>>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -18138,7 +18139,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -18147,7 +18148,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntityTag>>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -18155,7 +18156,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    getEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      *
      * @summary Get Feedback Comment By Id
@@ -18163,7 +18164,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    getFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -18171,7 +18172,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    getFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -18179,7 +18180,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1(fileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getFileV1(fileId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -18187,7 +18188,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    getGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -18195,7 +18196,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -18203,14 +18204,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    getPersonaV1(personaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
+    getPricingV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Price>>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18218,7 +18219,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    getScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -18226,7 +18227,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    getTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -18234,7 +18235,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserStats>>;
+    getUserStatsV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserStats>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -18242,7 +18243,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -18250,7 +18251,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -18260,7 +18261,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -18269,7 +18270,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
     /**
      *
      * @summary List Feedback Comments
@@ -18279,7 +18280,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsFeedbackComment>>>;
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsFeedbackComment>>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -18293,7 +18294,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Feedback>>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -18302,7 +18303,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    listGoalsV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -18312,7 +18313,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18322,7 +18323,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -18331,7 +18332,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
+    listTrackerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -18339,7 +18340,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>>;
+    listUserAssignmentsV1(userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -18350,7 +18351,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -18359,7 +18360,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserModuleAttemptResponse>>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -18368,7 +18369,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    revokeCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -18378,7 +18379,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -18388,7 +18389,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -18398,7 +18399,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -18408,14 +18409,14 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    statusSparrStatusGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: any;
     }>>;
     /**
@@ -18427,7 +18428,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserCourseAssignment>>;
     /**
      * Update a course
      * @summary Update Course
@@ -18436,7 +18437,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -18445,7 +18446,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      *
      * @summary Update Feedback Comment
@@ -18454,7 +18455,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsFeedbackComment>>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -18463,7 +18464,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Feedback>>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -18472,7 +18473,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -18481,7 +18482,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -18490,7 +18491,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -18499,7 +18500,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
@@ -18507,7 +18508,7 @@ export declare const SparrApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    uploadFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
 };
 /**
  * SparrApi - factory interface
@@ -18522,7 +18523,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): AxiosPromise<UserModuleAttempt>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: RawAxiosRequestConfig): AxiosPromise<UserModuleAttempt>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -18531,7 +18532,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
+    assignCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -18541,7 +18542,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): AxiosPromise<EntityTag>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: RawAxiosRequestConfig): AxiosPromise<EntityTag>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -18549,7 +18550,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): AxiosPromise<string>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      * Create a new course
      * @summary Create Course
@@ -18557,14 +18558,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    createCourseV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCustomerPortalV1(options?: AxiosRequestConfig): AxiosPromise<string>;
+    createCustomerPortalV1(options?: RawAxiosRequestConfig): AxiosPromise<string>;
     /**
      *
      * @summary Create Feedback Comment
@@ -18572,7 +18573,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -18580,7 +18581,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -18588,7 +18589,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -18596,7 +18597,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    createPersonaV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -18604,7 +18605,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -18612,7 +18613,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -18620,7 +18621,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    createTrackerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -18628,7 +18629,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteCourseV1(courseId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -18636,7 +18637,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      *
      * @summary Delete Feedback Comment
@@ -18644,7 +18645,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -18652,7 +18653,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a file
      * @summary Delete File
@@ -18660,7 +18661,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFileV1(fileId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteFileV1(fileId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -18668,7 +18669,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -18676,7 +18677,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deletePersonaV1(personaId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -18684,7 +18685,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -18692,7 +18693,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -18702,7 +18703,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Evaluate a feedback
      * @summary Evaluate Feedback V1
@@ -18710,7 +18711,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -18718,7 +18719,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Generate feedback from call recording and user data
      * @summary Generate Feedback
@@ -18726,7 +18727,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: RawAxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Generate a persona
      * @summary Generate Persona
@@ -18734,7 +18735,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    generatePersonaV1(generatePersona: GeneratePersona, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Generate a scenario
      * @summary Generate Scenario
@@ -18742,7 +18743,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): AxiosPromise<ScenarioOutput>;
+    generateScenarioV1(generateScenario: GenerateScenario, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioOutput>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -18750,14 +18751,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    getCourseV1(courseId: string, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Get credits
      * @summary Get Credits V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCreditsV1(options?: AxiosRequestConfig): AxiosPromise<Array<Credit>>;
+    getCreditsV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Credit>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -18766,7 +18767,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -18775,7 +18776,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<EntityTag>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -18783,7 +18784,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    getEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      *
      * @summary Get Feedback Comment By Id
@@ -18791,7 +18792,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    getFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -18799,7 +18800,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
+    getFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -18807,7 +18808,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFileV1(fileId: string, options?: AxiosRequestConfig): AxiosPromise<any>;
+    getFileV1(fileId: string, options?: RawAxiosRequestConfig): AxiosPromise<any>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -18815,7 +18816,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    getGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -18823,7 +18824,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsAnalyticsBatchMetricsResponse>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -18831,14 +18832,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    getPersonaV1(personaId: string, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get pricing
      * @summary Get Pricing V1
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPricingV1(options?: AxiosRequestConfig): AxiosPromise<Array<Price>>;
+    getPricingV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<Price>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -18846,7 +18847,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    getScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -18854,7 +18855,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    getTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -18862,7 +18863,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserStatsV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<UserStats>;
+    getUserStatsV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<UserStats>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -18870,7 +18871,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -18878,7 +18879,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -18888,7 +18889,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -18897,7 +18898,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
     /**
      *
      * @summary List Feedback Comments
@@ -18907,7 +18908,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsFeedbackComment>>;
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<SparrDbModelsFeedbackComment>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -18921,7 +18922,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<Feedback>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<Feedback>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -18930,7 +18931,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
+    listGoalsV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -18940,7 +18941,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -18950,7 +18951,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -18959,7 +18960,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Tracker>>;
+    listTrackerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Tracker>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -18967,7 +18968,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>;
+    listUserAssignmentsV1(userId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<UserCourseAssignmentAnalyticsResponse>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -18978,7 +18979,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -18987,7 +18988,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<UserModuleAttemptResponse>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -18996,7 +18997,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    revokeCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -19006,7 +19007,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -19016,7 +19017,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -19026,7 +19027,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -19036,14 +19037,14 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): AxiosPromise<{
+    statusSparrStatusGet(options?: RawAxiosRequestConfig): AxiosPromise<{
         [key: string]: any;
     }>;
     /**
@@ -19055,7 +19056,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: RawAxiosRequestConfig): AxiosPromise<UserCourseAssignment>;
     /**
      * Update a course
      * @summary Update Course
@@ -19064,7 +19065,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -19073,7 +19074,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      *
      * @summary Update Feedback Comment
@@ -19082,7 +19083,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsFeedbackComment>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -19091,7 +19092,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): AxiosPromise<Feedback>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): AxiosPromise<Feedback>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -19100,7 +19101,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -19109,7 +19110,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -19118,7 +19119,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -19127,7 +19128,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
@@ -19135,7 +19136,7 @@ export declare const SparrApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): AxiosPromise<Array<any>>;
+    uploadFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): AxiosPromise<Array<any>>;
 };
 /**
  * SparrApi - object-oriented interface
@@ -19153,7 +19154,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttempt>>;
+    addModuleAttemptV1(moduleId: string, userModuleAttemptCore: UserModuleAttemptCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttempt, any>>;
     /**
      * Assign a course to a user
      * @summary Assign Course
@@ -19163,7 +19164,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    assignCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    assignCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment, any>>;
     /**
      * Attach a tag to an entity
      * @summary Attach Tag
@@ -19174,7 +19175,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag>>;
+    attachTagV1SparrEntityTagsEntityTypeEntityIdTagsPost(entityType: string, entityId: string, tagCreate: TagCreate, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag, any>>;
     /**
      * Create a checkout session for a price
      * @summary Create Checkout Session For Price
@@ -19183,7 +19184,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCheckoutSessionForPriceV1(priceId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createCheckoutSessionForPriceV1(priceId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      * Create a new course
      * @summary Create Course
@@ -19192,7 +19193,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCourseV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    createCourseV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Create a customer portal for customer
      * @summary Create Customer Portal
@@ -19200,7 +19201,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createCustomerPortalV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
+    createCustomerPortalV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
     /**
      *
      * @summary Create Feedback Comment
@@ -19209,7 +19210,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
+    createFeedbackCommentV1(feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment, any>>;
     /**
      * Create a new feedback
      * @summary Create Feedback
@@ -19218,7 +19219,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createFeedbackV1(feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
+    createFeedbackV1(feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback, any>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -19227,7 +19228,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createGoalsV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    createGoalsV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -19236,7 +19237,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createPersonaV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    createPersonaV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -19245,7 +19246,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    createPostCallEvaluationParamsV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -19254,7 +19255,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    createScenarioV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -19263,7 +19264,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    createTrackerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    createTrackerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -19272,7 +19273,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteCourseV1(courseId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -19281,7 +19282,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      *
      * @summary Delete Feedback Comment
@@ -19290,7 +19291,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a feedback
      * @summary Delete Feedback
@@ -19299,7 +19300,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a file
      * @summary Delete File
@@ -19308,7 +19309,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteFileV1(fileId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteFileV1(fileId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -19317,7 +19318,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -19326,7 +19327,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deletePersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deletePersonaV1(personaId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -19335,7 +19336,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -19344,7 +19345,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    deleteTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Detach a tag from an entity
      * @summary Detach Tag
@@ -19355,7 +19356,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    detachTagV1SparrEntityTagsEntityTypeEntityIdTagsTagNameDelete(entityType: string, entityId: string, tagName: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Evaluate a feedback
      * @summary Evaluate Feedback V1
@@ -19364,7 +19365,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    evaluateFeedbackV1(sparrv1EvaluateFeedbackRequest: Sparrv1EvaluateFeedbackRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -19373,7 +19374,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
+    generateEvaluatorV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse, any>>;
     /**
      * Generate feedback from call recording and user data
      * @summary Generate Feedback
@@ -19382,7 +19383,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
+    generateFeedbackV1(generateFeedbackRequest: GenerateFeedbackRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback, any>>;
     /**
      * Generate a persona
      * @summary Generate Persona
@@ -19391,7 +19392,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    generatePersonaV1(generatePersona: GeneratePersona, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    generatePersonaV1(generatePersona: GeneratePersona, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Generate a scenario
      * @summary Generate Scenario
@@ -19400,7 +19401,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    generateScenarioV1(generateScenario: GenerateScenario, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioOutput>>;
+    generateScenarioV1(generateScenario: GenerateScenario, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioOutput, any>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -19409,7 +19410,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getCourseV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    getCourseV1(courseId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Get credits
      * @summary Get Credits V1
@@ -19417,7 +19418,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getCreditsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[]>>;
+    getCreditsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Credit[], any>>;
     /**
      * Get all entities of a type that have a specific tag
      * @summary Get Entities By Tag
@@ -19427,7 +19428,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    getEntitiesByTagV1SparrEntityTagsEntityTypeByTagTagNameGet(entityType: string, tagName: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[], any>>;
     /**
      * Get all tags for an entity
      * @summary Get Entity Tags
@@ -19437,7 +19438,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[]>>;
+    getEntityTagsV1SparrEntityTagsEntityTypeEntityIdTagsGet(entityType: string, entityId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<EntityTag[], any>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -19446,7 +19447,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getEvaluatorV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    getEvaluatorV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      *
      * @summary Get Feedback Comment By Id
@@ -19455,7 +19456,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getFeedbackCommentV1(feedbackCommentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
+    getFeedbackCommentV1(feedbackCommentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment, any>>;
     /**
      * Get a specific feedback by ID
      * @summary Get Feedback
@@ -19464,7 +19465,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getFeedbackV1(feedbackId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
+    getFeedbackV1(feedbackId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback, any>>;
     /**
      * Get a specific file by ID
      * @summary Get File
@@ -19473,7 +19474,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getFileV1(fileId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    getFileV1(fileId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -19482,7 +19483,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getGoalsV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    getGoalsV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Get metrics for a given batch of metrics requests
      * @summary Get Metrics
@@ -19491,7 +19492,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse>>;
+    getMetricsV1(sparrModelsAnalyticsBatchMetricsRequests: SparrModelsAnalyticsBatchMetricsRequests, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsAnalyticsBatchMetricsResponse, any>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -19500,7 +19501,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getPersonaV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    getPersonaV1(personaId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Get pricing
      * @summary Get Pricing V1
@@ -19508,7 +19509,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getPricingV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[]>>;
+    getPricingV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Price[], any>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -19517,7 +19518,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getScenarioV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    getScenarioV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -19526,7 +19527,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getTrackerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    getTrackerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
     /**
      * Search personas by name, title and company
      * @summary Get User Stats
@@ -19535,7 +19536,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    getUserStatsV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserStats>>;
+    getUserStatsV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserStats, any>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -19544,7 +19545,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    importLinkedinPersonaV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    importLinkedinPersonaV1(linkedinUrl: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Initialize workspace
      * @summary Initialize Workspace V1
@@ -19553,7 +19554,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    initializeWorkspaceV1(sparrInitializeWorkspacePayload: SparrInitializeWorkspacePayload, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -19564,7 +19565,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
+    listCoursesV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[], any>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -19574,7 +19575,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listEvaluatorV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    listEvaluatorV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[], any>>;
     /**
      *
      * @summary List Feedback Comments
@@ -19585,7 +19586,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment[]>>;
+    listFeedbackCommentsV1(skip?: number, limit?: number, feedbackId?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment[], any>>;
     /**
      * Get all feedbacks
      * @summary Get Feedbacks
@@ -19600,7 +19601,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback[]>>;
+    listFeedbacksV1(skip?: number, limit?: number, fromDate?: string | null, toDate?: string | null, userFilter?: string | null, statusFilter?: string | null, scenarioFilter?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback[], any>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -19610,7 +19611,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listGoalsV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    listGoalsV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[], any>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -19621,7 +19622,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[]>>;
+    listPersonasV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[], any>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -19632,7 +19633,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[]>>;
+    listScenariosV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[], any>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -19642,7 +19643,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listTrackerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[]>>;
+    listTrackerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[], any>>;
     /**
      * Get all course assignments for a user with analytics
      * @summary Get User Assignments
@@ -19651,7 +19652,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserAssignmentsV1(userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignmentAnalyticsResponse[]>>;
+    listUserAssignmentsV1(userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignmentAnalyticsResponse[], any>>;
     /**
      * Get all module attempts with module information for a user in a specific course
      * @summary Get User Course Attempts
@@ -19663,7 +19664,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
+    listUserCourseAttemptsV1(courseId: string, userId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[], any>>;
     /**
      * Get all module attempts for a user
      * @summary Get User Module Attempts
@@ -19673,7 +19674,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[]>>;
+    listUserModuleAttemptsV1(moduleId: string, userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserModuleAttemptResponse[], any>>;
     /**
      * Revoke a course from a user
      * @summary Revoke Course
@@ -19683,7 +19684,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    revokeCourseV1(courseId: string, userId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    revokeCourseV1(courseId: string, userId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -19694,7 +19695,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchGoalsV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
+    searchGoalsV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse, any>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -19705,7 +19706,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchPersonasV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    searchPersonasV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse, any>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -19716,7 +19717,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchScenariosV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    searchScenariosV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse, any>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -19727,7 +19728,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    searchTrackerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
+    searchTrackerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse, any>>;
     /**
      * Heart Beat check to check the health of Sparr Service
      * @summary Heart Beat Status Of Sparr Service
@@ -19735,9 +19736,9 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    statusSparrStatusGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+    statusSparrStatusGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: any;
-    }>>;
+    }, any>>;
     /**
      * Update course completion status
      * @summary Update Course Completion Status
@@ -19748,7 +19749,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment>>;
+    updateCourseCompletionStatusV1(courseId: string, userId: string, completionStatus: CourseCompletionStatus, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserCourseAssignment, any>>;
     /**
      * Update a course
      * @summary Update Course
@@ -19758,7 +19759,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    updateCourseV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -19768,7 +19769,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    updateEvaluatorV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      *
      * @summary Update Feedback Comment
@@ -19778,7 +19779,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment>>;
+    updateFeedbackCommentV1(feedbackCommentId: string, feedbackCommentCore: FeedbackCommentCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsFeedbackComment, any>>;
     /**
      * Update a feedback
      * @summary Update Feedback
@@ -19788,7 +19789,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback>>;
+    updateFeedbackV1(feedbackId: string, feedbackCore: FeedbackCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Feedback, any>>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -19798,7 +19799,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    updateGoalsV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -19808,7 +19809,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    updatePersonaV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -19818,7 +19819,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    updateScenarioV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -19828,7 +19829,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    updateTrackerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
     /**
      * Upload multiple files and create file records. Maximum 5 files per request, each file max 10MB.
      * @summary Upload Files
@@ -19837,7 +19838,7 @@ export declare class SparrApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrApi
      */
-    uploadFilesV1(files: Array<File>, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
+    uploadFilesV1(files: Array<File>, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any[], any>>;
 }
 /**
  * SparrResellerApi - axios parameter creator
@@ -19851,7 +19852,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1: (courseRequest: CourseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createCourseResellerV1: (courseRequest: CourseRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -19859,7 +19860,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1: (evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createEvaluatorResellerV1: (evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -19867,7 +19868,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1: (goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createGoalsResellerV1: (goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -19875,7 +19876,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1: (personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createPersonaResellerV1: (personaCore: PersonaCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -19883,7 +19884,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1: (createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createScenarioResellerV1: (createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -19891,7 +19892,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1: (trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createTrackerResellerV1: (trackerCore: TrackerCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -19899,7 +19900,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteCourseResellerV1: (courseId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -19907,7 +19908,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteEvaluatorResellerV1: (paramsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -19915,7 +19916,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteGoalsResellerV1: (goalsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -19923,7 +19924,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deletePersonaResellerV1: (personaId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -19931,7 +19932,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteScenarioResellerV1: (scenarioId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -19939,7 +19940,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteTrackerResellerV1: (trackerId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -19947,7 +19948,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateEvaluatorResellerV1: (flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -19955,7 +19956,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1: (courseId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getCourseResellerV1: (courseId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -19963,7 +19964,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1: (paramsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getEvaluatorResellerV1: (paramsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -19971,7 +19972,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1: (goalsId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getGoalsResellerV1: (goalsId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -19979,7 +19980,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1: (personaId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPersonaResellerV1: (personaId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -19987,7 +19988,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1: (scenarioId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getScenarioResellerV1: (scenarioId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -19995,7 +19996,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1: (trackerId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getTrackerResellerV1: (trackerId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -20003,7 +20004,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1: (linkedinUrl: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    importLinkedinPersonaResellerV1: (linkedinUrl: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20013,7 +20014,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1: (skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listCoursesResellerV1: (skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -20022,7 +20023,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listEvaluatorResellerV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -20031,7 +20032,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listGoalsResellerV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -20041,7 +20042,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listPersonasResellerV1: (skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20051,7 +20052,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1: (skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listScenariosResellerV1: (skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -20060,7 +20061,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listTrackerResellerV1: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -20070,7 +20071,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchGoalsResellerV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -20080,7 +20081,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchPersonasResellerV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -20090,7 +20091,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchScenariosResellerV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -20100,7 +20101,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1: (query: string, page?: number, size?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    searchTrackerResellerV1: (query: string, page?: number, size?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a course
      * @summary Update Course
@@ -20109,7 +20110,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateCourseResellerV1: (courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -20118,7 +20119,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateEvaluatorResellerV1: (paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -20127,7 +20128,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateGoalsResellerV1: (goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -20136,7 +20137,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updatePersonaResellerV1: (personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -20145,7 +20146,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateScenarioResellerV1: (scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -20154,7 +20155,7 @@ export declare const SparrResellerApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1: (trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateTrackerResellerV1: (trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparrResellerApi - functional programming interface
@@ -20168,7 +20169,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -20176,7 +20177,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -20184,7 +20185,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -20192,7 +20193,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -20200,7 +20201,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -20208,7 +20209,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -20216,7 +20217,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -20224,7 +20225,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -20232,7 +20233,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -20240,7 +20241,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deletePersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -20248,7 +20249,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -20256,7 +20257,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
+    deleteTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrModelsBaseBaseResponse>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -20264,7 +20265,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CombinedEvaluatorResponse>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -20272,7 +20273,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    getCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -20280,7 +20281,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    getEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -20288,7 +20289,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    getGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -20296,7 +20297,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    getPersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -20304,7 +20305,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    getScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -20312,7 +20313,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    getTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -20320,7 +20321,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20330,7 +20331,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CourseResponse>>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -20339,7 +20340,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluator>>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -20348,7 +20349,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SparrDbModelsGoal>>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -20358,7 +20359,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PersonaOutput>>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20368,7 +20369,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScenarioResponse>>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -20377,7 +20378,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Tracker>>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -20387,7 +20388,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GoalsSearchResponse>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -20397,7 +20398,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaSearchResponse>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -20407,7 +20408,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioSearchResponse>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -20417,7 +20418,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerSearchResponse>>;
     /**
      * Update a course
      * @summary Update Course
@@ -20426,7 +20427,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CourseResponse>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -20435,7 +20436,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Evaluator>>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -20444,7 +20445,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrDbModelsGoal>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -20453,7 +20454,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonaOutput>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -20462,7 +20463,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScenarioResponse>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -20471,7 +20472,7 @@ export declare const SparrResellerApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tracker>>;
 };
 /**
  * SparrResellerApi - factory interface
@@ -20485,7 +20486,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -20493,7 +20494,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -20501,7 +20502,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -20509,7 +20510,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -20517,7 +20518,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -20525,7 +20526,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -20533,7 +20534,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -20541,7 +20542,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -20549,7 +20550,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -20557,7 +20558,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deletePersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -20565,7 +20566,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -20573,7 +20574,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
+    deleteTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrModelsBaseBaseResponse>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -20581,7 +20582,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): AxiosPromise<CombinedEvaluatorResponse>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -20589,7 +20590,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    getCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -20597,7 +20598,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    getEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -20605,7 +20606,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    getGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -20613,7 +20614,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    getPersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -20621,7 +20622,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    getScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -20629,7 +20630,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    getTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -20637,7 +20638,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20647,7 +20648,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<CourseResponse>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -20656,7 +20657,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Evaluator>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -20665,7 +20666,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<SparrDbModelsGoal>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -20675,7 +20676,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<PersonaOutput>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -20685,7 +20686,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ScenarioResponse>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -20694,7 +20695,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Tracker>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Tracker>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -20704,7 +20705,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<GoalsSearchResponse>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -20714,7 +20715,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<PersonaSearchResponse>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -20724,7 +20725,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioSearchResponse>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -20734,7 +20735,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): AxiosPromise<TrackerSearchResponse>;
     /**
      * Update a course
      * @summary Update Course
@@ -20743,7 +20744,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): AxiosPromise<CourseResponse>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): AxiosPromise<CourseResponse>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -20752,7 +20753,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): AxiosPromise<Evaluator>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): AxiosPromise<Evaluator>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -20761,7 +20762,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): AxiosPromise<SparrDbModelsGoal>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -20770,7 +20771,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): AxiosPromise<PersonaOutput>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): AxiosPromise<PersonaOutput>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -20779,7 +20780,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): AxiosPromise<ScenarioResponse>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): AxiosPromise<ScenarioResponse>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -20788,7 +20789,7 @@ export declare const SparrResellerApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): AxiosPromise<Tracker>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): AxiosPromise<Tracker>;
 };
 /**
  * SparrResellerApi - object-oriented interface
@@ -20805,7 +20806,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createCourseResellerV1(courseRequest: CourseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    createCourseResellerV1(courseRequest: CourseRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Create a new evaluator
      * @summary Create Evaluator
@@ -20814,7 +20815,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    createEvaluatorResellerV1(evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      * Create a new goals collection
      * @summary Create Goals
@@ -20823,7 +20824,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    createGoalsResellerV1(goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Create a new persona
      * @summary Create Persona
@@ -20832,7 +20833,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createPersonaResellerV1(personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    createPersonaResellerV1(personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Create a new scenario
      * @summary Create Scenario
@@ -20841,7 +20842,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    createScenarioResellerV1(createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Create a new tracker
      * @summary Create Tracker
@@ -20850,7 +20851,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    createTrackerResellerV1(trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    createTrackerResellerV1(trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
     /**
      * Delete a course
      * @summary Delete Course
@@ -20859,7 +20860,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete evaluator
      * @summary Delete Evaluator
@@ -20868,7 +20869,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a goals collection
      * @summary Delete Goals
@@ -20877,7 +20878,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a persona
      * @summary Delete Persona
@@ -20886,7 +20887,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deletePersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deletePersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a scenario
      * @summary Delete Scenario
@@ -20895,7 +20896,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Delete a tracker
      * @summary Delete Tracker
@@ -20904,7 +20905,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    deleteTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse>>;
+    deleteTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrModelsBaseBaseResponse, any>>;
     /**
      * Generate evaluator data from files and/or existing core components
      * @summary Generate Evaluator
@@ -20913,7 +20914,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse>>;
+    generateEvaluatorResellerV1(flexibleGenerationRequest: FlexibleGenerationRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CombinedEvaluatorResponse, any>>;
     /**
      * Get a specific course by ID
      * @summary Get Course
@@ -20922,7 +20923,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getCourseResellerV1(courseId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    getCourseResellerV1(courseId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Get a specific evaluator by ID that is either directly owned or available through reseller course assignments
      * @summary Get Evaluator By Id
@@ -20931,7 +20932,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getEvaluatorResellerV1(paramsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    getEvaluatorResellerV1(paramsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      * Get a specific goals collection by ID that is either directly owned or available through reseller course assignments
      * @summary Get Goals By Id
@@ -20940,7 +20941,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getGoalsResellerV1(goalsId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    getGoalsResellerV1(goalsId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Get a specific persona by ID that is either directly owned or available through reseller course assignments
      * @summary Get Persona
@@ -20949,7 +20950,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getPersonaResellerV1(personaId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    getPersonaResellerV1(personaId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Get a specific scenario by ID that is either directly owned or available through reseller course assignments
      * @summary Get Scenario
@@ -20958,7 +20959,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getScenarioResellerV1(scenarioId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    getScenarioResellerV1(scenarioId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Get a specific tracker by ID that is either directly owned or available through reseller course assignments
      * @summary Get Tracker By Id
@@ -20967,7 +20968,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    getTrackerResellerV1(trackerId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    getTrackerResellerV1(trackerId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
     /**
      * Import a persona from LinkedIn URL
      * @summary Import Linkedin Persona
@@ -20976,7 +20977,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    importLinkedinPersonaResellerV1(linkedinUrl: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Get all courses including reseller assignments
      * @summary Get Courses
@@ -20987,7 +20988,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[]>>;
+    listCoursesResellerV1(skip?: number, limit?: number, status?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse[], any>>;
     /**
      * Get all evaluator that are either directly owned or available through reseller course assignments
      * @summary Get Evaluator
@@ -20997,7 +20998,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listEvaluatorResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[]>>;
+    listEvaluatorResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator[], any>>;
     /**
      * Get all goals that are either directly owned or available through reseller course assignments
      * @summary Get Goals
@@ -21007,7 +21008,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listGoalsResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[]>>;
+    listGoalsResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal[], any>>;
     /**
      * Get all personas that are either directly owned or available through reseller course assignments
      * @summary Get Personas
@@ -21018,7 +21019,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[]>>;
+    listPersonasResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput[], any>>;
     /**
      * Get all scenarios that are either directly owned or available through reseller course assignments
      * @summary Get Scenarios
@@ -21029,7 +21030,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[]>>;
+    listScenariosResellerV1(skip?: number, limit?: number, tags?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse[], any>>;
     /**
      * Get all trackers that are either directly owned or available through reseller course assignments
      * @summary Get Trackers
@@ -21039,7 +21040,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    listTrackerResellerV1(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[]>>;
+    listTrackerResellerV1(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker[], any>>;
     /**
      * Search goals by name and description
      * @summary Search Goals
@@ -21050,7 +21051,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse>>;
+    searchGoalsResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GoalsSearchResponse, any>>;
     /**
      * Search personas by name, title and company
      * @summary Search Personas
@@ -21061,7 +21062,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse>>;
+    searchPersonasResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaSearchResponse, any>>;
     /**
      * Search scenarios by name and description
      * @summary Search Scenarios
@@ -21072,7 +21073,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse>>;
+    searchScenariosResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioSearchResponse, any>>;
     /**
      * Search trackers by name and description
      * @summary Search Tracker
@@ -21083,7 +21084,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse>>;
+    searchTrackerResellerV1(query: string, page?: number, size?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TrackerSearchResponse, any>>;
     /**
      * Update a course
      * @summary Update Course
@@ -21093,7 +21094,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse>>;
+    updateCourseResellerV1(courseId: string, courseUpdateRequest: CourseUpdateRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CourseResponse, any>>;
     /**
      * Update evaluator
      * @summary Update Evaluator
@@ -21103,7 +21104,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator>>;
+    updateEvaluatorResellerV1(paramsId: string, evaluatorCore: EvaluatorCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Evaluator, any>>;
     /**
      * Update a goals collection
      * @summary Update Goals
@@ -21113,7 +21114,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal>>;
+    updateGoalsResellerV1(goalsId: string, goalCoreInput: GoalCoreInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrDbModelsGoal, any>>;
     /**
      * Update a persona
      * @summary Update Persona
@@ -21123,7 +21124,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput>>;
+    updatePersonaResellerV1(personaId: string, personaCore: PersonaCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PersonaOutput, any>>;
     /**
      * Update a scenario
      * @summary Update Scenario
@@ -21133,7 +21134,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse>>;
+    updateScenarioResellerV1(scenarioId: string, createScenarioRequest: CreateScenarioRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ScenarioResponse, any>>;
     /**
      * Update a tracker
      * @summary Update Tracker
@@ -21143,7 +21144,7 @@ export declare class SparrResellerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparrResellerApi
      */
-    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker>>;
+    updateTrackerResellerV1(trackerId: string, trackerCore: TrackerCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Tracker, any>>;
 }
 /**
  * SparringApi - axios parameter creator
@@ -21157,7 +21158,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createVirtualProspectV1SparrVirtualProspectsPost: (virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -21165,14 +21166,14 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete: (prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSparringStatsV1SparrSparringStatsGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -21180,7 +21181,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -21188,7 +21189,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet: (prospectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet: (prospectId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -21197,7 +21198,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost: (prospectId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
@@ -21213,7 +21214,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listVirtualProspectsV1SparrVirtualProspectsGet: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -21222,7 +21223,7 @@ export declare const SparringApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut: (prospectId: string, virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SparringApi - functional programming interface
@@ -21236,7 +21237,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -21244,14 +21245,14 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>>;
+    getSparringStatsV1SparrSparringStatsGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SparrStatsResponse>>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -21259,7 +21260,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -21267,7 +21268,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -21276,7 +21277,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectAIAgentLink>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectAIAgentLink>>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
@@ -21292,7 +21293,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VirtualProspectOutput>>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -21301,7 +21302,7 @@ export declare const SparringApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VirtualProspectOutput>>;
 };
 /**
  * SparringApi - factory interface
@@ -21315,7 +21316,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -21323,14 +21324,14 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): AxiosPromise<SparrStatsResponse>;
+    getSparringStatsV1SparrSparringStatsGet(options?: RawAxiosRequestConfig): AxiosPromise<SparrStatsResponse>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -21338,7 +21339,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -21346,7 +21347,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: RawAxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -21355,7 +21356,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectAIAgentLink>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<VirtualProspectAIAgentLink>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
@@ -21371,7 +21372,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<VirtualProspectOutput>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -21380,7 +21381,7 @@ export declare const SparringApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): AxiosPromise<VirtualProspectOutput>;
 };
 /**
  * SparringApi - object-oriented interface
@@ -21397,7 +21398,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    createVirtualProspectV1SparrVirtualProspectsPost(virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput, any>>;
     /**
      * Delete a virtual prospect
      * @summary Delete Virtual Prospect
@@ -21406,7 +21407,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    deleteVirtualProspectV1SparrVirtualProspectsProspectIdDelete(prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      * Get sparring stats from Trata AI like call count, prospect count, etc.
      * @summary Get Sparring Stats
@@ -21414,7 +21415,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getSparringStatsV1SparrSparringStatsGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrStatsResponse>>;
+    getSparringStatsV1SparrSparringStatsGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SparrStatsResponse, any>>;
     /**
      * Get virtual prospect associated with an agent
      * @summary Get Virtual Prospect by Agent ID
@@ -21423,7 +21424,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
+    getVirtualProspectByAgentIdV1SparrAgentAgentIdVirtualProspectGet(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[], any>>;
     /**
      * Get a virtual prospect
      * @summary Get Virtual Prospect
@@ -21432,7 +21433,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    getVirtualProspectV1SparrVirtualProspectsProspectIdGet(prospectId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput, any>>;
     /**
      * Link a virtual prospect to an agent
      * @summary Link Virtual Prospect to Agent
@@ -21442,7 +21443,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectAIAgentLink>>;
+    linkVirtualProspectToAgentV1SparrVirtualProspectsProspectIdAgentAgentIdLinkPost(prospectId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectAIAgentLink, any>>;
     /**
      * List all virtual prospects
      * @summary List Virtual Prospects
@@ -21459,7 +21460,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[]>>;
+    listVirtualProspectsV1SparrVirtualProspectsGet(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput[], any>>;
     /**
      * Update a virtual prospect
      * @summary Update Virtual Prospect
@@ -21469,7 +21470,7 @@ export declare class SparringApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SparringApi
      */
-    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput>>;
+    updateVirtualProspectV1SparrVirtualProspectsProspectIdPut(prospectId: string, virtualProspectInput: VirtualProspectInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VirtualProspectOutput, any>>;
 }
 /**
  * TelephonyApi - axios parameter creator
@@ -21483,7 +21484,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1: (agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAgentPhonesV1: (agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Link Phone To Agent
@@ -21492,7 +21493,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1: (phoneId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    linkPhoneToAgentV1: (phoneId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Available Phones
@@ -21500,7 +21501,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1: (countryCode: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAvailablePhonesV1: (countryCode: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Purchased Phones
@@ -21508,14 +21509,14 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1: (countryCode?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listPurchasedPhonesV1: (countryCode?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSupportedCountriesV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Purchase Phone
@@ -21523,7 +21524,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1: (numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    purchasePhoneV1: (numberPurchaseRequest: NumberPurchaseRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Release Phone
@@ -21531,7 +21532,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1: (phoneId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    releasePhoneV1: (phoneId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -21540,7 +21541,7 @@ export declare const TelephonyApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1: (phoneId: string, agentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    unlinkPhoneFromAgentV1: (phoneId: string, agentId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * TelephonyApi - functional programming interface
@@ -21554,7 +21555,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    getAgentPhonesV1(agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -21563,7 +21564,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary List Available Phones
@@ -21571,7 +21572,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>>;
+    listAvailablePhonesV1(countryCode: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AvailablePhoneNumber>>>;
     /**
      *
      * @summary List Purchased Phones
@@ -21579,14 +21580,14 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TelephoneNumber>>>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>>;
+    listSupportedCountriesV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CountryInfo>>>;
     /**
      *
      * @summary Purchase Phone
@@ -21594,7 +21595,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TelephoneNumber>>;
     /**
      *
      * @summary Release Phone
@@ -21602,7 +21603,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    releasePhoneV1(phoneId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -21611,7 +21612,7 @@ export declare const TelephonyApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseResponseInput>>;
 };
 /**
  * TelephonyApi - factory interface
@@ -21625,7 +21626,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
+    getAgentPhonesV1(agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -21634,7 +21635,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary List Available Phones
@@ -21642,7 +21643,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): AxiosPromise<Array<AvailablePhoneNumber>>;
+    listAvailablePhonesV1(countryCode: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<AvailablePhoneNumber>>;
     /**
      *
      * @summary List Purchased Phones
@@ -21650,14 +21651,14 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<TelephoneNumber>>;
     /**
      *
      * @summary List Supported Countries
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSupportedCountriesV1(options?: AxiosRequestConfig): AxiosPromise<Array<CountryInfo>>;
+    listSupportedCountriesV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<CountryInfo>>;
     /**
      *
      * @summary Purchase Phone
@@ -21665,7 +21666,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): AxiosPromise<TelephoneNumber>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: RawAxiosRequestConfig): AxiosPromise<TelephoneNumber>;
     /**
      *
      * @summary Release Phone
@@ -21673,7 +21674,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    releasePhoneV1(phoneId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -21682,7 +21683,7 @@ export declare const TelephonyApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): AxiosPromise<BaseResponseInput>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): AxiosPromise<BaseResponseInput>;
 };
 /**
  * TelephonyApi - object-oriented interface
@@ -21699,7 +21700,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    getAgentPhonesV1(agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    getAgentPhonesV1(agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[], any>>;
     /**
      *
      * @summary Link Phone To Agent
@@ -21709,7 +21710,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    linkPhoneToAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      *
      * @summary List Available Phones
@@ -21718,7 +21719,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listAvailablePhonesV1(countryCode: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AvailablePhoneNumber[]>>;
+    listAvailablePhonesV1(countryCode: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AvailablePhoneNumber[], any>>;
     /**
      *
      * @summary List Purchased Phones
@@ -21727,7 +21728,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listPurchasedPhonesV1(countryCode?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[]>>;
+    listPurchasedPhonesV1(countryCode?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber[], any>>;
     /**
      *
      * @summary List Supported Countries
@@ -21735,7 +21736,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    listSupportedCountriesV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<CountryInfo[]>>;
+    listSupportedCountriesV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<CountryInfo[], any>>;
     /**
      *
      * @summary Purchase Phone
@@ -21744,7 +21745,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber>>;
+    purchasePhoneV1(numberPurchaseRequest: NumberPurchaseRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TelephoneNumber, any>>;
     /**
      *
      * @summary Release Phone
@@ -21753,7 +21754,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    releasePhoneV1(phoneId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    releasePhoneV1(phoneId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
     /**
      *
      * @summary Unlink Phone From Agent
@@ -21763,7 +21764,7 @@ export declare class TelephonyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TelephonyApi
      */
-    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput>>;
+    unlinkPhoneFromAgentV1(phoneId: string, agentId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BaseResponseInput, any>>;
 }
 /**
  * UIApi - axios parameter creator
@@ -21777,7 +21778,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listActionTemplatesV1: (language?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Products
@@ -21795,7 +21796,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listProductsDetailedV1: (searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Prompt Templates
@@ -21803,7 +21804,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listPromptTemplatesV1: (language?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Role Templates
@@ -21811,7 +21812,7 @@ export declare const UIApiAxiosParamCreator: (configuration?: Configuration) => 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1: (language?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listRoleTemplatesV1: (language?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UIApi - functional programming interface
@@ -21825,7 +21826,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>>;
+    listActionTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ActionInput>>>;
     /**
      *
      * @summary List Products
@@ -21843,7 +21844,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductWithAgents>>>;
     /**
      *
      * @summary List Prompt Templates
@@ -21851,7 +21852,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    listPromptTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: PromptTemplate;
     }>>;
     /**
@@ -21861,7 +21862,7 @@ export declare const UIApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleTemplate>>>;
+    listRoleTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleTemplate>>>;
 };
 /**
  * UIApi - factory interface
@@ -21875,7 +21876,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<Array<ActionInput>>;
+    listActionTemplatesV1(language?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ActionInput>>;
     /**
      *
      * @summary List Products
@@ -21893,7 +21894,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): AxiosPromise<Array<ProductWithAgents>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<ProductWithAgents>>;
     /**
      *
      * @summary List Prompt Templates
@@ -21901,7 +21902,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<{
+    listPromptTemplatesV1(language?: string, options?: RawAxiosRequestConfig): AxiosPromise<{
         [key: string]: PromptTemplate;
     }>;
     /**
@@ -21911,7 +21912,7 @@ export declare const UIApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): AxiosPromise<Array<RoleTemplate>>;
+    listRoleTemplatesV1(language?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<RoleTemplate>>;
 };
 /**
  * UIApi - object-oriented interface
@@ -21928,7 +21929,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listActionTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionInput[]>>;
+    listActionTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ActionInput[], any>>;
     /**
      *
      * @summary List Products
@@ -21947,7 +21948,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductWithAgents[]>>;
+    listProductsDetailedV1(searchBy?: string | null, searchValue?: string | null, status?: string | null, sortBy?: string | null, sortOrder?: SortOrder | null, skip?: number | null, limit?: number | null, updatedAfter?: string | null, updatedBefore?: string | null, tags?: string | null, productIds?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ProductWithAgents[], any>>;
     /**
      *
      * @summary List Prompt Templates
@@ -21956,9 +21957,9 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listPromptTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+    listPromptTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
         [key: string]: PromptTemplate;
-    }>>;
+    }, any>>;
     /**
      *
      * @summary List Role Templates
@@ -21967,7 +21968,7 @@ export declare class UIApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UIApi
      */
-    listRoleTemplatesV1(language?: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RoleTemplate[]>>;
+    listRoleTemplatesV1(language?: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<RoleTemplate[], any>>;
 }
 /**
  * VoiceModelsApi - axios parameter creator
@@ -21980,14 +21981,14 @@ export declare const VoiceModelsApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSparrVoiceModelsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listVoiceModelsV1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * VoiceModelsApi - functional programming interface
@@ -22000,14 +22001,14 @@ export declare const VoiceModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
+    listSparrVoiceModelsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
+    listVoiceModelsV1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VoiceModel>>>;
 };
 /**
  * VoiceModelsApi - factory interface
@@ -22020,14 +22021,14 @@ export declare const VoiceModelsApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSparrVoiceModelsV1(options?: AxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
+    listSparrVoiceModelsV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVoiceModelsV1(options?: AxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
+    listVoiceModelsV1(options?: RawAxiosRequestConfig): AxiosPromise<Array<VoiceModel>>;
 };
 /**
  * VoiceModelsApi - object-oriented interface
@@ -22043,7 +22044,7 @@ export declare class VoiceModelsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
-    listSparrVoiceModelsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
+    listSparrVoiceModelsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[], any>>;
     /**
      * Get List Of Voices Available For Conversations
      * @summary Get List Of Voices Available For Conversations
@@ -22051,7 +22052,7 @@ export declare class VoiceModelsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VoiceModelsApi
      */
-    listVoiceModelsV1(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[]>>;
+    listVoiceModelsV1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VoiceModel[], any>>;
 }
 /**
  * WorkflowsApi - axios parameter creator
@@ -22065,7 +22066,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost: (workflowCore: WorkflowCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createWorkflowV1WorkflowsPost: (workflowCore: WorkflowCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Workflow
@@ -22074,7 +22075,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, cascade?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete: (workflowId: string, cascade?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Workflow
@@ -22082,7 +22083,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet: (workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readWorkflowV1WorkflowsWorkflowIdGet: (workflowId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Workflows
@@ -22092,7 +22093,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readWorkflowsV1WorkflowsGet: (skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -22102,7 +22103,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost: (workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost: (workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Workflow
@@ -22111,7 +22112,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut: (workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateWorkflowV1WorkflowsWorkflowIdPut: (workflowId: string, workflowCore: WorkflowCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Upload File
@@ -22120,7 +22121,7 @@ export declare const WorkflowsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId: string, file: File, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    uploadFileV1WorkflowsWorkflowIdFilePost: (workflowId: string, file: File, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsApi - functional programming interface
@@ -22134,7 +22135,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Delete Workflow
@@ -22143,7 +22144,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Workflow
@@ -22151,7 +22152,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Read Workflows
@@ -22161,7 +22162,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -22171,7 +22172,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowStepTriggerResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowStepTriggerResponse>>;
     /**
      *
      * @summary Update Workflow
@@ -22180,7 +22181,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>>;
     /**
      *
      * @summary Upload File
@@ -22189,7 +22190,7 @@ export declare const WorkflowsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadFileResponse>>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadFileResponse>>;
 };
 /**
  * WorkflowsApi - factory interface
@@ -22203,7 +22204,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Delete Workflow
@@ -22212,7 +22213,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Read Workflow
@@ -22220,7 +22221,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: RawAxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Read Workflows
@@ -22230,7 +22231,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): AxiosPromise<Array<Workflow>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -22240,7 +22241,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): AxiosPromise<WorkflowStepTriggerResponse>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowStepTriggerResponse>;
     /**
      *
      * @summary Update Workflow
@@ -22249,7 +22250,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): AxiosPromise<Workflow>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): AxiosPromise<Workflow>;
     /**
      *
      * @summary Upload File
@@ -22258,7 +22259,7 @@ export declare const WorkflowsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): AxiosPromise<UploadFileResponse>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: RawAxiosRequestConfig): AxiosPromise<UploadFileResponse>;
 };
 /**
  * WorkflowsApi - object-oriented interface
@@ -22275,7 +22276,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
+    createWorkflowV1WorkflowsPost(workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow, any>>;
     /**
      *
      * @summary Delete Workflow
@@ -22285,7 +22286,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteWorkflowV1WorkflowsWorkflowIdDelete(workflowId: string, cascade?: boolean, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse, any>>;
     /**
      *
      * @summary Read Workflow
@@ -22294,7 +22295,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
+    readWorkflowV1WorkflowsWorkflowIdGet(workflowId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow, any>>;
     /**
      *
      * @summary Read Workflows
@@ -22305,7 +22306,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    readWorkflowsV1WorkflowsGet(skip?: number, limit?: number, app?: AgenticWorkflowAdkModelsWorkflowAppEnum | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[], any>>;
     /**
      *
      * @summary Trigger Workflow Step
@@ -22316,7 +22317,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowStepTriggerResponse>>;
+    triggerWorkflowStepV1WorkflowsWorkflowIdStepStepIdTriggerPost(workflowId: string, stepId: string, workflowStepTriggerRequest: WorkflowStepTriggerRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowStepTriggerResponse, any>>;
     /**
      *
      * @summary Update Workflow
@@ -22326,7 +22327,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow>>;
+    updateWorkflowV1WorkflowsWorkflowIdPut(workflowId: string, workflowCore: WorkflowCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow, any>>;
     /**
      *
      * @summary Upload File
@@ -22336,7 +22337,7 @@ export declare class WorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UploadFileResponse>>;
+    uploadFileV1WorkflowsWorkflowIdFilePost(workflowId: string, file: File, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UploadFileResponse, any>>;
 }
 /**
  * WorkflowsApiHubspotApi - axios parameter creator
@@ -22349,7 +22350,7 @@ export declare const WorkflowsApiHubspotApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsApiHubspotApi - functional programming interface
@@ -22362,7 +22363,7 @@ export declare const WorkflowsApiHubspotApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
 };
 /**
  * WorkflowsApiHubspotApi - factory interface
@@ -22375,7 +22376,7 @@ export declare const WorkflowsApiHubspotApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
 };
 /**
  * WorkflowsApiHubspotApi - object-oriented interface
@@ -22391,7 +22392,7 @@ export declare class WorkflowsApiHubspotApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsApiHubspotApi
      */
-    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    handleHubspotWebhookV1WorkflowsApiHubspotWebhookPost(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse, any>>;
 }
 /**
  * WorkflowsAppsApi - axios parameter creator
@@ -22405,7 +22406,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost: (appEntity: AppEntity, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createAppV1WorkflowsAppsPost: (appEntity: AppEntity, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete App
@@ -22414,7 +22415,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete: (appId: string, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAppV1WorkflowsAppsAppIdDelete: (appId: string, version?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Get Connections By App Id
@@ -22423,7 +22424,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet: (appId: string, version: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet: (appId: string, version: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read App
@@ -22432,7 +22433,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet: (appId: string, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readAppV1WorkflowsAppsAppIdGet: (appId: string, version?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Apps
@@ -22441,7 +22442,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readAppsV1WorkflowsAppsGet: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update App
@@ -22451,7 +22452,7 @@ export declare const WorkflowsAppsApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut: (appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateAppV1WorkflowsAppsAppIdPut: (appId: string, appEntity: AppEntity, version?: string | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsAppsApi - functional programming interface
@@ -22465,7 +22466,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
     /**
      *
      * @summary Delete App
@@ -22474,7 +22475,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Get Connections By App Id
@@ -22483,7 +22484,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
     /**
      *
      * @summary Read App
@@ -22492,7 +22493,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
     /**
      *
      * @summary Read Apps
@@ -22501,7 +22502,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppResponse>>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AppResponse>>>;
     /**
      *
      * @summary Update App
@@ -22511,7 +22512,7 @@ export declare const WorkflowsAppsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppResponse>>;
 };
 /**
  * WorkflowsAppsApi - factory interface
@@ -22525,7 +22526,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: RawAxiosRequestConfig): AxiosPromise<AppResponse>;
     /**
      *
      * @summary Delete App
@@ -22534,7 +22535,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Get Connections By App Id
@@ -22543,7 +22544,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Read App
@@ -22552,7 +22553,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<AppResponse>;
     /**
      *
      * @summary Read Apps
@@ -22561,7 +22562,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<AppResponse>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<AppResponse>>;
     /**
      *
      * @summary Update App
@@ -22571,7 +22572,7 @@ export declare const WorkflowsAppsApiFactory: (configuration?: Configuration, ba
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): AxiosPromise<AppResponse>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<AppResponse>;
 };
 /**
  * WorkflowsAppsApi - object-oriented interface
@@ -22588,7 +22589,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
+    createAppV1WorkflowsAppsPost(appEntity: AppEntity, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse, any>>;
     /**
      *
      * @summary Delete App
@@ -22598,7 +22599,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteAppV1WorkflowsAppsAppIdDelete(appId: string, version?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse, any>>;
     /**
      *
      * @summary Get Connections By App Id
@@ -22608,7 +22609,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[]>>;
+    getConnectionsByAppIdV1WorkflowsAppsAppIdVersionsVersionConnectionsGet(appId: string, version: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[], any>>;
     /**
      *
      * @summary Read App
@@ -22618,7 +22619,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
+    readAppV1WorkflowsAppsAppIdGet(appId: string, version?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse, any>>;
     /**
      *
      * @summary Read Apps
@@ -22628,7 +22629,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse[]>>;
+    readAppsV1WorkflowsAppsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse[], any>>;
     /**
      *
      * @summary Update App
@@ -22639,7 +22640,7 @@ export declare class WorkflowsAppsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsAppsApi
      */
-    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse>>;
+    updateAppV1WorkflowsAppsAppIdPut(appId: string, appEntity: AppEntity, version?: string | null, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AppResponse, any>>;
 }
 /**
  * WorkflowsConnectionsApi - axios parameter creator
@@ -22653,7 +22654,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost: (connectionCore: ConnectionCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConnectionV1WorkflowsConnectionsPost: (connectionCore: ConnectionCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Delete Connection
@@ -22661,7 +22662,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete: (connectionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Connection
@@ -22669,7 +22670,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet: (connectionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet: (connectionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Read Connections
@@ -22678,7 +22679,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet: (skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readConnectionsV1WorkflowsConnectionsGet: (skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary Update Connection
@@ -22687,7 +22688,7 @@ export declare const WorkflowsConnectionsApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut: (connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut: (connectionId: string, connectionCore: ConnectionCore, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsConnectionsApi - functional programming interface
@@ -22701,7 +22702,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Delete Connection
@@ -22709,7 +22710,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>>;
     /**
      *
      * @summary Read Connection
@@ -22717,7 +22718,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Read Connections
@@ -22726,7 +22727,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>>;
     /**
      *
      * @summary Update Connection
@@ -22735,7 +22736,7 @@ export declare const WorkflowsConnectionsApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AgenticWorkflowDbModelsConnection>>;
 };
 /**
  * WorkflowsConnectionsApi - factory interface
@@ -22749,7 +22750,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
     /**
      *
      * @summary Delete Connection
@@ -22757,7 +22758,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowModelsBaseBaseResponse>;
     /**
      *
      * @summary Read Connection
@@ -22765,7 +22766,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
     /**
      *
      * @summary Read Connections
@@ -22774,7 +22775,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<AgenticWorkflowDbModelsConnection>>;
     /**
      *
      * @summary Update Connection
@@ -22783,7 +22784,7 @@ export declare const WorkflowsConnectionsApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): AxiosPromise<AgenticWorkflowDbModelsConnection>;
 };
 /**
  * WorkflowsConnectionsApi - object-oriented interface
@@ -22800,7 +22801,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    createConnectionV1WorkflowsConnectionsPost(connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection, any>>;
     /**
      *
      * @summary Delete Connection
@@ -22809,7 +22810,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse>>;
+    deleteConnectionV1WorkflowsConnectionsConnectionIdDelete(connectionId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowModelsBaseBaseResponse, any>>;
     /**
      *
      * @summary Read Connection
@@ -22818,7 +22819,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    readConnectionV1WorkflowsConnectionsConnectionIdGet(connectionId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection, any>>;
     /**
      *
      * @summary Read Connections
@@ -22828,7 +22829,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[]>>;
+    readConnectionsV1WorkflowsConnectionsGet(skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection[], any>>;
     /**
      *
      * @summary Update Connection
@@ -22838,7 +22839,7 @@ export declare class WorkflowsConnectionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsConnectionsApi
      */
-    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection>>;
+    updateConnectionV1WorkflowsConnectionsConnectionIdPut(connectionId: string, connectionCore: ConnectionCore, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AgenticWorkflowDbModelsConnection, any>>;
 }
 /**
  * WorkflowsExecutionsApi - axios parameter creator
@@ -22855,7 +22856,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      */
     executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost: (workflowId: string, requestBody: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    }, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -22864,7 +22865,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet: (runId: string, workflowId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet: (runId: string, workflowId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *
      * @summary List Workflow Runs
@@ -22874,7 +22875,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet: (workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet: (workflowId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -22885,7 +22886,7 @@ export declare const WorkflowsExecutionsApiAxiosParamCreator: (configuration?: C
      */
     triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost: (workflowId: string, requestBody?: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    }, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsExecutionsApi - functional programming interface
@@ -22902,7 +22903,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      */
     executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -22911,7 +22912,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
     /**
      *
      * @summary List Workflow Runs
@@ -22921,7 +22922,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -22932,7 +22933,7 @@ export declare const WorkflowsExecutionsApiFp: (configuration?: Configuration) =
      */
     triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
+    }, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecution>>;
 };
 /**
  * WorkflowsExecutionsApi - factory interface
@@ -22949,7 +22950,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      */
     executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
+    }, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecution>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -22958,7 +22959,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecution>;
     /**
      *
      * @summary List Workflow Runs
@@ -22968,7 +22969,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -22979,7 +22980,7 @@ export declare const WorkflowsExecutionsApiFactory: (configuration?: Configurati
      */
     triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): AxiosPromise<WorkflowExecution>;
+    }, options?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecution>;
 };
 /**
  * WorkflowsExecutionsApi - object-oriented interface
@@ -22999,7 +23000,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      */
     executeWorkflowV1WorkflowsExecutionsWorkflowIdExecutePost(workflowId: string, requestBody: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    }, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution, any>>;
     /**
      * Get the status of a workflow given the run id
      * @summary Get Workflow Status
@@ -23009,7 +23010,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    getWorkflowStatusV1WorkflowsExecutionsWorkflowIdRunsRunIdGet(runId: string, workflowId: string, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution, any>>;
     /**
      *
      * @summary List Workflow Runs
@@ -23020,7 +23021,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsExecutionsApi
      */
-    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution[]>>;
+    listWorkflowRunsV1WorkflowsExecutionsWorkflowIdRunsGet(workflowId: string, skip?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution[], any>>;
     /**
      * Trigger a workflow execution. This is an Async call. This returns a workflow id which can be queried to get the status of the workflow
      * @summary Trigger Workflow
@@ -23032,7 +23033,7 @@ export declare class WorkflowsExecutionsApi extends BaseAPI {
      */
     triggerWorkflowV1WorkflowsExecutionsWorkflowIdTriggerPost(workflowId: string, requestBody?: {
         [key: string]: any;
-    }, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution>>;
+    }, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<WorkflowExecution, any>>;
 }
 /**
  * WorkflowsSubWorkflowsApi - axios parameter creator
@@ -23046,7 +23047,7 @@ export declare const WorkflowsSubWorkflowsApiAxiosParamCreator: (configuration?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: (workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost: (workflowStepInput: WorkflowStepInput, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * WorkflowsSubWorkflowsApi - functional programming interface
@@ -23060,7 +23061,7 @@ export declare const WorkflowsSubWorkflowsApiFp: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>>;
 };
 /**
  * WorkflowsSubWorkflowsApi - factory interface
@@ -23074,7 +23075,7 @@ export declare const WorkflowsSubWorkflowsApiFactory: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): AxiosPromise<Array<Workflow>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>>;
 };
 /**
  * WorkflowsSubWorkflowsApi - object-oriented interface
@@ -23091,5 +23092,5 @@ export declare class WorkflowsSubWorkflowsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsSubWorkflowsApi
      */
-    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[]>>;
+    getSubWorkflowsV1WorkflowsStepsSubWorkflowsPost(workflowStepInput: WorkflowStepInput, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Workflow[], any>>;
 }
